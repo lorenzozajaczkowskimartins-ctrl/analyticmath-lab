@@ -1,0 +1,11 @@
+numpy>=1.24
+sympy>=1.12
+matplotlib>=3.7
+scipy>=1.11
+pytest>=7.4
+
+# desenvolvimento (também disponível via pip install -e ".[dev]")
+# pyinstaller>=6.0
+
+# TODO: adicionar plotly quando o módulo de gráficos interativos for implementado
+# plotly>=5.18

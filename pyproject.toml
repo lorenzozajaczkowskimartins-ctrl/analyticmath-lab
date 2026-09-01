@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "analyticmath-lab"
+version = "0.1.0"
+description = "Motor de matemática analítica com relatórios explicativos e gráficos"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "AnalyticMath Lab Contributors" },
+]
+keywords = ["mathematics", "polynomials", "symbolic", "analytics", "reports"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+
+dependencies = [
+    "numpy>=1.24",
+    "sympy>=1.12",
+    "matplotlib>=3.7",
+    "scipy>=1.11",
+]
+
+[project.scripts]
+analyticmath = "analyticmath.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "pyinstaller>=6.0",
+]
+plotly = [
+    "plotly>=5.18",
+]
+
+[project.urls]
+Documentation = "https://github.com/lorenzozajaczkowskimartins-ctrl/analyticmath-lab/tree/main/docs"
+Repository = "https://github.com/lorenzozajaczkowskimartins-ctrl/analyticmath-lab"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

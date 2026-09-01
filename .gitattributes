@@ -1,0 +1,2 @@
+# Normalize text files in the repository while preserving binary artifacts.
+* text=auto
