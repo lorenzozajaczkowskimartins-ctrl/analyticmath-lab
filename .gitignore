@@ -1,39 +1,7 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual environments
-.venv/
-venv/
-ENV/
-env/
-
-# Testing / coverage
-.pytest_cache/
-.coverage
-.coverage.*
-htmlcov/
-.tox/
-.nox/
+# Julia coverage and allocation reports
+*.jl.cov
+*.jl.mem
+*.info
 
 # IDE
 .idea/
@@ -48,10 +16,7 @@ htmlcov/
 .DS_Store
 Thumbs.db
 
-# Generated application output
-/installer/output/
-/examples/output/
-/reports/
+# Generated figures and notebook output
 output/
 
 # Local secrets and credentials
@@ -67,7 +32,3 @@ secrets.json
 
 # Jupyter
 .ipynb_checkpoints/
-
-# mypy / ruff
-.mypy_cache/
-.ruff_cache/
