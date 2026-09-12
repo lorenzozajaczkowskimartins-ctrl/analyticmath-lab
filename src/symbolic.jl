@@ -1,6 +1,7 @@
 """
     analyze(expression::Real, variable::Symbolics.Num;
-            interval=nothing, residual_tolerance=1e-8)
+            interval=nothing, residual_tolerance=1e-8,
+            residual_rtol=0, residual_scale=1)
 
 Construct a structured analysis of a scalar symbolic expression or real constant.
 Compute derivatives and reusable numerical callables using Symbolics. Unbound
@@ -10,9 +11,15 @@ function on the interval, does not infer the domain, and can miss roots, corners
 and singularities. No interval means no search, rather than a guessed domain.
 Classification uses only the second-derivative test and is not a proof of extrema.
 Numerical domain errors propagate; results are never silently marked complete.
+Candidates pass when `abs(f′(x)) <= residual_tolerance + residual_rtol * residual_scale`.
+The scale must be finite and positive and is supplied in derivative units by the
+caller; no scale is inferred. Relative tolerance is finite and nonnegative.
+This residual check is not a bound on root-location error. Defaults preserve
+Milestone 1 acceptance and classification.
 """
 function analyze(expression::Real, variable::Symbolics.Num;
-                 interval=nothing, residual_tolerance::Real=1e-8)
+                 interval=nothing, residual_tolerance::Real=1e-8,
+                 residual_rtol::Real=0, residual_scale::Real=1)
     variables = Symbolics.get_variables(variable)
     length(variables) == 1 && isequal(Symbolics.Num(only(variables)), variable) ||
         throw(ArgumentError("variable must be a single symbolic variable"))
@@ -26,6 +33,7 @@ function analyze(expression::Real, variable::Symbolics.Num;
         first_derivative=Symbolics.build_function(first, variable; expression=Val{false}),
         second_derivative=Symbolics.build_function(second, variable; expression=Val{false}),
     )
-    critical = _critical_points(numerical, first, interval, residual_tolerance)
+    critical = _critical_points(numerical, first, interval, residual_tolerance,
+                                residual_rtol, residual_scale)
     return FunctionAnalysis(expression, variable, first, second, numerical, critical)
 end

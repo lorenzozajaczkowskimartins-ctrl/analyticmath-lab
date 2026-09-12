@@ -11,11 +11,13 @@ import Makie: plot
 export AbstractAnalysis, FunctionAnalysis, analyze, evaluate
 export CriticalPoint, CriticalPointAnalysis
 export DerivativeComparison, compare_derivatives
+export DerivativeConvergenceAnalysis, derivative_convergence
 export plot
 
 include("analysis.jl")
 include("symbolic.jl")
 include("numerical.jl")
+include("convergence.jl")
 include("visualization.jl")
 
 end

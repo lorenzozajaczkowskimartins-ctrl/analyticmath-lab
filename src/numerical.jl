@@ -28,24 +28,37 @@ function _interval_bounds(interval::Tuple{Real,Real})
     return a, b
 end
 
-function _critical_points(numerical, first, interval, tolerance)
+function _critical_points(numerical, first, interval, tolerance, rtol=0, scale=1)
     tol = Float64(tolerance)
     isfinite(tol) && tol > 0 || throw(ArgumentError("residual_tolerance must be finite and positive"))
+    relative, derivative_scale = Float64(rtol), Float64(scale)
+    isfinite(relative) && relative >= 0 ||
+        throw(ArgumentError("residual_rtol must be finite and nonnegative"))
+    isfinite(derivative_scale) && derivative_scale > 0 ||
+        throw(ArgumentError("residual_scale must be finite and positive"))
+    threshold = tol + relative * derivative_scale
+    isfinite(threshold) || throw(ArgumentError("effective residual tolerance must be finite"))
     points = CriticalPoint{Float64}[]
-    isnothing(interval) && return CriticalPointAnalysis(points, nothing, :not_requested, :none, tol, 0)
+    rejections = NamedTuple{(:x, :residual, :threshold, :reason),
+                           Tuple{Float64,Float64,Float64,Symbol}}[]
+    isnothing(interval) && return CriticalPointAnalysis(points, nothing, :not_requested,
+        :none, tol, 0, relative, derivative_scale, threshold, rejections)
     a, b = _interval_bounds(interval)
     _finite_real(numerical.function_value(a))
     _finite_real(numerical.function_value(b))
     if iszero(Symbolics.simplify(first))
-        return CriticalPointAnalysis(points, (a, b), :nonisolated, :symbolic_identity, tol, 0)
+        return CriticalPointAnalysis(points, (a, b), :nonisolated, :symbolic_identity,
+            tol, 0, relative, derivative_scale, threshold, rejections)
     end
     derivative(t) = _finite_real(numerical.first_derivative(t))
     candidates = Roots.find_zeros(derivative, a, b)
     rejected = 0
     for t in candidates
         residual = abs(derivative(t))
-        if residual > tol
+        if residual > threshold
             rejected += 1
+            push!(rejections, (x=Float64(t), residual=Float64(residual),
+                               threshold=threshold, reason=:residual_exceeded))
             continue
         end
         value = _finite_real(numerical.function_value(t))
@@ -62,7 +75,8 @@ function _critical_points(numerical, first, interval, tolerance)
         push!(points, CriticalPoint(Float64(t), Float64(value), Float64(residual),
                                     Float64(curvature), classification))
     end
-    return CriticalPointAnalysis(points, (a, b), :heuristic, :roots_find_zeros, tol, rejected)
+    return CriticalPointAnalysis(points, (a, b), :heuristic, :roots_find_zeros,
+        tol, rejected, relative, derivative_scale, threshold, rejections)
 end
 
 """

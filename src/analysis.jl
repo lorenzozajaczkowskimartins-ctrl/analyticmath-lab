@@ -32,10 +32,19 @@ end
 Bounded stationary-point search data. `status` is `:not_requested`, `:heuristic`,
 or `:nonisolated` (identically zero derivative wherever the expression is defined).
 An empty heuristic result is not proof of absence. `rejected_candidates` counts
-solver candidates rejected by the absolute derivative-residual check.
+solver candidates rejected by the derivative-residual check. `rejections` stores
+their positions, residuals, thresholds, and reasons (`:residual_exceeded`).
+Acceptance means `abs(f′(x)) <= effective_residual_tolerance`, where the threshold
+is `residual_tolerance + residual_relative_tolerance * residual_scale`.
+The scale is caller-supplied in derivative units, not inferred from samples.
+The default relative tolerance is zero, preserving absolute-only acceptance.
 
-`points` is a report-owned vector of immutable candidates. Library operations
-do not mutate it; callers should treat it as read-only and copy it before editing.
+`points` and `rejections` are report-owned vectors of immutable records. Library
+operations do not mutate them; treat them as read-only and copy before editing.
+The legacy six-argument constructors retain absolute-only semantics. For legacy
+reports with a nonzero rejection count, `rejections === nothing` denotes missing
+historical details; no candidate records are invented. Results from `analyze`
+always contain a rejection vector whose length agrees with the count.
 """
 struct CriticalPointAnalysis{I}
     points::Vector{CriticalPoint{Float64}}
@@ -44,6 +53,24 @@ struct CriticalPointAnalysis{I}
     method::Symbol
     residual_tolerance::Float64
     rejected_candidates::Int
+    residual_relative_tolerance::Float64
+    residual_scale::Float64
+    effective_residual_tolerance::Float64
+    rejections::Union{Nothing,Vector{NamedTuple{(:x, :residual, :threshold, :reason),
+                                               Tuple{Float64,Float64,Float64,Symbol}}}}
+end
+
+function CriticalPointAnalysis{I}(points, interval, status, method, tolerance,
+                                  rejected) where {I}
+    rejections = rejected == 0 ? NamedTuple{(:x, :residual, :threshold, :reason),
+        Tuple{Float64,Float64,Float64,Symbol}}[] : nothing
+    return CriticalPointAnalysis{I}(points, interval, status, method, tolerance,
+                                    rejected, 0.0, 1.0, tolerance, rejections)
+end
+
+function CriticalPointAnalysis(points, interval::I, status, method, tolerance,
+                               rejected) where {I}
+    return CriticalPointAnalysis{I}(points, interval, status, method, tolerance, rejected)
 end
 
 """
@@ -79,6 +106,15 @@ function Base.show(io::IO, ::MIME"text/plain", report::FunctionAnalysis)
         print(io, " (stationary candidates only; not exhaustive)")
     elseif result.status == :nonisolated
         print(io, " (zero derivative wherever defined)")
+    end
+    print(io, "\n  Search method: ", result.method)
+    if result.status == :heuristic
+        print(io, "\n  Solver candidates: accepted=", length(result.points),
+              ", rejected=", result.rejected_candidates)
+        print(io, "\n  Residual threshold: ", result.effective_residual_tolerance,
+              " (absolute=", result.residual_tolerance,
+              ", relative=", result.residual_relative_tolerance,
+              ", scale=", result.residual_scale, ")")
     end
     for point in result.points
         print(io, "\n    x=", point.x, ", f(x)=", point.value, ", ",

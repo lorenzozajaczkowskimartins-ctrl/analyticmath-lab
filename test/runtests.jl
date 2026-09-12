@@ -101,6 +101,82 @@ end
     end
 end
 
+@testset "Stationary search diagnostics" begin
+    result = analyze(x^2, x; interval=(-1, 1), residual_rtol=1e-6,
+                     residual_scale=2.0).critical_points
+    @test result.residual_relative_tolerance == 1e-6
+    @test result.residual_scale == 2.0
+    @test result.effective_residual_tolerance ≈ 1e-8 + 2e-6
+    @test isempty(result.rejections)
+    @test result.rejected_candidates == length(result.rejections)
+    rejected_report = analyze(sin(x), x; interval=(1, 2), residual_tolerance=1e-20)
+    rejected = rejected_report.critical_points
+    @test rejected.status == :heuristic
+    @test isempty(rejected.points)
+    @test rejected.rejected_candidates == length(rejected.rejections) == 1
+    rejection = only(rejected.rejections)
+    @test rejection.x ≈ pi / 2
+    @test rejection.residual > rejection.threshold
+    @test rejection.threshold == 1e-20
+    @test rejection.reason == :residual_exceeded
+    equal_threshold = analyze(sin(x), x; interval=(1, 2),
+        residual_tolerance=rejection.residual).critical_points
+    @test length(equal_threshold.points) == 1
+    @test only(equal_threshold.points).residual == equal_threshold.effective_residual_tolerance
+    small_scale = analyze(sin(x), x; interval=(1, 2), residual_tolerance=1e-20,
+        residual_rtol=rejection.residual, residual_scale=0.5).critical_points
+    large_scale = analyze(sin(x), x; interval=(1, 2), residual_tolerance=1e-20,
+        residual_rtol=rejection.residual, residual_scale=2).critical_points
+    @test small_scale.rejected_candidates == 1
+    @test length(large_scale.points) == 1
+    scaled = analyze(sin(x), x; interval=(1, 2), residual_tolerance=1e-20,
+                     residual_rtol=1e-15, residual_scale=1).critical_points
+    @test length(scaled.points) == 1
+    @test only(scaled.points).classification == :maximum_candidate
+    @test isempty(scaled.rejections)
+    @test scaled.rejected_candidates == 0
+    empty_report = analyze(x, x; interval=(-1, 1))
+    @test isempty(empty_report.critical_points.points)
+    @test isempty(empty_report.critical_points.rejections)
+    @test empty_report.critical_points.status == :heuristic
+    @test occursin("accepted=0, rejected=1", sprint(show, MIME"text/plain"(), rejected_report))
+    @test occursin("accepted=0, rejected=0", sprint(show, MIME"text/plain"(), empty_report))
+    @test occursin("roots_find_zeros", sprint(show, MIME"text/plain"(), rejected_report))
+    @test occursin("Residual threshold", sprint(show, MIME"text/plain"(), rejected_report))
+    for rtol in (-1, NaN, Inf)
+        @test_throws ArgumentError analyze(x^2, x; residual_rtol=rtol)
+    end
+    for scale in (0, -1, NaN, Inf)
+        @test_throws ArgumentError analyze(x^2, x; residual_scale=scale)
+    end
+    @test_throws ArgumentError analyze(x^2, x; residual_rtol=1e308, residual_scale=1e308)
+    for expression in (x^2, 5)
+        cp = analyze(expression, x).critical_points
+        @test cp.status == :not_requested
+        @test cp.method == :none
+        @test cp.interval === nothing
+        @test isempty(cp.rejections)
+    end
+    cp = analyze(5, x; interval=(-1, 1)).critical_points
+    @test cp.status == :nonisolated
+    @test cp.method == :symbolic_identity
+    @test isempty(cp.rejections)
+end
+
+@testset "Legacy critical-point constructors" begin
+    points = CriticalPoint{Float64}[]
+    for make in (CriticalPointAnalysis, CriticalPointAnalysis{Nothing})
+        cp = make(points, nothing, :not_requested, :none, 1e-8, 0)
+        @test cp.points === points
+        @test isempty(cp.rejections)
+        @test cp.effective_residual_tolerance == 1e-8
+        @test cp.residual_relative_tolerance == 0
+    end
+    cp = CriticalPointAnalysis(points, (0.0, 1.0), :heuristic, :roots_find_zeros, 1e-8, 2)
+    @test cp.rejected_candidates == 2
+    @test cp.rejections === nothing
+end
+
 @testset "Derivative method comparison" begin
     @test isdefined(AnalyticMathLab, :compare_derivatives)
     if isdefined(AnalyticMathLab, :compare_derivatives)
@@ -144,6 +220,9 @@ end
         @test filesize(io) == 0
     end
 end
+
+# Run convergence's backend-independence checks before it imports CairoMakie.
+include("convergence.jl")
 
 import CairoMakie
 
