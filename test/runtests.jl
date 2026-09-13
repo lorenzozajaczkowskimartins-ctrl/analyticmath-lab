@@ -226,6 +226,11 @@ include("real_analysis_core.jl")
 include("real_analysis_integration.jl")
 include("real_analysis_visualization.jl")
 
+# Multivariate analysis and its backend-independence checks run before CairoMakie.
+include("multivariate_analysis.jl")
+include("multivariate_visualization.jl")
+include("multivariate_regressions.jl")
+
 # Run convergence's backend-independence checks before it imports CairoMakie.
 include("convergence.jl")
 

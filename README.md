@@ -378,10 +378,86 @@ swallowing, placeholder module tree, Windows installer, and visual themes were
 not ported. This is a Julia redesign, not Python feature parity.
 
 Milestone 3 implements a conservative univariate real-function study with explicit
-domains and evidence-aware results for the supported classes above. Matrix/system analysis,
-multivariable calculus, integration, ODE/PDE solvers, optimization, full report
+domains and evidence-aware results for the supported classes above. Milestone 4
+adds scalar-field calculus as documented below. General matrix/system analysis,
+integration, ODE/PDE solvers, constrained optimization, full report
 exporters, general-purpose domain inference, and interactive GUIs are not implemented.
 
 ## License
 
 MIT; see `LICENSE`, consistent with the original Python package's declaration.
+## Multivariate scalar fields (Milestone 4)
+
+AnalyticMathLab also analyzes scalar fields `f: ℝⁿ → ℝ`, with plotting focused on
+two variables:
+
+```julia
+@variables x y
+report = analyze(x^2 + 2y^2 - x*y, (x, y))
+gradient(report)                    # stored symbolic vector
+hessian(report, (1.0, 2.0))        # reusable numerical callable
+directional_derivative(report, (1, 2), (3, 4)) # direction is normalized
+linearization(report, (1, 2))      # expression, base point, value, coefficients
+levelset(report, 3)                 # a Symbolics equation
+```
+
+Stationary-point completeness is certified only for nonsingular affine-gradient
+systems (quadratic fields) and separable rational polynomials whose univariate
+derivative roots are completely handled by the existing exact root engine. Other
+expressions return `:unknown` unless finite `bounds` are supplied. Bounded searches
+use a validated, finite multistart Newton grid and are always `:heuristic`; empty
+results do not establish absence. Every accepted candidate stores its finite
+gradient-residual norm and threshold. Hessian classification uses scale-aware
+absolute/relative eigenvalue tolerances. Exact diagonal and two-dimensional
+definiteness tests are marked `:established`; other eigenvalue classifications
+remain numerical evidence. Near-zero curvature is `:inconclusive`.
+
+`@real_function` preserves original denominator, square-root, logarithm, and
+negative-integer-power restrictions. `domain_contains` returns `true`, `false`, or
+`nothing` when the safe syntax walker cannot establish membership. Variable
+exponents and unsupported calls deliberately make the domain partial/unknown.
+Checked evaluation rejects known exclusions and all nonfinite inputs/results; an
+unknown domain does not assert that a point is valid.
+
+For two-variable reports, `surface`, `contour`, `gradientplot`, and `plot` return a
+`Makie.Figure`. Pass explicit finite `xrange`, `yrange`, and bounded `samples` for
+the view. Gradient arrows are unnormalized and reuse stored gradient callables;
+`arrowscale` applies an explicit positive display scale without changing relative magnitudes.
+`surface`/`plot(...; tangent_at=point)` adds the stored-linearization tangent plane;
+critical markers consume stored stationary analysis. No backend is activated and
+nothing is displayed or saved by the library. Load CairoMakie or another backend
+in application code. Sampling masks known-invalid vertices and conservatively
+masks cells whose interval enclosure cannot exclude a forbidden restriction value.
+This also catches even-multiplicity poles and holes inside a cell, rather than
+relying only on vertex sign changes. Unsupported interval operations can blank
+entire regions; arbitrary unknown-domain boundaries are not certified.
+
+`ScalarFieldAnalysis` stores the expression, original syntax, ordered variables,
+symbolic gradient/Hessian, compiled callables, `MultivariateDomain`, and a
+`PropertyResult` of `StationaryPoint` records. `MultivariateRestriction` is the
+internal syntax/relation record. `analyze(f, x)` remains the univariate API;
+tuple/vector variable collections select the scalar-field methods. `LinearAlgebra`
+is the additional standard-library dependency.
+
+Directional derivatives normalize the direction and, like linearization, require
+a supported open smooth neighborhood of the original domain. They reject corners
+and domain boundaries instead of applying a formal gradient there. Numerical
+gradient/Hessian APIs use the same sufficient smoothness gate; symbolic forms
+remain formal derivatives. Integer/rational domain checks use bounded BigInt arithmetic
+to avoid machine-integer overflow. Partial domains still reject independently
+known exclusions; otherwise membership is `nothing`.
+
+Limits: at most 32 variables; integer powers through magnitude 32 in domain
+syntax; the shared exact algebra budgets still apply. Exact stationary solving
+does not enumerate nonisolated families. General searches require explicit finite
+bounds, at most 50,000 seeds, and at most 200 Newton iterations per seed; no global
+completeness or root-position error bound is implied. Degenerate Hessians remain
+`:inconclusive`; constrained/boundary extrema are not solved. `levelset` returns
+an equation which must be intersected with `report.domain`, not a parametrization
+or topological description. Plot vertices/arrows require known membership;
+unknown membership is masked rather than drawn as a valid point.
+
+Run `julia --project=. notebooks/multivariable_analysis.jl` for the quadratic,
+saddle, quartic, and excluded-circle examples and their saved Makie figures.
+All multivariate tests are included in `test/runtests.jl`; backend-independence
+checks run before CairoMakie is imported.

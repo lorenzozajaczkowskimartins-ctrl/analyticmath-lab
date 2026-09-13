@@ -2,7 +2,7 @@
 
 julia_version = "1.12.7"
 manifest_format = "2.0"
-project_hash = "e05b0582c540da8b2d292cb28f8c8ab67511c75c"
+project_hash = "c8aab1554d46fff3651862efedc33d7451f432ee"
 
 [[deps.ADTypes]]
 deps = ["PrecompileTools"]
@@ -88,7 +88,7 @@ uuid = "66dad0bd-aa9a-41b7-9441-69ab47430ed8"
 version = "1.1.3"
 
 [[deps.AnalyticMathLab]]
-deps = ["CairoMakie", "FiniteDiff", "ForwardDiff", "Makie", "Roots", "Symbolics"]
+deps = ["CairoMakie", "FiniteDiff", "ForwardDiff", "LinearAlgebra", "Makie", "Roots", "Symbolics"]
 path = "."
 uuid = "d00b717d-2040-4c0f-8850-62abbaf45caf"
 version = "0.1.0"

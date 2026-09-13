@@ -6,7 +6,8 @@ import Roots
 import ForwardDiff
 import FiniteDiff
 import Makie
-import Makie: plot
+import Makie: plot, surface, contour
+import LinearAlgebra
 
 export AbstractAnalysis, FunctionAnalysis, analyze, evaluate
 export CriticalPoint, CriticalPointAnalysis
@@ -16,14 +17,19 @@ export RealExpression, @real_function
 export PropertyResult, RealInterval, RealDomain, RealFunctionStudy, domain_contains
 export PeriodicPointSet, PeriodicIntervalSet
 export plot
+export ScalarFieldAnalysis, MultivariateDomain, StationaryPoint
+export gradient, hessian, directional_derivative, linearization, levelset
+export surface, contour, gradientplot
 
 include("analysis.jl")
 include("source_capture.jl")
 include("real_analysis.jl")
 include("real_analysis_display.jl")
+include("multivariate_analysis.jl")
 include("symbolic.jl")
 include("numerical.jl")
 include("convergence.jl")
 include("visualization.jl")
+include("multivariate_visualization.jl")
 
 end
