@@ -8,14 +8,18 @@ Analysis of a scalar expression in one independent variable. Symbolic results
 are stored as mathematical objects, independently of their presentation.
 Use [`analyze`](@ref) to construct a report.
 """
-struct FunctionAnalysis{E,V,D1,D2,N,C} <: AbstractAnalysis
+struct FunctionAnalysis{E,V,D1,D2,N,C,R} <: AbstractAnalysis
     expression::E
     variable::V
     first_derivative::D1
     second_derivative::D2
     numerical::N
     critical_points::C
+    real_analysis::R
 end
+
+# Preserve the public six-argument constructor for numerical-only reports.
+FunctionAnalysis(e, v, d1, d2, n, c) = FunctionAnalysis(e, v, d1, d2, n, c, nothing)
 
 """A numerical stationary-point candidate with its derivative residual and curvature."""
 struct CriticalPoint{T<:Real}
@@ -119,5 +123,9 @@ function Base.show(io::IO, ::MIME"text/plain", report::FunctionAnalysis)
     for point in result.points
         print(io, "\n    x=", point.x, ", f(x)=", point.value, ", ",
               point.classification, ", |f′(x)|=", point.residual)
+    end
+    if report.real_analysis !== nothing
+        println(io)
+        show(io, MIME"text/plain"(), report.real_analysis)
     end
 end

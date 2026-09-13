@@ -3,8 +3,9 @@
 AnalyticMathLab.jl is a Julia library for automated mathematical analysis,
 numerical verification, method comparison, and scientific visualization.
 It is **experimental, educational, research-oriented, and under active
-development**. Milestones 1 and 2 provide basic function analysis and numerical
-derivative convergence experiments, not a general-purpose computer algebra system.
+development**. Milestones 1–3 provide function analysis, numerical derivative
+convergence experiments, and evidence-aware univariate real-function studies,
+not a general-purpose computer algebra system.
 The package version remains 0.1.0; the API may change.
 
 The mathematical result is the source of truth:
@@ -62,6 +63,108 @@ ForwardDiff, and FiniteDiff central differences with FiniteDiff's default step.
 The reference is not a rigorous numerical oracle: the reported absolute errors
 are discrepancies, not certified error bounds. Smoothness near the point is a
 caller assumption; comparisons at corners or domain boundaries are not reliable.
+
+## Real function analysis (Milestone 3)
+
+```julia
+captured = @real_function (x^2 - 1)/(x - 1)
+report = analyze(captured, x)
+study = report.real_analysis
+study.domain                  # (-Inf, 1) ∪ (1, Inf), exact rational endpoints
+domain_contains(study.domain, 1) # false
+study.roots.value              # [-1//1], never the excluded root 1
+study.continuity.value         # removable hole, not a pole
+study.limits.value             # finite two-sided limit 2 at the hole
+study.asymptotes.value         # slant y = x + 1, no vertical asymptote
+show(stdout, MIME"text/plain"(), study)
+```
+
+`analyze(f, x)` still returns `FunctionAnalysis`, preserving the derivative,
+numerical-evaluation, stationary-diagnostic, and convergence APIs. Its additional
+`real_analysis::RealFunctionStudy` stores domain, roots, intercepts, sign,
+continuity, limits, monotonicity, extrema, concavity, inflections, asymptotes,
+and symmetry. Legacy six-argument report construction remains supported and
+sets `real_analysis = nothing`.
+
+Each property is a `PropertyResult(value, status, method, notes)`. Evidence status
+is separate from method: `:established` with `:exact_algebra` or
+`:analytic_identity` is not the same as numerical evidence. Unsupported deductions
+use `:unknown`, not an empty list claiming absence. Inspect statuses before values.
+The real study is global; an explicit numerical search interval is not its domain.
+
+When exact roots are unresolved, `interval=(a,b)` permits a bounded Float64
+fallback on established original-domain components. These roots have
+`status=:heuristic`, `method=:bounded_root_search`, and diagnostics explicitly
+denying completeness, including for empty searches. Candidates are filtered by
+original-domain membership, finite values, and an absolute residual threshold
+`sqrt(eps(Float64))`; this is not a root-position bound. Heuristic roots do not
+establish global sign, extrema, or other exact properties.
+
+Original syntax is essential. Symbolics can cancel `x/x` to `1` during expression
+construction, before `analyze` is called. Use `@real_function x/x` to retain the
+exclusion at zero. Ordinary Symbolics input preserves only the expression tree
+that reaches the analyzer; already-erased restrictions cannot be recovered.
+The optional `original_expression` keyword accepts caller-supplied original syntax;
+the caller must ensure it represents the same expression. Captured syntax is
+walked, never evaluated by domain inference. Use the same variable name as the
+Symbolics variable; unresolved local constants/names produce unknown information.
+
+`RealDomain.components` is a union of `RealInterval` values with left/right
+endpoints and independent closedness flags. Exact finite boundaries use
+`Rational{BigInt}`; infinities are distinguished unbounded endpoints. Membership
+returns `nothing` for unknown domains. Empty components mean the empty set only
+when domain status is established. Recursive restrictions include denominator
+nonzero, square-root radicand nonnegative, and logarithm argument positive.
+Unsupported composed inequalities remain unknown.
+
+The certified class includes integer/rational polynomial and rational arithmetic,
+outer square roots/logarithms of supported rational functions, and `sin(x)` via
+exact periodic identities. Rational-root factorization and exact quadratic
+discriminants establish completeness only for the supported factorization class.
+Irrational algebraic roots such as those of `x^2-2` are not represented exactly
+in this milestone; affected global properties remain unknown. Integer powers and
+factor searches have explicit resource bounds; this is not a theorem prover.
+A shared conservative algebraic budget caps dense degree at 64, projected
+coefficient size at 4096 bits, and cumulative work at 200,000 units. Original
+syntax is capped at 512 nodes/depth 48. These bounds also cover derivative and
+parity intermediates. Exhaustion returns an unknown study with
+`method=:resource_budget`, without launching a numerical fallback. This budget
+covers the real-analysis core, not Symbolics expression construction or the
+legacy derivative/callable generation performed by `analyze`.
+
+Sign cells are certified only after complete boundary/root enumeration; exact
+rational representatives then establish the sign on each cell. Monotonicity uses
+first-derivative signs; strict local extrema require sign changes (included
+one-sided square-root endpoints are also considered). Concavity directions are
+`:convex` (up), `:concave` (down), and `:affine`. Inflections require a concavity
+change at a point in the original domain: `x^4` has none at zero, and a pole is
+never an inflection. Zero sets can be an entire `RealDomain`; sine roots and
+features use `PeriodicPointSet`/`PeriodicIntervalSet` with integer translates.
+
+Limits store `at`, `side` (`:left`, `:right`, `:both`), `kind`, and exact finite
+`value`. Kinds distinguish finite values, both infinities, nonexistent limits,
+and unknown. Stored queries cover domain-component boundaries and reachable
+infinities, not arbitrary interior points. A side with no domain approach has
+no limit. Continuity distinguishes removable holes, poles, and other boundaries;
+general piecewise/jump classification is unsupported rather than guessed.
+Vertical asymptotes require divergent one-sided limits; horizontal and slant
+asymptotes use exact growth/limit identities. Parity requires both a symbolic
+identity and symmetry of the original domain.
+
+Stored vectors and captured `Expr` objects are mutable even though result structs
+are immutable. Treat them as read-only or deep-copy before modification; library
+views do not mutate them. Exact transformed values may be unevaluated syntax such
+as `log(2)`; they are data, not instructions to execute.
+
+For compatibility, `evaluate` retains the generated callable's behavior, including
+NaNMath results and symbolic cancellations; it is not a checked real-domain
+evaluator. Check `domain_contains(report.real_analysis.domain, x)` when needed.
+The legacy bounded stationary search still assumes a smooth function throughout
+its interval; the global study does not make that numerical search domain-safe.
+
+Run `julia --project=. notebooks/real_function_analysis.jl` to print studies and
+render the preserved removable-hole and rational-pole examples. Analysis is
+completed before the example loads CairoMakie.
 
 ## Derivative convergence and error analysis (Milestone 2)
 
@@ -199,8 +302,8 @@ Supply a smooth real function on the requested interval. Search and derivative
 comparison reject sampled nonfinite values. Plain `evaluate` preserves the
 generated callable's behavior, including NaNMath's NaN for negative real `log`
 inputs; exceptions raised by the callable propagate. In particular,
-there is no automatic domain analysis, exhaustive root isolation, corner detection,
-or proof of differentiability. Unbound symbolic parameters and multivariate
+the numerical APIs do not automatically enforce the stored real domain or prove
+differentiability. Unbound symbolic parameters and multivariate
 expressions are rejected. Scalar Symbolics expressions and real constants are
 supported; string parsing and arbitrary Julia-function analysis are not.
 
@@ -218,10 +321,13 @@ window, without rerunning analysis. The report contains no Makie/backend state.
 CairoMakie is included for headless/static rendering; the plotting code itself
 uses only Makie and does not activate a backend or open a window.
 
-Uniform sampling is intended for simple functions. Sampled domain errors and
-nonfinite values become gaps; unsampled discontinuities can still be connected.
-This is not a domain-aware/asymptote-aware plotter. The default plot window is
-`[-5, 5]` and is only a view, never an implicit mathematical domain.
+Stored established domain boundaries insert explicit curve gaps, even if the
+uniform grid misses a hole or pole. Stored finite roots, extrema, inflections,
+removable holes, and vertical/horizontal/slant asymptotes decorate the plot.
+Periodic and unevaluated symbolic decorations are currently skipped; they remain
+available in the report. Unknown domains retain sampled-error/nonfinite gaps only,
+so unknown unsampled discontinuities can still be connected. No mathematical
+inference occurs in plotting. The default `[-5, 5]` window is only a view.
 
 An executable notebook-style example is in `notebooks/function_analysis.jl`:
 
@@ -237,6 +343,9 @@ julia --project=. notebooks/function_analysis.jl
 - `src/numerical.jl`: evaluation, Roots search, ForwardDiff/FiniteDiff comparison.
 - `src/convergence.jl`: controlled finite differences, error data, empirical order, display.
 - `src/visualization.jl`: backend-independent Makie view.
+- `src/source_capture.jl`: syntax preservation before symbolic cancellation.
+- `src/real_analysis*.jl`: exact core, domains, transforms, periodic identities,
+  evidence display, and stored-result plotting helpers.
 - `test/runtests.jl`: mathematical contracts and headless CairoMakie rendering.
 - `test/convergence.jl`: convergence contracts and rendering; included by `runtests.jl`.
 
@@ -268,10 +377,10 @@ The former class-wrapper API, duplicated analysis helpers, broad exception
 swallowing, placeholder module tree, Windows installer, and visual themes were
 not ported. This is a Julia redesign, not Python feature parity.
 
-Milestone 3 is reserved for full univariate real function analysis, with explicit
-domains and evidence-aware results; it is not implemented here. Matrix/system analysis,
+Milestone 3 implements a conservative univariate real-function study with explicit
+domains and evidence-aware results for the supported classes above. Matrix/system analysis,
 multivariable calculus, integration, ODE/PDE solvers, optimization, full report
-exporters, automatic domains/asymptotes, and interactive GUIs are not implemented.
+exporters, general-purpose domain inference, and interactive GUIs are not implemented.
 
 ## License
 

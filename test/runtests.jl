@@ -221,6 +221,11 @@ end
     end
 end
 
+include("source_capture.jl")
+include("real_analysis_core.jl")
+include("real_analysis_integration.jl")
+include("real_analysis_visualization.jl")
+
 # Run convergence's backend-independence checks before it imports CairoMakie.
 include("convergence.jl")
 
