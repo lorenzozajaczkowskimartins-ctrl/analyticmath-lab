@@ -221,6 +221,7 @@ end
     end
 end
 
+include("architecture.jl")
 include("source_capture.jl")
 include("real_analysis_core.jl")
 include("real_analysis_integration.jl")

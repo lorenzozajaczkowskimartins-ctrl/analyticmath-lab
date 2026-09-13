@@ -1,11 +1,16 @@
 module RealAnalysisCoreTests
 using Test, Symbolics, Roots
-abstract type AbstractAnalysis end
+for file in ("core/contracts.jl", "core/expressions.jl", "core/exact_algebra.jl")
+    include(joinpath(@__DIR__, "..", "src", file))
+end
 const corepath = joinpath(@__DIR__, "..", "src", "real_analysis.jl")
 @testset "real study implementation exists" begin
     @test isfile(corepath)
 end
 isfile(corepath) && include(corepath)
+for file in ("real_analysis_domain.jl", "real_analysis_transforms.jl", "real_analysis_periodic.jl")
+    include(joinpath(@__DIR__, "..", "src", file))
+end
 @variables x
 study(e; original=e) = _real_analysis(e, x, Symbolics.expand_derivatives(Differential(x)(e)), Symbolics.expand_derivatives(Differential(x)(Differential(x)(e))); original)
 @testset "overflow-safe exponent bounds" begin

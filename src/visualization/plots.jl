@@ -29,7 +29,6 @@ function plot(report::FunctionAnalysis; xmin::Real=-5, xmax::Real=5,
     return figure
 end
 
-include("real_analysis_visualization.jl")
 
 function _plot_value(report, x)
     value = try

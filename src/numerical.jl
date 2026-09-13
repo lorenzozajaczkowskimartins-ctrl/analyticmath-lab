@@ -15,11 +15,6 @@ function evaluate(report::FunctionAnalysis, x::Number; order::Integer=0)
     throw(ArgumentError("order must be 0, 1, or 2"))
 end
 
-function _finite_real(value)
-    value isa Real && isfinite(value) ||
-        throw(DomainError(value, "expected a finite real numerical value"))
-    return value
-end
 
 function _interval_bounds(interval::Tuple{Real,Real})
     a, b = Float64.(interval)
@@ -29,15 +24,8 @@ function _interval_bounds(interval::Tuple{Real,Real})
 end
 
 function _critical_points(numerical, first, interval, tolerance, rtol=0, scale=1)
-    tol = Float64(tolerance)
-    isfinite(tol) && tol > 0 || throw(ArgumentError("residual_tolerance must be finite and positive"))
-    relative, derivative_scale = Float64(rtol), Float64(scale)
-    isfinite(relative) && relative >= 0 ||
-        throw(ArgumentError("residual_rtol must be finite and nonnegative"))
-    isfinite(derivative_scale) && derivative_scale > 0 ||
-        throw(ArgumentError("residual_scale must be finite and positive"))
-    threshold = tol + relative * derivative_scale
-    isfinite(threshold) || throw(ArgumentError("effective residual tolerance must be finite"))
+    controls = _residual_controls(tolerance, rtol, scale)
+    tol, relative, derivative_scale, threshold = controls
     points = CriticalPoint{Float64}[]
     rejections = NamedTuple{(:x, :residual, :threshold, :reason),
                            Tuple{Float64,Float64,Float64,Symbol}}[]

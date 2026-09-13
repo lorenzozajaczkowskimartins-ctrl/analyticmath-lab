@@ -1,5 +1,3 @@
-"""Supertype for reusable mathematical analysis results."""
-abstract type AbstractAnalysis end
 
 """
     FunctionAnalysis <: AbstractAnalysis

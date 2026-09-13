@@ -3,9 +3,10 @@
 AnalyticMathLab.jl is a Julia library for automated mathematical analysis,
 numerical verification, method comparison, and scientific visualization.
 It is **experimental, educational, research-oriented, and under active
-development**. Milestones 1–3 provide function analysis, numerical derivative
-convergence experiments, and evidence-aware univariate real-function studies,
-not a general-purpose computer algebra system.
+development**. Milestones 1–4 provide function analysis, numerical derivative
+convergence experiments, evidence-aware univariate real-function studies, and
+multivariate scalar-field analysis, not a general-purpose computer algebra system.
+Milestone 4.5 hardens architecture and API boundaries without adding mathematics.
 The package version remains 0.1.0; the API may change.
 
 The mathematical result is the source of truth:
@@ -342,15 +343,25 @@ julia --project=. notebooks/function_analysis.jl
 - `src/symbolic.jl`: Symbolics orchestration and input validation.
 - `src/numerical.jl`: evaluation, Roots search, ForwardDiff/FiniteDiff comparison.
 - `src/convergence.jl`: controlled finite differences, error data, empirical order, display.
-- `src/visualization.jl`: backend-independent Makie view.
-- `src/source_capture.jl`: syntax preservation before symbolic cancellation.
-- `src/real_analysis*.jl`: exact core, domains, transforms, periodic identities,
-  evidence display, and stored-result plotting helpers.
+- `src/core/contracts.jl`: shared result/evidence and numerical validation contracts.
+- `src/core/expressions.jl`: syntax preservation and shared AST normalization.
+- `src/core/exact_algebra.jl`: shared bounded rational-polynomial engine.
+- `src/real_analysis*.jl`: real studies, domains, transforms, periodic identities,
+  and evidence display.
+- `src/multivariate_domain.jl`: original scalar-field restrictions and membership.
+- `src/multivariate_analysis.jl`: scalar-field results, calculus, and stationary solvers.
+- `src/visualization/`: backend-independent stored-result Makie views.
+- `docs/architecture.md`: dependency direction, compatibility, evidence, resource
+  boundaries, and future extension design (not implementation).
+- `test/architecture.jl`: isolated core loading, exports, dispatch, and documentation.
 - `test/runtests.jl`: mathematical contracts and headless CairoMakie rendering.
 - `test/convergence.jl`: convergence contracts and rendering; included by `runtests.jl`.
 
-Direct dependencies are Symbolics, Roots, ForwardDiff, FiniteDiff, Makie, and
-CairoMakie. Test is test-only. Roots and general derivative comparison retain
+All includes are centralized in the public module. See the
+[architecture contract](docs/architecture.md) for Milestone 4.5 decisions and limits.
+Direct dependencies are Symbolics, Roots, ForwardDiff, FiniteDiff, Makie,
+CairoMakie, and the LinearAlgebra standard library. Test is test-only.
+Roots and general derivative comparison retain
 their library implementations; the h sweep deliberately uses explicit differences.
 Other analysis types can later add methods to `analyze`;
 future features are not represented by empty modules or `Any`-filled fields.
