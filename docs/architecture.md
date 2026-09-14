@@ -1,9 +1,10 @@
-# Architecture and API contracts (Milestone 4.5)
+# Architecture and API contracts (Milestones 4.5–5)
 
 Milestone 4.5 reorganizes the Milestones 1–4 implementation, without adding a
 mathematical domain or changing public exports, result layouts, or constructors.
 There is one public module, `AnalyticMathLab`. Internal source paths and `_ra_*` /
-`_mv_*` helpers are not public APIs. No vector-field implementation is present.
+`_mv_*` helpers are not public APIs. Milestone 5 adds a separate vector-field
+subsystem on these boundaries; it does not change existing scalar result layouts.
 
 ## Dependency direction and source ownership
 
@@ -24,11 +25,15 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
 5. `src/multivariate_domain.jl`: original-syntax restrictions and membership;
    `src/multivariate_analysis.jl`: scalar-field reports, derivatives, smoothness
    gates, stationary solving, classification, and display.
-6. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
+6. `src/vector_fields/analysis.jl`, `src/vector_fields/calculus.jl`,
+   `src/vector_fields/zeros.jl`, and `src/vector_fields/display.jl`: vector-map
+   reports, calculus/potential evidence, field zeros, and text display.
+7. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
    `src/symbolic.jl`: univariate Symbolics orchestration;
    `src/convergence.jl`: controlled finite-difference experiments and display.
-7. `src/visualization/real.jl`, `src/visualization/plots.jl`, and
-   `src/visualization/scalar_fields.jl`: Makie consumers of stored reports.
+8. `src/visualization/real.jl`, `src/visualization/plots.jl`,
+   `src/visualization/scalar_fields.jl`, and `src/visualization/vector_fields.jl`:
+   Makie consumers of stored reports.
 
 The shared core depends on neither study type nor numerical experiment nor
 presentation. Multivariate restrictions can load with the core and Symbolics,
@@ -52,7 +57,8 @@ core fixture in `test/architecture.jl` explicitly lists its prerequisites.
 - `analyze(expression::Real, variables::Union{Tuple,AbstractVector})` selects
   `ScalarFieldAnalysis`, including a one-element variable collection. Variables
   are validated and retained in order. A collection of variables does not make
-  the expression vector-valued. Vector expressions have no `analyze` method.
+  the expression vector-valued. A separate tuple/AbstractVector component method
+  returns `VectorFieldAnalysis` for rectangular as well as square maps.
 - `evaluate`, `gradient`, `hessian`, `directional_derivative`, and `linearization`
   dispatch on the stored report type. Symbolic gradient/Hessian access returns
   copies; numerical access reuses compiled callables.
@@ -145,20 +151,32 @@ Structs are immutable but stored vectors and captured `Expr` objects are mutable
 Treat report-owned data as read-only or deep-copy it before editing. Display and
 plotting must not mutate analyses. No generic immutability wrapper is introduced.
 
-## Future extension boundary — design only
+## Vector-field extension (Milestone 5)
 
-A future vector-field milestone would need an explicitly vector-valued input
-method and a distinct result type, rather than widening the current scalar
-`expression::Real` methods. It should compose shared contracts, capture original
-syntax per component, preserve component restrictions and their intersection,
-and define numerical/domain/evidence contracts before implementing operators.
-Vector dimension and independent-variable dimension must be validated separately.
-New views should consume that result, with their own narrow dispatch, and load
-last without backend activation. Existing scalar methods and exports must keep
-working; check cross-package ambiguities again before adding public names.
+`VectorFieldAnalysis` composes shared contracts and preserves input/output
+dimensions separately. Existing `RealExpression` / `@real_function` capture is
+reused for literal component vectors/tuples: no duplicate wrapper or macro.
+Each original component has a `MultivariateDomain`; the intersection retains all
+known restrictions and propagates unresolved evidence. Scalar smoothness checks
+are applied componentwise before numerical Jacobians or linearizations.
 
-No `VectorFieldAnalysis`, vector operators, placeholder modules, traits, or
-speculative public constructors are implemented or promised by Milestone 4.5.
+The exact affine/separable system solver is reused via a small internal adapter
+that supplies the field vector and Jacobian in the existing solver protocol.
+The bounded Newton loop now accepts residual/Jacobian callbacks; scalar stationary
+search wraps it with gradient/Hessian callbacks, retaining its existing behavior.
+No second nonlinear solver is copied. Rectangular explicit searches use the same
+matrix backslash step and independently verify the full field residual.
+
+Polynomial potentials use bounded-degree radial integration followed by exact
+componentwise differentiation checks. Zero curl never substitutes for a potential
+proof on an unresolved topology. Formal divergence/curl apply only on the smooth
+locus; numerical Jacobians retain the stricter original-domain smoothness gate.
+See [vector-field contracts](vector_fields.md) for supported classes and limits.
+
+New exports are `VectorFieldAnalysis`, `jacobian`, `divergence`, `curl`,
+`potential`, and `vectorplot`; `evaluate`, `linearization`, and Makie's `plot`
+gain report-specific methods. Qualify names such as `AnalyticMathLab.jacobian`
+when other packages provide a same-named function. No ODE or stability API exists.
 
 ## Verification and historical preservation
 
@@ -171,6 +189,7 @@ julia --project=. notebooks/function_analysis.jl
 julia --project=. notebooks/derivative_convergence.jl
 julia --project=. notebooks/real_function_analysis.jl
 julia --project=. notebooks/multivariable_analysis.jl
+julia --project=. notebooks/vector_field_analysis.jl
 ```
 
 The canonical runner includes architecture, source capture, real-core/integration,
@@ -181,5 +200,5 @@ under ignored `notebooks/output/`, not into the source tree or public API.
 
 The Python implementation remains at tag `python-v0.1` and branch `legacy-python`,
 both rooted at `6820e97`. This milestone does not modify those refs or introduce
-Python source copies. Work is committed locally; publishing and Milestone 5 are
+Python source copies. Work is committed locally; publishing and Milestone 6 are
 outside this milestone.

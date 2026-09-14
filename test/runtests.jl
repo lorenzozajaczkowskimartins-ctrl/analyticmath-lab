@@ -222,6 +222,10 @@ end
 end
 
 include("architecture.jl")
+include("vector_fields.jl")
+include("vector_calculus.jl")
+include("vector_zeros.jl")
+include("vector_regressions.jl")
 include("source_capture.jl")
 include("real_analysis_core.jl")
 include("real_analysis_integration.jl")
@@ -234,6 +238,7 @@ include("multivariate_regressions.jl")
 
 # Run convergence's backend-independence checks before it imports CairoMakie.
 include("convergence.jl")
+include("vector_visualization.jl")
 
 import CairoMakie
 

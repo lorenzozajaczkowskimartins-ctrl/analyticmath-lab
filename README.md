@@ -7,6 +7,7 @@ development**. Milestones 1–4 provide function analysis, numerical derivative
 convergence experiments, evidence-aware univariate real-function studies, and
 multivariate scalar-field analysis, not a general-purpose computer algebra system.
 Milestone 4.5 hardens architecture and API boundaries without adding mathematics.
+Milestone 5 adds evidence-aware vector fields and rectangular real maps.
 The package version remains 0.1.0; the API may change.
 
 The mathematical result is the source of truth:
@@ -350,6 +351,7 @@ julia --project=. notebooks/function_analysis.jl
   and evidence display.
 - `src/multivariate_domain.jl`: original scalar-field restrictions and membership.
 - `src/multivariate_analysis.jl`: scalar-field results, calculus, and stationary solvers.
+- `src/vector_fields/`: vector-map analysis, calculus/potentials, field zeros, display.
 - `src/visualization/`: backend-independent stored-result Makie views.
 - `docs/architecture.md`: dependency direction, compatibility, evidence, resource
   boundaries, and future extension design (not implementation).
@@ -472,3 +474,54 @@ Run `julia --project=. notebooks/multivariable_analysis.jl` for the quadratic,
 saddle, quartic, and excluded-circle examples and their saved Makie figures.
 All multivariate tests are included in `test/runtests.jl`; backend-independence
 checks run before CairoMakie is imported.
+
+## Vector field analysis (Milestone 5)
+
+```julia
+using AnalyticMathLab, Symbolics
+@variables x y
+rotation = analyze([-y,x], (x,y))
+evaluate(rotation, (1.0,2.0))       # [-2,1]
+jacobian(rotation)                  # [0 -1; 1 0]
+divergence(rotation).value         # 0
+curl(rotation).value               # 2 (planar scalar curl)
+rotation.field_zeros                # exact origin, no stability classification
+rotation.conservative              # established false
+radial = analyze([2x,2y], (x,y))
+potential(radial).value             # equivalent to x^2 + y^2
+linearization(rotation, (1,2))      # structured affine map
+
+hole = analyze(@real_function([(x^2-1)/(x-1), y]), (x,y))
+domain_contains(hole.domain, (1,0)) # false, despite symbolic cancellation
+
+using CairoMakie                    # caller chooses the backend
+save("rotation.png", vectorplot(rotation; arrowscale=0.12))
+```
+
+`VectorFieldAnalysis` supports component vectors or tuples for `R^n → R^m`.
+Jacobians are m×n; rectangular evaluation and linearization are supported.
+Divergence, curl, conservative, and potential information use `PropertyResult`.
+`curl(report).value` is scalar for 2D square fields and a three-vector for 3D
+square fields. Unsupported dimensions return unknown evidence, not invented values.
+
+The original domain intersects every component's restrictions. Reuse
+`@real_function` on a literal vector/tuple to preserve source syntax; opaque
+captured container expressions remain unknown. Numerical Jacobians require a
+supported open smooth neighborhood. Exact affine/separable zeros reuse existing
+system machinery; explicit bounded Newton searches are heuristic and candidates
+must meet the full field-residual threshold. No nonlinear stability is inferred.
+
+Conservativity is established true only after constructing an exact supported
+polynomial potential and verifying its gradient componentwise. Zero curl alone
+never suffices: `[-y/(x^2+y^2), x/(x^2+y^2)]` excludes the origin and deliberately
+retains unknown conservative/potential evidence. Potential construction currently
+supports rational-coefficient polynomial fields of total degree at most 8.
+
+2D arrow views preserve direction and relative magnitude with an explicit scale,
+mask unknown/invalid anchors, and use only stored field callables. No streamlines,
+3D arrows, ODE solving, integral theorems, or dynamical-system objects are added.
+
+See [vector-field contracts and limitations](docs/vector_fields.md). Run
+`julia --project=. notebooks/vector_field_analysis.jl` for rotation, radial,
+punctured-plane, and rectangular examples. All vector tests are included in the
+canonical runner; rendering tests run after backend-independence checks.

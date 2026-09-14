@@ -65,7 +65,8 @@ end
         "StationaryPoint", "analyze", "compare_derivatives", "contour",
         "derivative_convergence", "directional_derivative", "domain_contains",
         "evaluate", "gradient", "gradientplot", "hessian", "levelset",
-        "linearization", "plot", "surface"])
+        "linearization", "plot", "surface", "VectorFieldAnalysis", "jacobian",
+        "divergence", "curl", "potential", "vectorplot"])
     @test Set(names(AnalyticMathLab)) == Set(expected)
     @test (AnalyticMathLab.plot,AnalyticMathLab.surface,AnalyticMathLab.contour) ===
           (Makie.plot,Makie.surface,Makie.contour)
@@ -79,8 +80,8 @@ end
     @test u isa AbstractAnalysis && s isa AbstractAnalysis
     @test domain_contains(u.real_analysis.domain,0) === false
     @test domain_contains(s.domain,(0,0)) === false
-    # Scalar expression dispatch must not accidentally consume vector expressions.
-    @test !applicable(analyze,[x,y],(x,y))
+    # Milestone 5 adds a separate vector method, not a widened scalar method.
+    @test analyze([x,y],(x,y)) isa VectorFieldAnalysis
     controls = (residual_tolerance=1e-7,residual_rtol=0.01,residual_scale=2)
     univariate = analyze(x^2,x;interval=(-1,1),controls...)
     scalar = analyze(x^2+y^2,(x,y);controls...)

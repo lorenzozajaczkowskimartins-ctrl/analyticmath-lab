@@ -20,6 +20,7 @@ export plot
 export ScalarFieldAnalysis, MultivariateDomain, StationaryPoint
 export gradient, hessian, directional_derivative, linearization, levelset
 export surface, contour, gradientplot
+export VectorFieldAnalysis, jacobian, divergence, curl, potential, vectorplot
 
 # Shared contracts and mechanisms: no dependency on studies or presentation.
 include("core/contracts.jl")
@@ -35,6 +36,10 @@ include("real_analysis_periodic.jl")
 include("real_analysis_display.jl")
 include("multivariate_domain.jl")
 include("multivariate_analysis.jl")
+include("vector_fields/analysis.jl")
+include("vector_fields/calculus.jl")
+include("vector_fields/zeros.jl")
+include("vector_fields/display.jl")
 
 # Numerical experiments consume reports, not real-function certificates.
 include("numerical.jl")
@@ -45,5 +50,6 @@ include("convergence.jl")
 include("visualization/real.jl")
 include("visualization/plots.jl")
 include("visualization/scalar_fields.jl")
+include("visualization/vector_fields.jl")
 
 end

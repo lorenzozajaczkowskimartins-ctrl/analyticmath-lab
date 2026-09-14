@@ -255,14 +255,16 @@ function _mv_bounds(bounds, n)
     return tuple(result...)
 end
 
-function _mv_numerical_candidates(report, bounds, grid, iterations)
+# Shared bounded system search. Callbacks provide the residual vector and its
+# Jacobian; scalar stationary search uses gradient/Hessian, vector zeros F/J_F.
+function _system_numerical_candidates(field, derivative, bounds, grid, iterations)
     seeds = Iterators.product((range(a,b; length=grid) for (a,b) in bounds)...)
     candidates = Vector{Vector{Float64}}()
     for seed in seeds
         x = Float64[seed...]
         for _ in 1:iterations
-            g = try Float64.(gradient(report,x)) catch; break end
-            H = try Float64.(hessian(report,x)) catch; break end
+            g = try Float64.(field(x)) catch; break end
+            H = try Float64.(derivative(x)) catch; break end
             step = try H \ g catch; break end
             all(isfinite, step) || break
             next = x - step
@@ -274,6 +276,9 @@ function _mv_numerical_candidates(report, bounds, grid, iterations)
     end
     return candidates
 end
+
+_mv_numerical_candidates(report, bounds, grid, iterations) =
+    _system_numerical_candidates(x -> gradient(report,x), x -> hessian(report,x), bounds, grid, iterations)
 
 function analyze(expression::Real, variables::Union{Tuple,AbstractVector};
         bounds=nothing, grid::Integer=7, iterations::Integer=40,
