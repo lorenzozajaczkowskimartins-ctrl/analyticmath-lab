@@ -8,6 +8,8 @@ import FiniteDiff
 import Makie
 import Makie: plot, surface, contour
 import LinearAlgebra
+import SciMLBase
+import OrdinaryDiffEqTsit5
 
 export AbstractAnalysis, FunctionAnalysis, analyze, evaluate
 export CriticalPoint, CriticalPointAnalysis
@@ -21,6 +23,8 @@ export ScalarFieldAnalysis, MultivariateDomain, StationaryPoint
 export gradient, hessian, directional_derivative, linearization, levelset
 export surface, contour, gradientplot
 export VectorFieldAnalysis, jacobian, divergence, curl, potential, vectorplot
+export AutonomousSystem, DynamicalSystemAnalysis, equilibria, stability, nullclines
+export FirstOrderODE, TrajectoryResult, trajectory, phaseplot, timeplot
 
 # Shared contracts and mechanisms: no dependency on studies or presentation.
 include("core/contracts.jl")
@@ -40,6 +44,10 @@ include("vector_fields/analysis.jl")
 include("vector_fields/calculus.jl")
 include("vector_fields/zeros.jl")
 include("vector_fields/display.jl")
+include("dynamical_systems/analysis.jl")
+include("dynamical_systems/stability.jl")
+include("dynamical_systems/display.jl")
+include("dynamical_systems/integration.jl")
 
 # Numerical experiments consume reports, not real-function certificates.
 include("numerical.jl")
@@ -51,5 +59,6 @@ include("visualization/real.jl")
 include("visualization/plots.jl")
 include("visualization/scalar_fields.jl")
 include("visualization/vector_fields.jl")
+include("visualization/dynamical_systems.jl")
 
 end

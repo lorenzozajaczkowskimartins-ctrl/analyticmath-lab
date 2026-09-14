@@ -66,7 +66,9 @@ end
         "derivative_convergence", "directional_derivative", "domain_contains",
         "evaluate", "gradient", "gradientplot", "hessian", "levelset",
         "linearization", "plot", "surface", "VectorFieldAnalysis", "jacobian",
-        "divergence", "curl", "potential", "vectorplot"])
+        "divergence", "curl", "potential", "vectorplot",
+        "AutonomousSystem", "DynamicalSystemAnalysis", "equilibria", "stability", "nullclines",
+        "FirstOrderODE", "TrajectoryResult", "trajectory", "phaseplot", "timeplot"])
     @test Set(names(AnalyticMathLab)) == Set(expected)
     @test (AnalyticMathLab.plot,AnalyticMathLab.surface,AnalyticMathLab.contour) ===
           (Makie.plot,Makie.surface,Makie.contour)

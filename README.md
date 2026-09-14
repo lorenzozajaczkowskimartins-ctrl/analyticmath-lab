@@ -352,6 +352,7 @@ julia --project=. notebooks/function_analysis.jl
 - `src/multivariate_domain.jl`: original scalar-field restrictions and membership.
 - `src/multivariate_analysis.jl`: scalar-field results, calculus, and stationary solvers.
 - `src/vector_fields/`: vector-map analysis, calculus/potentials, field zeros, display.
+- `src/dynamical_systems/`: autonomous structure, local stability, and ODE integration.
 - `src/visualization/`: backend-independent stored-result Makie views.
 - `docs/architecture.md`: dependency direction, compatibility, evidence, resource
   boundaries, and future extension design (not implementation).
@@ -362,7 +363,8 @@ julia --project=. notebooks/function_analysis.jl
 All includes are centralized in the public module. See the
 [architecture contract](docs/architecture.md) for Milestone 4.5 decisions and limits.
 Direct dependencies are Symbolics, Roots, ForwardDiff, FiniteDiff, Makie,
-CairoMakie, and the LinearAlgebra standard library. Test is test-only.
+CairoMakie, SciMLBase, OrdinaryDiffEqTsit5, and the LinearAlgebra standard library.
+Test is test-only.
 Roots and general derivative comparison retain
 their library implementations; the h sweep deliberately uses explicit differences.
 Other analysis types can later add methods to `analyze`;
@@ -392,8 +394,9 @@ not ported. This is a Julia redesign, not Python feature parity.
 
 Milestone 3 implements a conservative univariate real-function study with explicit
 domains and evidence-aware results for the supported classes above. Milestone 4
-adds scalar-field calculus as documented below. General matrix/system analysis,
-integration, ODE/PDE solvers, constrained optimization, full report
+adds scalar-field calculus as documented below. Milestone 6 adds autonomous-system
+analysis and numerical first-order ODE integration. General matrix analysis,
+quadrature, PDE solvers, constrained optimization, full report
 exporters, general-purpose domain inference, and interactive GUIs are not implemented.
 
 ## License
@@ -519,9 +522,49 @@ supports rational-coefficient polynomial fields of total degree at most 8.
 
 2D arrow views preserve direction and relative magnitude with an explicit scale,
 mask unknown/invalid anchors, and use only stored field callables. No streamlines,
-3D arrows, ODE solving, integral theorems, or dynamical-system objects are added.
+3D arrows or integral theorems are added by Milestone 5. ODE solving and
+dynamical-system objects are separate Milestone 6 APIs below.
 
 See [vector-field contracts and limitations](docs/vector_fields.md). Run
 `julia --project=. notebooks/vector_field_analysis.jl` for rotation, radial,
 punctured-plane, and rectangular examples. All vector tests are included in the
 canonical runner; rendering tests run after backend-independence checks.
+
+## Dynamical systems and ODEs (Milestone 6)
+
+```julia
+@variables x v
+field = analyze([v,-x-v/2], (x,v))
+system = AutonomousSystem(field)    # retains this VectorFieldAnalysis
+report = analyze(system)
+equilibria(report)                 # residuals, domain validity, local analyses
+stability(report)                  # local Jacobian, spectrum, scoped evidence
+nullclines(report)                 # implicit planar equations on original domain
+path = trajectory(report, [1,0], (0,12); saveat=0.05)
+problem = FirstOrderODE((u,t)->[-2t*u[1]], 1; labels=("y",))
+nonautonomous = trajectory(problem, 1.0, (0,2))
+path.diagnostics                  # return code, completion, steps, tolerances
+
+using CairoMakie
+save("phase.png", phaseplot(report; trajectories=[path], show_nullclines=true))
+save("time.png", timeplot(nonautonomous))
+```
+
+New exports are `AutonomousSystem`, `DynamicalSystemAnalysis`, `equilibria`,
+`stability`, `nullclines`, `FirstOrderODE`, `TrajectoryResult`, `trajectory`,
+`phaseplot`, and `timeplot`. Existing `analyze`, `evaluate`, `jacobian`, and
+`linearization` gain dynamical report/system methods without changing old APIs.
+
+Exact rational diagonal or planar trace/determinant tests establish supported
+local conclusions. Other eigenvalue classifications remain heuristic. Purely
+imaginary or zero eigenvalues do not decide nonlinear stability; a center is
+established only for the supported exact planar linear system. No global basin,
+nonlinear center, or bifurcation is inferred. Numerical trajectories use SciMLBase
+and OrdinaryDiffEqTsit5 (`Tsit5()`), retain the native dense solution, and use
+Float64 arithmetic. Domain checks are fail-fast at RHS calls, not certified
+boundary tracking or rigorous error bounds. Neither plotting function solves ODEs
+or activates a backend.
+
+See [dynamical-system methodology and limitations](docs/dynamical_systems.md).
+Run `julia --project=. notebooks/dynamical_systems.jl` for asserted mathematical
+examples and six phase/time figures in ignored `notebooks/output/`.

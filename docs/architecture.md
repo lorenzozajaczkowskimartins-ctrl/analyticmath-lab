@@ -1,4 +1,4 @@
-# Architecture and API contracts (Milestones 4.5–5)
+# Architecture and API contracts (Milestones 4.5–6)
 
 Milestone 4.5 reorganizes the Milestones 1–4 implementation, without adding a
 mathematical domain or changing public exports, result layouts, or constructors.
@@ -28,11 +28,16 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
 6. `src/vector_fields/analysis.jl`, `src/vector_fields/calculus.jl`,
    `src/vector_fields/zeros.jl`, and `src/vector_fields/display.jl`: vector-map
    reports, calculus/potential evidence, field zeros, and text display.
-7. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
+7. `src/dynamical_systems/analysis.jl`, `src/dynamical_systems/stability.jl`,
+   `src/dynamical_systems/display.jl`, and `src/dynamical_systems/integration.jl`:
+   autonomous reports reusing vector fields, local classification, text display,
+   and numerical first-order ODE integration through SciML.
+8. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
    `src/symbolic.jl`: univariate Symbolics orchestration;
    `src/convergence.jl`: controlled finite-difference experiments and display.
-8. `src/visualization/real.jl`, `src/visualization/plots.jl`,
-   `src/visualization/scalar_fields.jl`, and `src/visualization/vector_fields.jl`:
+9. `src/visualization/real.jl`, `src/visualization/plots.jl`,
+   `src/visualization/scalar_fields.jl`, `src/visualization/vector_fields.jl`,
+   and `src/visualization/dynamical_systems.jl`:
    Makie consumers of stored reports.
 
 The shared core depends on neither study type nor numerical experiment nor
@@ -176,7 +181,25 @@ See [vector-field contracts](vector_fields.md) for supported classes and limits.
 New exports are `VectorFieldAnalysis`, `jacobian`, `divergence`, `curl`,
 `potential`, and `vectorplot`; `evaluate`, `linearization`, and Makie's `plot`
 gain report-specific methods. Qualify names such as `AnalyticMathLab.jacobian`
-when other packages provide a same-named function. No ODE or stability API exists.
+when other packages provide a same-named function. Milestone 5 itself adds no ODE
+or stability inference to vector-field reports.
+
+## Dynamical-system extension (Milestone 6)
+
+`AutonomousSystem` wraps a square `VectorFieldAnalysis` by identity.
+`DynamicalSystemAnalysis` reuses its domain, field zeros, Jacobian, and compiled
+callables, adding equilibrium-local evidence and implicit planar nullclines.
+No second field analyzer or equilibrium solver is introduced. Existing report
+layouts remain unchanged. Accessors return copies of new evidence collections.
+
+`FirstOrderODE` is a separate numerical out-of-place `f(u,t)` contract, including
+nonautonomous systems; it makes no equilibrium claims. `trajectory` uses SciMLBase
+and OrdinaryDiffEqTsit5 and retains the native solution in `TrajectoryResult`.
+These numerical dependencies do not activate a rendering backend. `phaseplot`
+consumes the stored field and same-field trajectories; `timeplot` consumes saved
+states without evaluating the RHS. Neither view performs integration.
+See [dynamical-system contracts](dynamical_systems.md) for exact versus numerical
+stability methodology, domain semantics, and limitations.
 
 ## Verification and historical preservation
 
@@ -190,6 +213,7 @@ julia --project=. notebooks/derivative_convergence.jl
 julia --project=. notebooks/real_function_analysis.jl
 julia --project=. notebooks/multivariable_analysis.jl
 julia --project=. notebooks/vector_field_analysis.jl
+julia --project=. notebooks/dynamical_systems.jl
 ```
 
 The canonical runner includes architecture, source capture, real-core/integration,
@@ -200,5 +224,5 @@ under ignored `notebooks/output/`, not into the source tree or public API.
 
 The Python implementation remains at tag `python-v0.1` and branch `legacy-python`,
 both rooted at `6820e97`. This milestone does not modify those refs or introduce
-Python source copies. Work is committed locally; publishing and Milestone 6 are
+Python source copies. Work is committed locally; publishing and Milestone 7 are
 outside this milestone.
