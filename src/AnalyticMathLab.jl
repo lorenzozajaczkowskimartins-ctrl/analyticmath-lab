@@ -25,6 +25,12 @@ export surface, contour, gradientplot
 export VectorFieldAnalysis, jacobian, divergence, curl, potential, vectorplot
 export AutonomousSystem, DynamicalSystemAnalysis, equilibria, stability, nullclines
 export FirstOrderODE, TrajectoryResult, trajectory, phaseplot, timeplot
+export LagrangianSystem, LagrangianAnalysis
+export HamiltonianSystem, HamiltonianAnalysis, hamilton_equations
+export poisson_bracket, observable_derivative, force_from_potential
+export legendre_transform
+export MechanicsDynamics, dynamics, energy_drift, energyplot
+export euler_lagrange, generalized_momenta, velocity_hessian, energy_function, cyclic_coordinates
 
 # Shared contracts and mechanisms: no dependency on studies or presentation.
 include("core/contracts.jl")
@@ -48,6 +54,10 @@ include("dynamical_systems/analysis.jl")
 include("dynamical_systems/stability.jl")
 include("dynamical_systems/display.jl")
 include("dynamical_systems/integration.jl")
+include("mechanics/core.jl")
+include("mechanics/hamiltonian.jl")
+include("mechanics/legendre.jl")
+include("mechanics/bridge.jl")
 
 # Numerical experiments consume reports, not real-function certificates.
 include("numerical.jl")
@@ -60,5 +70,6 @@ include("visualization/plots.jl")
 include("visualization/scalar_fields.jl")
 include("visualization/vector_fields.jl")
 include("visualization/dynamical_systems.jl")
+include("visualization/mechanics.jl")
 
 end

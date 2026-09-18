@@ -51,7 +51,11 @@ function _ode_rhs(problem::FirstOrderODE, u, t)
         throw(DimensionMismatch("ODE right-hand side must return one component per state"))
     all(x -> x isa Real && isfinite(x),value) ||
         throw(DomainError((u,t),"ODE right-hand side is not finite and real; integration stopped"))
-    return collect(value)
+    # The integrator uses Float64 states/times. Mixed constant and symbolic
+    # components can produce Vector{Real}; normalize at this shared boundary.
+    converted = Float64[value...]
+    all(isfinite,converted) || throw(DomainError(value,"ODE right-hand side is not representable in Float64"))
+    return converted
 end
 
 """
