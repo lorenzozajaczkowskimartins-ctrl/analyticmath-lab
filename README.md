@@ -8,6 +8,9 @@ convergence experiments, evidence-aware univariate real-function studies, and
 multivariate scalar-field analysis, not a general-purpose computer algebra system.
 Milestone 4.5 hardens architecture and API boundaries without adding mathematics.
 Milestone 5 adds evidence-aware vector fields and rectangular real maps.
+Milestone 6 adds autonomous dynamics and first-order ODE trajectories.
+Milestone 7 adds [Lagrangian and Hamiltonian mechanics](docs/mechanics.md),
+verified affine Legendre transforms, and reuse of those dynamics APIs.
 The package version remains 0.1.0; the API may change.
 
 The mathematical result is the source of truth:

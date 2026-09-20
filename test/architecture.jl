@@ -68,7 +68,13 @@ end
         "linearization", "plot", "surface", "VectorFieldAnalysis", "jacobian",
         "divergence", "curl", "potential", "vectorplot",
         "AutonomousSystem", "DynamicalSystemAnalysis", "equilibria", "stability", "nullclines",
-        "FirstOrderODE", "TrajectoryResult", "trajectory", "phaseplot", "timeplot"])
+        "FirstOrderODE", "TrajectoryResult", "trajectory", "phaseplot", "timeplot",
+        "LagrangianSystem", "LagrangianAnalysis", "HamiltonianSystem", "HamiltonianAnalysis",
+        "euler_lagrange", "generalized_momenta", "velocity_hessian", "energy_function",
+        "cyclic_coordinates", "legendre_transform", "hamilton_equations", "poisson_bracket",
+        "observable_derivative", "force_from_potential", "MechanicsDynamics", "dynamics",
+        "energy_drift", "energyplot", "MechanicalLinearization", "linearize_mechanics",
+        "NormalModeAnalysis", "normal_modes", "cartesian_mass_matrix", "modeplot"])
     @test Set(names(AnalyticMathLab)) == Set(expected)
     @test (AnalyticMathLab.plot,AnalyticMathLab.surface,AnalyticMathLab.contour) ===
           (Makie.plot,Makie.surface,Makie.contour)

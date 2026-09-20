@@ -31,6 +31,8 @@ export poisson_bracket, observable_derivative, force_from_potential
 export legendre_transform
 export MechanicsDynamics, dynamics, energy_drift, energyplot
 export euler_lagrange, generalized_momenta, velocity_hessian, energy_function, cyclic_coordinates
+export MechanicalLinearization, linearize_mechanics, NormalModeAnalysis, normal_modes
+export cartesian_mass_matrix, modeplot
 
 # Shared contracts and mechanisms: no dependency on studies or presentation.
 include("core/contracts.jl")
@@ -58,6 +60,7 @@ include("mechanics/core.jl")
 include("mechanics/hamiltonian.jl")
 include("mechanics/legendre.jl")
 include("mechanics/bridge.jl")
+include("mechanics/normal_modes.jl")
 
 # Numerical experiments consume reports, not real-function certificates.
 include("numerical.jl")

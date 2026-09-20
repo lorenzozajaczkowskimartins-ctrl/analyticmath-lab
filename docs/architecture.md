@@ -1,4 +1,4 @@
-# Architecture and API contracts (Milestones 4.5–6)
+# Architecture and API contracts (Milestones 4.5–7)
 
 Milestone 4.5 reorganizes the Milestones 1–4 implementation, without adding a
 mathematical domain or changing public exports, result layouts, or constructors.
@@ -32,12 +32,16 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
    `src/dynamical_systems/display.jl`, and `src/dynamical_systems/integration.jl`:
    autonomous reports reusing vector fields, local classification, text display,
    and numerical first-order ODE integration through SciML.
-8. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
+8. `src/mechanics/core.jl`, `src/mechanics/hamiltonian.jl`,
+   `src/mechanics/legendre.jl`, `src/mechanics/bridge.jl`, and
+   `src/mechanics/normal_modes.jl`: formal mechanics, verified affine Legendre
+   inversion, conversion to M6, local EL coefficients and generic normal modes.
+9. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
    `src/symbolic.jl`: univariate Symbolics orchestration;
    `src/convergence.jl`: controlled finite-difference experiments and display.
-9. `src/visualization/real.jl`, `src/visualization/plots.jl`,
+10. `src/visualization/real.jl`, `src/visualization/plots.jl`,
    `src/visualization/scalar_fields.jl`, `src/visualization/vector_fields.jl`,
-   and `src/visualization/dynamical_systems.jl`:
+   `src/visualization/dynamical_systems.jl`, and `src/visualization/mechanics.jl`:
    Makie consumers of stored reports.
 
 The shared core depends on neither study type nor numerical experiment nor
@@ -203,6 +207,28 @@ stability methodology, domain semantics, and limitations.
 
 ## Verification and historical preservation
 
+Milestone 7 adds separate Lagrangian/Hamiltonian systems and reports; no existing
+result layouts change. Mechanics uses formal symbolic identities only on the
+smooth original locus. Regularity and affine inversion require exact residual
+verification and explicit nonzero assumptions where needed. Original source
+restrictions (including Rayleigh/force inputs) survive numerical conversion and
+the Legendre pullback. See [mechanics contracts](mechanics.md).
+
+`MechanicsDynamics` retains the original report, canonical state order, cached M6
+analysis and compiled energy. There is no new ODE, Jacobian, or equilibrium solver.
+The shared M6 numerical RHS boundary normalizes mixed real components to Float64,
+matching its existing state/time contract, and rejects conversion overflow.
+Energy samples and contour levels are illustrations, never conservation proofs.
+
+The M7 addendum extends mechanics with local second-order linearization and a
+single generic normal-mode result for Lagrangian or directly supplied M/K
+matrices. Scalar-field gradients/Hessians and the M6 solver remain their sole
+existing implementations. M7 is the mathematical mechanics foundation; M8 is
+the future particle-state/force-provider/geometry layer. The optional future
+Molly adapter is outside the core and no dependency is added here. See
+[MD-readiness boundary](md-readiness.md) for numerical versus symbolic providers,
+coordinate reconstruction and the future scientific vibration pipeline.
+
 From the repository root:
 
 ```sh
@@ -214,6 +240,8 @@ julia --project=. notebooks/real_function_analysis.jl
 julia --project=. notebooks/multivariable_analysis.jl
 julia --project=. notebooks/vector_field_analysis.jl
 julia --project=. notebooks/dynamical_systems.jl
+julia --project=. notebooks/mechanics.jl
+julia --project=. notebooks/mechanics_addendum.jl
 ```
 
 The canonical runner includes architecture, source capture, real-core/integration,
@@ -224,5 +252,4 @@ under ignored `notebooks/output/`, not into the source tree or public API.
 
 The Python implementation remains at tag `python-v0.1` and branch `legacy-python`,
 both rooted at `6820e97`. This milestone does not modify those refs or introduce
-Python source copies. Work is committed locally; publishing and Milestone 7 are
-outside this milestone.
+Python source copies. Publishing and Milestone 8 are outside this milestone.

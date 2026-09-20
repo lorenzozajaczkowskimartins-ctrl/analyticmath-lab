@@ -63,3 +63,28 @@ function energyplot(report::Union{LagrangianAnalysis,HamiltonianAnalysis},path::
         throw(ArgumentError("conversion must originate from this mechanics report"))
     return energyplot(conversion,path)
 end
+
+"""
+    modeplot(result::NormalModeAnalysis; modes=nothing, representation=:generalized)
+
+Plot stored mode components against coordinate index; no particle geometry is
+assumed. `:mass_weighted` selects e instead of a=M^(-1/2)e. Degenerate bases are
+nonunique. This view neither recomputes analysis nor activates a backend.
+"""
+function modeplot(r::NormalModeAnalysis;modes=nothing,representation=:generalized)
+    r.mode_vectors === nothing && throw(ArgumentError("modeplot requires computed modes"))
+    representation in (:generalized,:mass_weighted) || throw(ArgumentError("representation must be :generalized or :mass_weighted"))
+    indices = modes === nothing ? collect(eachindex(r.eigenvalues)) : collect(modes)
+    !isempty(indices) && all(i->i isa Integer && 1<=i<=length(r.eigenvalues),indices) ||
+        throw(ArgumentError("modes must contain valid mode indices"))
+    vectors = representation == :generalized ? r.mode_vectors : r.weighted_vectors
+    fig = Makie.Figure()
+    label = representation == :generalized ? "a component (mass normalized)" : "e component (mass weighted, unit norm)"
+    axis = Makie.Axis(fig[1,1];xlabel="Generalized-coordinate index",ylabel=label,
+        title="Local mode shapes; degenerate bases are nonunique")
+    for i in indices
+        Makie.scatterlines!(axis,1:size(vectors,1),vectors[:,i];label="Mode $i: $(r.classifications[i])")
+    end
+    Makie.Legend(fig[1,2],axis)
+    fig
+end
