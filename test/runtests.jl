@@ -221,6 +221,16 @@ end
     end
 end
 
+include("atomistic_core.jl")
+include("atomistic_potentials.jl")
+include("atomistic_distributions.jl")
+include("atomistic_modes.jl")
+@testset "Atomistic optional dependency isolation" begin
+    @test ismissing(Makie.current_backend())
+    @test Base.get_extension(AnalyticMathLab,:AnalyticMathLabMollyExt) === nothing
+    @test all(m->nameof(m)!=:Molly,values(Base.loaded_modules))
+end
+
 include("architecture.jl")
 include("vector_fields.jl")
 include("vector_calculus.jl")
@@ -250,6 +260,10 @@ include("vector_visualization.jl")
 include("dynamical_visualization.jl")
 include("mechanics_visualization.jl")
 include("normal_modes_visualization.jl")
+include("potential_visualization.jl")
+include("atomistic_visualization.jl")
+# Molly is deliberately tested in examples/molly, not a mandatory test dependency.
+
 
 import CairoMakie
 

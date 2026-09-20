@@ -74,7 +74,11 @@ end
         "cyclic_coordinates", "legendre_transform", "hamilton_equations", "poisson_bracket",
         "observable_derivative", "force_from_potential", "MechanicsDynamics", "dynamics",
         "energy_drift", "energyplot", "MechanicalLinearization", "linearize_mechanics",
-        "NormalModeAnalysis", "normal_modes", "cartesian_mass_matrix", "modeplot"])
+        "NormalModeAnalysis", "normal_modes", "cartesian_mass_matrix", "modeplot",
+        "AtomisticSnapshot", "AtomisticTrajectoryView", "atomistic_snapshot", "atomistic_trajectory",
+        "pair_distances", "AtomisticSystemAnalysis", "mdcheck", "inspect_particle",
+        "PotentialAnalysis", "analyze_potential", "lennard_jones_analysis", "potentialplot", "forceplot",
+        "RadialDistributionAnalysis", "radial_distribution", "coordination", "mdplot"])
     @test Set(names(AnalyticMathLab)) == Set(expected)
     @test (AnalyticMathLab.plot,AnalyticMathLab.surface,AnalyticMathLab.contour) ===
           (Makie.plot,Makie.surface,Makie.contour)

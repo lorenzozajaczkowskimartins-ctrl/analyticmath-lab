@@ -8,6 +8,7 @@ import FiniteDiff
 import Makie
 import Makie: plot, surface, contour
 import LinearAlgebra
+import Unitful
 import SciMLBase
 import OrdinaryDiffEqTsit5
 
@@ -33,6 +34,11 @@ export MechanicsDynamics, dynamics, energy_drift, energyplot
 export euler_lagrange, generalized_momenta, velocity_hessian, energy_function, cyclic_coordinates
 export MechanicalLinearization, linearize_mechanics, NormalModeAnalysis, normal_modes
 export cartesian_mass_matrix, modeplot
+export AtomisticSnapshot, AtomisticTrajectoryView, atomistic_snapshot, atomistic_trajectory
+export pair_distances
+export AtomisticSystemAnalysis, mdcheck, inspect_particle
+export PotentialAnalysis, analyze_potential, lennard_jones_analysis, potentialplot, forceplot
+export RadialDistributionAnalysis, radial_distribution, coordination, mdplot
 
 # Shared contracts and mechanisms: no dependency on studies or presentation.
 include("core/contracts.jl")
@@ -61,6 +67,11 @@ include("mechanics/hamiltonian.jl")
 include("mechanics/legendre.jl")
 include("mechanics/bridge.jl")
 include("mechanics/normal_modes.jl")
+include("atomistic/core.jl")
+include("atomistic/inspection.jl")
+include("atomistic/potentials.jl")
+include("atomistic/distributions.jl")
+include("atomistic/modes.jl")
 
 # Numerical experiments consume reports, not real-function certificates.
 include("numerical.jl")
@@ -74,5 +85,7 @@ include("visualization/scalar_fields.jl")
 include("visualization/vector_fields.jl")
 include("visualization/dynamical_systems.jl")
 include("visualization/mechanics.jl")
+include("visualization/potentials.jl")
+include("visualization/atomistic.jl")
 
 end

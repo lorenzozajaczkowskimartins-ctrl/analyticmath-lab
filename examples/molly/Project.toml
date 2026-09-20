@@ -1,0 +1,14 @@
+[deps]
+AnalyticMathLab = "d00b717d-2040-4c0f-8850-62abbaf45caf"
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+Molly = "aa0f7f06-fcc0-5ec4-a7f3-a573f33f9c4c"
+Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
+
+[sources]
+AnalyticMathLab = {path = "../.."}
+
+[compat]
+CairoMakie = "0.15.14"
+Molly = "=0.23.3"
+Unitful = "1.29"
+julia = "1.12"

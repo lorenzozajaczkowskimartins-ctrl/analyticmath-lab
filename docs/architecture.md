@@ -36,14 +36,21 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
    `src/mechanics/legendre.jl`, `src/mechanics/bridge.jl`, and
    `src/mechanics/normal_modes.jl`: formal mechanics, verified affine Legendre
    inversion, conversion to M6, local EL coefficients and generic normal modes.
-9. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
+9. `src/atomistic/core.jl`, `src/atomistic/inspection.jl`,
+   `src/atomistic/potentials.jl`, `src/atomistic/distributions.jl`, and
+   `src/atomistic/modes.jl`: borrowed particle data, inspection, scalar potential
+   composition, streaming pair distributions, and the existing M7 mode bridge.
+10. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
    `src/symbolic.jl`: univariate Symbolics orchestration;
    `src/convergence.jl`: controlled finite-difference experiments and display.
-10. `src/visualization/real.jl`, `src/visualization/plots.jl`,
+11. `src/visualization/real.jl`, `src/visualization/plots.jl`,
    `src/visualization/scalar_fields.jl`, `src/visualization/vector_fields.jl`,
-   `src/visualization/dynamical_systems.jl`, and `src/visualization/mechanics.jl`:
+   `src/visualization/dynamical_systems.jl`, `src/visualization/mechanics.jl`,
+   `src/visualization/potentials.jl`, and `src/visualization/atomistic.jl`:
    Makie consumers of stored reports.
 
+The optional `ext/AnalyticMathLabMollyExt.jl` loads only with Molly;
+its contracts and public M8A API are documented in [atomistic analysis](atomistic.md).
 The shared core depends on neither study type nor numerical experiment nor
 presentation. Multivariate restrictions can load with the core and Symbolics,
 without loading `RealFunctionStudy`, scalar solvers, or Makie. Scalar stationary
