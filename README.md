@@ -13,6 +13,12 @@ Milestone 7 adds [Lagrangian and Hamiltonian mechanics](docs/mechanics.md),
 verified affine Legendre transforms, and reuse of those dynamics APIs.
 The package version remains 0.1.0; the API may change.
 
+M8A adds the optional [Molly atomistic companion](docs/atomistic.md).
+M8B adds [trajectory statistics and transport](docs/trajectory_statistics.md):
+explicit sampling, correlation-aware uncertainty, blocking, conservative transient
+diagnostics, image-aware MSD, VACF, and opt-in trajectory analysis. Stored frames
+are not assumed independent. See `notebooks/molly_trajectory_analysis.jl`.
+
 The mathematical result is the source of truth:
 
 ```text

@@ -96,4 +96,28 @@ function AML.atomistic_trajectory(sys::Molly.System;fixed_box=false,times=nothin
             fixed_box=:caller_asserted,fixed_particles=:caller_asserted,times=times===nothing ? :unknown : :caller_supplied,
             storage=:borrowed_logger_frames))
 end
+
+"""Borrow a captured-length view of a stored Molly scalar logger. Explicit times
+are caller-supplied global times; stride alone never implies dt. Temperature is
+the logged backend convention 2K/(df*k), not recomputed using current metadata.
+The caller must ensure scalar and coordinate loggers share simulation calls.
+"""
+function AML.observable_series(logger::Molly.GeneralObservableLogger;times=nothing,
+        interval=nothing,index_time=false,provenance=NamedTuple())
+    name=if logger.observable===Molly.total_energy_wrapper
+        :total_energy
+    elseif logger.observable===Molly.potential_energy_wrapper
+        :potential_energy
+    elseif logger.observable===Molly.kinetic_energy_wrapper
+        :kinetic_energy
+    elseif logger.observable===Molly.temperature_wrapper
+        :temperature
+    else
+        throw(ArgumentError("Only stored Molly energy/temperature scalar loggers are supported."))
+    end
+    metadata=merge(provenance,(source=:Molly,version=pkgversion(Molly),stride=logger.n_steps,
+        storage=:borrowed_logger_values,temperature_convention=name==:temperature ? :Molly_backend_df : :not_applicable,
+        historical_dof=:not_stored,synchronization=:caller_responsibility))
+    AML.ObservableSeries(view(values(logger),1:length(values(logger)));times,interval,index_time,name,provenance=metadata)
+end
 end

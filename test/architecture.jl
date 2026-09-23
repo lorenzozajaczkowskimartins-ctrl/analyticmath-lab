@@ -78,7 +78,12 @@ end
         "AtomisticSnapshot", "AtomisticTrajectoryView", "atomistic_snapshot", "atomistic_trajectory",
         "pair_distances", "AtomisticSystemAnalysis", "mdcheck", "inspect_particle",
         "PotentialAnalysis", "analyze_potential", "lennard_jones_analysis", "potentialplot", "forceplot",
-        "RadialDistributionAnalysis", "radial_distribution", "coordination", "mdplot"])
+        "RadialDistributionAnalysis", "radial_distribution", "coordination", "mdplot",
+        "SamplingInfo", "sampling_info", "ObservableSeries", "observable_series", "statistical_summary", "running_statistics",
+        "AutocorrelationAnalysis", "autocorrelation", "integrated_autocorrelation_time", "correlated_mean",
+        "BlockAnalysis", "block_average", "transient_analysis", "MeanSquaredDisplacement", "mean_squared_displacement",
+        "diffusion_estimate", "VelocityAutocorrelation", "velocity_autocorrelation", "energy_diagnostics", "momentum_diagnostics",
+        "MDTrajectoryAnalysis", "diagnose", "timeseriesplot", "autocorrelationplot", "blockplot", "msdplot", "vacfplot"])
     @test Set(names(AnalyticMathLab)) == Set(expected)
     @test (AnalyticMathLab.plot,AnalyticMathLab.surface,AnalyticMathLab.contour) ===
           (Makie.plot,Makie.surface,Makie.contour)

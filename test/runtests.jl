@@ -225,6 +225,10 @@ include("atomistic_core.jl")
 include("atomistic_potentials.jl")
 include("atomistic_distributions.jl")
 include("atomistic_modes.jl")
+include("trajectory_statistics.jl")
+include("trajectory_uncertainty.jl")
+include("trajectory_transport.jl")
+include("trajectory_analyst.jl")
 @testset "Atomistic optional dependency isolation" begin
     @test ismissing(Makie.current_backend())
     @test Base.get_extension(AnalyticMathLab,:AnalyticMathLabMollyExt) === nothing
@@ -262,6 +266,7 @@ include("mechanics_visualization.jl")
 include("normal_modes_visualization.jl")
 include("potential_visualization.jl")
 include("atomistic_visualization.jl")
+include("trajectory_visualization.jl")
 # Molly is deliberately tested in examples/molly, not a mandatory test dependency.
 
 

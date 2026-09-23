@@ -40,17 +40,23 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
    `src/atomistic/potentials.jl`, `src/atomistic/distributions.jl`, and
    `src/atomistic/modes.jl`: borrowed particle data, inspection, scalar potential
    composition, streaming pair distributions, and the existing M7 mode bridge.
-10. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
+10. `src/trajectory/statistics.jl`, `src/trajectory/uncertainty.jl`,
+   `src/trajectory/transport.jl`, and `src/trajectory/analyst.jl`: M8B time semantics,
+   borrowed observables, correlated-sampling statistics, transport and opt-in diagnostics.
+11. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
    `src/symbolic.jl`: univariate Symbolics orchestration;
    `src/convergence.jl`: controlled finite-difference experiments and display.
-11. `src/visualization/real.jl`, `src/visualization/plots.jl`,
+12. `src/visualization/real.jl`, `src/visualization/plots.jl`,
    `src/visualization/scalar_fields.jl`, `src/visualization/vector_fields.jl`,
    `src/visualization/dynamical_systems.jl`, `src/visualization/mechanics.jl`,
-   `src/visualization/potentials.jl`, and `src/visualization/atomistic.jl`:
+   `src/visualization/potentials.jl`, `src/visualization/atomistic.jl`, and
+   `src/visualization/trajectory.jl`:
    Makie consumers of stored reports.
 
 The optional `ext/AnalyticMathLabMollyExt.jl` loads only with Molly;
 its contracts and public M8A API are documented in [atomistic analysis](atomistic.md).
+M8A is the configuration layer; [M8B](trajectory_statistics.md) composes the
+trajectory/statistical layer without changing snapshot or lazy-frame contracts.
 The shared core depends on neither study type nor numerical experiment nor
 presentation. Multivariate restrictions can load with the core and Symbolics,
 without loading `RealFunctionStudy`, scalar solvers, or Makie. Scalar stationary

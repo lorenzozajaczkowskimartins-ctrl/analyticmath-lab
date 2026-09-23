@@ -39,6 +39,12 @@ export pair_distances
 export AtomisticSystemAnalysis, mdcheck, inspect_particle
 export PotentialAnalysis, analyze_potential, lennard_jones_analysis, potentialplot, forceplot
 export RadialDistributionAnalysis, radial_distribution, coordination, mdplot
+export SamplingInfo, sampling_info, ObservableSeries, observable_series, statistical_summary, running_statistics
+export AutocorrelationAnalysis, autocorrelation, integrated_autocorrelation_time, correlated_mean
+export BlockAnalysis, block_average, transient_analysis
+export MeanSquaredDisplacement, mean_squared_displacement, diffusion_estimate
+export VelocityAutocorrelation, velocity_autocorrelation, energy_diagnostics, momentum_diagnostics
+export MDTrajectoryAnalysis, diagnose, timeseriesplot, autocorrelationplot, blockplot, msdplot, vacfplot
 
 # Shared contracts and mechanisms: no dependency on studies or presentation.
 include("core/contracts.jl")
@@ -72,6 +78,10 @@ include("atomistic/inspection.jl")
 include("atomistic/potentials.jl")
 include("atomistic/distributions.jl")
 include("atomistic/modes.jl")
+include("trajectory/statistics.jl")
+include("trajectory/uncertainty.jl")
+include("trajectory/transport.jl")
+include("trajectory/analyst.jl")
 
 # Numerical experiments consume reports, not real-function certificates.
 include("numerical.jl")
@@ -87,5 +97,6 @@ include("visualization/dynamical_systems.jl")
 include("visualization/mechanics.jl")
 include("visualization/potentials.jl")
 include("visualization/atomistic.jl")
+include("visualization/trajectory.jl")
 
 end
