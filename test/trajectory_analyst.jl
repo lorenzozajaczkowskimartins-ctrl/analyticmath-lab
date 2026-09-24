@@ -1,6 +1,37 @@
 module TrajectoryAnalystTests
 using Test, AnalyticMathLab, Unitful
 const A=AnalyticMathLab
+@testset "NVE conservation expectation belongs to total energy only" begin
+    for name in (:total_energy,:kinetic_energy,:potential_energy)
+        for provenance in ((ensemble=:NVE,),(ensemble=:NVT,),(ensemble=:unknown,),NamedTuple())
+            s=A.ObservableSeries([1.,2.,3.];interval=1.,name,provenance)
+            d=A.energy_diagnostics(s)
+            expected=name==:total_energy && get(provenance,:ensemble,:unknown)==:NVE
+            @test d.value.conservation_expected === expected
+            @test d.status==:heuristic
+        end
+    end
+    # Identity is the series name, not arbitrary provenance or a composition key.
+    unnamed=A.ObservableSeries([1.,2.,3.];interval=1.,
+        provenance=(ensemble=:NVE,observable=:total_energy))
+    @test A.energy_diagnostics(unnamed).value.conservation_expected === false
+    total=A.ObservableSeries([1.,2.,3.];interval=1.,name=:total_energy)
+    @test A.energy_diagnostics(total;ensemble=:NVE).value.conservation_expected === true
+    @test A.energy_diagnostics(total;ensemble=:NVT).value.conservation_expected === false
+    absent=A.ObservableSeries([missing,missing];interval=1.,name=:total_energy,provenance=(ensemble=:NVE,))
+    @test A.energy_diagnostics(absent).status==:unknown
+    @test A.energy_diagnostics(absent).value===nothing
+    t=AtomisticTrajectoryView(3,i->AtomisticSnapshot([[0.,0.]];
+        velocities=[[Float64(i),0.]],masses=[2.],potential_energy=10.0-i^2);
+        times=[0.,1.,2.],provenance=(ensemble=:NVE,))
+    report=A.analyze(t;observables=(:total_energy,:kinetic_energy,:potential_energy,:total_momentum))
+    for name in (:total_energy,:kinetic_energy,:potential_energy,:total_momentum)
+        @test report.deviations[name].value.conservation_expected === (name==:total_energy)
+    end
+    kinetic=A.observable_series(t,:kinetic_energy)
+    supplied=A.analyze(t;series=(total_energy=kinetic,))
+    @test supplied.deviations[:total_energy].value.conservation_expected === false
+end
 @testset "Lazy observables and nonjudgmental diagnostics" begin
     @test isdefined(A,:observable_series)
     if isdefined(A,:observable_series)

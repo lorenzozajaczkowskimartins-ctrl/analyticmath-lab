@@ -187,11 +187,13 @@ against the scaled mass matrix, not relabeled as unscaled physical displacement
 amplitudes. Raw numerical eigenvalues can differ with the chosen units; physical
 frequencies are invariant under compatible unit conversions.
 
-## M8B boundary — not implemented
+## Boundary with M8B and M8C
 
 M8A stops at borrowed inspection, scalar pair analysis, finite-sample RDF/direct
-coordination, visualization and the minimal M7 bridge. No M8B trajectory statistics,
-MSD, VACF, autocorrelation, effective sample size, compare_runs, stochastic rounding,
-Brownian/Langevin dynamics or Monte Carlo are implemented. There is no new MD
-integrator, neighbor engine, thermostat, barostat or GPU force engine. M8B requires
-a separately authorized milestone; completion of M8A does not start it.
+coordination, visualization and the minimal M7 bridge. M8B now implements
+[trajectory statistics](trajectory_statistics.md), including MSD, VACF,
+autocorrelation and effective sample size, without changing M8A's borrowed-data
+contracts. Comparison of compatible stored M8B results belongs to M8C and requires
+separate authorization. No compare_runs, stochastic rounding, Brownian/Langevin
+dynamics or Monte Carlo are implemented. There is no new MD integrator, neighbor
+engine, thermostat, barostat or GPU force engine.

@@ -157,8 +157,12 @@ VACF decay does not prove ergodicity. No Green–Kubo diffusion estimator is add
 `energy_diagnostics(series)` records deviations from the first observation, max
 absolute/relative deviation (relative absent if initial value is zero), RMS and
 scalar linear trend when explicit times exist. Energy variation is not automatically
-called drift. Ensemble metadata is preserved; only explicitly declared NVE marks
-conservation as expected, and even then no tolerance-based failure grade is assigned.
+called drift. Ensemble metadata is preserved; conservation is expected only for a
+series named `:total_energy` with explicitly declared NVE. Kinetic and potential
+energy can exchange and are not individually assumed conserved. The existing
+`conservation_expected=false` means no conservation expectation is assigned, not
+proof of nonconservation; unavailable diagnostics remain unknown. Even when
+conservation is expected, no tolerance-based failure grade is assigned.
 `momentum_diagnostics` uses vector deviations and their norms; conservation is never
 assumed because external forces, thermostats or boundaries may change momentum.
 

@@ -71,7 +71,7 @@ function _trajectory_deviations(s::ObservableSeries;ensemble=get(s.provenance,:e
     end
     value=(deviations=delta,maximum_absolute=maximum(magnitude),maximum_relative=relative,
         rms=sqrt(sum(abs2,magnitude)/n),linear_slope=slope,ensemble=ensemble,
-        conservation_expected=!vector && ensemble==:NVE,
+        conservation_expected=!vector && s.name==:total_energy && ensemble==:NVE,
         interpretation=:descriptive_deviations)
     DeviationAnalysis(s,_at_observed(value;method=:initial_reference_deviations,
         notes=["Energy exchange or external forcing is not classified as numerical failure.",

@@ -17,6 +17,11 @@ const A=AnalyticMathLab
         @test parent(e.values)===values(sys.loggers.energy)
         @test e.name==:total_energy
         @test e.provenance.stride==2
+        @test A.energy_diagnostics(e).value.conservation_expected === true
+        for logger in (sys.loggers.kinetic,sys.loggers.potential)
+            component=A.observable_series(logger;times,provenance=(ensemble=:NVE,))
+            @test A.energy_diagnostics(component).value.conservation_expected === false
+        end
         @test A.sampling_info(t).interval≈0.002
         @test e.values[end]≈Molly.total_energy(sys;n_threads=1)
         @test A.observable_series(sys.loggers.kinetic;times).values[end]≈Molly.kinetic_energy(sys)
