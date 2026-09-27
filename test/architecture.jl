@@ -85,7 +85,9 @@ end
         "diffusion_estimate", "VelocityAutocorrelation", "velocity_autocorrelation", "energy_diagnostics", "momentum_diagnostics",
         "MDTrajectoryAnalysis", "diagnose", "timeseriesplot", "autocorrelationplot", "blockplot", "msdplot", "vacfplot",
         "ComparisonInput", "ComparisonCompatibility", "ObservableComparison", "MDTrajectoryComparison",
-        "compare", "compare_runs", "comparisonplot", "differenceplot"])
+        "compare", "compare_runs", "comparisonplot", "differenceplot",
+        "PINNProblem", "PINNTrainingResult", "PINNHistory", "pinn_network", "pinn_problem",
+        "train", "predict", "pinn_inspect", "lossplot"])
     @test Set(names(AnalyticMathLab)) == Set(expected)
     @test (AnalyticMathLab.plot,AnalyticMathLab.surface,AnalyticMathLab.contour) ===
           (Makie.plot,Makie.surface,Makie.contour)

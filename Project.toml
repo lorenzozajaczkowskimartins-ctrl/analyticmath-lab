@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["AnalyticMath Lab Contributors"]
 
 [deps]
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
 FiniteDiff = "6a86dc24-6348-571c-b903-95158fe2bd41"
 ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
@@ -16,12 +17,24 @@ Symbolics = "0c5d862f-8b57-4792-8d23-62f2024744c7"
 Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
 [weakdeps]
+Lux = "b2108857-7c20-44ae-9111-449ecde12c47"
+NeuralPDE = "315f7962-48a3-4962-8226-d0f33b1235f0"
+ModelingToolkit = "961ee093-0014-501f-94e3-6117800e7a78"
+Optimization = "7f7a1694-90dd-40f0-9382-eb1efda571ba"
+SymbolicIndexingInterface = "2efcf032-c050-4f8e-a9bb-153293bab1f5"
 Molly = "aa0f7f06-fcc0-5ec4-a7f3-a573f33f9c4c"
 
 [extensions]
+AnalyticMathLabPINNExt = ["Lux", "NeuralPDE", "ModelingToolkit", "Optimization", "SymbolicIndexingInterface"]
 AnalyticMathLabMollyExt = "Molly"
 
 [compat]
+Random = "1"
+Lux = "1.31.4"
+NeuralPDE = "7.3"
+ModelingToolkit = "11.45.1"
+Optimization = "5.9.1"
+SymbolicIndexingInterface = "0.3"
 CairoMakie = "0.15.14"
 FiniteDiff = "2.33.0"
 ForwardDiff = "1.4.5"

@@ -1,0 +1,26 @@
+[deps]
+AnalyticMathLab = "d00b717d-2040-4c0f-8850-62abbaf45caf"
+Lux = "b2108857-7c20-44ae-9111-449ecde12c47"
+NeuralPDE = "315f7962-48a3-4962-8226-d0f33b1235f0"
+ModelingToolkit = "961ee093-0014-501f-94e3-6117800e7a78"
+Optimization = "7f7a1694-90dd-40f0-9382-eb1efda571ba"
+OptimizationOptimisers = "42dfb2eb-d2b4-4451-abcd-913932933ac1"
+ADTypes = "47edcb42-4c32-4615-8424-f2b9edc5f35b"
+SymbolicIndexingInterface = "2efcf032-c050-4f8e-a9bb-153293bab1f5"
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[sources]
+AnalyticMathLab = {path = "../.."}
+
+[compat]
+Lux = "=1.31.4"
+NeuralPDE = "=7.3.0"
+ModelingToolkit = "=11.45.1"
+Optimization = "=5.9.1"
+OptimizationOptimisers = "=0.3.24"
+ADTypes = "=1.24.0"
+SymbolicIndexingInterface = "0.3"
+CairoMakie = "0.15.14"
+julia = "1.12"

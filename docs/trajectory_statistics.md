@@ -211,4 +211,5 @@ Monte Carlo solver, integrator, thermostat, neighbor engine or GPU MD implementa
 [M8C](trajectory_comparison.md) now compares compatible stored M8B results with
 explicit sampling/units/evidence—not by rerunning dynamics or reconstructing data.
 M8B layouts remain unchanged; M8C inputs explicitly bind metadata absent from a
-standalone result. M8D interactive visualization and M9 stochastic methods remain future work.
+standalone result. [M9A Scientific ML](scientific_ml.md) is a separate optional
+PINN bridge; it adds no automatic trajectory conversion or stochastic methods.

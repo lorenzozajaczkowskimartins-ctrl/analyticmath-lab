@@ -48,6 +48,8 @@ export MDTrajectoryAnalysis, diagnose, timeseriesplot, autocorrelationplot, bloc
 export ComparisonInput, ComparisonCompatibility, ObservableComparison, compare
 export MDTrajectoryComparison, compare_runs
 export comparisonplot, differenceplot
+export PINNProblem, PINNTrainingResult, PINNHistory, pinn_network, pinn_problem
+export train, predict, pinn_inspect, lossplot
 
 # Shared contracts and mechanisms: no dependency on studies or presentation.
 include("core/contracts.jl")
@@ -86,6 +88,7 @@ include("trajectory/uncertainty.jl")
 include("trajectory/transport.jl")
 include("trajectory/analyst.jl")
 include("trajectory/comparison.jl")
+include("scientific_ml/pinn.jl")
 
 # Numerical experiments consume reports, not real-function certificates.
 include("numerical.jl")
@@ -103,5 +106,6 @@ include("visualization/potentials.jl")
 include("visualization/atomistic.jl")
 include("visualization/trajectory.jl")
 include("visualization/comparison.jl")
+include("visualization/pinn.jl")
 
 end

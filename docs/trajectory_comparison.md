@@ -191,5 +191,6 @@ even though it retains zero covariance. M8C does not upgrade that input evidence
 
 M8D remains future interactive atomistic visualization/animation: no dashboard,
 temporal controller, particle renderer, synchronized explorer or camera controls.
-M9 remains future stochastic numerical methods/Monte Carlo: no stochastic rounding,
-Monte Carlo estimator, MCMC, Brownian or Langevin simulation is added here.
+[M9A Scientific ML](scientific_ml.md) now provides a separate optional PINN bridge,
+superseding the older stochastic M9 placeholder. No stochastic rounding, Monte Carlo
+estimator, MCMC, Brownian or Langevin simulation is added here.

@@ -23,7 +23,13 @@ M8C adds [evidence-aware stored-result comparison](docs/trajectory_comparison.md
 estimator and selection compatibility. Independence is unknown by default;
 missing analyses are not recomputed. Static `comparisonplot` / `differenceplot`
 consume those results. Run `julia +release --project=. notebooks/trajectory_comparison.jl`.
-Interactive visualization (M8D) and stochastic/Monte Carlo methods (M9) remain future work.
+M9A adds the optional [Scientific ML and PINN bridge](docs/scientific_ml.md):
+ModelingToolkit problems → NeuralPDE discretization → Optimization training →
+inspectable Lux parameters, predictions and bounded history. Base AML does not load
+the ML stack. Run `julia +release --project=examples/pinn notebooks/scientific_ml.jl`
+after instantiating that separate environment. **Low training loss is not proof of
+a correct physical solution.** Stochastic/Monte Carlo methods remain outside scope;
+the Scientific ML roadmap supersedes the earlier M9 placeholder.
 
 The mathematical result is the source of truth:
 

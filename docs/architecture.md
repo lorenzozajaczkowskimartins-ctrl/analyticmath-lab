@@ -45,14 +45,17 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
    borrowed observables, correlated-sampling statistics, transport and opt-in diagnostics.
    `src/trajectory/comparison.jl`: M8C compatibility-gated comparison of stored M8B
    results; no analysis reconstruction, dynamics or new statistical estimators.
-11. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
+11. `src/scientific_ml/pinn.jl`: backend-independent M9A problem/result/history
+   containers, inspection and optional-extension entry points; no ML imports.
+12. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
    `src/symbolic.jl`: univariate Symbolics orchestration;
    `src/convergence.jl`: controlled finite-difference experiments and display.
-12. `src/visualization/real.jl`, `src/visualization/plots.jl`,
+13. `src/visualization/real.jl`, `src/visualization/plots.jl`,
    `src/visualization/scalar_fields.jl`, `src/visualization/vector_fields.jl`,
    `src/visualization/dynamical_systems.jl`, `src/visualization/mechanics.jl`,
    `src/visualization/potentials.jl`, `src/visualization/atomistic.jl`, and
-   `src/visualization/trajectory.jl`, and `src/visualization/comparison.jl`:
+   `src/visualization/trajectory.jl`, `src/visualization/comparison.jl`, and
+   `src/visualization/pinn.jl`:
    Makie consumers of stored reports.
 
 The optional `ext/AnalyticMathLabMollyExt.jl` loads only with Molly;
@@ -64,8 +67,15 @@ M8C [stored comparison](trajectory_comparison.md) adds `ComparisonInput`,
 Explicit context supplies metadata absent from old M8B results; their layouts and
 the Molly extension are unchanged. `compare` / `compare_runs` never fetch frames
 or compute missing M8B results. Compatibility and propagated uncertainty are
-separate evidence; static views consume comparison results only. M8D interactive
-visualization/animation and M9 stochastic/Monte Carlo methods remain unimplemented.
+separate evidence; static views consume comparison results only.
+M9A [Scientific ML](scientific_ml.md) uses one optional `AnalyticMathLabPINNExt`
+extension for Lux, NeuralPDE, ModelingToolkit, Optimization and their symbolic
+indexing interface. It preserves backend problems/solutions and AML evidence
+without implementing layers, AD, optimizers or symbolic PDE lowering. The base
+imports none of the ML stack. The separate `examples/pinn` environment owns training
+verification. Existing M6/M7/M8 representations are unchanged; automatic bridges,
+advanced PINNs and validation/surrogates remain outside M9A. Stochastic/Monte Carlo
+work is not part of the current M9 roadmap.
 The shared core depends on neither study type nor numerical experiment nor
 presentation. Multivariate restrictions can load with the core and Symbolics,
 without loading `RealFunctionStudy`, scalar solvers, or Makie. Scalar stationary
