@@ -47,6 +47,8 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
    results; no analysis reconstruction, dynamics or new statistical estimators.
 11. `src/scientific_ml/pinn.jl`: backend-independent M9A problem/result/history
    containers, inspection and optional-extension entry points; no ML imports.
+   `src/scientific_ml/diagnostics.jl`: M9B explicit points, sampled summaries and
+   analysis containers; residual/reference evaluation lives in the same ML extension.
 12. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
    `src/symbolic.jl`: univariate Symbolics orchestration;
    `src/convergence.jl`: controlled finite-difference experiments and display.
@@ -55,7 +57,7 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
    `src/visualization/dynamical_systems.jl`, `src/visualization/mechanics.jl`,
    `src/visualization/potentials.jl`, `src/visualization/atomistic.jl`, and
    `src/visualization/trajectory.jl`, `src/visualization/comparison.jl`, and
-   `src/visualization/pinn.jl`:
+   `src/visualization/pinn.jl`, `src/visualization/pinn_diagnostics.jl`:
    Makie consumers of stored reports.
 
 The optional `ext/AnalyticMathLabMollyExt.jl` loads only with Molly;
@@ -75,7 +77,9 @@ without implementing layers, AD, optimizers or symbolic PDE lowering. The base
 imports none of the ML stack. The separate `examples/pinn` environment owns training
 verification. Existing M6/M7/M8 representations are unchanged; automatic bridges,
 advanced PINNs and validation/surrogates remain outside M9A. Stochastic/Monte Carlo
-work is not part of the current M9 roadmap.
+work is not part of the current M9 roadmap. M9B [PINN diagnostics](pinn_diagnostics.md)
+extends this bridge through public residual blocks and symbolic indexing, not a
+second PDE engine. Stored plots do not activate a backend or reevaluate models.
 The shared core depends on neither study type nor numerical experiment nor
 presentation. Multivariate restrictions can load with the core and Symbolics,
 without loading `RealFunctionStudy`, scalar solvers, or Makie. Scalar stationary

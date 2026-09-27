@@ -30,6 +30,14 @@ the ML stack. Run `julia +release --project=examples/pinn notebooks/scientific_m
 after instantiating that separate environment. **Low training loss is not proof of
 a correct physical solution.** Stochastic/Monte Carlo methods remain outside scope;
 the Scientific ML roadmap supersedes the earlier M9 placeholder.
+M9B adds [PINN residual/reference diagnostics](docs/pinn_diagnostics.md), explicit
+evaluation points, BC/IC roles, per-equation residuals, collocation snapshots and
+stored scientific plots. Run the heat showcase with
+`julia +release --project=examples/pinn notebooks/pinn_diagnostics.jl`.
+**Small sampled residuals do not prove global PDE correctness.** Poisson 2D,
+coupled PDE, Burgers and bounded Navier–Stokes gates are separately opt-in;
+the stress example is not production CFD. Unavailable adaptive-weight history and
+sampling history remain unavailable.
 
 The mathematical result is the source of truth:
 

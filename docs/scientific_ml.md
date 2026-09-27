@@ -206,14 +206,14 @@ loads CairoMakie and plots prediction/reference and independent sampled error. C
 AML never activates a Makie backend. No generic prediction plotting abstraction is
 needed for M9A.
 
-Generic independent residual validation is deferred: backend residual expressions
-and training costs are exposed, but no new symbolic differentiation or resampling
-engine is built. Independent analytical-reference checks establish the two examples
-only, not correctness for arbitrary PDEs.
+M9B adds [independent residual and reference diagnostics](pinn_diagnostics.md) on
+this bridge, without a new symbolic differentiation or resampling engine.
+The M9A examples remain unchanged; the heat-equation showcase is separate.
 
 ## Boundaries
 
-- M9B: advanced PINN capabilities remain unimplemented.
+- M9B: sampled residual/reference analysis, collocation provenance, multidimensional
+  and coupled benchmarks are documented separately; none proves global correctness.
 - M9C: no automatic M6 dynamics, M7 mechanics or M8 trajectory conversion yet. The
   original system, backend objects and AML evidence/provenance stay accessible for
   those future bridges; no duplicate physical problem hierarchy is introduced.

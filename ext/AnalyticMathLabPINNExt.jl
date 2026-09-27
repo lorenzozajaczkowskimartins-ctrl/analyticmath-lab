@@ -176,4 +176,6 @@ function predict(r::AML.PINNTrainingResult,x)
     end
     point ? vec(values) : values
 end
+
+include("pinn_diagnostics.jl")
 end

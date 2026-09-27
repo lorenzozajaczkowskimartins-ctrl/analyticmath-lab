@@ -87,7 +87,9 @@ end
         "ComparisonInput", "ComparisonCompatibility", "ObservableComparison", "MDTrajectoryComparison",
         "compare", "compare_runs", "comparisonplot", "differenceplot",
         "PINNProblem", "PINNTrainingResult", "PINNHistory", "pinn_network", "pinn_problem",
-        "train", "predict", "pinn_inspect", "lossplot"])
+        "train", "predict", "pinn_inspect", "lossplot",
+        "PINNPoints", "PINNAnalysis", "sampled_summary", "loss_breakdown",
+        "residualplot", "errorplot", "collocationplot", "losscomponentsplot", "pinnplot"])
     @test Set(names(AnalyticMathLab)) == Set(expected)
     @test (AnalyticMathLab.plot,AnalyticMathLab.surface,AnalyticMathLab.contour) ===
           (Makie.plot,Makie.surface,Makie.contour)

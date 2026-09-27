@@ -3,11 +3,13 @@ using Test, AnalyticMathLab
 import Lux, NeuralPDE, ModelingToolkit, Optimization, OptimizationOptimisers, ADTypes
 import SymbolicIndexingInterface
 const root=joinpath(@__DIR__,"..","..")
-@testset verbose=true "M9A optional integration" begin
+@testset verbose=true "M9A regressions and M9B optional integration" begin
     include(joinpath(root,"test","pinn_construction.jl"))
     include(joinpath(root,"test","pinn_training.jl"))
     include(joinpath(root,"test","pinn_pde.jl"))
     include(joinpath(root,"test","pinn_edges.jl"))
+    include(joinpath(root,"test","pinn_diagnostics.jl"))
+    include(joinpath(root,"test","pinn_multidimensional.jl"))
     @testset "Extension activation and package-owned ambiguities" begin
         ext=Base.get_extension(AnalyticMathLab,:AnalyticMathLabPINNExt)
         @test ext!==nothing

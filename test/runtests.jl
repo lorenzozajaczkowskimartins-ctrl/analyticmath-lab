@@ -234,6 +234,7 @@ include("trajectory_comparison_transport.jl")
 include("trajectory_comparison_runs.jl")
 include("trajectory_comparison_edges.jl")
 include("pinn_base.jl")
+include("pinn_diagnostics_base.jl")
 @testset "Atomistic optional dependency isolation" begin
     @test ismissing(Makie.current_backend())
     @test Base.get_extension(AnalyticMathLab,:AnalyticMathLabMollyExt) === nothing
