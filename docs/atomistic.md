@@ -193,7 +193,7 @@ M8A stops at borrowed inspection, scalar pair analysis, finite-sample RDF/direct
 coordination, visualization and the minimal M7 bridge. M8B now implements
 [trajectory statistics](trajectory_statistics.md), including MSD, VACF,
 autocorrelation and effective sample size, without changing M8A's borrowed-data
-contracts. Comparison of compatible stored M8B results belongs to M8C and requires
-separate authorization. No compare_runs, stochastic rounding, Brownian/Langevin
-dynamics or Monte Carlo are implemented. There is no new MD integrator, neighbor
+contracts. [M8C](trajectory_comparison.md) compares compatible stored M8B results
+without fetching particle frames or requiring Molly. No stochastic rounding,
+Brownian/Langevin dynamics or Monte Carlo are implemented. There is no new MD integrator, neighbor
 engine, thermostat, barostat or GPU force engine.

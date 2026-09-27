@@ -206,7 +206,9 @@ VACF: O(N*K*P*d) work, O(N*P*d) velocity history only, no snapshot/coordinate co
 High-level requested components may make separate passes over a borrowed series;
 mutable/live backing data must remain fixed throughout an analysis.
 
-No comparator, dashboard, stochastic arithmetic, Brownian/Langevin/Monte Carlo
-solver, integrator, thermostat, neighbor engine or GPU MD implementation is added.
-M8C starts only after separate authorization, by comparing compatible stored M8B
-results with explicit sampling/units/evidence—not by rerunning dynamics implicitly.
+M8B itself adds no comparator, dashboard, stochastic arithmetic, Brownian/Langevin/
+Monte Carlo solver, integrator, thermostat, neighbor engine or GPU MD implementation.
+[M8C](trajectory_comparison.md) now compares compatible stored M8B results with
+explicit sampling/units/evidence—not by rerunning dynamics or reconstructing data.
+M8B layouts remain unchanged; M8C inputs explicitly bind metadata absent from a
+standalone result. M8D interactive visualization and M9 stochastic methods remain future work.

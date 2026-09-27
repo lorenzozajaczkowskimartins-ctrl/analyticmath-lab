@@ -18,6 +18,12 @@ M8B adds [trajectory statistics and transport](docs/trajectory_statistics.md):
 explicit sampling, correlation-aware uncertainty, blocking, conservative transient
 diagnostics, image-aware MSD, VACF, and opt-in trajectory analysis. Stored frames
 are not assumed independent. See `notebooks/molly_trajectory_analysis.jl`.
+M8C adds [evidence-aware stored-result comparison](docs/trajectory_comparison.md):
+`compare` / `compare_runs` gate B−A differences on observable, units, time,
+estimator and selection compatibility. Independence is unknown by default;
+missing analyses are not recomputed. Static `comparisonplot` / `differenceplot`
+consume those results. Run `julia +release --project=. notebooks/trajectory_comparison.jl`.
+Interactive visualization (M8D) and stochastic/Monte Carlo methods (M9) remain future work.
 
 The mathematical result is the source of truth:
 

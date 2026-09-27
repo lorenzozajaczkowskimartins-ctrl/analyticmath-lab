@@ -45,6 +45,9 @@ export BlockAnalysis, block_average, transient_analysis
 export MeanSquaredDisplacement, mean_squared_displacement, diffusion_estimate
 export VelocityAutocorrelation, velocity_autocorrelation, energy_diagnostics, momentum_diagnostics
 export MDTrajectoryAnalysis, diagnose, timeseriesplot, autocorrelationplot, blockplot, msdplot, vacfplot
+export ComparisonInput, ComparisonCompatibility, ObservableComparison, compare
+export MDTrajectoryComparison, compare_runs
+export comparisonplot, differenceplot
 
 # Shared contracts and mechanisms: no dependency on studies or presentation.
 include("core/contracts.jl")
@@ -82,6 +85,7 @@ include("trajectory/statistics.jl")
 include("trajectory/uncertainty.jl")
 include("trajectory/transport.jl")
 include("trajectory/analyst.jl")
+include("trajectory/comparison.jl")
 
 # Numerical experiments consume reports, not real-function certificates.
 include("numerical.jl")
@@ -98,5 +102,6 @@ include("visualization/mechanics.jl")
 include("visualization/potentials.jl")
 include("visualization/atomistic.jl")
 include("visualization/trajectory.jl")
+include("visualization/comparison.jl")
 
 end
