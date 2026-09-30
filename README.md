@@ -38,6 +38,13 @@ stored scientific plots. Run the heat showcase with
 coupled PDE, Burgers and bounded Navier–Stokes gates are separately opt-in;
 the stress example is not production CFD. Unavailable adaptive-weight history and
 sampling history remain unavailable.
+M9C adds [deterministic physical parameter inference](docs/parameter_inference.md),
+[Hamiltonian learning and UDE corrections](docs/learned_dynamics.md),
+[M8 trajectory-to-LJ inference](docs/trajectory_inference.md), and
+[inverse heat PINNs](docs/inverse_heat.md). ODE inference uses native SciML solves,
+not PINNs. Local sensitivity/SVD is not global identifiability; learned corrections
+are not symbolic discovery. CPU showcases and optional gates live in
+`examples/inference`; inverse heat uses the existing `examples/pinn` environment.
 
 The mathematical result is the source of truth:
 

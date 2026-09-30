@@ -17,7 +17,7 @@ end
 _same_symbol(a,b)=isequal(Symbolics.unwrap(a),Symbolics.unwrap(b))
 function pinn_problem(system::MTK.PDESystem;network,strategy,rng::Random.AbstractRNG,adtype,
         network_layout=:auto,derivative=NeuralPDE.FiniteDifferenceDerivative(),
-        additional_loss=nothing,eval_points::Integer=32,optimization_options=NamedTuple(),
+        additional_loss=nothing,param_estim::Bool=false,eval_points::Integer=32,optimization_options=NamedTuple(),
         provenance=NamedTuple())
     ivs=collect(MTK.get_ivs(system)); dvs=collect(MTK.get_dvs(system))
     isempty(ivs) && throw(ArgumentError("at least one independent variable is required"))
@@ -52,7 +52,7 @@ function pinn_problem(system::MTK.PDESystem;network,strategy,rng::Random.Abstrac
         push!(params,ps); push!(states,st)
     end
     disc=NeuralPDE.PhysicsInformedNN(separate ? nets : only(nets),strategy;
-        init_params=separate ? params : only(params),rng,derivative,additional_loss,eval_points=Int(eval_points))
+        init_params=separate ? params : only(params),rng,derivative,additional_loss,param_estim,eval_points=Int(eval_points))
     # Discretize ONCE: it calls symbolic_discretize and retains that exact System.
     # A second symbolic_discretize call could draw different parameters/collocation points.
     opt=NeuralPDE.discretize(system,disc;adtype,optimization_options...)
@@ -70,8 +70,13 @@ function pinn_problem(system::MTK.PDESystem;network,strategy,rng::Random.Abstrac
         NeuralPDE=pkgversion(NeuralPDE),ModelingToolkit=pkgversion(MTK),
         Optimization=pkgversion(Optimization),SciMLBase=pkgversion(SciMLBase),
         Symbolics=pkgversion(Symbolics),SymbolicIndexingInterface=pkgversion(SII))
+    physical=MTK.get_ps(system)
+    declared=physical isa SciMLBase.NullParameters ? [] : collect(physical)
     meta=(packages=versions,rng_type=string(typeof(rng)),initialization=:explicit_rng_consumed,
         precision=:Float64,device=:CPU,network_layout=separate ? :separate : :shared,
+        physical_parameters=(param_estim=param_estim,declared=declared,
+            inferred=param_estim ? copy(declared) : [],
+            selection=:all_declared_or_none,initialization=:pdesystem_initial_conditions),
         adtype=adtype,derivative=derivative,optimization_options=optimization_options,user=provenance)
     AML.PINNProblem(system,ivs,dvs,MTK.get_domain(system),MTK.get_eqs(system),MTK.get_bcs(system),
         nets,mapping,params,states,strategy,disc,symbolic,opt,md,components,meta,

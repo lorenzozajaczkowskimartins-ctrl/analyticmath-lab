@@ -19,6 +19,9 @@ const A=AnalyticMathLab
         @test_throws ArgumentError A.pinn_network(1,1;hidden=[0])
         p=A.pinn_problem(ode;network,strategy=NeuralPDE.GridTraining(0.1),rng=Xoshiro(42),adtype=ADTypes.AutoZygote())
         @test p isa A.PINNProblem
+        @test !p.provenance.physical_parameters.param_estim
+        @test isempty(p.provenance.physical_parameters.declared)
+        @test isempty(p.provenance.physical_parameters.inferred)
         @test p.system===ode
         @test isequal(p.independent_variables,[t])
         @test isequal(p.dependent_variables,[u(t)])

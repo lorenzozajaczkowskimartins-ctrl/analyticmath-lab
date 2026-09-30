@@ -89,7 +89,12 @@ end
         "PINNProblem", "PINNTrainingResult", "PINNHistory", "pinn_network", "pinn_problem",
         "train", "predict", "pinn_inspect", "lossplot",
         "PINNPoints", "PINNAnalysis", "sampled_summary", "loss_breakdown",
-        "residualplot", "errorplot", "collocationplot", "losscomponentsplot", "pinnplot"])
+        "residualplot", "errorplot", "collocationplot", "losscomponentsplot", "pinnplot",
+        "ObservationSet", "InferenceParameters", "ParameterInferenceProblem", "ParameterInferenceResult",
+        "inference_predict", "inference_objective", "local_sensitivity", "infer_parameters", "parameterfitplot",
+        "distance_observations", "DerivativeData", "TrajectoryData", "HamiltonianNN", "UDEProblem",
+        "DynamicsTrainingResult", "learned_energy", "learned_vector_field", "learned_correction",
+        "dynamics_objective", "aligned_energy"])
     @test Set(names(AnalyticMathLab)) == Set(expected)
     @test (AnalyticMathLab.plot,AnalyticMathLab.surface,AnalyticMathLab.contour) ===
           (Makie.plot,Makie.surface,Makie.contour)

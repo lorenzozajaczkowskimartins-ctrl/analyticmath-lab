@@ -1,0 +1,18 @@
+[deps]
+AnalyticMathLab = "d00b717d-2040-4c0f-8850-62abbaf45caf"
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+Lux = "b2108857-7c20-44ae-9111-449ecde12c47"
+Optimization = "7f7a1694-90dd-40f0-9382-eb1efda571ba"
+OptimizationOptimisers = "42dfb2eb-d2b4-4451-abcd-913932933ac1"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[sources]
+AnalyticMathLab = {path = "../.."}
+
+[compat]
+CairoMakie = "=0.15.14"
+Lux = "=1.31.4"
+Optimization = "=5.9.1"
+OptimizationOptimisers = "=0.3.24"
+julia = "1.12"

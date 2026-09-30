@@ -52,6 +52,13 @@ export PINNProblem, PINNTrainingResult, PINNHistory, pinn_network, pinn_problem
 export train, predict, pinn_inspect, lossplot
 export PINNPoints, PINNAnalysis, sampled_summary, loss_breakdown
 export residualplot, errorplot, collocationplot, losscomponentsplot, pinnplot
+export ObservationSet, InferenceParameters, ParameterInferenceProblem
+export inference_predict, inference_objective, local_sensitivity
+export ParameterInferenceResult, infer_parameters
+export parameterfitplot
+export distance_observations
+export DerivativeData, TrajectoryData, HamiltonianNN, UDEProblem, DynamicsTrainingResult
+export learned_energy, learned_vector_field, learned_correction, dynamics_objective, aligned_energy
 
 # Shared contracts and mechanisms: no dependency on studies or presentation.
 include("core/contracts.jl")
@@ -92,6 +99,10 @@ include("trajectory/analyst.jl")
 include("trajectory/comparison.jl")
 include("scientific_ml/pinn.jl")
 include("scientific_ml/diagnostics.jl")
+include("scientific_ml/inference.jl")
+include("scientific_ml/parameter_inference.jl")
+include("scientific_ml/trajectory_inference.jl")
+include("scientific_ml/learned_dynamics.jl")
 
 # Numerical experiments consume reports, not real-function certificates.
 include("numerical.jl")
@@ -111,5 +122,6 @@ include("visualization/trajectory.jl")
 include("visualization/comparison.jl")
 include("visualization/pinn.jl")
 include("visualization/pinn_diagnostics.jl")
+include("visualization/inference.jl")
 
 end

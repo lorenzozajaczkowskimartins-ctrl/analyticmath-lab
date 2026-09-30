@@ -49,6 +49,11 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
    containers, inspection and optional-extension entry points; no ML imports.
    `src/scientific_ml/diagnostics.jl`: M9B explicit points, sampled summaries and
    analysis containers; residual/reference evaluation lives in the same ML extension.
+   `src/scientific_ml/inference.jl`: explicit observations;
+   `src/scientific_ml/parameter_inference.jl`: M6 parameter binding, differentiable
+   native solves, economical local SVD and inference results;
+   `src/scientific_ml/trajectory_inference.jl`: M8 pair-distance/time/unit conversion;
+   `src/scientific_ml/learned_dynamics.jl`: HNN/UDE and data/result containers.
 12. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
    `src/symbolic.jl`: univariate Symbolics orchestration;
    `src/convergence.jl`: controlled finite-difference experiments and display.
@@ -57,7 +62,8 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
    `src/visualization/dynamical_systems.jl`, `src/visualization/mechanics.jl`,
    `src/visualization/potentials.jl`, `src/visualization/atomistic.jl`, and
    `src/visualization/trajectory.jl`, `src/visualization/comparison.jl`, and
-   `src/visualization/pinn.jl`, `src/visualization/pinn_diagnostics.jl`:
+   `src/visualization/pinn.jl`, `src/visualization/pinn_diagnostics.jl`,
+   `src/visualization/inference.jl`:
    Makie consumers of stored reports.
 
 The optional `ext/AnalyticMathLabMollyExt.jl` loads only with Molly;
@@ -80,6 +86,14 @@ advanced PINNs and validation/surrogates remain outside M9A. Stochastic/Monte Ca
 work is not part of the current M9 roadmap. M9B [PINN diagnostics](pinn_diagnostics.md)
 extends this bridge through public residual blocks and symbolic indexing, not a
 second PDE engine. Stored plots do not activate a backend or reevaluate models.
+M9C [parameter inference](parameter_inference.md) uses the Optimization-only
+`AnalyticMathLabInferenceExt`. [Learned dynamics](learned_dynamics.md) uses
+`AnalyticMathLabDynamicsExt` with Lux and Optimization, without NeuralPDE.
+Both use the existing SciML solver and ForwardDiff; M6's public Float64 trajectory
+semantics remain unchanged. [M8 distance observations](trajectory_inference.md)
+retain actual times, units and minimum-image provenance. [Inverse heat](inverse_heat.md)
+adds an opt-in all-declared-parameters flag to the existing PINN extension.
+No new mandatory dependency, optimizer, AD engine or integrator is introduced.
 The shared core depends on neither study type nor numerical experiment nor
 presentation. Multivariate restrictions can load with the core and Symbolics,
 without loading `RealFunctionStudy`, scalar solvers, or Makie. Scalar stationary
