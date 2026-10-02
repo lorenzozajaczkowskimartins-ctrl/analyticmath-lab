@@ -45,6 +45,14 @@ M9C adds [deterministic physical parameter inference](docs/parameter_inference.m
 not PINNs. Local sensitivity/SVD is not global identifiability; learned corrections
 are not symbolic discovery. CPU showcases and optional gates live in
 `examples/inference`; inverse heat uses the existing `examples/pinn` environment.
+M9D adds [scientific surrogates and neural operators](docs/surrogates.md): explicit
+scientific families, train-only scaling, parametric heat prediction and a genuine
+DeepONet function-to-function heat route. `GeneralizationAnalysis` separates
+training, held-out interpolation, parameter/function-family/time extrapolation,
+reference differences, sampled PDE residuals and descriptive timing. Optional CPU
+gates live in `examples/operators`; FNO is investigated but not a supported route.
+No automatic ranking, universal generalization or discretization-invariance claim
+is made. See the [backend decision record](docs/operator_backends.md).
 
 The mathematical result is the source of truth:
 

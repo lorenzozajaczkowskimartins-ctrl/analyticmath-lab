@@ -239,6 +239,10 @@ include("inference_base.jl")
 include("inference_sensitivity.jl")
 include("learned_dynamics_base.jl")
 include("trajectory_inference.jl")
+include("surrogate_data.jl")
+include("surrogate_contracts.jl")
+include("heat_reference.jl")
+include("surrogate_diagnostics.jl")
 @testset "Atomistic optional dependency isolation" begin
     @test ismissing(Makie.current_backend())
     @test Base.get_extension(AnalyticMathLab,:AnalyticMathLabMollyExt) === nothing

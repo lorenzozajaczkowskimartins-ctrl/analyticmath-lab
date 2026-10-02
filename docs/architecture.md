@@ -54,6 +54,10 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
    native solves, economical local SVD and inference results;
    `src/scientific_ml/trajectory_inference.jl`: M8 pair-distance/time/unit conversion;
    `src/scientific_ml/learned_dynamics.jl`: HNN/UDE and data/result containers.
+   `src/scientific_ml/surrogates.jl`: scientific families, disjoint splits,
+   train-only normalization and optional scientific-model entry points;
+   `src/scientific_ml/generalization.jl`: split-specific analysis, sampled AD heat
+   residuals and descriptive timing, without ML imports.
 12. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
    `src/symbolic.jl`: univariate Symbolics orchestration;
    `src/convergence.jl`: controlled finite-difference experiments and display.
@@ -94,6 +98,12 @@ semantics remain unchanged. [M8 distance observations](trajectory_inference.md)
 retain actual times, units and minimum-image provenance. [Inverse heat](inverse_heat.md)
 adds an opt-in all-declared-parameters flag to the existing PINN extension.
 No new mandatory dependency, optimizer, AD engine or integrator is introduced.
+M9D [scientific surrogates and operators](surrogates.md) uses the optional
+`AnalyticMathLabSurrogateExt` with Lux, Optimization and NeuralOperators.
+The public DeepONet backend owns branch/trunk combination; AML never implements
+FFT machinery or converts operator objects into PINNs. `GeneralizationAnalysis`
+keeps training, interpolation and each extrapolation split separate, with optional
+physics/timing evidence. It does not rank models or certify discretization invariance.
 The shared core depends on neither study type nor numerical experiment nor
 presentation. Multivariate restrictions can load with the core and Symbolics,
 without loading `RealFunctionStudy`, scalar solvers, or Makie. Scalar stationary

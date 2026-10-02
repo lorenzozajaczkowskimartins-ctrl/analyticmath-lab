@@ -59,6 +59,12 @@ export parameterfitplot
 export distance_observations
 export DerivativeData, TrajectoryData, HamiltonianNN, UDEProblem, DynamicsTrainingResult
 export learned_energy, learned_vector_field, learned_correction, dynamics_objective, aligned_energy
+export ScientificSample, ScientificDataset, classify_query
+export AffineScaling, fit_scaling, transform, inverse_transform
+export field_errors
+export ScientificModel, ScientificLearningResult, learning_model, training_data, learning_objective
+export heat_residual, benchmark_queries
+export GeneralizationAnalysis
 
 # Shared contracts and mechanisms: no dependency on studies or presentation.
 include("core/contracts.jl")
@@ -103,6 +109,8 @@ include("scientific_ml/inference.jl")
 include("scientific_ml/parameter_inference.jl")
 include("scientific_ml/trajectory_inference.jl")
 include("scientific_ml/learned_dynamics.jl")
+include("scientific_ml/surrogates.jl")
+include("scientific_ml/generalization.jl")
 
 # Numerical experiments consume reports, not real-function certificates.
 include("numerical.jl")

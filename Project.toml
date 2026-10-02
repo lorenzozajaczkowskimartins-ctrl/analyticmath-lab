@@ -17,6 +17,7 @@ Symbolics = "0c5d862f-8b57-4792-8d23-62f2024744c7"
 Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
 [weakdeps]
+NeuralOperators = "ea5c82af-86e5-48da-8ee1-382d6ad7af4b"
 Lux = "b2108857-7c20-44ae-9111-449ecde12c47"
 NeuralPDE = "315f7962-48a3-4962-8226-d0f33b1235f0"
 ModelingToolkit = "961ee093-0014-501f-94e3-6117800e7a78"
@@ -25,12 +26,14 @@ SymbolicIndexingInterface = "2efcf032-c050-4f8e-a9bb-153293bab1f5"
 Molly = "aa0f7f06-fcc0-5ec4-a7f3-a573f33f9c4c"
 
 [extensions]
+AnalyticMathLabSurrogateExt = ["Lux", "Optimization", "NeuralOperators"]
 AnalyticMathLabDynamicsExt = ["Lux", "Optimization"]
 AnalyticMathLabInferenceExt = "Optimization"
 AnalyticMathLabPINNExt = ["Lux", "NeuralPDE", "ModelingToolkit", "Optimization", "SymbolicIndexingInterface"]
 AnalyticMathLabMollyExt = "Molly"
 
 [compat]
+NeuralOperators = "0.7.3"
 Random = "1"
 Lux = "1.31.4"
 NeuralPDE = "7.3"

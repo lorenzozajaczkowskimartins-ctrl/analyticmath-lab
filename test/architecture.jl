@@ -94,8 +94,15 @@ end
         "inference_predict", "inference_objective", "local_sensitivity", "infer_parameters", "parameterfitplot",
         "distance_observations", "DerivativeData", "TrajectoryData", "HamiltonianNN", "UDEProblem",
         "DynamicsTrainingResult", "learned_energy", "learned_vector_field", "learned_correction",
-        "dynamics_objective", "aligned_energy"])
+        "dynamics_objective", "aligned_energy",
+        "ScientificSample", "ScientificDataset", "classify_query",
+        "AffineScaling", "fit_scaling", "transform", "inverse_transform", "field_errors",
+        "ScientificModel", "ScientificLearningResult", "learning_model", "training_data",
+        "learning_objective", "heat_residual", "benchmark_queries", "GeneralizationAnalysis"])
     @test Set(names(AnalyticMathLab)) == Set(expected)
+    @test all(s -> isdefined(AnalyticMathLab,s), expected)
+    @test Base.get_extension(AnalyticMathLab,:AnalyticMathLabSurrogateExt) === nothing
+    @test all(m -> nameof(m) ∉ (:Lux,:NeuralOperators,:Optimization), values(Base.loaded_modules))
     @test (AnalyticMathLab.plot,AnalyticMathLab.surface,AnalyticMathLab.contour) ===
           (Makie.plot,Makie.surface,Makie.contour)
     @test all(m -> nameof(m) != :CairoMakie && nameof(m) != :GLMakie, values(Base.loaded_modules))
