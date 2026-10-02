@@ -1,0 +1,27 @@
+# M10A M9C/D inventory
+
+`T` = `test/m10a_inference_operators.jl`, `I` =
+`examples/inference/m10a_gate.jl`, `O` = `examples/operators/m10a_gate.jl`.
+Optional gates use their existing environments, serially, without optimizers or
+heavy model retraining. Base tests never activate Lux/NeuralPDE/NeuralOperators.
+Final execution counts/status are in `m10a_audit.md`.
+
+| Subsystem / object | Mathematical obligation | Independent oracle | Tolerance / exactness | Regression / status | Finding / limitation |
+|---|---|---|---|---|---|
+| M9C deterministic inference | Truth and held-out targets excluded from objective/gradient | Change reference to 1e9 and held-out targets to -1e8; compare fit objective/gradient unchanged | Exact invariance | T, deterministic inference; verified | Generated synthetic observations legitimately depend on truth; metadata itself must not enter fit |
+| M9C sensitivities | Analytic decay derivative; AD vs FD through solves | `-t exp(-θt)`; fresh central solves h=2e-5 | AD/analytic 2e-7 absolute; FD 2e-5 relative +2e-7 absolute | T, deterministic/oscillator; verified | FD and AD share native ODE solver; analytic decay supplies independent reference |
+| M9C order/SVD | Full `(m,k)`, inferred `(k,m)`, observed `(v,q)`; weighted singular values and rank | Explicit oscillator sin/cos; sqrt(weights) times FD Jacobian; separate SVD | Trajectory 2e-8; SVD 2e-5 relative +2e-7 absolute; exact metadata | T, oscillator; verified | Local unit-dependent identifiability only; m/k ambiguity correctly singular |
+| M9C rank/condition | threshold=atol+rtol*smax; strict >; insufficient rows imply infinite condition | One-column norm; threshold at smax and above it; 1×2 underdetermined map | Exact thresholds/rank; analytic singular value 2e-7 | T, deterministic/oscillator; verified | Thin SVD does not contain the complete nullspace; rank is a tolerance-dependent numerical statement |
+| M9C HNN | Canonical q/p signs; cross term; H and H+C same vector field | Hand 4-component gradient with canonical signs; controlled native Lux Dense coefficients | Field 1e-12; zero derivative objective <1e-24 | I; execution recorded in overall ledger | No training or Hamiltonian-recovery claim; tests field/gauge algebra |
+| M9C UDE | Known+hidden identity before training; hidden error distinct from trajectory error | Explicit cubic acceleration; deliberately wrong cubic model at equilibrium | Algebraic/default Float64 comparisons; hidden coefficient 1e-14; off-trajectory hidden RMS >0.1 | I; execution recorded in overall ledger | Nonstationary comparison shares M6/Tsit5 backend; not an independent integrator audit |
+| M9C LJ map | Explicit V/F, fixed sigma, inferred epsilon only; observed vs extrapolation ranges | Formula and central FD; Cartesian dimer opposite forces vs radial reduced-mass factor 2/m | Formula 1e-10–1e-11; FD 2e-7 relative +1e-8 absolute; trajectory 2e-8 | T, LJ; verified | Initial-only data deliberately rank zero; observed interval from generated distances, outside interval separate; no unknown-law discovery or fit rerun |
+| M9D Fourier heat | ut-alpha*uxx=0, both BCs and initial Fourier sum | Explicit term-wise analytic derivatives, independent AD of HeatFamily callable | Field 1e-13; ut 2e-11; uxx 2e-10; BC 1e-12 | T, Fourier heat; verified | Finite family/points only; no continuum proof |
+| M9B/D diagnostic meaning | Residual is not reference error | Added 0.2x²+0.3t gives signed residual 0.26; constant shift gives zero PDE residual but error 2 | Residual 1e-11, error 1e-12 | T, Fourier heat; verified | Does not rerun NeuralPDE optimization or certify global correctness |
+| M9D generalization roles | Train/interpolation/parameter/amplitude/frequency/coordinate distinctions | Explicit split sets and independently recomputed Fourier values | Exact sets, reference 1e-12 | T, categories; verified | Generic amplitude/frequency interpretation is caller-declared; controlled heat family uses explicit coefficients |
+| M9D target leakage | Held-out targets cannot change normalization, batches or objective | Poison all held-out values ±1e12; rebuild preprocessing/model and training batches | Exact equality/invariance | T scaling; O batches/objective; execution in overall ledger | No statistical claim; verifies deterministic data separation only |
+| M9D operator representation | Branch is sensor values, not Fourier coefficients | Sine sum at each of nine ordered sensors; 3-coefficient vector rejected | Sensor values 1e-12; exact dimension rejection | T/O; execution in overall ledger | Fixed sensor grid only; no discretization invariance |
+| M9D DeepONet | Trunk `(x,t)`; query columns; native batch shape and unchanged state | Controlled two-latent branch/trunk; explicit scalar bilinear formula independent of backend product | Single query 1e-12, batch 1e-11, objective 1e-12 relative | O; execution in overall ledger | Deliberately asymmetric coefficients expose row/column permutation errors |
+| M9D refusals | Sensor permutation/grid mismatch; unequal training grids; state changes | Changed explicit sensor metadata, one perturbed query coordinate, counter-state custom Lux layer | Exact exceptions | O; execution in overall ledger | Bare vectors carry no sensor identities: a caller lying about order cannot be detected; audit shows the resulting prediction changes |
+
+No new public theorem prover, solver, adapter or learning architecture is added.
+M9A/B central consistency coverage is recorded separately in `m10a_audit.md`.

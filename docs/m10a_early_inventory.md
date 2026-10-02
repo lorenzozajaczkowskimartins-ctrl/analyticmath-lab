@@ -1,0 +1,21 @@
+# M10A early mathematics inventory (M1–M7)
+
+All checks are bounded audit fixtures, not completeness or continuum certificates.
+`T` below means `test/`. Numeric closures are independent of AML-generated callables.
+
+| Subsystem / object | Mathematical obligation | Independent oracle | Tolerance / exactness | Status / regression | Finding / limitation |
+|---|---|---|---|---|---|
+| M1–M2 scalar report | Values, first/second derivatives; FD convergence | Hand polynomial/trigonometric/exponential derivatives, ForwardDiff on a separate closure; analytic forward/central error for x³ | Values 2e-12; AD 2e-11; first FD 2e-7; convergence errors 2e-12 | Verified: `T/m10a_calculus_dynamics.jl`, scalar calculus | Smooth seeded bounded samples only; FD is approximate |
+| M3 original domain | Cancelled denominators and logarithm exclusions remain excluded | Original mathematical denominators/sign restrictions | Exact membership/exception assertions | Verified: same file, original-domain exclusions | Legacy univariate `evaluate` does not enforce the stored real domain; explicitly not claimed otherwise |
+| M4 scalar field | Ordered gradient, directional derivative, symmetric Hessian | Explicit vector/matrix formula, independent AD closure, value-only central FD | AD/analytic 2e-11; gradient FD 2e-7; Hessian FD 2e-6 with h=2e-4 | Verified: same file, ordered gradient/Hessian | Variables deliberately `(y,x)`; wrong sign/order negative controls |
+| M5 vector field | Rectangular Jacobian and column order | Explicit 3×2 matrix, independent AD and directional FD | 2e-11 analytic/AD; 2e-7 FD | Verified: same testset | No giant Hessian or scaling work |
+| M6 trajectories | Constant exponential decay, exp(-t²), harmonic oscillator, logistic reference satisfy ODE and IC before use | Independent reference closures and hand RHS; AD in time; off-step solution evaluation | Reference 2e-11; solver 1e-11; sampled trajectory comparison 2e-8 | Verified: same file, reference equation/IC audits | Solver comparison is against analytic functions, not another invocation of the same solver; no global error bound |
+| M6 order/bindings | q/v state order; full `(m,k)` and inferred `(k,m)` parameter order; observed `(v,q)` | Explicit harmonic solution; unequal named m=2,k=8 mechanics binding | ODE comparison 2e-8; algebraic 1e-12 | Verified: `T/m10a_mechanics.jl` EL oscillator and `T/m10a_inference_operators.jl` oscillator | M6 Float64 boundary unchanged; inference dual-number path audited separately |
+| M7 force | F=-∇V with reordered coordinates | Hand differentiated quartic/cross potential plus independent AD | 1e-12 | Verified: `T/m10a_mechanics.jl`, force | Deliberate positive-gradient force is rejected by audit predicate |
+| M7 Hamiltonian | Canonical J, q/p blocks, signs and cross term | Explicit 4×4 J and component equations | Exact J/order; 1e-12 field | Verified: same file, canonical signs | Wrong sign and interleaved ordering fail; no noncanonical mechanics claim |
+| M7 regular Legendre map | EL oscillator; L/H vector fields agree under p=Mv | Explicit non-diagonal SPD M, K; `(v,-M⁻¹Kq)` and `(M⁻¹p,-Kq)`; quadratic energy | 1e-12 | Verified: same file, regular Legendre | Affine regular momentum map only, no constrained-system extension |
+| M7 local mechanics | Nonzero equilibrium and reordered M/C/K; damping restriction | Independently specified full matrices and direct acceleration | Exact coefficient comparisons, 1e-12 field | Verified: same file, equilibrium M/C/K | Incorrect equilibrium and damped undamped-mode request remain unknown |
+| M7 small-amplitude limit | Nonlinear pendulum approaches linear oscillator | Taylor bound `|sin(a)-a|≤a³/6`; explicit sin/cos linear solution | Algebraic cubic bound; solver 1e-12, trajectory difference <a³/3 at t=1 | Verified: same file, local nonlinear limit | Bounded amplitudes/times; not long-term validity |
+| M7 modes | K a=λ M a, M-orthogonality, zero/negative/degenerate semantics | Direct matrix residual; roots of det(K-λM); degenerate-subspace projector | Residual ≤1e-11 times matrix/vector scale; orthogonality 1e-12 | Verified: same file, generalized eigenpairs | Shifted eigenvalue rejected; eigenvectors in repeated subspaces are not unique; numerical zeros are not exact certificates |
+
+See `m10a_audit.md` for counts, failure classification and verification evidence.

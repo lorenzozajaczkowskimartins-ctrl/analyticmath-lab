@@ -243,6 +243,12 @@ include("surrogate_data.jl")
 include("surrogate_contracts.jl")
 include("heat_reference.jl")
 include("surrogate_diagnostics.jl")
+# M10A finite mathematical audits; optional neural stacks stay in example gates.
+include("m10a_references.jl")
+include("m10a_calculus_dynamics.jl")
+include("m10a_mechanics.jl")
+include("m10a_atomistic_statistics.jl")
+include("m10a_inference_operators.jl")
 @testset "Atomistic optional dependency isolation" begin
     @test ismissing(Makie.current_backend())
     @test Base.get_extension(AnalyticMathLab,:AnalyticMathLabMollyExt) === nothing
