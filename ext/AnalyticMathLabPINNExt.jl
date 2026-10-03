@@ -166,7 +166,7 @@ function predict(r::AML.PINNTrainingResult,x)
     p=r.problem
     size(X,1)==length(p.independent_variables) || throw(DimensionMismatch("coordinate rows must match stored independent-variable order"))
     all(v->v isa Real && isfinite(v),X) || throw(ArgumentError("coordinates must be finite and real"))
-    coords=Float64.(X)
+    coords=AML._checked_float64.(X,Ref("PINN prediction coordinates"))
     all(isfinite,coords) || throw(ArgumentError("coordinates must be finite in Float64"))
     values=Matrix{Float64}(undef,length(p.dependent_variables),size(X,2))
     for i in eachindex(p.networks)
@@ -175,8 +175,9 @@ function predict(r::AML.PINNTrainingResult,x)
         output,state=Lux.apply(p.networks[i],coords[m.input_indices,:],r.network_parameters[i],deepcopy(r.states[i]))
         isequal(state,r.states[i]) || throw(ArgumentError("prediction changed Lux state; incompatible stateless backend"))
         size(output)==(length(rows),size(X,2)) || throw(DimensionMismatch("network output shape changed"))
+        all(v->v isa Real && isfinite(v),output) || throw(DomainError(output,"nonfinite or non-real PINN prediction"))
         for row in rows
-            values[row,:]=output[p.network_mapping[row].output,:]
+            values[row,:]=AML._checked_float64.(output[p.network_mapping[row].output,:],Ref("PINN prediction output"))
         end
     end
     point ? vec(values) : values

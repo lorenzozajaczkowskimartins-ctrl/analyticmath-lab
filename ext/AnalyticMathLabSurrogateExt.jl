@@ -34,7 +34,7 @@ function predict(m,input,q;sensors=m.schema.sensors)
     expected=m.architecture==:deeponet ? (size(q,2),1) : (1,size(q,2))
     size(y)==expected || throw(DimensionMismatch("backend output must be $expected"))
     all(isfinite,y) || throw(DomainError(y,"nonfinite prediction"))
-    vec(y).*only(m.normalization.outputs.scale).+only(m.normalization.outputs.offset)
+    vec(A.inverse_transform(m.normalization.outputs,reshape(y,1,:)))
 end
 function training_data(m,d)
     isequal(m.schema,(kind=d.kind,family=d.family,input_names=d.input_names,coordinate_names=d.coordinate_names,
@@ -55,7 +55,9 @@ function training_data(m,d)
 end
 function learning_objective(m,p,b)
     y,_=Lux.apply(m.network,b.inputs,p,m.state)
-    sum(abs2,y.-b.targets)/length(b.targets)
+    value=sum(abs2,y.-b.targets)/length(b.targets)
+    isfinite(value) || throw(DomainError(value,"nonfinite learning objective"))
+    value
 end
 function train(m,d;initial_parameters::AbstractVector,optimizer,adtype,maxiters::Integer,
         reconstruct=identity,history_limit::Integer=100)

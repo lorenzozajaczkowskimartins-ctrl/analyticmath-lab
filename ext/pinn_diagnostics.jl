@@ -67,7 +67,8 @@ function _reference_analysis(r,points,reference,provenance,guard)
     all(x->x isa Real && isfinite(x),ref) || throw(ArgumentError("reference values must be finite real numbers"))
     errors=predictions.-ref
     relative=map(errors,ref) do e,y
-        abs(y)>guard && isfinite(e) ? abs(e)/abs(y) : missing
+        ratio=abs(y)>guard && isfinite(e) ? abs(e)/abs(y) : missing
+        ismissing(ratio) || isfinite(ratio) ? ratio : missing
     end
     summary=[AML.sampled_summary(row) for row in eachrow(errors)]
     AML.PropertyResult((points=points,variables=r.problem.independent_variables,

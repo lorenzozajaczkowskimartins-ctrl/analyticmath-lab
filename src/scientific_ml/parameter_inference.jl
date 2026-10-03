@@ -17,13 +17,14 @@ struct InferenceParameters
             throw(ArgumentError("unique parameter identities and nonempty inferred subset required"))
         all(n->n in ns,ins) || throw(ArgumentError("unknown inferred parameter name"))
         all(x->x isa Real && isfinite(x),initial) || throw(ArgumentError("finite numeric initial parameters required"))
-        init=Float64.(initial); all(isfinite,init) || throw(ArgumentError("parameters not representable in Float64"))
+        init=_checked_float64.(initial,Ref("initial parameters"))
         ids=Int[findfirst(==(n),ns) for n in ins]
         b=if bounds===nothing
             nothing
         else
             length(bounds)==2 && all(x->length(x)==length(ins),bounds) || throw(DimensionMismatch("bounds must be (lower,upper) in inferred order"))
-            lo,hi=Float64.(bounds[1]),Float64.(bounds[2])
+            lo=_checked_float64.(bounds[1],Ref("lower parameter bounds");allow_infinite=true)
+            hi=_checked_float64.(bounds[2],Ref("upper parameter bounds");allow_infinite=true)
             all(i->!isnan(lo[i]) && !isnan(hi[i]) && lo[i]<hi[i] && lo[i]<=init[ids[i]]<=hi[i],eachindex(ids)) ||
                 throw(ArgumentError("ordered bounds containing initial estimate required"))
             (lo,hi)
@@ -65,7 +66,10 @@ function ParameterInferenceProblem(factory,spec::InferenceParameters,obs::Observ
     obs.role==:fit || throw(ArgumentError("objective observations must have role=:fit"))
     length(tspan)==2 && all(isfinite,tspan) && tspan[1]<tspan[2] || throw(ArgumentError("increasing finite tspan required"))
     all(x->isfinite(x) && x>0,(abstol,reltol)) && maxiters>0 || throw(ArgumentError("positive solver controls required"))
-    initial=Float64.(u0)
+    initial=_checked_float64.(u0,Ref("inference initial state"))
+    times=Tuple(_checked_float64.(tspan,Ref("inference time span")))
+    at=_checked_float64(abstol,"inference absolute tolerance")
+    rt=_checked_float64(reltol,"inference relative tolerance")
     length(initial)==model.dimension || throw(DimensionMismatch("initial state dimension mismatch"))
     all(isfinite,initial) || throw(ArgumentError("finite initial state required"))
     ids=Int[findfirst(==(v),model.labels) for v in obs.variables]
@@ -90,15 +94,25 @@ function ParameterInferenceProblem(factory,spec::InferenceParameters,obs::Observ
         all(isfinite,y) || throw(DomainError(y,"nonfinite M6 RHS"))
         collect(y)
     end
-    native=SciMLBase.ODEProblem{false}(rhs,initial,Tuple(Float64.(tspan)),copy(spec.initial))
+    native=SciMLBase.ODEProblem{false}(rhs,initial,times,copy(spec.initial))
     rhs(initial,native.p,first(tspan))
-    solver=(algorithm=algorithm,abstol=Float64(abstol),reltol=Float64(reltol),maxiters=Int(maxiters),
+    solver=(algorithm=algorithm,abstol=at,reltol=rt,maxiters=Int(maxiters),
         sensitivity=:direct_forwarddiff_through_solve,ad_backend=:ForwardDiff)
     ParameterInferenceProblem(factory,model,native,spec,obs,heldout,ids,solver,reference,provenance)
 end
 
 function _inference_solve(p,theta,times)
-    all(isfinite,theta) || throw(ArgumentError("finite parameters required"))
+    # The native solve uses Float64 physical data; preserve ForwardDiff duals
+    # but reject unsupported precision before entering the backend.
+    theta=map(theta) do x
+        if x isa ForwardDiff.Dual
+            ForwardDiff.value(x) isa Float64 && isfinite(x) ||
+                throw(ArgumentError("inference AD requires finite Float64 dual parameters"))
+            x
+        else
+            _checked_float64(x,"inference parameters")
+        end
+    end
     full=_inference_parameters(p.parameters,theta)
     native=SciMLBase.remake(p.native_problem;p=full,u0=oftype.(Ref(first(full)),p.native_problem.u0))
     c=p.solver
@@ -130,10 +144,13 @@ Rank threshold is `rank_atol + rank_rtol * maximum(singular_values)`.
 """
 function local_sensitivity(p::ParameterInferenceProblem,theta;rank_rtol=1e-8,rank_atol=0.)
     all(x->isfinite(x) && x>=0,(rank_rtol,rank_atol)) || throw(ArgumentError("nonnegative finite rank tolerances required"))
-    J=ForwardDiff.jacobian(x->vec(inference_predict(p,x)),collect(theta))
+    parameters=_checked_float64.(collect(theta),Ref("sensitivity parameters"))
+    J=ForwardDiff.jacobian(x->vec(inference_predict(p,x)),parameters)
     weighted=p.observations.weights===nothing ? J : sqrt.(vec(p.observations.weights)).*J
+    all(isfinite,weighted) || throw(ArgumentError("nonfinite sensitivity matrix"))
     decomposition=LinearAlgebra.svd(weighted;full=false)
     s=decomposition.S; threshold=rank_atol+rank_rtol*maximum(s)
+    isfinite(threshold) || throw(ArgumentError("unrepresentable sensitivity rank threshold"))
     rank=count(>(threshold),s); n=length(theta)
     norms=sqrt.(vec(sum(abs2,weighted;dims=1)))
     cosines=[norms[i]>0 && norms[j]>0 ? LinearAlgebra.dot(weighted[:,i],weighted[:,j])/(norms[i]*norms[j]) : NaN for i in 1:n,j in 1:n]

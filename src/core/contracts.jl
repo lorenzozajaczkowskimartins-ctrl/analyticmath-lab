@@ -1,6 +1,22 @@
 """Supertype for reusable mathematical analysis results."""
 abstract type AbstractAnalysis end
 
+# Deliberate Float64 backend boundaries must not silently discard caller precision.
+# Callers can explicitly round first with Float64(x) when that approximation is wanted.
+function _checked_float64(x, argument; allow_infinite=false)
+    x isa Real && !isnan(x) || throw(ArgumentError("$argument must be real and not NaN"))
+    if !isfinite(x)
+        allow_infinite && return Float64(x)
+        throw(ArgumentError("$argument must be finite"))
+    end
+    y = try Float64(x) catch
+        throw(ArgumentError("$argument must be representable in Float64"))
+    end
+    isfinite(y) && x == y || throw(ArgumentError(
+        "$argument loses range or precision in Float64; explicitly round before this Float64-only path"))
+    y
+end
+
 """
     PropertyResult(value, status, method, notes)
 

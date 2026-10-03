@@ -353,7 +353,7 @@ function directional_derivative(report::ScalarFieldAnalysis, point, direction)
     unit = collect(direction) ./ scale
     magnitude = LinearAlgebra.norm(unit)
     isfinite(magnitude) && magnitude > 0 || throw(DomainError(direction, "direction must be nonzero"))
-    return LinearAlgebra.dot(gradient(report,p), unit ./ magnitude)
+    return _finite_real(LinearAlgebra.dot(gradient(report,p), unit ./ magnitude))
 end
 
 function linearization(report::ScalarFieldAnalysis, point)

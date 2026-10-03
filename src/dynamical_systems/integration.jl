@@ -54,7 +54,8 @@ function _ode_rhs(problem::FirstOrderODE, u, t)
     # The integrator uses Float64 states/times. Mixed constant and symbolic
     # components can produce Vector{Real}; normalize at this shared boundary.
     converted = Float64[value...]
-    all(isfinite,converted) || throw(DomainError(value,"ODE right-hand side is not representable in Float64"))
+    all(isfinite,converted) && all(i->!iszero(value[i]) ? !iszero(converted[i]) : true,eachindex(converted)) ||
+        throw(DomainError(value,"ODE right-hand side is not representable in Float64"))
     return converted
 end
 
@@ -84,7 +85,8 @@ function trajectory(problem::FirstOrderODE, u0, tspan;
     all(x -> isfinite(x) && x > 0,(a,r)) || throw(ArgumentError("solver tolerances must be finite and positive"))
     maxiters > 0 || throw(ArgumentError("maxiters must be positive"))
     state = Float64.(initial)
-    all(isfinite,state) || throw(DomainError(u0,"initial state must be representable in Float64"))
+    all(isfinite,state) && all(i->!iszero(initial[i]) ? !iszero(state[i]) : true,eachindex(state)) ||
+        throw(DomainError(u0,"initial state must be representable in Float64"))
     _ode_rhs(problem,state,times[1])
     options = (abstol=a,reltol=r,maxiters=maxiters,dense=true,save_everystep=true,
         save_start=true,save_end=true)
@@ -115,7 +117,9 @@ function trajectory(problem::FirstOrderODE, u0, tspan;
     end
     if dt !== nothing
         dt isa Real && isfinite(dt) && dt > 0 || throw(ArgumentError("dt must be a positive finite initial step magnitude"))
-        options = merge(options,(dt=sign(times[2]-times[1])*Float64(dt),))
+        step = Float64(dt)
+        isfinite(step) && step > 0 || throw(ArgumentError("dt must be finite and positive in Float64"))
+        options = merge(options,(dt=(times[2]>times[1] ? step : -step),))
     end
     native = SciMLBase.ODEProblem{false}((u,p,t) -> _ode_rhs(problem,u,t),state,times)
     solution = SciMLBase.solve(native,algorithm;options...)

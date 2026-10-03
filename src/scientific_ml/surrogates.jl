@@ -9,14 +9,31 @@ struct AffineScaling
     scale::Vector{Float64}
     fitted_ids::Vector{Symbol}
     field::Symbol
+    function AffineScaling(offset,scale,fitted_ids,field)
+        length(offset)==length(scale) || throw(DimensionMismatch("scaling offset/scale lengths differ"))
+        o=_checked_float64.(collect(offset),Ref("scaling offset"))
+        s=_checked_float64.(collect(scale),Ref("scaling scale"))
+        !isempty(s) && all(>(0),s) || throw(ArgumentError("scaling scale must be finite and positive"))
+        new(o,s,collect(Symbol,fitted_ids),field)
+    end
 end
 function transform(s::AffineScaling,x::Union{AbstractVector,AbstractMatrix})
     size(x,1)==length(s.offset) || throw(DimensionMismatch("scaling row count mismatch"))
-    (x.-s.offset)./s.scale
+    all(v->v isa Real && isfinite(v),x) || throw(ArgumentError("transform input must be finite and real"))
+    all(v->isfinite(v) && v>0,s.scale) || throw(ArgumentError("scaling scale must be finite and positive"))
+    y=broadcast(x .- s.offset,x ./ s.scale,s.offset ./ s.scale,s.scale) do delta,scaled,offset,scale
+        isfinite(delta) ? delta/scale : scaled-offset
+    end
+    all(isfinite,y) || throw(ArgumentError("transformed values are not representable"))
+    y
 end
 function inverse_transform(s::AffineScaling,x::Union{AbstractVector,AbstractMatrix})
     size(x,1)==length(s.offset) || throw(DimensionMismatch("scaling row count mismatch"))
-    x.*s.scale.+s.offset
+    all(v->v isa Real && isfinite(v),x) || throw(ArgumentError("inverse transform input must be finite and real"))
+    all(v->isfinite(v) && v>0,s.scale) || throw(ArgumentError("scaling scale must be finite and positive"))
+    y=muladd.(x,s.scale,s.offset)
+    all(isfinite,y) || throw(ArgumentError("inverse transformed values are not representable"))
+    y
 end
 
 """One scalar output field, sampled at coordinate columns. Arrays are copied; read-only by convention.
@@ -33,7 +50,9 @@ struct ScientificSample
         split in _learning_splits || throw(ArgumentError("explicit supported split required"))
         size(coordinates,2)==length(values) || throw(DimensionMismatch("one scalar target per coordinate column"))
         !isempty(input) && !isempty(values) && size(coordinates,1)>0 || throw(ArgumentError("nonempty arrays required"))
-        x,q,y=Float64.(input),Matrix{Float64}(coordinates),Float64.(values)
+        x=_checked_float64.(input,Ref("sample input"))
+        q=_checked_float64.(coordinates,Ref("sample coordinates"))
+        y=_checked_float64.(values,Ref("sample values"))
         all(isfinite,x) && all(isfinite,q) && all(isfinite,y) || throw(ArgumentError("finite representable data required"))
         new(Symbol(id),copy(x),q,copy(y),split,deepcopy(descriptor))
     end
@@ -135,8 +154,10 @@ function fit_scaling(d::ScientificDataset,field::Symbol)
     x=field==:inputs ? hcat((s.input for s in ss)...) :
       field==:coordinates ? hcat((s.coordinates for s in ss)...) : reshape(vcat((s.values for s in ss)...),1,:)
     lo=vec(minimum(x;dims=2)); hi=vec(maximum(x;dims=2))
-    offset=lo ./ 2 .+ hi ./ 2; scale=hi ./ 2 .- lo ./ 2
-    scale=ifelse.(iszero.(scale),1.,scale)
+    # Equal subnormals must retain their offset; only truly constant rows use 1.
+    # Same-sign subtraction is safe and avoids dividing both endpoints first.
+    scale=[a==b ? 1. : signbit(a)==signbit(b) ? (b-a)/2 : b/2-a/2 for (a,b) in zip(lo,hi)]
+    offset=[a==b ? a : signbit(a)==signbit(b) ? a+(b-a)/2 : a/2+b/2 for (a,b) in zip(lo,hi)]
     all(isfinite,offset) && all(x->isfinite(x) && x>0,scale) || throw(ArgumentError("unrepresentable scaling"))
     AffineScaling(offset,scale,[s.id for s in ss],field)
 end
@@ -146,12 +167,13 @@ Relative L2 is unavailable when reference RMS is at/below the explicit absolute 
 """
 function field_errors(prediction,reference;relative_floor=1e-12)
     size(prediction)==size(reference) || throw(DimensionMismatch("reference shape mismatch"))
-    !isempty(reference) && all(isfinite,prediction) && all(isfinite,reference) || throw(ArgumentError("finite nonempty field values required"))
+    !isempty(reference) && all(x->x isa Real && isfinite(x),prediction) && all(x->x isa Real && isfinite(x),reference) || throw(ArgumentError("finite nonempty real field values required"))
     isfinite(relative_floor) && relative_floor>=0 || throw(ArgumentError("nonnegative relative floor required"))
     difference=prediction.-reference
     all(isfinite,difference) || throw(ArgumentError("unrepresentable field difference"))
     summary=sampled_summary(difference); baseline=sampled_summary(reference)
     relative=baseline.rms<=relative_floor ? nothing : summary.rms/baseline.rms
+    relative===nothing || isfinite(relative) || (relative=nothing)
     (summary=summary,relative_sampled_l2=relative,relative_floor=relative_floor,
         absolute=abs.(difference),normalization=:physical_unweighted_samples)
 end

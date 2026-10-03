@@ -300,7 +300,7 @@ function compare(a::ComparisonInput,b::ComparisonInput;quantity=:auto,
             _cmp_units(x.se,y.se;unitless).value===true &&
             _cmp_equal(x.uncertainty_estimator,y.uncertainty_estimator,"Uncertainty estimators").value===true &&
             _cmp_time(x.sampling,y.sampling;unitless_time,interval=true).value===true
-        error=sqrt(x.se^2+_cmp_convert(y.se,x.se)^2)
+        error=hypot(x.se,_cmp_convert(y.se,x.se))
         _at_finite(error) && (uncertainty=PropertyResult(error,:heuristic,:independent_standard_errors,
             ["Caller asserts independent estimators; stored stationarity/window assumptions still apply."]))
     end

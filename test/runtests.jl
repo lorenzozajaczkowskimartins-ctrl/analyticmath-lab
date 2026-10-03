@@ -249,6 +249,15 @@ include("m10a_calculus_dynamics.jl")
 include("m10a_mechanics.jl")
 include("m10a_atomistic_statistics.jl")
 include("m10a_inference_operators.jl")
+# M10B bounded numeric audit; optional neural gates remain separate.
+include("m10b_types.jl")
+include("m10b_nonfinite.jl")
+include("m10b_linear_algebra.jl")
+include("m10b_atomistic.jl")
+include("m10b_statistics.jl")
+include("m10b_diagnostics.jl")
+include("m10b_inference_scaling.jl")
+include("m10b_showcases.jl")
 @testset "Atomistic optional dependency isolation" begin
     @test ismissing(Makie.current_backend())
     @test Base.get_extension(AnalyticMathLab,:AnalyticMathLabMollyExt) === nothing

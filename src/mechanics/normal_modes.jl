@@ -172,7 +172,8 @@ function normal_modes(K::AbstractMatrix,M::AbstractMatrix;equilibrium=nothing,
     size(K) == size(M) == (n,n) && n > 0 || throw(DimensionMismatch("K and M must be equal nonempty square matrices"))
     all(x->isfinite(x) && x>=0,(atol,rtol)) || throw(ArgumentError("tolerances must be finite and nonnegative"))
     at,rt = Float64(atol),Float64(rtol)
-    all(isfinite,(at,rt)) || throw(ArgumentError("tolerances must be representable as Float64"))
+    all(isfinite,(at,rt)) && !(iszero(at) && !iszero(atol)) &&
+        !(iszero(rt) && !iszero(rtol)) || throw(ArgumentError("tolerances must be representable as Float64"))
     if equilibrium !== nothing
         equilibrium isa Union{Tuple,AbstractVector} && length(equilibrium)==n || throw(DimensionMismatch("equilibrium dimension differs"))
         all(x->x isa Real && !(x isa Symbolics.Num) && isfinite(x),equilibrium) || throw(ArgumentError("equilibrium must be finite real"))
@@ -200,6 +201,11 @@ function normal_modes(K::AbstractMatrix,M::AbstractMatrix;equilibrium=nothing,
     B = mass.vectors*LinearAlgebra.Diagonal(inv.(sqrt.(mass.values)))*mass.vectors'
     D = B*Kn*B
     all(isfinite,D) || return unknown("Nonfinite mass-weighted dynamical matrix.")
+    # For diagonal masses each entry is a pure rescaling, with no cancellation.
+    # A nonzero stiffness entry cannot legitimately become an exact zero here.
+    if LinearAlgebra.isdiag(Mn) && any(i->iszero(D[i]) && !iszero(Kn[i]),eachindex(D))
+        return unknown("Mass weighting underflowed a nonzero stiffness entry.")
+    end
     D = _nm_symmetrize(D)
     modes = LinearAlgebra.eigen(LinearAlgebra.Symmetric(D))
     λ,U = modes.values,modes.vectors

@@ -88,24 +88,28 @@ end
 
 # Welford updates use constant auxiliary storage unless cumulative output requested.
 function _ts_moments(values;running=false)
-    n=0; mean=nothing; m2=nothing; lo=nothing; hi=nothing
+    n=0; mean=nothing; variance=nothing; lo=nothing; hi=nothing
     means=Any[]; variances=Any[]
     for raw in values
         _ts_valid(raw) || return nothing
         x=float(real(raw)); n+=1
         if n==1
-            mean=x; m2=zero(x*x); lo=x; hi=x
+            mean=x; variance=zero(x)*zero(x); lo=x; hi=x
         else
-            delta=x-mean; mean+=delta/n; m2+=delta*(x-mean)
+            delta=x-mean; mean+=delta/n
+            # Store sample variance rather than its potentially overflowing
+            # (n-1) multiple. Divide the increment before multiplication.
+            weight=oftype(_at_number(x),n-2)/oftype(_at_number(x),n-1)
+            variance=weight*variance+(delta/(n-1))*(x-mean)
             lo=min(lo,x); hi=max(hi,x)
         end
-        _ts_valid(mean) && _ts_valid(m2) || return nothing
+        _ts_valid(mean) && _ts_valid(variance) || return nothing
         if running
-            push!(means,mean); push!(variances,n>1 ? m2/(n-1) : nothing)
+            push!(means,mean); push!(variances,n>1 ? variance : nothing)
         end
     end
     n==0 && return nothing
-    variance=n>1 ? m2/(n-1) : nothing
+    variance=n>1 ? variance : nothing
     (count=n,mean=mean,variance=variance,std=variance===nothing ? nothing : sqrt(variance),
         minimum=lo,maximum=hi,standard_error=nothing,means=means,variances=variances)
 end

@@ -15,6 +15,12 @@ function _at_safe(f,note)
         _at_unknown("Incompatible data or units: "*note)
     end
 end
+function _at_kinetic(m,v)
+    squares=abs2.(v)
+    any(i->iszero(squares[i]) && !iszero(v[i]),eachindex(v)) &&
+        throw(DomainError(v,"velocity squaring underflowed before mass scaling"))
+    m*sum(squares)/2
+end
 """Inspect an instantaneous configuration; optional backend energies/forces are
 requested only by the adapter, not recomputed by a second force engine.
 
@@ -47,7 +53,7 @@ function mdcheck(s::AtomisticSnapshot;close_distance=nothing,force_threshold=not
     moving=available && _at_velocities_ok(s)
     momentum=moving ? _at_safe(()->sum(s.masses[i].*collect(s.velocities[i]) for i in 1:n),"momentum") : _at_unknown("Velocities or positive masses unavailable.")
     cmvelocity=momentum.value!==nothing && total.value!==nothing ? _at_safe(()->momentum.value/total.value,"center-of-mass velocity") : _at_unknown("Momentum unavailable.")
-    kinetic=moving ? _at_safe(()->sum(s.masses[i]*sum(abs2,s.velocities[i])/2 for i in 1:n),"kinetic energy") : _at_unknown("Velocities or positive masses unavailable.")
+    kinetic=moving ? _at_safe(()->sum(_at_kinetic(s.masses[i],s.velocities[i]) for i in 1:n),"kinetic energy") : _at_unknown("Velocities or positive masses unavailable.")
     potential=s.potential_energy isa PropertyResult ? s.potential_energy : s.potential_energy===nothing ?
         _at_unknown("Potential energy unavailable; no force engine invoked.") : _at_safe(()->s.potential_energy,"potential energy")
     energy=kinetic.value!==nothing && potential.value!==nothing ? _at_safe(()->kinetic.value+potential.value,"total mechanical energy") : _at_unknown("Compatible kinetic and potential energies required.")
@@ -86,7 +92,7 @@ function inspect_particle(s::AtomisticSnapshot,i::Integer;cutoff=nothing)
     m=s.masses===nothing || length(s.masses)<i ? nothing : s.masses[i]
     v=s.velocities===nothing || length(s.velocities)<i ? nothing : s.velocities[i]
     speed=v===nothing ? _at_unknown("Velocity unavailable.") : _at_safe(()->LinearAlgebra.norm(v),"speed")
-    kinetic=m===nothing || speed.value===nothing ? _at_unknown("Mass/velocity unavailable.") : _at_safe(()->m*speed.value^2/2,"particle kinetic energy")
+    kinetic=m===nothing || speed.value===nothing ? _at_unknown("Mass/velocity unavailable.") : _at_safe(()->_at_kinetic(m,v),"particle kinetic energy")
     local_distances=_at_positions_ok(s) && (_at_kind(s)==:open || _at_box_ok(s)) ?
         _at_observed([(index=j,distance=_at_distance(s,s.positions[i],s.positions[j])) for j in eachindex(s.positions) if j!=i];method=:selected_particle_distances) : _at_unknown("Unsupported positions or boundary.")
     if local_distances.value!==nothing && !all(x->_at_finite(x.distance) && x.distance>=zero(x.distance),local_distances.value)

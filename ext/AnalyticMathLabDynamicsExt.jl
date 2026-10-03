@@ -31,7 +31,9 @@ function AML.learned_vector_field(m::AML.UDEProblem,u,t=0.)
     known=m.known.function_value(u,t)
     length(known)==m.known.dimension || throw(DimensionMismatch("known RHS dimension mismatch"))
     all(isfinite,known) || throw(DomainError(known,"nonfinite known RHS"))
-    collect(known) + AML.learned_correction(m,u,t)
+    value=collect(known) + AML.learned_correction(m,u,t)
+    all(isfinite,value) || throw(DomainError(value,"nonfinite combined UDE vector field"))
+    value
 end
 function AML.dynamics_objective(m::AML.UDEProblem,data::AML.TrajectoryData;
         algorithm=OrdinaryDiffEqTsit5.Tsit5(),abstol=1e-9,reltol=1e-7,maxiters=10000)
