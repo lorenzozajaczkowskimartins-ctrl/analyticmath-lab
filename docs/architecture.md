@@ -1,5 +1,10 @@
 # Architecture and API contracts (Milestones 4.5–7)
 
+Current pre-1.0 authority: [M10D architecture/public API inventory](m10d_architecture_inventory.md),
+[integration matrix](m10d_integration_matrix.md), and [phase plan](m10d_plan.md).
+The milestone-relative statements below preserve historical design context;
+the M10D inventory covers the complete current M1–M9 surface and optional backends.
+
 Milestone 4.5 reorganizes the Milestones 1–4 implementation, without adding a
 mathematical domain or changing public exports, result layouts, or constructors.
 There is one public module, `AnalyticMathLab`. Internal source paths and `_ra_*` /

@@ -3,7 +3,7 @@
 using AnalyticMathLab, Symbolics
 import LinearAlgebra, Makie
 @variables x y z v w u t p s
-identity_zero(e) = AnalyticMathLab._mc_zero(e)
+identity_zero(e) = iszero(Symbolics.simplify(Symbolics.simplify_fractions(e); expand=true))
 
 # Effective damping models, not fluid dynamics.
 viscous = analyze(LagrangianSystem((v^2-x^2)/2;coordinates=(x,),velocities=(v,),rayleigh=v^2/4))
@@ -62,7 +62,7 @@ println("Coupled squared frequencies: ",coupled.eigenvalues)
 println("Pendulum local squared frequency g/l: ",only(pendulum_modes.eigenvalues))
 println("Pair squared frequencies (translation, internal): ",pair.eigenvalues)
 println("Three unequal-mass squared frequencies: ",three.eigenvalues)
-println("All generic mode checks passed; future molecular dynamics is not implemented.")
+println("All generic mode checks passed; these checks do not run molecular dynamics.")
 
 using CairoMakie
 output=joinpath(@__DIR__,"output")

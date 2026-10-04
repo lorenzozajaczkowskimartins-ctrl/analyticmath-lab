@@ -10,10 +10,8 @@ using AnalyticMathLab
 import SciMLBase
 import OrdinaryDiffEqTsit5: Tsit5
 
-# Recovery-friendly until the parent registers the internal source include.
-if !isdefined(AnalyticMathLab,:_scale_ode_problem)
-    Base.include(AnalyticMathLab,joinpath(@__DIR__,"../../src/dynamical_systems/scaling.jl"))
-end
+# Internal M10C experiment: the package owns registration of _scale_ode_problem.
+# This helper is not a supported public large-state ODE API.
 const STOP = 5.0
 const DT = 0.05
 const GRID = range(0.,STOP;length=101)

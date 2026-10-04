@@ -52,6 +52,15 @@ Estimate budgets are not process RSS limits: dependencies/JIT occupy extra memor
 
 ## Scientific scope
 
+These are repository-maintainer experiments, not the stable public API tutorial.
+In particular, `large_oscillator_ode.jl` and `ode_ensemble.jl` deliberately use
+AML's internal `_scale_ode_problem`; statistics and partial-mode audits also use
+internal helpers. `using AnalyticMathLab` owns all production registration: no
+example injects source into the package. Includes of neighboring example/harness
+files compose the experiment only. These helpers are not promoted to public API.
+M10D.1 removed obsolete registration fallbacks without changing measured kernels;
+the frozen M10C CSV/TOML/source provenance still describes the historical runs.
+
 | Example | Demonstration and independent check |
 |---|---|
 | when_dense_dies | Dense payload versus structured M/K; full-mode residual/eigenvalue oracle; preflight refusal |

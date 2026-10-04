@@ -9,9 +9,8 @@ module ODEEnsemble
 using AnalyticMathLab
 import SciMLBase
 import OrdinaryDiffEqTsit5: Tsit5
-if !isdefined(AnalyticMathLab,:_scale_ode_problem)
-    Base.include(AnalyticMathLab,joinpath(@__DIR__,"../../src/dynamical_systems/scaling.jl"))
-end
+# Internal M10C experiment; package registration owns _scale_ode_problem.
+# Native SciML ensemble orchestration here is not a new public AML API.
 decay!(du,u,p,t) = (du[1]=-p*u[1]; nothing)
 rate(i)=0.5+(i%10)/10
 function member(prob,ctx)

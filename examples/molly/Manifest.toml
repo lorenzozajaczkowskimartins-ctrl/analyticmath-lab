@@ -96,14 +96,26 @@ uuid = "66dad0bd-aa9a-41b7-9441-69ab47430ed8"
 version = "1.1.3"
 
 [[deps.AnalyticMathLab]]
-deps = ["CairoMakie", "FiniteDiff", "ForwardDiff", "LinearAlgebra", "Makie", "OrdinaryDiffEqTsit5", "Roots", "SciMLBase", "Symbolics", "Unitful"]
+deps = ["CairoMakie", "FiniteDiff", "ForwardDiff", "LinearAlgebra", "Makie", "OrdinaryDiffEqTsit5", "Random", "Roots", "SciMLBase", "Symbolics", "Unitful"]
 path = "../.."
 uuid = "d00b717d-2040-4c0f-8850-62abbaf45caf"
 version = "0.1.0"
-weakdeps = ["Molly"]
 
     [deps.AnalyticMathLab.extensions]
+    AnalyticMathLabDynamicsExt = ["Lux", "Optimization"]
+    AnalyticMathLabInferenceExt = "Optimization"
     AnalyticMathLabMollyExt = "Molly"
+    AnalyticMathLabPINNExt = ["Lux", "NeuralPDE", "ModelingToolkit", "Optimization", "SymbolicIndexingInterface"]
+    AnalyticMathLabSurrogateExt = ["Lux", "Optimization", "NeuralOperators"]
+
+    [deps.AnalyticMathLab.weakdeps]
+    Lux = "b2108857-7c20-44ae-9111-449ecde12c47"
+    ModelingToolkit = "961ee093-0014-501f-94e3-6117800e7a78"
+    Molly = "aa0f7f06-fcc0-5ec4-a7f3-a573f33f9c4c"
+    NeuralOperators = "ea5c82af-86e5-48da-8ee1-382d6ad7af4b"
+    NeuralPDE = "315f7962-48a3-4962-8226-d0f33b1235f0"
+    Optimization = "7f7a1694-90dd-40f0-9382-eb1efda571ba"
+    SymbolicIndexingInterface = "2efcf032-c050-4f8e-a9bb-153293bab1f5"
 
 [[deps.Animations]]
 deps = ["Colors"]
