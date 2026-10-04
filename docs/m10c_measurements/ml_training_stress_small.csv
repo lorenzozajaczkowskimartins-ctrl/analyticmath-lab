@@ -1,0 +1,6 @@
+name,n,estimated_bytes,algorithm,elapsed_seconds,allocated_bytes,result_bytes,output_count,correctness_metric,warmup_seconds,repeats_completed,rss_highwater_bytes,status
+"forward","337","97888","CPU Float64 Lux dense tanh forward","1.87635e-5","8992","304","32","0.0","3.033e-5","2","1576267776","completed"
+"backward","337","97888","Zygote gradient; independent central-difference component oracle","0.00023589599999999998","81088","2744","337","6.975814370591138e-11","0.000444848","2","1576267776","completed"
+"optimizer_state","337","97888","Adam state construction; storage measured independently","4.92e-7","6048","5544","337","0.0","5.602e-6","2","1576267776","completed"
+"optimizer_step","337","97888","Adam update with fixed measured gradient; includes objective check","2.16505e-5","10640","8","337","0.0","0.243796914","2","1576267776","completed"
+"training_three_steps","337","97888","3 CPU Adam steps; computational observation, NOT scientific convergence","0.00023369949999999998","265448","24","3","5.975211753356926","0.000578273","2","1576267776","completed"

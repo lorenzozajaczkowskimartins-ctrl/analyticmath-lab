@@ -258,6 +258,13 @@ include("m10b_statistics.jl")
 include("m10b_diagnostics.jl")
 include("m10b_inference_scaling.jl")
 include("m10b_showcases.jl")
+# M10C bounded correctness only; manual scale ladders remain outside Pkg.test().
+include("m10c_guardrails.jl")
+include("m10c_streaming.jl")
+include("m10c_atomistic_scale.jl")
+include("m10c_partial_modes.jl")
+include("m10c_ode_scale.jl")
+include("m10c_chunking.jl")
 @testset "Atomistic optional dependency isolation" begin
     @test ismissing(Makie.current_backend())
     @test Base.get_extension(AnalyticMathLab,:AnalyticMathLabMollyExt) === nothing

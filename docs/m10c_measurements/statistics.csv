@@ -1,0 +1,8 @@
+name,n,estimated_bytes,algorithm,elapsed_seconds,allocated_bytes,result_bytes,output_count,correctness_metric,warmup_seconds,repeats_completed,rss_highwater_bytes,status
+"lazy_moments","100000","4096","M10B Welford, O(1) auxiliary storage","0.000586192","864","276","100000","1.532107773982716e-14","0.0006258","2","1140707328","completed"
+"stored_moments","100000","804096","same Welford; explicit input materialization","0.000694478","801080","193","100000","1.8041801776516597e-18","0.019267652","2","1144823808","completed"
+"lazy_moments","1000000","4096","M10B Welford, O(1) auxiliary storage","0.0058796460000000005","864","276","1000000","1.9455548283531243e-12","0.005923512","2","1149886464","completed"
+"stored_moments","1000000","8004096","same Welford; explicit input materialization","0.006927278","8004584","193","1000000","6.93719983801272e-19","0.006848531","2","1173872640","completed"
+"running_prefix","10000","640000","bounded prefix; retained output, not extreme-stream estimator","0.00016919949999999998","724400","376024","0","0.0","0.000154276","2","1177018368","completed"
+"block_prefix","10000","320000","bounded prefix; retained output, not extreme-stream estimator","0.000525505","531152","9906","0","0.0","0.000518578","2","1177018368","completed"
+"acf_prefix","10000","320000","bounded prefix; retained output, not extreme-stream estimator","0.0001716245","161984","1019","0","0.0","0.141355532","2","1177018368","completed"

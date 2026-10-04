@@ -1,0 +1,5 @@
+name,n,estimated_bytes,algorithm,elapsed_seconds,allocated_bytes,result_bytes,output_count,correctness_metric,warmup_seconds,repeats_completed,rss_highwater_bytes,status
+"Lagrangian_construction","3","331776","","0.0","0","0","0","0.0","0.0","0","1856913408","refused_by_guardrail"
+"Lagrangian_construction","5","2560000","","0.0","0","0","0","0.0","0.0","0","1861672960","refused_by_guardrail"
+"structured_chain_dynamics","150","153600","","0.0","0","0","0","0.0","0.0","0","1861672960","refused_by_guardrail"
+"structured_chain_dynamics","600","614400","","0.0","0","0","0","0.0","0.0","0","1861672960","refused_by_guardrail"

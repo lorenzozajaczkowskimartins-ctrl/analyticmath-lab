@@ -1,0 +1,9 @@
+name,n,estimated_bytes,algorithm,elapsed_seconds,allocated_bytes,result_bytes,output_count,correctness_metric,warmup_seconds,repeats_completed,rss_highwater_bytes,status
+"ensemble_serial_aggregate","100","4718592","native EnsembleProblem/Tsit5","0.000413162","477568","104","4","3.55281914998784e-11","0.000420972","2","1256706048","completed"
+"ensemble_serial_full","100","7471104","native EnsembleProblem/Tsit5","0.0011998955","1803944","1151984","2100","3.785066704509177e-11","0.036726526","2","1287372800","completed"
+"ensemble_threaded_aggregate","100","4718592","native EnsembleProblem/Tsit5","0.00043897","481472","104","4","3.55281914998784e-11","0.000500086","2","1288683520","completed"
+"ensemble_threaded_full","100","7471104","native EnsembleProblem/Tsit5","0.0172909835","1807848","1151984","2100","3.785066704509177e-11","0.000770868","2","1309917184","completed"
+"ensemble_serial_aggregate","1000","4718592","native EnsembleProblem/Tsit5","0.0035748965","4763360","104","4","3.55281914998784e-11","0.003653477","2","1309917184","completed"
+"ensemble_serial_full","1000","36962304","native EnsembleProblem/Tsit5","0.0063725265","18084968","11524880","21000","3.785066704509177e-11","0.006462954","2","1309917184","completed"
+"ensemble_threaded_aggregate","1000","4718592","native EnsembleProblem/Tsit5","0.0025099355","4794592","104","4","3.55281914998784e-11","0.00365824","2","1309917184","completed"
+"ensemble_threaded_full","1000","36962304","native EnsembleProblem/Tsit5","0.0090494845","18116200","11524880","21000","3.785066704509177e-11","0.065238462","2","1367756800","completed"

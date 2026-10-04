@@ -32,6 +32,8 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
    `src/dynamical_systems/display.jl`, and `src/dynamical_systems/integration.jl`:
    autonomous reports reusing vector fields, local classification, text display,
    and numerical first-order ODE integration through SciML.
+   `src/dynamical_systems/scaling.jl`: internal checked native in-place Float64
+   boundary for large-state experiments; no new solver or public export.
 8. `src/mechanics/core.jl`, `src/mechanics/hamiltonian.jl`,
    `src/mechanics/legendre.jl`, `src/mechanics/bridge.jl`, and
    `src/mechanics/normal_modes.jl`: formal mechanics, verified affine Legendre

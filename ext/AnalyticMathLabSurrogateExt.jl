@@ -27,8 +27,21 @@ function _network_input(m,input,q)
     t=A.transform(m.normalization.coordinates,q)
     m.architecture==:deeponet ? (b,t) : vcat(repeat(b,1,size(q,2)),t)
 end
-function predict(m,input,q;sensors=m.schema.sensors)
+function predict(m,input,q;sensors=m.schema.sensors,batch_size::Union{Nothing,Integer}=nothing)
     A.classify_query(m,input,q;sensors)
+    if batch_size!==nothing
+        batch_size>0 || throw(ArgumentError("batch_size must be positive; use only query-independent networks"))
+        n=size(q,2); batch=Int(min(batch_size,n))
+        first_output=predict(m,input,view(q,:,1:batch);sensors)
+        output=similar(first_output,n)
+        copyto!(output,1,first_output,1,batch)
+        for start in batch+1:batch:n
+            stop=min(n,start+batch-1)
+            chunk=predict(m,input,view(q,:,start:stop);sensors)
+            copyto!(output,start,chunk,1,length(chunk))
+        end
+        return output
+    end
     y,st=Lux.apply(m.network,_network_input(m,input,q),m.parameters,m.state)
     isequal(st,m.state) || throw(ArgumentError("state-changing networks unsupported; use deterministic stateless layers"))
     expected=m.architecture==:deeponet ? (size(q,2),1) : (1,size(q,2))

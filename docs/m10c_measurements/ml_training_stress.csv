@@ -1,0 +1,2 @@
+name,n,estimated_bytes,algorithm,elapsed_seconds,allocated_bytes,result_bytes,output_count,correctness_metric,warmup_seconds,repeats_completed,rss_highwater_bytes,status
+"model_preflight","268517377","34367602784","CPU dense Lux + Adam; refused before model allocation","0.0","0","0","0","0.0","0.0","0","1322549248","refused_by_guardrail"

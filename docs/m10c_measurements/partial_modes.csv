@@ -1,0 +1,6 @@
+name,n,estimated_bytes,algorithm,elapsed_seconds,allocated_bytes,result_bytes,output_count,correctness_metric,warmup_seconds,repeats_completed,rss_highwater_bytes,status
+"partial_modes","150","202400","ArnoldiMethod shift-inverse; matrix-free chain Hessian","0.0001438655","129264","5204","4","7.030196133647198e-16","0.067443099","2","1758134272","completed"
+"partial_modes","600","713600","ArnoldiMethod shift-inverse; matrix-free chain Hessian","0.00024535","395504","19604","4","9.822192203444864e-16","0.000327115","2","1758134272","completed"
+"partial_modes","3000","3440000","ArnoldiMethod shift-inverse; matrix-free chain Hessian","0.001087681","1816128","96404","4","1.504680052102585e-15","0.001203733","2","1758134272","completed"
+"partial_modes","15000","17072000","ArnoldiMethod shift-inverse; matrix-free chain Hessian","0.007754485","8920304","480404","4","5.809557544839785e-16","0.006750008","2","1771896832","completed"
+"partial_modes","30000","34112000","ArnoldiMethod shift-inverse; matrix-free chain Hessian","0.014216369999999999","17800304","960404","4","1.0125882324416145e-15","0.015879439","2","1780940800","completed"

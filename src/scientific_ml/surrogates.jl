@@ -164,18 +164,20 @@ end
 
 """Unweighted scalar-field sample errors in physical output units, not continuum norms.
 Relative L2 is unavailable when reference RMS is at/below the explicit absolute floor.
+`summary_only=true` omits the absolute-error array (`absolute=nothing`) and uses
+bounded scratch space for machine floats; input arrays remain caller-owned.
 """
-function field_errors(prediction,reference;relative_floor=1e-12)
+function field_errors(prediction,reference;relative_floor=1e-12,summary_only::Bool=false)
     size(prediction)==size(reference) || throw(DimensionMismatch("reference shape mismatch"))
     !isempty(reference) && all(x->x isa Real && isfinite(x),prediction) && all(x->x isa Real && isfinite(x),reference) || throw(ArgumentError("finite nonempty real field values required"))
     isfinite(relative_floor) && relative_floor>=0 || throw(ArgumentError("nonnegative relative floor required"))
-    difference=prediction.-reference
+    difference=summary_only ? (p-r for (p,r) in zip(prediction,reference)) : prediction.-reference
     all(isfinite,difference) || throw(ArgumentError("unrepresentable field difference"))
-    summary=sampled_summary(difference); baseline=sampled_summary(reference)
+    summary=_sampled_summary_replayable(difference); baseline=sampled_summary(reference)
     relative=baseline.rms<=relative_floor ? nothing : summary.rms/baseline.rms
     relative===nothing || isfinite(relative) || (relative=nothing)
     (summary=summary,relative_sampled_l2=relative,relative_floor=relative_floor,
-        absolute=abs.(difference),normalization=:physical_unweighted_samples)
+        absolute=summary_only ? nothing : abs.(difference),normalization=:physical_unweighted_samples)
 end
 
 """Native Lux model/state and scientific schema; no reference targets in the model.
@@ -218,6 +220,10 @@ learning_model(d::ScientificDataset,network;kwargs...)=_surrogate_extension().le
 training_data(m::ScientificModel,d::ScientificDataset)=_surrogate_extension().training_data(m,d)
 learning_objective(m::ScientificModel,p,b::LearningBatch)=_surrogate_extension().learning_objective(m,p,b)
 train(m::ScientificModel,d::ScientificDataset;kwargs...)=_surrogate_extension().train(m,d;kwargs...)
+"""Predict scalar query outputs. Optional `batch_size` bounds query activations for
+query-independent networks (Dense/pointwise Lux and the tested DeepONet route).
+Do not use it for networks that couple query columns. Output remains O(query count).
+"""
 predict(m::ScientificModel,input,coordinates::AbstractMatrix;kwargs...)=_surrogate_extension().predict(m,input,coordinates;kwargs...)
 predict(r::ScientificLearningResult,input,coordinates::AbstractMatrix;kwargs...)=predict(r.model,input,coordinates;kwargs...)
 classify_query(m::ScientificModel,input,coordinates::AbstractMatrix;kwargs...)=_classify_learning_query(m.schema,input,coordinates;kwargs...)

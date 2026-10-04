@@ -148,7 +148,12 @@ end
 
 """
     normal_modes(K, M; equilibrium=nothing, metadata=NamedTuple(),
-                 atol=1e-10, rtol=1e-8)
+                 atol=1e-10, rtol=1e-8, max_memory_bytes=512*1024^2)
+
+The full dense route refuses before coefficient traversal when the numeric
+storage/workspace estimate `24*8*n²` exceeds `max_memory_bytes`. This estimate
+is not a peak RSS bound and excludes symbolic graphs and caller metadata.
+Raising the budget is explicit; sparse inputs still use the full dense route.
 
 Generic finite real symmetric K and symmetric positive-definite M. Full masses
 are supported via the principal symmetric square root, not elementwise scaling.
@@ -167,9 +172,18 @@ of each group. Raw eigenvalues are never clamped. Vectors inside a degenerate
 subspace are nonunique. All thresholds and numerical residuals are metadata.
 """
 function normal_modes(K::AbstractMatrix,M::AbstractMatrix;equilibrium=nothing,
-        metadata=NamedTuple(),atol::Real=1e-10,rtol::Real=1e-8)
+        metadata=NamedTuple(),atol::Real=1e-10,rtol::Real=1e-8,
+        max_memory_bytes::Integer=512*1024^2)
     n = size(K,1)
     size(K) == size(M) == (n,n) && n > 0 || throw(DimensionMismatch("K and M must be equal nonempty square matrices"))
+    max_memory_bytes > 0 && !(max_memory_bytes isa Bool) || throw(ArgumentError("max_memory_bytes must be a positive integer"))
+    # Before coefficient traversal, metadata copies, or any dense conversion.
+    # 24 Float64 square payloads allow for retained matrices and LAPACK/BLAS
+    # temporaries. This is a conservative numeric estimate, not a peak RSS cap;
+    # symbolic input graphs and caller metadata are not bounded by this estimate.
+    estimated_bytes = 24 * sizeof(Float64) * big(n)^2
+    estimated_bytes <= max_memory_bytes || throw(ArgumentError(
+        "normal_modes full dense solve n=$n estimates $estimated_bytes bytes (including workspace), exceeding max_memory_bytes=$max_memory_bytes; use a structured/partial eigensolver when only a few modes are required, or explicitly raise the budget."))
     all(x->isfinite(x) && x>=0,(atol,rtol)) || throw(ArgumentError("tolerances must be finite and nonnegative"))
     at,rt = Float64(atol),Float64(rtol)
     all(isfinite,(at,rt)) && !(iszero(at) && !iszero(atol)) &&

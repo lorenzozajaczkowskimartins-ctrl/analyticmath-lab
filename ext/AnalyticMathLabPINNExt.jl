@@ -152,7 +152,7 @@ function _train(p,source,optimizer;maxiters::Integer,history::Bool=false,
          "No parameter snapshots or automatic optimizer scheduling."])
 end
 
-function predict(r::AML.PINNTrainingResult,x)
+function predict(r::AML.PINNTrainingResult,x;batch_size::Union{Nothing,Integer}=nothing)
     point=x isa Real || x isa Union{AbstractVector,Tuple}
     X=if x isa Real
         reshape([x],1,1)
@@ -162,6 +162,19 @@ function predict(r::AML.PINNTrainingResult,x)
         x
     else
         throw(ArgumentError("prediction requires CPU Vector/Tuple coordinates or a CPU Matrix with one point per column"))
+    end
+    if batch_size!==nothing
+        batch_size>0 || throw(ArgumentError("batch_size must be positive"))
+        n=size(X,2)
+        if n>0
+            batch=Int(min(batch_size,n))
+            values=Matrix{Float64}(undef,length(r.problem.dependent_variables),n)
+            for start in 1:batch:n
+                stop=min(n,start+batch-1)
+                values[:,start:stop]=predict(r,X[:,start:stop])
+            end
+            return point ? vec(values) : values
+        end
     end
     p=r.problem
     size(X,1)==length(p.independent_variables) || throw(DimensionMismatch("coordinate rows must match stored independent-variable order"))

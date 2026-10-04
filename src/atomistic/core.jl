@@ -75,7 +75,9 @@ function _at_box_ok(s)
 end
 function _at_distance(s,a,b)
     s.distance !== nothing && return s.distance(a,b)
-    delta=collect(b).-collect(a)
+    # Particle tuples already carry their fixed dimension. Preserve them instead
+    # of allocating three coordinate arrays for every pair in geometry/RDF.
+    delta=a isa Tuple && b isa Tuple ? map(-,b,a) : collect(b).-collect(a)
     if _at_kind(s)==:orthorhombic
         L=s.boundary.lengths
         delta=[delta[k]-round(delta[k]/L[k])*L[k] for k in eachindex(delta)]
@@ -91,10 +93,14 @@ function _at_selection(s,species)
 end
 """Stored unordered distances (same species), or A→B pairs (distinct species).
 
-O(N²) work/storage, bounded by `max_pairs`. Periodic orthorhombic separation uses
+O(N²) work/storage, bounded by `max_pairs` and an estimated `max_bytes` output
+budget (64 bytes/pair plus selected-index storage). This fixed-width estimate is
+not a peak-RSS guarantee, especially for variable-precision/backend distances.
+Periodic orthorhombic separation uses
 minimum image; unsupported geometry never silently falls back to open distance.
 """
-function pair_distances(s::AtomisticSnapshot;species=nothing,max_pairs=1_000_000)
+function pair_distances(s::AtomisticSnapshot;species=nothing,max_pairs=1_000_000,max_bytes=512*1024^2)
+    max_bytes isa Integer && max_bytes>=0 || throw(ArgumentError("max_bytes must be nonnegative"))
     _at_positions_ok(s) || return _at_unknown("Finite, consistently shaped positions are required.")
     (_at_kind(s)==:open || _at_box_ok(s)) || return _at_unknown("Unsupported boundary geometry.")
     selection=_at_selection(s,species)
@@ -102,7 +108,9 @@ function pair_distances(s::AtomisticSnapshot;species=nothing,max_pairs=1_000_000
     A,B,same=selection
     pairs_count=same ? big(length(A))*(length(A)-1)÷2 : big(length(A))*length(B)
     max_pairs isa Integer && max_pairs>=0 || throw(ArgumentError("max_pairs must be nonnegative"))
-    pairs_count<=max_pairs || return _at_unknown("Pair storage budget exceeded; use streaming RDF for distributions.")
+    estimated_bytes=64pairs_count+sizeof(Int)*(big(length(A))+length(B))
+    pairs_count<=max_pairs && estimated_bytes<=max_bytes || return _at_unknown(
+        "Pair output refused: N=$(length(s.positions)), pairs=$pairs_count, estimated bytes=$estimated_bytes; max_pairs=$max_pairs, max_bytes=$max_bytes. Use streaming RDF or coordination for bounded-output summaries (still quadratic work).")
     pairs=Tuple{Int,Int}[]; distances=Any[]
     for i in A,j in B
         (same && j<=i) && continue

@@ -37,16 +37,22 @@ end
 """Sample `u_t-alpha*u_xx` by ForwardDiff on a differentiable scalar `(x,t)` callable.
 No finite-difference boundary stencil, no continuum norm, no global correctness claim.
 Coordinates and summaries reuse M9B PINNPoints/sampled_summary, not PINN training objects.
+`summary_only=true` returns `values=nothing`; it re-evaluates the deterministic
+predictor/AD reductions rather than retaining residual values. This trades work and
+cumulative allocations for bounded live residual storage; points remain borrowed.
 """
-function heat_residual(predictor,points::PINNPoints;alpha)
+function heat_residual(predictor,points::PINNPoints;alpha,summary_only::Bool=false)
     size(points.coordinates,1)==2 || throw(DimensionMismatch("heat residual expects ordered (x,t) rows"))
     isfinite(alpha) && alpha>0 || throw(ArgumentError("positive finite diffusivity required"))
-    values=[begin
+    residual(q)=begin
         g=ForwardDiff.gradient(predictor,q); h=ForwardDiff.hessian(predictor,q)
         g[2]-alpha*h[1,1]
-    end for q in eachcol(points.coordinates)]
+    end
+    # Summary-only trades repeated deterministic AD evaluation for bounded storage.
+    samples=(residual(q) for q in eachcol(points.coordinates))
+    values=summary_only ? samples : collect(samples)
     all(isfinite,values) || throw(ArgumentError("nonfinite residual"))
-    (points=points,values=values,summary=sampled_summary(values),alpha=alpha,
+    (points=points,values=summary_only ? nothing : values,summary=_sampled_summary_replayable(values),alpha=alpha,
         derivative=:ForwardDiff_coordinate_gradient_hessian,coordinate_order=(:x,:t),
         boundary_treatment=:differentiate_coordinate_model,no_reference_targets=true,
         evidence=PropertyResult(nothing,:unknown,:sampled_residual_only,

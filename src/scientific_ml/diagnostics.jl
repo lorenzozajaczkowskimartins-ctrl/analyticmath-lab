@@ -21,19 +21,27 @@ inputs use Julia's `float` promotion. Nonfinite/non-real/empty inputs give unava
 metrics. An unrepresentable L2 norm is `nothing`, even if RMS remains representable.
 """
 function sampled_summary(values)
-    v=vec(collect(values)); n=length(v)
+    # A length trait does not imply repeatable iteration: even a sized generator
+    # may consume RNG or mutable state. Preserve one evaluation per public sample.
+    _sampled_summary_replayable(values isa AbstractArray ? values : collect(values))
+end
+
+# Internal callers may opt in only for deterministic maps over owned/read-only
+# arrays. This permits bounded reductions without widening the public contract.
+function _sampled_summary_replayable(v)
+    n=length(v)
     finite=count(x->x isa Real && isfinite(x),v)
     if n==0 || finite!=n
         return (count=n,finite_count=finite,rms=nothing,mean_absolute=nothing,
             max_absolute=nothing,sampled_l2=nothing,normalization=:unweighted_samples)
     end
-    a=abs.(float.(v)); scale=maximum(a)
+    scale=maximum(x->abs(float(x)),v)
     # Normalize before summing/squaring; dividing subnormal inputs by n first
     # would erase a representable mean. Use direct L2 to avoid a second rounding.
-    normalized=iszero(scale) ? a : a./scale
-    squares=sum(abs2,normalized)
+    normalized(x)=iszero(scale) ? abs(float(x)) : abs(float(x))/scale
+    squares=sum(x->abs2(normalized(x)),v)
     rms=iszero(scale) ? zero(scale) : scale*sqrt(squares/n)
-    mean_absolute=iszero(scale) ? zero(scale) : scale*(sum(normalized)/n)
+    mean_absolute=iszero(scale) ? zero(scale) : scale*(sum(normalized,v)/n)
     l2=iszero(scale) ? zero(scale) : scale*sqrt(squares)
     available(x)=isfinite(x) ? x : nothing
     (count=n,finite_count=finite,rms=available(rms),mean_absolute=available(mean_absolute),

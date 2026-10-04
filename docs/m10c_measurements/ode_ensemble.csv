@@ -1,0 +1,3 @@
+name,n,estimated_bytes,algorithm,elapsed_seconds,allocated_bytes,result_bytes,output_count,correctness_metric,warmup_seconds,repeats_completed,rss_highwater_bytes,status
+"ensemble_serial_aggregate","100","4718592","native EnsembleProblem/Tsit5","0.000428333","477568","104","4","3.55281914998784e-11","0.000484513","2","2064437248","completed"
+"ensemble_serial_full","100","7471104","native EnsembleProblem/Tsit5","0.0008749555","1803944","1151984","2100","3.785066704509177e-11","0.036071995","2","2064437248","completed"

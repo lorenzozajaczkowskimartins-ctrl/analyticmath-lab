@@ -1,7 +1,7 @@
 # NeuralPDE public ResidualBlock + SII adapter. No symbolic lowering or AD is duplicated.
 # Compiled coordinate arrays have fixed column counts. Pad only the final batch by
 # repeating its last point, then discard padding. M9A requires pointwise Lux models.
-function _sample_residual(r,b,points)
+function _sample_residual(r,b,points;summary_only::Bool=false)
     X=points.coordinates
     size(X,1)==length(b.ivs) || throw(DimensionMismatch("residual coordinate rows must follow block.ivs"))
     isempty(b.extra_params) || throw(ArgumentError("independent diagnostics for integral residual blocks are not supported"))
@@ -12,12 +12,38 @@ function _sample_residual(r,b,points)
     n=size(X,2); batch=b.npoints
     batch>0 || throw(ArgumentError("empty backend collocation blocks are unsupported"))
     values=Float64[]
+    scale=0.; total=0.; squares=0.; finite=0
     for start in 1:batch:n
         ids=min.(start:start+batch-1,n)
         setter===nothing || setter(state,X[:,ids])
         raw=vec(collect(getter(state)))
         length(raw)==batch || throw(DimensionMismatch("backend residual must be scalar per collocation point"))
-        append!(values,raw[1:min(batch,n-start+1)])
+        used=view(raw,1:min(batch,n-start+1))
+        if summary_only
+            # Scaled online absolute moments: O(backend batch) live storage.
+            for value in used
+                isfinite(value) || continue
+                finite+=1
+                a=abs(value)
+                if a>scale
+                    ratio=scale/a
+                    total=total*ratio+1
+                    squares=squares*ratio^2+1
+                    scale=a
+                elseif !iszero(scale)
+                    ratio=a/scale
+                    total+=ratio; squares+=ratio^2
+                end
+            end
+        else
+            append!(values,used)
+        end
+    end
+    if summary_only
+        available(x)=finite==n && isfinite(x) ? x : nothing
+        return (count=n,finite_count=finite,rms=available(scale*sqrt(squares/n)),
+            mean_absolute=available(scale*(total/n)),max_absolute=available(scale),
+            sampled_l2=available(scale*sqrt(squares)),normalization=:unweighted_samples)
     end
     values
 end

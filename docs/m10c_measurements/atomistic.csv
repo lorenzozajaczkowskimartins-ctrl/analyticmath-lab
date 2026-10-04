@@ -1,0 +1,9 @@
+name,n,estimated_bytes,algorithm,elapsed_seconds,allocated_bytes,result_bytes,output_count,correctness_metric,warmup_seconds,repeats_completed,rss_highwater_bytes,status
+"explicit_pairs","100","323200","all unordered pairs; O(N²) work/output","0.000402836","680064","196569","4950","0.0","0.017770593","2","1141313536","completed"
+"coordination","100","25600","all-pair traversal; O(N) retained output, O(N²) work","0.000306183","324272","1886","100","0.0","0.000354884","2","1141575680","completed"
+"explicit_pairs","500","8016000","all unordered pairs; O(N²) work/output","0.0133273075","19456152","5189993","124750","0.0","0.012179365","2","1204502528","completed"
+"coordination","500","128000","all-pair traversal; O(N) retained output, O(N²) work","0.008440908","8014088","8286","500","0.0","0.008475614","2","1204502528","completed"
+"explicit_pairs","1000","32032000","all unordered pairs; O(N²) work/output","0.0407022885","69198032","16674225","499500","0.0","0.497931932","2","1267150848","completed"
+"coordination","1000","256000","all-pair traversal; O(N) retained output, O(N²) work","0.040815804","32027376","16286","1000","0.0","0.034372677","2","1271353344","completed"
+"explicit_pairs","10000","3200320000","estimated only; explicit output refused","0.0","0","0","0","0.0","0.0","0","1271353344","refused_by_guardrail"
+"explicit_pairs","100000","320003200000","estimated only; explicit output refused","0.0","0","0","0","0.0","0.0","0","1271353344","refused_by_guardrail"

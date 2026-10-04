@@ -75,8 +75,9 @@ train(p::PINNProblem,optimizer;kwargs...)=_pinn_extension().train(p,optimizer;kw
 train(r::PINNTrainingResult,optimizer;kwargs...)=_pinn_extension().train(r,optimizer;kwargs...)
 """Evaluate in stored independent-variable order. Vector in → dependent-variable vector;
 matrix (coordinates × points) in → matrix (dependent variables × points) out.
+Optional positive `batch_size` bounds temporary query activations, not the output.
 """
-predict(r::PINNTrainingResult,x)=_pinn_extension().predict(r,x)
+predict(r::PINNTrainingResult,x;kwargs...)=_pinn_extension().predict(r,x;kwargs...)
 
 """Inspect retained scientific and backend objects, without discretizing or training again."""
 function pinn_inspect(p::PINNProblem)
