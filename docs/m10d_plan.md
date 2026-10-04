@@ -178,11 +178,45 @@ loader evidence. This was one parent review, not an independent/subagent review.
   A wrapper-variable soft-scope warning did not affect execution; initial extension
   loads also emitted Julia cache/precompilation warnings, not test failures.
 
-**M10D.1 IMPLEMENTATION COMPLETE — CANONICAL PENDING.** The continuation budget
-was spent on recovery, focused gates and actual optional-loader repair. No
-canonical Pkg.test() was launched; frozen M10C 4789/4789 evidence is not an M10D
-canonical result. A local implementation checkpoint is supported by the bounded
-DoD and focused gates, but is not labeled `[verified]` or full verified completion.
-The remaining canonical command, when separately budgeted, is
-`julia +release --project=. -e 'using Pkg; Pkg.test()'`.
-Do not start M10D.2 automatically after this checkpoint.
+### Final canonical verification
+
+**M10D.1 VERIFIED COMPLETE.** Implementation checkpoint
+`e9550bb0f0eadf537ba328ce28ee385926ca8a6e` initially left canonical verification
+pending. The separately authorized replacement canonical now closes that gate:
+
+```sh
+env JULIA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+    julia +release --project=. -e 'using Pkg; Pkg.test()'
+```
+
+- Environment: `JULIA_NUM_THREADS=1`, `OPENBLAS_NUM_THREADS=1`.
+- Result: **4847/4847 assertions, 170 reported testsets, exit 0**; zero assertion
+  failures and zero test errors. The log contains `Testing AnalyticMathLab tests
+  passed` and `CANONICAL_EXIT=0`; totals were parsed from the reported summaries.
+- M10D ownership/registration/notebook testsets passed 54/3/1 respectively within
+  canonical, confirming the focused tests are registered in the full runner.
+- Exact tested HEAD: `e9550bb0f0eadf537ba328ce28ee385926ca8a6e`; Git tree:
+  `66a5373f016b9a8580235cbdc12429016d15beff`. Working tree was clean before and
+  after the run. Finalization changes only this plan and the issue ledger.
+- Replacement log:
+  `/home/lorenzozm/.hermes/cache/scratch/m10d1-replacement-canonical-aApgFc.log`.
+- Earlier default-environment canonical exited 1 with 3360 passed assertions,
+  zero assertion failures and one test error across 85 reported testsets, before
+  reaching M10D tests. Julia used one thread while BLAS used six; the existing
+  M10C guardrail correctly rejected a ceiling of one. This incomplete run is
+  diagnostic history, **not final verification evidence**. Its preserved log is
+  `/home/lorenzozm/.hermes/cache/scratch/m10d1-canonical-zlzN10.log`.
+- The replacement was run exactly once after explicit authorization; no source,
+  test, harness or manifest was changed to accommodate it. D024 assigns the
+  default-thread portability observation to M10D.5, without redesign here.
+- Pkg emitted a non-fatal warning that project dependencies/compat had changed
+  since the manifest was resolved. The test run nevertheless completed; no
+  dependency refresh or additional canonical run was performed.
+- Prior focused 201/201, optional loading, affected-example and bounded parent
+  review evidence is reused. No separate focused tests, architecture audit,
+  optional training or M10C benchmarks were repeated. Frozen M10C evidence remains
+  unchanged and is distinct from this M10D canonical result.
+
+Finalization creates a new `[verified] Complete M10D.1 architecture and public API
+freeze` commit; it does not amend the implementation checkpoint, push or tag.
+M10D.2 remains unstarted; later-phase ledger obligations are not a 1.0 verdict.
