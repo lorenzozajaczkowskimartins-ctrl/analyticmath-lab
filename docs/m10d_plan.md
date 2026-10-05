@@ -7,7 +7,9 @@ Baseline: `ff28e89bb08f95015d241091de7406d8f02d5861`, parent
 canonical 4789/4789 assertions, 167 reported testsets, exit 0. Its measurement
 CSV/TOML and provenance are frozen evidence, not benchmarks to repeat.
 
-Current authorized phase: **M10D.1 only**. This is a pre-1.0 API policy freeze,
+Current authorized phase: **M10D.2 only**; M10D.1 is VERIFIED COMPLETE at
+`adadf5ddd03b360c93a6c0451f31cba03d01f8ff`. The historical M10D.1 record below
+is frozen. Its API policy is a pre-1.0 freeze,
 not a version bump or a claim that the final 1.0 audit has passed.
 Architectural integration means making existing scientific contracts discoverable,
 registered and composable without erasing assumptions. It does not mean inventing
@@ -17,8 +19,8 @@ new science, forcing all subsystems into one result type, or connecting every pa
 
 | Phase | Deliverable | Boundary |
 |---|---|---|
-| M10D.1 Architecture & Public API Freeze | Complete family/export inventory, ownership, dispatch/extension audit, minimal layout fixes, seam and semantic maps | This session only |
-| M10D.2 Cross-Milestone Scientific Interoperability | Prioritized legitimate bridges with preservation/refusal tests | No invented particle identities, time, units, reference truth or domains |
+| M10D.1 Architecture & Public API Freeze | Complete family/export inventory, ownership, dispatch/extension audit, minimal layout fixes, seam and semantic maps | VERIFIED COMPLETE, not reopened |
+| M10D.2 Cross-Milestone Scientific Interoperability | Prioritized legitimate bridges with preservation/refusal tests | Current phase only; no invented particle identities, time, units, reference truth or domains |
 | M10D.3 Unified Scientific Semantics & Provenance | Consistent evidence vocabulary and lightweight source retention | No oversized universal provenance/result wrapper |
 | M10D.4 One System, Many Methods | One scientifically justified flagship using existing methods | No new algorithm/model family |
 | M10D.5 User & Research Hardening | Constructor/error boundaries, reproducibility, packaging, supported workflows | Bounded workloads and explicit resource limitations |
@@ -219,4 +221,63 @@ env JULIA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
 
 Finalization creates a new `[verified] Complete M10D.1 architecture and public API
 freeze` commit; it does not amend the implementation checkpoint, push or tag.
-M10D.2 remains unstarted; later-phase ledger obligations are not a 1.0 verdict.
+At M10D.1 closure M10D.2 remained unstarted; later-phase ledger obligations are
+not a 1.0 verdict. The separately authorized M10D.2 execution follows.
+
+## M10D.2 implementation and focused closure
+
+Starting HEAD and clean status verified exactly as requested:
+`adadf5ddd03b360c93a6c0451f31cba03d01f8ff`. No reset, stash, restore, discard,
+push or tag. Read/reused all four authoritative M10D documents before implementation.
+No inventory rediscovery, classification change, architecture re-audit or subagent.
+
+**M10D.2 IMPLEMENTATION COMPLETE — CANONICAL PENDING.**
+
+The existing graph's 24 rows were revalidated in place. Two formerly missing
+bridges now exist: explicit saved-trajectory scalar selection through
+observable_series, and exactly one explicit-schema trajectory-to-ScientificDataset
+route. Public names/classifications are unchanged. Two package includes are added
+to architecture.md solely to satisfy existing registration invariants.
+
+### Definition-of-Done disposition
+
+| Items | Disposition / evidence |
+|---|---|
+| 1 graph revalidated | COMPLETE; all original rows classified in integration matrix |
+| 2–5 trajectory selection/time/order/unknowns | COMPLETE; explicit index/unique label/callable; exact saved samples only; no unit or particle inference; 61 focused selection/boundary assertions |
+| 6–9 dataset/schema/splits/reference | COMPLETE; one completed ODE run, explicit scalar schema and split; numerical reference only, actual solver metadata, unknown/error estimate; 69 focused assertions |
+| 10 mechanics/dynamics/trajectory | COMPLETE; analytic harmonic trajectory/domain/source/drift tests |
+| 11 linearization/modes | COMPLETE; coupled spectrum, source identity, equilibrium/damping negative controls |
+| 12 atomistic/statistical bridges | COMPLETE; exact geometry/units/statistics/inference/modes and tiny optional Molly gate |
+| 13 refusal semantics | COMPLETE; selectors/shape/time/units/reference/split errors, absent invalid generic particle/comparison APIs, no artificial throwing API |
+| 14 metadata matrix | COMPLETE; every touched edge distinguishes preservation, intentional projection, and absent-at-source quantities |
+| 15 M10D.3 deferrals | COMPLETE; D027–D029 plus existing D006/D007/D010/D017, not implemented |
+| 16–17 no new subsystem or weakened contract | COMPLETE; two overloads using existing types/functions; no exports, extension/dependency changes or algorithm |
+| 18 focused tests | COMPLETE; 189/189 new base assertions; 599/599 affected regressions including architecture; optional learning 27/27 and Molly 22/22 |
+| 19 M10D.1 regressions | COMPLETE; 58/58 frozen ownership/registration/notebook plus 93/93 general architecture, final combined focus 340/340 |
+| 20 diff/index checks | Working diff check passes; candidate-wide check repeated before checkpoint |
+| 21 one bounded review | COMPLETE; D025/D026 counterexamples reproduced and fixed, no unresolved M10D.2 blocker; no repeat review |
+
+Full route contracts, exact tests/oracles, source/ownership limitations, commands,
+logs and review disposition: [m10d_interoperability_results.md](m10d_interoperability_results.md).
+All bounded gates used `JULIA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1`.
+Gate logs: `/home/lorenzozm/.hermes/cache/scratch/m10d2-gates-XMDfjU/`.
+No canonical was used during development. No stress ladder, large training,
+100k-particle/state workload, streaming benchmark or frozen M10C rerun.
+
+### Checkpoint and final verification policy
+
+Create `[m10d] Add cross-milestone scientific interoperability` as a recoverable
+implementation checkpoint after explicit candidate/index checks. If budget permits,
+run exactly one controlled-thread canonical from that clean checkpoint:
+
+```sh
+env JULIA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+    julia +release --project=. -e 'using Pkg; Pkg.test()'
+```
+
+Record the exact checkpoint, assertion/testset counts, exit/environment/log and
+completion marker below when available. A passing canonical permits only a separate
+`[verified] Complete M10D.2 scientific interoperability` completion commit. A failed
+canonical is classified, preserved and not automatically rerun. Do not amend,
+push, tag or begin M10D.3. D024 remains intentionally deferred to M10D.5.

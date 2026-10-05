@@ -50,6 +50,7 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
 10. `src/trajectory/statistics.jl`, `src/trajectory/uncertainty.jl`,
    `src/trajectory/transport.jl`, and `src/trajectory/analyst.jl`: M8B time semantics,
    borrowed observables, correlated-sampling statistics, transport and opt-in diagnostics.
+   `src/trajectory/interoperability.jl`: explicit M10D.2 saved ODE component/observable selection.
    `src/trajectory/comparison.jl`: M8C compatibility-gated comparison of stored M8B
    results; no analysis reconstruction, dynamics or new statistical estimators.
 11. `src/scientific_ml/pinn.jl`: backend-independent M9A problem/result/history
@@ -63,6 +64,7 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
    `src/scientific_ml/learned_dynamics.jl`: HNN/UDE and data/result containers.
    `src/scientific_ml/surrogates.jl`: scientific families, disjoint splits,
    train-only normalization and optional scientific-model entry points;
+   `src/scientific_ml/trajectory_dataset.jl`: explicit-schema M10D.2 numerical trajectory dataset route;
    `src/scientific_ml/generalization.jl`: split-specific analysis, sampled AD heat
    residuals and descriptive timing, without ML imports.
 12. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;

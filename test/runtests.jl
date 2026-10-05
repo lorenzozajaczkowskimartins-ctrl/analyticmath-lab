@@ -273,6 +273,7 @@ end
 
 include("architecture.jl")
 include("m10d_architecture.jl")
+include("m10d_interoperability.jl")
 include("vector_fields.jl")
 include("vector_calculus.jl")
 include("vector_zeros.jl")
