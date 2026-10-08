@@ -43,6 +43,7 @@ cumulative allocations for bounded live residual storage; points remain borrowed
 """
 function heat_residual(predictor,points::PINNPoints;alpha,summary_only::Bool=false)
     size(points.coordinates,1)==2 || throw(DimensionMismatch("heat residual expects ordered (x,t) rows"))
+    _sm_check_coordinate_names(points,(:x,:t))
     isfinite(alpha) && alpha>0 || throw(ArgumentError("positive finite diffusivity required"))
     residual(q)=begin
         g=ForwardDiff.gradient(predictor,q); h=ForwardDiff.hessian(predictor,q)

@@ -16,7 +16,9 @@ function learning_model(d,network;rng,normalization::Symbol,rng_provenance)
     schema=deepcopy((kind=d.kind,family=d.family,input_names=d.input_names,coordinate_names=d.coordinate_names,
         domain=d.domain,sensors=d.sensors,units=d.units,grid=d.grid))
     provenance=(rng=rng_provenance,packages=(Lux=pkgversion(Lux),NeuralOperators=pkgversion(NeuralOperators),Optimization=pkgversion(Optimization)),
-        output_order=:query_columns,precision=:Float64,device=:CPU,resampling=:none,discretization_invariance=:not_established)
+        output_order=:query_columns,precision=:Float64,device=:CPU,resampling=:none,discretization_invariance=:not_established,
+        origin=A.scientific_origin(d),reference=A._sm_reference_descriptor(d.reference),
+        reference_tolerances=A._sm_numeric_tolerances(A._sm_get(d.reference,:tolerances)))
     m=A.ScientificModel(d.kind==:surrogate ? :coordinate_network : :deeponet,network,ps,st,schema,z,provenance)
     s=first(filter(s->s.split==:training,d.samples))
     predict(m,s.input,s.coordinates)

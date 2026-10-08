@@ -67,6 +67,7 @@ All package includes are explicit in `src/AnalyticMathLab.jl`, in this order:
    `src/scientific_ml/trajectory_dataset.jl`: explicit-schema M10D.2 numerical trajectory dataset route;
    `src/scientific_ml/generalization.jl`: split-specific analysis, sampled AD heat
    residuals and descriptive timing, without ML imports.
+   `src/scientific_metadata.jl`: qualified scoped semantic inspection and detached origin descriptors, loaded after result definitions.
 12. `src/numerical.jl`: legacy evaluation, stationary search, derivative comparison;
    `src/symbolic.jl`: univariate Symbolics orchestration;
    `src/convergence.jl`: controlled finite-difference experiments and display.

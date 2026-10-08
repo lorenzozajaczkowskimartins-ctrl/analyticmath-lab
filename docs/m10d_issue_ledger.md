@@ -63,3 +63,37 @@ explicit future obligations, not hidden claims of universal API uniformity.
 The M10D.1 freeze preserves behavior when uncertainty exists. The final 1.0 audit
 must revisit unresolved high-severity later-phase entries; this checkpoint is
 not the release verdict.
+
+## M10D.3 semantic dispositions and single bounded review
+
+The semantic census/specification is docs/m10d_semantics.md; ownership/interface
+details are docs/m10d_provenance.md; gate evidence is docs/m10d_semantics_results.md.
+M10D.1/M10D.2 remain verified, with no rerun of their audits or reviews.
+
+| ID | Scope | Evidence / disposition | Status / owner |
+|---|---|---|---|
+| D006 | Scoped vocabulary | Native claim/search/domain/compatibility/execution vocabularies documented separately; touched inspection preserves scope and never flattens to one status | RESOLVED M10D.3 semantic contract; native symbols preserved |
+| D007 | Compact statistics provenance | Moments retain bounded origin and units/time/selection/tolerance/approximation context, not full series | FIXED M10D.3; detached size/identity tests |
+| D010 | Units/domain/order | Original units/bounds/constraints preserved under native contracts; unknown not dimensionless; declared residual/reference row names validated without reordering | RESOLVED bounded M10D.3 policy; no new units subsystem |
+| D016 | Backend result access | Qualified semantic inspection exposes public concepts while preserving native backend ownership and version sensitivity | RESOLVED M10D.3, remains PUBLIC_EXPERIMENTAL |
+| D017 | Evidence/tolerance discovery | Scoped interface retains solver/mode thresholds and sampled relative guards/floors; unknown defaults not guessed | RESOLVED touched paths; older bare tuples without source controls remain documented limitations |
+| D027 | Conversion origin | Mechanics conversion origin reaches trajectory/series/moments through detached descriptors | FIXED mechanics path M10D.3; legacy learned-dynamics absent fit-parent cannot be reconstructed and remains explicit limitation, not an invented link |
+| D028 | Source retention | Existing retained/copying policies documented; opt-in dataset source_retention=:descriptor explicitly omits arbitrary source/context/callback | RESOLVED M10D.3 lightweight route; constructor/alias hardening remains D011/M10D.5 |
+| D029 | Reference vocabulary | Numerical adapter refuses analytical/exact quality; model retains declared numerical kind/scalar controls without targets; generalization/reference comparison preserve caller trust | RESOLVED M10D.3; no certification of open caller declarations |
+| D030 | Named residual coordinates | Declared (t,x) was accepted by fixed (x,t) heat operation; PINN block/reference row names were not checked | FIXED M10D.3; red ordering counterexample, base/optional negative controls green; unnamed legacy positional convention unchanged |
+| D031 | Descriptor hidden retention | Single review: merging caller parent tuples preserved an unexpected 4096-element source; 32942-byte detached result; malformed origin also crashed inspection | FIXED M10D.3; whitelist/schema, one parent, eight levels, malformed association absent; size/serialization/depth tests |
+| D032 | Numerical approximation loss | Single review: series/moment accessor dropped source numerical_integration tag while reporting sampled data | FIXED M10D.3; inherited numerical and sampled approximation retained; review-red -> green |
+| D033 | Options/tolerance confusion | Single review: every PINN solver option was called a tolerance; model could retain arbitrary reference tolerance metadata | FIXED M10D.3; explicit finite scalar tolerance-key projection, unknown when unspecified; options remain separate |
+| D034 | Flagship comparability | Semantics expose descriptive domains/reference quality; do not automatically rank unrelated methods, models or query costs | DEFERRED M10D.4 scope, no implementation |
+| D035 | Open metadata/constructor policy | Native positional records/open user metadata are not certificates; string units are declarations; known backend defaults absent from results cannot be recreated | DEFERRED M10D.5 with D011; no broad constructor/unit/backend hardening |
+| D036 | Semantic navigation | Qualified experimental accessors and native family contracts need user-facing navigation/examples | DEFERRED M10D.6; no Wiki work |
+
+Exactly one bounded parent semantic review used the question “Where can AML make
+a scientific result appear stronger, more precise, better sourced, or more
+physically meaningful than the evidence actually supports?” It covered touched
+bridges, scoped evidence/reference/unit/domain/order/control meaning, relevant
+display wording and ownership. It produced D031–D033, with D030 already fixed
+during development. Fix disposition is checked through narrow counterexamples,
+not a repeated review. No independent reviewer/subagent approval is claimed.
+No unresolved M10D.3 blocker remains after the recorded green gates. D024 remains
+deferred to M10D.5. No benchmark, stress/scaling work, push/tag or later phase.

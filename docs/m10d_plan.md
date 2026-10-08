@@ -20,8 +20,8 @@ new science, forcing all subsystems into one result type, or connecting every pa
 | Phase | Deliverable | Boundary |
 |---|---|---|
 | M10D.1 Architecture & Public API Freeze | Complete family/export inventory, ownership, dispatch/extension audit, minimal layout fixes, seam and semantic maps | VERIFIED COMPLETE, not reopened |
-| M10D.2 Cross-Milestone Scientific Interoperability | Prioritized legitimate bridges with preservation/refusal tests | Current phase only; no invented particle identities, time, units, reference truth or domains |
-| M10D.3 Unified Scientific Semantics & Provenance | Consistent evidence vocabulary and lightweight source retention | No oversized universal provenance/result wrapper |
+| M10D.2 Cross-Milestone Scientific Interoperability | Prioritized legitimate bridges with preservation/refusal tests | VERIFIED COMPLETE at f8f233ba1d542d2a3a4e683a02523aa9524ad603; not reopened |
+| M10D.3 Unified Scientific Semantics & Provenance | Consistent evidence vocabulary and lightweight source retention | Current phase: implementation and focused verification; canonical pending; no universal provenance/result wrapper |
 | M10D.4 One System, Many Methods | One scientifically justified flagship using existing methods | No new algorithm/model family |
 | M10D.5 User & Research Hardening | Constructor/error boundaries, reproducibility, packaging, supported workflows | Bounded workloads and explicit resource limitations |
 | M10D.6 Documentation & GitHub Wiki | User/research navigation and wiki matching tested APIs | Wiki is not started in M10D.1 |
@@ -302,3 +302,46 @@ closed interoperability review, and creates the separate child commit
 `[verified] Complete M10D.2 scientific interoperability`. Do not amend the
 implementation checkpoint, rerun tests/review/canonical, push, tag or begin
 M10D.3. D024 remains intentionally deferred to M10D.5.
+
+## M10D.3 execution record
+
+Starting verified HEAD: f8f233ba1d542d2a3a4e683a02523aa9524ad603.
+M10D.1 and M10D.2 remain verified. Their inventories/bridge findings are reused;
+no API inventory or graph rediscovery, no repeated historical review/audit.
+M10D.2 canonical exit 0 remains accepted; its unavailable counts are not guessed.
+
+Status: **IMPLEMENTATION COMPLETE — CANONICAL PENDING**.
+
+Authoritative additions: m10d_semantics.md (census/specification),
+m10d_provenance.md (interface/ownership), m10d_semantics_results.md (gates and
+single-review disposition). Integration matrix and issue ledger record deltas.
+Two qualified PUBLIC_EXPERIMENTAL inspection interfaces preserve the export
+freeze; no universal result/provenance struct or new scientific bridge is added.
+
+| M10D.3 definition-of-done scope | Disposition |
+|---|---|
+| 1–2 census/specification | Complete, indexed from F01–F36 and M10D.2; local vocabularies distinguished |
+| 3–5 evidence monotonicity/reference quality | Scoped claims preserved; numerical reference cannot become analytical/exact; low loss/residual/retcode not proof |
+| 6–8 units/domain/order | Native arithmetic and metadata retained; absent units unknown; descriptive bounds not continuum validity; contradictory named order refused |
+| 9–11 method/backend/approximation/tolerance | Separate interface slots; source numerical approximation inherited; only actual known finite scalar tolerance options labeled tolerances |
+| 12–14 lightweight provenance/trace/ownership | Detached whitelisted chain, at most eight levels; mechanics and learning/PINN chains tested; small route independent of upstream arrays |
+| 15 existing bridges | M10D.2 preservation/refusal gates plus optional learning/PINN diagnostics; no new edge |
+| 16–17 architecture/scope | Existing result layouts and export classification unchanged; no new subsystem |
+| 18–21 focused/affected/M10D.1/M10D.2 regressions | Passing retained logs and exact parsed counts in semantic results; gates overlap and are not additive |
+| 22 diff check | Working and staged checks required before checkpoint |
+| 23 single bounded review | Closed D031–D033 via narrow regressions; no repeated review or subagent |
+
+Preserve one checkpoint titled `[m10d] Unify scientific semantics and provenance`.
+Under the execution-budget policy, canonical is not launched in this session;
+do not label focused success as canonical verification or create the separate
+verified-completion commit yet. Persistent logs/evidence are under
+/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d3/, not ephemeral scratch.
+A future exactly-one canonical must use JULIA_NUM_THREADS=1 and
+OPENBLAS_NUM_THREADS=1, retain command/working directory/commit/environment/
+timestamps/log/exit/runner marker/counts in that persistent location, and stop on
+the first failure without an automatic retry. D024 is not addressed here.
+
+M10D.4 is not begun. After canonical verification only, its recommended scope is
+one bounded existing-method flagship with an explicit common scientific model,
+declared coordinate/unit/domain/reference assumptions and comparable queries;
+do not infer physical truth or rank methods using unrelated evidence.

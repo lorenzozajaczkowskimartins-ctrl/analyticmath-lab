@@ -83,7 +83,9 @@ dynamics(s::Union{LagrangianSystem,HamiltonianSystem};kwargs...) = dynamics(anal
 """Delegate a converted mechanics problem to the existing M6 trajectory API."""
 function trajectory(conversion::MechanicsDynamics,u0,tspan;kwargs...)
     target = conversion.analysis === nothing ? conversion.system : conversion.analysis
-    return trajectory(target,u0,tspan;kwargs...)
+    path=trajectory(target,u0,tspan;kwargs...)
+    return TrajectoryResult(path.solution,path.problem,path.labels,
+        merge(path.diagnostics,(origin=scientific_origin(conversion),)))
 end
 
 function _mechanics_path_matches(conversion,path)

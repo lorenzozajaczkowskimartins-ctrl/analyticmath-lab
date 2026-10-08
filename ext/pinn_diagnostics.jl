@@ -4,6 +4,7 @@
 function _sample_residual(r,b,points;summary_only::Bool=false)
     X=points.coordinates
     size(X,1)==length(b.ivs) || throw(DimensionMismatch("residual coordinate rows must follow block.ivs"))
+    AML._sm_check_coordinate_names(points,b.ivs)
     isempty(b.extra_params) || throw(ArgumentError("independent diagnostics for integral residual blocks are not supported"))
     opt=r.optimization_problem
     state=SII.ProblemState(;u=copy(r.parameters),p=deepcopy(SII.parameter_values(r.backend_solution)))
@@ -85,6 +86,7 @@ function _reference_analysis(r,points,reference,provenance,guard)
     reference===nothing && return AML.PropertyResult(nothing,:unknown,:reference_unavailable,
         ["No reference supplied; residual evidence remains useful."])
     points isa AML.PINNPoints || throw(ArgumentError("reference_points must be explicit PINNPoints"))
+    AML._sm_check_coordinate_names(points,r.problem.independent_variables)
     X=points.coordinates
     predictions=predict(r,X)
     cols=[collect(reference(copy(x))) for x in eachcol(X)]
@@ -147,7 +149,8 @@ function analyze_pinn(r::AML.PINNTrainingResult;residual_points=Dict(),condition
         loss_breakdown(r),adaptive,
         AML.PropertyResult(nothing,:unknown,:global_correctness_not_established,
             ["Small sampled residuals do not prove global PDE correctness."]),
-        (training=r.provenance,user=provenance,derivative=r.problem.provenance.derivative),
+        (training=r.provenance,user=provenance,derivative=r.problem.provenance.derivative,
+         reference_relative_guard=relative_guard),
         ["Small training loss does not prove physical correctness.",
          "Only the returned collocation snapshot is known; all-training-set independence is not established.",
          "BC/IC roles require explicit caller classification; backend only distinguishes PDE/BC.",

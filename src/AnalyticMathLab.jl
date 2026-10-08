@@ -119,6 +119,7 @@ include("scientific_ml/generalization.jl")
 include("numerical.jl")
 include("symbolic.jl")
 include("convergence.jl")
+include("scientific_metadata.jl")
 
 # Makie consumers load last; no backend is imported or activated here.
 include("visualization/real.jl")

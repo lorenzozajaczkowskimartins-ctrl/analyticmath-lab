@@ -1,5 +1,5 @@
 """
-    ScientificDataset(path::TrajectoryResult; schema)
+    ScientificDataset(path::TrajectoryResult; schema, source_retention=:retained)
 
 One completed FirstOrderODE simulation becomes one scalar-field surrogate sample.
 This is not a generic simulation serializer. `schema` is an explicit NamedTuple:
@@ -25,8 +25,13 @@ span/saved grid/diagnostics are taken from the source, never the schema. Source
 and selection are retained in dataset provenance, copied under the existing
 ScientificDataset ownership contract. Unselected state values are not targets;
 no particle meaning, uniform grid, split, rigorous error or physical truth inferred.
+Use `source_retention=:descriptor` to retain a bounded process-local origin instead
+of copying the native trajectory/callback/context into provenance. Explicit
+`provenance.omitted` lists weakened source detail; selected data and scientific
+reference controls remain. See docs/m10d_provenance.md for ownership semantics.
 """
-function ScientificDataset(path::TrajectoryResult;schema=nothing)
+function ScientificDataset(path::TrajectoryResult;schema=nothing,source_retention=:retained)
+    source_retention in (:retained,:descriptor) || throw(ArgumentError("source_retention must be :retained or :descriptor"))
     required=(:family,:id,:input,:input_names,:coordinate_names,:domain,:selection,
         :split,:reference,:units,:grid,:rng)
     schema isa NamedTuple && all(k->hasproperty(schema,k),required) ||
@@ -75,15 +80,26 @@ function ScientificDataset(path::TrajectoryResult;schema=nothing)
     all(v->v isa Real && !(v isa Unitful.AbstractQuantity),series.values) ||
         throw(ArgumentError("dataset values must be explicitly nondimensionalized numeric scalars; units are never stripped"))
     sample=ScientificSample(schema.id,schema.input,reshape(series.sampling.times,1,:),series.values;split=schema.split)
+    origin=scientific_origin(path)
+    source=source_retention===:retained ? path : origin
+    selected=series.provenance.selection
+    selection=source_retention===:retained ? selected :
+        (kind=selected.component===nothing ? :observable : :component,
+         component=selected.component,label=_sm_text(selected.label))
+    report=source_retention===:retained ? diagnostics :
+        (success=diagnostics.success,completed=diagnostics.completed)
     numerical=merge(reference,(solver=:SciMLBase,algorithm=diagnostics.algorithm,
         tolerances=(abstol=diagnostics.abstol,reltol=diagnostics.reltol),
         grid=copy(series.sampling.times),tspan=path.solution.prob.tspan,
         parameters=(names=schema.input_names,values=copy(schema.input)),
-        diagnostics=diagnostics,error_interpretation=:caller_estimate_not_certificate))
+        diagnostics=report,error_interpretation=:caller_estimate_not_certificate))
     ScientificDataset([sample];kind=:surrogate,family=schema.family,
         input_names=schema.input_names,coordinate_names=schema.coordinate_names,
         domain=schema.domain,reference=numerical,units,grid=schema.grid,rng=schema.rng,
-        provenance=(source=path,context=context,selection=series.provenance.selection,observable_name=series.name,
-            state_labels=path.labels,domain=path.problem.domain,units_origin=:caller_declared,
-            parameters_origin=:caller_declared,reference_quality=:numerical_not_truth))
+        provenance=(source=source,source_retention=source_retention,origin=origin,
+            context=source_retention===:retained ? context : nothing,selection=selection,observable_name=series.name,
+            state_labels=source_retention===:retained ? path.labels : (selection.label,),
+            domain=source_retention===:retained ? path.problem.domain : nothing,
+            omitted=source_retention===:retained ? () : (:source_object,:context,:source_domain,:unselected_state_labels,:selector_callable),
+            units_origin=:caller_declared,parameters_origin=:caller_declared,reference_quality=:numerical_not_truth))
 end

@@ -123,7 +123,8 @@ function statistical_summary(s::ObservableSeries)
     r=_ts_moments(s.values)
     r===nothing && return _ts_unknown("Need nonempty finite real scalar observations; none are dropped.")
     value=(count=r.count,mean=r.mean,variance=r.variance,std=r.std,minimum=r.minimum,
-        maximum=r.maximum,standard_error=nothing)
+        maximum=r.maximum,standard_error=nothing,origin=scientific_origin(s),
+        semantic_context=_sm_summary_context(s))
     _ts_result(value,:heuristic,:welford,["Sample variance uses n-1; correlated standard error not inferred."])
 end
 
