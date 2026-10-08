@@ -231,7 +231,7 @@ Starting HEAD and clean status verified exactly as requested:
 push or tag. Read/reused all four authoritative M10D documents before implementation.
 No inventory rediscovery, classification change, architecture re-audit or subagent.
 
-**M10D.2 IMPLEMENTATION COMPLETE — CANONICAL PENDING.**
+**M10D.2 VERIFIED COMPLETE — CANONICAL PASSED.**
 
 The existing graph's 24 rows were revalidated in place. Two formerly missing
 bridges now exist: explicit saved-trajectory scalar selection through
@@ -255,29 +255,50 @@ to architecture.md solely to satisfy existing registration invariants.
 | 16–17 no new subsystem or weakened contract | COMPLETE; two overloads using existing types/functions; no exports, extension/dependency changes or algorithm |
 | 18 focused tests | COMPLETE; 189/189 new base assertions; 599/599 affected regressions including architecture; optional learning 27/27 and Molly 22/22 |
 | 19 M10D.1 regressions | COMPLETE; 58/58 frozen ownership/registration/notebook plus 93/93 general architecture, final combined focus 340/340 |
-| 20 diff/index checks | Working diff check passes; candidate-wide check repeated before checkpoint |
+| 20 diff/index checks | COMPLETE; audited staged/committed candidate matched before canonical; documentation-only closure repeats working/index checks |
 | 21 one bounded review | COMPLETE; D025/D026 counterexamples reproduced and fixed, no unresolved M10D.2 blocker; no repeat review |
 
 Full route contracts, exact tests/oracles, source/ownership limitations, commands,
 logs and review disposition: [m10d_interoperability_results.md](m10d_interoperability_results.md).
 All bounded gates used `JULIA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1`.
-Gate logs: `/home/lorenzozm/.hermes/cache/scratch/m10d2-gates-XMDfjU/`.
+Historical gate logs: `/home/lorenzozm/.hermes/cache/scratch/m10d2-gates-XMDfjU/`
+(ephemeral directory removed after scratch cleanup; established results retained).
 No canonical was used during development. No stress ladder, large training,
 100k-particle/state workload, streaming benchmark or frozen M10C rerun.
 
 ### Checkpoint and final verification policy
 
-Create `[m10d] Add cross-milestone scientific interoperability` as a recoverable
-implementation checkpoint after explicit candidate/index checks. If budget permits,
-run exactly one controlled-thread canonical from that clean checkpoint:
+Implementation checkpoint `689efc8413789f60725e9554a0303cfa05c288ee`,
+`[m10d] Add cross-milestone scientific interoperability`, was created after
+explicit candidate/index checks. Exactly one controlled-thread canonical was
+executed from that clean checkpoint:
 
 ```sh
 env JULIA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
     julia +release --project=. -e 'using Pkg; Pkg.test()'
 ```
 
-Record the exact checkpoint, assertion/testset counts, exit/environment/log and
-completion marker below when available. A passing canonical permits only a separate
-`[verified] Complete M10D.2 scientific interoperability` completion commit. A failed
-canonical is classified, preserved and not automatically rerun. Do not amend,
-push, tag or begin M10D.3. D024 remains intentionally deferred to M10D.5.
+Canonical execution: **PASSED**, exit code **0**, with `JULIA_NUM_THREADS=1`
+and `OPENBLAS_NUM_THREADS=1`. Persistent process-result evidence:
+`/home/lorenzozm/.hermes/logs/process-results/proc_d037234502c4.json`.
+It retains the exact command, correct repository working directory,
+`completion_reason=exited`, `exit_code=0` and `Canonical exit: 0`.
+
+Assertion count: **unavailable**. Reported testset count: **unavailable**.
+Detailed canonical stdout/stderr: **unavailable after scratch cleanup**; the
+redirected ephemeral `canonical.log` no longer exists. Its final summaries and
+test-runner completion marker are unavailable. Counts must not be reconstructed
+or guessed, including from prior focused results. This is reporting-detail loss,
+not loss of the persistent canonical exit-status evidence, accepted for closure.
+
+The prior candidate-to-checkpoint hash verification is retained in session
+`20261004_224437_daa37f`, messages 5513/5515; message 5529 records unchanged
+executable/environment hashes during canonical. Recovery confirms all 11
+checkpoint candidate blobs match current working files and index by SHA-256;
+the missing scratch hash manifests are not represented as freshly rechecked.
+
+Finalization changes documentation only, reuses focused verification and the
+closed interoperability review, and creates the separate child commit
+`[verified] Complete M10D.2 scientific interoperability`. Do not amend the
+implementation checkpoint, rerun tests/review/canonical, push, tag or begin
+M10D.3. D024 remains intentionally deferred to M10D.5.

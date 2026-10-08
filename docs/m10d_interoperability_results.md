@@ -1,6 +1,6 @@
 # M10D.2 — Cross-milestone scientific interoperability
 
-Status: **IMPLEMENTATION COMPLETE — CANONICAL PENDING**.
+Status: **VERIFIED COMPLETE — CANONICAL PASSED**.
 Starting verified HEAD: `adadf5ddd03b360c93a6c0451f31cba03d01f8ff`.
 M10D.1 is not reopened. Its 36 family classifications, 177 exports and architecture
 inventory are unchanged. The existing integration graph's 24 rows are revalidated
@@ -148,7 +148,9 @@ M10D.2 blocker; post-fix regression checks are not a second review.
 ## Executed bounded verification
 
 All commands used `JULIA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1` and `julia +release`.
-Logs: `/home/lorenzozm/.hermes/cache/scratch/m10d2-gates-XMDfjU/`.
+Historical logs: `/home/lorenzozm/.hermes/cache/scratch/m10d2-gates-XMDfjU/`.
+This ephemeral directory is no longer available after scratch cleanup; the
+established focused results below are retained evidence, not rerun results.
 
 | Gate | Result | Command / log |
 |---|---|---|
@@ -173,6 +175,42 @@ comparison needs expand; optional packages also export transform, requiring AML
 qualification. Nonfatal Julia precompilation/cache-version warnings occurred.
 These are not suppressed or mislabeled as source regressions.
 
-`git diff --check` passed before final documentation; candidate-wide staged checks
-are required at checkpoint. Implementation checkpoint precedes any expensive
-canonical. Canonical has not yet been run for M10D.2; no verified completion claim.
+## Recovered final canonical evidence
+
+Implementation checkpoint: `689efc8413789f60725e9554a0303cfa05c288ee`,
+`[m10d] Add cross-milestone scientific interoperability`.
+The controlled canonical was executed from that checkpoint:
+
+```sh
+env JULIA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+    julia +release --project=. -e 'using Pkg; Pkg.test()'
+```
+
+- Canonical execution classification: **PASSED**.
+- Environment: `JULIA_NUM_THREADS=1`, `OPENBLAS_NUM_THREADS=1`.
+- Exit code: **0**; persistent completion reason: `exited`.
+- Persistent process-result evidence:
+  `/home/lorenzozm/.hermes/logs/process-results/proc_d037234502c4.json`.
+  It records the exact command, correct repository working directory, exit code
+  and `Canonical exit: 0`; the wrapper propagates the Julia command's exit status.
+- Assertion count: **unavailable**.
+- Reported testset count: **unavailable**.
+- Detailed canonical stdout/stderr: **unavailable after scratch cleanup**.
+  Output was redirected to the now-removed ephemeral `canonical.log`; its final
+  summaries and test-runner completion marker are unavailable. No canonical
+  counts may be reconstructed, extrapolated from focused gates, or guessed.
+
+This is loss of reporting detail, not loss of canonical exit-status evidence.
+Finalization accepts the persistent exit evidence without repeating execution.
+Recovered session `20261004_224437_daa37f`, messages 5513/5515, establishes that
+the audited candidate hashes matched staged and committed blobs at this exact
+checkpoint; message 5529 records unchanged executable/environment hashes during
+canonical execution. At recovery all 11 checkpoint candidate blobs again match
+working files and index by SHA-256. The original scratch hash manifests are no
+longer available; no fresh comparison to those missing manifests is claimed.
+
+Only this report and m10d_plan.md change during finalization. Scientific source,
+tests and environments remain unchanged; established focused gates and the one
+closed review are reused. Diff/index checks are required before the separate
+`[verified] Complete M10D.2 scientific interoperability` completion commit.
+No checkpoint amendment, rerun, push, tag or M10D.3 work is authorized.
