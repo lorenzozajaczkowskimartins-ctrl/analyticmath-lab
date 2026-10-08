@@ -18,6 +18,15 @@ new explicitly scoped claim; a projection or relabeling alone may not.
 
 ## Canonical vocabulary derived from existing contracts
 
+Scientific value equality is not provenance identity. `PropertyResult.value`
+keeps its established scientific payload, equality, hash and destructuring
+contract. Optional `PropertyResult.metadata` holds descriptive origin/context,
+read through scientific_origin/scientific_metadata, not folded into the value.
+The four-argument and PropertyResult{T} constructors remain compatible; metadata
+defaults to nothing. No custom == or global identity registry is introduced.
+This additive local correction is justified by the actual M10D.3 canonical
+regression, not a reopening of the M10D.1 inventory/type hierarchy.
+
 | Concept | Existing representation and meaning | Setter / downstream rule | Absence and forbidden inference |
 |---|---|---|---|
 | Established result | PropertyResult.status=:established: the specified property was established by its recorded method under its assumptions | Scientific operation that supplies the justification; preserve scope or weaken | Not an overall validation of an input model, physical system, backend or future computation |

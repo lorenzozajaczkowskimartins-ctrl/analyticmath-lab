@@ -11,7 +11,9 @@ focused gates, not a new historical canonical.
 
 The semantic census/specification is [m10d_semantics.md](m10d_semantics.md).
 The qualified experimental `scientific_metadata` / `scientific_origin` interfaces
-preserve native result layouts and exports. No universal status enum, result
+preserve native scientific payloads and exports. The canonical-required local
+correction adds optional PropertyResult.metadata without changing PropertyResult{T}
+or its four-argument constructors. No universal status enum, result
 wrapper, provenance struct, scientific algorithm, subsystem or bridge is added.
 
 - Claims retain scope/status/method/notes; execution/compatibility/domain/search
@@ -137,27 +139,67 @@ unknown, not invented; no claim of whole-library provenance completeness is made
 
 ## Checkpoint and canonical boundary
 
-Preserve one implementation checkpoint:
+Original implementation checkpoint:
+`c645be415bf5b1b237fed85e6eb49948a6a0325d`,
 `[m10d] Unify scientific semantics and provenance`.
-Working and staged `git diff --check`, explicit candidate/hash/security checks,
-and commit read-back are required. No earlier milestone commit is amended.
+Canonical was deferred at that checkpoint. The subsequent authorized original
+canonical ran exactly once and FAILED; its history is retained below.
 
-Canonical was **not launched** during development or finalization. The extended
-bounded focused/optional/regression work consumed this session's verification
-budget; the authorized canonical-pending boundary is used instead of forcing an
-expensive full run. No canonical assertion/testset count, exit or success marker
-exists for M10D.3 yet. Do not create a verified-completion commit from focus gates.
-
-Future canonical command, exactly once when budget permits:
+Original and authorized replacement canonical command:
 
 ```sh
 env JULIA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
     julia +release --project=. -e 'using Pkg; Pkg.test()'
 ```
 
-Retain command, repository directory, implementation commit, environment,
-timestamps, stdout/stderr, exact exit and final marker in the persistent directory.
-Record assertion/reported testset counts only if actually available. If it fails,
-classify the exact first blocker and stop without automatic rerun. If it passes,
-a separate documentation-only completion commit can follow the checkpoint.
-No push/tag, M10D.4, Wiki, benchmarks or scaling workload is authorized here.
+## Original canonical failure and D037 correction
+
+Original run: 2026-10-08T23:03:31.020574+00:00 through
+2026-10-08T23:14:02.236850+00:00; tested c645be415bf5b1b237fed85e6eb49948a6a0325d.
+Controlled JULIA_NUM_THREADS=1 / OPENBLAS_NUM_THREADS=1; exit 1.
+Partial reported summaries: 3388 passed, 1 failed, 0 errored, 86 testsets.
+Final marker: `ERROR: Package AnalyticMathLab errored during testing`.
+Log/evidence: `/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d3/canonical-20261008T230324Z/`.
+These are not full-suite totals and do not supersede earlier focused successes.
+
+First blocker: unchanged test/m10c_streaming.jl:12 (`lazy == stored`).
+M10D.3 inserted origin/semantic_context into statistical_summary.value, making
+equal numerical moments unequal solely because source identity differed. This
+is an M10D.3 semantic/source compatibility regression, not a numeric, environment
+or inherited-test failure. No original-canonical rerun or source edit occurred
+during stop-on-failure finalization.
+
+The authorized correction restores the exact seven-field value payload. Origin
+and bounded semantic context move to optional PropertyResult.metadata; the
+inspection interfaces read that metadata. Type parameter T, four-argument and
+explicitly typed constructors remain supported. No custom equality, wrapper
+result, global registry or strong source link is added. Equal values/hash and
+different origins coexist; serialization preserves recorded ancestry. The
+original M10C equality test is unmodified.
+
+One bounded sibling search inspected the M10D.3 source/extension diff, result
+constructors and accessor consumers. Only statistical_summary inserted identity
+into a pre-existing .value payload. Trajectory diagnostics, dataset/model/PINN
+provenance and native reference records are existing descriptive metadata slots,
+not additional occurrences of that compatibility defect. No other source fix
+was warranted. This is not a repeated census or adversarial review.
+
+Corrective focused gates (all exit 0, logs in the persistent M10D.3 directory):
+- Exact failed equality assertion: 1/1; new equality/hash/shape/identity,
+  typed-constructor, unit, serialization and retention tests: 22/22
+  (`value-compatibility-green.log`; prior red: 17 passed/5 failed).
+- Affected gate: 431/431 across 17 reported testsets: M10C streaming 16,
+  scalar statistics 98, relevant M10D.2 interoperability 189, M10D.3 semantics
+  and existing review regressions 106, new compatibility 22
+  (`correction-focused.log`). Counts overlap other gates and are not additive.
+- Directly affected optional semantic learning 25/25, PINN 23/23 and Molly
+  moments 22/22 (`correction-learning.log`, `correction-pinn.log`, `correction-molly.log`).
+- Summary size 376 bytes and origin size 142 bytes at both 8 and 4096 samples.
+
+Corrective checkpoint subject:
+`[m10d] Separate scientific values from provenance identity`.
+Replacement canonical is pending at this corrective checkpoint. Exactly one is
+authorized after focused success, with a separate persistent pre-launch hash
+manifest and full log/evidence. On failure stop without another invocation or
+verified-completion commit. No earlier checkpoint is amended; no push/tag or
+M10D.4 is started.

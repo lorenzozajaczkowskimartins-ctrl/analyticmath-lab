@@ -4,12 +4,12 @@ const A=AnalyticMathLab
 @testset "M10D3 bounded review counterexamples" begin
     s=ObservableSeries([1.,2.])
     origin=merge(A.scientific_origin(s),(unexpected_source=collect(1.:4096.),))
-    p=PropertyResult((origin=origin,),:heuristic,:stored_summary,String[])
+    p=PropertyResult(nothing,:heuristic,:stored_summary,String[];metadata=(origin=origin,))
     detached=A.scientific_origin(p)
     @test Base.summarysize(detached) < 4096
     @test !hasproperty(only(detached.parents),:unexpected_source)
     @test hasproperty(detached,:kind)
-    malformed=PropertyResult((origin=(unrelated=:metadata,),),:unknown,:unspecified,String[])
+    malformed=PropertyResult(nothing,:unknown,:unspecified,String[];metadata=(origin=(unrelated=:metadata,),))
     @test isempty(A.scientific_origin(malformed).parents)
     path=trajectory(FirstOrderODE((u,t)->[1.],1),[0.],(0.,1.))
     selected=observable_series(path;component=1)
@@ -19,7 +19,7 @@ const A=AnalyticMathLab
     @test deserialize(io) == detached
     @test Base.summarysize(detached) == Base.summarysize(deepcopy(detached))
     for _ in 1:12
-        p=PropertyResult((origin=detached,),:heuristic,:stored_summary,String[])
+        p=PropertyResult(nothing,:heuristic,:stored_summary,String[];metadata=(origin=detached,))
         detached=A.scientific_origin(p)
     end
     levels=0; leaf=detached

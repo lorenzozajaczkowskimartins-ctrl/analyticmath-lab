@@ -4,7 +4,7 @@
 
 Fields: original_expression and simplified_expression (parametric storage); domain::RealDomain; roots, intercepts, sign, continuity, limits, monotonicity, extrema, concavity, inflections, asymptotes, symmetry (each PropertyResult).
 
-`PropertyResult{T}`: value::T, status::Symbol (:established, :heuristic, or :unknown), method::Symbol, notes::Vector{String}. Unknown value is nothing. Never plot unknown as established absence. Vectors are result-owned and treated as read-only by library operations.
+`PropertyResult{T}`: value::T, status::Symbol (:established, :heuristic, or :unknown), method::Symbol, notes::Vector{String}, metadata::Union{Nothing,NamedTuple}. Four-argument construction (including PropertyResult{T}) remains supported with metadata=nothing; optional keyword metadata describes the result separately from value equality/hashing. Unknown value is nothing. Never plot unknown as established absence. Vectors are result-owned and treated as read-only by library operations.
 `RealInterval`: left::Real, right::Real, left_closed::Bool, right_closed::Bool. Finite endpoints Rational{BigInt}; unbounded endpoints -Inf / Inf (Float64 infinity only, never approximate finite roots).
 `RealDomain`: components::Vector{RealInterval}, status::Symbol, method::Symbol, notes::Vector{String}.
 `domain_contains(domain,x)` returns Bool for established domains, nothing if unknown.

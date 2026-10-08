@@ -36,8 +36,8 @@ end
         @test sm.tolerances == m.tolerances
     end
     summary=statistical_summary(s)
-    @test hasproperty(summary.value,:origin)
-    if hasproperty(summary.value,:origin)
+    @test !hasproperty(summary.value,:origin)
+    if summary.metadata!==nothing
         origin=A.scientific_origin(summary)
         @test only(origin.parents).operation == :stored_observable_selection
         @test only(only(origin.parents).parents).operation == :numerical_integration
@@ -48,8 +48,8 @@ end
     pm=statistical_summary(physical)
     @test pm.value.mean == 2u"m"
     @test pm.value.variance == 1u"m^2"
-    @test hasproperty(pm.value,:semantic_context)
-    if hasproperty(pm.value,:semantic_context)
+    @test !hasproperty(pm.value,:semantic_context)
+    if pm.metadata!==nothing
         @test A.scientific_metadata(pm).units.value == "m"
     end
 end

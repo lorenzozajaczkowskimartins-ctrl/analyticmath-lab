@@ -87,6 +87,7 @@ M10D.1/M10D.2 remain verified, with no rerun of their audits or reviews.
 | D034 | Flagship comparability | Semantics expose descriptive domains/reference quality; do not automatically rank unrelated methods, models or query costs | DEFERRED M10D.4 scope, no implementation |
 | D035 | Open metadata/constructor policy | Native positional records/open user metadata are not certificates; string units are declarations; known backend defaults absent from results cannot be recreated | DEFERRED M10D.5 with D011; no broad constructor/unit/backend hardening |
 | D036 | Semantic navigation | Qualified experimental accessors and native family contracts need user-facing navigation/examples | DEFERRED M10D.6; no Wiki work |
+| D037 | Canonical value/provenance compatibility regression | Identity embedded in statistical_summary.value broke unchanged test/m10c_streaming.jl:12 despite equal moments | CORRECTED M10D.3: optional PropertyResult.metadata separates identity/context from unchanged scientific payload; constructor, equality/hash, accessors, serialization and bounded-ownership gates pass; replacement canonical pending |
 
 Exactly one bounded parent semantic review used the question “Where can AML make
 a scientific result appear stronger, more precise, better sourced, or more

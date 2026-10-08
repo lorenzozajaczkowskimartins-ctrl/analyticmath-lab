@@ -48,9 +48,9 @@ function _sm_origin(x,operation;parents=())
         parents=parent===nothing ? () : (parent,),truncated=length(parents)>1)
 end
 scientific_origin(p::PropertyResult)=_sm_origin(p,p.method;
-    parents=p.value isa NamedTuple && hasproperty(p.value,:origin) ? (p.value.origin,) : ())
+    parents=p.metadata!==nothing && hasproperty(p.metadata,:origin) ? (p.metadata.origin,) : ())
 function scientific_metadata(p::PropertyResult)
-    c=p.value isa NamedTuple ? get(p.value,:semantic_context,NamedTuple()) : NamedTuple()
+    c=p.metadata===nothing ? NamedTuple() : get(p.metadata,:semantic_context,NamedTuple())
     _sm_record(claims=(_sm_claim(:property,p),),method=p.method,
         backend=p.method in (:unsupported,:unsupported_backend_api) ? _sm_na() : _sm_unknown(),
         units=get(c,:units,_sm_unknown()),coordinates=get(c,:coordinates,_sm_unknown()),

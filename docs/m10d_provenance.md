@@ -53,7 +53,8 @@ statistical_summary:
 - The trajectory's diagnostics gains a detached descriptor of that conversion;
   it does not add a strong reference to the full conversion/analysis.
 - Series already retains the trajectory; the descriptor records stored selection.
-- Moments store only a bounded series origin and compact semantic context: units,
+- Moments store only a bounded series origin and compact semantic context in
+  PropertyResult.metadata, not the scientific .value payload: units,
   selected component/label, sample count/regularity/time units, available solver
   tolerances and inherited numerical/sample approximation. No value/time arrays,
   selector callable or domain closure is retained by the new context.
@@ -112,7 +113,7 @@ storage or claim zero-copy serialization of native backend results.
 | MechanicsDynamics/MechanicalLinearization/modes | Strong source fields and native matrices; original symbolic systems remain | Detached inspection descriptors, no duplicate source |
 | TrajectoryResult | Native solution/problem/callable already retained | Mechanics parent descriptor only; does not eliminate existing closure ownership |
 | ObservableSeries | Values borrowed in generic constructor; bridge materializes selected values/times; source/context may be retained | Detached origin accessor, no extra array ownership |
-| Statistical moments | Compact PropertyResult payload | Bounded origin/context only; no upstream series/state retention |
+| Statistical moments | Compact scientific payload, unchanged keys | Separate optional metadata: bounded origin/context; no upstream series/state retention |
 | AtomisticSnapshot/TrajectoryView | Arrays borrowed unless copy_data; history/view legitimately retained | Inspection records existing policy; no new engine/state copy |
 | ScientificSample/PINNPoints | Construction copies numeric coordinate/sample arrays | No new source retention |
 | ScientificDataset | Samples/schema/reference/provenance copied; retained route can copy trajectory | Explicit descriptor opt-in and omissions; no silent policy change |
@@ -122,7 +123,7 @@ storage or claim zero-copy serialization of native backend results.
 ## Bounded ownership evidence
 
 The final bounded semantic gate compares 8 vs 4096 scalar samples, not a stress
-workload or benchmark. Base.summarysize reported:
+workload or benchmark. The original implementation gate's Base.summarysize reported:
 
 | Stored samples | Source series bytes | Detached origin bytes | Moment result bytes |
 |---|---:|---:|---:|
@@ -135,3 +136,11 @@ counterexample with an unexpected 4096-element source array in caller origin
 metadata retained 32942 bytes before the review fix; the whitelist now refuses
 that retention. Descriptor copying and Serialization roundtrip are tested.
 The one bounded review is closed after regression fixes; it is not repeated.
+
+The canonical-discovered equality regression required moving origin/context out
+of .value into optional result metadata. The corrective gate observed 376 bytes
+per summary and 142 bytes per summary-origin descriptor at both 8 and 4096
+samples. These newer observations do not replace the historical table above.
+Identical moments may have equal values/hashes and different scientific origins.
+Serialization preserves the recorded parent descriptor; source identity still
+does not define scientific-value equality or imply durable reproducibility.

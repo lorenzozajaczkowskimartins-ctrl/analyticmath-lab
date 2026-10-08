@@ -21,7 +21,7 @@ new science, forcing all subsystems into one result type, or connecting every pa
 |---|---|---|
 | M10D.1 Architecture & Public API Freeze | Complete family/export inventory, ownership, dispatch/extension audit, minimal layout fixes, seam and semantic maps | VERIFIED COMPLETE, not reopened |
 | M10D.2 Cross-Milestone Scientific Interoperability | Prioritized legitimate bridges with preservation/refusal tests | VERIFIED COMPLETE at f8f233ba1d542d2a3a4e683a02523aa9524ad603; not reopened |
-| M10D.3 Unified Scientific Semantics & Provenance | Consistent evidence vocabulary and lightweight source retention | Current phase: implementation and focused verification; canonical pending; no universal provenance/result wrapper |
+| M10D.3 Unified Scientific Semantics & Provenance | Consistent evidence vocabulary and lightweight source retention | Canonical-discovered D037 corrected with focused gates; one replacement canonical pending; no universal provenance/result wrapper |
 | M10D.4 One System, Many Methods | One scientifically justified flagship using existing methods | No new algorithm/model family |
 | M10D.5 User & Research Hardening | Constructor/error boundaries, reproducibility, packaging, supported workflows | Bounded workloads and explicit resource limitations |
 | M10D.6 Documentation & GitHub Wiki | User/research navigation and wiki matching tested APIs | Wiki is not started in M10D.1 |
@@ -331,15 +331,19 @@ freeze; no universal result/provenance struct or new scientific bridge is added.
 | 22 diff check | Working and staged checks required before checkpoint |
 | 23 single bounded review | Closed D031–D033 via narrow regressions; no repeated review or subagent |
 
-Preserve one checkpoint titled `[m10d] Unify scientific semantics and provenance`.
-Under the execution-budget policy, canonical is not launched in this session;
-do not label focused success as canonical verification or create the separate
-verified-completion commit yet. Persistent logs/evidence are under
-/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d3/, not ephemeral scratch.
-A future exactly-one canonical must use JULIA_NUM_THREADS=1 and
-OPENBLAS_NUM_THREADS=1, retain command/working directory/commit/environment/
-timestamps/log/exit/runner marker/counts in that persistent location, and stop on
-the first failure without an automatic retry. D024 is not addressed here.
+Original checkpoint c645be415bf5b1b237fed85e6eb49948a6a0325d is preserved.
+The original controlled canonical ran once and failed on D037: provenance identity
+embedded in statistical_summary.value broke the unchanged M10C equality test.
+Its partial counts, timestamps and durable evidence remain in semantic results.
+The local correction separates optional PropertyResult metadata from scientific
+value equality/hash while preserving constructors, units and detached origins.
+The affected 431-assertion gate and directly affected optional gates pass.
+Create `[m10d] Separate scientific values from provenance identity`, without
+amending the original checkpoint, before exactly one authorized replacement.
+Use JULIA_NUM_THREADS=1 / OPENBLAS_NUM_THREADS=1; retain command/working directory/
+tested commit/environment/timestamps/log/exit/marker/counts outside scratch.
+On replacement failure stop without another invocation or completion commit.
+D024 remains deferred; no repeat semantic census/review is authorized.
 
 M10D.4 is not begun. After canonical verification only, its recommended scope is
 one bounded existing-method flagship with an explicit common scientific model,
