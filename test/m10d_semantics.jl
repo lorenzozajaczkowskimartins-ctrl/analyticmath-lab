@@ -12,8 +12,8 @@ const A=AnalyticMathLab
         @test m.units.availability == :unknown
         @test m.backend.availability == :not_applicable
         @test only(m.claims).notes == p.notes
-        @test A.scientific_origin(p).operation == :unsupported
-        @test A.scientific_origin(p).identity_scope == :process_local_not_reproducibility
+        @test A.scientific_origin(p) == (availability=:unknown,value=nothing)
+        @test m.provenance == A.scientific_origin(p)
     end
 end
 @testset "M10D3 trajectory series moments semantics" begin
@@ -37,21 +37,20 @@ end
     end
     summary=statistical_summary(s)
     @test !hasproperty(summary.value,:origin)
-    if summary.metadata!==nothing
-        origin=A.scientific_origin(summary)
-        @test only(origin.parents).operation == :stored_observable_selection
-        @test only(only(origin.parents).parents).operation == :numerical_integration
-        @test Base.summarysize(origin) < 4096
-        @test A.scientific_metadata(summary).units.availability == :unknown
-    end
+    @test fieldnames(typeof(summary)) == (:value,:status,:method,:notes)
+    @test A.scientific_origin(summary) == (availability=:unknown,value=nothing)
+    origin=A.scientific_origin(s)
+    @test origin.operation == :stored_observable_selection
+    @test only(origin.parents).operation == :numerical_integration
+    @test Base.summarysize(origin) < 4096
+    @test A.scientific_metadata(summary).units.availability == :unknown
     physical=ObservableSeries([1.,2.,3.].*u"m";times=[0.,1.,2.].*u"s")
     pm=statistical_summary(physical)
     @test pm.value.mean == 2u"m"
     @test pm.value.variance == 1u"m^2"
     @test !hasproperty(pm.value,:semantic_context)
-    if pm.metadata!==nothing
-        @test A.scientific_metadata(pm).units.value == "m"
-    end
+    @test A.scientific_metadata(physical).units.value == "m"
+    @test A.scientific_metadata(pm).units.availability == :unknown
 end
 @testset "M10D3 mechanics origin and modal scope" begin
     @variables q v

@@ -16,6 +16,8 @@ Detached bounded origin descriptor. Contains process-local identity tokens, not
 source objects, closures, datasets or reproducibility hashes. A token is useful
 only within the originating process; it is not a persistent scientific identifier.
 Parents trace recorded operations only; missing parents are not reconstructed.
+An isolated PropertyResult has no stored origin and returns
+`(availability=:unknown, value=nothing)` instead of an identity descriptor.
 """
 function scientific_origin end
 
@@ -47,15 +49,13 @@ function _sm_origin(x,operation;parents=())
         identity_scope=:process_local_not_reproducibility,
         parents=parent===nothing ? () : (parent,),truncated=length(parents)>1)
 end
-scientific_origin(p::PropertyResult)=_sm_origin(p,p.method;
-    parents=p.metadata!==nothing && hasproperty(p.metadata,:origin) ? (p.metadata.origin,) : ())
+scientific_origin(::PropertyResult)=_sm_unknown()
 function scientific_metadata(p::PropertyResult)
-    c=p.metadata===nothing ? NamedTuple() : get(p.metadata,:semantic_context,NamedTuple())
+    # The established four-field atom records a claim, not its source context.
+    # Inspect the enclosing result/series for units, controls and provenance.
     _sm_record(claims=(_sm_claim(:property,p),),method=p.method,
         backend=p.method in (:unsupported,:unsupported_backend_api) ? _sm_na() : _sm_unknown(),
-        units=get(c,:units,_sm_unknown()),coordinates=get(c,:coordinates,_sm_unknown()),
-        sampling=get(c,:sampling,_sm_na()),tolerances=get(c,:tolerances,_sm_unknown()),
-        approximation=get(c,:approximation,()),origin=scientific_origin(p))
+        sampling=_sm_unknown(),execution=_sm_unknown(),origin=scientific_origin(p))
 end
 
 _sm_units(u::AbstractString)=startswith(lowercase(u),"unknown") ? _sm_unknown() : _sm_known(u)
@@ -154,16 +154,6 @@ function scientific_metadata(r::NormalModeAnalysis)
         coordinates=l===nothing ? _sm_known((representation=r.representation,reconstruction=r.reconstruction)) : _sm_known(l.source.coordinates),
         tolerances=_sm_known((atol=get(r.metadata,:atol,nothing),rtol=get(r.metadata,:rtol,nothing))),
         ownership=:source_and_matrices_retained,origin=scientific_origin(r))
-end
-function _sm_summary_context(s::ObservableSeries)
-    # No values, times, user callables, domain closures or upstream arrays retained.
-    selection=_sm_get(s.provenance,:selection,NamedTuple())
-    coordinates=(name=s.name,component=_sm_get(selection,:component),label=_sm_text(_sm_get(selection,:label)))
-    (units=_sm_units(_sm_text(s.units)),coordinates=_sm_known(coordinates),
-        sampling=_sm_known((count=s.sampling.count,regularity=s.sampling.regularity,
-            time_units=s.sampling.units,order=:increasing)),
-        tolerances=scientific_metadata(s).tolerances,
-        approximation=(scientific_metadata(s).approximation...,:descriptive_samples))
 end
 _sm_reference_descriptor(r)=(kind=_sm_get(r,:kind,:unknown),trust=:caller_declared_not_certified,
     uncertainty=_sm_get(r,:error) in (nothing,:unknown) ? :unknown : :caller_declared)

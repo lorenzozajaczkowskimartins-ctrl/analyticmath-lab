@@ -7,7 +7,8 @@ existing contracts. No cryptographic reproducibility claim is made.
 
 ## Detached origin interface
 
-`AnalyticMathLab.scientific_origin(result)` returns a NamedTuple descriptor:
+For source-bearing results, `AnalyticMathLab.scientific_origin(result)` returns
+a NamedTuple descriptor:
 
 - kind=:aml_scientific_origin;
 - short type name and process-local objectid token;
@@ -30,6 +31,11 @@ Serialization preserves the descriptor, not the ability to recover a source
 object in another process. Nothing here installs a global registry or a weak
 reference cache, creates cycles, traverses source arrays, or evaluates callbacks.
 
+An isolated `PropertyResult` returns `(availability=:unknown,value=nothing)`
+instead. Its frozen four fields contain no recorded source association. Neither
+an objectid token nor the method name can manufacture that association. The
+inspection layer adds no leaf storage, registry or source retention.
+
 ## Scientific information vs detached identity
 
 `AnalyticMathLab.scientific_metadata(result)` exposes actual scoped claims,
@@ -46,18 +52,19 @@ for reproducing a computation. The source-specific omissions are explicit.
 
 ## Recorded multi-stage examples
 
-Mechanics analysis -> MechanicsDynamics -> trajectory -> ObservableSeries ->
-statistical_summary:
+Mechanics analysis -> MechanicsDynamics -> trajectory -> ObservableSeries,
+followed by the deliberately context-free statistical_summary projection:
 
 - MechanicsDynamics already retains the mechanics analysis.
 - The trajectory's diagnostics gains a detached descriptor of that conversion;
   it does not add a strong reference to the full conversion/analysis.
 - Series already retains the trajectory; the descriptor records stored selection.
-- Moments store only a bounded series origin and compact semantic context in
-  PropertyResult.metadata, not the scientific .value payload: units,
-  selected component/label, sample count/regularity/time units, available solver
-  tolerances and inherited numerical/sample approximation. No value/time arrays,
-  selector callable or domain closure is retained by the new context.
+- Moments retain their original seven-key scientific value and four-field
+  PropertyResult layout. No source, array, selector, closure or extra context is
+  retained. Units remain in Unitful moment values; source labels, time units,
+  tolerances and inherited numerical/sample approximation stay inspectable on
+  the series. Keep that series or the existing explicit ComparisonInput context
+  when subsequent work needs it; the isolated leaf reports unavailable origin.
 - Symbolic energy identity remains scoped symbolic evidence; numerical trajectory
   and moments do not become physical validation.
 
@@ -113,7 +120,7 @@ storage or claim zero-copy serialization of native backend results.
 | MechanicsDynamics/MechanicalLinearization/modes | Strong source fields and native matrices; original symbolic systems remain | Detached inspection descriptors, no duplicate source |
 | TrajectoryResult | Native solution/problem/callable already retained | Mechanics parent descriptor only; does not eliminate existing closure ownership |
 | ObservableSeries | Values borrowed in generic constructor; bridge materializes selected values/times; source/context may be retained | Detached origin accessor, no extra array ownership |
-| Statistical moments | Compact scientific payload, unchanged keys | Separate optional metadata: bounded origin/context; no upstream series/state retention |
+| Statistical moments | Compact scientific payload, unchanged keys and four-field PropertyResult | Claim inspection only; origin unavailable; no upstream series/state retention |
 | AtomisticSnapshot/TrajectoryView | Arrays borrowed unless copy_data; history/view legitimately retained | Inspection records existing policy; no new engine/state copy |
 | ScientificSample/PINNPoints | Construction copies numeric coordinate/sample arrays | No new source retention |
 | ScientificDataset | Samples/schema/reference/provenance copied; retained route can copy trajectory | Explicit descriptor opt-in and omissions; no silent policy change |
@@ -137,10 +144,15 @@ metadata retained 32942 bytes before the review fix; the whitelist now refuses
 that retention. Descriptor copying and Serialization roundtrip are tested.
 The one bounded review is closed after regression fixes; it is not repeated.
 
-The canonical-discovered equality regression required moving origin/context out
+Historically, the first canonical-discovered equality regression moved origin/context out
 of .value into optional result metadata. The corrective gate observed 376 bytes
 per summary and 142 bytes per summary-origin descriptor at both 8 and 4096
 samples. These newer observations do not replace the historical table above.
-Identical moments may have equal values/hashes and different scientific origins.
-Serialization preserves the recorded parent descriptor; source identity still
-does not define scientific-value equality or imply durable reproducibility.
+That first correction was superseded by D038: optional leaf metadata itself
+broke the public physical layout. Both historical size observations remain above,
+not claims about the corrected implementation. The final correction removes
+that storage entirely. Equal moments from different series still have equal
+values/hashes, while the source series have distinct scientific origins.
+Serialization preserves a detached descriptor when explicitly retained, but
+cannot recover ancestry absent from a serialized leaf. Source identity never
+defines scientific-value equality or implies durable reproducibility.

@@ -7,7 +7,7 @@ Baseline: `ff28e89bb08f95015d241091de7406d8f02d5861`, parent
 canonical 4789/4789 assertions, 167 reported testsets, exit 0. Its measurement
 CSV/TOML and provenance are frozen evidence, not benchmarks to repeat.
 
-Current authorized phase: **M10D.2 only**; M10D.1 is VERIFIED COMPLETE at
+Current authorized phase: **M10D.3 only**; M10D.1 is VERIFIED COMPLETE at
 `adadf5ddd03b360c93a6c0451f31cba03d01f8ff`. The historical M10D.1 record below
 is frozen. Its API policy is a pre-1.0 freeze,
 not a version bump or a claim that the final 1.0 audit has passed.
@@ -21,7 +21,7 @@ new science, forcing all subsystems into one result type, or connecting every pa
 |---|---|---|
 | M10D.1 Architecture & Public API Freeze | Complete family/export inventory, ownership, dispatch/extension audit, minimal layout fixes, seam and semantic maps | VERIFIED COMPLETE, not reopened |
 | M10D.2 Cross-Milestone Scientific Interoperability | Prioritized legitimate bridges with preservation/refusal tests | VERIFIED COMPLETE at f8f233ba1d542d2a3a4e683a02523aa9524ad603; not reopened |
-| M10D.3 Unified Scientific Semantics & Provenance | Consistent evidence vocabulary and lightweight source retention | Canonical-discovered D037 corrected with focused gates; one replacement canonical pending; no universal provenance/result wrapper |
+| M10D.3 Unified Scientific Semantics & Provenance | Consistent evidence vocabulary and lightweight source retention | D037 value-equality and D038 physical-layout regressions corrected; final controlled canonical pending; no universal provenance/result wrapper |
 | M10D.4 One System, Many Methods | One scientifically justified flagship using existing methods | No new algorithm/model family |
 | M10D.5 User & Research Hardening | Constructor/error boundaries, reproducibility, packaging, supported workflows | Bounded workloads and explicit resource limitations |
 | M10D.6 Documentation & GitHub Wiki | User/research navigation and wiki matching tested APIs | Wiki is not started in M10D.1 |
@@ -335,7 +335,7 @@ Original checkpoint c645be415bf5b1b237fed85e6eb49948a6a0325d is preserved.
 The original controlled canonical ran once and failed on D037: provenance identity
 embedded in statistical_summary.value broke the unchanged M10C equality test.
 Its partial counts, timestamps and durable evidence remain in semantic results.
-The local correction separates optional PropertyResult metadata from scientific
+The first local correction separated optional PropertyResult metadata from scientific
 value equality/hash while preserving constructors, units and detached origins.
 The affected 431-assertion gate and directly affected optional gates pass.
 Create `[m10d] Separate scientific values from provenance identity`, without
@@ -349,3 +349,28 @@ M10D.4 is not begun. After canonical verification only, its recommended scope is
 one bounded existing-method flagship with an explicit common scientific model,
 declared coordinate/unit/domain/reference assumptions and comparable queries;
 do not infer physical truth or rank methods using unrelated evidence.
+
+### D038 structural correction continuation
+
+Resumed clean at exactly `d742e18b64d3bb1aa3ac40926978c909779bae7a`.
+The replacement canonical failed unchanged `test/architecture.jl:27` because
+the first correction added a fifth PropertyResult field. It did not invalidate
+the earlier equality fix, but showed that moving metadata out of `.value` alone
+was insufficient. Both canonical failures remain historical evidence in
+m10d_semantics_results.md, with their persistent logs and partial counts.
+
+The correction restores the exact verified-M10D.2 leaf layout, generated
+constructors and statistics producer. Qualified inspection remains; isolated
+leaf origin is unavailable, while source-bearing results retain legitimate
+provenance. Semantic inspection must not silently alter established scientific
+payloads or public structural contracts. No architecture-test weakening,
+equality override, side table, wrapper or hidden mutation is permitted.
+
+One bounded review covers only M10D.3-modified source against M10D.2, including
+struct/payload shape, constructor/equality/hash/serialization/destructuring and
+ownership boundaries. Its disposition and focused gates are in semantic results.
+The authorized checkpoint is `[m10d] Preserve semantic metadata compatibility`,
+followed by exactly one controlled canonical. Stop on failure without another
+canonical or verified completion; on success create the separate
+`[verified] Complete M10D.3 scientific semantics and provenance` commit.
+No amend, push, tag, benchmarks, stress workloads or M10D.4 work.

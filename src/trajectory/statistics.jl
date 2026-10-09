@@ -124,9 +124,7 @@ function statistical_summary(s::ObservableSeries)
     r===nothing && return _ts_unknown("Need nonempty finite real scalar observations; none are dropped.")
     value=(count=r.count,mean=r.mean,variance=r.variance,std=r.std,minimum=r.minimum,
         maximum=r.maximum,standard_error=nothing)
-    metadata=(origin=scientific_origin(s),semantic_context=_sm_summary_context(s))
-    PropertyResult(value,:heuristic,:welford,
-        ["Sample variance uses n-1; correlated standard error not inferred."];metadata)
+    _ts_result(value,:heuristic,:welford,["Sample variance uses n-1; correlated standard error not inferred."])
 end
 
 """Cumulative Welford means/variances; first sample variance is `nothing`."""

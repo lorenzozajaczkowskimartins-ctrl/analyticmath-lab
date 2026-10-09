@@ -20,12 +20,24 @@ new explicitly scoped claim; a projection or relabeling alone may not.
 
 Scientific value equality is not provenance identity. `PropertyResult.value`
 keeps its established scientific payload, equality, hash and destructuring
-contract. Optional `PropertyResult.metadata` holds descriptive origin/context,
-read through scientific_origin/scientific_metadata, not folded into the value.
-The four-argument and PropertyResult{T} constructors remain compatible; metadata
-defaults to nothing. No custom == or global identity registry is introduced.
-This additive local correction is justified by the actual M10D.3 canonical
-regression, not a reopening of the M10D.1 inventory/type hierarchy.
+contract. Semantic inspection must not silently alter established scientific
+payloads or public structural contracts. `PropertyResult` remains exactly the
+four-field atom `(value,status,method,notes)`, with its original generated
+constructors and Base equality/hash behavior. Semantic inspection capability
+does not require metadata storage in every leaf object.
+
+`scientific_origin(::PropertyResult)` returns
+`(availability=:unknown,value=nothing)`: method/notes and a fresh object identity
+are not evidence of a source association. Its metadata inspector exposes the
+native scoped claim and method, not inferred source units, coordinates, sampling,
+execution, tolerances or ancestry. `approximation=()` means no recorded tags,
+not exactness; native heuristic evidence remains heuristic. Unitful quantities
+still carry their own dimensions in the unchanged scientific payload, but a
+generic PropertyResult has no single result-wide units schema (mean and variance
+can differ). Inspect the series or enclosing analysis for contextual metadata.
+No registry, hidden field, wrapper, metadata keyword, mutation or notes/method
+overloading is introduced. The two canonical regressions and the superseded
+metadata-field correction are retained in m10d_semantics_results.md.
 
 | Concept | Existing representation and meaning | Setter / downstream rule | Absence and forbidden inference |
 |---|---|---|---|
@@ -90,7 +102,7 @@ semantic, not judgments that differently shaped types must be rewritten.
 | PINNPoints/residual/reference ordering F29–F31/F34 | coordinate matrix plus generation/provenance; backend independent/block variable order | COMPATIBLE_VARIANT; previously MISSING_BUT_MEANINGFUL names and unchecked declarations addressed via provenance.coordinate_names; explicit contradictory names now refused |
 | Tolerances F01–F16/F25–F34 | residual controls; trajectory diagnostics; mode metadata; inverse/learning controls; field_errors.relative_floor; reference guard | COMPATIBLE_VARIANT; retained where source exposes them; generic older scalar/derivative tuples with no stored controls remain MISSING_BUT_MEANINGFUL, not reconstructed |
 | Backend metadata F17/F25–F34 | Molly provenance, native SciML/Optimization solution, PINN backend_metadata, Lux model/state/package versions | BACKEND_SPECIFIC; inspection exposes recorded public concepts, not extension implementation records as new APIs |
-| Approximation F14–F16/F20–F34 | linearization, eigensolve evidence, sampled moments/errors/residuals, numerical reference, surrogate limitations | CANONICAL scope; touched inheritance no longer drops numerical-source approximation when projecting to series/moments |
+| Approximation F14–F16/F20–F34 | linearization, eigensolve evidence, sampled moments/errors/residuals, numerical reference, surrogate limitations | CANONICAL scope; series retain numerical-source approximation; isolated moments retain heuristic method/evidence but lack source context, which is not reconstructed |
 | Reference quality F25–F34 | ObservationSet kind/provenance; inference problem reference; numerical dataset contract; PINN reference.value.provenance; GeneralizationAnalysis.reference | COMPATIBLE_VARIANT; labels/trust are explicit. Missing declaration MISSING_BUT_MEANINGFUL; no enum normalization or truth inflation |
 | RNG F25–F34 | explicit RNG object at construction; provenance seed/type/package/initialization; dataset.rng | COMPATIBLE_VARIANT / BACKEND_SPECIFIC; type alone is not seed/state or reproducibility; deterministic symbolic work NOT_APPLICABLE scientifically |
 | Grid/resampling F20–F24/F30–F34 | saved times/regularity; PINN collocation snapshot/strategy; dataset.grid; model resampling=:none | COMPATIBLE_VARIANT; no resampling or coverage proof inferred; PINN all-training history explicitly unknown |
@@ -115,8 +127,8 @@ boundary metadata does not establish physical validity. Dataset bounds are
 `descriptive_bounds_not_validity`. PINN declared domains are not residual
 coverage claims. Sampled points alone never establish a continuum domain or
 regular-grid meaning. A compact moment summary intentionally omits arbitrary
-source-domain callables; its origin traces the source and it does not invent a
-domain. The descriptor dataset route explicitly records omitted source context.
+source-domain callables and ancestry; inspect the source series for that context.
+The descriptor dataset route explicitly records omitted source context.
 
 ## Qualified public semantic inspection
 

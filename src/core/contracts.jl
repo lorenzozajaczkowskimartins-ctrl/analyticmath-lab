@@ -18,7 +18,7 @@ function _checked_float64(x, argument; allow_infinite=false)
 end
 
 """
-    PropertyResult(value, status, method, notes; metadata=nothing)
+    PropertyResult(value, status, method, notes)
 
 A structured mathematical claim with evidence separate from its algorithm.
 `:established` means established within the stated supported class/assumptions;
@@ -31,21 +31,13 @@ Constructors and Symbol-valued statuses remain permissive for compatibility.
 Domain `:partial` and legacy search `:not_requested`/`:nonisolated` have specialized
 contracts; they are not additional confidence levels. Notes and value vectors
 are result-owned mutable data: consumers must not mutate them.
-Optional NamedTuple metadata describes the result without changing scientific
-value equality/hashing. It must not silently retain a large source; statistical
-summaries store only detached origin and bounded semantic context there.
 """
 struct PropertyResult{T}
     value::T
     status::Symbol
     method::Symbol
     notes::Vector{String}
-    metadata::Union{Nothing,NamedTuple}
 end
-PropertyResult(value,status::Symbol,method::Symbol,notes::Vector{String};metadata=nothing)=
-    PropertyResult{typeof(value)}(value,status,method,notes,metadata)
-PropertyResult{T}(value,status,method,notes) where {T}=
-    PropertyResult{T}(value,status,method,notes,nothing)
 
 # Numerical experiments validate results without imposing real-study semantics.
 function _finite_real(value)
