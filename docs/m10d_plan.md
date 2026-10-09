@@ -374,3 +374,20 @@ followed by exactly one controlled canonical. Stop on failure without another
 canonical or verified completion; on success create the separate
 `[verified] Complete M10D.3 scientific semantics and provenance` commit.
 No amend, push, tag, benchmarks, stress workloads or M10D.4 work.
+
+### Isolated-test dependency correction
+
+Structural checkpoint `69fe927b150341f2cde5fbfdbb57b33c55837a30` preserved D037/D038
+fixes. Its canonical stopped at the M10D.3 review module's undeclared Serialization
+import: 3885 passing assertions / 110 reported testsets were only partial progress.
+One bounded direct-import preflight found no other missing canonical dependency.
+Serialization is added only to Project.toml extras/test targets. A Pkg.test-style
+isolated sandbox probe loaded all 14 canonical external import roots, verified
+four-field PropertyResult and unchanged dependency versions, and exited 0.
+Source, semantic contracts, tests and root Manifest are unchanged; passed focused
+gates and the structural review are reused. Detailed classifications, failure
+history and durable evidence are in m10d_semantics_results.md.
+
+Create `[m10d] Fix M10D.3 isolated test dependencies`, then exactly one newly
+authorized controlled canonical. Stop on failure; only success permits the
+separate verified-completion commit. No M10D.4, push, tag or amendment.

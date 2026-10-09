@@ -312,3 +312,55 @@ at recovery, not an inferred pass or an unrecoverable result.
 Architectural rule: semantic metadata must remain orthogonal to established
 scientific payload and public structural contracts unless that metadata was
 already part of the contract.
+
+## Isolated-test dependency failure and bounded preflight
+
+The recovered structural checkpoint is
+`69fe927b150341f2cde5fbfdbb57b33c55837a30`,
+`[m10d] Preserve semantic metadata compatibility`. Its canonical ran once from
+2026-10-09T11:01:03.399631+00:00 to 2026-10-09T11:15:15.082848+00:00 and exited 1.
+Partial progress was 3885 passing assertions across 110 reported testsets, not a
+full-suite result. First blocker: `test/m10d_semantics_review.jl:2`, included at
+`test/runtests.jl:278`, could not import Serialization in the isolated test
+environment. The final marker was `ERROR: Package AnalyticMathLab errored during testing`.
+This was a test-dependency declaration defect, not an identified scientific/source
+regression or a recurrence of D037/D038. Evidence is retained under the durable
+`structural-correction/` directory above as `final-canonical.log`,
+`final-canonical.json` and `final-canonical-failure.json`.
+
+One bounded preflight inspected direct using/import statements throughout test/,
+runner membership and directly included helpers, including M10D.3 files. It found
+Serialization missing from extras/test targets in both semantic-review and
+value-compatibility tests. Only that stdlib was added using the existing convention;
+no transitive-only packages, dependency versions or optional backend promotions.
+
+| Classification | Direct import roots |
+|---|---|
+| CORE_DEPENDENCY | CairoMakie, ForwardDiff, LinearAlgebra, Makie, OrdinaryDiffEqTsit5, Random, Roots, SciMLBase, Symbolics, Unitful |
+| DECLARED_TEST_DEPENDENCY | SHA, TOML, Test; Serialization after correction |
+| MISSING_TEST_DECLARATION | Serialization before correction; none afterward |
+| OPTIONAL_ENVIRONMENT_ONLY | ADTypes, ArnoldiMethod, ComponentArrays, Integrals, Lux, ModelingToolkit, Molly, NeuralOperators, NeuralPDE, Optimization, OptimizationOptimisers, SymbolicIndexingInterface, Zygote |
+| NOT_APPLICABLE | AnalyticMathLab (package under test), relative ControlledModes/ScaleHarness module imports |
+
+Optional tests are not in the canonical runner; the optional partial-mode helper
+is guarded by AML_PARTIAL_TEST=1. No optional gates or scientific focused tests
+were repeated. Per-import path/line/classification and hash evidence are in
+`/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d3/dependency-correction/import-audit-before.json`
+and `import-audit-after.json` in the same directory.
+
+The cheap probe used the installed Pkg.test gen_target_project/sandbox machinery
+with re-resolution fallback disabled, then a fresh Julia child with neither
+global-environment nor @stdlib LOAD_PATH fallback. All 14 canonical external
+import roots loaded, including Serialization. PropertyResult's exact four fields
+were asserted; the sandbox's existing dependency versions were unchanged.
+No test suite was invoked. Exit 0, 2026-10-09T11:19:01.274581+00:00 through
+2026-10-09T11:19:22.790900+00:00; marker `ISOLATED_DEPENDENCY_PROBE_PASSED`.
+Probe log/evidence: `structural-correction/dependency-probe.log` and
+`dependency-probe.json`. The probe script and isolated Project/Manifest snapshots
+are retained in `dependency-correction/`.
+
+Scientific src/, ext/, all tests and the root Manifest are byte-unchanged from
+69fe927. Semantic contracts and the value/provenance correction remain untouched.
+Only Project.toml test metadata and this results/plan documentation change.
+The authorized checkpoint is `[m10d] Fix M10D.3 isolated test dependencies`,
+followed by one new controlled canonical; any failure stops without a rerun.
