@@ -7,7 +7,7 @@ Baseline: `ff28e89bb08f95015d241091de7406d8f02d5861`, parent
 canonical 4789/4789 assertions, 167 reported testsets, exit 0. Its measurement
 CSV/TOML and provenance are frozen evidence, not benchmarks to repeat.
 
-Current authorized phase: **M10D.3 only**; M10D.1 is VERIFIED COMPLETE at
+Current status: **M10D.3 VERIFIED COMPLETE; M10D.4 not begun**. M10D.1 is VERIFIED COMPLETE at
 `adadf5ddd03b360c93a6c0451f31cba03d01f8ff`. The historical M10D.1 record below
 is frozen. Its API policy is a pre-1.0 freeze,
 not a version bump or a claim that the final 1.0 audit has passed.
@@ -21,7 +21,7 @@ new science, forcing all subsystems into one result type, or connecting every pa
 |---|---|---|
 | M10D.1 Architecture & Public API Freeze | Complete family/export inventory, ownership, dispatch/extension audit, minimal layout fixes, seam and semantic maps | VERIFIED COMPLETE, not reopened |
 | M10D.2 Cross-Milestone Scientific Interoperability | Prioritized legitimate bridges with preservation/refusal tests | VERIFIED COMPLETE at f8f233ba1d542d2a3a4e683a02523aa9524ad603; not reopened |
-| M10D.3 Unified Scientific Semantics & Provenance | Consistent evidence vocabulary and lightweight source retention | D037 value-equality and D038 physical-layout regressions corrected; final controlled canonical pending; no universal provenance/result wrapper |
+| M10D.3 Unified Scientific Semantics & Provenance | Consistent evidence vocabulary and lightweight source retention | VERIFIED COMPLETE; D037/D038 and isolated-test dependency correction preserved; canonical 5191/5191, 183 reported testsets, exit 0 on 8a4ee4a; no universal provenance/result wrapper |
 | M10D.4 One System, Many Methods | One scientifically justified flagship using existing methods | No new algorithm/model family |
 | M10D.5 User & Research Hardening | Constructor/error boundaries, reproducibility, packaging, supported workflows | Bounded workloads and explicit resource limitations |
 | M10D.6 Documentation & GitHub Wiki | User/research navigation and wiki matching tested APIs | Wiki is not started in M10D.1 |
@@ -391,3 +391,21 @@ history and durable evidence are in m10d_semantics_results.md.
 Create `[m10d] Fix M10D.3 isolated test dependencies`, then exactly one newly
 authorized controlled canonical. Stop on failure; only success permits the
 separate verified-completion commit. No M10D.4, push, tag or amendment.
+
+### M10D.3 verified closure
+
+Dependency checkpoint `8a4ee4a1ec0f0a5026ffa17df32bd37ac9261525` passed the one
+newly authorized controlled canonical: 5191/5191 assertions, 183 reported
+testsets, exit 0, final marker `Testing AnalyticMathLab tests passed`.
+UTC execution: 2026-10-09T11:20:21.856906+00:00 through
+2026-10-09T11:43:31.835099+00:00; Julia/BLAS thread counts both 1.
+Exact command, source hashes, full paths and log hash are in the final closure
+section of m10d_semantics_results.md. Durable evidence is
+`/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d3/structural-correction/dependency-corrected-canonical.json`
+with the adjacent `.log`.
+
+The separate verified-completion commit contains documentation only. Earlier
+D037/D038 and Serialization failure histories remain intact. Scientific source,
+contracts and tests are unchanged from the recovered structural correction;
+focused gates and the completed review were not repeated. M10D.3 is complete;
+no M10D.4, push, tag, amendment, benchmark or stress work is authorized here.

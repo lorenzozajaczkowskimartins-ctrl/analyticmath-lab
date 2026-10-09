@@ -1,11 +1,11 @@
 # M10D.3 semantic implementation and verification results
 
-Status: **IMPLEMENTATION COMPLETE — CANONICAL PENDING**.
+Status: **VERIFIED COMPLETE — M10D.3**.
 Starting verified HEAD: f8f233ba1d542d2a3a4e683a02523aa9524ad603.
 M10D.1/M10D.2 are not reopened. Their inventory, graph, findings and accepted
 canonical evidence are reused. M10D.2 detailed canonical counts remain unavailable;
-none are reconstructed or guessed. This report concerns newly executed M10D.3
-focused gates, not a new historical canonical.
+none are reconstructed or guessed. This report records M10D.3 focused gates,
+preserved failed attempts and the final successful canonical below.
 
 ## Changes and contract
 
@@ -123,7 +123,8 @@ scientific display wording. It found three M10D.3 blockers:
 - D031: open parent metadata retained an unexpected upstream array; malformed
   origin also failed. Fixed with a descriptor whitelist/schema and bounded chain.
 - D032: accessor projections dropped numerical-source approximation in series and
-  moments. Fixed by retaining the inherited numerical/sample scope.
+  moments. The initial fix retained inherited numerical/sample scope; D038 keeps
+  that scope on source-bearing series, with isolated leaf context unavailable.
 - D033: solver options were all presented as tolerances, and model metadata could
   retain arbitrary reference-control payload. Fixed with known finite scalar
   tolerance-key projection; unspecified values stay unknown and options separate.
@@ -200,11 +201,11 @@ Corrective focused gates (all exit 0, logs in the persistent M10D.3 directory):
 
 Corrective checkpoint subject:
 `[m10d] Separate scientific values from provenance identity`.
-Replacement canonical is pending at this corrective checkpoint. Exactly one is
-authorized after focused success, with a separate persistent pre-launch hash
-manifest and full log/evidence. On failure stop without another invocation or
-verified-completion commit. No earlier checkpoint is amended; no push/tag or
-M10D.4 is started.
+At that corrective checkpoint one replacement canonical was authorized after
+focused success, with a separate persistent pre-launch hash manifest and full
+log/evidence. It failed on D038 below and stopped without another invocation or
+verified-completion commit. No earlier checkpoint was amended; no push/tag or
+M10D.4 was started.
 
 ## Replacement canonical failure: D038 public structural compatibility
 
@@ -364,3 +365,43 @@ Scientific src/, ext/, all tests and the root Manifest are byte-unchanged from
 Only Project.toml test metadata and this results/plan documentation change.
 The authorized checkpoint is `[m10d] Fix M10D.3 isolated test dependencies`,
 followed by one new controlled canonical; any failure stops without a rerun.
+
+## Final successful canonical and M10D.3 closure
+
+Dependency correction checkpoint:
+`8a4ee4a1ec0f0a5026ffa17df32bd37ac9261525`,
+`[m10d] Fix M10D.3 isolated test dependencies`, parent
+`69fe927b150341f2cde5fbfdbb57b33c55837a30`.
+
+Exactly one newly authorized canonical ran on that clean checkpoint:
+
+```sh
+env JULIA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+    julia +release --project=. -e 'using Pkg; Pkg.test()'
+```
+
+- Working directory: `/home/lorenzozm/PROJETOS/analyticmath-lab`.
+- Start UTC: 2026-10-09T11:20:21.856906+00:00.
+- End UTC: 2026-10-09T11:43:31.835099+00:00.
+- JULIA_NUM_THREADS=1; OPENBLAS_NUM_THREADS=1.
+- Exit 0; **5191/5191 assertions, 183 reported testsets**, no failed or errored assertions.
+- Final marker: `Testing AnalyticMathLab tests passed`.
+- Log: `/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d3/structural-correction/dependency-corrected-canonical.log`.
+- Evidence: `/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d3/structural-correction/dependency-corrected-canonical.json`.
+- Log SHA-256: `124cb51d7c7219f2fa944c54bed1ac5be74a405555a71ec39b4dc315ff8bbc25`.
+- Process record: `proc_b19a4928c1d7`.
+
+The 213-file pre-launch manifest matches the tested commit; no recorded file
+changed during execution. Reported testset names are unique, and all 23 recovered
+base focused summary rows match the canonical's counts exactly, including the
+unchanged architecture/streaming regressions and M10D.3 serialization/ownership
+counterexamples. Optional learning 52/52, PINN 89/89 and Molly 22/22 remain separate
+reused focused evidence, not extra canonical assertions.
+
+D037 scientific-value contamination, D038 physical-layout contamination and the
+isolated Serialization declaration failure remain preserved historical findings.
+No scientific source or test changes were needed after the structural checkpoint.
+Completion changes only documentation and does not invalidate tested hashes.
+The separate `[verified] Complete M10D.3 scientific semantics and provenance`
+commit closes M10D.3. M10D.4 is not begun; deferred D024/D034/D035/D036 and other
+later-phase obligations remain deferred. No amend, push, tag or subagents.
