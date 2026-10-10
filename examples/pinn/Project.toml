@@ -1,4 +1,5 @@
 [deps]
+ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
 ADTypes = "47edcb42-4c32-4615-8424-f2b9edc5f35b"
 AnalyticMathLab = "d00b717d-2040-4c0f-8850-62abbaf45caf"
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"

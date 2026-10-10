@@ -1,7 +1,7 @@
 # Optional algebraic M10A audit: native Lux parameters, no optimizer or showcase runs.
 module M10AInferenceGate
 using Test, AnalyticMathLab, Lux, Optimization, Random
-using AnalyticMathLab: Symbolics
+using Symbolics
 const A = AnalyticMathLab
 Symbolics.@variables q1 q2 p1 p2
 

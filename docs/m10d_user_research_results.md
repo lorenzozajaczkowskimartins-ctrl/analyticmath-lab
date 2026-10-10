@@ -1,0 +1,134 @@
+# M10D.5 recovery and verification results
+
+Status: focused verification complete; implementation checkpoint and final plain
+canonical pending. No verified M10D.5 completion is claimed yet.
+
+## Recovered state
+
+Recovered HEAD: `d769f15489a2318f1b74e5d192f40b527a601794`, verified M10D.4.
+No M10D.5 checkpoint existed. The index was empty; 20 tracked files were modified,
+with four new user-test files and a new Stranger directory. No partially written
+source/TOML/module or conflict marker was found. Tests and docs were not yet
+registered/finalized. Nothing was reset, restored, stashed, cleaned or discarded.
+
+Surviving changes: dataset property errors; series name/time/unit validation;
+learned-dynamics absent-backend fallbacks; complete PINN activation hint; D024 test
+budget correction; SparseArrays test dependency; optional example direct imports
+and three resolved project hashes. Surviving tests cover user input errors,
+packaging, fresh processes and optional families. The continuation corrected two
+fixtures (scalar output row shape and explicit RNG provenance), fixed empty Molly
+logger handling and registered the base tests. No new scientific algorithm/API.
+
+Durable evidence directory (all basenames below are relative to it):
+
+`/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d5/`
+
+Original logs/JSON and process-result records remain unchanged. `recovery-ledger.json`
+records the recovered classifications and hash mismatches. The previous session's
+last retained executed action wrote the optional harness; it did not execute any
+optional family/load-order permutation. Its 429 is not used to infer test outcomes.
+
+| Recovered gate | Classification | Disposition |
+|---|---|---|
+| d024-red, schema-red, observable-red, optional-absence-red, packaging-red | FAILED | Historical focused counterexamples; preserve, do not repeat |
+| d024-green, schema-green, observable-green, optional-absence-green, packaging-green | PASSED for recorded candidates | Earlier candidates differ; final affected focused checks below replace stale evidence |
+| clean-install | PASSED for earlier candidate | Source changed during execution; not reusable as final candidate proof; replaced |
+| optional-resolve | PASSED | Resolution completed; all dependency records/versions unchanged, only manifest project hashes changed |
+| stranger-first | FAILED | Real dataset shape error: 10 dataset assertions passed, one error; not an interruption |
+| load/student/physicist/research/atomistic child workflows | PASSED | Child exits 0 and markers; original candidate hashes matched at recovery; reuse |
+| optional family/load-order cases | NOT_STARTED | Harness intact, no completed or interrupted invocation found |
+| first-hour review, checkpoint, canonical | NOT_STARTED | No durable completion/history existed; continue once |
+
+There is no evidence requiring an INTERRUPTED classification for a started M10D.5
+gate. Incomplete implementation/registration is not mislabeled a failed test.
+The first Stranger runner's aggregate includes parent assertions and partial child
+results; it is not an overall pass. Successful children remain independently useful.
+
+## Focused verification
+
+Each gate JSON records exact argv, cwd, tested commit, candidate SHA-256 inventory,
+start/end UTC, environment, exit, summary rows, log path/hash and in-run changes.
+All final gates below exited zero. Counts overlap; do not sum them into a unique
+scientific-coverage count. Standalone assertions outside a testset are not invented
+as parsed testset counts.
+
+| Gate/evidence basename | Result | Scope |
+|---|---|---|
+| focused-final | 303/303, 13 reported testsets | User errors/packaging and affected statistics, dataset/scaling, learned base regressions |
+| dataset-final | 12/12 | Corrected dataset child from an unrelated headless directory with spaces |
+| molly-regression | 47/47, 2 testsets | Existing tiny stored-logger, unitful, ownership and device-refusal adapter regression |
+| d024-default-final | 22/22 | Julia 1 thread / BLAS 6 threads, no forced variables |
+| d024-multithread | 33/33, 2 testsets | Explicit Julia 2 / BLAS 3; base import leaves BLAS unchanged and budget refusal retained |
+| clean-install-final | Completion marker, exit 0 | New environment, instantiate/precompile/load from path with spaces, existing depot |
+| headless-final | Completion marker, exit 0 | Explicit CairoMakie output with DISPLAY/WAYLAND_DISPLAY unset, saved nonempty PNG |
+| isolated-imports | 15 direct imports loaded, exit 0 | Pkg.test-style sandbox, no global/@stdlib fallback, pinned versions unchanged |
+
+Reused standalone Stranger children: load 11, student 17, physicist 10, research 23,
+atomistic 12 assertions. Only the failed dataset case was rerun before canonical.
+The Molly-only extension correction cannot affect these base processes: the load
+gate proves Molly is absent. Their scripts, base source and environments are unchanged.
+All six run normally again only as part of the final registered regression suite.
+
+### Optional activation and bounded functionality
+
+| Family | AML first | Backend first | Evidence basename prefix |
+|---|---|---|---|
+| Molly | 5/5 | 5/5 | optional-molly-*-complete |
+| Inference/Lux | 6/6 | 6/6 | optional-inference-*-complete |
+| Operators/Lux | 6/6 | 6/6 | optional-operators-*-final |
+| PINN/Lux | 6/6 | 6/6 | optional-pinn-*-final |
+
+Eight fresh processes, 46 assertions total, zero ambiguity findings. No training.
+The initial Molly focused failure identified the empty-tuple logger bug; the first
+operators fixture omitted required rng_provenance. Both red logs are retained.
+Only failed/missing cases continued; no successful permutation was repeated.
+
+`optional-reuse-proof.json` reconstructs and verifies the exact earlier harness
+hash: its sole later change is RNG provenance inside the operators branch, not
+executed by Molly/inference. Their production/environment hashes match; the separate
+runtests registration is not part of these direct-script gates. Final operator/PINN
+candidate inventories match completely. This is scoped evidence reuse, not a claim
+that unrelated whole-tree hashes were identical.
+
+## One bounded first-hour review
+
+Exactly one parent review used: “What would frustrate or confuse a competent new
+AML user within their first hour?” Scope and findings are in `recovery_review.md`;
+its executable candidate inventory is `review-candidate-hashes.json`. No subagent
+or independent-review claim. Existing hardening was retained, fixture errors were
+corrected explicitly, and the Molly refusal blocker was fixed. No further blocker
+was found in the bounded scope. Raw positional records/open metadata and borrowed
+mutable arrays retain their documented limitations rather than breaking compatibility.
+
+## Pre-canonical and canonical
+
+`import-audit-after.json` includes registered tests, standalone Stranger children,
+known included helpers and source fixtures. Zero missing direct declarations;
+Serialization and SparseArrays are explicitly in extras/test targets. Optional
+imports remain optional. `probe_isolated.jl` uses the installed Pkg sandbox builder
+without running the suite and preserves its generated Project/Manifest beside the
+log. This prevents the historical missing-Serialization failure class.
+
+Before the sole canonical, require candidate/index/blob hash agreement, whitespace
+and secret/artifact checks, a clean implementation checkpoint, and successful
+focused gates. Canonical command:
+
+```sh
+julia +release --project=. -e 'using Pkg; Pkg.test()'
+```
+
+No JULIA_NUM_THREADS or OPENBLAS_NUM_THREADS override. Persist runtime Julia/BLAS
+configuration and counts in canonical evidence. A failed invocation consumes the
+budget: preserve the first blocker, do not retry or create verified completion.
+
+## Limitations and user readiness
+
+See [m10d_user_research_hardening.md](m10d_user_research_hardening.md) for supported
+first-hour workflows, constructors, ownership, optional activation, numeric/unit
+boundaries and non-inference rules. Linux is the exercised platform; no macOS/
+Windows certification, virgin depot claim, GPU support expansion or bitwise
+cross-platform reproducibility claim. Optional stacks remain experimental.
+
+Focused user-readiness is demonstrated; the final milestone verdict remains
+conditional on plain canonical success. This is not a 1.0 release approval.
+M10D.6 navigation and M10D.7 final adversarial audit are not begun.

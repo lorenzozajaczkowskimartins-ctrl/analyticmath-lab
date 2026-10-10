@@ -1,6 +1,6 @@
 module HeatFamily
 using AnalyticMathLab, Random
-using AnalyticMathLab: ForwardDiff
+using ForwardDiff
 
 """Analytical finite Fourier heat family; floating evaluation introduces roundoff only."""
 function heat_solution(a,alpha,q)

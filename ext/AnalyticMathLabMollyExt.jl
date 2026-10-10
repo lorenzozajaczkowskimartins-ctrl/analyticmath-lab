@@ -53,6 +53,10 @@ function AML.atomistic_snapshot(sys::Molly.System;observables=false,time=nothing
         forces=observables ? Molly.forces(sys;n_threads) : nothing,distance)
 end
 
+# Molly's default no-logger container is (), not a NamedTuple or dictionary.
+stored_logger(loggers::Tuple{},name)=nothing
+stored_logger(loggers,name)=get(loggers,name,nothing)
+
 """
     atomistic_trajectory(sys::Molly.System; fixed_box=false, times=nothing,
                          coordinate_logger=sys.loggers.coords,
@@ -68,7 +72,7 @@ Standard Molly loggers already copied coordinates while logging; this adapter do
 not copy them again. View length is captured; existing frame mutations remain visible.
 """
 function AML.atomistic_trajectory(sys::Molly.System;fixed_box=false,times=nothing,
-        coordinate_logger=get(sys.loggers,:coords,nothing),velocity_logger=get(sys.loggers,:velocities,nothing))
+        coordinate_logger=stored_logger(sys.loggers,:coords),velocity_logger=stored_logger(sys.loggers,:velocities))
     require_cpu(sys)
     fixed_box===true || throw(ArgumentError("Explicit fixed_box=true assertion required; historical boxes are not stored by Molly coordinate loggers."))
     coordinate_logger isa Molly.GeneralObservableLogger && coordinate_logger.observable===Molly.coordinates_wrapper ||

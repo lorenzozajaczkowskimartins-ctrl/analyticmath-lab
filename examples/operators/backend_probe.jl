@@ -1,6 +1,6 @@
 using Test, Lux, NeuralOperators, Optimization, OptimizationOptimisers, ComponentArrays, Zygote, ADTypes, Random
 using AnalyticMathLab
-using AnalyticMathLab: ForwardDiff
+using ForwardDiff
 using Pkg
 for (_,d) in Pkg.dependencies()
     d.name in ("Lux","NeuralOperators","SciMLBase","OrdinaryDiffEqTsit5","Optimization","ADTypes","Zygote","ComponentArrays","FFTW") && println(d.name," ",d.version)

@@ -1,18 +1,26 @@
 module M10CGuardrailTests
 using Test
+using LinearAlgebra
 const helper=joinpath(@__DIR__,"..","examples","scaling","harness.jl")
 @testset "M10C budget preflight and report semantics" begin
     @test isfile(helper)
     if isfile(helper)
         include(helper)
         H=ScaleHarness
-        b=H.StressBudget(max_memory=1024,max_seconds=10.,threads=Threads.nthreads(),level=0)
+        # This correctness gate accepts the user's actual runtime; it does not
+        # configure performance threads or equate Julia and BLAS thread pools.
+        thread_ceiling=max(Threads.nthreads(),BLAS.get_num_threads())
+        b=H.StressBudget(max_memory=1024,max_seconds=10.,threads=thread_ceiling,level=0)
         @test H.dense_bytes(10,10)==800
         @test H.dense_bytes(big(10)^20,big(10)^20)==8big(10)^40
         @test_throws ArgumentError H.dense_bytes(-1,2)
         @test_throws ArgumentError H.StressBudget(max_memory=0)
         @test_throws ArgumentError H.StressBudget(max_seconds=NaN)
         @test_throws ArgumentError H.StressBudget(threads=0)
+        if thread_ceiling>1
+            limited=H.StressBudget(threads=thread_ceiling-1)
+            @test_throws ArgumentError H.measure!(NamedTuple[],limited,"threads",1,8,()->[1.])
+        end
         withenv("AML_EXTREME"=>"0") do
             @test_throws ArgumentError H.StressBudget(level=3)
         end

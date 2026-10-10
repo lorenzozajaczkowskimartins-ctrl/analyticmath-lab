@@ -1,5 +1,6 @@
 # Optional serial CPU gate; not included by base Pkg.test().
 using Test, AnalyticMathLab, Random
+import ForwardDiff
 import NeuralPDE, ModelingToolkit, ADTypes, SymbolicIndexingInterface
 import OptimizationOptimisers
 using ModelingToolkit: @parameters, @variables, @named, Differential, PDESystem
@@ -20,8 +21,8 @@ function inverse_fixture(;param_estim=true,observations=false)
         @test only(exact([0.37,0.])) ≈ sin(pi*0.37)
         z=[0.37,0.41]
         f=y->only(exact(y))
-        g=AnalyticMathLab.ForwardDiff.gradient(f,z)
-        h=AnalyticMathLab.ForwardDiff.hessian(f,z)
+        g=ForwardDiff.gradient(f,z)
+        h=ForwardDiff.hessian(f,z)
         @test g[2] ≈ truth*h[1,1] atol=1e-12
     end
     Xfit=reduce(hcat,([a,b] for a in (0.23,0.51,0.79) for b in (0.19,0.47,0.83)))

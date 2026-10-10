@@ -1,6 +1,6 @@
 module DeterministicInferenceGate
 using AnalyticMathLab, Test, Optimization, OptimizationOptimisers
-const FD=AnalyticMathLab.ForwardDiff
+import ForwardDiff as FD
 function oscillator(c)
     truth=[1.,4.,c]
     factory=p->FirstOrderODE((u,t)->[u[2],-(p[2]*u[1]+p[3]*u[2])/p[1]],2;labels=("q","v"))

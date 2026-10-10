@@ -1,4 +1,6 @@
 [deps]
+ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
+Symbolics = "0c5d862f-8b57-4792-8d23-62f2024744c7"
 AnalyticMathLab = "d00b717d-2040-4c0f-8850-62abbaf45caf"
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
 Lux = "b2108857-7c20-44ae-9111-449ecde12c47"

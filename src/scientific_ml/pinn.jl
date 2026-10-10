@@ -61,7 +61,7 @@ end
 
 function _pinn_extension()
     ext=Base.get_extension(@__MODULE__,:AnalyticMathLabPINNExt)
-    ext===nothing && throw(ArgumentError("Load Lux, NeuralPDE, ModelingToolkit and Optimization to activate the optional AnalyticMathLab PINN extension; see docs/scientific_ml.md."))
+    ext===nothing && throw(ArgumentError("Load Lux, NeuralPDE, ModelingToolkit, Optimization and SymbolicIndexingInterface to activate the optional AnalyticMathLab PINN extension; see docs/scientific_ml.md."))
     ext
 end
 

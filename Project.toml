@@ -53,10 +53,11 @@ Molly = "0.23.3"
 julia = "1.12"
 
 [extras]
+SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 Serialization = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
 SHA = "ea8e919c-243c-51af-8825-aaa63cd721ce"
 TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
-test = ["Test", "SHA", "TOML", "Serialization"]
+test = ["Test", "SHA", "TOML", "Serialization", "SparseArrays"]

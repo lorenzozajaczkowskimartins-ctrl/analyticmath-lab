@@ -109,6 +109,13 @@ function ScientificDataset(samples;kind,family,input_names,coordinate_names,doma
     !isempty(ss) && any(s->s.split==:training,ss) || throw(ArgumentError("training samples required"))
     length(unique(s.id for s in ss))==length(ss) || throw(ArgumentError("unique sample IDs required"))
     !isempty(ns) && length(unique(ns))==length(ns) && !isempty(cs) && length(unique(cs))==length(cs) || throw(ArgumentError("unique ordered input/coordinate names required"))
+    required_domain=kind==:surrogate ? (:coordinates,:inputs) : (:coordinates,:descriptors)
+    for field in required_domain
+        hasproperty(domain,field) || throw(ArgumentError(
+            "ScientificDataset domain is missing $field; received $(typeof(domain)). Supply domain.$field as a dimension × (lower,upper) matrix."))
+    end
+    hasproperty(reference,:kind) || throw(ArgumentError(
+        "ScientificDataset reference is missing kind; received $(typeof(reference)). Supply reference=(kind=:analytical, ...) or another explicit supported source kind."))
     _learning_bounds(domain.coordinates,length(cs))
     if kind==:surrogate
         _learning_bounds(domain.inputs,length(ns))

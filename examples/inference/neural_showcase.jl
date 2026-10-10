@@ -1,7 +1,7 @@
 """Bounded CPU examples. Run with the optional inference environment."""
 module NeuralShowcase
 using AnalyticMathLab, Lux, Optimization, OptimizationOptimisers, Random, CairoMakie, Test
-using AnalyticMathLab: Symbolics
+using Symbolics
 const AML=AnalyticMathLab
 rmse(a,b)=sqrt(sum(abs2,a-b)/length(a))
 columns(sol,t)=hcat(sol.(t)...)

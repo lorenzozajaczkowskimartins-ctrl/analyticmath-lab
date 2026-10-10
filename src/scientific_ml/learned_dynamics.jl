@@ -52,3 +52,18 @@ function learned_vector_field end
 function learned_correction end
 function dynamics_objective end
 function aligned_energy end
+
+# Narrow model-typed fallbacks leave the extension's fixed-arity methods more
+# specific. Invalid signatures with a loaded backend still give MethodError.
+function _dynamics_unavailable(f,args...)
+    Base.get_extension(@__MODULE__,:AnalyticMathLabDynamicsExt)===nothing &&
+        throw(ArgumentError("Load Lux and Optimization to use learned dynamics; the optional AnalyticMathLabDynamicsExt backend is not active."))
+    throw(MethodError(f,args))
+end
+learned_energy(m::HamiltonianNN,args...;kwargs...)=_dynamics_unavailable(learned_energy,m,args...)
+aligned_energy(m::HamiltonianNN,args...;kwargs...)=_dynamics_unavailable(aligned_energy,m,args...)
+learned_correction(m::UDEProblem,args...;kwargs...)=_dynamics_unavailable(learned_correction,m,args...)
+learned_vector_field(m::Union{HamiltonianNN,UDEProblem},args...;kwargs...)=_dynamics_unavailable(learned_vector_field,m,args...)
+dynamics_objective(m::Union{HamiltonianNN,UDEProblem},args...;kwargs...)=_dynamics_unavailable(dynamics_objective,m,args...)
+train(m::Union{HamiltonianNN,UDEProblem},args...;kwargs...)=_dynamics_unavailable(train,m,args...)
+predict(m::Union{HamiltonianNN,UDEProblem,DynamicsTrainingResult},args...;kwargs...)=_dynamics_unavailable(predict,m,args...)

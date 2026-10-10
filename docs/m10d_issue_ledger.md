@@ -99,3 +99,23 @@ during development. Fix disposition is checked through narrow counterexamples,
 not a repeated review. No independent reviewer/subagent approval is claimed.
 No unresolved M10D.3 blocker remains after the recorded green gates. D024 remains
 deferred to M10D.5. No benchmark, stress/scaling work, push/tag or later phase.
+
+## M10D.5 hardening dispositions
+
+The earlier phase rows above are historical. Current evidence and commands are in
+m10d_user_research_results.md; first-hour contracts and limitations are in
+m10d_user_research_hardening.md. Final plain canonical is pending.
+
+| ID | Disposition | Status |
+|---|---|---|
+| D004 | Examples directly import/declare ForwardDiff and Symbolics; three manifest project hashes resolved without dependency-record/version changes | FIXED; packaging and optional gates pass |
+| D011 / D035 | Document factory versus raw record, borrowed versus copied data, open caller metadata and checked Float64 boundaries; preserve frozen layouts. Add actionable missing dataset fields and series name/time/unit refusals | RESOLVED bounded first-hour scope; raw positional containers are not scientific validators |
+| D012 | Narrow model-typed learned-dynamics fallbacks explain Lux/Optimization absence; activated extension methods remain more specific | FIXED; absence gate and both load orders pass, no detected AML ambiguity |
+| D014 | PINN activation error lists SymbolicIndexingInterface alongside the other four triggers | FIXED; base error and both PINN activation orders pass |
+| D024 | Correctness fixture budgets max(Julia threads, BLAS threads); smaller explicit ceiling still refuses. No global BLAS import mutation; production harness unchanged | Focused PASS at Julia/BLAS 1/6 and 2/3; plain canonical pending |
+| D039 | Default Molly System has loggers=(); keyword defaults called unsupported get before public fixed_box/logger refusal. Treat empty tuple as absent logger, preserve NamedTuple/dictionary behavior | FIXED; retained red, both load orders and 47-assertion stored-frame regression pass |
+
+One bounded parent first-hour review is recorded, not repeated. Dataset row shape
+and operators RNG-provenance omissions were new test-fixture corrections, not
+scientific feature changes. SparseArrays/Serialization isolated-test imports are
+declared and probed before canonical. No push, tag, subagents or M10D.6 work.

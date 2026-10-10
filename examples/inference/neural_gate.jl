@@ -1,6 +1,6 @@
 using Test, Lux, Optimization, OptimizationOptimisers, Random
 using AnalyticMathLab
-using AnalyticMathLab: ForwardDiff, Symbolics
+using ForwardDiff, Symbolics
 const AML = AnalyticMathLab
 Symbolics.@variables nq np
 const MECHANICS = analyze(HamiltonianSystem((nq^2+np^2)/2;coordinates=(nq,),momenta=(np,)))

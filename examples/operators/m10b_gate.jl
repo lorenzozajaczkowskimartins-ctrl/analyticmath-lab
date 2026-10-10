@@ -1,7 +1,7 @@
 # Tiny deterministic numerical gate; no optimizer or training is run.
 module M10BOptionalNumericGate
 using Test, AnalyticMathLab, Lux, NeuralOperators, Optimization, Random
-using AnalyticMathLab: Symbolics
+using Symbolics
 const A=AnalyticMathLab
 include("heat_family.jl")
 

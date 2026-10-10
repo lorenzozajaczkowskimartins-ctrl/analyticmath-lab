@@ -18,6 +18,14 @@ _ts_unknown(note;method=:scalar_statistics)=_ts_result(nothing,:unknown,method,[
 _ts_valid(x)=x isa Number && isreal(x) && isfinite(x)
 _ts_close(a,b)=abs(a-b)<=1e-8*max(abs(a),abs(b))
 
+function _ts_compatible_units(a,b,label)
+    qa=a isa Unitful.AbstractQuantity; qb=b isa Unitful.AbstractQuantity
+    qa==qb || throw(ArgumentError("$label mixes known units and unknown unitless values. Supply consistently unit-bearing or consistently plain values; no units are inferred."))
+    !qa || Unitful.dimension(a)==Unitful.dimension(b) || throw(ArgumentError(
+        "$label has incompatible dimensions $(Unitful.dimension(a)) and $(Unitful.dimension(b)). Supply compatible units without changing the physical quantity."))
+    nothing
+end
+
 """`sampling_info(n; times, interval, index_time=false, provenance=NamedTuple())`
 
 Borrow explicit times without copying; validate finite strictly increasing times.
@@ -39,11 +47,13 @@ function sampling_info(n::Integer;times=nothing,interval=nothing,index_time=fals
     end
     regularity=n<2 ? :insufficient : :unknown
     if times!==nothing
-        length(times)==n || throw(DimensionMismatch("times must match sample count"))
+        length(times)==n || throw(DimensionMismatch("Received $n stored values but $(length(times)) time coordinates. One time coordinate is required per stored value."))
         all(_ts_valid,times) || throw(ArgumentError("times must be finite real scalars"))
+        n>0 && interval!==nothing && _ts_compatible_units(first(times),interval,"times/interval")
         if n>=2
             previous=first(times); spacing=nothing; regular=true
             for t in Iterators.drop(times,1)
+                _ts_compatible_units(t,previous,"times")
                 d=t-previous
                 _ts_valid(d) && d>zero(d) || throw(ArgumentError("times must increase strictly with finite spacing"))
                 spacing===nothing && (spacing=d)
@@ -81,6 +91,7 @@ end
 function ObservableSeries(values::AbstractVector;times=nothing,interval=nothing,index_time=false,
         name=:observable,provenance=NamedTuple(),missing_policy=:reject)
     missing_policy==:reject || throw(ArgumentError("only missing_policy=:reject is supported"))
+    name isa Symbol || throw(ArgumentError("ObservableSeries name must be a Symbol; received $(typeof(name)). Use name=:energy, for example."))
     sampling=sampling_info(length(values);times,interval,index_time,provenance)
     units=isempty(values) ? "unknown" : _at_unit(first(values))
     ObservableSeries(values,sampling,name,units,provenance,missing_policy)
@@ -96,6 +107,7 @@ function _ts_moments(values;running=false)
         if n==1
             mean=x; variance=zero(x)*zero(x); lo=x; hi=x
         else
+            _ts_compatible_units(x,mean,"ObservableSeries values")
             delta=x-mean; mean+=delta/n
             # Store sample variance rather than its potentially overflowing
             # (n-1) multiple. Divide the increment before multiplication.
