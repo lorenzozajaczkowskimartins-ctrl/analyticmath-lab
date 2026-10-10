@@ -1,6 +1,7 @@
 # M10D.5 — User and research hardening
 
-Status: implementation and bounded verification in progress; final plain canonical pending.
+Status: VERIFIED COMPLETE. Plain canonical passed 5649/5649 assertions across
+198 reported testsets on implementation checkpoint c913f9e, exit 0.
 M10D.1–M10D.4 remain verified. This phase adds no scientific feature and does not
 begin M10D.6. Principle: simple by default, explicit when advanced, honest when unsupported.
 
@@ -139,7 +140,9 @@ headless/path/thread checks do not establish Windows/macOS coverage or bitwise
 cross-platform reproducibility. The single bounded first-hour parent review found
 no additional blocker beyond the recorded fixes/fixture corrections.
 
-M10D.5 readiness is conditional on the final plain canonical. This is not a 1.0
-release declaration: navigation work belongs to M10D.6 and the final adversarial
+M10D.5 user/research readiness is verified for the documented bounded workflows:
+plain canonical passed with Julia threads=1 and BLAS threads=6, both thread
+environment variables unset. This is not a 1.0 release declaration: navigation
+work belongs to M10D.6 and the final adversarial
 release verdict belongs to M10D.7. No new scientific feature, large ML training or
 scale stress workload was introduced.

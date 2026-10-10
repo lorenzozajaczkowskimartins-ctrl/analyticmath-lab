@@ -7,7 +7,7 @@ Baseline: `ff28e89bb08f95015d241091de7406d8f02d5861`, parent
 canonical 4789/4789 assertions, 167 reported testsets, exit 0. Its measurement
 CSV/TOML and provenance are frozen evidence, not benchmarks to repeat.
 
-Current status: **M10D.4 VERIFIED COMPLETE; M10D.5 focused verification complete, canonical pending**. M10D.1 is VERIFIED COMPLETE at
+Current status: **M10D.5 VERIFIED COMPLETE; M10D.6 not started**. M10D.1 is VERIFIED COMPLETE at
 `adadf5ddd03b360c93a6c0451f31cba03d01f8ff`. The historical M10D.1 record below
 is frozen. Its API policy is a pre-1.0 freeze,
 not a version bump or a claim that the final 1.0 audit has passed.
@@ -23,7 +23,7 @@ new science, forcing all subsystems into one result type, or connecting every pa
 | M10D.2 Cross-Milestone Scientific Interoperability | Prioritized legitimate bridges with preservation/refusal tests | VERIFIED COMPLETE at f8f233ba1d542d2a3a4e683a02523aa9524ad603; not reopened |
 | M10D.3 Unified Scientific Semantics & Provenance | Consistent evidence vocabulary and lightweight source retention | VERIFIED COMPLETE; D037/D038 and isolated-test dependency correction preserved; canonical 5191/5191, 183 reported testsets, exit 0 on 8a4ee4a; no universal provenance/result wrapper |
 | M10D.4 One System, Many Methods | Recovered public coupled-oscillator flagship; core 197/197, bounded learning 118/118, optional rendering 6/6; single parent review closed | VERIFIED COMPLETE; canonical 5388/5388, 186 reported testsets, exit 0 on 4ffc314; recovered hash-matched evidence, no rerun. See m10d_flagship_results.md. No new algorithm/model family |
-| M10D.5 User & Research Hardening | Constructor/error boundaries, reproducibility, packaging, supported workflows | Focused gates complete; plain canonical pending. See m10d_user_research_results.md and m10d_user_research_hardening.md |
+| M10D.5 User & Research Hardening | Constructor/error boundaries, reproducibility, packaging, supported workflows | VERIFIED COMPLETE; plain canonical 5649/5649, 198 reported testsets, exit 0 on c913f9e; Julia/BLAS 1/6 with no forced variables. See m10d_user_research_results.md and m10d_user_research_hardening.md |
 | M10D.6 Documentation & GitHub Wiki | User/research navigation and wiki matching tested APIs | Wiki is not started in M10D.1 |
 | M10D.7 Adversarial 1.0 Audit | Negative controls, integration failures, release/readiness closure | Final 1.0 verdict is deferred |
 

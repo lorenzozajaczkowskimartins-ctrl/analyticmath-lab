@@ -104,7 +104,8 @@ deferred to M10D.5. No benchmark, stress/scaling work, push/tag or later phase.
 
 The earlier phase rows above are historical. Current evidence and commands are in
 m10d_user_research_results.md; first-hour contracts and limitations are in
-m10d_user_research_hardening.md. Final plain canonical is pending.
+m10d_user_research_hardening.md. Final plain canonical passed 5649/5649 assertions,
+198 reported testsets, exit 0 on c913f9e; no thread environment override.
 
 | ID | Disposition | Status |
 |---|---|---|
@@ -112,7 +113,7 @@ m10d_user_research_hardening.md. Final plain canonical is pending.
 | D011 / D035 | Document factory versus raw record, borrowed versus copied data, open caller metadata and checked Float64 boundaries; preserve frozen layouts. Add actionable missing dataset fields and series name/time/unit refusals | RESOLVED bounded first-hour scope; raw positional containers are not scientific validators |
 | D012 | Narrow model-typed learned-dynamics fallbacks explain Lux/Optimization absence; activated extension methods remain more specific | FIXED; absence gate and both load orders pass, no detected AML ambiguity |
 | D014 | PINN activation error lists SymbolicIndexingInterface alongside the other four triggers | FIXED; base error and both PINN activation orders pass |
-| D024 | Correctness fixture budgets max(Julia threads, BLAS threads); smaller explicit ceiling still refuses. No global BLAS import mutation; production harness unchanged | Focused PASS at Julia/BLAS 1/6 and 2/3; plain canonical pending |
+| D024 | Correctness fixture budgets max(Julia threads, BLAS threads); smaller explicit ceiling still refuses. No global BLAS import mutation; production harness unchanged | RESOLVED; focused PASS at Julia/BLAS 1/6 and 2/3; plain canonical PASS at 1/6 with both thread variables unset |
 | D039 | Default Molly System has loggers=(); keyword defaults called unsupported get before public fixed_box/logger refusal. Treat empty tuple as absent logger, preserve NamedTuple/dictionary behavior | FIXED; retained red, both load orders and 47-assertion stored-frame regression pass |
 
 One bounded parent first-hour review is recorded, not repeated. Dataset row shape
