@@ -1,7 +1,8 @@
 # One system, many methods
 
-Status: recovered implementation; core and bounded learning focused gates passed.
-Canonical completion is recorded separately in the results report below.
+Status: VERIFIED COMPLETE; core, bounded learning and rendering focused gates passed.
+The recovered canonical passed 5388/5388 assertions across 186 reported testsets;
+hash-backed completion evidence is recorded in the results report below.
 
 This investigation asks whether one dimensionless, two-degree-of-freedom coupled
 oscillator remains the same physical model across mathematical analysis,

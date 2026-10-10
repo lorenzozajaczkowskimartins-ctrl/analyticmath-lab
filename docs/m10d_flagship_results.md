@@ -1,10 +1,10 @@
 # M10D.4 — One System, Many Methods: recovery and results
 
-Status: focused verification complete; final canonical pending. M10D.5 is
+Status: VERIFIED COMPLETE; recovered final canonical passed. M10D.5 is
 not started. The scientific investigation and commands are in
 [m10d_one_system_many_methods.md](m10d_one_system_many_methods.md).
 
-## Recovery from filesystem truth
+## Initial recovery from filesystem truth (historical)
 
 Recovered HEAD: `b5b6876e665bbf2f6681de1b3db1f0e511de2542`, the verified M10D.3
 baseline. No M10D.4 implementation/completion commit exists in recovered history.
@@ -170,7 +170,7 @@ Its log SHA-256 was rechecked; it exited 0 with the required success marker.
 | Flagship integration/schema | 197 / 3 | PASSED, exit 0; recovery-flagship.json/log; unchanged surviving implementation |
 | Optional learning | 118 / 1 | PASSED, exit 0; recovery-learning.json/log; unchanged surviving implementation |
 | Optional plots | 6 / 1 | PASSED, exit 0; recovery-plots-final.json/log; all three figures visually checked |
-| M10D.4 canonical | NOT_RUN | One fresh run authorized after all required focused gates |
+| M10D.4 canonical | 5388 / 186 | PASSED, exit 0; recovery-canonical.json/log; recovered completion, no rerun |
 
 Counts are gate-local, not additive milestone totals. No M10C stress workload is
 run; canonical's already registered bounded correctness tests are not benchmarks.
@@ -224,15 +224,47 @@ family; only the canonical case retains the flagship initial-value problem.
 
 ## Implementation checkpoint and final canonical
 
-Focused implementation and the single bounded review are complete. The local
-checkpoint subject is `[m10d] Add One System Many Methods flagship`; its exact hash
-will be captured by the canonical pre-launch evidence. No verified completion is
-claimed before that canonical succeeds.
+Focused implementation and the single bounded review are complete. The existing
+checkpoint is `4ffc31499c0a962cc428a00bbab5be154d8bfba4`, subject
+`[m10d] Add One System Many Methods flagship`, directly following the verified
+M10D.3 baseline. It is preserved, not recreated or amended.
 The canonical command is exactly:
 
     env JULIA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 julia +release --project=. -e 'using Pkg; Pkg.test()'
 
-The tested commit, executable hashes, command/cwd, thread environment, UTC start/end,
-exit, parsed assertion/testset counts, log hash and final marker will be retained
-in durable JSON. Any canonical failure stops without an automatic rerun or verified
-completion. Finalization is local only: no amend, push, tag or M10D.5 work.
+### Restart recovery and completed canonical
+
+The later restart recovery found a clean working tree at the implementation
+checkpoint, with all 14 checkpoint files intact. The earlier NOT_STARTED/NOT_RUN
+rows above describe the initial recovery, not the current state. No completion
+commit existed yet; only documentation and the separate completion commit remained.
+
+The canonical had already completed successfully before this recovery:
+
+- Tested commit: `4ffc31499c0a962cc428a00bbab5be154d8bfba4`.
+- Tested tree: `b63ee50c4d26543c2bc74d349b66dc7d701b039c`.
+- Start UTC: `2026-10-09T21:30:38.304679+00:00`.
+- End UTC: `2026-10-09T21:44:45.237349+00:00`.
+- Exit status: 0; 5388 passed, 0 failed, 0 errors; 186 reported testsets.
+- Final marker: `Testing AnalyticMathLab tests passed`.
+- Log: `recovery-canonical.log`; full command, hashes and counts:
+  `recovery-canonical.json`, both in the durable directory above.
+- Log SHA-256: `e438ce18b91992af9708c3476f01620f69d47254a2b3ddc792e10c3b100542d9`.
+- Independent retained process result:
+  `/home/lorenzozm/.hermes/logs/process-results/proc_4ae0f6f90c58.json`,
+  recording normal completion and exit 0.
+
+Recovery independently reparsed all summary rows and checked the final marker,
+log digest and all 231 canonical source/environment hashes against the working
+tree and index. The three mandatory flagship rows total 197 passing assertions,
+matching the focused gate. No executable or environment file changed.
+
+Core 197/197, optional learning 118/118 and final rendering 6/6 evidence is reused.
+Their log digests and relevant candidate hashes match. Earlier core/learning
+inventories differ only in later documentation and the already-reviewed optional
+plot correction, which those gates do not load. The final rendering inventory
+matches all executable files; only later report/plan prose differs.
+
+`restart-finalization.json` records this recovery verification beside the original,
+unchanged gate evidence. No canonical or focused gate was rerun. Finalization is
+documentation-only and local: no amend, push, tag, subagent or M10D.5 work.
