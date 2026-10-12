@@ -31,8 +31,9 @@ solve, low optimizer loss and metadata availability do not certify physics.
 ## Publication and link conventions
 
 These pages are canonical Wiki source stored in wiki/ in the main repository.
-They use flat, extensionless sibling Wiki page links, suitable for copying into
-an independently authorized Wiki checkout. They are not deployed documentation.
+They are published in the separate GitHub Wiki repository, using flat,
+extensionless sibling Wiki page links. Updating the main repository alone does
+not update the published Wiki.
 Repository-resource links pin published commit 4e2143953baf23542d91ab62ee08c7673d5ce6cb; the remote Git tree
 was inspected before selecting that revision. Newer main may differ from this FAQ.
 
@@ -42,8 +43,8 @@ Documenter @ref/@docs directives. For the RENDERED TECHNICAL MANUAL, follow its
 local build instructions and open docs/build/index.html in your checkout.
 
 Question fragments target explicit named anchors, with GitHub GFM's observed
-user-content- sanitization prefix, rather than guessed title slugs. Live Wiki
-URL/rendering checks remain part of later publication verification.
+user-content- sanitization prefix, rather than guessed title slugs. Live page
+rendering and all 90 question destinations were checked during publication.
 
 ## Reading evidence
 
@@ -55,12 +56,13 @@ No new scientific Julia examples or optional training are introduced in this FAQ
 M10D.6E scientific guides and the detailed M10D.6G refusal handbook remain deferred.
 For current boundaries, use [API-boundaries reference source](https://github.com/lorenzozajaczkowskimartins-ctrl/analyticmath-lab/blob/4e2143953baf23542d91ab62ee08c7673d5ce6cb/docs/src/guides/api-boundaries.md), not a nonexistent future handbook.
 
-## Later publication procedure — not executed
+## Publication procedure — completed for M10D.6F
 
 1. Obtain separate authorization for Wiki creation/publication and any main-repository push.
 2. Recheck the remote main revision and Wiki state. At preparation time the Wiki
    feature was enabled, but Wiki Git access returned Repository not found and the
-   web route redirected to the repository; no remote Wiki history could be inspected.
+   web route redirected to the repository. The maintainer subsequently initialized
+   Home; publication preserved that commit and replaced only its minimal placeholder.
 3. If the Wiki is uninitialized, an authorized maintainer must create the initial
    page through GitHub. If it exists, clone and inspect its history/pages first.
 4. Clone the conventional analyticmath-lab.wiki.git repository into a separate
@@ -75,5 +77,6 @@ For current boundaries, use [API-boundaries reference source](https://github.com
 8. Read back the remote Wiki commit, Home, sidebar and every question fragment.
    Only then label WIKI_PUBLISHED and add a separately reviewed public Wiki README link.
 
-The planned Wiki URL is a publication destination, not a claimed live page.
-See [the current repository entry point](https://github.com/lorenzozajaczkowskimartins-ctrl/analyticmath-lab/blob/4e2143953baf23542d91ab62ee08c7673d5ce6cb/README.md) while publication is pending.
+The Wiki is published. Future updates still require authorization, reconciliation
+and independent remote read-back; this checklist does not authorize another push.
+See [the versioned repository entry point](https://github.com/lorenzozajaczkowskimartins-ctrl/analyticmath-lab/blob/4e2143953baf23542d91ab62ee08c7673d5ce6cb/README.md) for installation and first steps.
