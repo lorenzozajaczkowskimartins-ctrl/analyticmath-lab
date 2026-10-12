@@ -1,0 +1,4409 @@
+{
+  "milestone": "M10D.6F",
+  "inventory": "wiki_inventory.json",
+  "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+  "mappings": [
+    {
+      "id": "Q001",
+      "category": "Getting Started",
+      "question": "How do I install AML from this checkout?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Getting-Started.md",
+      "answer_anchor": "q001",
+      "primary_technical_destination": "README.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "README.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Installation routes and direct consumer dependencies belong to the current README, not scalar analysis.",
+      "evidence": {
+        "audited_public_apis": [
+          "analyze"
+        ],
+        "audit_locations": [
+          "Project.toml:1-63",
+          "README.md:63-75"
+        ],
+        "current_documents": [
+          "README.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "README.md": "80030cec618e54da4f6decb4195c6e4f11d856d623d0ddc32d744f0a4e6fdf17"
+        },
+        "verified_public_reference_sections": [],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q001",
+      "display_alias": null
+    },
+    {
+      "id": "Q002",
+      "category": "Getting Started",
+      "question": "What can I use after only using AnalyticMathLab?",
+      "priority": "P1",
+      "original_documentation_target": "reference/statistics.md",
+      "answer_page": "Getting-Started.md",
+      "answer_anchor": "q002",
+      "primary_technical_destination": "docs/src/reference/statistics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/trajectories.md",
+        "README.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Base stored-series operations explain what is available without optional triggers; the README explains direct imports.",
+      "evidence": {
+        "audited_public_apis": [
+          "ObservableSeries",
+          "statistical_summary"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:8-36"
+        ],
+        "current_documents": [
+          "docs/src/reference/statistics.md",
+          "docs/tutorials/trajectories.md",
+          "README.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/statistics.md": "1841113aa75f040e86635a0acbd06b2159813ffa4bc2752a919f199ab5c96823",
+          "docs/tutorials/trajectories.md": "713c1572739b75b2b682931bd937f22837fea8e24e67dd6326eefab80e8fa43c",
+          "README.md": "80030cec618e54da4f6decb4195c6e4f11d856d623d0ddc32d744f0a4e6fdf17"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/statistics.md",
+            "symbol": "ObservableSeries",
+            "start_line": 142,
+            "end_line": 184
+          },
+          {
+            "document": "docs/src/reference/statistics.md",
+            "symbol": "statistical_summary",
+            "start_line": 305,
+            "end_line": 343
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q002",
+      "display_alias": null
+    },
+    {
+      "id": "Q003",
+      "category": "Getting Started",
+      "question": "Why does the first import take time?",
+      "priority": "P1",
+      "original_documentation_target": "installation.md",
+      "answer_page": "Getting-Started.md",
+      "answer_anchor": "q003",
+      "primary_technical_destination": "README.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "README.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The README describes dependency startup and historical installation limits without universal timing claims.",
+      "evidence": {
+        "audited_public_apis": [],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:25-29"
+        ],
+        "current_documents": [
+          "README.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "README.md": "80030cec618e54da4f6decb4195c6e4f11d856d623d0ddc32d744f0a4e6fdf17"
+        },
+        "verified_public_reference_sections": [],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q003",
+      "display_alias": null
+    },
+    {
+      "id": "Q004",
+      "category": "Getting Started",
+      "question": "Which example should I run first?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Getting-Started.md",
+      "answer_anchor": "q004",
+      "primary_technical_destination": "README.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "README.md",
+        "docs/tutorials/calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The README starter leads directly to the first executed scalar lesson rather than an API-only introduction.",
+      "evidence": {
+        "audited_public_apis": [
+          "analyze",
+          "evaluate"
+        ],
+        "audit_locations": [
+          "notebooks/function_analysis.jl:1-22"
+        ],
+        "current_documents": [
+          "README.md",
+          "docs/tutorials/calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "README.md": "80030cec618e54da4f6decb4195c6e4f11d856d623d0ddc32d744f0a4e6fdf17",
+          "docs/tutorials/calculus.md": "b074bc74dd0cd5a420de6669b823a83d6d740de44b017dc59614ec739bb69dc5"
+        },
+        "verified_public_reference_sections": [],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q004",
+      "display_alias": null
+    },
+    {
+      "id": "Q005",
+      "category": "Getting Started",
+      "question": "Do I need to force Julia or BLAS to one thread?",
+      "priority": "P1",
+      "original_documentation_target": "installation.md",
+      "answer_page": "Getting-Started.md",
+      "answer_anchor": "q005",
+      "primary_technical_destination": "docs/m10d_user_research_hardening.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "README.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The user-environment contract explicitly separates Julia and BLAS pools and rejects mandatory thread rituals.",
+      "evidence": {
+        "audited_public_apis": [],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:18-23"
+        ],
+        "current_documents": [
+          "docs/m10d_user_research_hardening.md",
+          "README.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/m10d_user_research_hardening.md": "a0a6352924b2b3d1ef043af4fc3ff04ef307a460a8cb42620e5380e72f995f8f",
+          "README.md": "80030cec618e54da4f6decb4195c6e4f11d856d623d0ddc32d744f0a4e6fdf17"
+        },
+        "verified_public_reference_sections": [],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q005",
+      "display_alias": null
+    },
+    {
+      "id": "Q006",
+      "category": "Calculus and Symbolics",
+      "question": "Why did simplifying x/x lose the exclusion at zero?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Calculus-and-Symbolics.md",
+      "answer_anchor": "q006",
+      "primary_technical_destination": "docs/src/reference/core.md",
+      "additional_technical_destinations": [
+        "docs/src/reference/scalar.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Original syntax capture belongs to the core wrapper contract, with scalar-domain behavior as a second destination.",
+      "evidence": {
+        "audited_public_apis": [
+          "@real_function",
+          "analyze"
+        ],
+        "audit_locations": [
+          "README.md:149-156"
+        ],
+        "current_documents": [
+          "docs/src/reference/core.md",
+          "docs/src/reference/scalar.md",
+          "docs/tutorials/calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/core.md": "9f63b80ed1fc31708fed68ccc56bebfa709bc8b132bf2d36ff49097544dd6e6a",
+          "docs/src/reference/scalar.md": "1f5b94c34cf6ac8c56d5071f4434fdf5ee97e3161811f21175538ac4377ebe7f",
+          "docs/tutorials/calculus.md": "b074bc74dd0cd5a420de6669b823a83d6d740de44b017dc59614ec739bb69dc5"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/core.md",
+            "symbol": "@real_function",
+            "start_line": 106,
+            "end_line": 143
+          },
+          {
+            "document": "docs/src/reference/scalar.md",
+            "symbol": "analyze",
+            "start_line": 48,
+            "end_line": 276
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q006",
+      "display_alias": null
+    },
+    {
+      "id": "Q007",
+      "category": "Calculus and Symbolics",
+      "question": "Does evaluate enforce the original real domain?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Calculus-and-Symbolics.md",
+      "answer_anchor": "q007",
+      "primary_technical_destination": "docs/src/reference/scalar.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The evaluate overload contract distinguishes legacy scalar callable behavior from checked domain-aware routes.",
+      "evidence": {
+        "audited_public_apis": [
+          "evaluate",
+          "domain_contains"
+        ],
+        "audit_locations": [
+          "README.md:205-209"
+        ],
+        "current_documents": [
+          "docs/src/reference/scalar.md",
+          "docs/tutorials/calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scalar.md": "1f5b94c34cf6ac8c56d5071f4434fdf5ee97e3161811f21175538ac4377ebe7f",
+          "docs/tutorials/calculus.md": "b074bc74dd0cd5a420de6669b823a83d6d740de44b017dc59614ec739bb69dc5"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scalar.md",
+            "symbol": "evaluate",
+            "start_line": 361,
+            "end_line": 447
+          },
+          {
+            "document": "docs/src/reference/scalar.md",
+            "symbol": "domain_contains",
+            "start_line": 492,
+            "end_line": 531
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q007",
+      "display_alias": null
+    },
+    {
+      "id": "Q008",
+      "category": "Calculus and Symbolics",
+      "question": "Why are some exact roots unknown?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Calculus-and-Symbolics.md",
+      "answer_anchor": "q008",
+      "primary_technical_destination": "docs/src/reference/scalar.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The scalar exact-study contract records bounded expression classes and unresolved roots.",
+      "evidence": {
+        "audited_public_apis": [
+          "analyze"
+        ],
+        "audit_locations": [
+          "README.md:166-179"
+        ],
+        "current_documents": [
+          "docs/src/reference/scalar.md",
+          "docs/tutorials/calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scalar.md": "1f5b94c34cf6ac8c56d5071f4434fdf5ee97e3161811f21175538ac4377ebe7f",
+          "docs/tutorials/calculus.md": "b074bc74dd0cd5a420de6669b823a83d6d740de44b017dc59614ec739bb69dc5"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scalar.md",
+            "symbol": "analyze",
+            "start_line": 48,
+            "end_line": 276
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q008",
+      "display_alias": null
+    },
+    {
+      "id": "Q009",
+      "category": "Calculus and Symbolics",
+      "question": "Does an empty stationary search prove there are no critical points?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Calculus-and-Symbolics.md",
+      "answer_anchor": "q009",
+      "primary_technical_destination": "docs/src/reference/scalar.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The scalar search contract distinguishes unrequested, heuristic and scoped exact completeness.",
+      "evidence": {
+        "audited_public_apis": [
+          "analyze"
+        ],
+        "audit_locations": [
+          "README.md:299-341"
+        ],
+        "current_documents": [
+          "docs/src/reference/scalar.md",
+          "docs/tutorials/calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scalar.md": "1f5b94c34cf6ac8c56d5071f4434fdf5ee97e3161811f21175538ac4377ebe7f",
+          "docs/tutorials/calculus.md": "b074bc74dd0cd5a420de6669b823a83d6d740de44b017dc59614ec739bb69dc5"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scalar.md",
+            "symbol": "analyze",
+            "start_line": 48,
+            "end_line": 276
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q009",
+      "display_alias": null
+    },
+    {
+      "id": "Q010",
+      "category": "Calculus and Symbolics",
+      "question": "Can I analyze a Julia function or a string?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Calculus-and-Symbolics.md",
+      "answer_anchor": "q010",
+      "primary_technical_destination": "docs/src/reference/scalar.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The scalar analyze dispatch map records supported symbolic inputs, not arbitrary functions or strings.",
+      "evidence": {
+        "audited_public_apis": [
+          "analyze"
+        ],
+        "audit_locations": [
+          "README.md:347-354"
+        ],
+        "current_documents": [
+          "docs/src/reference/scalar.md",
+          "docs/tutorials/calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scalar.md": "1f5b94c34cf6ac8c56d5071f4434fdf5ee97e3161811f21175538ac4377ebe7f",
+          "docs/tutorials/calculus.md": "b074bc74dd0cd5a420de6669b823a83d6d740de44b017dc59614ec739bb69dc5"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scalar.md",
+            "symbol": "analyze",
+            "start_line": 48,
+            "end_line": 276
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q010",
+      "display_alias": null
+    },
+    {
+      "id": "Q011",
+      "category": "Linear Algebra",
+      "question": "Does AML provide general-purpose matrix analysis?",
+      "priority": "P1",
+      "original_documentation_target": "reference/mechanics.md",
+      "answer_page": "Linear-Algebra.md",
+      "answer_anchor": "q011",
+      "primary_technical_destination": "docs/src/reference/mechanics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/normal-modes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The mechanics reference scopes matrix use to the generalized modal problem, not general linear algebra.",
+      "evidence": {
+        "audited_public_apis": [
+          "normal_modes"
+        ],
+        "audit_locations": [
+          "README.md:439-444",
+          "docs/m10d_architecture_inventory.md:65"
+        ],
+        "current_documents": [
+          "docs/src/reference/mechanics.md",
+          "docs/tutorials/normal-modes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/mechanics.md": "5802da174329ceacad2c1fbc2d6231a38ccee4f318fbd7c667c1c59d4c526a44",
+          "docs/tutorials/normal-modes.md": "4137f3b6ffa2d185ab941ceb00fa743d5ca606fd1e44c101dc19a7e9d37ed74c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/mechanics.md",
+            "symbol": "normal_modes",
+            "start_line": 848,
+            "end_line": 895
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q011",
+      "display_alias": null
+    },
+    {
+      "id": "Q012",
+      "category": "Linear Algebra",
+      "question": "Why does normal_modes take stiffness before mass?",
+      "priority": "P1",
+      "original_documentation_target": "reference/mechanics.md",
+      "answer_page": "Linear-Algebra.md",
+      "answer_anchor": "q012",
+      "primary_technical_destination": "docs/src/reference/mechanics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/normal-modes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The modal contract documents K before M and mass-based normalization.",
+      "evidence": {
+        "audited_public_apis": [
+          "normal_modes"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:65"
+        ],
+        "current_documents": [
+          "docs/src/reference/mechanics.md",
+          "docs/tutorials/normal-modes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/mechanics.md": "5802da174329ceacad2c1fbc2d6231a38ccee4f318fbd7c667c1c59d4c526a44",
+          "docs/tutorials/normal-modes.md": "4137f3b6ffa2d185ab941ceb00fa743d5ca606fd1e44c101dc19a7e9d37ed74c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/mechanics.md",
+            "symbol": "normal_modes",
+            "start_line": 848,
+            "end_line": 895
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q012",
+      "display_alias": null
+    },
+    {
+      "id": "Q013",
+      "category": "Linear Algebra",
+      "question": "Does sparse matrix input imply a sparse eigensolver?",
+      "priority": "P1",
+      "original_documentation_target": "reference/mechanics.md",
+      "answer_page": "Linear-Algebra.md",
+      "answer_anchor": "q013",
+      "primary_technical_destination": "docs/src/reference/mechanics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/normal-modes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The modal contract explicitly says sparse input densifies; representation does not select the solver.",
+      "evidence": {
+        "audited_public_apis": [
+          "normal_modes"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:114-122"
+        ],
+        "current_documents": [
+          "docs/src/reference/mechanics.md",
+          "docs/tutorials/normal-modes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/mechanics.md": "5802da174329ceacad2c1fbc2d6231a38ccee4f318fbd7c667c1c59d4c526a44",
+          "docs/tutorials/normal-modes.md": "4137f3b6ffa2d185ab941ceb00fa743d5ca606fd1e44c101dc19a7e9d37ed74c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/mechanics.md",
+            "symbol": "normal_modes",
+            "start_line": 848,
+            "end_line": 895
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q013",
+      "display_alias": null
+    },
+    {
+      "id": "Q014",
+      "category": "Linear Algebra",
+      "question": "What do zero, negative and degenerate modes mean?",
+      "priority": "P1",
+      "original_documentation_target": "reference/mechanics.md",
+      "answer_page": "Linear-Algebra.md",
+      "answer_anchor": "q014",
+      "primary_technical_destination": "docs/src/reference/mechanics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/normal-modes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The modal output record documents signed eigenvalues, missing unstable frequencies and degenerate bases.",
+      "evidence": {
+        "audited_public_apis": [
+          "normal_modes"
+        ],
+        "audit_locations": [
+          "test/normal_modes.jl",
+          "test/mode_contracts.jl"
+        ],
+        "current_documents": [
+          "docs/src/reference/mechanics.md",
+          "docs/tutorials/normal-modes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/mechanics.md": "5802da174329ceacad2c1fbc2d6231a38ccee4f318fbd7c667c1c59d4c526a44",
+          "docs/tutorials/normal-modes.md": "4137f3b6ffa2d185ab941ceb00fa743d5ca606fd1e44c101dc19a7e9d37ed74c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/mechanics.md",
+            "symbol": "normal_modes",
+            "start_line": 848,
+            "end_line": 895
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q014",
+      "display_alias": null
+    },
+    {
+      "id": "Q015",
+      "category": "Linear Algebra",
+      "question": "Does a Hessian at a snapshot establish equilibrium?",
+      "priority": "P1",
+      "original_documentation_target": "reference/mechanics.md",
+      "answer_page": "Linear-Algebra.md",
+      "answer_anchor": "q015",
+      "primary_technical_destination": "docs/src/reference/mechanics.md",
+      "additional_technical_destinations": [
+        "docs/src/reference/atomistic.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/normal-modes.md",
+        "docs/tutorials/atomistics.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Modal interpretation needs the snapshot adapter as well as the generalized matrix contract.",
+      "evidence": {
+        "audited_public_apis": [
+          "normal_modes"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:65"
+        ],
+        "current_documents": [
+          "docs/src/reference/mechanics.md",
+          "docs/src/reference/atomistic.md",
+          "docs/tutorials/normal-modes.md",
+          "docs/tutorials/atomistics.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/mechanics.md": "5802da174329ceacad2c1fbc2d6231a38ccee4f318fbd7c667c1c59d4c526a44",
+          "docs/src/reference/atomistic.md": "5d87e8e455f63f3780b947afa1a6038cbd543cca9a1bc0b800af75b49ac8f92b",
+          "docs/tutorials/normal-modes.md": "4137f3b6ffa2d185ab941ceb00fa743d5ca606fd1e44c101dc19a7e9d37ed74c",
+          "docs/tutorials/atomistics.md": "c11be1711543773253110c67f8ae0f3711c972bdcc86cee6d0bc29e7ebf87cd7"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/mechanics.md",
+            "symbol": "normal_modes",
+            "start_line": 848,
+            "end_line": 895
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q015",
+      "display_alias": null
+    },
+    {
+      "id": "Q016",
+      "category": "Vector Calculus",
+      "question": "Can vector fields be rectangular maps?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Vector-Calculus.md",
+      "answer_anchor": "q016",
+      "primary_technical_destination": "docs/src/reference/vector.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/vector-calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Rectangular Jacobians belong to the vector reference, not scalar-field analysis.",
+      "evidence": {
+        "audited_public_apis": [
+          "analyze",
+          "jacobian"
+        ],
+        "audit_locations": [
+          "README.md:548-550"
+        ],
+        "current_documents": [
+          "docs/src/reference/vector.md",
+          "docs/tutorials/vector-calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/vector.md": "0fece3bc29e92381333ab47655f54f12b176bea05e28b466de8a325472dfce93",
+          "docs/tutorials/vector-calculus.md": "dcc376f5e6e292a4cb45e6eef6e024a320d42917bb4f01faea4fb607cf8a1c15"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/vector.md",
+            "symbol": "jacobian",
+            "start_line": 96,
+            "end_line": 139
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q016",
+      "display_alias": null
+    },
+    {
+      "id": "Q017",
+      "category": "Vector Calculus",
+      "question": "Why does curl return unknown outside supported dimensions?",
+      "priority": "P1",
+      "original_documentation_target": "reference/vector.md",
+      "answer_page": "Vector-Calculus.md",
+      "answer_anchor": "q017",
+      "primary_technical_destination": "docs/src/reference/vector.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/vector-calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The vector curl accessor records separate planar/three-dimensional outputs and unsupported dimensions.",
+      "evidence": {
+        "audited_public_apis": [
+          "curl"
+        ],
+        "audit_locations": [
+          "README.md:550-552"
+        ],
+        "current_documents": [
+          "docs/src/reference/vector.md",
+          "docs/tutorials/vector-calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/vector.md": "0fece3bc29e92381333ab47655f54f12b176bea05e28b466de8a325472dfce93",
+          "docs/tutorials/vector-calculus.md": "dcc376f5e6e292a4cb45e6eef6e024a320d42917bb4f01faea4fb607cf8a1c15"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/vector.md",
+            "symbol": "curl",
+            "start_line": 20,
+            "end_line": 57
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q017",
+      "display_alias": null
+    },
+    {
+      "id": "Q018",
+      "category": "Vector Calculus",
+      "question": "Why is zero curl not enough to certify a potential?",
+      "priority": "P1",
+      "original_documentation_target": "reference/vector.md",
+      "answer_page": "Vector-Calculus.md",
+      "answer_anchor": "q018",
+      "primary_technical_destination": "docs/src/reference/vector.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/vector-calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The potential contract records its polynomial construction and original-domain prerequisites.",
+      "evidence": {
+        "audited_public_apis": [
+          "potential"
+        ],
+        "audit_locations": [
+          "README.md:561-565"
+        ],
+        "current_documents": [
+          "docs/src/reference/vector.md",
+          "docs/tutorials/vector-calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/vector.md": "0fece3bc29e92381333ab47655f54f12b176bea05e28b466de8a325472dfce93",
+          "docs/tutorials/vector-calculus.md": "dcc376f5e6e292a4cb45e6eef6e024a320d42917bb4f01faea4fb607cf8a1c15"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/vector.md",
+            "symbol": "potential",
+            "start_line": 140,
+            "end_line": 177
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q018",
+      "display_alias": null
+    },
+    {
+      "id": "Q019",
+      "category": "Vector Calculus",
+      "question": "How are numerical derivatives at a corner refused?",
+      "priority": "P1",
+      "original_documentation_target": "reference/derivatives.md",
+      "answer_page": "Vector-Calculus.md",
+      "answer_anchor": "q019",
+      "primary_technical_destination": "docs/src/reference/derivatives.md",
+      "additional_technical_destinations": [
+        "docs/src/reference/vector.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/vector-calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Checked field derivatives and vector Jacobians share smooth-neighborhood requirements; both references matter.",
+      "evidence": {
+        "audited_public_apis": [
+          "gradient",
+          "hessian",
+          "jacobian"
+        ],
+        "audit_locations": [
+          "README.md:502-508",
+          "README.md:554-559"
+        ],
+        "current_documents": [
+          "docs/src/reference/derivatives.md",
+          "docs/src/reference/vector.md",
+          "docs/tutorials/vector-calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/derivatives.md": "ab252532b819e44543be2b8fdd9eff33ff0709671c5ad28c7502333b383e844b",
+          "docs/src/reference/vector.md": "0fece3bc29e92381333ab47655f54f12b176bea05e28b466de8a325472dfce93",
+          "docs/tutorials/vector-calculus.md": "dcc376f5e6e292a4cb45e6eef6e024a320d42917bb4f01faea4fb607cf8a1c15"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/derivatives.md",
+            "symbol": "gradient",
+            "start_line": 227,
+            "end_line": 266
+          },
+          {
+            "document": "docs/src/reference/derivatives.md",
+            "symbol": "hessian",
+            "start_line": 267,
+            "end_line": 306
+          },
+          {
+            "document": "docs/src/reference/vector.md",
+            "symbol": "jacobian",
+            "start_line": 96,
+            "end_line": 139
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q019",
+      "display_alias": null
+    },
+    {
+      "id": "Q020",
+      "category": "Vector Calculus",
+      "question": "Does linearization prove anything away from its base point?",
+      "priority": "P1",
+      "original_documentation_target": "reference/derivatives.md",
+      "answer_page": "Vector-Calculus.md",
+      "answer_anchor": "q020",
+      "primary_technical_destination": "docs/src/reference/derivatives.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/multivariate.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "First-order affine linearization belongs to the derivative reference and the multivariate lesson.",
+      "evidence": {
+        "audited_public_apis": [
+          "linearization"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:57-58"
+        ],
+        "current_documents": [
+          "docs/src/reference/derivatives.md",
+          "docs/tutorials/multivariate.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/derivatives.md": "ab252532b819e44543be2b8fdd9eff33ff0709671c5ad28c7502333b383e844b",
+          "docs/tutorials/multivariate.md": "fbe513dbac1de4b4818817065a0f1b908adb40bd1c001c6dffd5de3d835ce596"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/derivatives.md",
+            "symbol": "linearization",
+            "start_line": 345,
+            "end_line": 386
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q020",
+      "display_alias": null
+    },
+    {
+      "id": "Q021",
+      "category": "Numerical Methods",
+      "question": "Are derivative comparison errors certified bounds?",
+      "priority": "P1",
+      "original_documentation_target": "reference/derivatives.md",
+      "answer_page": "Numerical-Methods.md",
+      "answer_anchor": "q021",
+      "primary_technical_destination": "docs/src/reference/derivatives.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Derivative comparisons report measured discrepancies, not certified errors.",
+      "evidence": {
+        "audited_public_apis": [
+          "compare_derivatives"
+        ],
+        "audit_locations": [
+          "README.md:106-111"
+        ],
+        "current_documents": [
+          "docs/src/reference/derivatives.md",
+          "docs/tutorials/calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/derivatives.md": "ab252532b819e44543be2b8fdd9eff33ff0709671c5ad28c7502333b383e844b",
+          "docs/tutorials/calculus.md": "b074bc74dd0cd5a420de6669b823a83d6d740de44b017dc59614ec739bb69dc5"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/derivatives.md",
+            "symbol": "compare_derivatives",
+            "start_line": 24,
+            "end_line": 61
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q021",
+      "display_alias": null
+    },
+    {
+      "id": "Q022",
+      "category": "Numerical Methods",
+      "question": "Why can a smaller finite-difference step be worse?",
+      "priority": "P1",
+      "original_documentation_target": "reference/derivatives.md",
+      "answer_page": "Numerical-Methods.md",
+      "answer_anchor": "q022",
+      "primary_technical_destination": "docs/src/reference/derivatives.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The convergence experiment records representable stencils and the sampled finite-difference regime.",
+      "evidence": {
+        "audited_public_apis": [
+          "derivative_convergence"
+        ],
+        "audit_locations": [
+          "README.md:243-282"
+        ],
+        "current_documents": [
+          "docs/src/reference/derivatives.md",
+          "docs/tutorials/calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/derivatives.md": "ab252532b819e44543be2b8fdd9eff33ff0709671c5ad28c7502333b383e844b",
+          "docs/tutorials/calculus.md": "b074bc74dd0cd5a420de6669b823a83d6d740de44b017dc59614ec739bb69dc5"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/derivatives.md",
+            "symbol": "derivative_convergence",
+            "start_line": 62,
+            "end_line": 106
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q022",
+      "display_alias": null
+    },
+    {
+      "id": "Q023",
+      "category": "Numerical Methods",
+      "question": "What does missing relative error mean at a zero reference?",
+      "priority": "P1",
+      "original_documentation_target": "reference/derivatives.md",
+      "answer_page": "Numerical-Methods.md",
+      "answer_anchor": "q023",
+      "primary_technical_destination": "docs/src/reference/derivatives.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The convergence output contract explains unavailable relative discrepancy at a zero reference.",
+      "evidence": {
+        "audited_public_apis": [
+          "derivative_convergence"
+        ],
+        "audit_locations": [
+          "README.md:257-263"
+        ],
+        "current_documents": [
+          "docs/src/reference/derivatives.md",
+          "docs/tutorials/calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/derivatives.md": "ab252532b819e44543be2b8fdd9eff33ff0709671c5ad28c7502333b383e844b",
+          "docs/tutorials/calculus.md": "b074bc74dd0cd5a420de6669b823a83d6d740de44b017dc59614ec739bb69dc5"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/derivatives.md",
+            "symbol": "derivative_convergence",
+            "start_line": 62,
+            "end_line": 106
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q023",
+      "display_alias": null
+    },
+    {
+      "id": "Q024",
+      "category": "Numerical Methods",
+      "question": "Why is observed convergence order missing?",
+      "priority": "P1",
+      "original_documentation_target": "reference/derivatives.md",
+      "answer_page": "Numerical-Methods.md",
+      "answer_anchor": "q024",
+      "primary_technical_destination": "docs/src/reference/derivatives.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The convergence method explains the first stable-slope window rather than a universal observed order.",
+      "evidence": {
+        "audited_public_apis": [
+          "derivative_convergence"
+        ],
+        "audit_locations": [
+          "README.md:270-282"
+        ],
+        "current_documents": [
+          "docs/src/reference/derivatives.md",
+          "docs/tutorials/calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/derivatives.md": "ab252532b819e44543be2b8fdd9eff33ff0709671c5ad28c7502333b383e844b",
+          "docs/tutorials/calculus.md": "b074bc74dd0cd5a420de6669b823a83d6d740de44b017dc59614ec739bb69dc5"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/derivatives.md",
+            "symbol": "derivative_convergence",
+            "start_line": 62,
+            "end_line": 106
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q024",
+      "display_alias": null
+    },
+    {
+      "id": "Q025",
+      "category": "Numerical Methods",
+      "question": "Which tolerance accepts a stationary candidate?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Numerical-Methods.md",
+      "answer_anchor": "q025",
+      "primary_technical_destination": "docs/src/reference/scalar.md",
+      "additional_technical_destinations": [
+        "docs/src/reference/derivatives.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Candidate residual acceptance belongs to scalar search, with field conventions linked separately.",
+      "evidence": {
+        "audited_public_apis": [
+          "analyze"
+        ],
+        "audit_locations": [
+          "README.md:324-340"
+        ],
+        "current_documents": [
+          "docs/src/reference/scalar.md",
+          "docs/src/reference/derivatives.md",
+          "docs/tutorials/calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scalar.md": "1f5b94c34cf6ac8c56d5071f4434fdf5ee97e3161811f21175538ac4377ebe7f",
+          "docs/src/reference/derivatives.md": "ab252532b819e44543be2b8fdd9eff33ff0709671c5ad28c7502333b383e844b",
+          "docs/tutorials/calculus.md": "b074bc74dd0cd5a420de6669b823a83d6d740de44b017dc59614ec739bb69dc5"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scalar.md",
+            "symbol": "analyze",
+            "start_line": 48,
+            "end_line": 276
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q025",
+      "display_alias": null
+    },
+    {
+      "id": "Q026",
+      "category": "Differential Equations",
+      "question": "What does a successful trajectory solve establish?",
+      "priority": "P1",
+      "original_documentation_target": "reference/dynamics.md",
+      "answer_page": "Differential-Equations.md",
+      "answer_anchor": "q026",
+      "primary_technical_destination": "docs/src/reference/dynamics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/odes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The trajectory contract records native success, completion and partial solver output.",
+      "evidence": {
+        "audited_public_apis": [
+          "trajectory"
+        ],
+        "audit_locations": [
+          "README.md:602-609"
+        ],
+        "current_documents": [
+          "docs/src/reference/dynamics.md",
+          "docs/tutorials/odes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/dynamics.md": "491b3aa5e7b900af88650f184c89e499a309ab8822bd9180ea72e69907044f89",
+          "docs/tutorials/odes.md": "282f0720171cb8c237f09b606ff0d9d2a22b0df132a5f8bde4fbc7d54df9ea96"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/dynamics.md",
+            "symbol": "trajectory",
+            "start_line": 269,
+            "end_line": 357
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q026",
+      "display_alias": null
+    },
+    {
+      "id": "Q027",
+      "category": "Differential Equations",
+      "question": "Can FirstOrderODE be passed directly to analyze?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Differential-Equations.md",
+      "answer_anchor": "q027",
+      "primary_technical_destination": "docs/src/reference/dynamics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/odes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "FirstOrderODE integration and AutonomousSystem structural analysis are dynamics contracts, not scalar analyze.",
+      "evidence": {
+        "audited_public_apis": [
+          "FirstOrderODE",
+          "trajectory",
+          "analyze"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:126-129"
+        ],
+        "current_documents": [
+          "docs/src/reference/dynamics.md",
+          "docs/tutorials/odes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/dynamics.md": "491b3aa5e7b900af88650f184c89e499a309ab8822bd9180ea72e69907044f89",
+          "docs/tutorials/odes.md": "282f0720171cb8c237f09b606ff0d9d2a22b0df132a5f8bde4fbc7d54df9ea96"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/dynamics.md",
+            "symbol": "FirstOrderODE",
+            "start_line": 224,
+            "end_line": 268
+          },
+          {
+            "document": "docs/src/reference/dynamics.md",
+            "symbol": "trajectory",
+            "start_line": 269,
+            "end_line": 357
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q027",
+      "display_alias": null
+    },
+    {
+      "id": "Q028",
+      "category": "Differential Equations",
+      "question": "Does saveat authorize interpolation in stored-data bridges?",
+      "priority": "P1",
+      "original_documentation_target": "reference/dynamics.md",
+      "answer_page": "Differential-Equations.md",
+      "answer_anchor": "q028",
+      "primary_technical_destination": "docs/src/reference/dynamics.md",
+      "additional_technical_destinations": [
+        "docs/src/reference/statistics.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/odes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The trajectory and stored-observable contracts distinguish solver interpolation from stored-data extraction.",
+      "evidence": {
+        "audited_public_apis": [
+          "trajectory",
+          "observable_series"
+        ],
+        "audit_locations": [
+          "examples/integration/one_system_many_methods.jl:97-108",
+          "docs/m10d_user_research_hardening.md:62-64"
+        ],
+        "current_documents": [
+          "docs/src/reference/dynamics.md",
+          "docs/src/reference/statistics.md",
+          "docs/tutorials/odes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/dynamics.md": "491b3aa5e7b900af88650f184c89e499a309ab8822bd9180ea72e69907044f89",
+          "docs/src/reference/statistics.md": "1841113aa75f040e86635a0acbd06b2159813ffa4bc2752a919f199ab5c96823",
+          "docs/tutorials/odes.md": "282f0720171cb8c237f09b606ff0d9d2a22b0df132a5f8bde4fbc7d54df9ea96"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/dynamics.md",
+            "symbol": "trajectory",
+            "start_line": 269,
+            "end_line": 357
+          },
+          {
+            "document": "docs/src/reference/statistics.md",
+            "symbol": "observable_series",
+            "start_line": 29,
+            "end_line": 141
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q028",
+      "display_alias": null
+    },
+    {
+      "id": "Q029",
+      "category": "Differential Equations",
+      "question": "Why are state and time converted to Float64?",
+      "priority": "P1",
+      "original_documentation_target": "reference/dynamics.md",
+      "answer_page": "Differential-Equations.md",
+      "answer_anchor": "q029",
+      "primary_technical_destination": "docs/src/reference/dynamics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/odes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The trajectory contract documents checked Float64 state/time conversion and rounding limits.",
+      "evidence": {
+        "audited_public_apis": [
+          "FirstOrderODE",
+          "trajectory"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:60"
+        ],
+        "current_documents": [
+          "docs/src/reference/dynamics.md",
+          "docs/tutorials/odes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/dynamics.md": "491b3aa5e7b900af88650f184c89e499a309ab8822bd9180ea72e69907044f89",
+          "docs/tutorials/odes.md": "282f0720171cb8c237f09b606ff0d9d2a22b0df132a5f8bde4fbc7d54df9ea96"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/dynamics.md",
+            "symbol": "FirstOrderODE",
+            "start_line": 224,
+            "end_line": 268
+          },
+          {
+            "document": "docs/src/reference/dynamics.md",
+            "symbol": "trajectory",
+            "start_line": 269,
+            "end_line": 357
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q029",
+      "display_alias": null
+    },
+    {
+      "id": "Q030",
+      "category": "Differential Equations",
+      "question": "Are domain callbacks rigorous boundary tracking?",
+      "priority": "P1",
+      "original_documentation_target": "reference/dynamics.md",
+      "answer_page": "Differential-Equations.md",
+      "answer_anchor": "q030",
+      "primary_technical_destination": "docs/src/reference/dynamics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/odes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The trajectory contract scopes predicate checks to evaluated stages, not continuous boundary certification.",
+      "evidence": {
+        "audited_public_apis": [
+          "FirstOrderODE",
+          "trajectory"
+        ],
+        "audit_locations": [
+          "README.md:607-609"
+        ],
+        "current_documents": [
+          "docs/src/reference/dynamics.md",
+          "docs/tutorials/odes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/dynamics.md": "491b3aa5e7b900af88650f184c89e499a309ab8822bd9180ea72e69907044f89",
+          "docs/tutorials/odes.md": "282f0720171cb8c237f09b606ff0d9d2a22b0df132a5f8bde4fbc7d54df9ea96"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/dynamics.md",
+            "symbol": "FirstOrderODE",
+            "start_line": 224,
+            "end_line": 268
+          },
+          {
+            "document": "docs/src/reference/dynamics.md",
+            "symbol": "trajectory",
+            "start_line": 269,
+            "end_line": 357
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q030",
+      "display_alias": null
+    },
+    {
+      "id": "Q031",
+      "category": "Mechanics and Dynamics",
+      "question": "Which coordinate and momentum order does AML use?",
+      "priority": "P1",
+      "original_documentation_target": "reference/mechanics.md",
+      "answer_page": "Mechanics-and-Dynamics.md",
+      "answer_anchor": "q031",
+      "primary_technical_destination": "docs/src/reference/mechanics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/mechanics.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Lagrangian and Hamiltonian contracts define ordered conjugate coordinates and momentum meaning.",
+      "evidence": {
+        "audited_public_apis": [
+          "LagrangianSystem",
+          "HamiltonianSystem"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:61-62"
+        ],
+        "current_documents": [
+          "docs/src/reference/mechanics.md",
+          "docs/tutorials/mechanics.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/mechanics.md": "5802da174329ceacad2c1fbc2d6231a38ccee4f318fbd7c667c1c59d4c526a44",
+          "docs/tutorials/mechanics.md": "9276ccd25bcbac94eaff149ca7a2ec2d0c58d7c5586700d04de7b9c95a21f546"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/mechanics.md",
+            "symbol": "LagrangianSystem",
+            "start_line": 234,
+            "end_line": 275
+          },
+          {
+            "document": "docs/src/reference/mechanics.md",
+            "symbol": "HamiltonianSystem",
+            "start_line": 436,
+            "end_line": 477
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q031",
+      "display_alias": null
+    },
+    {
+      "id": "Q032",
+      "category": "Mechanics and Dynamics",
+      "question": "When can AML establish a Legendre transform?",
+      "priority": "P1",
+      "original_documentation_target": "reference/mechanics.md",
+      "answer_page": "Mechanics-and-Dynamics.md",
+      "answer_anchor": "q032",
+      "primary_technical_destination": "docs/src/reference/mechanics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/mechanics.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The mechanics Legendre contract records verified affine inversion and conservative prerequisites.",
+      "evidence": {
+        "audited_public_apis": [
+          "legendre_transform"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:63"
+        ],
+        "current_documents": [
+          "docs/src/reference/mechanics.md",
+          "docs/tutorials/mechanics.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/mechanics.md": "5802da174329ceacad2c1fbc2d6231a38ccee4f318fbd7c667c1c59d4c526a44",
+          "docs/tutorials/mechanics.md": "9276ccd25bcbac94eaff149ca7a2ec2d0c58d7c5586700d04de7b9c95a21f546"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/mechanics.md",
+            "symbol": "legendre_transform",
+            "start_line": 560,
+            "end_line": 600
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q032",
+      "display_alias": null
+    },
+    {
+      "id": "Q033",
+      "category": "Mechanics and Dynamics",
+      "question": "Does sampled energy drift prove conservation?",
+      "priority": "P1",
+      "original_documentation_target": "reference/mechanics.md",
+      "answer_page": "Mechanics-and-Dynamics.md",
+      "answer_anchor": "q033",
+      "primary_technical_destination": "docs/src/reference/mechanics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/one-system-many-methods.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The mechanical energy bridge and integrated tutorial distinguish saved drift from conservation identities.",
+      "evidence": {
+        "audited_public_apis": [
+          "energy_drift"
+        ],
+        "audit_locations": [
+          "examples/integration/one_system_plots.jl:20-29"
+        ],
+        "current_documents": [
+          "docs/src/reference/mechanics.md",
+          "docs/tutorials/one-system-many-methods.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/mechanics.md": "5802da174329ceacad2c1fbc2d6231a38ccee4f318fbd7c667c1c59d4c526a44",
+          "docs/tutorials/one-system-many-methods.md": "00d7df53418d022938b16a71200bf87ad6755bcc82c1b37a8f1bdd2f71426389"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/mechanics.md",
+            "symbol": "energy_drift",
+            "start_line": 644,
+            "end_line": 681
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q033",
+      "display_alias": null
+    },
+    {
+      "id": "Q034",
+      "category": "Mechanics and Dynamics",
+      "question": "Why do imaginary eigenvalues not decide nonlinear stability?",
+      "priority": "P1",
+      "original_documentation_target": "reference/dynamics.md",
+      "answer_page": "Mechanics-and-Dynamics.md",
+      "answer_anchor": "q034",
+      "primary_technical_destination": "docs/src/reference/dynamics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/odes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Local stability belongs to the dynamics reference, with nonhyperbolic nonlinear limitations.",
+      "evidence": {
+        "audited_public_apis": [
+          "stability"
+        ],
+        "audit_locations": [
+          "README.md:602-606"
+        ],
+        "current_documents": [
+          "docs/src/reference/dynamics.md",
+          "docs/tutorials/odes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/dynamics.md": "491b3aa5e7b900af88650f184c89e499a309ab8822bd9180ea72e69907044f89",
+          "docs/tutorials/odes.md": "282f0720171cb8c237f09b606ff0d9d2a22b0df132a5f8bde4fbc7d54df9ea96"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/dynamics.md",
+            "symbol": "stability",
+            "start_line": 184,
+            "end_line": 220
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q034",
+      "display_alias": null
+    },
+    {
+      "id": "Q035",
+      "category": "Mechanics and Dynamics",
+      "question": "How do I compare analytical and numerical descriptions of one system?",
+      "priority": "P1",
+      "original_documentation_target": "reference/dynamics.md",
+      "answer_page": "Mechanics-and-Dynamics.md",
+      "answer_anchor": "q035",
+      "primary_technical_destination": "docs/src/reference/mechanics.md",
+      "additional_technical_destinations": [
+        "docs/src/reference/dynamics.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/one-system-many-methods.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The integrated capstone supplies the same-model analytical/numerical comparison across mechanics and dynamics.",
+      "evidence": {
+        "audited_public_apis": [
+          "dynamics",
+          "normal_modes",
+          "trajectory"
+        ],
+        "audit_locations": [
+          "examples/integration/one_system_many_methods.jl:111-201"
+        ],
+        "current_documents": [
+          "docs/src/reference/mechanics.md",
+          "docs/src/reference/dynamics.md",
+          "docs/tutorials/one-system-many-methods.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/mechanics.md": "5802da174329ceacad2c1fbc2d6231a38ccee4f318fbd7c667c1c59d4c526a44",
+          "docs/src/reference/dynamics.md": "491b3aa5e7b900af88650f184c89e499a309ab8822bd9180ea72e69907044f89",
+          "docs/tutorials/one-system-many-methods.md": "00d7df53418d022938b16a71200bf87ad6755bcc82c1b37a8f1bdd2f71426389"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/mechanics.md",
+            "symbol": "dynamics",
+            "start_line": 604,
+            "end_line": 643
+          },
+          {
+            "document": "docs/src/reference/mechanics.md",
+            "symbol": "normal_modes",
+            "start_line": 848,
+            "end_line": 895
+          },
+          {
+            "document": "docs/src/reference/dynamics.md",
+            "symbol": "trajectory",
+            "start_line": 269,
+            "end_line": 357
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q035",
+      "display_alias": null
+    },
+    {
+      "id": "Q036",
+      "category": "Trajectories",
+      "question": "How do I select a stored component without guessing physical identity?",
+      "priority": "P1",
+      "original_documentation_target": "reference/statistics.md",
+      "answer_page": "Trajectories.md",
+      "answer_anchor": "q036",
+      "primary_technical_destination": "docs/src/reference/statistics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/trajectories.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The stored-observable contract supplies explicit component/label selection without inferred physical identity.",
+      "evidence": {
+        "audited_public_apis": [
+          "observable_series"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:62-64"
+        ],
+        "current_documents": [
+          "docs/src/reference/statistics.md",
+          "docs/tutorials/trajectories.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/statistics.md": "1841113aa75f040e86635a0acbd06b2159813ffa4bc2752a919f199ab5c96823",
+          "docs/tutorials/trajectories.md": "713c1572739b75b2b682931bd937f22837fea8e24e67dd6326eefab80e8fa43c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/statistics.md",
+            "symbol": "observable_series",
+            "start_line": 29,
+            "end_line": 141
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q036",
+      "display_alias": null
+    },
+    {
+      "id": "Q037",
+      "category": "Trajectories",
+      "question": "Is saved sample spacing the integrator time step?",
+      "priority": "P1",
+      "original_documentation_target": "reference/statistics.md",
+      "answer_page": "Trajectories.md",
+      "answer_anchor": "q037",
+      "primary_technical_destination": "docs/src/reference/statistics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/trajectories.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "SamplingInfo describes saved observations, not an internal integration timestep.",
+      "evidence": {
+        "audited_public_apis": [
+          "sampling_info"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:70"
+        ],
+        "current_documents": [
+          "docs/src/reference/statistics.md",
+          "docs/tutorials/trajectories.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/statistics.md": "1841113aa75f040e86635a0acbd06b2159813ffa4bc2752a919f199ab5c96823",
+          "docs/tutorials/trajectories.md": "713c1572739b75b2b682931bd937f22837fea8e24e67dd6326eefab80e8fa43c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/statistics.md",
+            "symbol": "sampling_info",
+            "start_line": 185,
+            "end_line": 224
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q037",
+      "display_alias": null
+    },
+    {
+      "id": "Q038",
+      "category": "Trajectories",
+      "question": "Are stored trajectory frames copied or lazy?",
+      "priority": "P1",
+      "original_documentation_target": "reference/atomistic.md",
+      "answer_page": "Trajectories.md",
+      "answer_anchor": "q038",
+      "primary_technical_destination": "docs/src/reference/atomistic.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/trajectories.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The atomistic lazy-view contract is the relevant ownership authority, not generic moment statistics.",
+      "evidence": {
+        "audited_public_apis": [
+          "AtomisticTrajectoryView"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:66"
+        ],
+        "current_documents": [
+          "docs/src/reference/atomistic.md",
+          "docs/tutorials/trajectories.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/atomistic.md": "5d87e8e455f63f3780b947afa1a6038cbd543cca9a1bc0b800af75b49ac8f92b",
+          "docs/tutorials/trajectories.md": "713c1572739b75b2b682931bd937f22837fea8e24e67dd6326eefab80e8fa43c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/atomistic.md",
+            "symbol": "AtomisticTrajectoryView",
+            "start_line": 222,
+            "end_line": 262
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q038",
+      "display_alias": null
+    },
+    {
+      "id": "Q039",
+      "category": "Trajectories",
+      "question": "Why does comparing two stored results refuse missing context?",
+      "priority": "P1",
+      "original_documentation_target": "reference/comparison.md",
+      "answer_page": "Trajectories.md",
+      "answer_anchor": "q039",
+      "primary_technical_destination": "docs/src/reference/comparison.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/trajectories.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The comparison wrapper supplies compatibility context; equal stored values alone are insufficient.",
+      "evidence": {
+        "audited_public_apis": [
+          "ComparisonInput",
+          "compare"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:76"
+        ],
+        "current_documents": [
+          "docs/src/reference/comparison.md",
+          "docs/tutorials/trajectories.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/comparison.md": "1d2da91800703295a49f83a1b633af2787f54415697904473baab346d98f4291",
+          "docs/tutorials/trajectories.md": "713c1572739b75b2b682931bd937f22837fea8e24e67dd6326eefab80e8fa43c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/comparison.md",
+            "symbol": "ComparisonInput",
+            "start_line": 137,
+            "end_line": 178
+          },
+          {
+            "document": "docs/src/reference/comparison.md",
+            "symbol": "compare",
+            "start_line": 14,
+            "end_line": 56
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q039",
+      "display_alias": null
+    },
+    {
+      "id": "Q040",
+      "category": "Trajectories",
+      "question": "Does diagnose recompute missing analyses?",
+      "priority": "P1",
+      "original_documentation_target": "reference/statistics.md",
+      "answer_page": "Trajectories.md",
+      "answer_anchor": "q040",
+      "primary_technical_destination": "docs/src/reference/statistics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/trajectories.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The diagnose overloads distinguish stored-report composition from view convenience analysis.",
+      "evidence": {
+        "audited_public_apis": [
+          "diagnose"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:75"
+        ],
+        "current_documents": [
+          "docs/src/reference/statistics.md",
+          "docs/tutorials/trajectories.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/statistics.md": "1841113aa75f040e86635a0acbd06b2159813ffa4bc2752a919f199ab5c96823",
+          "docs/tutorials/trajectories.md": "713c1572739b75b2b682931bd937f22837fea8e24e67dd6326eefab80e8fa43c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/statistics.md",
+            "symbol": "diagnose",
+            "start_line": 621,
+            "end_line": 697
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q040",
+      "display_alias": null
+    },
+    {
+      "id": "Q041",
+      "category": "Atomistic Computing",
+      "question": "Can I inspect particle data without Molly?",
+      "priority": "P1",
+      "original_documentation_target": "reference/atomistic.md",
+      "answer_page": "Atomistic-Computing.md",
+      "answer_anchor": "q041",
+      "primary_technical_destination": "docs/src/reference/atomistic.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/atomistics.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The atomistic core and base tutorial demonstrate supplied data without a Molly adapter.",
+      "evidence": {
+        "audited_public_apis": [
+          "AtomisticSnapshot",
+          "mdcheck"
+        ],
+        "audit_locations": [
+          "test/stranger/atomistic.jl"
+        ],
+        "current_documents": [
+          "docs/src/reference/atomistic.md",
+          "docs/tutorials/atomistics.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/atomistic.md": "5d87e8e455f63f3780b947afa1a6038cbd543cca9a1bc0b800af75b49ac8f92b",
+          "docs/tutorials/atomistics.md": "c11be1711543773253110c67f8ae0f3711c972bdcc86cee6d0bc29e7ebf87cd7"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/atomistic.md",
+            "symbol": "AtomisticSnapshot",
+            "start_line": 177,
+            "end_line": 221
+          },
+          {
+            "document": "docs/src/reference/atomistic.md",
+            "symbol": "mdcheck",
+            "start_line": 346,
+            "end_line": 385
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q041",
+      "display_alias": null
+    },
+    {
+      "id": "Q042",
+      "category": "Atomistic Computing",
+      "question": "Why does a Molly trajectory require explicit historical assertions?",
+      "priority": "P1",
+      "original_documentation_target": "reference/atomistic.md",
+      "answer_page": "Atomistic-Computing.md",
+      "answer_anchor": "q042",
+      "primary_technical_destination": "docs/src/reference/atomistic.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/atomistic.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The Molly adapter contract and existing guide document caller historical assertions.",
+      "evidence": {
+        "audited_public_apis": [
+          "atomistic_trajectory"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:65-69"
+        ],
+        "current_documents": [
+          "docs/src/reference/atomistic.md",
+          "docs/atomistic.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/atomistic.md": "5d87e8e455f63f3780b947afa1a6038cbd543cca9a1bc0b800af75b49ac8f92b",
+          "docs/atomistic.md": "7abc32baed7e59ae100aaf01c8353f273e3fdbc84362af2357d5a40659ac8e05"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/atomistic.md",
+            "symbol": "atomistic_trajectory",
+            "start_line": 99,
+            "end_line": 176
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q042",
+      "display_alias": null
+    },
+    {
+      "id": "Q043",
+      "category": "Atomistic Computing",
+      "question": "What happens when a Molly system has no stored loggers?",
+      "priority": "P1",
+      "original_documentation_target": "reference/atomistic.md",
+      "answer_page": "Atomistic-Computing.md",
+      "answer_anchor": "q043",
+      "primary_technical_destination": "docs/src/reference/atomistic.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/atomistic.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The Molly stored-logger implementation resolves missing versus valid-empty history; the atomistic reference is the user entry point.",
+      "evidence": {
+        "audited_public_apis": [
+          "atomistic_trajectory"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:65-69"
+        ],
+        "current_documents": [
+          "docs/src/reference/atomistic.md",
+          "docs/atomistic.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/atomistic.md": "5d87e8e455f63f3780b947afa1a6038cbd543cca9a1bc0b800af75b49ac8f92b",
+          "docs/atomistic.md": "7abc32baed7e59ae100aaf01c8353f273e3fdbc84362af2357d5a40659ac8e05"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/atomistic.md",
+            "symbol": "atomistic_trajectory",
+            "start_line": 99,
+            "end_line": 176
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "decisive_implementation_read": "ext/AnalyticMathLabMollyExt.jl:56-101 (missing logger versus empty frame history)",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q043",
+      "display_alias": null
+    },
+    {
+      "id": "Q044",
+      "category": "Atomistic Computing",
+      "question": "What boundary and distance information is needed for RDF?",
+      "priority": "P1",
+      "original_documentation_target": "reference/atomistic.md",
+      "answer_page": "Atomistic-Computing.md",
+      "answer_anchor": "q044",
+      "primary_technical_destination": "docs/src/reference/atomistic.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/atomistic.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The RDF contract gives periodic geometry, edge and normalization restrictions.",
+      "evidence": {
+        "audited_public_apis": [
+          "radial_distribution"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:69"
+        ],
+        "current_documents": [
+          "docs/src/reference/atomistic.md",
+          "docs/atomistic.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/atomistic.md": "5d87e8e455f63f3780b947afa1a6038cbd543cca9a1bc0b800af75b49ac8f92b",
+          "docs/atomistic.md": "7abc32baed7e59ae100aaf01c8353f273e3fdbc84362af2357d5a40659ac8e05"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/atomistic.md",
+            "symbol": "radial_distribution",
+            "start_line": 589,
+            "end_line": 628
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q044",
+      "display_alias": null
+    },
+    {
+      "id": "Q045",
+      "category": "Atomistic Computing",
+      "question": "Is analyze_potential an MD force engine?",
+      "priority": "P1",
+      "original_documentation_target": "reference/atomistic.md",
+      "answer_page": "Atomistic-Computing.md",
+      "answer_anchor": "q045",
+      "primary_technical_destination": "docs/src/reference/atomistic.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/atomistics.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The supplied radial-potential contract is not a simulation or force-engine API.",
+      "evidence": {
+        "audited_public_apis": [
+          "analyze_potential",
+          "lennard_jones_analysis"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:68"
+        ],
+        "current_documents": [
+          "docs/src/reference/atomistic.md",
+          "docs/tutorials/atomistics.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/atomistic.md": "5d87e8e455f63f3780b947afa1a6038cbd543cca9a1bc0b800af75b49ac8f92b",
+          "docs/tutorials/atomistics.md": "c11be1711543773253110c67f8ae0f3711c972bdcc86cee6d0bc29e7ebf87cd7"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/atomistic.md",
+            "symbol": "analyze_potential",
+            "start_line": 430,
+            "end_line": 469
+          },
+          {
+            "document": "docs/src/reference/atomistic.md",
+            "symbol": "lennard_jones_analysis",
+            "start_line": 470,
+            "end_line": 508
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q045",
+      "display_alias": null
+    },
+    {
+      "id": "Q046",
+      "category": "Statistics",
+      "question": "Why does a moment summary not report an IID standard error?",
+      "priority": "P1",
+      "original_documentation_target": "reference/statistics.md",
+      "answer_page": "Statistics.md",
+      "answer_anchor": "q046",
+      "primary_technical_destination": "docs/src/reference/statistics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/trajectories.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Descriptive moment outputs deliberately withhold IID mean uncertainty.",
+      "evidence": {
+        "audited_public_apis": [
+          "statistical_summary"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:71"
+        ],
+        "current_documents": [
+          "docs/src/reference/statistics.md",
+          "docs/tutorials/trajectories.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/statistics.md": "1841113aa75f040e86635a0acbd06b2159813ffa4bc2752a919f199ab5c96823",
+          "docs/tutorials/trajectories.md": "713c1572739b75b2b682931bd937f22837fea8e24e67dd6326eefab80e8fa43c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/statistics.md",
+            "symbol": "statistical_summary",
+            "start_line": 305,
+            "end_line": 343
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q046",
+      "display_alias": null
+    },
+    {
+      "id": "Q047",
+      "category": "Statistics",
+      "question": "Do blocking and autocorrelation prove stationarity?",
+      "priority": "P1",
+      "original_documentation_target": "reference/statistics.md",
+      "answer_page": "Statistics.md",
+      "answer_anchor": "q047",
+      "primary_technical_destination": "docs/src/reference/statistics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/trajectories.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Blocking and autocorrelation contracts record finite-sample assumptions rather than stationarity proofs.",
+      "evidence": {
+        "audited_public_apis": [
+          "block_average",
+          "integrated_autocorrelation_time"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:72-73"
+        ],
+        "current_documents": [
+          "docs/src/reference/statistics.md",
+          "docs/tutorials/trajectories.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/statistics.md": "1841113aa75f040e86635a0acbd06b2159813ffa4bc2752a919f199ab5c96823",
+          "docs/tutorials/trajectories.md": "713c1572739b75b2b682931bd937f22837fea8e24e67dd6326eefab80e8fa43c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/statistics.md",
+            "symbol": "block_average",
+            "start_line": 503,
+            "end_line": 540
+          },
+          {
+            "document": "docs/src/reference/statistics.md",
+            "symbol": "integrated_autocorrelation_time",
+            "start_line": 463,
+            "end_line": 499
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q047",
+      "display_alias": null
+    },
+    {
+      "id": "Q048",
+      "category": "Statistics",
+      "question": "Why are missing or nonfinite observations not silently filtered?",
+      "priority": "P1",
+      "original_documentation_target": "reference/statistics.md",
+      "answer_page": "Statistics.md",
+      "answer_anchor": "q048",
+      "primary_technical_destination": "docs/src/reference/statistics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/trajectories.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The stored-series contract preserves invalid observations rather than silently filtering them.",
+      "evidence": {
+        "audited_public_apis": [
+          "statistical_summary",
+          "running_statistics"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:56-61"
+        ],
+        "current_documents": [
+          "docs/src/reference/statistics.md",
+          "docs/tutorials/trajectories.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/statistics.md": "1841113aa75f040e86635a0acbd06b2159813ffa4bc2752a919f199ab5c96823",
+          "docs/tutorials/trajectories.md": "713c1572739b75b2b682931bd937f22837fea8e24e67dd6326eefab80e8fa43c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/statistics.md",
+            "symbol": "statistical_summary",
+            "start_line": 305,
+            "end_line": 343
+          },
+          {
+            "document": "docs/src/reference/statistics.md",
+            "symbol": "running_statistics",
+            "start_line": 267,
+            "end_line": 304
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q048",
+      "display_alias": null
+    },
+    {
+      "id": "Q049",
+      "category": "Statistics",
+      "question": "What time scale and fit-window assumptions are needed to interpret a diffusion estimate?",
+      "priority": "P1",
+      "original_documentation_target": "reference/transport.md",
+      "answer_page": "Statistics.md",
+      "answer_anchor": "q049",
+      "primary_technical_destination": "docs/src/reference/transport.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/trajectories.md",
+        "docs/trajectory_statistics.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The transport reference corrects the old physical-clock premise; the existing statistics guide explains per-index fitting.",
+      "evidence": {
+        "audited_public_apis": [
+          "diffusion_estimate"
+        ],
+        "audit_locations": [
+          "src/trajectory/transport.jl:39-102",
+          "test/trajectory_transport.jl:17-40",
+          "docs/trajectory_statistics.md"
+        ],
+        "current_documents": [
+          "docs/src/reference/transport.md",
+          "docs/tutorials/trajectories.md",
+          "docs/trajectory_statistics.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/transport.md": "92e642deb30b4d3cb1a730f77165676728140bb6cdbf04130a462c0711729a36",
+          "docs/tutorials/trajectories.md": "713c1572739b75b2b682931bd937f22837fea8e24e67dd6326eefab80e8fa43c",
+          "docs/trajectory_statistics.md": "8afb055e65a67451a68450950eed7e18c22a7cad6b553d983747285209118f56"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/transport.md",
+            "symbol": "diffusion_estimate",
+            "start_line": 14,
+            "end_line": 53
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q049",
+      "display_alias": null
+    },
+    {
+      "id": "Q050",
+      "category": "Statistics",
+      "question": "Does comparing compatible runs establish independence?",
+      "priority": "P1",
+      "original_documentation_target": "reference/comparison.md",
+      "answer_page": "Statistics.md",
+      "answer_anchor": "q050",
+      "primary_technical_destination": "docs/src/reference/comparison.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/trajectories.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The comparison contracts separate compatibility from caller independence assertions.",
+      "evidence": {
+        "audited_public_apis": [
+          "compare_runs"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:76"
+        ],
+        "current_documents": [
+          "docs/src/reference/comparison.md",
+          "docs/tutorials/trajectories.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/comparison.md": "1d2da91800703295a49f83a1b633af2787f54415697904473baab346d98f4291",
+          "docs/tutorials/trajectories.md": "713c1572739b75b2b682931bd937f22837fea8e24e67dd6326eefab80e8fa43c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/comparison.md",
+            "symbol": "compare_runs",
+            "start_line": 57,
+            "end_line": 96
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q050",
+      "display_alias": null
+    },
+    {
+      "id": "Q051",
+      "category": "Scientific Datasets",
+      "question": "Which dataset fields must I declare explicitly?",
+      "priority": "P1",
+      "original_documentation_target": "reference/datasets.md",
+      "answer_page": "Scientific-Datasets.md",
+      "answer_anchor": "q051",
+      "primary_technical_destination": "docs/src/reference/datasets.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/one-system-many-methods.md",
+        "docs/surrogates.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The experimental dataset constructor defines explicit schema and sample roles; the capstone supplies a concrete assembly.",
+      "evidence": {
+        "audited_public_apis": [
+          "ScientificDataset"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:47-50"
+        ],
+        "current_documents": [
+          "docs/src/reference/datasets.md",
+          "docs/tutorials/one-system-many-methods.md",
+          "docs/surrogates.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/datasets.md": "58ab57bff2b4117185bb70061030d95113512884127248c7d7d8e5d4c1ef348a",
+          "docs/tutorials/one-system-many-methods.md": "00d7df53418d022938b16a71200bf87ad6755bcc82c1b37a8f1bdd2f71426389",
+          "docs/surrogates.md": "04aefcb7cffed941aa792c2e93c2c7c9175267a1ff697c3cbaf7285f55d8cede"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/datasets.md",
+            "symbol": "ScientificDataset",
+            "start_line": 58,
+            "end_line": 104
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q051",
+      "display_alias": null
+    },
+    {
+      "id": "Q052",
+      "category": "Scientific Datasets",
+      "question": "Why must scalar targets be reshaped for scaling?",
+      "priority": "P1",
+      "original_documentation_target": "reference/datasets.md",
+      "answer_page": "Scientific-Datasets.md",
+      "answer_anchor": "q052",
+      "primary_technical_destination": "docs/src/reference/datasets.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/surrogates.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The scaling transform contract explains feature-row layout; the existing surrogate guide supplies context.",
+      "evidence": {
+        "audited_public_apis": [
+          "ScientificSample",
+          "transform"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:51-55"
+        ],
+        "current_documents": [
+          "docs/src/reference/datasets.md",
+          "docs/surrogates.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/datasets.md": "58ab57bff2b4117185bb70061030d95113512884127248c7d7d8e5d4c1ef348a",
+          "docs/surrogates.md": "04aefcb7cffed941aa792c2e93c2c7c9175267a1ff697c3cbaf7285f55d8cede"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/datasets.md",
+            "symbol": "ScientificSample",
+            "start_line": 105,
+            "end_line": 145
+          },
+          {
+            "document": "docs/src/reference/datasets.md",
+            "symbol": "transform",
+            "start_line": 267,
+            "end_line": 302
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q052",
+      "display_alias": null
+    },
+    {
+      "id": "Q053",
+      "category": "Scientific Datasets",
+      "question": "How do I avoid train/validation normalization leakage?",
+      "priority": "P1",
+      "original_documentation_target": "reference/datasets.md",
+      "answer_page": "Scientific-Datasets.md",
+      "answer_anchor": "q053",
+      "primary_technical_destination": "docs/src/reference/datasets.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/surrogates.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Train-only scaling records training IDs, while split correctness remains a caller obligation.",
+      "evidence": {
+        "audited_public_apis": [
+          "fit_scaling"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:83"
+        ],
+        "current_documents": [
+          "docs/src/reference/datasets.md",
+          "docs/surrogates.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/datasets.md": "58ab57bff2b4117185bb70061030d95113512884127248c7d7d8e5d4c1ef348a",
+          "docs/surrogates.md": "04aefcb7cffed941aa792c2e93c2c7c9175267a1ff697c3cbaf7285f55d8cede"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/datasets.md",
+            "symbol": "fit_scaling",
+            "start_line": 191,
+            "end_line": 228
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q053",
+      "display_alias": null
+    },
+    {
+      "id": "Q054",
+      "category": "Scientific Datasets",
+      "question": "Does a reference kind label certify its quality?",
+      "priority": "P1",
+      "original_documentation_target": "reference/datasets.md",
+      "answer_page": "Scientific-Datasets.md",
+      "answer_anchor": "q054",
+      "primary_technical_destination": "docs/src/reference/datasets.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/one-system-many-methods.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The dataset reference documents reference declarations without certifying their quality.",
+      "evidence": {
+        "audited_public_apis": [
+          "ScientificDataset"
+        ],
+        "audit_locations": [
+          "src/scientific_metadata.jl:114-124"
+        ],
+        "current_documents": [
+          "docs/src/reference/datasets.md",
+          "docs/tutorials/one-system-many-methods.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/datasets.md": "58ab57bff2b4117185bb70061030d95113512884127248c7d7d8e5d4c1ef348a",
+          "docs/tutorials/one-system-many-methods.md": "00d7df53418d022938b16a71200bf87ad6755bcc82c1b37a8f1bdd2f71426389"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/datasets.md",
+            "symbol": "ScientificDataset",
+            "start_line": 58,
+            "end_line": 104
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q054",
+      "display_alias": null
+    },
+    {
+      "id": "Q055",
+      "category": "Scientific Datasets",
+      "question": "Does a numerical trajectory become analytical ground truth when converted?",
+      "priority": "P1",
+      "original_documentation_target": "reference/datasets.md",
+      "answer_page": "Scientific-Datasets.md",
+      "answer_anchor": "q055",
+      "primary_technical_destination": "docs/src/reference/datasets.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/one-system-many-methods.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The trajectory-to-dataset bridge preserves numerical targets and independent-reference distinctions.",
+      "evidence": {
+        "audited_public_apis": [
+          "ScientificDataset"
+        ],
+        "audit_locations": [
+          "examples/integration/one_system_many_methods.jl:81-95"
+        ],
+        "current_documents": [
+          "docs/src/reference/datasets.md",
+          "docs/tutorials/one-system-many-methods.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/datasets.md": "58ab57bff2b4117185bb70061030d95113512884127248c7d7d8e5d4c1ef348a",
+          "docs/tutorials/one-system-many-methods.md": "00d7df53418d022938b16a71200bf87ad6755bcc82c1b37a8f1bdd2f71426389"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/datasets.md",
+            "symbol": "ScientificDataset",
+            "start_line": 58,
+            "end_line": 104
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q055",
+      "display_alias": null
+    },
+    {
+      "id": "Q056",
+      "category": "Scientific Machine Learning",
+      "question": "Does low PINN loss establish PDE correctness?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Scientific-Machine-Learning.md",
+      "answer_anchor": "q056",
+      "primary_technical_destination": "docs/src/reference/scientific-ml.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/pinn_diagnostics.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "PINN loss/residual evidence belongs to the experimental scientific-ML reference and existing diagnostics guide, not scalar analysis.",
+      "evidence": {
+        "audited_public_apis": [
+          "train",
+          "analyze"
+        ],
+        "audit_locations": [
+          "README.md:26-40"
+        ],
+        "current_documents": [
+          "docs/src/reference/scientific-ml.md",
+          "docs/pinn_diagnostics.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scientific-ml.md": "0f433a285a41a8879228c651a5c327e158eb321da4dc0f81b861471c95feeade",
+          "docs/pinn_diagnostics.md": "b2c1a2915793e0ead81cf4d7ef66ba721076a8588ba31ac3fbaa5d8e19c06189"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "train",
+            "start_line": 438,
+            "end_line": 563
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q056",
+      "display_alias": null
+    },
+    {
+      "id": "Q057",
+      "category": "Scientific Machine Learning",
+      "question": "Why does the learning model require explicit RNG provenance?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scientific-ml.md",
+      "answer_page": "Scientific-Machine-Learning.md",
+      "answer_anchor": "q057",
+      "primary_technical_destination": "docs/src/reference/scientific-ml.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/surrogates.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The learning_model contract explicitly requires RNG and RNG provenance; the surrogate guide is a useful companion.",
+      "evidence": {
+        "audited_public_apis": [
+          "learning_model"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:98-102"
+        ],
+        "current_documents": [
+          "docs/src/reference/scientific-ml.md",
+          "docs/surrogates.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scientific-ml.md": "0f433a285a41a8879228c651a5c327e158eb321da4dc0f81b861471c95feeade",
+          "docs/surrogates.md": "04aefcb7cffed941aa792c2e93c2c7c9175267a1ff697c3cbaf7285f55d8cede"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "learning_model",
+            "start_line": 1517,
+            "end_line": 1556
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q057",
+      "display_alias": null
+    },
+    {
+      "id": "Q058",
+      "category": "Scientific Machine Learning",
+      "question": "Are learned corrections symbolic discoveries?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scientific-ml.md",
+      "answer_page": "Scientific-Machine-Learning.md",
+      "answer_anchor": "q058",
+      "primary_technical_destination": "docs/src/reference/scientific-ml.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/learned_dynamics.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The UDE contract describes numerical learned corrections, not symbolic equation discovery.",
+      "evidence": {
+        "audited_public_apis": [
+          "UDEProblem"
+        ],
+        "audit_locations": [
+          "README.md:41-47"
+        ],
+        "current_documents": [
+          "docs/src/reference/scientific-ml.md",
+          "docs/learned_dynamics.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scientific-ml.md": "0f433a285a41a8879228c651a5c327e158eb321da4dc0f81b861471c95feeade",
+          "docs/learned_dynamics.md": "aa97892d89c9521ecaf353f78f3629b6b39d32a1f9e00f3e8b1fc70465c1726e"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "UDEProblem",
+            "start_line": 1473,
+            "end_line": 1513
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q058",
+      "display_alias": null
+    },
+    {
+      "id": "Q059",
+      "category": "Scientific Machine Learning",
+      "question": "What does the one-step oscillator learning example demonstrate?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scientific-ml.md",
+      "answer_page": "Scientific-Machine-Learning.md",
+      "answer_anchor": "q059",
+      "primary_technical_destination": "docs/src/reference/scientific-ml.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/m10d_one_system_many_methods.md",
+        "examples/integration/one_system_learning.jl"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The actual one_system_learning.jl is the one-step pipeline; do not link a guessed optional example filename.",
+      "evidence": {
+        "audited_public_apis": [
+          "learning_model",
+          "train"
+        ],
+        "audit_locations": [
+          "examples/integration/one_system_learning.jl:52-85"
+        ],
+        "current_documents": [
+          "docs/src/reference/scientific-ml.md",
+          "docs/m10d_one_system_many_methods.md",
+          "examples/integration/one_system_learning.jl"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scientific-ml.md": "0f433a285a41a8879228c651a5c327e158eb321da4dc0f81b861471c95feeade",
+          "docs/m10d_one_system_many_methods.md": "227e365ce49162533a2555518ac1c58daba14fe24b57edd0c50337b644df9487",
+          "examples/integration/one_system_learning.jl": "90c6aa5028a3e6722a170889c54e1a9d0e270df8f2e3a095911f15a232fd50df"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "learning_model",
+            "start_line": 1517,
+            "end_line": 1556
+          },
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "train",
+            "start_line": 438,
+            "end_line": 563
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q059",
+      "display_alias": null
+    },
+    {
+      "id": "Q060",
+      "category": "Scientific Machine Learning",
+      "question": "Is local sensitivity the same as global identifiability?",
+      "priority": "P1",
+      "original_documentation_target": "reference/scientific-ml.md",
+      "answer_page": "Scientific-Machine-Learning.md",
+      "answer_anchor": "q060",
+      "primary_technical_destination": "docs/src/reference/scientific-ml.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/parameter_inference.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The inference sensitivity contract scopes Jacobian/SVD evidence locally; the inference guide is the relevant practical destination.",
+      "evidence": {
+        "audited_public_apis": [
+          "local_sensitivity"
+        ],
+        "audit_locations": [
+          "README.md:41-46"
+        ],
+        "current_documents": [
+          "docs/src/reference/scientific-ml.md",
+          "docs/parameter_inference.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scientific-ml.md": "0f433a285a41a8879228c651a5c327e158eb321da4dc0f81b861471c95feeade",
+          "docs/parameter_inference.md": "3aef71994f1d7507a7872911d36d82b9fd684d5e05830e7ec610d719de2179d6"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "local_sensitivity",
+            "start_line": 893,
+            "end_line": 930
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q060",
+      "display_alias": null
+    },
+    {
+      "id": "Q061",
+      "category": "Units and Precision",
+      "question": "Does a unit string convert numerical data?",
+      "priority": "P0",
+      "original_documentation_target": "reference/datasets.md",
+      "answer_page": "Units-and-Precision.md",
+      "answer_anchor": "q061",
+      "primary_technical_destination": "docs/src/reference/datasets.md",
+      "additional_technical_destinations": [
+        "docs/src/guides/api-boundaries.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/one-system-many-methods.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Dataset unit declarations and numeric boundaries belong to dataset/boundary contracts, not an unimplemented units guide.",
+      "evidence": {
+        "audited_public_apis": [
+          "ScientificDataset"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:114-128"
+        ],
+        "current_documents": [
+          "docs/src/reference/datasets.md",
+          "docs/src/guides/api-boundaries.md",
+          "docs/tutorials/one-system-many-methods.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/datasets.md": "58ab57bff2b4117185bb70061030d95113512884127248c7d7d8e5d4c1ef348a",
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "docs/tutorials/one-system-many-methods.md": "00d7df53418d022938b16a71200bf87ad6755bcc82c1b37a8f1bdd2f71426389"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/datasets.md",
+            "symbol": "ScientificDataset",
+            "start_line": 58,
+            "end_line": 104
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q061",
+      "display_alias": null
+    },
+    {
+      "id": "Q062",
+      "category": "Units and Precision",
+      "question": "Can compatible Unitful lengths be combined in statistics?",
+      "priority": "P0",
+      "original_documentation_target": "reference/statistics.md",
+      "answer_page": "Units-and-Precision.md",
+      "answer_anchor": "q062",
+      "primary_technical_destination": "docs/src/reference/statistics.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/trajectories.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Statistical Unitful arithmetic is documented in stored-series/moment contracts and the trajectory lesson.",
+      "evidence": {
+        "audited_public_apis": [
+          "ObservableSeries",
+          "statistical_summary"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:56-61"
+        ],
+        "current_documents": [
+          "docs/src/reference/statistics.md",
+          "docs/tutorials/trajectories.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/statistics.md": "1841113aa75f040e86635a0acbd06b2159813ffa4bc2752a919f199ab5c96823",
+          "docs/tutorials/trajectories.md": "713c1572739b75b2b682931bd937f22837fea8e24e67dd6326eefab80e8fa43c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/statistics.md",
+            "symbol": "ObservableSeries",
+            "start_line": 142,
+            "end_line": 184
+          },
+          {
+            "document": "docs/src/reference/statistics.md",
+            "symbol": "statistical_summary",
+            "start_line": 305,
+            "end_line": 343
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q062",
+      "display_alias": null
+    },
+    {
+      "id": "Q063",
+      "category": "Units and Precision",
+      "question": "Why is unknown unit metadata not dimensionless?",
+      "priority": "P0",
+      "original_documentation_target": "reference/comparison.md",
+      "answer_page": "Units-and-Precision.md",
+      "answer_anchor": "q063",
+      "primary_technical_destination": "docs/src/reference/comparison.md",
+      "additional_technical_destinations": [
+        "docs/src/guides/api-boundaries.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/trajectories.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Comparison requires dimensional context; unknown is not an established dimensionless declaration.",
+      "evidence": {
+        "audited_public_apis": [
+          "compare"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:37-39"
+        ],
+        "current_documents": [
+          "docs/src/reference/comparison.md",
+          "docs/src/guides/api-boundaries.md",
+          "docs/tutorials/trajectories.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/comparison.md": "1d2da91800703295a49f83a1b633af2787f54415697904473baab346d98f4291",
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "docs/tutorials/trajectories.md": "713c1572739b75b2b682931bd937f22837fea8e24e67dd6326eefab80e8fa43c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/comparison.md",
+            "symbol": "compare",
+            "start_line": 14,
+            "end_line": 56
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q063",
+      "display_alias": null
+    },
+    {
+      "id": "Q064",
+      "category": "Units and Precision",
+      "question": "Which paths really preserve BigFloat precision?",
+      "priority": "P0",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Units-and-Precision.md",
+      "answer_anchor": "q064",
+      "primary_technical_destination": "docs/src/reference/scalar.md",
+      "additional_technical_destinations": [
+        "docs/src/reference/dynamics.md",
+        "docs/src/guides/api-boundaries.md"
+      ],
+      "tutorial_readme_destinations": [
+        "README.md",
+        "docs/tutorials/calculus.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Scalar arithmetic and trajectory conversion are different precision regimes and require separate references.",
+      "evidence": {
+        "audited_public_apis": [
+          "evaluate",
+          "trajectory"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:116-122",
+          "test/m10b_types.jl"
+        ],
+        "current_documents": [
+          "docs/src/reference/scalar.md",
+          "docs/src/reference/dynamics.md",
+          "docs/src/guides/api-boundaries.md",
+          "README.md",
+          "docs/tutorials/calculus.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scalar.md": "1f5b94c34cf6ac8c56d5071f4434fdf5ee97e3161811f21175538ac4377ebe7f",
+          "docs/src/reference/dynamics.md": "491b3aa5e7b900af88650f184c89e499a309ab8822bd9180ea72e69907044f89",
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "README.md": "80030cec618e54da4f6decb4195c6e4f11d856d623d0ddc32d744f0a4e6fdf17",
+          "docs/tutorials/calculus.md": "b074bc74dd0cd5a420de6669b823a83d6d740de44b017dc59614ec739bb69dc5"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scalar.md",
+            "symbol": "evaluate",
+            "start_line": 361,
+            "end_line": 447
+          },
+          {
+            "document": "docs/src/reference/dynamics.md",
+            "symbol": "trajectory",
+            "start_line": 269,
+            "end_line": 357
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q064",
+      "display_alias": null
+    },
+    {
+      "id": "Q065",
+      "category": "Units and Precision",
+      "question": "Are complex inputs or integers supported everywhere?",
+      "priority": "P0",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Units-and-Precision.md",
+      "answer_anchor": "q065",
+      "primary_technical_destination": "docs/src/reference/scalar.md",
+      "additional_technical_destinations": [
+        "docs/src/reference/mechanics.md"
+      ],
+      "tutorial_readme_destinations": [
+        "README.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "Scalar numeric type support cannot be transferred to real modal inputs or every other family.",
+      "evidence": {
+        "audited_public_apis": [
+          "evaluate",
+          "normal_modes"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:116-122"
+        ],
+        "current_documents": [
+          "docs/src/reference/scalar.md",
+          "docs/src/reference/mechanics.md",
+          "README.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scalar.md": "1f5b94c34cf6ac8c56d5071f4434fdf5ee97e3161811f21175538ac4377ebe7f",
+          "docs/src/reference/mechanics.md": "5802da174329ceacad2c1fbc2d6231a38ccee4f318fbd7c667c1c59d4c526a44",
+          "README.md": "80030cec618e54da4f6decb4195c6e4f11d856d623d0ddc32d744f0a4e6fdf17"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scalar.md",
+            "symbol": "evaluate",
+            "start_line": 361,
+            "end_line": 447
+          },
+          {
+            "document": "docs/src/reference/mechanics.md",
+            "symbol": "normal_modes",
+            "start_line": 848,
+            "end_line": 895
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q065",
+      "display_alias": null
+    },
+    {
+      "id": "Q066",
+      "category": "Memory and Performance",
+      "question": "Why was my 3000 x 3000 Hessian rejected, and what can I do?",
+      "priority": "P0",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Memory-and-Performance.md",
+      "answer_anchor": "q066",
+      "primary_technical_destination": "docs/src/reference/derivatives.md",
+      "additional_technical_destinations": [
+        "docs/src/reference/mechanics.md",
+        "docs/src/guides/api-boundaries.md",
+        "reports/m10d6/resource_controls.json"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/normal-modes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The symbolic Hessian guard and supplied dense matrix spectrum are different operations; cite derivatives, mechanics and resource boundaries.",
+      "evidence": {
+        "audited_public_apis": [
+          "analyze",
+          "hessian"
+        ],
+        "audit_locations": [
+          "README.md:510-518",
+          "src/multivariate_analysis.jl"
+        ],
+        "current_documents": [
+          "docs/src/reference/derivatives.md",
+          "docs/src/reference/mechanics.md",
+          "docs/src/guides/api-boundaries.md",
+          "reports/m10d6/resource_controls.json",
+          "docs/tutorials/normal-modes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/derivatives.md": "ab252532b819e44543be2b8fdd9eff33ff0709671c5ad28c7502333b383e844b",
+          "docs/src/reference/mechanics.md": "5802da174329ceacad2c1fbc2d6231a38ccee4f318fbd7c667c1c59d4c526a44",
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "reports/m10d6/resource_controls.json": "78af9e3401c01e24f34b563fe9c5a833fd0aefd5936759e1b5f2a6ef212d623e",
+          "docs/tutorials/normal-modes.md": "4137f3b6ffa2d185ab941ceb00fa743d5ca606fd1e44c101dc19a7e9d37ed74c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/derivatives.md",
+            "symbol": "hessian",
+            "start_line": 267,
+            "end_line": 306
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q066",
+      "display_alias": null
+    },
+    {
+      "id": "Q067",
+      "category": "Memory and Performance",
+      "question": "Is there a global AML memory-budget setter?",
+      "priority": "P0",
+      "original_documentation_target": "guides/resource-limits.md",
+      "answer_page": "Memory-and-Performance.md",
+      "answer_anchor": "q067",
+      "primary_technical_destination": "docs/src/guides/api-boundaries.md",
+      "additional_technical_destinations": [
+        "reports/m10d6/resource_controls.json"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/normal-modes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The actual boundary/resource tables enumerate scoped controls; there is no published global resource-limits guide.",
+      "evidence": {
+        "audited_public_apis": [],
+        "audit_locations": [
+          "src/AnalyticMathLab.jl:15-67",
+          "examples/scaling/harness.jl"
+        ],
+        "current_documents": [
+          "docs/src/guides/api-boundaries.md",
+          "reports/m10d6/resource_controls.json",
+          "docs/tutorials/normal-modes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "reports/m10d6/resource_controls.json": "78af9e3401c01e24f34b563fe9c5a833fd0aefd5936759e1b5f2a6ef212d623e",
+          "docs/tutorials/normal-modes.md": "4137f3b6ffa2d185ab941ceb00fa743d5ca606fd1e44c101dc19a7e9d37ed74c"
+        },
+        "verified_public_reference_sections": [],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q067",
+      "display_alias": null
+    },
+    {
+      "id": "Q068",
+      "category": "Memory and Performance",
+      "question": "Does a dense matrix size estimate include temporary storage?",
+      "priority": "P0",
+      "original_documentation_target": "reference/mechanics.md",
+      "answer_page": "Memory-and-Performance.md",
+      "answer_anchor": "q068",
+      "primary_technical_destination": "docs/src/reference/mechanics.md",
+      "additional_technical_destinations": [
+        "reports/m10d6/resource_controls.json"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/normal-modes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The modal reference and resource audit explain working-array estimates and excluded allocations.",
+      "evidence": {
+        "audited_public_apis": [
+          "normal_modes"
+        ],
+        "audit_locations": [
+          "src/mechanics/normal_modes.jl",
+          "examples/scaling/when_dense_dies.jl"
+        ],
+        "current_documents": [
+          "docs/src/reference/mechanics.md",
+          "reports/m10d6/resource_controls.json",
+          "docs/tutorials/normal-modes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/mechanics.md": "5802da174329ceacad2c1fbc2d6231a38ccee4f318fbd7c667c1c59d4c526a44",
+          "reports/m10d6/resource_controls.json": "78af9e3401c01e24f34b563fe9c5a833fd0aefd5936759e1b5f2a6ef212d623e",
+          "docs/tutorials/normal-modes.md": "4137f3b6ffa2d185ab941ceb00fa743d5ca606fd1e44c101dc19a7e9d37ed74c"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/mechanics.md",
+            "symbol": "normal_modes",
+            "start_line": 848,
+            "end_line": 895
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q068",
+      "display_alias": null
+    },
+    {
+      "id": "Q069",
+      "category": "Memory and Performance",
+      "question": "Which limits are internal rather than public configuration?",
+      "priority": "P0",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Memory-and-Performance.md",
+      "answer_anchor": "q069",
+      "primary_technical_destination": "docs/src/guides/api-boundaries.md",
+      "additional_technical_destinations": [
+        "reports/m10d6/resource_controls.json"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/normal-modes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The boundary/resource table separates public keywords from internal fixed ceilings.",
+      "evidence": {
+        "audited_public_apis": [
+          "analyze",
+          "normal_modes"
+        ],
+        "audit_locations": [
+          "src/core/exact_algebra.jl",
+          "src/mechanics/normal_modes.jl"
+        ],
+        "current_documents": [
+          "docs/src/guides/api-boundaries.md",
+          "reports/m10d6/resource_controls.json",
+          "docs/tutorials/normal-modes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "reports/m10d6/resource_controls.json": "78af9e3401c01e24f34b563fe9c5a833fd0aefd5936759e1b5f2a6ef212d623e",
+          "docs/tutorials/normal-modes.md": "4137f3b6ffa2d185ab941ceb00fa743d5ca606fd1e44c101dc19a7e9d37ed74c"
+        },
+        "verified_public_reference_sections": [],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q069",
+      "display_alias": null
+    },
+    {
+      "id": "Q070",
+      "category": "Memory and Performance",
+      "question": "Are maintainer scaling scripts supported matrix-free APIs?",
+      "priority": "P0",
+      "original_documentation_target": "reference/mechanics.md",
+      "answer_page": "Memory-and-Performance.md",
+      "answer_anchor": "q070",
+      "primary_technical_destination": "docs/src/guides/api-boundaries.md",
+      "additional_technical_destinations": [
+        "reports/m10d6/resource_controls.json"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/normal-modes.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The boundary/resource table keeps private scaling experiments outside supported public algorithms.",
+      "evidence": {
+        "audited_public_apis": [
+          "normal_modes"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:162-178",
+          "examples/scaling/partial_modes.jl"
+        ],
+        "current_documents": [
+          "docs/src/guides/api-boundaries.md",
+          "reports/m10d6/resource_controls.json",
+          "docs/tutorials/normal-modes.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "reports/m10d6/resource_controls.json": "78af9e3401c01e24f34b563fe9c5a833fd0aefd5936759e1b5f2a6ef212d623e",
+          "docs/tutorials/normal-modes.md": "4137f3b6ffa2d185ab941ceb00fa743d5ca606fd1e44c101dc19a7e9d37ed74c"
+        },
+        "verified_public_reference_sections": [],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q070",
+      "display_alias": null
+    },
+    {
+      "id": "Q071",
+      "category": "Scientific Evidence and Provenance",
+      "question": "What do value, status, method and notes mean?",
+      "priority": "P0",
+      "original_documentation_target": "reference/core.md",
+      "answer_page": "Scientific-Evidence-and-Provenance.md",
+      "answer_anchor": "q071",
+      "primary_technical_destination": "docs/src/reference/core.md",
+      "additional_technical_destinations": [
+        "docs/src/guides/api-boundaries.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/one-system-many-methods.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The core record contract is the authority for exactly four PropertyResult fields and scoped statuses.",
+      "evidence": {
+        "audited_public_apis": [
+          "PropertyResult"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:40-42",
+          "src/core/contracts.jl"
+        ],
+        "current_documents": [
+          "docs/src/reference/core.md",
+          "docs/src/guides/api-boundaries.md",
+          "docs/tutorials/one-system-many-methods.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/core.md": "9f63b80ed1fc31708fed68ccc56bebfa709bc8b132bf2d36ff49097544dd6e6a",
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "docs/tutorials/one-system-many-methods.md": "00d7df53418d022938b16a71200bf87ad6755bcc82c1b37a8f1bdd2f71426389"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/core.md",
+            "symbol": "PropertyResult",
+            "start_line": 62,
+            "end_line": 102
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q071",
+      "display_alias": null
+    },
+    {
+      "id": "Q072",
+      "category": "Scientific Evidence and Provenance",
+      "question": "Is unknown evidence the same as false or zero?",
+      "priority": "P0",
+      "original_documentation_target": "reference/core.md",
+      "answer_page": "Scientific-Evidence-and-Provenance.md",
+      "answer_anchor": "q072",
+      "primary_technical_destination": "docs/src/reference/core.md",
+      "additional_technical_destinations": [
+        "docs/src/guides/api-boundaries.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/one-system-many-methods.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The core/boundary contracts distinguish unknown, unrequested, unsupported and false or zero.",
+      "evidence": {
+        "audited_public_apis": [
+          "PropertyResult"
+        ],
+        "audit_locations": [
+          "README.md:135-139"
+        ],
+        "current_documents": [
+          "docs/src/reference/core.md",
+          "docs/src/guides/api-boundaries.md",
+          "docs/tutorials/one-system-many-methods.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/core.md": "9f63b80ed1fc31708fed68ccc56bebfa709bc8b132bf2d36ff49097544dd6e6a",
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "docs/tutorials/one-system-many-methods.md": "00d7df53418d022938b16a71200bf87ad6755bcc82c1b37a8f1bdd2f71426389"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/core.md",
+            "symbol": "PropertyResult",
+            "start_line": 62,
+            "end_line": 102
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q072",
+      "display_alias": null
+    },
+    {
+      "id": "Q073",
+      "category": "Scientific Evidence and Provenance",
+      "question": "Does provenance identity affect scientific value equality?",
+      "priority": "P0",
+      "original_documentation_target": "reference/evidence.md",
+      "answer_page": "Scientific-Evidence-and-Provenance.md",
+      "answer_anchor": "q073",
+      "primary_technical_destination": "docs/src/reference/evidence.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/one-system-many-methods.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The qualified evidence reference separates scientific value equality from source identity.",
+      "evidence": {
+        "audited_public_apis": [
+          "scientific_origin"
+        ],
+        "audit_locations": [
+          "test/m10d_value_compatibility.jl",
+          "docs/m10d_semantics_results.md"
+        ],
+        "current_documents": [
+          "docs/src/reference/evidence.md",
+          "docs/tutorials/one-system-many-methods.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/evidence.md": "c3d0da609b8fccb07562fecc53e01a1091c90ebaaec2132bc75edc61b7b6ed31",
+          "docs/tutorials/one-system-many-methods.md": "00d7df53418d022938b16a71200bf87ad6755bcc82c1b37a8f1bdd2f71426389"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/evidence.md",
+            "symbol": "AnalyticMathLab.scientific_origin",
+            "start_line": 77,
+            "end_line": 135
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q073",
+      "display_alias": null
+    },
+    {
+      "id": "Q074",
+      "category": "Scientific Evidence and Provenance",
+      "question": "Can I use an origin token as a persistent reproducibility hash?",
+      "priority": "P0",
+      "original_documentation_target": "reference/evidence.md",
+      "answer_page": "Scientific-Evidence-and-Provenance.md",
+      "answer_anchor": "q074",
+      "primary_technical_destination": "docs/src/reference/evidence.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/one-system-many-methods.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The qualified origin contract explicitly scopes tokens to the originating process.",
+      "evidence": {
+        "audited_public_apis": [
+          "scientific_origin"
+        ],
+        "audit_locations": [
+          "src/scientific_metadata.jl:12-22"
+        ],
+        "current_documents": [
+          "docs/src/reference/evidence.md",
+          "docs/tutorials/one-system-many-methods.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/evidence.md": "c3d0da609b8fccb07562fecc53e01a1091c90ebaaec2132bc75edc61b7b6ed31",
+          "docs/tutorials/one-system-many-methods.md": "00d7df53418d022938b16a71200bf87ad6755bcc82c1b37a8f1bdd2f71426389"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/evidence.md",
+            "symbol": "AnalyticMathLab.scientific_origin",
+            "start_line": 77,
+            "end_line": 135
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q074",
+      "display_alias": null
+    },
+    {
+      "id": "Q075",
+      "category": "Scientific Evidence and Provenance",
+      "question": "Why is ancestry unavailable on an isolated PropertyResult?",
+      "priority": "P0",
+      "original_documentation_target": "reference/evidence.md",
+      "answer_page": "Scientific-Evidence-and-Provenance.md",
+      "answer_anchor": "q075",
+      "primary_technical_destination": "docs/src/reference/evidence.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/one-system-many-methods.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The qualified inspection contract explains unknown isolated-leaf ancestry without reconstructing parents.",
+      "evidence": {
+        "audited_public_apis": [
+          "scientific_metadata",
+          "scientific_origin"
+        ],
+        "audit_locations": [
+          "src/scientific_metadata.jl:52-59"
+        ],
+        "current_documents": [
+          "docs/src/reference/evidence.md",
+          "docs/tutorials/one-system-many-methods.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/evidence.md": "c3d0da609b8fccb07562fecc53e01a1091c90ebaaec2132bc75edc61b7b6ed31",
+          "docs/tutorials/one-system-many-methods.md": "00d7df53418d022938b16a71200bf87ad6755bcc82c1b37a8f1bdd2f71426389"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/evidence.md",
+            "symbol": "AnalyticMathLab.scientific_metadata",
+            "start_line": 16,
+            "end_line": 76
+          },
+          {
+            "document": "docs/src/reference/evidence.md",
+            "symbol": "AnalyticMathLab.scientific_origin",
+            "start_line": 77,
+            "end_line": 135
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q075",
+      "display_alias": null
+    },
+    {
+      "id": "Q076",
+      "category": "Optional Extensions",
+      "question": "Which exact packages activate each optional extension?",
+      "priority": "P0",
+      "original_documentation_target": "reference/scientific-ml.md",
+      "answer_page": "Optional-Extensions.md",
+      "answer_anchor": "q076",
+      "primary_technical_destination": "docs/src/guides/api-boundaries.md",
+      "additional_technical_destinations": [
+        "Project.toml"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/index.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The boundary activation table and Project.toml are the exact trigger authority, rather than a generic ML entry.",
+      "evidence": {
+        "audited_public_apis": [
+          "pinn_problem",
+          "learning_model",
+          "infer_parameters"
+        ],
+        "audit_locations": [
+          "Project.toml:19-33"
+        ],
+        "current_documents": [
+          "docs/src/guides/api-boundaries.md",
+          "Project.toml",
+          "docs/tutorials/index.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "Project.toml": "82f9cb87b2a53dc1a03cc1aeafb0ae55c709d25a9450601c46806102d8178f6b",
+          "docs/tutorials/index.md": "ee2ce57884132c8f400cb23e8346bbe6b657bc2099f177ce2660d39d264dd63e"
+        },
+        "verified_public_reference_sections": [],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q076",
+      "display_alias": null
+    },
+    {
+      "id": "Q077",
+      "category": "Optional Extensions",
+      "question": "Why does a plain Lux surrogate require NeuralOperators?",
+      "priority": "P0",
+      "original_documentation_target": "reference/scientific-ml.md",
+      "answer_page": "Optional-Extensions.md",
+      "answer_anchor": "q077",
+      "primary_technical_destination": "docs/src/reference/scientific-ml.md",
+      "additional_technical_destinations": [
+        "docs/src/guides/api-boundaries.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/index.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The surrogate extension declaration applies even to plain Lux coordinate networks.",
+      "evidence": {
+        "audited_public_apis": [
+          "learning_model"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:89-96"
+        ],
+        "current_documents": [
+          "docs/src/reference/scientific-ml.md",
+          "docs/src/guides/api-boundaries.md",
+          "docs/tutorials/index.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scientific-ml.md": "0f433a285a41a8879228c651a5c327e158eb321da4dc0f81b861471c95feeade",
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "docs/tutorials/index.md": "ee2ce57884132c8f400cb23e8346bbe6b657bc2099f177ce2660d39d264dd63e"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "learning_model",
+            "start_line": 1517,
+            "end_line": 1556
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q077",
+      "display_alias": null
+    },
+    {
+      "id": "Q078",
+      "category": "Optional Extensions",
+      "question": "Can I import AML before its optional backends?",
+      "priority": "P0",
+      "original_documentation_target": "reference/scientific-ml.md",
+      "answer_page": "Optional-Extensions.md",
+      "answer_anchor": "q078",
+      "primary_technical_destination": "docs/src/reference/scientific-ml.md",
+      "additional_technical_destinations": [
+        "docs/src/guides/api-boundaries.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/index.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The extension contract supports load-order activation after the full trigger set, not installation alone.",
+      "evidence": {
+        "audited_public_apis": [
+          "pinn_network"
+        ],
+        "audit_locations": [
+          "test/m10d_user_optional.jl:1-29",
+          "docs/m10d_user_research_results.md:73-92"
+        ],
+        "current_documents": [
+          "docs/src/reference/scientific-ml.md",
+          "docs/src/guides/api-boundaries.md",
+          "docs/tutorials/index.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scientific-ml.md": "0f433a285a41a8879228c651a5c327e158eb321da4dc0f81b861471c95feeade",
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "docs/tutorials/index.md": "ee2ce57884132c8f400cb23e8346bbe6b657bc2099f177ce2660d39d264dd63e"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "pinn_network",
+            "start_line": 105,
+            "end_line": 144
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q078",
+      "display_alias": null
+    },
+    {
+      "id": "Q079",
+      "category": "Optional Extensions",
+      "question": "Will AML choose an available backend automatically?",
+      "priority": "P0",
+      "original_documentation_target": "reference/scientific-ml.md",
+      "answer_page": "Optional-Extensions.md",
+      "answer_anchor": "q079",
+      "primary_technical_destination": "docs/src/reference/scientific-ml.md",
+      "additional_technical_destinations": [
+        "docs/src/guides/api-boundaries.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/index.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The experimental ML contracts require explicit route/backend/model choices, not automatic substitution.",
+      "evidence": {
+        "audited_public_apis": [
+          "pinn_problem",
+          "learning_model"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:89-96"
+        ],
+        "current_documents": [
+          "docs/src/reference/scientific-ml.md",
+          "docs/src/guides/api-boundaries.md",
+          "docs/tutorials/index.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scientific-ml.md": "0f433a285a41a8879228c651a5c327e158eb321da4dc0f81b861471c95feeade",
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "docs/tutorials/index.md": "ee2ce57884132c8f400cb23e8346bbe6b657bc2099f177ce2660d39d264dd63e"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "pinn_problem",
+            "start_line": 145,
+            "end_line": 189
+          },
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "learning_model",
+            "start_line": 1517,
+            "end_line": 1556
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q079",
+      "display_alias": null
+    },
+    {
+      "id": "Q080",
+      "category": "Optional Extensions",
+      "question": "Does AML import activate CairoMakie?",
+      "priority": "P0",
+      "original_documentation_target": "reference/plots.md",
+      "answer_page": "Optional-Extensions.md",
+      "answer_anchor": "q080",
+      "primary_technical_destination": "docs/src/reference/plots.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/index.md",
+        "README.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The plotting reference and README show explicit renderer selection; AML import alone does not activate CairoMakie.",
+      "evidence": {
+        "audited_public_apis": [
+          "plot"
+        ],
+        "audit_locations": [
+          "src/AnalyticMathLab.jl:4-13",
+          "docs/m10d_user_research_hardening.md:31-36"
+        ],
+        "current_documents": [
+          "docs/src/reference/plots.md",
+          "docs/tutorials/index.md",
+          "README.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/plots.md": "9d2701d9e21b3d2204d57849f993cb0763a09b56f1bb5a1d72b3b8aa3a27f8c6",
+          "docs/tutorials/index.md": "ee2ce57884132c8f400cb23e8346bbe6b657bc2099f177ce2660d39d264dd63e",
+          "README.md": "80030cec618e54da4f6decb4195c6e4f11d856d623d0ddc32d744f0a4e6fdf17"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/plots.md",
+            "symbol": "plot",
+            "start_line": 806,
+            "end_line": 922
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q080",
+      "display_alias": null
+    },
+    {
+      "id": "Q081",
+      "category": "Troubleshooting",
+      "question": "Why is analyze not defined for my input type?",
+      "priority": "P0",
+      "original_documentation_target": "reference/scalar.md",
+      "answer_page": "Troubleshooting.md",
+      "answer_anchor": "q081",
+      "primary_technical_destination": "docs/src/reference/scalar.md",
+      "additional_technical_destinations": [
+        "docs/src/reference/dynamics.md",
+        "docs/src/reference/index.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/index.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The analyze dispatch table and ODE/index references distinguish input representation from numerical failure.",
+      "evidence": {
+        "audited_public_apis": [
+          "analyze"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:112-133"
+        ],
+        "current_documents": [
+          "docs/src/reference/scalar.md",
+          "docs/src/reference/dynamics.md",
+          "docs/src/reference/index.md",
+          "docs/tutorials/index.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scalar.md": "1f5b94c34cf6ac8c56d5071f4434fdf5ee97e3161811f21175538ac4377ebe7f",
+          "docs/src/reference/dynamics.md": "491b3aa5e7b900af88650f184c89e499a309ab8822bd9180ea72e69907044f89",
+          "docs/src/reference/index.md": "5db030a78c799e0a86f6a769003ea26902ff91f6768f8c116bf29d837f563cc3",
+          "docs/tutorials/index.md": "ee2ce57884132c8f400cb23e8346bbe6b657bc2099f177ce2660d39d264dd63e"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scalar.md",
+            "symbol": "analyze",
+            "start_line": 48,
+            "end_line": 276
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q081",
+      "display_alias": null
+    },
+    {
+      "id": "Q082",
+      "category": "Troubleshooting",
+      "question": "Why is transform ambiguous after importing another library?",
+      "priority": "P0",
+      "original_documentation_target": "reference/datasets.md",
+      "answer_page": "Troubleshooting.md",
+      "answer_anchor": "q082",
+      "primary_technical_destination": "docs/src/reference/datasets.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/index.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The dataset scaling contract recommends qualification for exported-name collisions.",
+      "evidence": {
+        "audited_public_apis": [
+          "transform"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:51-55"
+        ],
+        "current_documents": [
+          "docs/src/reference/datasets.md",
+          "docs/tutorials/index.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/datasets.md": "58ab57bff2b4117185bb70061030d95113512884127248c7d7d8e5d4c1ef348a",
+          "docs/tutorials/index.md": "ee2ce57884132c8f400cb23e8346bbe6b657bc2099f177ce2660d39d264dd63e"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/datasets.md",
+            "symbol": "transform",
+            "start_line": 267,
+            "end_line": 302
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q082",
+      "display_alias": null
+    },
+    {
+      "id": "Q083",
+      "category": "Troubleshooting",
+      "question": "Why is a plot region blank even though sampling looks finite?",
+      "priority": "P0",
+      "original_documentation_target": "reference/plots.md",
+      "answer_page": "Troubleshooting.md",
+      "answer_anchor": "q083",
+      "primary_technical_destination": "docs/src/reference/plots.md",
+      "additional_technical_destinations": [],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/index.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The plotting contracts document conservative domain masks and rendered-coordinate checks.",
+      "evidence": {
+        "audited_public_apis": [
+          "surface",
+          "vectorplot"
+        ],
+        "audit_locations": [
+          "README.md:482-493",
+          "README.md:567-570"
+        ],
+        "current_documents": [
+          "docs/src/reference/plots.md",
+          "docs/tutorials/index.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/plots.md": "9d2701d9e21b3d2204d57849f993cb0763a09b56f1bb5a1d72b3b8aa3a27f8c6",
+          "docs/tutorials/index.md": "ee2ce57884132c8f400cb23e8346bbe6b657bc2099f177ce2660d39d264dd63e"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/plots.md",
+            "symbol": "surface",
+            "start_line": 999,
+            "end_line": 1037
+          },
+          {
+            "document": "docs/src/reference/plots.md",
+            "symbol": "vectorplot",
+            "start_line": 1152,
+            "end_line": 1188
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q083",
+      "display_alias": null
+    },
+    {
+      "id": "Q084",
+      "category": "Troubleshooting",
+      "question": "Can I fix a refusal by changing an internal constant?",
+      "priority": "P0",
+      "original_documentation_target": "reference/derivatives.md",
+      "answer_page": "Troubleshooting.md",
+      "answer_anchor": "q084",
+      "primary_technical_destination": "docs/src/guides/api-boundaries.md",
+      "additional_technical_destinations": [
+        "reports/m10d6/resource_controls.json"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/index.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The boundary/resource table explains why internal constants are not supported recovery knobs, replacing the unrelated derivative-only mapping.",
+      "evidence": {
+        "audited_public_apis": [
+          "hessian",
+          "normal_modes"
+        ],
+        "audit_locations": [
+          "docs/m10d_architecture_inventory.md:8-17",
+          "README.md:510-518"
+        ],
+        "current_documents": [
+          "docs/src/guides/api-boundaries.md",
+          "reports/m10d6/resource_controls.json",
+          "docs/tutorials/index.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "reports/m10d6/resource_controls.json": "78af9e3401c01e24f34b563fe9c5a833fd0aefd5936759e1b5f2a6ef212d623e",
+          "docs/tutorials/index.md": "ee2ce57884132c8f400cb23e8346bbe6b657bc2099f177ce2660d39d264dd63e"
+        },
+        "verified_public_reference_sections": [],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q084",
+      "display_alias": null
+    },
+    {
+      "id": "Q085",
+      "category": "Troubleshooting",
+      "question": "What must I retain before mutating a borrowed array?",
+      "priority": "P0",
+      "original_documentation_target": "reference/atomistic.md",
+      "answer_page": "Troubleshooting.md",
+      "answer_anchor": "q085",
+      "primary_technical_destination": "docs/src/guides/api-boundaries.md",
+      "additional_technical_destinations": [
+        "docs/src/reference/statistics.md",
+        "docs/src/reference/atomistic.md"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/index.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The boundary, series and snapshot contracts specify borrowed data and limited copying, not universal deep ownership.",
+      "evidence": {
+        "audited_public_apis": [
+          "ObservableSeries",
+          "AtomisticSnapshot"
+        ],
+        "audit_locations": [
+          "docs/m10d_user_research_hardening.md:71-74"
+        ],
+        "current_documents": [
+          "docs/src/guides/api-boundaries.md",
+          "docs/src/reference/statistics.md",
+          "docs/src/reference/atomistic.md",
+          "docs/tutorials/index.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/guides/api-boundaries.md": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+          "docs/src/reference/statistics.md": "1841113aa75f040e86635a0acbd06b2159813ffa4bc2752a919f199ab5c96823",
+          "docs/src/reference/atomistic.md": "5d87e8e455f63f3780b947afa1a6038cbd543cca9a1bc0b800af75b49ac8f92b",
+          "docs/tutorials/index.md": "ee2ce57884132c8f400cb23e8346bbe6b657bc2099f177ce2660d39d264dd63e"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/statistics.md",
+            "symbol": "ObservableSeries",
+            "start_line": 142,
+            "end_line": 184
+          },
+          {
+            "document": "docs/src/reference/atomistic.md",
+            "symbol": "AtomisticSnapshot",
+            "start_line": 177,
+            "end_line": 221
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q085",
+      "display_alias": null
+    },
+    {
+      "id": "Q086",
+      "category": "Memory and Performance",
+      "question": "Which pair-output limits are public, and does RDF remove quadratic work?",
+      "priority": "P1",
+      "original_documentation_target": "guides/resource-limits.md",
+      "answer_page": "Memory-and-Performance.md",
+      "answer_anchor": "q086",
+      "primary_technical_destination": "docs/src/reference/atomistic.md",
+      "additional_technical_destinations": [
+        "reports/m10d6/resource_controls.json"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/atomistics.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The atomistic pair/RDF contracts and resource audit separate pair output budgets from quadratic traversal.",
+      "evidence": {
+        "audited_public_apis": [
+          "pair_distances",
+          "radial_distribution",
+          "coordination"
+        ],
+        "audit_locations": [
+          "src/atomistic/core.jl:87-123",
+          "src/atomistic/distributions.jl"
+        ],
+        "current_documents": [
+          "docs/src/reference/atomistic.md",
+          "reports/m10d6/resource_controls.json",
+          "docs/tutorials/atomistics.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/atomistic.md": "5d87e8e455f63f3780b947afa1a6038cbd543cca9a1bc0b800af75b49ac8f92b",
+          "reports/m10d6/resource_controls.json": "78af9e3401c01e24f34b563fe9c5a833fd0aefd5936759e1b5f2a6ef212d623e",
+          "docs/tutorials/atomistics.md": "c11be1711543773253110c67f8ae0f3711c972bdcc86cee6d0bc29e7ebf87cd7"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/atomistic.md",
+            "symbol": "pair_distances",
+            "start_line": 386,
+            "end_line": 426
+          },
+          {
+            "document": "docs/src/reference/atomistic.md",
+            "symbol": "radial_distribution",
+            "start_line": 589,
+            "end_line": 628
+          },
+          {
+            "document": "docs/src/reference/atomistic.md",
+            "symbol": "coordination",
+            "start_line": 551,
+            "end_line": 588
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q086",
+      "display_alias": null
+    },
+    {
+      "id": "Q087",
+      "category": "Memory and Performance",
+      "question": "Does prediction batch_size bound the returned output or training memory?",
+      "priority": "P1",
+      "original_documentation_target": "guides/resource-limits.md",
+      "answer_page": "Memory-and-Performance.md",
+      "answer_anchor": "q087",
+      "primary_technical_destination": "docs/src/reference/scientific-ml.md",
+      "additional_technical_destinations": [
+        "reports/m10d6/resource_controls.json"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/surrogates.md",
+        "docs/pinn_diagnostics.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The prediction contracts and resource audit separate query chunking, complete outputs and training storage.",
+      "evidence": {
+        "audited_public_apis": [
+          "predict"
+        ],
+        "audit_locations": [
+          "ext/AnalyticMathLabPINNExt.jl:155-200",
+          "ext/AnalyticMathLabSurrogateExt.jl:32-52"
+        ],
+        "current_documents": [
+          "docs/src/reference/scientific-ml.md",
+          "reports/m10d6/resource_controls.json",
+          "docs/surrogates.md",
+          "docs/pinn_diagnostics.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scientific-ml.md": "0f433a285a41a8879228c651a5c327e158eb321da4dc0f81b861471c95feeade",
+          "reports/m10d6/resource_controls.json": "78af9e3401c01e24f34b563fe9c5a833fd0aefd5936759e1b5f2a6ef212d623e",
+          "docs/surrogates.md": "04aefcb7cffed941aa792c2e93c2c7c9175267a1ff697c3cbaf7285f55d8cede",
+          "docs/pinn_diagnostics.md": "b2c1a2915793e0ead81cf4d7ef66ba721076a8588ba31ac3fbaa5d8e19c06189"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "predict",
+            "start_line": 314,
+            "end_line": 437
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q087",
+      "display_alias": null
+    },
+    {
+      "id": "Q088",
+      "category": "Memory and Performance",
+      "question": "Which histories retain earliest entries and which retain the most recent?",
+      "priority": "P1",
+      "original_documentation_target": "guides/resource-limits.md",
+      "answer_page": "Memory-and-Performance.md",
+      "answer_anchor": "q088",
+      "primary_technical_destination": "docs/src/reference/scientific-ml.md",
+      "additional_technical_destinations": [
+        "reports/m10d6/resource_controls.json"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/scientific_ml.md",
+        "docs/parameter_inference.md",
+        "docs/learned_dynamics.md",
+        "docs/surrogates.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The training/history contracts and resource audit distinguish earliest retention from rolling recent retention.",
+      "evidence": {
+        "audited_public_apis": [
+          "PINNHistory",
+          "train",
+          "infer_parameters"
+        ],
+        "audit_locations": [
+          "ext/AnalyticMathLabPINNExt.jl:89-152",
+          "ext/AnalyticMathLabInferenceExt.jl:6-49",
+          "ext/AnalyticMathLabSurrogateExt.jl:77-104"
+        ],
+        "current_documents": [
+          "docs/src/reference/scientific-ml.md",
+          "reports/m10d6/resource_controls.json",
+          "docs/scientific_ml.md",
+          "docs/parameter_inference.md",
+          "docs/learned_dynamics.md",
+          "docs/surrogates.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scientific-ml.md": "0f433a285a41a8879228c651a5c327e158eb321da4dc0f81b861471c95feeade",
+          "reports/m10d6/resource_controls.json": "78af9e3401c01e24f34b563fe9c5a833fd0aefd5936759e1b5f2a6ef212d623e",
+          "docs/scientific_ml.md": "ad7c6b77a56c1c211dcd36d1e5d2a203e71fa591cdb55926c2279fee19c508c1",
+          "docs/parameter_inference.md": "3aef71994f1d7507a7872911d36d82b9fd684d5e05830e7ec610d719de2179d6",
+          "docs/learned_dynamics.md": "aa97892d89c9521ecaf353f78f3629b6b39d32a1f9e00f3e8b1fc70465c1726e",
+          "docs/surrogates.md": "04aefcb7cffed941aa792c2e93c2c7c9175267a1ff697c3cbaf7285f55d8cede"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "PINNHistory",
+            "start_line": 190,
+            "end_line": 233
+          },
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "train",
+            "start_line": 438,
+            "end_line": 563
+          },
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "infer_parameters",
+            "start_line": 733,
+            "end_line": 773
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q088",
+      "display_alias": null
+    },
+    {
+      "id": "Q089",
+      "category": "Memory and Performance",
+      "question": "When does summary_only avoid output arrays, and are public iterators one-pass?",
+      "priority": "P1",
+      "original_documentation_target": "guides/resource-limits.md",
+      "answer_page": "Memory-and-Performance.md",
+      "answer_anchor": "q089",
+      "primary_technical_destination": "docs/src/reference/scientific-ml.md",
+      "additional_technical_destinations": [
+        "reports/m10d6/resource_controls.json"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/pinn_diagnostics.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The diagnostics contracts and resource audit specify omitted arrays and replay/materialization limitations.",
+      "evidence": {
+        "audited_public_apis": [
+          "field_errors",
+          "heat_residual",
+          "sampled_summary"
+        ],
+        "audit_locations": [
+          "src/scientific_ml/diagnostics.jl:23-48",
+          "src/scientific_ml/generalization.jl:39-57",
+          "test/m10c_chunking.jl"
+        ],
+        "current_documents": [
+          "docs/src/reference/scientific-ml.md",
+          "reports/m10d6/resource_controls.json",
+          "docs/pinn_diagnostics.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/scientific-ml.md": "0f433a285a41a8879228c651a5c327e158eb321da4dc0f81b861471c95feeade",
+          "reports/m10d6/resource_controls.json": "78af9e3401c01e24f34b563fe9c5a833fd0aefd5936759e1b5f2a6ef212d623e",
+          "docs/pinn_diagnostics.md": "b2c1a2915793e0ead81cf4d7ef66ba721076a8588ba31ac3fbaa5d8e19c06189"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "field_errors",
+            "start_line": 1757,
+            "end_line": 1794
+          },
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "heat_residual",
+            "start_line": 1835,
+            "end_line": 1870
+          },
+          {
+            "document": "docs/src/reference/scientific-ml.md",
+            "symbol": "sampled_summary",
+            "start_line": 693,
+            "end_line": 729
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q089",
+      "display_alias": null
+    },
+    {
+      "id": "Q090",
+      "category": "Memory and Performance",
+      "question": "What provenance is intentionally omitted with source_retention=:descriptor?",
+      "priority": "P1",
+      "original_documentation_target": "guides/resource-limits.md",
+      "answer_page": "Memory-and-Performance.md",
+      "answer_anchor": "q090",
+      "primary_technical_destination": "docs/src/reference/datasets.md",
+      "additional_technical_destinations": [
+        "reports/m10d6/resource_controls.json"
+      ],
+      "tutorial_readme_destinations": [
+        "docs/tutorials/one-system-many-methods.md"
+      ],
+      "repository_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+      "mapping_decision": "The dataset bridge/resource contracts specify descriptor omissions, not compression or persistent identity.",
+      "evidence": {
+        "audited_public_apis": [
+          "ScientificDataset"
+        ],
+        "audit_locations": [
+          "src/scientific_ml/trajectory_dataset.jl:28-104",
+          "test/m10d_semantics_review.jl"
+        ],
+        "current_documents": [
+          "docs/src/reference/datasets.md",
+          "reports/m10d6/resource_controls.json",
+          "docs/tutorials/one-system-many-methods.md"
+        ],
+        "level": "SOURCE_SUPPORTED; linked execution evidence is historical",
+        "document_sha256": {
+          "docs/src/reference/datasets.md": "58ab57bff2b4117185bb70061030d95113512884127248c7d7d8e5d4c1ef348a",
+          "reports/m10d6/resource_controls.json": "78af9e3401c01e24f34b563fe9c5a833fd0aefd5936759e1b5f2a6ef212d623e",
+          "docs/tutorials/one-system-many-methods.md": "00d7df53418d022938b16a71200bf87ad6755bcc82c1b37a8f1bdd2f71426389"
+        },
+        "verified_public_reference_sections": [
+          {
+            "document": "docs/src/reference/datasets.md",
+            "symbol": "ScientificDataset",
+            "start_line": 58,
+            "end_line": 104
+          }
+        ],
+        "review_scope": "Parent source-grounded semantic review of the complete answer; deterministic checks do not prove scientific correctness.",
+        "mapping_review": "SOURCE_SUPPORTED"
+      },
+      "answer_fragment": "user-content-q090",
+      "display_alias": null
+    }
+  ]
+}

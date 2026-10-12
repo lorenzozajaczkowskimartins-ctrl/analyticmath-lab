@@ -1,0 +1,2308 @@
+{
+  "milestone": "M10D.6F",
+  "baseline": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+  "initial_git": {
+    "head": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+    "branch": "main",
+    "status": "?? reports/m10d6/wiki_check.py\n?? reports/m10d6/wiki_implementation_report.md\n?? reports/m10d6/wiki_target_reconciliation.json\n?? reports/m10d6/wiki_verification.json\n?? wiki/\n",
+    "remote_main": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+    "unrelated_changes": [],
+    "remote": "https://github.com/lorenzozajaczkowskimartins-ctrl/analyticmath-lab.git",
+    "interpretation": "Continuation starts with existing untracked F1/F2 milestone drafts; no unrelated changes, not a clean worktree."
+  },
+  "inventory": {
+    "questions": 90,
+    "categories": 17,
+    "priorities": {
+      "P1": 65,
+      "P0": 25
+    },
+    "historical_inventory_questions": 85
+  },
+  "wiki_remote": {
+    "feature_enabled": true,
+    "visibility": "public",
+    "git_read_exit": 128,
+    "git_message": "Repository not found",
+    "web": {
+      "requested": "https://github.com/lorenzozajaczkowskimartins-ctrl/analyticmath-lab/wiki",
+      "status": 200,
+      "final_url": "https://github.com/lorenzozajaczkowskimartins-ctrl/analyticmath-lab"
+    },
+    "assessment": "Public main repository has Wiki enabled; Wiki Git reads return Repository not found and web URL redirects to main repository. No accessible Wiki history/content; do not infer a remote commit or initialize/overwrite remotely."
+  },
+  "repository_link_revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+  "published_tree_sha": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+  "anchor_policy": "Explicit named qNNN anchor; GitHub GFM sanitization prefixes user-content-. Links use independently observed prefixed fragments; live Wiki behavior remains a post-publication check.",
+  "checkpoints": {
+    "F1": {
+      "status": "COMPLETE",
+      "inventory_validated": true,
+      "target_rows": 90,
+      "published_paths_checked": true,
+      "remote_wiki_inspection_limited": true,
+      "explicit_anchor_probe_exit": 0
+    },
+    "F2": {
+      "status": "COMPLETE",
+      "validation": {
+        "checkpoint": "F2",
+        "status": "PASS",
+        "inventory_questions": 90,
+        "required_answers": 40,
+        "covered_answers": 40,
+        "categories_covered": 8,
+        "priorities_covered": {
+          "P1": 40
+        },
+        "missing": [],
+        "duplicates": [],
+        "mapping_rows": 90,
+        "pages": 11,
+        "internal_link_occurrences": 188,
+        "pending_planned_links": 63,
+        "repository_resources": [
+          "README.md",
+          "docs/src/guides/api-boundaries.md",
+          "docs/src/index.md",
+          "docs/src/reference/atomistic.md",
+          "docs/src/reference/comparison.md",
+          "docs/src/reference/core.md",
+          "docs/src/reference/derivatives.md",
+          "docs/src/reference/dynamics.md",
+          "docs/src/reference/index.md",
+          "docs/src/reference/mechanics.md",
+          "docs/src/reference/scalar.md",
+          "docs/src/reference/statistics.md",
+          "docs/src/reference/vector.md",
+          "docs/tutorials/calculus.md",
+          "docs/tutorials/index.md",
+          "docs/tutorials/mechanics.md",
+          "docs/tutorials/normal-modes.md",
+          "docs/tutorials/odes.md",
+          "docs/tutorials/one-system-many-methods.md",
+          "docs/tutorials/trajectories.md",
+          "docs/tutorials/vector-calculus.md"
+        ],
+        "external_unique_urls": 21,
+        "reachable_pages": [
+          "Calculus-and-Symbolics.md",
+          "Differential-Equations.md",
+          "FAQ-Index.md",
+          "Getting-Started.md",
+          "Home.md",
+          "Linear-Algebra.md",
+          "Mechanics-and-Dynamics.md",
+          "Numerical-Methods.md",
+          "Trajectories.md",
+          "Vector-Calculus.md"
+        ],
+        "protected_integrity": {
+          "protected_files": 490,
+          "changed": [],
+          "missing": []
+        },
+        "rendered": null,
+        "errors": []
+      }
+    },
+    "F3": {
+      "status": "COMPLETE",
+      "validation": {
+        "checkpoint": "F3",
+        "status": "PASS",
+        "inventory_questions": 90,
+        "required_answers": 65,
+        "covered_answers": 65,
+        "categories_covered": 13,
+        "priorities_covered": {
+          "P1": 60,
+          "P0": 5
+        },
+        "missing": [],
+        "duplicates": [],
+        "mapping_rows": 90,
+        "pages": 16,
+        "internal_link_occurrences": 233,
+        "pending_planned_links": 33,
+        "repository_resources": [
+          "README.md",
+          "docs/atomistic.md",
+          "docs/learned_dynamics.md",
+          "docs/m10d_one_system_many_methods.md",
+          "docs/parameter_inference.md",
+          "docs/pinn_diagnostics.md",
+          "docs/src/guides/api-boundaries.md",
+          "docs/src/index.md",
+          "docs/src/reference/atomistic.md",
+          "docs/src/reference/comparison.md",
+          "docs/src/reference/core.md",
+          "docs/src/reference/datasets.md",
+          "docs/src/reference/derivatives.md",
+          "docs/src/reference/dynamics.md",
+          "docs/src/reference/index.md",
+          "docs/src/reference/mechanics.md",
+          "docs/src/reference/scalar.md",
+          "docs/src/reference/scientific-ml.md",
+          "docs/src/reference/statistics.md",
+          "docs/src/reference/transport.md",
+          "docs/src/reference/vector.md",
+          "docs/surrogates.md",
+          "docs/trajectory_statistics.md",
+          "docs/tutorials/atomistics.md",
+          "docs/tutorials/calculus.md",
+          "docs/tutorials/index.md",
+          "docs/tutorials/mechanics.md",
+          "docs/tutorials/multivariate.md",
+          "docs/tutorials/normal-modes.md",
+          "docs/tutorials/odes.md",
+          "docs/tutorials/one-system-many-methods.md",
+          "docs/tutorials/trajectories.md",
+          "docs/tutorials/vector-calculus.md",
+          "examples/integration/one_system_learning.jl"
+        ],
+        "external_unique_urls": 34,
+        "reachable_pages": [
+          "Atomistic-Computing.md",
+          "Calculus-and-Symbolics.md",
+          "Differential-Equations.md",
+          "FAQ-Index.md",
+          "Getting-Started.md",
+          "Home.md",
+          "Linear-Algebra.md",
+          "Mechanics-and-Dynamics.md",
+          "Numerical-Methods.md",
+          "Scientific-Datasets.md",
+          "Scientific-Machine-Learning.md",
+          "Statistics.md",
+          "Trajectories.md",
+          "Units-and-Precision.md",
+          "Vector-Calculus.md"
+        ],
+        "protected_integrity": {
+          "protected_files": 490,
+          "changed": [],
+          "missing": []
+        },
+        "rendered": null,
+        "errors": []
+      }
+    },
+    "F4": {
+      "status": "COMPLETE",
+      "validation": {
+        "checkpoint": "F4",
+        "status": "PASS",
+        "inventory_questions": 90,
+        "required_answers": 90,
+        "covered_answers": 90,
+        "categories_covered": 17,
+        "priorities_covered": {
+          "P1": 65,
+          "P0": 25
+        },
+        "missing": [],
+        "duplicates": [],
+        "mapping_rows": 90,
+        "pages": 20,
+        "internal_link_occurrences": 278,
+        "pending_planned_links": 0,
+        "repository_resources": [
+          "Project.toml",
+          "README.md",
+          "docs/atomistic.md",
+          "docs/learned_dynamics.md",
+          "docs/m10d_one_system_many_methods.md",
+          "docs/parameter_inference.md",
+          "docs/pinn_diagnostics.md",
+          "docs/scientific_ml.md",
+          "docs/src/guides/api-boundaries.md",
+          "docs/src/index.md",
+          "docs/src/reference/atomistic.md",
+          "docs/src/reference/comparison.md",
+          "docs/src/reference/core.md",
+          "docs/src/reference/datasets.md",
+          "docs/src/reference/derivatives.md",
+          "docs/src/reference/dynamics.md",
+          "docs/src/reference/evidence.md",
+          "docs/src/reference/index.md",
+          "docs/src/reference/mechanics.md",
+          "docs/src/reference/plots.md",
+          "docs/src/reference/scalar.md",
+          "docs/src/reference/scientific-ml.md",
+          "docs/src/reference/statistics.md",
+          "docs/src/reference/transport.md",
+          "docs/src/reference/vector.md",
+          "docs/surrogates.md",
+          "docs/trajectory_statistics.md",
+          "docs/tutorials/atomistics.md",
+          "docs/tutorials/calculus.md",
+          "docs/tutorials/index.md",
+          "docs/tutorials/mechanics.md",
+          "docs/tutorials/multivariate.md",
+          "docs/tutorials/normal-modes.md",
+          "docs/tutorials/odes.md",
+          "docs/tutorials/one-system-many-methods.md",
+          "docs/tutorials/trajectories.md",
+          "docs/tutorials/vector-calculus.md",
+          "examples/integration/one_system_learning.jl",
+          "reports/m10d6/resource_controls.json"
+        ],
+        "external_unique_urls": 39,
+        "reachable_pages": [
+          "Atomistic-Computing.md",
+          "Calculus-and-Symbolics.md",
+          "Differential-Equations.md",
+          "FAQ-Index.md",
+          "Getting-Started.md",
+          "Home.md",
+          "Linear-Algebra.md",
+          "Mechanics-and-Dynamics.md",
+          "Memory-and-Performance.md",
+          "Numerical-Methods.md",
+          "Optional-Extensions.md",
+          "Scientific-Datasets.md",
+          "Scientific-Evidence-and-Provenance.md",
+          "Scientific-Machine-Learning.md",
+          "Statistics.md",
+          "Trajectories.md",
+          "Troubleshooting.md",
+          "Units-and-Precision.md",
+          "Vector-Calculus.md"
+        ],
+        "protected_integrity": {
+          "protected_files": 490,
+          "changed": [],
+          "missing": []
+        },
+        "rendered": null,
+        "errors": []
+      }
+    },
+    "F5": {
+      "status": "LOCAL_VERIFICATION_GATES_PASS",
+      "validation": {
+        "checkpoint": "F5",
+        "status": "PASS",
+        "inventory_questions": 90,
+        "required_answers": 90,
+        "covered_answers": 90,
+        "categories_covered": 17,
+        "priorities_covered": {
+          "P1": 65,
+          "P0": 25
+        },
+        "missing": [],
+        "duplicates": [],
+        "mapping_rows": 90,
+        "pages": 20,
+        "internal_link_occurrences": 278,
+        "pending_planned_links": 0,
+        "repository_resources": [
+          "Project.toml",
+          "README.md",
+          "docs/atomistic.md",
+          "docs/learned_dynamics.md",
+          "docs/m10d_one_system_many_methods.md",
+          "docs/m10d_user_research_hardening.md",
+          "docs/parameter_inference.md",
+          "docs/pinn_diagnostics.md",
+          "docs/scientific_ml.md",
+          "docs/src/guides/api-boundaries.md",
+          "docs/src/index.md",
+          "docs/src/reference/atomistic.md",
+          "docs/src/reference/comparison.md",
+          "docs/src/reference/core.md",
+          "docs/src/reference/datasets.md",
+          "docs/src/reference/derivatives.md",
+          "docs/src/reference/dynamics.md",
+          "docs/src/reference/evidence.md",
+          "docs/src/reference/index.md",
+          "docs/src/reference/mechanics.md",
+          "docs/src/reference/plots.md",
+          "docs/src/reference/scalar.md",
+          "docs/src/reference/scientific-ml.md",
+          "docs/src/reference/statistics.md",
+          "docs/src/reference/transport.md",
+          "docs/src/reference/vector.md",
+          "docs/surrogates.md",
+          "docs/trajectory_statistics.md",
+          "docs/tutorials/atomistics.md",
+          "docs/tutorials/calculus.md",
+          "docs/tutorials/index.md",
+          "docs/tutorials/mechanics.md",
+          "docs/tutorials/multivariate.md",
+          "docs/tutorials/normal-modes.md",
+          "docs/tutorials/odes.md",
+          "docs/tutorials/one-system-many-methods.md",
+          "docs/tutorials/trajectories.md",
+          "docs/tutorials/vector-calculus.md",
+          "examples/integration/one_system_learning.jl",
+          "reports/m10d6/resource_controls.json"
+        ],
+        "external_unique_urls": 40,
+        "reachable_pages": [
+          "Atomistic-Computing.md",
+          "Calculus-and-Symbolics.md",
+          "Differential-Equations.md",
+          "FAQ-Index.md",
+          "Getting-Started.md",
+          "Home.md",
+          "Linear-Algebra.md",
+          "Mechanics-and-Dynamics.md",
+          "Memory-and-Performance.md",
+          "Numerical-Methods.md",
+          "Optional-Extensions.md",
+          "Scientific-Datasets.md",
+          "Scientific-Evidence-and-Provenance.md",
+          "Scientific-Machine-Learning.md",
+          "Statistics.md",
+          "Trajectories.md",
+          "Troubleshooting.md",
+          "Units-and-Precision.md",
+          "Vector-Calculus.md"
+        ],
+        "protected_integrity": {
+          "protected_files": 490,
+          "changed": [],
+          "missing": []
+        },
+        "rendered": {
+          "pages": 20,
+          "question_anchors": 90,
+          "stateless_rendering_only": true
+        },
+        "errors": []
+      },
+      "local_commit_closure": "Containing commit plus external post_commit_readback.json; finalized after this report is written."
+    }
+  },
+  "status": "WIKI_SOURCE_VERIFIED",
+  "publication": {
+    "source_verified": true,
+    "publication_ready": true,
+    "published": false,
+    "live_wiki_route_verified": false,
+    "states": [
+      "WIKI_SOURCE_VERIFIED",
+      "WIKI_PUBLICATION_READY"
+    ],
+    "qualification": "Publication-ready local source; inspect/reconcile any remote Wiki history and verify live routing only after separate authorization."
+  },
+  "new_julia_examples": 0,
+  "runtime_scientific_checks": "SKIPPED: existing evidence reused as historical",
+  "failures": [
+    {
+      "phase": "target draft",
+      "finding": "A proposed optional learning example path did not exist",
+      "resolution": "Locate and inspect the actual examples/integration/one_system_learning.jl before creating mappings"
+    },
+    {
+      "phase": "F4 validator",
+      "finding": "Automatically rendered _Sidebar incorrectly required a Home page link",
+      "resolution": "Require all ordinary pages to be reachable from Home and all category links to exist in the injected sidebar; reserved sidebar is validated separately."
+    }
+  ],
+  "resume_git": {
+    "head": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+    "branch": "main",
+    "status": "?? reports/m10d6/wiki_check.py\n?? reports/m10d6/wiki_implementation_report.md\n?? reports/m10d6/wiki_target_reconciliation.json\n?? reports/m10d6/wiki_verification.json\n?? wiki/\n",
+    "remote_main": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+    "wiki_read": "Repository not found (exit 128)",
+    "unrelated_changes": [],
+    "resumed_candidates": {
+      "reports/m10d6/wiki_check.py": "916f6b720318e4670c0eb4622435b990bcb29ac073e3e8a7900e0af7cd786e7b",
+      "reports/m10d6/wiki_implementation_report.md": "8ad8a9f06ca4e5be01d4b84e2f74c7a58bd56524ae0b6ad142740c57f1dd08ca",
+      "reports/m10d6/wiki_target_reconciliation.json": "52694d6fe9c7191e75112b961fcf5da16b3bf43714f1b07620891486857c1dc3",
+      "reports/m10d6/wiki_verification.json": "ada25498371102bfbb1b0261569ffb8cfbce2cd328e26ff258afd540378cd6ff",
+      "wiki/Calculus-and-Symbolics.md": "11946f703a0baa28cb7174b65d500ad091b57584ac470d0558275c42f152ac43",
+      "wiki/Differential-Equations.md": "e8a3eebab5e017688bc1abd64c2bb497143a4d7100bea9d0aed0590f160ff0db",
+      "wiki/FAQ-Index.md": "89d82478f50f11b4b05f6e9dbd3ec2d11eba835af288235cc9592a64109983ae",
+      "wiki/Getting-Started.md": "0a4056b9ce269266a636dbfdb9b1cefa408b60194f24688e3929c33995baa2a1",
+      "wiki/Home.md": "01c95bb9c06ff2d0044948248c311a0e72bb799c8b05489c602f43502d8130d2",
+      "wiki/Linear-Algebra.md": "4f73e2b920c7398de757aab84f9d17fc253913202e6128afd0871d38089e0d7b",
+      "wiki/Mechanics-and-Dynamics.md": "778015ba5b48853968be2b06e79581b35265e8f67a32384b3a6b0145af05465b",
+      "wiki/Numerical-Methods.md": "dc637cd2ec2406b2943979701f967a893daa4c49d9e0e8c7bd5e1d9e9ed6f8f3",
+      "wiki/Trajectories.md": "4bc7b7607e3f38946b867ee283cd7661b59a89486b01771a6d4d314ef5bece6b",
+      "wiki/Vector-Calculus.md": "fb4449f1cbe3073079edcbceae6cdb879639894ccf26b90490c81b96b8850b70",
+      "wiki/_Sidebar.md": "13904cdf87f0882ab213fba03dc4759c539c934311e3657b988d1b4b57416e1b"
+    }
+  },
+  "recovered_draft_initial_git": {
+    "branch": "main",
+    "worktree": "clean",
+    "remote": "https://github.com/lorenzozajaczkowskimartins-ctrl/analyticmath-lab.git",
+    "remote_main": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+  },
+  "commands": [
+    {
+      "command": "python3 reports/m10d6/wiki_check.py --checkpoint F2",
+      "exit": 0,
+      "scope": "Recovered F2 draft structure, 40/40 answers"
+    },
+    {
+      "command": "python3 reports/m10d6/wiki_check.py --checkpoint F3",
+      "exit": 0,
+      "scope": "65/65 checkpoint answers"
+    },
+    {
+      "command": "python3 reports/m10d6/wiki_check.py --checkpoint F4",
+      "exit": 0,
+      "scope": "90/90 checkpoint answers"
+    },
+    {
+      "command": "python3 reports/m10d6/wiki_check.py --render --evidence-dir \"$TMPDIR/m10d6f-sol/render\"",
+      "exit": 0,
+      "scope": "Final 20 pages, stateless GitHub GFM rendering only"
+    },
+    {
+      "command": "python3 reports/m10d6/wiki_check.py --verify-resources --evidence-dir \"$TMPDIR/m10d6f-sol/render\"",
+      "exit": 0,
+      "scope": "40 pinned raw source resources, HTTP 200 and byte equality"
+    },
+    {
+      "command": "python3 reports/m10d6/wiki_check.py --evidence-dir \"$TMPDIR/m10d6f-sol/render\"",
+      "exit": 0,
+      "scope": "Final coverage, hashes, rendered anchors and links"
+    },
+    {
+      "command": "python3 reports/m10d6/wiki_check.py --self-test",
+      "exit": 0,
+      "scope": "One positive control and 14 rejected negative fixtures"
+    }
+  ],
+  "scientific_review": [
+    {
+      "id": "Q001",
+      "answer_page": "Getting-Started.md",
+      "reviewed_claim": "Use a checkout and its declared project, a Git-URL consumer install, or local Pkg development; follow the README route matching your goal.",
+      "decision": "Installation routes and direct consumer dependencies belong to the current README, not scalar analysis.",
+      "contract_symbols": [
+        "analyze"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q002",
+      "answer_page": "Getting-Started.md",
+      "reviewed_claim": "The exported stored-data and analysis interfaces are available without loading an optional scientific-learning or Molly backend.",
+      "decision": "Base stored-series operations explain what is available without optional triggers; the README explains direct imports.",
+      "contract_symbols": [
+        "ObservableSeries",
+        "statistical_summary"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q003",
+      "answer_page": "Getting-Started.md",
+      "reviewed_claim": "The first import can include package loading, dependency precompilation and compilation of Julia code.",
+      "decision": "The README describes dependency startup and historical installation limits without universal timing claims.",
+      "contract_symbols": [],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q004",
+      "answer_page": "Getting-Started.md",
+      "reviewed_claim": "Begin with the README Quick Start, then the scalar calculus tutorial.",
+      "decision": "The README starter leads directly to the first executed scalar lesson rather than an API-only introduction.",
+      "contract_symbols": [
+        "analyze",
+        "evaluate"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q005",
+      "answer_page": "Getting-Started.md",
+      "reviewed_claim": "Single Julia and BLAS threads are useful controlled-run choices, not universal package requirements.",
+      "decision": "The user-environment contract explicitly separates Julia and BLAS pools and rejects mandatory thread rituals.",
+      "contract_symbols": [],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q006",
+      "answer_page": "Calculus-and-Symbolics.md",
+      "reviewed_claim": "Cancellation can turn x/x into 1 and erase the original exclusion at zero.",
+      "decision": "Original syntax capture belongs to the core wrapper contract, with scalar-domain behavior as a second destination.",
+      "contract_symbols": [
+        "@real_function",
+        "analyze"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q007",
+      "answer_page": "Calculus-and-Symbolics.md",
+      "reviewed_claim": "Not uniformly: FunctionAnalysis evaluation does not automatically enforce its stored original real domain.",
+      "decision": "The evaluate overload contract distinguishes legacy scalar callable behavior from checked domain-aware routes.",
+      "contract_symbols": [
+        "evaluate",
+        "domain_contains"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q008",
+      "answer_page": "Calculus-and-Symbolics.md",
+      "reviewed_claim": "Exact-root evidence is bounded to supported expression classes and resource limits.",
+      "decision": "The scalar exact-study contract records bounded expression classes and unresolved roots.",
+      "contract_symbols": [
+        "analyze"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q009",
+      "answer_page": "Calculus-and-Symbolics.md",
+      "reviewed_claim": "No. An empty heuristic candidate list is not a proof of no critical points.",
+      "decision": "The scalar search contract distinguishes unrequested, heuristic and scoped exact completeness.",
+      "contract_symbols": [
+        "analyze"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q010",
+      "answer_page": "Calculus-and-Symbolics.md",
+      "reviewed_claim": "Not as arbitrary scalar symbolic inputs: the documented scalar route takes a symbolic expression or supported constant and declared symbolic variable(s).",
+      "decision": "The scalar analyze dispatch map records supported symbolic inputs, not arbitrary functions or strings.",
+      "contract_symbols": [
+        "analyze"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q011",
+      "answer_page": "Linear-Algebra.md",
+      "reviewed_claim": "AML offers specific matrix-based scientific operations, not a general-purpose matrix-analysis service.",
+      "decision": "The mechanics reference scopes matrix use to the generalized modal problem, not general linear algebra.",
+      "contract_symbols": [
+        "normal_modes"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q012",
+      "answer_page": "Linear-Algebra.md",
+      "reviewed_claim": "The supported positional order is stiffness K first, mass M second.",
+      "decision": "The modal contract documents K before M and mass-based normalization.",
+      "contract_symbols": [
+        "normal_modes"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q013",
+      "answer_page": "Linear-Algebra.md",
+      "reviewed_claim": "No. Sparse representation does not select a sparse eigensolver in this route.",
+      "decision": "The modal contract explicitly says sparse input densifies; representation does not select the solver.",
+      "contract_symbols": [
+        "normal_modes"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q014",
+      "answer_page": "Linear-Algebra.md",
+      "reviewed_claim": "Zero, negative and degenerate squared frequencies describe different local modal situations, subject to stored tolerance-based classification.",
+      "decision": "The modal output record documents signed eigenvalues, missing unstable frequencies and degenerate bases.",
+      "contract_symbols": [
+        "normal_modes"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q015",
+      "answer_page": "Linear-Algebra.md",
+      "reviewed_claim": "No. A supplied Hessian at a snapshot does not establish mechanical equilibrium.",
+      "decision": "Modal interpretation needs the snapshot adapter as well as the generalized matrix contract.",
+      "contract_symbols": [
+        "normal_modes"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q016",
+      "answer_page": "Vector-Calculus.md",
+      "reviewed_claim": "Yes. VectorFieldAnalysis supports independently ordered input variables and output components, so the map can be rectangular.",
+      "decision": "Rectangular Jacobians belong to the vector reference, not scalar-field analysis.",
+      "contract_symbols": [
+        "analyze",
+        "jacobian"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q017",
+      "answer_page": "Vector-Calculus.md",
+      "reviewed_claim": "AML stores supported curl evidence for square two- and three-dimensional fields; other shapes/dimensions yield unknown/unsupported evidence.",
+      "decision": "The vector curl accessor records separate planar/three-dimensional outputs and unsupported dimensions.",
+      "contract_symbols": [
+        "curl"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q018",
+      "answer_page": "Vector-Calculus.md",
+      "reviewed_claim": "Zero curl alone does not establish a global potential on an arbitrary domain.",
+      "decision": "The potential contract records its polynomial construction and original-domain prerequisites.",
+      "contract_symbols": [
+        "potential"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q019",
+      "answer_page": "Vector-Calculus.md",
+      "reviewed_claim": "Checked numerical multivariate derivatives require a supported open smooth neighborhood, not just a finite simplified value.",
+      "decision": "Checked field derivatives and vector Jacobians share smooth-neighborhood requirements; both references matter.",
+      "contract_symbols": [
+        "gradient",
+        "hessian",
+        "jacobian"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q020",
+      "answer_page": "Vector-Calculus.md",
+      "reviewed_claim": "No. The returned affine approximation is local to its declared base point.",
+      "decision": "First-order affine linearization belongs to the derivative reference and the multivariate lesson.",
+      "contract_symbols": [
+        "linearization"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q021",
+      "answer_page": "Numerical-Methods.md",
+      "reviewed_claim": "The reported comparisons are discrepancies relative to a specified derivative reference, not certified mathematical error bounds.",
+      "decision": "Derivative comparisons report measured discrepancies, not certified errors.",
+      "contract_symbols": [
+        "compare_derivatives"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q022",
+      "answer_page": "Numerical-Methods.md",
+      "reviewed_claim": "A smaller finite-difference step can amplify roundoff or make the displaced floating-point points indistinguishable.",
+      "decision": "The convergence experiment records representable stencils and the sampled finite-difference regime.",
+      "contract_symbols": [
+        "derivative_convergence"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q023",
+      "answer_page": "Numerical-Methods.md",
+      "reviewed_claim": "Missing relative discrepancy means that normalization was unavailable, not that the discrepancy is zero.",
+      "decision": "The convergence output contract explains unavailable relative discrepancy at a zero reference.",
+      "contract_symbols": [
+        "derivative_convergence"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q024",
+      "answer_page": "Numerical-Methods.md",
+      "reviewed_claim": "The sampled grid may not contain the supported stable-slope window needed for an observed order.",
+      "decision": "The convergence method explains the first stable-slope window rather than a universal observed order.",
+      "contract_symbols": [
+        "derivative_convergence"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q025",
+      "answer_page": "Numerical-Methods.md",
+      "reviewed_claim": "Numerical candidate acceptance uses the declared absolute tolerance plus relative tolerance times the caller-provided residual scale.",
+      "decision": "Candidate residual acceptance belongs to scalar search, with field conventions linked separately.",
+      "contract_symbols": [
+        "analyze"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q026",
+      "answer_page": "Differential-Equations.md",
+      "reviewed_claim": "A successful, completed solve records numerical execution over the requested span under the declared controls.",
+      "decision": "The trajectory contract records native success, completion and partial solver output.",
+      "contract_symbols": [
+        "trajectory"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q027",
+      "answer_page": "Differential-Equations.md",
+      "reviewed_claim": "No supported direct analyze method is provided for FirstOrderODE.",
+      "decision": "FirstOrderODE integration and AutonomousSystem structural analysis are dynamics contracts, not scalar analyze.",
+      "contract_symbols": [
+        "FirstOrderODE",
+        "trajectory",
+        "analyze"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q028",
+      "answer_page": "Differential-Equations.md",
+      "reviewed_claim": "No. Requested observation timing does not authorize interpolation in a stored-data adapter.",
+      "decision": "The trajectory and stored-observable contracts distinguish solver interpolation from stored-data extraction.",
+      "contract_symbols": [
+        "trajectory",
+        "observable_series"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q029",
+      "answer_page": "Differential-Equations.md",
+      "reviewed_claim": "The public integration route has an explicit checked Float64 state/time boundary.",
+      "decision": "The trajectory contract documents checked Float64 state/time conversion and rounding limits.",
+      "contract_symbols": [
+        "FirstOrderODE",
+        "trajectory"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q030",
+      "answer_page": "Differential-Equations.md",
+      "reviewed_claim": "No. Domain callbacks check evaluated stages, not a certified continuous boundary trajectory.",
+      "decision": "The trajectory contract scopes predicate checks to evaluated stages, not continuous boundary certification.",
+      "contract_symbols": [
+        "FirstOrderODE",
+        "trajectory"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q031",
+      "answer_page": "Mechanics-and-Dynamics.md",
+      "reviewed_claim": "The declared variable order is part of the model: Lagrangian state order uses coordinates then velocities; canonical Hamiltonian order uses coordinates then momenta.",
+      "decision": "Lagrangian and Hamiltonian contracts define ordered conjugate coordinates and momentum meaning.",
+      "contract_symbols": [
+        "LagrangianSystem",
+        "HamiltonianSystem"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q032",
+      "answer_page": "Mechanics-and-Dynamics.md",
+      "reviewed_claim": "The supported route establishes a verified regular affine momentum\u2013velocity inversion with the documented conservative prerequisites.",
+      "decision": "The mechanics Legendre contract records verified affine inversion and conservative prerequisites.",
+      "contract_symbols": [
+        "legendre_transform"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q033",
+      "answer_page": "Mechanics-and-Dynamics.md",
+      "reviewed_claim": "No. Small sampled energy drift is useful numerical evidence, not a conservation proof.",
+      "decision": "The mechanical energy bridge and integrated tutorial distinguish saved drift from conservation identities.",
+      "contract_symbols": [
+        "energy_drift"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q034",
+      "answer_page": "Mechanics-and-Dynamics.md",
+      "reviewed_claim": "Purely imaginary eigenvalues generally leave nonlinear stability undecided.",
+      "decision": "Local stability belongs to the dynamics reference, with nonhyperbolic nonlinear limitations.",
+      "contract_symbols": [
+        "stability"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q035",
+      "answer_page": "Mechanics-and-Dynamics.md",
+      "reviewed_claim": "Use one declared model, preserve variable/unit ordering, and compare each method against an independently justified reference.",
+      "decision": "The integrated capstone supplies the same-model analytical/numerical comparison across mechanics and dynamics.",
+      "contract_symbols": [
+        "dynamics",
+        "normal_modes",
+        "trajectory"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q036",
+      "answer_page": "Trajectories.md",
+      "reviewed_claim": "Choose a component index, a unique recorded label or an explicit documented observable selector.",
+      "decision": "The stored-observable contract supplies explicit component/label selection without inferred physical identity.",
+      "contract_symbols": [
+        "observable_series"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q037",
+      "answer_page": "Trajectories.md",
+      "reviewed_claim": "No. Saved sample spacing describes stored observations, not the solver internal timestep.",
+      "decision": "SamplingInfo describes saved observations, not an internal integration timestep.",
+      "contract_symbols": [
+        "sampling_info"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q038",
+      "answer_page": "Trajectories.md",
+      "reviewed_claim": "AtomisticTrajectoryView is a lazy indexed view; copying and backing mutation depend on the declared adapter/ownership policy.",
+      "decision": "The atomistic lazy-view contract is the relevant ownership authority, not generic moment statistics.",
+      "contract_symbols": [
+        "AtomisticTrajectoryView"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q039",
+      "answer_page": "Trajectories.md",
+      "reviewed_claim": "Comparison can withhold evidence when required units, identity, selection or time-window context is missing.",
+      "decision": "The comparison wrapper supplies compatibility context; equal stored values alone are insufficient.",
+      "contract_symbols": [
+        "ComparisonInput",
+        "compare"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q040",
+      "answer_page": "Trajectories.md",
+      "reviewed_claim": "Stored-report diagnose composes existing evidence; it does not silently compute absent analyses.",
+      "decision": "The diagnose overloads distinguish stored-report composition from view convenience analysis.",
+      "contract_symbols": [
+        "diagnose"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q041",
+      "answer_page": "Atomistic-Computing.md",
+      "reviewed_claim": "Yes. Generic snapshots, lazy frame views and stored-data inspection are core AML operations; Molly is only an optional adapter.",
+      "decision": "The atomistic core and base tutorial demonstrate supplied data without a Molly adapter.",
+      "contract_symbols": [
+        "AtomisticSnapshot",
+        "mdcheck"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q042",
+      "answer_page": "Atomistic-Computing.md",
+      "reviewed_claim": "The Molly adapter cannot recover historical boxes, masses, species or particle ordering from present System fields.",
+      "decision": "The Molly adapter contract and existing guide document caller historical assertions.",
+      "contract_symbols": [
+        "atomistic_trajectory"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q043",
+      "answer_page": "Atomistic-Computing.md",
+      "reviewed_claim": "Without a stored coordinate logger, atomistic_trajectory cannot manufacture a trajectory from the current Molly state.",
+      "decision": "The Molly stored-logger implementation resolves missing versus valid-empty history; the atomistic reference is the user entry point.",
+      "contract_symbols": [
+        "atomistic_trajectory"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q044",
+      "answer_page": "Atomistic-Computing.md",
+      "reviewed_claim": "RDF needs explicit bin edges and supported orthorhombic periodic geometry in two or three dimensions, with consistent distance and unit conventions.",
+      "decision": "The RDF contract gives periodic geometry, edge and normalization restrictions.",
+      "contract_symbols": [
+        "radial_distribution"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q045",
+      "answer_page": "Atomistic-Computing.md",
+      "reviewed_claim": "No. analyze_potential analyzes a supplied radial symbolic potential; it is not an MD force engine.",
+      "decision": "The supplied radial-potential contract is not a simulation or force-engine API.",
+      "contract_symbols": [
+        "analyze_potential",
+        "lennard_jones_analysis"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q046",
+      "answer_page": "Statistics.md",
+      "reviewed_claim": "A moment summary deliberately leaves standard_error unavailable because descriptive moments do not establish independent identically distributed observations.",
+      "decision": "Descriptive moment outputs deliberately withhold IID mean uncertainty.",
+      "contract_symbols": [
+        "statistical_summary"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q047",
+      "answer_page": "Statistics.md",
+      "reviewed_claim": "No. Blocking and autocorrelation provide finite-sample diagnostics under assumptions; they do not prove stationarity.",
+      "decision": "Blocking and autocorrelation contracts record finite-sample assumptions rather than stationarity proofs.",
+      "contract_symbols": [
+        "block_average",
+        "integrated_autocorrelation_time"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q048",
+      "answer_page": "Statistics.md",
+      "reviewed_claim": "AML does not silently remove missing, nonfinite or non-real observations because that would change the series being analyzed.",
+      "decision": "The stored-series contract preserves invalid observations rather than silently filtering them.",
+      "contract_symbols": [
+        "statistical_summary",
+        "running_statistics"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q049",
+      "answer_page": "Statistics.md",
+      "reviewed_claim": "An eligible index-time MSD can be fitted numerically, but a physical diffusion coefficient needs a justified physical time scale and a defensible diffusive fit window.",
+      "decision": "The transport reference corrects the old physical-clock premise; the existing statistics guide explains per-index fitting.",
+      "contract_symbols": [
+        "diffusion_estimate"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q050",
+      "answer_page": "Statistics.md",
+      "reviewed_claim": "No. Compatibility establishes whether the declared quantities can be compared, not whether runs are independent.",
+      "decision": "The comparison contracts separate compatibility from caller independence assertions.",
+      "contract_symbols": [
+        "compare_runs"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q051",
+      "answer_page": "Scientific-Datasets.md",
+      "reviewed_claim": "Declare sample identity, ordered input/query data and split, then the dataset kind, family, ordered names, domain, reference, units, grid and RNG description.",
+      "decision": "The experimental dataset constructor defines explicit schema and sample roles; the capstone supplies a concrete assembly.",
+      "contract_symbols": [
+        "ScientificDataset"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q052",
+      "answer_page": "Scientific-Datasets.md",
+      "reviewed_claim": "Output scaling expects feature rows, so many scalar query targets must be represented as one row with one column per query.",
+      "decision": "The scaling transform contract explains feature-row layout; the existing surrogate guide supplies context.",
+      "contract_symbols": [
+        "ScientificSample",
+        "transform"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q053",
+      "answer_page": "Scientific-Datasets.md",
+      "reviewed_claim": "Assign scientifically meaningful splits before fitting scaling; fit_scaling uses only samples marked as training.",
+      "decision": "Train-only scaling records training IDs, while split correctness remains a caller obligation.",
+      "contract_symbols": [
+        "fit_scaling"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q054",
+      "answer_page": "Scientific-Datasets.md",
+      "reviewed_claim": "No. A reference kind labels the declared source of targets; it is not scientific certification.",
+      "decision": "The dataset reference documents reference declarations without certifying their quality.",
+      "contract_symbols": [
+        "ScientificDataset"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q055",
+      "answer_page": "Scientific-Datasets.md",
+      "reviewed_claim": "No. Converting a numerical trajectory to ScientificDataset preserves numerical target meaning.",
+      "decision": "The trajectory-to-dataset bridge preserves numerical targets and independent-reference distinctions.",
+      "contract_symbols": [
+        "ScientificDataset"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q056",
+      "answer_page": "Scientific-Machine-Learning.md",
+      "reviewed_claim": "No. Low PINN training loss is optimizer evidence, not a proof that the PDE solution is correct.",
+      "decision": "PINN loss/residual evidence belongs to the experimental scientific-ML reference and existing diagnostics guide, not scalar analysis.",
+      "contract_symbols": [
+        "train",
+        "analyze"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q057",
+      "answer_page": "Scientific-Machine-Learning.md",
+      "reviewed_claim": "learning_model requires both an explicit RNG and rng_provenance because initialization and its recorded origin are different inputs.",
+      "decision": "The learning_model contract explicitly requires RNG and RNG provenance; the surrogate guide is a useful companion.",
+      "contract_symbols": [
+        "learning_model"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q058",
+      "answer_page": "Scientific-Machine-Learning.md",
+      "reviewed_claim": "No. A learned UDE correction is a numerical model component, not a discovered symbolic law.",
+      "decision": "The UDE contract describes numerical learned corrections, not symbolic equation discovery.",
+      "contract_symbols": [
+        "UDEProblem"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q059",
+      "answer_page": "Scientific-Machine-Learning.md",
+      "reviewed_claim": "The one-step example demonstrates an end-to-end experimental surrogate pipeline, not an accurate oscillator replacement.",
+      "decision": "The actual one_system_learning.jl is the one-step pipeline; do not link a guessed optional example filename.",
+      "contract_symbols": [
+        "learning_model",
+        "train"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q060",
+      "answer_page": "Scientific-Machine-Learning.md",
+      "reviewed_claim": "No. local_sensitivity measures local observation-response structure near the supplied parameters, not global identifiability.",
+      "decision": "The inference sensitivity contract scopes Jacobian/SVD evidence locally; the inference guide is the relevant practical destination.",
+      "contract_symbols": [
+        "local_sensitivity"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q061",
+      "answer_page": "Units-and-Precision.md",
+      "reviewed_claim": "No. A unit string records a description; it does not convert or nondimensionalize numeric arrays.",
+      "decision": "Dataset unit declarations and numeric boundaries belong to dataset/boundary contracts, not an unimplemented units guide.",
+      "contract_symbols": [
+        "ScientificDataset"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q062",
+      "answer_page": "Units-and-Precision.md",
+      "reviewed_claim": "Yes, supported real statistical observations can combine compatible Unitful lengths; incompatible dimensions are not silently stripped.",
+      "decision": "Statistical Unitful arithmetic is documented in stored-series/moment contracts and the trajectory lesson.",
+      "contract_symbols": [
+        "ObservableSeries",
+        "statistical_summary"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q063",
+      "answer_page": "Units-and-Precision.md",
+      "reviewed_claim": "Unknown units mean missing dimensional knowledge, not an established dimensionless quantity.",
+      "decision": "Comparison requires dimensional context; unknown is not an established dimensionless declaration.",
+      "contract_symbols": [
+        "compare"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q064",
+      "answer_page": "Units-and-Precision.md",
+      "reviewed_claim": "Supported generic scalar expression evaluation can preserve BigFloat arithmetic; this is not a library-wide high-precision guarantee.",
+      "decision": "Scalar arithmetic and trajectory conversion are different precision regimes and require separate references.",
+      "contract_symbols": [
+        "evaluate",
+        "trajectory"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q065",
+      "answer_page": "Units-and-Precision.md",
+      "reviewed_claim": "No. Numeric type support is operation-specific; scalar arithmetic support does not imply universal complex or integer support.",
+      "decision": "Scalar numeric type support cannot be transferred to real modal inputs or every other family.",
+      "contract_symbols": [
+        "evaluate",
+        "normal_modes"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q066",
+      "answer_page": "Memory-and-Performance.md",
+      "reviewed_claim": "First identify the operation: a 3000-variable symbolic Hessian and normal modes of an existing 3000\u00d73000 numerical matrix hit different limits.",
+      "decision": "The symbolic Hessian guard and supplied dense matrix spectrum are different operations; cite derivatives, mechanics and resource boundaries.",
+      "contract_symbols": [
+        "analyze",
+        "hessian"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q067",
+      "answer_page": "Memory-and-Performance.md",
+      "reviewed_claim": "No. AML has no global public memory-budget setter or global memory flag.",
+      "decision": "The actual boundary/resource tables enumerate scoped controls; there is no published global resource-limits guide.",
+      "contract_symbols": [],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q068",
+      "answer_page": "Memory-and-Performance.md",
+      "reviewed_claim": "The normal_modes estimate allows for dense working arrays, not merely one matrix; it is still not a peak-memory guarantee.",
+      "decision": "The modal reference and resource audit explain working-array estimates and excluded allocations.",
+      "contract_symbols": [
+        "normal_modes"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q069",
+      "answer_page": "Memory-and-Performance.md",
+      "reviewed_claim": "Public operation keywords are supported controls; fixed symbolic/exact-algebra ceilings and maintainer harness settings are not user configuration.",
+      "decision": "The boundary/resource table separates public keywords from internal fixed ceilings.",
+      "contract_symbols": [
+        "analyze",
+        "normal_modes"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q070",
+      "answer_page": "Memory-and-Performance.md",
+      "reviewed_claim": "No. Maintainer scaling experiments are not generic supported AML matrix-free or partial-spectrum APIs.",
+      "decision": "The boundary/resource table keeps private scaling experiments outside supported public algorithms.",
+      "contract_symbols": [
+        "normal_modes"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q071",
+      "answer_page": "Scientific-Evidence-and-Provenance.md",
+      "reviewed_claim": "PropertyResult contains exactly four fields: value, status, method and notes; interpret them together for the particular claim.",
+      "decision": "The core record contract is the authority for exactly four PropertyResult fields and scoped statuses.",
+      "contract_symbols": [
+        "PropertyResult"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q072",
+      "answer_page": "Scientific-Evidence-and-Provenance.md",
+      "reviewed_claim": "No. Unknown evidence is neither false nor zero, and unavailable output is not necessarily a failed calculation.",
+      "decision": "The core/boundary contracts distinguish unknown, unrequested, unsupported and false or zero.",
+      "contract_symbols": [
+        "PropertyResult"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q073",
+      "answer_page": "Scientific-Evidence-and-Provenance.md",
+      "reviewed_claim": "Provenance identity and scientific value equality are separate; equal scientific values need not have the same source identity.",
+      "decision": "The qualified evidence reference separates scientific value equality from source identity.",
+      "contract_symbols": [
+        "scientific_origin"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q074",
+      "answer_page": "Scientific-Evidence-and-Provenance.md",
+      "reviewed_claim": "No. Origin tokens are process-local object identities, not persistent reproducibility hashes.",
+      "decision": "The qualified origin contract explicitly scopes tokens to the originating process.",
+      "contract_symbols": [
+        "scientific_origin"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q075",
+      "answer_page": "Scientific-Evidence-and-Provenance.md",
+      "reviewed_claim": "An isolated PropertyResult can have unknown ancestry because its four fields do not store source lineage.",
+      "decision": "The qualified inspection contract explains unknown isolated-leaf ancestry without reconstructing parents.",
+      "contract_symbols": [
+        "scientific_metadata",
+        "scientific_origin"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q076",
+      "answer_page": "Optional-Extensions.md",
+      "reviewed_claim": "Each extension requires AML and every declared trigger package to be loaded; installation alone is not activation.",
+      "decision": "The boundary activation table and Project.toml are the exact trigger authority, rather than a generic ML entry.",
+      "contract_symbols": [
+        "pinn_problem",
+        "learning_model",
+        "infer_parameters"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q077",
+      "answer_page": "Optional-Extensions.md",
+      "reviewed_claim": "The audited plain Lux surrogate route shares the extension whose declared triggers include NeuralOperators.",
+      "decision": "The surrogate extension declaration applies even to plain Lux coordinate networks.",
+      "contract_symbols": [
+        "learning_model"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q078",
+      "answer_page": "Optional-Extensions.md",
+      "reviewed_claim": "Yes. AML can be imported first; an extension becomes available after all its trigger packages and AML are loaded.",
+      "decision": "The extension contract supports load-order activation after the full trigger set, not installation alone.",
+      "contract_symbols": [
+        "pinn_network"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q079",
+      "answer_page": "Optional-Extensions.md",
+      "reviewed_claim": "No. AML does not automatically choose or substitute an available scientific-learning backend.",
+      "decision": "The experimental ML contracts require explicit route/backend/model choices, not automatic substitution.",
+      "contract_symbols": [
+        "pinn_problem",
+        "learning_model"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q080",
+      "answer_page": "Optional-Extensions.md",
+      "reviewed_claim": "No. Importing AML does not activate CairoMakie or select a rendering backend.",
+      "decision": "The plotting reference and README show explicit renderer selection; AML import alone does not activate CairoMakie.",
+      "contract_symbols": [
+        "plot"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q081",
+      "answer_page": "Troubleshooting.md",
+      "reviewed_claim": "analyze has specific input contracts, not a universal method for every object or every AbstractAnalysis subtype.",
+      "decision": "The analyze dispatch table and ODE/index references distinguish input representation from numerical failure.",
+      "contract_symbols": [
+        "analyze"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q082",
+      "answer_page": "Troubleshooting.md",
+      "reviewed_claim": "Ambiguous transform names can result from multiple imported packages exporting the same name, not from broken AML scaling.",
+      "decision": "The dataset scaling contract recommends qualification for exported-name collisions.",
+      "contract_symbols": [
+        "transform"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q083",
+      "answer_page": "Troubleshooting.md",
+      "reviewed_claim": "A finite sample value is not enough to guarantee a rendered region: domain masks and renderer representation checks are separate.",
+      "decision": "The plotting contracts document conservative domain masks and rendered-coordinate checks.",
+      "contract_symbols": [
+        "surface",
+        "vectorplot"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q084",
+      "answer_page": "Troubleshooting.md",
+      "reviewed_claim": "Changing an internal constant is not a supported way to recover from a refusal.",
+      "decision": "The boundary/resource table explains why internal constants are not supported recovery knobs, replacing the unrelated derivative-only mapping.",
+      "contract_symbols": [
+        "hessian",
+        "normal_modes"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q085",
+      "answer_page": "Troubleshooting.md",
+      "reviewed_claim": "Before mutation, preserve the scientific input and its associated times, order, units and provenance; a borrowed array is not an owned snapshot.",
+      "decision": "The boundary, series and snapshot contracts specify borrowed data and limited copying, not universal deep ownership.",
+      "contract_symbols": [
+        "ObservableSeries",
+        "AtomisticSnapshot"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q086",
+      "answer_page": "Memory-and-Performance.md",
+      "reviewed_claim": "pair_distances exposes max_pairs and max_bytes; RDF and coordination avoid full pair-output retention but can still do quadratic work.",
+      "decision": "The atomistic pair/RDF contracts and resource audit separate pair output budgets from quadratic traversal.",
+      "contract_symbols": [
+        "pair_distances",
+        "radial_distribution",
+        "coordination"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q087",
+      "answer_page": "Memory-and-Performance.md",
+      "reviewed_claim": "Prediction batch_size limits temporary query chunks, not necessarily the complete returned output or model-training memory.",
+      "decision": "The prediction contracts and resource audit separate query chunking, complete outputs and training storage.",
+      "contract_symbols": [
+        "predict"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q088",
+      "answer_page": "Memory-and-Performance.md",
+      "reviewed_claim": "PINN and inference capacity-limited diagnostic histories retain earliest entries; learned-dynamics and surrogate histories retain rolling more-recent entries.",
+      "decision": "The training/history contracts and resource audit distinguish earliest retention from rolling recent retention.",
+      "contract_symbols": [
+        "PINNHistory",
+        "train",
+        "infer_parameters"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q089",
+      "answer_page": "Memory-and-Performance.md",
+      "reviewed_claim": "summary_only can omit specific result arrays, but it is not a universal one-pass public iterator or streaming guarantee.",
+      "decision": "The diagnostics contracts and resource audit specify omitted arrays and replay/materialization limitations.",
+      "contract_symbols": [
+        "field_errors",
+        "heat_residual",
+        "sampled_summary"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    },
+    {
+      "id": "Q090",
+      "answer_page": "Memory-and-Performance.md",
+      "reviewed_claim": "source_retention=:descriptor intentionally omits heavy source/provenance content instead of retaining a full trajectory representation.",
+      "decision": "The dataset bridge/resource contracts specify descriptor omissions, not compression or persistent identity.",
+      "contract_symbols": [
+        "ScientificDataset"
+      ],
+      "evidence_class": "SOURCE_SUPPORTED",
+      "scientific_execution": "NOT_RUN",
+      "reviewer": "Parent sequential review, not independent subagent approval",
+      "verdict": "PASS"
+    }
+  ],
+  "review_method": "Sequential parent review of each complete answer against current audited contract clauses and selective current reference prose. Static validator checks are necessary but not scientific proof; no independent subagent review was requested or used.",
+  "source_audit_hashes": {
+    "files_checked": 70,
+    "mismatches": [],
+    "level": "Current bytes match the reconciled 70-file semantic-audit snapshot; historical runtime evidence not rerun."
+  },
+  "exports_reconciliation": {
+    "exports": 177,
+    "stable": 130,
+    "experimental": 47,
+    "qualified_experimental": 2,
+    "audited_export_contract_variants": 196
+  },
+  "render_manifest": {
+    "renderer": "GitHub REST /markdown, gfm, stateless POST",
+    "publication": false,
+    "pages": [
+      {
+        "page": "Atomistic-Computing.md",
+        "source_sha256": "39221829885ab7090d61e663d3f894957cef2dcb2fbd1ccc2fc144052b39b8ad",
+        "html_file": "Atomistic-Computing.html",
+        "render_exit": 0,
+        "html_sha256": "76424ca7f39b323ae574bbd43b0fff534aed9e5be2fdfba7f7a13f188f189dbb"
+      },
+      {
+        "page": "Calculus-and-Symbolics.md",
+        "source_sha256": "11946f703a0baa28cb7174b65d500ad091b57584ac470d0558275c42f152ac43",
+        "html_file": "Calculus-and-Symbolics.html",
+        "render_exit": 0,
+        "html_sha256": "691a256703aa9ded501601f7bf518a6e8302911b20b1a9d4d20165762d2a7c48"
+      },
+      {
+        "page": "Differential-Equations.md",
+        "source_sha256": "e8a3eebab5e017688bc1abd64c2bb497143a4d7100bea9d0aed0590f160ff0db",
+        "html_file": "Differential-Equations.html",
+        "render_exit": 0,
+        "html_sha256": "838f815a34f181d83cbde9f9430a78c6041108ddd1e5ddf6620d38293fcec568"
+      },
+      {
+        "page": "FAQ-Index.md",
+        "source_sha256": "89d82478f50f11b4b05f6e9dbd3ec2d11eba835af288235cc9592a64109983ae",
+        "html_file": "FAQ-Index.html",
+        "render_exit": 0,
+        "html_sha256": "a01f077c5060dd2c56011274bef550427282fb914a95480b7a9dc04b2d226fb2"
+      },
+      {
+        "page": "Getting-Started.md",
+        "source_sha256": "1da52b1e960f7d0760ff0cecf9d01aec30c8f5f9f6c35824df2e94d70ab6b8d8",
+        "html_file": "Getting-Started.html",
+        "render_exit": 0,
+        "html_sha256": "3b8bc9f0af817443e5299fe89234b3666d5d331e34ef39bc3bfcb69253d7b273"
+      },
+      {
+        "page": "Home.md",
+        "source_sha256": "01c95bb9c06ff2d0044948248c311a0e72bb799c8b05489c602f43502d8130d2",
+        "html_file": "Home.html",
+        "render_exit": 0,
+        "html_sha256": "d737984d6c06a64c5a4fb27954179f10f35a3370ecc3732347742f10411063e2"
+      },
+      {
+        "page": "Linear-Algebra.md",
+        "source_sha256": "c971304123c05d29e438187e86bf8d0756d2c2bc455cd7b43c45e45b1192a5b5",
+        "html_file": "Linear-Algebra.html",
+        "render_exit": 0,
+        "html_sha256": "a4f03d915e3340aa10be339f41d0c07c492e683b93498830537ef28c6db1d48c"
+      },
+      {
+        "page": "Mechanics-and-Dynamics.md",
+        "source_sha256": "ad7416b1e02549e4e7d6d038565775932fd5b6e832d7c73109ebbc3bf348c730",
+        "html_file": "Mechanics-and-Dynamics.html",
+        "render_exit": 0,
+        "html_sha256": "a3a26b41f09219682b8f81b6010744765b12016811bd87d97fef94ba404c047e"
+      },
+      {
+        "page": "Memory-and-Performance.md",
+        "source_sha256": "e6e4f293903d73a6480d77d78c225989cb900d82d97c77a0bbadb5351df324c5",
+        "html_file": "Memory-and-Performance.html",
+        "render_exit": 0,
+        "html_sha256": "143906b266ed080628fdef5a68100d73243a0ff4df385c9084aae4cb5b1a7807"
+      },
+      {
+        "page": "Numerical-Methods.md",
+        "source_sha256": "dc637cd2ec2406b2943979701f967a893daa4c49d9e0e8c7bd5e1d9e9ed6f8f3",
+        "html_file": "Numerical-Methods.html",
+        "render_exit": 0,
+        "html_sha256": "383ecd8e93ad4b8f6e414a70e5471d1fee6c1d28938a53609cbae5faa468cb27"
+      },
+      {
+        "page": "Optional-Extensions.md",
+        "source_sha256": "52ff3b62b3cb03ae8756e99c8c27e8942b31f4742a2a0523973ec2c8504daf9a",
+        "html_file": "Optional-Extensions.html",
+        "render_exit": 0,
+        "html_sha256": "1ddf697514bf091dbb7a2c32cc14eec2329a207589926ee50702e202c305848b"
+      },
+      {
+        "page": "Scientific-Datasets.md",
+        "source_sha256": "7f890f4856e8201609b9fc17e5c38afaf40bb9e9a435417acaad7c5c14dcbeb6",
+        "html_file": "Scientific-Datasets.html",
+        "render_exit": 0,
+        "html_sha256": "c222e95d62708ceb005af220795cadb6c79a21b6a5d4dfc30a74e28002ca85ec"
+      },
+      {
+        "page": "Scientific-Evidence-and-Provenance.md",
+        "source_sha256": "3c65d6a19f4d88dc1ee24b9f649c2b06ba6bc9e4ddea2867140d603d3981d608",
+        "html_file": "Scientific-Evidence-and-Provenance.html",
+        "render_exit": 0,
+        "html_sha256": "e8d37b8b6b94db8c84ac461465d8b2465551780b6b55dd02adb06e921ade40aa"
+      },
+      {
+        "page": "Scientific-Machine-Learning.md",
+        "source_sha256": "fd7daa84e34235fa561cda4111d2ec7a10a0d4a898a753c5aae753cd9c1068e4",
+        "html_file": "Scientific-Machine-Learning.html",
+        "render_exit": 0,
+        "html_sha256": "2ad11c83d1884d0ebc145e323f6de27a05ed93539680349dca51fda61cd95c04"
+      },
+      {
+        "page": "Statistics.md",
+        "source_sha256": "ff593f631fb9da77e309c81a8792682d79f240c08d6873edc160dbbeaaf795d2",
+        "html_file": "Statistics.html",
+        "render_exit": 0,
+        "html_sha256": "8cbbe425865b222372d2edbbad46f517c6a16da8f77cb61e4fa6291bc5ce9a32"
+      },
+      {
+        "page": "Trajectories.md",
+        "source_sha256": "4bc7b7607e3f38946b867ee283cd7661b59a89486b01771a6d4d314ef5bece6b",
+        "html_file": "Trajectories.html",
+        "render_exit": 0,
+        "html_sha256": "b3c60a8669dce1a91b4df8292a7759b930226d31d0f7dc25fdfa48a4c21abf5d"
+      },
+      {
+        "page": "Troubleshooting.md",
+        "source_sha256": "c29cc98f8b597bf7869eb0364f5f9d2b21b87b8021da7b5dc02065fb834db87b",
+        "html_file": "Troubleshooting.html",
+        "render_exit": 0,
+        "html_sha256": "fa8d0edcc537e6b4bc5a41cc4d42614e1fa52ab28ebec8f68148bd3c4c5e7607"
+      },
+      {
+        "page": "Units-and-Precision.md",
+        "source_sha256": "06304e688a040e88d432b3aba012d74dcaea155d87cbcc46f9e5a1c3093d45ae",
+        "html_file": "Units-and-Precision.html",
+        "render_exit": 0,
+        "html_sha256": "e16e87e5352b62d2c7b673d45f49f701155d20e6d8890ae308784fc2ff7a67b4"
+      },
+      {
+        "page": "Vector-Calculus.md",
+        "source_sha256": "4f9b950650f699d1aea52922f1a8d41870db115046cfb01a70cdbd1544a979cf",
+        "html_file": "Vector-Calculus.html",
+        "render_exit": 0,
+        "html_sha256": "2d982034634dc0817fcd27694eb6a23f426c8bb2384042e9c6be68e731ca1c95"
+      },
+      {
+        "page": "_Sidebar.md",
+        "source_sha256": "13904cdf87f0882ab213fba03dc4759c539c934311e3657b988d1b4b57416e1b",
+        "html_file": "_Sidebar.html",
+        "render_exit": 0,
+        "html_sha256": "fe5d4f1ed2fb39c5154135c0775090a902956bc28ce19a0ead79b2710df6b5ca"
+      }
+    ]
+  },
+  "published_resource_readback": {
+    "records": [
+      {
+        "path": "Project.toml",
+        "status": 200,
+        "sha256": "82f9cb87b2a53dc1a03cc1aeafb0ae55c709d25a9450601c46806102d8178f6b",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "README.md",
+        "status": 200,
+        "sha256": "80030cec618e54da4f6decb4195c6e4f11d856d623d0ddc32d744f0a4e6fdf17",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/atomistic.md",
+        "status": 200,
+        "sha256": "7abc32baed7e59ae100aaf01c8353f273e3fdbc84362af2357d5a40659ac8e05",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/learned_dynamics.md",
+        "status": 200,
+        "sha256": "aa97892d89c9521ecaf353f78f3629b6b39d32a1f9e00f3e8b1fc70465c1726e",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/m10d_one_system_many_methods.md",
+        "status": 200,
+        "sha256": "227e365ce49162533a2555518ac1c58daba14fe24b57edd0c50337b644df9487",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/m10d_user_research_hardening.md",
+        "status": 200,
+        "sha256": "a0a6352924b2b3d1ef043af4fc3ff04ef307a460a8cb42620e5380e72f995f8f",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/parameter_inference.md",
+        "status": 200,
+        "sha256": "3aef71994f1d7507a7872911d36d82b9fd684d5e05830e7ec610d719de2179d6",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/pinn_diagnostics.md",
+        "status": 200,
+        "sha256": "b2c1a2915793e0ead81cf4d7ef66ba721076a8588ba31ac3fbaa5d8e19c06189",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/scientific_ml.md",
+        "status": 200,
+        "sha256": "ad7c6b77a56c1c211dcd36d1e5d2a203e71fa591cdb55926c2279fee19c508c1",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/guides/api-boundaries.md",
+        "status": 200,
+        "sha256": "0eb726172bdad1e29552535f8f1be417982dbc7c3067587aaa1e038d4365401e",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/index.md",
+        "status": 200,
+        "sha256": "9d38e07f4da848d31e459df01439eb692593a3aacc94a8d0b8e0db42e4129cd5",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/atomistic.md",
+        "status": 200,
+        "sha256": "5d87e8e455f63f3780b947afa1a6038cbd543cca9a1bc0b800af75b49ac8f92b",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/comparison.md",
+        "status": 200,
+        "sha256": "1d2da91800703295a49f83a1b633af2787f54415697904473baab346d98f4291",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/core.md",
+        "status": 200,
+        "sha256": "9f63b80ed1fc31708fed68ccc56bebfa709bc8b132bf2d36ff49097544dd6e6a",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/datasets.md",
+        "status": 200,
+        "sha256": "58ab57bff2b4117185bb70061030d95113512884127248c7d7d8e5d4c1ef348a",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/derivatives.md",
+        "status": 200,
+        "sha256": "ab252532b819e44543be2b8fdd9eff33ff0709671c5ad28c7502333b383e844b",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/dynamics.md",
+        "status": 200,
+        "sha256": "491b3aa5e7b900af88650f184c89e499a309ab8822bd9180ea72e69907044f89",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/evidence.md",
+        "status": 200,
+        "sha256": "c3d0da609b8fccb07562fecc53e01a1091c90ebaaec2132bc75edc61b7b6ed31",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/index.md",
+        "status": 200,
+        "sha256": "5db030a78c799e0a86f6a769003ea26902ff91f6768f8c116bf29d837f563cc3",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/mechanics.md",
+        "status": 200,
+        "sha256": "5802da174329ceacad2c1fbc2d6231a38ccee4f318fbd7c667c1c59d4c526a44",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/plots.md",
+        "status": 200,
+        "sha256": "9d2701d9e21b3d2204d57849f993cb0763a09b56f1bb5a1d72b3b8aa3a27f8c6",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/scalar.md",
+        "status": 200,
+        "sha256": "1f5b94c34cf6ac8c56d5071f4434fdf5ee97e3161811f21175538ac4377ebe7f",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/scientific-ml.md",
+        "status": 200,
+        "sha256": "0f433a285a41a8879228c651a5c327e158eb321da4dc0f81b861471c95feeade",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/statistics.md",
+        "status": 200,
+        "sha256": "1841113aa75f040e86635a0acbd06b2159813ffa4bc2752a919f199ab5c96823",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/transport.md",
+        "status": 200,
+        "sha256": "92e642deb30b4d3cb1a730f77165676728140bb6cdbf04130a462c0711729a36",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/src/reference/vector.md",
+        "status": 200,
+        "sha256": "0fece3bc29e92381333ab47655f54f12b176bea05e28b466de8a325472dfce93",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/surrogates.md",
+        "status": 200,
+        "sha256": "04aefcb7cffed941aa792c2e93c2c7c9175267a1ff697c3cbaf7285f55d8cede",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/trajectory_statistics.md",
+        "status": 200,
+        "sha256": "8afb055e65a67451a68450950eed7e18c22a7cad6b553d983747285209118f56",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/tutorials/atomistics.md",
+        "status": 200,
+        "sha256": "c11be1711543773253110c67f8ae0f3711c972bdcc86cee6d0bc29e7ebf87cd7",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/tutorials/calculus.md",
+        "status": 200,
+        "sha256": "b074bc74dd0cd5a420de6669b823a83d6d740de44b017dc59614ec739bb69dc5",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/tutorials/index.md",
+        "status": 200,
+        "sha256": "ee2ce57884132c8f400cb23e8346bbe6b657bc2099f177ce2660d39d264dd63e",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/tutorials/mechanics.md",
+        "status": 200,
+        "sha256": "9276ccd25bcbac94eaff149ca7a2ec2d0c58d7c5586700d04de7b9c95a21f546",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/tutorials/multivariate.md",
+        "status": 200,
+        "sha256": "fbe513dbac1de4b4818817065a0f1b908adb40bd1c001c6dffd5de3d835ce596",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/tutorials/normal-modes.md",
+        "status": 200,
+        "sha256": "4137f3b6ffa2d185ab941ceb00fa743d5ca606fd1e44c101dc19a7e9d37ed74c",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/tutorials/odes.md",
+        "status": 200,
+        "sha256": "282f0720171cb8c237f09b606ff0d9d2a22b0df132a5f8bde4fbc7d54df9ea96",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/tutorials/one-system-many-methods.md",
+        "status": 200,
+        "sha256": "00d7df53418d022938b16a71200bf87ad6755bcc82c1b37a8f1bdd2f71426389",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/tutorials/trajectories.md",
+        "status": 200,
+        "sha256": "713c1572739b75b2b682931bd937f22837fea8e24e67dd6326eefab80e8fa43c",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "docs/tutorials/vector-calculus.md",
+        "status": 200,
+        "sha256": "dcc376f5e6e292a4cb45e6eef6e024a320d42917bb4f01faea4fb607cf8a1c15",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "examples/integration/one_system_learning.jl",
+        "status": 200,
+        "sha256": "90c6aa5028a3e6722a170889c54e1a9d0e270df8f2e3a095911f15a232fd50df",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      },
+      {
+        "path": "reports/m10d6/resource_controls.json",
+        "status": 200,
+        "sha256": "78af9e3401c01e24f34b563fe9c5a833fd0aefd5936759e1b5f2a6ef212d623e",
+        "version": "4e2143953baf23542d91ab62ee08c7673d5ce6cb"
+      }
+    ],
+    "source_only": true
+  },
+  "remote_tree_validation": {
+    "revision": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+    "truncated": false,
+    "linked_paths_verified": [
+      "Project.toml",
+      "README.md",
+      "docs/atomistic.md",
+      "docs/learned_dynamics.md",
+      "docs/m10d_one_system_many_methods.md",
+      "docs/m10d_user_research_hardening.md",
+      "docs/parameter_inference.md",
+      "docs/pinn_diagnostics.md",
+      "docs/scientific_ml.md",
+      "docs/src/guides/api-boundaries.md",
+      "docs/src/index.md",
+      "docs/src/reference/atomistic.md",
+      "docs/src/reference/comparison.md",
+      "docs/src/reference/core.md",
+      "docs/src/reference/datasets.md",
+      "docs/src/reference/derivatives.md",
+      "docs/src/reference/dynamics.md",
+      "docs/src/reference/evidence.md",
+      "docs/src/reference/index.md",
+      "docs/src/reference/mechanics.md",
+      "docs/src/reference/plots.md",
+      "docs/src/reference/scalar.md",
+      "docs/src/reference/scientific-ml.md",
+      "docs/src/reference/statistics.md",
+      "docs/src/reference/transport.md",
+      "docs/src/reference/vector.md",
+      "docs/surrogates.md",
+      "docs/trajectory_statistics.md",
+      "docs/tutorials/atomistics.md",
+      "docs/tutorials/calculus.md",
+      "docs/tutorials/index.md",
+      "docs/tutorials/mechanics.md",
+      "docs/tutorials/multivariate.md",
+      "docs/tutorials/normal-modes.md",
+      "docs/tutorials/odes.md",
+      "docs/tutorials/one-system-many-methods.md",
+      "docs/tutorials/trajectories.md",
+      "docs/tutorials/vector-calculus.md",
+      "examples/integration/one_system_learning.jl",
+      "reports/m10d6/resource_controls.json"
+    ],
+    "missing": []
+  },
+  "validator_self_test": {
+    "status": "PASS",
+    "canonical_positive_control": "PASS",
+    "negative_fixtures": [
+      {
+        "fixture": "missing_answer",
+        "rejected": true,
+        "error_count": 3
+      },
+      {
+        "fixture": "duplicate_answer",
+        "rejected": true,
+        "error_count": 2
+      },
+      {
+        "fixture": "wording_drift",
+        "rejected": true,
+        "error_count": 1
+      },
+      {
+        "fixture": "placeholder",
+        "rejected": true,
+        "error_count": 1
+      },
+      {
+        "fixture": "broken_page",
+        "rejected": true,
+        "error_count": 1
+      },
+      {
+        "fixture": "broken_fragment",
+        "rejected": true,
+        "error_count": 1
+      },
+      {
+        "fixture": "missing_index_question",
+        "rejected": true,
+        "error_count": 2
+      },
+      {
+        "fixture": "future_guide",
+        "rejected": true,
+        "error_count": 2
+      },
+      {
+        "fixture": "fake_deployment",
+        "rejected": true,
+        "error_count": 1
+      },
+      {
+        "fixture": "wrong_triggers",
+        "rejected": true,
+        "error_count": 1
+      },
+      {
+        "fixture": "unsupported_backend_guarantee",
+        "rejected": true,
+        "error_count": 1
+      },
+      {
+        "fixture": "missing_resource_distinction",
+        "rejected": true,
+        "error_count": 1
+      },
+      {
+        "fixture": "missing_mapping",
+        "rejected": true,
+        "error_count": 1
+      },
+      {
+        "fixture": "duplicate_anchor",
+        "rejected": true,
+        "error_count": 2
+      }
+    ],
+    "canonical_files_modified": false
+  },
+  "flat_copy_fixture": {
+    "status": "PASS",
+    "pages": 20,
+    "bytes_identical": true,
+    "remote_repository_initialized": false
+  },
+  "protected_integrity": {
+    "protected_files": 490,
+    "changed": [],
+    "missing": []
+  },
+  "candidate_paths": [
+    "reports/m10d6/wiki_check.py",
+    "reports/m10d6/wiki_implementation_report.md",
+    "reports/m10d6/wiki_target_reconciliation.json",
+    "reports/m10d6/wiki_verification.json",
+    "wiki/Atomistic-Computing.md",
+    "wiki/Calculus-and-Symbolics.md",
+    "wiki/Differential-Equations.md",
+    "wiki/FAQ-Index.md",
+    "wiki/Getting-Started.md",
+    "wiki/Home.md",
+    "wiki/Linear-Algebra.md",
+    "wiki/Mechanics-and-Dynamics.md",
+    "wiki/Memory-and-Performance.md",
+    "wiki/Numerical-Methods.md",
+    "wiki/Optional-Extensions.md",
+    "wiki/Scientific-Datasets.md",
+    "wiki/Scientific-Evidence-and-Provenance.md",
+    "wiki/Scientific-Machine-Learning.md",
+    "wiki/Statistics.md",
+    "wiki/Trajectories.md",
+    "wiki/Troubleshooting.md",
+    "wiki/Units-and-Precision.md",
+    "wiki/Vector-Calculus.md",
+    "wiki/_Sidebar.md"
+  ],
+  "candidate_security": {
+    "high_confidence_credential_findings": [],
+    "unauthorized_paths": [],
+    "generated_build_artifacts_staged": false,
+    "qualification": "Exact final index audit and post-commit blob/read-back assertions are recorded in the external ledger."
+  },
+  "verified_content_sha256": {
+    "wiki/Atomistic-Computing.md": "39221829885ab7090d61e663d3f894957cef2dcb2fbd1ccc2fc144052b39b8ad",
+    "wiki/Calculus-and-Symbolics.md": "11946f703a0baa28cb7174b65d500ad091b57584ac470d0558275c42f152ac43",
+    "wiki/Differential-Equations.md": "e8a3eebab5e017688bc1abd64c2bb497143a4d7100bea9d0aed0590f160ff0db",
+    "wiki/FAQ-Index.md": "89d82478f50f11b4b05f6e9dbd3ec2d11eba835af288235cc9592a64109983ae",
+    "wiki/Getting-Started.md": "1da52b1e960f7d0760ff0cecf9d01aec30c8f5f9f6c35824df2e94d70ab6b8d8",
+    "wiki/Home.md": "01c95bb9c06ff2d0044948248c311a0e72bb799c8b05489c602f43502d8130d2",
+    "wiki/Linear-Algebra.md": "c971304123c05d29e438187e86bf8d0756d2c2bc455cd7b43c45e45b1192a5b5",
+    "wiki/Mechanics-and-Dynamics.md": "ad7416b1e02549e4e7d6d038565775932fd5b6e832d7c73109ebbc3bf348c730",
+    "wiki/Memory-and-Performance.md": "e6e4f293903d73a6480d77d78c225989cb900d82d97c77a0bbadb5351df324c5",
+    "wiki/Numerical-Methods.md": "dc637cd2ec2406b2943979701f967a893daa4c49d9e0e8c7bd5e1d9e9ed6f8f3",
+    "wiki/Optional-Extensions.md": "52ff3b62b3cb03ae8756e99c8c27e8942b31f4742a2a0523973ec2c8504daf9a",
+    "wiki/Scientific-Datasets.md": "7f890f4856e8201609b9fc17e5c38afaf40bb9e9a435417acaad7c5c14dcbeb6",
+    "wiki/Scientific-Evidence-and-Provenance.md": "3c65d6a19f4d88dc1ee24b9f649c2b06ba6bc9e4ddea2867140d603d3981d608",
+    "wiki/Scientific-Machine-Learning.md": "fd7daa84e34235fa561cda4111d2ec7a10a0d4a898a753c5aae753cd9c1068e4",
+    "wiki/Statistics.md": "ff593f631fb9da77e309c81a8792682d79f240c08d6873edc160dbbeaaf795d2",
+    "wiki/Trajectories.md": "4bc7b7607e3f38946b867ee283cd7661b59a89486b01771a6d4d314ef5bece6b",
+    "wiki/Troubleshooting.md": "c29cc98f8b597bf7869eb0364f5f9d2b21b87b8021da7b5dc02065fb834db87b",
+    "wiki/Units-and-Precision.md": "06304e688a040e88d432b3aba012d74dcaea155d87cbcc46f9e5a1c3093d45ae",
+    "wiki/Vector-Calculus.md": "4f9b950650f699d1aea52922f1a8d41870db115046cfb01a70cdbd1544a979cf",
+    "wiki/_Sidebar.md": "13904cdf87f0882ab213fba03dc4759c539c934311e3657b988d1b4b57416e1b",
+    "reports/m10d6/wiki_check.py": "f85cea075caf7a62d726bf8d7ab9c0947e072c21f4283dc580ba1943d6ec35e7",
+    "reports/m10d6/wiki_target_reconciliation.json": "df4cfdb7a9ccaf733f89f52fb99aad8501a5287ec50d363b9a488ba72cd24708"
+  },
+  "local_commit": {
+    "subject": "[m10d] Complete M10D.6F scientific FAQ and Wiki source",
+    "parent": "4e2143953baf23542d91ab62ee08c7673d5ce6cb",
+    "identity": "Containing commit, resolved with git log -1 --format=%H -- reports/m10d6/wiki_verification.json",
+    "readback_ledger": "/home/lorenzozm/.hermes/cache/scratch/m10d6f-sol/post_commit_readback.json",
+    "hash_note": "A report cannot embed its own containing SHA without self-reference; the external ledger and final response carry it.",
+    "push_authorized": false,
+    "tag_authorized": false,
+    "wiki_publication_authorized": false
+  },
+  "open_findings": [
+    {
+      "scope": "Publication follow-up",
+      "finding": "Remote Wiki history/content and live routing unavailable before authorized publication; re-inspect before any copy/push."
+    },
+    {
+      "scope": "Post-publication README follow-up",
+      "finding": "Add public Wiki link only after remote read-back verifies publication."
+    },
+    {
+      "scope": "M10D.6E",
+      "finding": "Scientific guides remain deferred; none implemented."
+    },
+    {
+      "scope": "M10D.6G",
+      "finding": "Detailed refusal/recovery decision trees require separate authorization."
+    },
+    {
+      "scope": "M10D.6H",
+      "finding": "Previously known atomistic reference Source: . artifact and ML page size-policy review preserved, not reopened."
+    }
+  ]
+}
