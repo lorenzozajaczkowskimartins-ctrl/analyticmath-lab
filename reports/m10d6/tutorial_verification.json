@@ -1,0 +1,387 @@
+{
+  "milestone": "M10D.6C",
+  "baseline": "97d8d13a5fdde467c4e44f406150a98bde9547e9",
+  "initial_git": {
+    "branch": "main",
+    "status": "clean"
+  },
+  "checkpoints": {
+    "C1": {
+      "status": "COMPLETE",
+      "evidence": "tutorial_implementation_report.md"
+    },
+    "C2": {
+      "status": "COMPLETE",
+      "evidence": [
+        "calculus",
+        "multivariate",
+        "vector_calculus"
+      ]
+    },
+    "C3": {
+      "status": "COMPLETE",
+      "evidence": [
+        "mechanics",
+        "normal_modes",
+        "odes"
+      ]
+    },
+    "C4": {
+      "status": "COMPLETE",
+      "evidence": [
+        "trajectories",
+        "atomistics",
+        "one_system_many_methods",
+        "canonical"
+      ]
+    },
+    "C5": {
+      "status": "PRE_COMMIT_VERIFIED",
+      "evidence": [
+        "static_validation",
+        "tutorial_implementation_report.md"
+      ],
+      "final_closure": "/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d6c/commit_readback.json"
+    }
+  },
+  "executions": [
+    {
+      "name": "calculus",
+      "command": [
+        "julia",
+        "+1.12.7",
+        "--project=.",
+        "docs/tutorials/scripts/calculus.jl"
+      ],
+      "cwd": "/home/lorenzozm/PROJETOS/analyticmath-lab",
+      "script_sha256": "717600b443093f72fb3b9dc9648e429d064f02f049387cd46ac648ec73c109d8",
+      "log": "/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d6c/calculus.log",
+      "status": "PASS",
+      "start_utc": "2026-10-12T16:05:05Z",
+      "exit_status": 0,
+      "duration_seconds": 26.704,
+      "log_sha256": "fbb096faa824f1284c685c1b410bd5babc4ee8eac3558407d603682fff02bbc7",
+      "completion_marker": "CALCULUS_OK",
+      "marker_present": true,
+      "observed_output": "(value = 3.0, stationary = [1.0, 2.999999999999999], classifications = [:maximum_candidate, :minimum_candidate], derivative_values = (symbolic = -3.0, automatic = -3.0, central = -2.9999999998139817), discrepancies = (automatic = 0.0, central = 1.8601831186515483e-10), explicit_h = 0.125, stencil = -2.984375)\nCALCULUS_OK\n"
+    },
+    {
+      "name": "multivariate",
+      "command": [
+        "julia",
+        "+1.12.7",
+        "--project=.",
+        "docs/tutorials/scripts/multivariate.jl"
+      ],
+      "cwd": "/home/lorenzozm/PROJETOS/analyticmath-lab",
+      "script_sha256": "3f4296aaa694d7888c3d7c7bee25caf9dbe682f64c8d1a6270296e2921d1120f",
+      "log": "/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d6c/multivariate.log",
+      "status": "PASS",
+      "start_utc": "2026-10-12T16:06:27Z",
+      "exit_status": 0,
+      "duration_seconds": 22.293,
+      "log_sha256": "a76e756d0ae3050f597617d171a86117fa7d953000d50a5a07adb99dd44c9ba9",
+      "completion_marker": "MULTIVARIATE_OK",
+      "marker_present": true,
+      "observed_output": "(gradient_at_1_2 = [4, 9], hessian = [2 1; 1 4], stationary = Rational{BigInt}[0, 0], classification = :minimum_candidate, search_status = :established, method = :exact_linear_system)\nMULTIVARIATE_OK\n"
+    },
+    {
+      "name": "vector_calculus",
+      "command": [
+        "julia",
+        "+1.12.7",
+        "--project=.",
+        "docs/tutorials/scripts/vector_calculus.jl"
+      ],
+      "cwd": "/home/lorenzozm/PROJETOS/analyticmath-lab",
+      "script_sha256": "262cd50e7be65362d6583d55e79a51e4646fc485816657dcc9cc72d3acf2d580",
+      "log": "/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d6c/vector_calculus.log",
+      "status": "PASS",
+      "start_utc": "2026-10-12T16:06:49Z",
+      "exit_status": 0,
+      "duration_seconds": 24.493,
+      "log_sha256": "db3edc2adc2daa18f5c5595486bd762ecd3f94ee0e2147f7b4e07bf503073634",
+      "completion_marker": "VECTOR_CALCULUS_OK",
+      "marker_present": true,
+      "observed_output": "(rotation_value = [-2, 1], jacobian = Num[0 -1; 1 0], divergence = 0, planar_curl = 2, rotation_potential_status = :unknown, radial_potential = x^2 + y^2)\nVECTOR_CALCULUS_OK\n"
+    },
+    {
+      "name": "mechanics",
+      "command": [
+        "julia",
+        "+1.12.7",
+        "--project=.",
+        "docs/tutorials/scripts/mechanics.jl"
+      ],
+      "cwd": "/home/lorenzozm/PROJETOS/analyticmath-lab",
+      "script_sha256": "180069bd1ff82211bf0d92bd4fa80608ed8e92ba5c5d22ea06be44ab1b75ed6a",
+      "log": "/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d6c/mechanics.log",
+      "status": "PASS",
+      "start_utc": "2026-10-12T16:11:25Z",
+      "exit_status": 0,
+      "duration_seconds": 23.44,
+      "log_sha256": "88e048cd2436c7e7fffeeb46417c5df72b5c430e3b4890459bce88ea28bd96af",
+      "completion_marker": "MECHANICS_OK",
+      "marker_present": true,
+      "observed_output": "(momentum = 2v, mass = Num[2;;], lagrangian_energy = 4(q^2) + v^2, hamiltonian = (1//4)*(p^2) + 4(q^2), hamilton_flow = Num[(1//2)*p, -8q], legendre_status = :established)\nMECHANICS_OK\n"
+    },
+    {
+      "name": "normal_modes",
+      "command": [
+        "julia",
+        "+1.12.7",
+        "--project=.",
+        "docs/tutorials/scripts/normal_modes.jl"
+      ],
+      "cwd": "/home/lorenzozm/PROJETOS/analyticmath-lab",
+      "script_sha256": "94a949d38355839ba7854988d27d1090b9d20b4e4bc53d9a2e098bd0fd6f7bd6",
+      "log": "/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d6c/normal_modes.log",
+      "status": "PASS",
+      "start_utc": "2026-10-12T16:11:48Z",
+      "exit_status": 0,
+      "duration_seconds": 6.387,
+      "log_sha256": "d9025f3f15fc1051f4c9750dbdafe93c7b31784b5a100632cf8e5bbda4d65a90",
+      "completion_marker": "NORMAL_MODES_OK",
+      "marker_present": true,
+      "observed_output": "(squared_frequencies = [1.0, 3.0], angular_frequencies = Union{Missing, Float64}[1.0, 1.7320508075688772], residual = 0.0, mass_orthogonality = 2.220446049250313e-16, sign_independent_alignment = [0.9999999999999998, 0.9999999999999998])\nNORMAL_MODES_OK\n"
+    },
+    {
+      "name": "odes",
+      "command": [
+        "julia",
+        "+1.12.7",
+        "--project=.",
+        "docs/tutorials/scripts/odes.jl"
+      ],
+      "cwd": "/home/lorenzozm/PROJETOS/analyticmath-lab",
+      "script_sha256": "5fc04e274ff98aea4718faf4d2309d792f5e6ba09243b88c954b67412569689d",
+      "log": "/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d6c/odes.log",
+      "status": "PASS",
+      "start_utc": "2026-10-12T16:11:55Z",
+      "exit_status": 0,
+      "duration_seconds": 6.184,
+      "log_sha256": "5f711084592fe1cf4aec32c8116fe7f625798a1ea36b9a8497892bd8acf44da4",
+      "completion_marker": "ODES_OK",
+      "marker_present": true,
+      "observed_output": "(saved_samples = 84, requested_stops = 17, accepted = 83, rejected = 2, max_saved_state_error = 1.7564838472594602e-12, interpolation_query = 0.37, interpolation_error = 8.177902799388903e-13, labels = (\"q\", \"v\"))\nODES_OK\n"
+    },
+    {
+      "name": "trajectories",
+      "command": [
+        "julia",
+        "+1.12.7",
+        "--project=.",
+        "docs/tutorials/scripts/trajectories.jl"
+      ],
+      "cwd": "/home/lorenzozm/PROJETOS/analyticmath-lab",
+      "script_sha256": "5ab9dc217c7d1a7214bae447ff017f628441d01e62d567cdfd36d9586ddd4693",
+      "log": "/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d6c/trajectories.log",
+      "status": "PASS",
+      "start_utc": "2026-10-12T16:15:03Z",
+      "exit_status": 0,
+      "duration_seconds": 8.237,
+      "log_sha256": "5cad20c860067ed9802f5c502106a8fa144c18689fd89808b26a89a3f7684afc",
+      "completion_marker": "TRAJECTORIES_OK",
+      "marker_present": true,
+      "observed_output": "(saved_samples = 84, requested_stops = 17, accepted = 83, rejected = 2, max_saved_state_error = 1.7564838472594602e-12, interpolation_query = 0.37, interpolation_error = 8.177902799388903e-13, labels = (\"q\", \"v\"))\nODES_OK\n(oscillator_count = 84, sample_mean = 0.4356053310345854, analytical_sample_mean = 0.4356053310351437, mean_discrepancy = 5.583311590839912e-13, calibration = (count = 5, mean = 3.0, variance = 2.5, std = 1.5811388300841898, minimum = 1.0, maximum = 5.0, standard_error = nothing), running_means = Any[1.0, 1.5, 2.0, 2.5, 3.0])\nTRAJECTORIES_OK\n"
+    },
+    {
+      "name": "atomistics",
+      "command": [
+        "julia",
+        "+1.12.7",
+        "--project=.",
+        "docs/tutorials/scripts/atomistics.jl"
+      ],
+      "cwd": "/home/lorenzozm/PROJETOS/analyticmath-lab",
+      "script_sha256": "724337815ff55a72ee82ddc858d33ec94fb19b5268b0bf3f9cdb842c0fda1d59",
+      "log": "/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d6c/atomistics.log",
+      "status": "PASS",
+      "start_utc": "2026-10-12T16:15:12Z",
+      "exit_status": 0,
+      "duration_seconds": 7.784,
+      "log_sha256": "0b01ee22be8ba3768869f2cd3beb543f68b88a47b57de0313dcd33a02afd5a22",
+      "completion_marker": "ATOMISTICS_OK",
+      "marker_present": true,
+      "observed_output": "(pairs = [(1, 2), (1, 3), (2, 3)], distances = Any[3.0 nm, 4.0 nm, 5.0 nm], selected_pairs = [(1, 3), (2, 3)], units = \"nm\", limited_output_status = :unknown)\nATOMISTICS_OK\n"
+    },
+    {
+      "name": "one_system_many_methods",
+      "command": [
+        "julia",
+        "+1.12.7",
+        "--project=.",
+        "docs/tutorials/scripts/one_system_many_methods.jl"
+      ],
+      "cwd": "/home/lorenzozm/PROJETOS/analyticmath-lab",
+      "script_sha256": "61acffd2bf749c162e21e050df4790406bef5156877a6b5ee076d856f8fae73d",
+      "log": "/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d6c/one_system_many_methods.log",
+      "status": "PASS",
+      "start_utc": "2026-10-12T16:15:19Z",
+      "exit_status": 0,
+      "duration_seconds": 102.645,
+      "log_sha256": "8ec17005defe2c8a9c9883a0b196d8e00264248e74b10cc59308a8f02020baa9",
+      "completion_marker": "ONE_SYSTEM_MANY_METHODS_OK",
+      "marker_present": true,
+      "observed_output": "(metrics = (trajectory_error = 4.335370951125128e-11, energy_drift = 1.083398648571432e-11, energy_oracle_error = 1.0833993424608224e-11, hamiltonian_energy_error = 6.938893903907228e-18, hamiltonian_flow_error = 0.0, mode_residual = 0.0, orthogonality_error = 2.220446049250313e-16, frequencies = Union{Missing, Float64}[1.0, 1.7320508075688772], energy = 0.035, saved_points = 321), comparisons = 12, dataset_reference = (kind = :numerical, description = \"AML mechanics trajectory; not analytical truth\", error = :unknown), optional_extensions = :not_loaded)\nONE_SYSTEM_MANY_METHODS_OK\n"
+    },
+    {
+      "name": "canonical",
+      "command": [
+        "julia",
+        "+1.12.7",
+        "--project=.",
+        "examples/integration/one_system_many_methods.jl"
+      ],
+      "cwd": "/home/lorenzozm/PROJETOS/analyticmath-lab",
+      "script_sha256": "5095e5ac62b3ec2cc85ac1477a10709d2595fec2a6ef4e01163ce14aaf76c193",
+      "log": "/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d6c/canonical.log",
+      "status": "PASS",
+      "start_utc": "2026-10-12T16:17:02Z",
+      "exit_status": 0,
+      "duration_seconds": 95.012,
+      "log_sha256": "f7e0ec339d730bc556b20a899377cf4f92574199bcc52d409e40bb0676635ac6",
+      "completion_marker": "Analytical oracle: same physical model, NOT descended from the trajectory.",
+      "marker_present": true,
+      "observed_output": "Coupled oscillator; all quantities explicitly dimensionless\nParameters: (m = 1, k = 1, \u03ba = 1); order: (:q1, :q2, :v1, :v2)\nIndependent analytical oracle versus AML: (trajectory_error = 4.335370951125128e-11, energy_drift = 1.083398648571432e-11, energy_oracle_error = 1.0833993424608224e-11, hamiltonian_energy_error = 6.938893903907228e-18, hamiltonian_flow_error = 0.0, mode_residual = 0.0, orthogonality_error = 2.220446049250313e-16, frequencies = Union{Missing, Float64}[1.0, 1.7320508075688772], energy = 0.035, saved_points = 321)\n(stage = :equilibrium, quantity = :q, compatibility = :explicit_same_quantity_and_conventions, error = 0, tolerance = 1.0e-13, agreement = true, units = :dimensionless, actual_quality = :symbolic, reference_quality = :analytical)\n(stage = :gradient, quantity = :gradient_V, compatibility = :explicit_same_quantity_and_conventions, error = 0.0, tolerance = 1.0e-13, agreement = true, units = :dimensionless, actual_quality = :symbolic, reference_quality = :analytical)\n(stage = :hessian, quantity = :stiffness, compatibility = :explicit_same_quantity_and_conventions, error = 0, tolerance = 1.0e-13, agreement = true, units = :dimensionless, actual_quality = :symbolic, reference_quality = :analytical)\n(stage = :linearization, quantity = :stiffness, compatibility = :explicit_same_quantity_and_conventions, error = 0, tolerance = 1.0e-13, agreement = true, units = :dimensionless, actual_quality = :symbolic, reference_quality = :analytical)\n(stage = :modes, quantity = :angular_frequency, compatibility = :explicit_same_quantity_and_conventions, error = 0.0, tolerance = 1.0e-13, agreement = true, units = :dimensionless, actual_quality = :numerical, reference_quality = :analytical)\n(stage = :trajectory, quantity = :q_and_v, compatibility = :explicit_same_quantity_and_conventions, error = 4.335370951125128e-11, tolerance = 2.0e-8, agreement = true, units = :dimensionless, actual_quality = :numerical, reference_quality = :analytical)\n(stage = :energy, quantity = :energy, compatibility = :explicit_same_quantity_and_conventions, error = 1.0833993424608224e-11, tolerance = 2.0e-9, agreement = true, units = :dimensionless, actual_quality = :numerical, reference_quality = :analytical)\n(stage = :mechanical_energy, quantity = :energy, compatibility = :explicit_same_quantity_and_conventions, error = 6.938893903907228e-18, tolerance = 1.0e-13, agreement = true, units = :dimensionless, actual_quality = :numerical, reference_quality = :numerical)\n(stage = :hamiltonian_energy, quantity = :energy, compatibility = :explicit_same_quantity_and_conventions, error = 1.0833993424608224e-11, tolerance = 2.0e-9, agreement = true, units = :dimensionless, actual_quality = :numerical, reference_quality = :analytical)\n(stage = :observable, quantity = :q1, compatibility = :explicit_same_quantity_and_conventions, error = 2.5175556084278128e-11, tolerance = 2.0e-8, agreement = true, units = :dimensionless, actual_quality = :numerical, reference_quality = :analytical)\n(stage = :atomistic, quantity = :pair_distance, compatibility = :explicit_same_quantity_and_conventions, error = 3.7844727351910024e-11, tolerance = 2.0e-8, agreement = true, units = :dimensionless, actual_quality = :numerical, reference_quality = :analytical)\n(stage = :dataset, quantity = :q1, compatibility = :explicit_same_quantity_and_conventions, error = 0.0, tolerance = 0, agreement = true, units = :dimensionless, actual_quality = :numerical, reference_quality = :numerical)\nSampled statistics (not continuum averages): (q1 = (count = 321, mean = -0.011584066594832168, variance = 0.014381455086863958, std = 0.11992270463454349, minimum = -0.20677581143898252, maximum = 0.21213203435596426, standard_error = nothing), q2 = (count = 321, mean = -0.0036830909569338776, variance = 0.011493104255458615, std = 0.10720589655172244, minimum = -0.2021871118765632, maximum = 0.18278726557488445, standard_error = nothing), energy = (count = 321, mean = 0.03499999999458279, variance = 9.872389443999642e-24, std = 3.142035875670366e-12, minimum = 0.03499999998916601, maximum = 0.034999999999999996, standard_error = nothing), symmetric_mode = (count = 321, mean = -0.010795510634297185, variance = 0.02090224336594544, std = 0.14457608158317697, minimum = -0.19998381518764505, maximum = 0.19999999999999998, standard_error = nothing))\nLegitimate recorded ancestry: (series = NamedTuple[(source_type = :ObservableSeries, operation = :stored_observable_selection, token = 0x1be3ed09bfb557a1, truncated = false), (source_type = :TrajectoryResult, operation = :numerical_integration, token = 0x76f43e635eab162c, truncated = false), (source_type = :MechanicsDynamics, operation = :mechanics_to_dynamics, token = 0x7894a9b926efaf9c, truncated = false), (source_type = :LagrangianAnalysis, operation = :symbolic_mechanics, token = 0x4cb21fb7a65a5c06, truncated = false)], summary = (availability = :unknown, value = nothing), dataset = NamedTuple[(source_type = :ScientificDataset, operation = :scientific_dataset, token = 0x728c7cbd4bcd7422, truncated = false), (source_type = :TrajectoryResult, operation = :numerical_integration, token = 0x76f43e635eab162c, truncated = false), (source_type = :MechanicsDynamics, operation = :mechanics_to_dynamics, token = 0x7894a9b926efaf9c, truncated = false), (source_type = :LagrangianAnalysis, operation = :symbolic_mechanics, token = 0x4cb21fb7a65a5c06, truncated = false)], modes = NamedTuple[(source_type = :NormalModeAnalysis, operation = :normal_mode_analysis, token = 0x7a29cc1f5ab5bac8, truncated = false), (source_type = :MechanicalLinearization, operation = :mechanical_linearization, token = 0x338c7a5e7519719e, truncated = false), (source_type = :LagrangianAnalysis, operation = :symbolic_mechanics, token = 0x4cb21fb7a65a5c06, truncated = false)])\nStatistical leaf ancestry is unavailable; keep its source series explicitly.\nAnalytical oracle: same physical model, NOT descended from the trajectory.\n"
+    }
+  ],
+  "status": "PRE_COMMIT_VERIFIED",
+  "commit_subject": "[m10d] Complete M10D.6C executable scientific tutorials",
+  "commit_identity_policy": "Containing SHA and post-commit Git status recorded in external commit_readback.json; resolve locally with git log -1 --format=%H -- reports/m10d6/tutorial_implementation_report.md",
+  "full_canonical_suite": "NOT_RUN; 5649 assertions remain HISTORICAL_VERIFICATION",
+  "runtime": {
+    "probe_command": [
+      "julia",
+      "+1.12.7",
+      "--startup-file=no",
+      "--project=.",
+      "-e",
+      "using AnalyticMathLab, Symbolics, LinearAlgebra; println(\"Julia=\", VERSION); println(\"Project=\", Base.active_project()); println(\"AML=\", pkgversion(AnalyticMathLab)); println(\"Symbolics=\", pkgversion(Symbolics)); @assert VERSION == v\"1.12.7\"; @assert Base.active_project() == joinpath(pwd(), \"Project.toml\")"
+    ],
+    "output": "Julia=1.12.7\nProject=/home/lorenzozm/PROJETOS/analyticmath-lab/Project.toml\nAML=0.1.0\nSymbolics=7.39.2\n",
+    "exit_status": 0,
+    "environment": {
+      "JULIA_LOAD_PATH": "@:@stdlib",
+      "JULIA_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "JULIA_PKG_PRECOMPILE_AUTO": "0"
+    },
+    "dependency_resolution": "NOT_PERFORMED; existing root Manifest and depot"
+  },
+  "previous_attempts": [
+    {
+      "name": "multivariate",
+      "command": [
+        "julia",
+        "+1.12.7",
+        "--project=.",
+        "docs/tutorials/scripts/multivariate.jl"
+      ],
+      "cwd": "/home/lorenzozm/PROJETOS/analyticmath-lab",
+      "script_sha256": "374080c17c8fde4a539a5b32d8112371bbe82a8430e54b2feec46dbc08dd13fe",
+      "log": "/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d6c/multivariate-initial.log",
+      "status": "FAIL",
+      "start_utc": "2026-10-12T16:05:32Z",
+      "exit_status": 1,
+      "duration_seconds": 21.99,
+      "log_sha256": "9163df673637c4e3cfe2d1c95184dede51941087b11f000d50a78ce6c1910fa1",
+      "completion_marker": "MULTIVARIATE_OK",
+      "marker_present": false,
+      "observed_output": "ERROR: LoadError: AssertionError: point.classification == :minimum\nStacktrace:\n [1] top-level scope\n   @ ~/PROJETOS/analyticmath-lab/docs/tutorials/scripts/multivariate.jl:16\n [2] include(mod::Module, _path::String)\n   @ Base ./Base.jl:306\n [3] exec_options(opts::Base.JLOptions)\n   @ Base ./client.jl:317\n [4] _start()\n   @ Base ./client.jl:550\nin expression starting at /home/lorenzozm/PROJETOS/analyticmath-lab/docs/tutorials/scripts/multivariate.jl:16\n"
+    }
+  ],
+  "static_validation": {
+    "status": "PASS",
+    "script_equivalence": [
+      {
+        "page": "docs/tutorials/calculus.md",
+        "script": "docs/tutorials/scripts/calculus.jl",
+        "sha256": "717600b443093f72fb3b9dc9648e429d064f02f049387cd46ac648ec73c109d8",
+        "imports": [
+          "AnalyticMathLab",
+          "Symbolics"
+        ]
+      },
+      {
+        "page": "docs/tutorials/multivariate.md",
+        "script": "docs/tutorials/scripts/multivariate.jl",
+        "sha256": "3f4296aaa694d7888c3d7c7bee25caf9dbe682f64c8d1a6270296e2921d1120f",
+        "imports": [
+          "AnalyticMathLab",
+          "Symbolics"
+        ]
+      },
+      {
+        "page": "docs/tutorials/vector-calculus.md",
+        "script": "docs/tutorials/scripts/vector_calculus.jl",
+        "sha256": "262cd50e7be65362d6583d55e79a51e4646fc485816657dcc9cc72d3acf2d580",
+        "imports": [
+          "AnalyticMathLab",
+          "Symbolics"
+        ]
+      },
+      {
+        "page": "docs/tutorials/mechanics.md",
+        "script": "docs/tutorials/scripts/mechanics.jl",
+        "sha256": "180069bd1ff82211bf0d92bd4fa80608ed8e92ba5c5d22ea06be44ab1b75ed6a",
+        "imports": [
+          "AnalyticMathLab",
+          "Symbolics"
+        ]
+      },
+      {
+        "page": "docs/tutorials/normal-modes.md",
+        "script": "docs/tutorials/scripts/normal_modes.jl",
+        "sha256": "94a949d38355839ba7854988d27d1090b9d20b4e4bc53d9a2e098bd0fd6f7bd6",
+        "imports": [
+          "AnalyticMathLab",
+          "LinearAlgebra"
+        ]
+      },
+      {
+        "page": "docs/tutorials/odes.md",
+        "script": "docs/tutorials/scripts/odes.jl",
+        "sha256": "5fc04e274ff98aea4718faf4d2309d792f5e6ba09243b88c954b67412569689d",
+        "imports": [
+          "AnalyticMathLab"
+        ]
+      },
+      {
+        "page": "docs/tutorials/trajectories.md",
+        "script": "docs/tutorials/scripts/trajectories.jl",
+        "sha256": "5ab9dc217c7d1a7214bae447ff017f628441d01e62d567cdfd36d9586ddd4693",
+        "imports": [
+          "AnalyticMathLab"
+        ]
+      },
+      {
+        "page": "docs/tutorials/atomistics.md",
+        "script": "docs/tutorials/scripts/atomistics.jl",
+        "sha256": "724337815ff55a72ee82ddc858d33ec94fb19b5268b0bf3f9cdb842c0fda1d59",
+        "imports": [
+          "AnalyticMathLab",
+          "Unitful"
+        ]
+      },
+      {
+        "page": "docs/tutorials/one-system-many-methods.md",
+        "script": "docs/tutorials/scripts/one_system_many_methods.jl",
+        "sha256": "61acffd2bf749c162e21e050df4790406bef5156877a6b5ee076d856f8fae73d",
+        "imports": [
+          "AnalyticMathLab"
+        ]
+      }
+    ],
+    "julia_blocks": 9,
+    "tutorial_pages_including_index": 10,
+    "markdown_files_link_checked": 12,
+    "readme_only_one_navigation_line": true,
+    "relative_link_occurrences": 143,
+    "unique_relative_targets": 74,
+    "protected_baseline_files": 442,
+    "all_protected_hashes_match": true,
+    "readme_lines": 302,
+    "scope": "new tutorials plus all README links; no full-repository semantic re-audit"
+  }
+}

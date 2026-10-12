@@ -267,6 +267,7 @@ guides rather than adding every stack to your first environment.
 
 ## Guides and examples
 
+- [Executable scientific tutorials and learning path](docs/tutorials/index.md).
 - [Dynamics and ODEs](docs/dynamical_systems.md), [vector fields](docs/vector_fields.md)
   and [analytical mechanics](docs/mechanics.md).
 - [Atomistic data](docs/atomistic.md), [trajectory statistics/transport](docs/trajectory_statistics.md)
