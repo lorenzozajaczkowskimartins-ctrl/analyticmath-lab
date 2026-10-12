@@ -268,6 +268,7 @@ guides rather than adding every stack to your first environment.
 ## Guides and examples
 
 - [Executable scientific tutorials and learning path](docs/tutorials/index.md).
+- [Scientific FAQ and GitHub Wiki](https://github.com/lorenzozajaczkowskimartins-ctrl/analyticmath-lab/wiki) — 90 question-led answers, troubleshooting and scientific boundaries.
 - [Public API reference and local Documenter build](docs/src/index.md).
 - [Dynamics and ODEs](docs/dynamical_systems.md), [vector fields](docs/vector_fields.md)
   and [analytical mechanics](docs/mechanics.md).
@@ -278,8 +279,9 @@ guides rather than adding every stack to your first environment.
   and [datasets/surrogates](docs/surrogates.md).
 - [Runnable notebooks](notebooks) and the [integrated oscillator](examples/integration/one_system_many_methods.jl).
 
-These are existing repository resources. A versioned Documenter reference and
-question-led GitHub Wiki are planned, not deployed documentation linked here.
+These are existing repository resources. The question-led GitHub Wiki is published.
+The Documenter technical manual has local-build instructions but is not deployed
+as a documentation website.
 Historical milestone reports are execution records, not current installation guarantees.
 
 ## Development and license
