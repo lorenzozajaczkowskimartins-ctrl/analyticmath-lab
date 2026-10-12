@@ -1,0 +1,41 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "70_guides_dynamics_vectors",
+  "files": [
+    {
+      "path": "docs/dynamical_systems.md",
+      "sha256": "f51b61ff7bbcadfc87b562008d675b39867f6e5dde4b0796be6bde1689e9a1cc",
+      "bytes": 7423,
+      "lines": 134,
+      "read_ranges": [
+        [
+          1,
+          134
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Current public ODE Float64 1..32 grid<1e6+native adaptive saved history, planar views and domain trial-stage scope; saveat not a memory retention control."
+      ]
+    },
+    {
+      "path": "docs/vector_fields.md",
+      "sha256": "8260c704a85fce43a992ff4f96456e570f1d0907433bfd0112645fcc3f80a0c0",
+      "bytes": 10660,
+      "lines": 196,
+      "read_ranges": [
+        [
+          1,
+          196
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Stored ordered n->m Jacobian/op/topology/domain gates correct; final possible-M6 text historical versus implemented actual dynamical-system milestone."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

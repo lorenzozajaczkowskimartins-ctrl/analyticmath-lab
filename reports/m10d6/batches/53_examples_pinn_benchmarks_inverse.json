@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "53_examples_pinn_benchmarks_inverse",
+  "files": [
+    {
+      "path": "examples/pinn/benchmarks.jl",
+      "sha256": "41254c72c1fac9e2f5582af6f32f0fbd335524e7c981fe78d387a193c27e9ddf",
+      "bytes": 5706,
+      "lines": 106,
+      "read_ranges": [
+        [
+          1,
+          106
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Five explicit PDE benchmark definitions/ref formulas and shared network, offset supplied grid independence limited to snapshot,500default history bounded100."
+      ]
+    },
+    {
+      "path": "examples/pinn/inverse_heat_gate.jl",
+      "sha256": "418c92f5de833e9b5fcbe4640662b949f1693df7aeeb1ecfdf50e3c2c3887e61",
+      "bytes": 5804,
+      "lines": 106,
+      "read_ranges": [
+        [
+          1,
+          106
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Inverse alpha parameter forwarding and explicit additional loss; construction switch versus default5000step training; finite-difference inferred parameter diagnostics and unknown physical proof."
+      ]
+    },
+    {
+      "path": "examples/pinn/m10b_gate.jl",
+      "sha256": "26f1c16d16c5aa09be6043ff8111905ea70ba7f4cbe42c4a9ec260d360bea36a",
+      "bytes": 2546,
+      "lines": 47,
+      "read_ranges": [
+        [
+          1,
+          47
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Untrained native PINN raw fixture/private residual helpers for boundary tests; not train result or supported construction tutorial."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

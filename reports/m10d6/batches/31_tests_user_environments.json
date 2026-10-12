@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "31_tests_user_environments",
+  "files": [
+    {
+      "path": "test/m10d_user_optional.jl",
+      "sha256": "f718519f4d71bb26476442141a509e20a8403efda66209125c65f1eee064ed77",
+      "bytes": 3167,
+      "lines": 61,
+      "read_ranges": [
+        [
+          1,
+          61
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Manual optional activation in both import orders and ambiguity checks, no registry/install proof; typed absence messages tested separately."
+      ]
+    },
+    {
+      "path": "test/m10d_user_packaging.jl",
+      "sha256": "c918323ee4e2913b4f54d77e82289428ca1af5a61fec9e0cc0445cf38ab48830",
+      "bytes": 1397,
+      "lines": 29,
+      "read_ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Public examples import declared deps and avoid source/test/private includes and personal paths; test only source packaging."
+      ]
+    },
+    {
+      "path": "test/m10d_user_processes.jl",
+      "sha256": "1084c517cc1b3066865dbc575c879c3054777267f1cfd1e5dd29363e0aa8f345",
+      "bytes": 1178,
+      "lines": 25,
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Six stranger workflows spawn fresh child processes in temporary cwd with display variables removed; canonical test source, not run in audit."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

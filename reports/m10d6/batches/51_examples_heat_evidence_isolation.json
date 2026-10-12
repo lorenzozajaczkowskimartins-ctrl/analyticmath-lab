@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "51_examples_heat_evidence_isolation",
+  "files": [
+    {
+      "path": "examples/operators/heat_showcase.jl",
+      "sha256": "2606eef57cc17745d593e722749b7d361c41061347091fb686273276209dd5d4",
+      "bytes": 12587,
+      "lines": 221,
+      "read_ranges": [
+        [
+          1,
+          221
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Sequential fullbatch3000steps fixed seeds/no heldout tuning, numeric versioned checkpoints inference only, independent heat residual and descriptive closedform timing, writes generated files."
+      ]
+    },
+    {
+      "path": "examples/operators/integration_gate.jl",
+      "sha256": "50a92fdc4fa4cc0541946cc9660a34385b8c4a579de70be4154a0f0f7a261570",
+      "bytes": 3614,
+      "lines": 74,
+      "read_ranges": [
+        [
+          1,
+          74
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Optional integration trains fresh once then verifies interpolation/sample grouping/nonleakage/checkpoint reload, no extrapolation pass threshold."
+      ]
+    },
+    {
+      "path": "examples/operators/isolation_gate.jl",
+      "sha256": "97dca1a8d432e86b9a96530eb9a425f854e9c659603aed9f2e4c9d984d7d3c5d",
+      "bytes": 1230,
+      "lines": 22,
+      "read_ranges": [
+        [
+          1,
+          22
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "No training lightweight trigger isolation: NeuralOperators required even for surrogate extension; no other optional activation."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

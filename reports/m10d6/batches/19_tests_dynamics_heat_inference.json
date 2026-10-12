@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "19_tests_dynamics_heat_inference",
+  "files": [
+    {
+      "path": "test/dynamical_visualization.jl",
+      "sha256": "24bf0bc37cbd53689d690e8a2b2f42daab902b416014b18c041f1e4867171ba2",
+      "bytes": 2106,
+      "lines": 42,
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Rendering tests explicitly save with CairoMakie and check no RHS calls in timeplot; trajectory field identity and punctured segments exercised in test source."
+      ]
+    },
+    {
+      "path": "test/heat_reference.jl",
+      "sha256": "3b587e1f4810eaf1c1705cfe5288367711902789ed3f5555d275b9204bfb0a54",
+      "bytes": 1137,
+      "lines": 23,
+      "read_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Analytical heat family reference checked before learning; explicit splits/sensors/RNG and no duplicate representations."
+      ]
+    },
+    {
+      "path": "test/inference_base.jl",
+      "sha256": "50498de5e30f251edeabcaeec0dbf7331e873d78c91233c8d46f89b29110be64",
+      "bytes": 3094,
+      "lines": 54,
+      "read_ranges": [
+        [
+          1,
+          54
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Base optional isolation, physical observation refusals, reordered parameter/state factory and native forward/oracle sensitivity fixtures."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "63_guides_arch_atomistic_inverse",
+  "files": [
+    {
+      "path": "docs/architecture.md",
+      "sha256": "f24716cf56f56b988854515cbc1ee0736f60962226e811ac9bf56662d5981b27",
+      "bytes": 21318,
+      "lines": 325,
+      "read_ranges": [
+        [
+          1,
+          325
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Historical architecture marked superseded by M10D current authority, source include contracts useful but future M8 wording stale historical context."
+      ]
+    },
+    {
+      "path": "docs/atomistic.md",
+      "sha256": "7abc32baed7e59ae100aaf01c8353f273e3fdbc84362af2357d5a40659ac8e05",
+      "bytes": 11411,
+      "lines": 199,
+      "read_ranges": [
+        [
+          1,
+          199
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Substantial borrowed Molly/RDF/potential/modes guide; retains exact time/logger assertions and unit scaling, lacks current pair byte default/reference table."
+      ]
+    },
+    {
+      "path": "docs/inverse_heat.md",
+      "sha256": "9e3093468ba78a7408cd42e3caf7ae8f299e94e1e19c2869b38df8e912315a42",
+      "bytes": 7029,
+      "lines": 83,
+      "read_ranges": [
+        [
+          1,
+          83
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "All-declared inverse PINN parameters no selection/positivity; single seed historical run ReturnCode.Default backend_success=false versus sampled pass; local log prunable not fresh."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

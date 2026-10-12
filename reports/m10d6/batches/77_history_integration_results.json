@@ -1,0 +1,882 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "77_history_integration_results",
+  "files": [
+    {
+      "path": "docs/m10d_flagship_results.md",
+      "sha256": "91f6f274289323917e11ecb88090316826ffcd7f6d97322d7c5de214b0648dca",
+      "bytes": 22576,
+      "lines": 270,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          80,
+          80
+        ],
+        [
+          107,
+          107
+        ],
+        [
+          124,
+          124
+        ],
+        [
+          154,
+          154
+        ],
+        [
+          186,
+          186
+        ],
+        [
+          205,
+          205
+        ],
+        [
+          225,
+          225
+        ],
+        [
+          235,
+          235
+        ],
+        [
+          259,
+          259
+        ],
+        [
+          260,
+          260
+        ],
+        [
+          261,
+          261
+        ],
+        [
+          262,
+          262
+        ],
+        [
+          263,
+          263
+        ],
+        [
+          264,
+          264
+        ],
+        [
+          265,
+          265
+        ],
+        [
+          266,
+          266
+        ],
+        [
+          267,
+          267
+        ],
+        [
+          268,
+          268
+        ],
+        [
+          269,
+          269
+        ],
+        [
+          270,
+          270
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10D.4 \u2014 One System, Many Methods: recovery and results"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "Status: VERIFIED COMPLETE; recovered final canonical passed. M10D.5 is"
+        },
+        {
+          "line": 4,
+          "text": "not started. The scientific investigation and commands are in"
+        },
+        {
+          "line": 5,
+          "text": "[m10d_one_system_many_methods.md](m10d_one_system_many_methods.md)."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "## Initial recovery from filesystem truth (historical)"
+        },
+        {
+          "line": 8,
+          "text": ""
+        },
+        {
+          "line": 9,
+          "text": "Recovered HEAD: `b5b6876e665bbf2f6681de1b3db1f0e511de2542`, the verified M10D.3"
+        },
+        {
+          "line": 10,
+          "text": "baseline. No M10D.4 implementation/completion commit exists in recovered history."
+        },
+        {
+          "line": 11,
+          "text": "The index was empty. Four tracked modifications and eight untracked files survived:"
+        },
+        {
+          "line": 12,
+          "text": "three integration examples, four flagship tests and the draft investigation doc."
+        },
+        {
+          "line": 13,
+          "text": "The tracked changes are runner registration, plan status and the operators"
+        },
+        {
+          "line": 14,
+          "text": "Project/Manifest direct-import declarations. No src/ or ext/ file changed."
+        },
+        {
+          "line": 15,
+          "text": ""
+        },
+        {
+          "line": 16,
+          "text": "All surviving Julia files and changed TOML parsed; complete modules, functions and"
+        },
+        {
+          "line": 32,
+          "text": "### Recovered operation disposition"
+        },
+        {
+          "line": 52,
+          "text": "### Workstreams at recovery"
+        },
+        {
+          "line": 80,
+          "text": "## Scientific stage and loss table"
+        },
+        {
+          "line": 107,
+          "text": "## Subsystem coverage"
+        },
+        {
+          "line": 124,
+          "text": "## Single bounded adversarial integration review"
+        },
+        {
+          "line": 154,
+          "text": "## Verification ledger"
+        },
+        {
+          "line": 186,
+          "text": "### Measured oscillator agreement"
+        },
+        {
+          "line": 205,
+          "text": "### Bounded learning: actual errors, not an accuracy claim"
+        },
+        {
+          "line": 225,
+          "text": "## Implementation checkpoint and final canonical"
+        },
+        {
+          "line": 235,
+          "text": "### Restart recovery and completed canonical"
+        },
+        {
+          "line": 259,
+          "text": "tree and index. The three mandatory flagship rows total 197 passing assertions,"
+        },
+        {
+          "line": 260,
+          "text": "matching the focused gate. No executable or environment file changed."
+        },
+        {
+          "line": 261,
+          "text": ""
+        },
+        {
+          "line": 262,
+          "text": "Core 197/197, optional learning 118/118 and final rendering 6/6 evidence is reused."
+        },
+        {
+          "line": 263,
+          "text": "Their log digests and relevant candidate hashes match. Earlier core/learning"
+        },
+        {
+          "line": 264,
+          "text": "inventories differ only in later documentation and the already-reviewed optional"
+        },
+        {
+          "line": 265,
+          "text": "plot correction, which those gates do not load. The final rendering inventory"
+        },
+        {
+          "line": 266,
+          "text": "matches all executable files; only later report/plan prose differs."
+        },
+        {
+          "line": 267,
+          "text": ""
+        },
+        {
+          "line": 268,
+          "text": "`restart-finalization.json` records this recovery verification beside the original,"
+        },
+        {
+          "line": 269,
+          "text": "unchanged gate evidence. No canonical or focused gate was rerun. Finalization is"
+        },
+        {
+          "line": 270,
+          "text": "documentation-only and local: no amend, push, tag, subagent or M10D.5 work."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    },
+    {
+      "path": "docs/m10d_integration_matrix.md",
+      "sha256": "81ca253d43dcf758b448bc9faad6186b31924c032bc9fd741c423755635c8e3c",
+      "bytes": 28745,
+      "lines": 159,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          42,
+          42
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          99,
+          99
+        ],
+        [
+          138,
+          138
+        ],
+        [
+          148,
+          148
+        ],
+        [
+          149,
+          149
+        ],
+        [
+          150,
+          150
+        ],
+        [
+          151,
+          151
+        ],
+        [
+          152,
+          152
+        ],
+        [
+          153,
+          153
+        ],
+        [
+          154,
+          154
+        ],
+        [
+          155,
+          155
+        ],
+        [
+          156,
+          156
+        ],
+        [
+          157,
+          157
+        ],
+        [
+          158,
+          158
+        ],
+        [
+          159,
+          159
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10D cross-milestone integration matrix"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "The first table is the frozen M10D.1 starting graph, not a new graph. M10D.2's"
+        },
+        {
+          "line": 4,
+          "text": "row-by-row revalidation and tested preservation matrix below supersede its"
+        },
+        {
+          "line": 5,
+          "text": "historical CURRENT_STATUS/API cells for the two implemented bridges. Existing bridges"
+        },
+        {
+          "line": 6,
+          "text": "are supported only under the recorded assumptions. YES means the stated path"
+        },
+        {
+          "line": 7,
+          "text": "retains the quantity, not all imaginable metadata. PARTIAL requires explicit"
+        },
+        {
+          "line": 8,
+          "text": "context; UNKNOWN means no guarantee; N/A means not a claim of that operation."
+        },
+        {
+          "line": 9,
+          "text": "A manual extraction is not counted as an existing metadata-preserving public adapter."
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "Columns explicitly audit SOURCE, TARGET, SCIENTIFICALLY_VALID?, CURRENT_PUBLIC_API?,"
+        },
+        {
+          "line": 12,
+          "text": "METADATA_PRESERVED?, UNITS_PRESERVED?, DOMAIN_PRESERVED?, COORDINATES_PRESERVED?,"
+        },
+        {
+          "line": 13,
+          "text": "EVIDENCE_PRESERVED?, PROVENANCE_AVAILABLE?, CURRENT_STATUS and M10D_PHASE."
+        },
+        {
+          "line": 14,
+          "text": ""
+        },
+        {
+          "line": 15,
+          "text": "| SOURCE | TARGET | SCIENTIFICALLY_VALID? | CURRENT_PUBLIC_API? | METADATA_PRESERVED? | UNITS_PRESERVED? | DOMAIN_PRESERVED? | COORDINATES_PRESERVED? | EVIDENCE_PRESERVED? | PROVENANCE_AVAILABLE? | CURRENT_STATUS | M10D_PHASE |"
+        },
+        {
+          "line": 16,
+          "text": "|---|---|---|---|---|---|---|---|---|---|---|---|"
+        },
+        {
+          "line": 42,
+          "text": "## Priorities and acceptance boundaries for M10D.2"
+        },
+        {
+          "line": 61,
+          "text": "## M10D.2 revalidation of the existing graph"
+        },
+        {
+          "line": 99,
+          "text": "## M10D.2 tested metadata preservation"
+        },
+        {
+          "line": 138,
+          "text": "## M10D.3 semantic overlay (no new scientific edge)"
+        },
+        {
+          "line": 148,
+          "text": "| Linearization -> normal modes | Established applicability not global stability; heuristic numerical spectrum, original coordinate/domain access, linearization/eigensolve approximation, actual atol/rtol distinct from LinearAlgebra backend | S, I, normal_modes/atomistic_modes regressions |"
+        },
+        {
+          "line": 149,
+          "text": "| Atomistic view -> observable/statistics | Native Unitful arithmetic preserved; selected identity/time order and detached origin remain in series; isolated moment origin is unavailable; no independence/equilibrium/MD-validity upgrade. Existing history ownership remains explicit | S, I, trajectory_statistics and optional Molly gate |"
+        },
+        {
+          "line": 150,
+          "text": "| Simulation -> dataset | Forced numerical reference, unknown error remains unknown; actual controls/order/scales retained. Existing retained/copied source route remains default; source_retention=:descriptor explicitly omits source object/context/domain/unselected labels/callback, never infers missing science | S, I; closure-captured source ownership negative control |"
+        },
+        {
+          "line": 151,
+          "text": "| Dataset -> model -> learning -> generalization | Model origin/reference-quality/scalar controls retained without target arrays; training keeps dataset; generalization keeps original numerical reference, sampled error floor and unknown global guarantee; units/named row order unchanged | SL and optional I learning gate |"
+        },
+        {
+          "line": 152,
+          "text": "| PINN training -> residual/reference diagnostics | Established backend construction and heuristic sampled costs separate from unknown physical/global correctness; method distinct from actual backend; declared names validated in block/global order; caller reference kind/trust retained; relative_guard separate from known solver tolerances | SP and existing pinn_diagnostics regression |"
+        },
+        {
+          "line": 153,
+          "text": ""
+        },
+        {
+          "line": 154,
+          "text": "Unknown physical units, absent controls, undeclared references, missing historical"
+        },
+        {
+          "line": 155,
+          "text": "parents and unrecorded RNG state are not filled from names or backend defaults."
+        },
+        {
+          "line": 156,
+          "text": "Native domain objects, caller descriptive bounds, atomistic boundary context and"
+        },
+        {
+          "line": 157,
+          "text": "sampled query sets remain different scientifically meaningful representations."
+        },
+        {
+          "line": 158,
+          "text": "No resampling, coordinate reinterpretation, generic particle inference, universal"
+        },
+        {
+          "line": 159,
+          "text": "comparison, new source engine or physical reference certification is introduced."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    },
+    {
+      "path": "docs/m10d_interoperability_results.md",
+      "sha256": "c3c7d4801b728e81c2c87e5c34764110becfb8f3ddd03960550c699edfa40ecc",
+      "bytes": 13795,
+      "lines": 216,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          39,
+          39
+        ],
+        [
+          75,
+          75
+        ],
+        [
+          104,
+          104
+        ],
+        [
+          132,
+          132
+        ],
+        [
+          148,
+          148
+        ],
+        [
+          178,
+          178
+        ],
+        [
+          205,
+          205
+        ],
+        [
+          206,
+          206
+        ],
+        [
+          207,
+          207
+        ],
+        [
+          208,
+          208
+        ],
+        [
+          209,
+          209
+        ],
+        [
+          210,
+          210
+        ],
+        [
+          211,
+          211
+        ],
+        [
+          212,
+          212
+        ],
+        [
+          213,
+          213
+        ],
+        [
+          214,
+          214
+        ],
+        [
+          215,
+          215
+        ],
+        [
+          216,
+          216
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10D.2 \u2014 Cross-milestone scientific interoperability"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "Status: **VERIFIED COMPLETE \u2014 CANONICAL PASSED**."
+        },
+        {
+          "line": 4,
+          "text": "Starting verified HEAD: `adadf5ddd03b360c93a6c0451f31cba03d01f8ff`."
+        },
+        {
+          "line": 5,
+          "text": "M10D.1 is not reopened. Its 36 family classifications, 177 exports and architecture"
+        },
+        {
+          "line": 6,
+          "text": "inventory are unchanged. The existing integration graph's 24 rows are revalidated"
+        },
+        {
+          "line": 7,
+          "text": "in order in m10d_integration_matrix.md, not independently rediscovered."
+        },
+        {
+          "line": 8,
+          "text": ""
+        },
+        {
+          "line": 9,
+          "text": "## Implemented public routes"
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "### TrajectoryResult \u2192 ObservableSeries"
+        },
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "`observable_series(path; component=1)` selects a stored state index;"
+        },
+        {
+          "line": 14,
+          "text": "`component=:position` or `component=\"position\"` selects a unique source label."
+        },
+        {
+          "line": 15,
+          "text": "Alternatively supply `observable=(u,t)->...` and optionally `name=:...`."
+        },
+        {
+          "line": 16,
+          "text": "Exactly one selector is required. This extends the existing stable F19 public"
+        },
+        {
+          "line": 39,
+          "text": "### Constrained simulation \u2192 ScientificDataset"
+        },
+        {
+          "line": 75,
+          "text": "## Existing bridges verified"
+        },
+        {
+          "line": 104,
+          "text": "## Metadata and exact deferrals"
+        },
+        {
+          "line": 132,
+          "text": "## Exactly one bounded parent interoperability review"
+        },
+        {
+          "line": 148,
+          "text": "## Executed bounded verification"
+        },
+        {
+          "line": 178,
+          "text": "## Recovered final canonical evidence"
+        },
+        {
+          "line": 205,
+          "text": "Recovered session `20261004_224437_daa37f`, messages 5513/5515, establishes that"
+        },
+        {
+          "line": 206,
+          "text": "the audited candidate hashes matched staged and committed blobs at this exact"
+        },
+        {
+          "line": 207,
+          "text": "checkpoint; message 5529 records unchanged executable/environment hashes during"
+        },
+        {
+          "line": 208,
+          "text": "canonical execution. At recovery all 11 checkpoint candidate blobs again match"
+        },
+        {
+          "line": 209,
+          "text": "working files and index by SHA-256. The original scratch hash manifests are no"
+        },
+        {
+          "line": 210,
+          "text": "longer available; no fresh comparison to those missing manifests is claimed."
+        },
+        {
+          "line": 211,
+          "text": ""
+        },
+        {
+          "line": 212,
+          "text": "Only this report and m10d_plan.md change during finalization. Scientific source,"
+        },
+        {
+          "line": 213,
+          "text": "tests and environments remain unchanged; established focused gates and the one"
+        },
+        {
+          "line": 214,
+          "text": "closed review are reused. Diff/index checks are required before the separate"
+        },
+        {
+          "line": 215,
+          "text": "`[verified] Complete M10D.2 scientific interoperability` completion commit."
+        },
+        {
+          "line": 216,
+          "text": "No checkpoint amendment, rerun, push, tag or M10D.3 work is authorized."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    }
+  ],
+  "apis": [],
+  "scope": "Documentation/environment/evidence inventory only; not full semantic review or fresh scientific execution."
+}

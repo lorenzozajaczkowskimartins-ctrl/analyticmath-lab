@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "48_examples_neural_contracts",
+  "files": [
+    {
+      "path": "examples/inference/m10a_gate.jl",
+      "sha256": "40516c6699c9c334f0ad1333fb654e64c6922b43a56b5974f0c68c412e335a73",
+      "bytes": 4486,
+      "lines": 77,
+      "read_ranges": [
+        [
+          1,
+          77
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Independent canonical J/gauge and UDE hidden-term counterexamples, no optimizer run in this gate; AD/traj not proof."
+      ]
+    },
+    {
+      "path": "examples/inference/neural_gate.jl",
+      "sha256": "ff87a4d6b957c5f8dd9e3368b82736317927b8dd36f43cea7705aad8906ef95b",
+      "bytes": 5521,
+      "lines": 92,
+      "read_ranges": [
+        [
+          1,
+          92
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Small fixed-basis HNN/UDE training gate with history_limit and optional showcase; AML.OrdinaryDiffEqTsit5 alias legacy native check."
+      ]
+    },
+    {
+      "path": "examples/inference/neural_showcase.jl",
+      "sha256": "33fd86860f796078407914c6a042c4dd4e7c0565d77d7583b1911b9649e2b748",
+      "bytes": 8712,
+      "lines": 114,
+      "read_ranges": [
+        [
+          1,
+          114
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "CPU quadratic3parameter/cubic1parameter showcase, disjoint eval and analytic/numerical references, gauge alignment/extrapolation metrics and unknown global; writes figures/report only when run."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

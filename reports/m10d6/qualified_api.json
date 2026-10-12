@@ -1,0 +1,50 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "counting_policy": "These deliberately qualified experimental public interfaces are additional to, not members of, the 177 explicit exports. Do not classify every unexported name as internal.",
+  "apis": [
+    {
+      "symbol": "scientific_metadata",
+      "qualified_name": "AnalyticMathLab.scientific_metadata",
+      "family": "Qualified scientific semantics (M10D.3)",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "source_location": ["src/scientific_metadata.jl:1-10", "src/scientific_metadata.jl:53-255"],
+      "public_signature": "scientific_metadata(result) for the explicitly defined supported result types; no universal fallback",
+      "keywords": [],
+      "inputs": "PropertyResult, TrajectoryResult, ObservableSeries, ScientificDataset, LagrangianAnalysis, HamiltonianAnalysis, MechanicsDynamics, MechanicalLinearization, NormalModeAnalysis, ScientificModel, ScientificLearningResult, GeneralizationAnalysis, AtomisticSnapshot, AtomisticSystemAnalysis, AtomisticTrajectoryView, PINNPoints, PINNProblem, PINNTrainingResult, PINNAnalysis",
+      "returns": "NamedTuple of scoped claims, method, backend, approximation, units, domain, coordinates, tolerances, reference, execution, sampling, rng, options, ownership, provenance; availability slots distinguish known/unknown/not_applicable",
+      "errors": "Unsupported type has no defined public method; metadata inspection does not validate arbitrary fabricated raw records",
+      "optional_dependencies": "No additional import needed for the base methods; constructing backend-dependent payloads retains those families' extension requirements",
+      "numerical_limitations": "No recomputation, overall confidence score, accuracy bound or certification; known means present, not proven",
+      "units": "Existing units are described, not inferred or converted; string labels remain caller declarations",
+      "ownership": "Metadata values are borrowed/read-only; provenance is detached; native source/result may still retain arrays and backend objects",
+      "docstring_status": "Present and explicit; supported-type table and slot-by-slot tutorial still needed",
+      "test_references": ["test/m10d_semantics.jl", "test/m10d_semantics_learning.jl", "test/m10d_semantics_pinn.jl", "test/m10d_semantics_review.jl"],
+      "example_references": ["examples/integration/one_system_many_methods.jl:67-79"],
+      "documentation_target": "reference/evidence.md#scientific-metadata",
+      "coverage_status": "PARTIALLY_DOCUMENTED",
+      "evidence_level": "SOURCE_INSPECTED"
+    },
+    {
+      "symbol": "scientific_origin",
+      "qualified_name": "AnalyticMathLab.scientific_origin",
+      "family": "Qualified scientific semantics (M10D.3)",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "source_location": ["src/scientific_metadata.jl:12-22", "src/scientific_metadata.jl:35-52", "src/scientific_metadata.jl:73-255"],
+      "public_signature": "scientific_origin(result) for supported concrete result types; no universal fallback",
+      "keywords": [],
+      "inputs": "Explicit supported result types listed alongside scientific_metadata; PropertyResult is a special unknown-origin case",
+      "returns": "Detached bounded NamedTuple descriptor with type, process-local token, operation, parents, truncation and identity_scope; PropertyResult returns (availability=:unknown,value=nothing)",
+      "errors": "Unsupported types have no public method; missing recorded ancestry is not reconstructed",
+      "optional_dependencies": "None beyond constructing the relevant result",
+      "numerical_limitations": "Tokens are object identity within the originating process, not persistent reproducibility hashes or scientific equality; ancestry is bounded and can be truncated",
+      "units": "No unit inference or conversion",
+      "ownership": "Descriptor contains no source objects, closures or datasets; only whitelisted bounded parent descriptors",
+      "docstring_status": "Present, explicit warning; future reference needs supported types and truncation illustration",
+      "test_references": ["test/m10d_semantics.jl", "test/m10d_semantics_review.jl", "test/m10d_value_compatibility.jl"],
+      "example_references": ["examples/integration/one_system_many_methods.jl:67-79", "examples/integration/one_system_many_methods.jl:198-213"],
+      "documentation_target": "reference/evidence.md#scientific-origin",
+      "coverage_status": "PARTIALLY_DOCUMENTED",
+      "evidence_level": "SOURCE_INSPECTED"
+    }
+  ]
+}

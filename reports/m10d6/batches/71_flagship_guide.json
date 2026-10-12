@@ -1,0 +1,25 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "71_flagship_guide",
+  "files": [
+    {
+      "path": "docs/m10d_one_system_many_methods.md",
+      "sha256": "227e365ce49162533a2555518ac1c58daba14fe24b57edd0c50337b644df9487",
+      "bytes": 8599,
+      "lines": 144,
+      "read_ranges": [
+        [
+          1,
+          144
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Independent analytic oracle versus numerical source, dimensionless declarations/units unknown, explicit compatible comparisons, descriptor retention, one-step underfit learner no same-dynamics guarantee."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

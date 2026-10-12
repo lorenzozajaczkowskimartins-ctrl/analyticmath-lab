@@ -1,0 +1,674 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "72_history_m10a_start",
+  "files": [
+    {
+      "path": "docs/m10a_audit.md",
+      "sha256": "7feeef3c1c733bbbd8974f0e1194793dcf53086375ddd512ee9e6161ecf8a58a",
+      "bytes": 12244,
+      "lines": 131,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          35,
+          35
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          116,
+          116
+        ],
+        [
+          120,
+          120
+        ],
+        [
+          121,
+          121
+        ],
+        [
+          122,
+          122
+        ],
+        [
+          123,
+          123
+        ],
+        [
+          124,
+          124
+        ],
+        [
+          125,
+          125
+        ],
+        [
+          126,
+          126
+        ],
+        [
+          127,
+          127
+        ],
+        [
+          128,
+          128
+        ],
+        [
+          129,
+          129
+        ],
+        [
+          130,
+          130
+        ],
+        [
+          131,
+          131
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10A mathematical consistency audit"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "## Scope and recovery"
+        },
+        {
+          "line": 4,
+          "text": ""
+        },
+        {
+          "line": 5,
+          "text": "Starting HEAD: `dbe96a5a53dffdd9112031c746366891c2e520d3`."
+        },
+        {
+          "line": 6,
+          "text": "The recovered tree had no tracked or staged diff and six untracked entries."
+        },
+        {
+          "line": 7,
+          "text": "All intended files, untracked contents, scratch logs and matching filenames under"
+        },
+        {
+          "line": 8,
+          "text": "`test/`, `docs/`, `examples/`, `src/`, `ext/` and the scratch directory were inspected"
+        },
+        {
+          "line": 9,
+          "text": "before editing. No surviving Julia process was found. Provider HTTP 429 failures"
+        },
+        {
+          "line": 10,
+          "text": "were reported by the recovery request; they are not scientific test failures."
+        },
+        {
+          "line": 11,
+          "text": "No reset, checkout, revert, discard, push, tag, or other M10 phase was used."
+        },
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "Classification at recovery (A coherent; B salvageable missing obligations;"
+        },
+        {
+          "line": 14,
+          "text": "D syntax broken; E logical/API defect; F absent):"
+        },
+        {
+          "line": 15,
+          "text": ""
+        },
+        {
+          "line": 16,
+          "text": "| File | Class | Recovery action |"
+        },
+        {
+          "line": 35,
+          "text": "## Overall obligation matrix"
+        },
+        {
+          "line": 48,
+          "text": "## Failure and bug ledger"
+        },
+        {
+          "line": 63,
+          "text": "## Verification ledger"
+        },
+        {
+          "line": 116,
+          "text": "## Independence and limits"
+        },
+        {
+          "line": 120,
+          "text": "does not reuse NeuralPDE loss lowering. Calculus additionally uses hand formulas,"
+        },
+        {
+          "line": 121,
+          "text": "ForwardDiff and FD. M6 compares a solver against analytic functions. Inference"
+        },
+        {
+          "line": 122,
+          "text": "FD/AD share a solver, with analytic decay and oscillator cross-checks. HNN/UDE"
+        },
+        {
+          "line": 123,
+          "text": "fixtures use native Lux parameters, not fitted weights. Cartesian/radial LJ and"
+        },
+        {
+          "line": 124,
+          "text": "nonstationary UDE comparisons share Tsit5 and are reduction checks, not independent"
+        },
+        {
+          "line": 125,
+          "text": "integrator validation. Eigen tests check direct residuals rather than stored"
+        },
+        {
+          "line": 126,
+          "text": "residual metadata. Bare arrays cannot reveal falsely declared sensor/coordinate"
+        },
+        {
+          "line": 127,
+          "text": "identities; explicit mismatched sensor metadata and changed training grids fail."
+        },
+        {
+          "line": 128,
+          "text": ""
+        },
+        {
+          "line": 129,
+          "text": "No optional ML environment is added to base dependencies. No optimizer is invoked"
+        },
+        {
+          "line": 130,
+          "text": "by M10A's gates. M10B numerical-type torture, M10C scale/memory stress, and M10D"
+        },
+        {
+          "line": 131,
+          "text": "cross-milestone API unification remain deferred. No push or tag is authorized."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    },
+    {
+      "path": "docs/m10a_early_inventory.md",
+      "sha256": "1ca1fe864e2b992d49a7d2d5bcaacead6cd47e7f502c8951f0ffac29aae890df",
+      "bytes": 4384,
+      "lines": 21,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10A early mathematics inventory (M1\u2013M7)"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "All checks are bounded audit fixtures, not completeness or continuum certificates."
+        },
+        {
+          "line": 4,
+          "text": "`T` below means `test/`. Numeric closures are independent of AML-generated callables."
+        },
+        {
+          "line": 5,
+          "text": ""
+        },
+        {
+          "line": 6,
+          "text": "| Subsystem / object | Mathematical obligation | Independent oracle | Tolerance / exactness | Status / regression | Finding / limitation |"
+        },
+        {
+          "line": 7,
+          "text": "|---|---|---|---|---|---|"
+        },
+        {
+          "line": 8,
+          "text": "| M1\u2013M2 scalar report | Values, first/second derivatives; FD convergence | Hand polynomial/trigonometric/exponential derivatives, ForwardDiff on a separate closure; analytic forward/central error for x\u00b3 | Values 2e-12; AD 2e-11; first FD 2e-7; convergence errors 2e-12 | Verified: `T/m10a_calculus_dynamics.jl`, scalar calculus | Smooth seeded bounded samples only; FD is approximate |"
+        },
+        {
+          "line": 9,
+          "text": "| M3 original domain | Cancelled denominators and logarithm exclusions remain excluded | Original mathematical denominators/sign restrictions | Exact membership/exception assertions | Verified: same file, original-domain exclusions | Legacy univariate `evaluate` does not enforce the stored real domain; explicitly not claimed otherwise |"
+        },
+        {
+          "line": 10,
+          "text": "| M4 scalar field | Ordered gradient, directional derivative, symmetric Hessian | Explicit vector/matrix formula, independent AD closure, value-only central FD | AD/analytic 2e-11; gradient FD 2e-7; Hessian FD 2e-6 with h=2e-4 | Verified: same file, ordered gradient/Hessian | Variables deliberately `(y,x)`; wrong sign/order negative controls |"
+        },
+        {
+          "line": 11,
+          "text": "| M5 vector field | Rectangular Jacobian and column order | Explicit 3\u00d72 matrix, independent AD and directional FD | 2e-11 analytic/AD; 2e-7 FD | Verified: same testset | No giant Hessian or scaling work |"
+        },
+        {
+          "line": 12,
+          "text": "| M6 trajectories | Constant exponential decay, exp(-t\u00b2), harmonic oscillator, logistic reference satisfy ODE and IC before use | Independent reference closures and hand RHS; AD in time; off-step solution evaluation | Reference 2e-11; solver 1e-11; sampled trajectory comparison 2e-8 | Verified: same file, reference equation/IC audits | Solver comparison is against analytic functions, not another invocation of the same solver; no global error bound |"
+        },
+        {
+          "line": 13,
+          "text": "| M6 order/bindings | q/v state order; full `(m,k)` and inferred `(k,m)` parameter order; observed `(v,q)` | Explicit harmonic solution; unequal named m=2,k=8 mechanics binding | ODE comparison 2e-8; algebraic 1e-12 | Verified: `T/m10a_mechanics.jl` EL oscillator and `T/m10a_inference_operators.jl` oscillator | M6 Float64 boundary unchanged; inference dual-number path audited separately |"
+        },
+        {
+          "line": 14,
+          "text": "| M7 force | F=-\u2207V with reordered coordinates | Hand differentiated quartic/cross potential plus independent AD | 1e-12 | Verified: `T/m10a_mechanics.jl`, force | Deliberate positive-gradient force is rejected by audit predicate |"
+        },
+        {
+          "line": 15,
+          "text": "| M7 Hamiltonian | Canonical J, q/p blocks, signs and cross term | Explicit 4\u00d74 J and component equations | Exact J/order; 1e-12 field | Verified: same file, canonical signs | Wrong sign and interleaved ordering fail; no noncanonical mechanics claim |"
+        },
+        {
+          "line": 16,
+          "text": "| M7 regular Legendre map | EL oscillator; L/H vector fields agree under p=Mv | Explicit non-diagonal SPD M, K; `(v,-M\u207b\u00b9Kq)` and `(M\u207b\u00b9p,-Kq)`; quadratic energy | 1e-12 | Verified: same file, regular Legendre | Affine regular momentum map only, no constrained-system extension |"
+        },
+        {
+          "line": 17,
+          "text": "| M7 local mechanics | Nonzero equilibrium and reordered M/C/K; damping restriction | Independently specified full matrices and direct acceleration | Exact coefficient comparisons, 1e-12 field | Verified: same file, equilibrium M/C/K | Incorrect equilibrium and damped undamped-mode request remain unknown |"
+        },
+        {
+          "line": 18,
+          "text": "| M7 small-amplitude limit | Nonlinear pendulum approaches linear oscillator | Taylor bound `|sin(a)-a|\u2264a\u00b3/6`; explicit sin/cos linear solution | Algebraic cubic bound; solver 1e-12, trajectory difference <a\u00b3/3 at t=1 | Verified: same file, local nonlinear limit | Bounded amplitudes/times; not long-term validity |"
+        },
+        {
+          "line": 19,
+          "text": "| M7 modes | K a=\u03bb M a, M-orthogonality, zero/negative/degenerate semantics | Direct matrix residual; roots of det(K-\u03bbM); degenerate-subspace projector | Residual \u22641e-11 times matrix/vector scale; orthogonality 1e-12 | Verified: same file, generalized eigenpairs | Shifted eigenvalue rejected; eigenvectors in repeated subspaces are not unique; numerical zeros are not exact certificates |"
+        },
+        {
+          "line": 20,
+          "text": ""
+        },
+        {
+          "line": 21,
+          "text": "See `m10a_audit.md` for counts, failure classification and verification evidence."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    },
+    {
+      "path": "docs/m10a_m8_inventory.md",
+      "sha256": "2b1f139702ff514bee13015ada80b7968f24c29dc68147e32a1672a38f0644dd",
+      "bytes": 4687,
+      "lines": 25,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          25,
+          25
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10A M8 inventory"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "The recovered `test/m10a_atomistic_statistics.jl` was coherent and is retained"
+        },
+        {
+          "line": 4,
+          "text": "unchanged. It passes 290 assertions without Molly or another optional stack."
+        },
+        {
+          "line": 5,
+          "text": "All rows below refer to named testsets in that file."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "| Subsystem / object | Mathematical obligation | Independent oracle | Tolerance / exactness | Status / regression | Finding / limitation |"
+        },
+        {
+          "line": 8,
+          "text": "|---|---|---|---|---|---|"
+        },
+        {
+          "line": 9,
+          "text": "| Geometry / pair distances | Symmetry, self zero, unordered pair population, 2D/3D order | 3\u20134\u20135 coordinates, direct Euclidean norm; explicit pair list | Exact pair/index/zero assertions, default Float64 `\u2248` for distances | Verified: Geometry | Private distance primitive used only for self-distance, absent from public unordered pair enumeration |"
+        },
+        {
+          "line": 10,
+          "text": "| Geometry / periodic distances and RDF | Multi-box minimum image; dimensional shells | 29\u2192-1 in length 10; annulus volumes and 3D spherical shells | Float64 `\u2248`; exact populations | Verified: Geometry | Supported orthorhombic boundaries only; unsupported dimensions/boundaries return unknown |"
+        },
+        {
+          "line": 11,
+          "text": "| LJ potential | 4\u03b5[(\u03c3/r)^12-(\u03c3/r)^6]; F=-dV/dr; rmin=2^(1/6)\u03c3, Vmin=-\u03b5, curvature | Explicit scalar formula and independent AD of it | V/F 1e-11 relative +1e-12 absolute; equilibrium force 1e-10; curvature AD 1e-10 relative | Verified: LJ formula/sign | Repulsive/attractive regions tested; no cutoff or many-body claim |"
+        },
+        {
+          "line": 12,
+          "text": "| Atomistic modes | Particle-major Cartesian masses, equilibrium order, residual, translations | Explicit spring-block K and diag(2,2,3,3); \u03bb=(0,0,2.5,2.5); direct residual and translation projector | Residual <1e-11; orthogonality/projector 1e-12 | Verified: Cartesian mode bridge | Caller Hessian equilibrium remains not verified; translation claim justified only by this constructed spring fixture |"
+        },
+        {
+          "line": 13,
+          "text": "| Moments / running statistics | Mean, sample variance, prefix values | [1,2,3,4], mean 5/2 and variance 5/3 | Exact rational-derived values or Float64 `\u2248` | Verified: Hand moments | Missing/constant data do not manufacture uncertainty |"
+        },
+        {
+          "line": 14,
+          "text": "| Correlation / IAT / ESS | Biased N vs unbiased N-lag covariance; window and clamping; ESS | Hand autocovariances, \u03c4=3/4 samples, ESS=8/3, SEM=sqrt(5/8) | Exact discrete metadata; Float64 `\u2248`, cancellation 1e-14 | Verified: Hand moments | Finite descriptive estimates, not stationarity/mixing certificates |"
+        },
+        {
+          "line": 15,
+          "text": "| Blocking | Block means, discarded tails, counts, variance/SEM | [1,2,3,4,99] with block sizes 2 and 3 | Exact arrays | Verified: Hand moments | Discard is explicit; too few blocks give unavailable uncertainty |"
+        },
+        {
+          "line": 16,
+          "text": "| Time metadata | stride is not dt; missing timestamps stay missing; index time not physical time | Explicit interval 0.5 vs dt=0.1 and stride=5; unknown and irregular clocks | Exact metadata/exception assertions | Verified: Time honesty | IAT/VACF require regular physical or explicitly declared index time; no fabricated timestamps |"
+        },
+        {
+          "line": 17,
+          "text": "| MSD / VACF | Displacement and pair/origin averages | Hand two-particle frames: MSD=(0,2.5,10), VACF=(35/3,10,15/2) | Float64 `\u2248`; exact counts/time | Verified: Time honesty | Single-origin MSD; irregular-time MSD is allowed at explicit elapsed times, stationary-lag VACF is refused |"
+        },
+        {
+          "line": 18,
+          "text": "| Mechanical observations | K=\u03a3mv\u00b2/2, E=K+V, momentum, COM, temperature | Unequal masses and Unitful fixture: K=7J,V=-3J,E=4J, P=(0,4), COM=(4/3,0); T=2K/(dof kB) | Exact where representable, otherwise unit-aware `\u2248` | Verified: Mechanical observations | Temperature requires both caller DOF and Boltzmann constant; neither is inferred |"
+        },
+        {
+          "line": 19,
+          "text": "| NVE / diagnostics | Conservation expectation only for total energy; false is not proof of nonconservation | All nine energy-kind/ensemble combinations plus constant kinetic series | Exact boolean semantics; explicit deviation/slope arithmetic | Verified: Mechanical observations | Existing fix `1bb7897` protected, not rediscovered as a new source bug |"
+        },
+        {
+          "line": 20,
+          "text": "| Comparison | Stored difference B-A; independent uncertainty only with assumptions | Shifted hand series and sqrt(SEM_A\u00b2+SEM_B\u00b2) | Exact sign; Float64 `\u2248` uncertainty | Verified: Stored B-A | Self-comparison and incompatible uncertainty windows do not imply independent uncertainty |"
+        },
+        {
+          "line": 21,
+          "text": "| Comparison refusal | Incompatible units, grids, shapes, clocks, coordinate conventions, estimators | Deliberately incompatible pairs; assert no difference value | Exact compatibility checks and `nothing` | Verified: Stored B-A | No automatic truncation, interpolation, alignment or resampling |"
+        },
+        {
+          "line": 22,
+          "text": ""
+        },
+        {
+          "line": 23,
+          "text": "Default Float64 `\u2248` is used only for small well-scaled hand fixtures, not as a"
+        },
+        {
+          "line": 24,
+          "text": "universal scientific error bound. Numeric-type stress and large trajectories are"
+        },
+        {
+          "line": 25,
+          "text": "M10B/C, not this audit. See `m10a_audit.md` for the overall ledger."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    }
+  ],
+  "apis": [],
+  "scope": "Documentation/environment/evidence inventory only; not full semantic review or fresh scientific execution."
+}

@@ -1,0 +1,466 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "13_calculus_dynamics_views",
+  "files": [
+    {
+      "path": "src/visualization/scalar_fields.jl",
+      "sha256": "d3047652d959727c11ad51adadefb81f91b9db65546817b2adfcc4b7ef567570",
+      "bytes": 7589,
+      "lines": 158,
+      "read_ranges": [
+        [
+          1,
+          158
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "2D only, capped grids, unknown membership masked; interval cell mask not proof; tangent uses existing checked local map."
+      ]
+    },
+    {
+      "path": "src/visualization/vector_fields.jl",
+      "sha256": "fc83e8e6a2ff589b3faa847a24e8407390d115d176e44a2ede6b28f3b88eed93",
+      "bytes": 2339,
+      "lines": 47,
+      "read_ranges": [
+        [
+          1,
+          47
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "R2→R2 only; rendered Float32 anchor checked, glyph shaft not domain proof; InterruptException propagated unlike generic skip."
+      ]
+    },
+    {
+      "path": "src/visualization/dynamical_systems.jl",
+      "sha256": "13517d95aa8a3ec445ccbad2259dc7be1215b3c0a1b9504302eede020c493ace",
+      "bytes": 3949,
+      "lines": 86,
+      "read_ranges": [
+        [
+          1,
+          86
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "No trajectory solve; field identity required; sampled nullclines/stored equilibria; conservative segment omission and saved-state timeplot."
+      ]
+    }
+  ],
+  "apis": [
+    {
+      "symbol": "surface",
+      "source_location": [
+        "src/visualization/scalar_fields.jl:100"
+      ],
+      "public_signature": [
+        "function surface(report::ScalarFieldAnalysis; xrange=(-5,5), yrange=(-5,5), samples::Integer=101,\ntangent_at=nothing, critical_markers::Bool=true)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "2D ScalarFieldAnalysis; xrange/yrange (-5,5),samples=101,tangent_at=nothing,critical_markers=true",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError invalid dimension/bounds/count; tangent smoothness errors propagate"
+      ],
+      "numerical_limitations": "Samples2:501 each axis; tangent_at calls checked stored gradient/linearization (no new symbolic analysis). Conservative interval rendering masks are presentation not scientific certificates; no backend activation/save.",
+      "units": "View Float64 grids/Float32 arrow glyphs; coordinate labels not inferred physical units.",
+      "ownership": "Fresh sampled arrays/Figure, stored report retained read-only.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed vector/phase",
+      "test_references": [
+        "test/architecture.jl:68",
+        "test/architecture.jl:106",
+        "test/architecture.jl:107",
+        "test/multivariate_visualization.jl:8",
+        "test/multivariate_visualization.jl:17",
+        "test/multivariate_visualization.jl:28",
+        "test/multivariate_visualization.jl:31",
+        "test/pinn_base.jl:4"
+      ],
+      "example_references": [
+        "examples/operators/focused_gate.jl:12",
+        "notebooks/multivariable_analysis.jl:34"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "README.md:482",
+          "README.md:486",
+          "docs/architecture.md:6",
+          "docs/architecture.md:144",
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/m10d_issue_ledger.md:31",
+          "docs/m10d_plan.md:55",
+          "docs/m9d_verification.md:35",
+          "docs/vector_fields.md:193"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "contour",
+      "source_location": [
+        "src/visualization/scalar_fields.jl:120"
+      ],
+      "public_signature": [
+        "function contour(report::ScalarFieldAnalysis; xrange=(-5,5),yrange=(-5,5),samples::Integer=101,\nlevels=15,critical_markers::Bool=true)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "2D ScalarFieldAnalysis; ranges (-5,5),samples=101,levels=15,critical_markers=true",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError invalid dimension/bounds/count; Makie levels errors propagate"
+      ],
+      "numerical_limitations": "Samples2:501; filled contour from masked scalar grid. Conservative interval rendering masks are presentation not scientific certificates; no backend activation/save.",
+      "units": "View Float64 grids/Float32 arrow glyphs; coordinate labels not inferred physical units.",
+      "ownership": "Fresh sampled arrays/Figure, stored report retained read-only.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed vector/phase",
+      "test_references": [
+        "test/architecture.jl:65",
+        "test/architecture.jl:106",
+        "test/architecture.jl:107",
+        "test/multivariate_visualization.jl:9",
+        "test/multivariate_visualization.jl:29"
+      ],
+      "example_references": [
+        "notebooks/multivariable_analysis.jl:36",
+        "notebooks/multivariable_analysis.jl:38"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "README.md:482",
+          "docs/architecture.md:144",
+          "docs/architecture.md:291",
+          "docs/m10d_architecture_inventory.md:86"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "gradientplot",
+      "source_location": [
+        "src/visualization/scalar_fields.jl:134"
+      ],
+      "public_signature": [
+        "function gradientplot(report::ScalarFieldAnalysis; xrange=(-5,5),yrange=(-5,5),samples::Integer=15,\narrowscale::Real=1)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "2D ScalarFieldAnalysis; ranges (-5,5),samples=15,arrowscale=1",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError invalid dimension/bounds/count/positive Float64 scale"
+      ],
+      "numerical_limitations": "Samples2:50, unnormalized stored-gradient arrows. Unknown/non-smooth points skipped. Conservative interval rendering masks are presentation not scientific certificates; no backend activation/save.",
+      "units": "View Float64 grids/Float32 arrow glyphs; coordinate labels not inferred physical units.",
+      "ownership": "Fresh sampled arrays/Figure, stored report retained read-only.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed vector/phase",
+      "test_references": [
+        "test/architecture.jl:67",
+        "test/multivariate_visualization.jl:10",
+        "test/multivariate_visualization.jl:11",
+        "test/multivariate_visualization.jl:12",
+        "test/multivariate_visualization.jl:13",
+        "test/multivariate_visualization.jl:30"
+      ],
+      "example_references": [
+        "notebooks/multivariable_analysis.jl:37"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "README.md:482",
+          "docs/m10d_architecture_inventory.md:86"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "vectorplot",
+      "source_location": [
+        "src/visualization/vector_fields.jl:37"
+      ],
+      "public_signature": [
+        "function vectorplot(report::VectorFieldAnalysis; xrange=(-2,2),yrange=(-2,2),\nsamples::Integer=15,arrowscale::Real=1)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "R²→R² VectorFieldAnalysis; ranges (-2,2),samples=15,arrowscale=1",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError invalid dimension/bounds/count/scale"
+      ],
+      "numerical_limitations": "Samples2:50; rendered Float32 anchor checked for known membership; glyph shafts not certified paths. Conservative interval rendering masks are presentation not scientific certificates; no backend activation/save.",
+      "units": "View Float64 grids/Float32 arrow glyphs; coordinate labels not inferred physical units.",
+      "ownership": "Fresh sampled arrays/Figure, stored report retained read-only.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed vector/phase",
+      "test_references": [
+        "test/architecture.jl:69",
+        "test/vector_visualization.jl:8",
+        "test/vector_visualization.jl:9",
+        "test/vector_visualization.jl:20",
+        "test/vector_visualization.jl:21",
+        "test/vector_visualization.jl:22",
+        "test/vector_visualization.jl:23",
+        "test/vector_visualization.jl:31"
+      ],
+      "example_references": [
+        "notebooks/vector_field_analysis.jl:44"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "README.md:545",
+          "docs/architecture.md:256",
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/vector_fields.md:176",
+          "docs/vector_fields.md:180"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "phaseplot",
+      "source_location": [
+        "src/visualization/dynamical_systems.jl:32"
+      ],
+      "public_signature": [
+        "function phaseplot(report::DynamicalSystemAnalysis; trajectories=(),show_nullclines::Bool=false,\nxrange=(-2,2),yrange=(-2,2),samples::Integer=15,arrowscale::Real=0.1)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "2D DynamicalSystemAnalysis; precomputed trajectories=(),show_nullclines=false, ranges(-2,2),samples=15,arrowscale=0.1",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError wrong dimension/trajectory source; vector view failures propagate"
+      ],
+      "numerical_limitations": "Trajectory field identity required; stored equilibrium markers; optional 101-grid nullclines no solving. Segments crossing unresolved cells omitted. Conservative interval rendering masks are presentation not scientific certificates; no backend activation/save.",
+      "units": "View Float64 grids/Float32 arrow glyphs; coordinate labels not inferred physical units.",
+      "ownership": "Fresh sampled arrays/Figure, stored report retained read-only.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed vector/phase",
+      "test_references": [
+        "test/architecture.jl:71",
+        "test/dynamical_visualization.jl:6",
+        "test/dynamical_visualization.jl:8",
+        "test/dynamical_visualization.jl:13",
+        "test/dynamical_visualization.jl:18",
+        "test/dynamical_visualization.jl:19",
+        "test/mechanics_visualization.jl:13",
+        "test/mechanics_visualization.jl:18",
+        "test/mechanics_visualization.jl:24"
+      ],
+      "example_references": [
+        "notebooks/dynamical_systems.jl:55",
+        "notebooks/dynamical_systems.jl:56",
+        "notebooks/dynamical_systems.jl:57",
+        "notebooks/mechanics.jl:49",
+        "notebooks/mechanics.jl:51"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "README.md:593",
+          "README.md:599",
+          "docs/architecture.md:272",
+          "docs/dynamical_systems.md:118",
+          "docs/dynamical_systems.md:122",
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/mechanics.md:124"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "timeplot",
+      "source_location": [
+        "src/visualization/dynamical_systems.jl:76"
+      ],
+      "public_signature": [
+        "function timeplot(path::TrajectoryResult)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "TrajectoryResult",
+      "returns": "Makie.Figure",
+      "errors": [
+        "Malformed raw trajectory/backend plotting errors propagate"
+      ],
+      "numerical_limitations": "Only saved states/time no RHS/interpolation/solve. Conservative interval rendering masks are presentation not scientific certificates; no backend activation/save.",
+      "units": "View Float64 grids/Float32 arrow glyphs; coordinate labels not inferred physical units.",
+      "ownership": "Fresh sampled arrays/Figure, stored report retained read-only.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed vector/phase",
+      "test_references": [
+        "test/architecture.jl:71",
+        "test/dynamical_visualization.jl:7",
+        "test/dynamical_visualization.jl:15",
+        "test/dynamical_visualization.jl:25",
+        "test/dynamical_visualization.jl:34"
+      ],
+      "example_references": [
+        "examples/integration/one_system_plots.jl:12",
+        "notebooks/dynamical_systems.jl:58",
+        "notebooks/dynamical_systems.jl:59",
+        "notebooks/dynamical_systems.jl:60",
+        "notebooks/mechanics.jl:53",
+        "notebooks/mechanics.jl:54",
+        "notebooks/mechanics_addendum.jl:72"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "README.md:594",
+          "README.md:599",
+          "docs/architecture.md:273",
+          "docs/dynamical_systems.md:119",
+          "docs/dynamical_systems.md:126",
+          "docs/m10d_architecture_inventory.md:86"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "plot",
+      "source_location": [
+        "src/visualization/scalar_fields.jl:158",
+        "src/visualization/vector_fields.jl:47"
+      ],
+      "public_signature": [
+        "plot(report::ScalarFieldAnalysis; kwargs...) = surface(report; kwargs...)",
+        "plot(report::VectorFieldAnalysis;kwargs...) = vectorplot(report;kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ScalarFieldAnalysis or VectorFieldAnalysis; kwargs",
+      "returns": "Makie.Figure",
+      "errors": [
+        "Inherited view guards"
+      ],
+      "numerical_limitations": "Dispatch scalar→surface, vector→vectorplot; inherited limitations. Conservative interval rendering masks are presentation not scientific certificates; no backend activation/save.",
+      "units": "View Float64 grids/Float32 arrow glyphs; coordinate labels not inferred physical units.",
+      "ownership": "Fresh sampled arrays/Figure, stored report retained read-only.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed vector/phase",
+      "test_references": [
+        "test/architecture.jl:68",
+        "test/architecture.jl:106",
+        "test/architecture.jl:107",
+        "test/atomistic_visualization.jl:28",
+        "test/convergence.jl:180",
+        "test/convergence.jl:193",
+        "test/multivariate_visualization.jl:14",
+        "test/potential_visualization.jl:16",
+        "test/real_analysis_visualization.jl:32",
+        "test/real_analysis_visualization.jl:40",
+        "test/real_analysis_visualization.jl:45",
+        "test/real_analysis_visualization.jl:46",
+        "test/real_analysis_visualization.jl:49",
+        "test/runtests.jl:325",
+        "test/runtests.jl:326",
+        "test/runtests.jl:329",
+        "test/runtests.jl:335",
+        "test/runtests.jl:336",
+        "test/runtests.jl:337",
+        "test/runtests.jl:338",
+        "test/vector_visualization.jl:35"
+      ],
+      "example_references": [
+        "notebooks/derivative_convergence.jl:25",
+        "notebooks/function_analysis.jl:17",
+        "notebooks/molly_companion.jl:80",
+        "notebooks/real_function_analysis.jl:25"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "README.md:60",
+          "README.md:234",
+          "README.md:284",
+          "README.md:287",
+          "README.md:360",
+          "README.md:364",
+          "README.md:365",
+          "README.md:372",
+          "README.md:482",
+          "README.md:486",
+          "docs/architecture.md:144",
+          "docs/architecture.md:256",
+          "docs/dynamical_systems.md:49",
+          "docs/m10c_scaling_inventory.md:35",
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/m10d_flagship_results.md:44",
+          "docs/m10d_flagship_results.md:73",
+          "docs/m10d_flagship_results.md:137",
+          "docs/m10d_flagship_results.md:150",
+          "docs/m10d_flagship_results.md:265",
+          "docs/m10d_integration_matrix.md:39",
+          "docs/mechanics.md:164",
+          "docs/vector_fields.md:180"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    }
+  ],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

@@ -1,0 +1,1571 @@
+{
+  "evidence_level": "SOURCE_INSPECTED",
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "exports": [
+    {
+      "symbol": "AbstractAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:15",
+      "family": "F01",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:52"
+    },
+    {
+      "symbol": "FunctionAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:15",
+      "family": "F03",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:54"
+    },
+    {
+      "symbol": "analyze",
+      "export_location": "src/AnalyticMathLab.jl:15",
+      "family": "F03",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:54"
+    },
+    {
+      "symbol": "evaluate",
+      "export_location": "src/AnalyticMathLab.jl:15",
+      "family": "F03",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:54"
+    },
+    {
+      "symbol": "CriticalPoint",
+      "export_location": "src/AnalyticMathLab.jl:16",
+      "family": "F03",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:54"
+    },
+    {
+      "symbol": "CriticalPointAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:16",
+      "family": "F03",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:54"
+    },
+    {
+      "symbol": "DerivativeComparison",
+      "export_location": "src/AnalyticMathLab.jl:17",
+      "family": "F05",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:56"
+    },
+    {
+      "symbol": "compare_derivatives",
+      "export_location": "src/AnalyticMathLab.jl:17",
+      "family": "F05",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:56"
+    },
+    {
+      "symbol": "DerivativeConvergenceAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:18",
+      "family": "F05",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:56"
+    },
+    {
+      "symbol": "derivative_convergence",
+      "export_location": "src/AnalyticMathLab.jl:18",
+      "family": "F05",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:56"
+    },
+    {
+      "symbol": "RealExpression",
+      "export_location": "src/AnalyticMathLab.jl:19",
+      "family": "F02",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:53"
+    },
+    {
+      "symbol": "@real_function",
+      "export_location": "src/AnalyticMathLab.jl:19",
+      "family": "F02",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:53"
+    },
+    {
+      "symbol": "PropertyResult",
+      "export_location": "src/AnalyticMathLab.jl:20",
+      "family": "F01",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:52"
+    },
+    {
+      "symbol": "RealInterval",
+      "export_location": "src/AnalyticMathLab.jl:20",
+      "family": "F04",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:55"
+    },
+    {
+      "symbol": "RealDomain",
+      "export_location": "src/AnalyticMathLab.jl:20",
+      "family": "F04",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:55"
+    },
+    {
+      "symbol": "RealFunctionStudy",
+      "export_location": "src/AnalyticMathLab.jl:20",
+      "family": "F04",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:55"
+    },
+    {
+      "symbol": "domain_contains",
+      "export_location": "src/AnalyticMathLab.jl:20",
+      "family": "F04",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:55"
+    },
+    {
+      "symbol": "PeriodicPointSet",
+      "export_location": "src/AnalyticMathLab.jl:21",
+      "family": "F04",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:55"
+    },
+    {
+      "symbol": "PeriodicIntervalSet",
+      "export_location": "src/AnalyticMathLab.jl:21",
+      "family": "F04",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:55"
+    },
+    {
+      "symbol": "plot",
+      "export_location": "src/AnalyticMathLab.jl:22",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "ScalarFieldAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:23",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:57"
+    },
+    {
+      "symbol": "MultivariateDomain",
+      "export_location": "src/AnalyticMathLab.jl:23",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:57"
+    },
+    {
+      "symbol": "StationaryPoint",
+      "export_location": "src/AnalyticMathLab.jl:23",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:57"
+    },
+    {
+      "symbol": "gradient",
+      "export_location": "src/AnalyticMathLab.jl:24",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:57"
+    },
+    {
+      "symbol": "hessian",
+      "export_location": "src/AnalyticMathLab.jl:24",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:57"
+    },
+    {
+      "symbol": "directional_derivative",
+      "export_location": "src/AnalyticMathLab.jl:24",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:57"
+    },
+    {
+      "symbol": "linearization",
+      "export_location": "src/AnalyticMathLab.jl:24",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:57"
+    },
+    {
+      "symbol": "levelset",
+      "export_location": "src/AnalyticMathLab.jl:24",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:57"
+    },
+    {
+      "symbol": "surface",
+      "export_location": "src/AnalyticMathLab.jl:25",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "contour",
+      "export_location": "src/AnalyticMathLab.jl:25",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "gradientplot",
+      "export_location": "src/AnalyticMathLab.jl:25",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "VectorFieldAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:26",
+      "family": "F07",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:58"
+    },
+    {
+      "symbol": "jacobian",
+      "export_location": "src/AnalyticMathLab.jl:26",
+      "family": "F07",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:58"
+    },
+    {
+      "symbol": "divergence",
+      "export_location": "src/AnalyticMathLab.jl:26",
+      "family": "F07",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:58"
+    },
+    {
+      "symbol": "curl",
+      "export_location": "src/AnalyticMathLab.jl:26",
+      "family": "F07",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:58"
+    },
+    {
+      "symbol": "potential",
+      "export_location": "src/AnalyticMathLab.jl:26",
+      "family": "F07",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:58"
+    },
+    {
+      "symbol": "vectorplot",
+      "export_location": "src/AnalyticMathLab.jl:26",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "AutonomousSystem",
+      "export_location": "src/AnalyticMathLab.jl:27",
+      "family": "F08",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:59"
+    },
+    {
+      "symbol": "DynamicalSystemAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:27",
+      "family": "F08",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:59"
+    },
+    {
+      "symbol": "equilibria",
+      "export_location": "src/AnalyticMathLab.jl:27",
+      "family": "F08",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:59"
+    },
+    {
+      "symbol": "stability",
+      "export_location": "src/AnalyticMathLab.jl:27",
+      "family": "F08",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:59"
+    },
+    {
+      "symbol": "nullclines",
+      "export_location": "src/AnalyticMathLab.jl:27",
+      "family": "F08",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:59"
+    },
+    {
+      "symbol": "FirstOrderODE",
+      "export_location": "src/AnalyticMathLab.jl:28",
+      "family": "F09",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:60"
+    },
+    {
+      "symbol": "TrajectoryResult",
+      "export_location": "src/AnalyticMathLab.jl:28",
+      "family": "F09",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:60"
+    },
+    {
+      "symbol": "trajectory",
+      "export_location": "src/AnalyticMathLab.jl:28",
+      "family": "F09",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:60"
+    },
+    {
+      "symbol": "phaseplot",
+      "export_location": "src/AnalyticMathLab.jl:28",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "timeplot",
+      "export_location": "src/AnalyticMathLab.jl:28",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "LagrangianSystem",
+      "export_location": "src/AnalyticMathLab.jl:29",
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:61"
+    },
+    {
+      "symbol": "LagrangianAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:29",
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:61"
+    },
+    {
+      "symbol": "HamiltonianSystem",
+      "export_location": "src/AnalyticMathLab.jl:30",
+      "family": "F11",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:62"
+    },
+    {
+      "symbol": "HamiltonianAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:30",
+      "family": "F11",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:62"
+    },
+    {
+      "symbol": "hamilton_equations",
+      "export_location": "src/AnalyticMathLab.jl:30",
+      "family": "F11",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:62"
+    },
+    {
+      "symbol": "poisson_bracket",
+      "export_location": "src/AnalyticMathLab.jl:31",
+      "family": "F11",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:62"
+    },
+    {
+      "symbol": "observable_derivative",
+      "export_location": "src/AnalyticMathLab.jl:31",
+      "family": "F11",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:62"
+    },
+    {
+      "symbol": "force_from_potential",
+      "export_location": "src/AnalyticMathLab.jl:31",
+      "family": "F11",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:62"
+    },
+    {
+      "symbol": "legendre_transform",
+      "export_location": "src/AnalyticMathLab.jl:32",
+      "family": "F12",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:63"
+    },
+    {
+      "symbol": "MechanicsDynamics",
+      "export_location": "src/AnalyticMathLab.jl:33",
+      "family": "F13",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:64"
+    },
+    {
+      "symbol": "dynamics",
+      "export_location": "src/AnalyticMathLab.jl:33",
+      "family": "F13",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:64"
+    },
+    {
+      "symbol": "energy_drift",
+      "export_location": "src/AnalyticMathLab.jl:33",
+      "family": "F13",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:64"
+    },
+    {
+      "symbol": "energyplot",
+      "export_location": "src/AnalyticMathLab.jl:33",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "euler_lagrange",
+      "export_location": "src/AnalyticMathLab.jl:34",
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:61"
+    },
+    {
+      "symbol": "generalized_momenta",
+      "export_location": "src/AnalyticMathLab.jl:34",
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:61"
+    },
+    {
+      "symbol": "velocity_hessian",
+      "export_location": "src/AnalyticMathLab.jl:34",
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:61"
+    },
+    {
+      "symbol": "energy_function",
+      "export_location": "src/AnalyticMathLab.jl:34",
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:61"
+    },
+    {
+      "symbol": "cyclic_coordinates",
+      "export_location": "src/AnalyticMathLab.jl:34",
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:61"
+    },
+    {
+      "symbol": "MechanicalLinearization",
+      "export_location": "src/AnalyticMathLab.jl:35",
+      "family": "F14",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:65"
+    },
+    {
+      "symbol": "linearize_mechanics",
+      "export_location": "src/AnalyticMathLab.jl:35",
+      "family": "F14",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:65"
+    },
+    {
+      "symbol": "NormalModeAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:35",
+      "family": "F14",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:65"
+    },
+    {
+      "symbol": "normal_modes",
+      "export_location": "src/AnalyticMathLab.jl:35",
+      "family": "F14",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:65"
+    },
+    {
+      "symbol": "cartesian_mass_matrix",
+      "export_location": "src/AnalyticMathLab.jl:36",
+      "family": "F14",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:65"
+    },
+    {
+      "symbol": "modeplot",
+      "export_location": "src/AnalyticMathLab.jl:36",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "AtomisticSnapshot",
+      "export_location": "src/AnalyticMathLab.jl:37",
+      "family": "F15",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:66"
+    },
+    {
+      "symbol": "AtomisticTrajectoryView",
+      "export_location": "src/AnalyticMathLab.jl:37",
+      "family": "F15",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:66"
+    },
+    {
+      "symbol": "atomistic_snapshot",
+      "export_location": "src/AnalyticMathLab.jl:37",
+      "family": "F15",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:66"
+    },
+    {
+      "symbol": "atomistic_trajectory",
+      "export_location": "src/AnalyticMathLab.jl:37",
+      "family": "F15",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:66"
+    },
+    {
+      "symbol": "pair_distances",
+      "export_location": "src/AnalyticMathLab.jl:38",
+      "family": "F16",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:67"
+    },
+    {
+      "symbol": "AtomisticSystemAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:39",
+      "family": "F16",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:67"
+    },
+    {
+      "symbol": "mdcheck",
+      "export_location": "src/AnalyticMathLab.jl:39",
+      "family": "F16",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:67"
+    },
+    {
+      "symbol": "inspect_particle",
+      "export_location": "src/AnalyticMathLab.jl:39",
+      "family": "F16",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:67"
+    },
+    {
+      "symbol": "PotentialAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:40",
+      "family": "F17",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:68"
+    },
+    {
+      "symbol": "analyze_potential",
+      "export_location": "src/AnalyticMathLab.jl:40",
+      "family": "F17",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:68"
+    },
+    {
+      "symbol": "lennard_jones_analysis",
+      "export_location": "src/AnalyticMathLab.jl:40",
+      "family": "F17",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:68"
+    },
+    {
+      "symbol": "potentialplot",
+      "export_location": "src/AnalyticMathLab.jl:40",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "forceplot",
+      "export_location": "src/AnalyticMathLab.jl:40",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "RadialDistributionAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:41",
+      "family": "F18",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:69"
+    },
+    {
+      "symbol": "radial_distribution",
+      "export_location": "src/AnalyticMathLab.jl:41",
+      "family": "F18",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:69"
+    },
+    {
+      "symbol": "coordination",
+      "export_location": "src/AnalyticMathLab.jl:41",
+      "family": "F18",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:69"
+    },
+    {
+      "symbol": "mdplot",
+      "export_location": "src/AnalyticMathLab.jl:41",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "SamplingInfo",
+      "export_location": "src/AnalyticMathLab.jl:42",
+      "family": "F19",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:70"
+    },
+    {
+      "symbol": "sampling_info",
+      "export_location": "src/AnalyticMathLab.jl:42",
+      "family": "F19",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:70"
+    },
+    {
+      "symbol": "ObservableSeries",
+      "export_location": "src/AnalyticMathLab.jl:42",
+      "family": "F19",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:70"
+    },
+    {
+      "symbol": "observable_series",
+      "export_location": "src/AnalyticMathLab.jl:42",
+      "family": "F19",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:70"
+    },
+    {
+      "symbol": "statistical_summary",
+      "export_location": "src/AnalyticMathLab.jl:42",
+      "family": "F20",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:71"
+    },
+    {
+      "symbol": "running_statistics",
+      "export_location": "src/AnalyticMathLab.jl:42",
+      "family": "F20",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:71"
+    },
+    {
+      "symbol": "AutocorrelationAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:43",
+      "family": "F21",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:72"
+    },
+    {
+      "symbol": "autocorrelation",
+      "export_location": "src/AnalyticMathLab.jl:43",
+      "family": "F21",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:72"
+    },
+    {
+      "symbol": "integrated_autocorrelation_time",
+      "export_location": "src/AnalyticMathLab.jl:43",
+      "family": "F21",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:72"
+    },
+    {
+      "symbol": "correlated_mean",
+      "export_location": "src/AnalyticMathLab.jl:43",
+      "family": "F21",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:72"
+    },
+    {
+      "symbol": "BlockAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:44",
+      "family": "F22",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:73"
+    },
+    {
+      "symbol": "block_average",
+      "export_location": "src/AnalyticMathLab.jl:44",
+      "family": "F22",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:73"
+    },
+    {
+      "symbol": "transient_analysis",
+      "export_location": "src/AnalyticMathLab.jl:44",
+      "family": "F22",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:73"
+    },
+    {
+      "symbol": "MeanSquaredDisplacement",
+      "export_location": "src/AnalyticMathLab.jl:45",
+      "family": "F23",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:74"
+    },
+    {
+      "symbol": "mean_squared_displacement",
+      "export_location": "src/AnalyticMathLab.jl:45",
+      "family": "F23",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:74"
+    },
+    {
+      "symbol": "diffusion_estimate",
+      "export_location": "src/AnalyticMathLab.jl:45",
+      "family": "F23",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:74"
+    },
+    {
+      "symbol": "VelocityAutocorrelation",
+      "export_location": "src/AnalyticMathLab.jl:46",
+      "family": "F23",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:74"
+    },
+    {
+      "symbol": "velocity_autocorrelation",
+      "export_location": "src/AnalyticMathLab.jl:46",
+      "family": "F23",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:74"
+    },
+    {
+      "symbol": "energy_diagnostics",
+      "export_location": "src/AnalyticMathLab.jl:46",
+      "family": "F24",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:75"
+    },
+    {
+      "symbol": "momentum_diagnostics",
+      "export_location": "src/AnalyticMathLab.jl:46",
+      "family": "F24",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:75"
+    },
+    {
+      "symbol": "MDTrajectoryAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:47",
+      "family": "F24",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:75"
+    },
+    {
+      "symbol": "diagnose",
+      "export_location": "src/AnalyticMathLab.jl:47",
+      "family": "F24",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:75"
+    },
+    {
+      "symbol": "timeseriesplot",
+      "export_location": "src/AnalyticMathLab.jl:47",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "autocorrelationplot",
+      "export_location": "src/AnalyticMathLab.jl:47",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "blockplot",
+      "export_location": "src/AnalyticMathLab.jl:47",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "msdplot",
+      "export_location": "src/AnalyticMathLab.jl:47",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "vacfplot",
+      "export_location": "src/AnalyticMathLab.jl:47",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "ComparisonInput",
+      "export_location": "src/AnalyticMathLab.jl:48",
+      "family": "F25",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:76"
+    },
+    {
+      "symbol": "ComparisonCompatibility",
+      "export_location": "src/AnalyticMathLab.jl:48",
+      "family": "F25",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:76"
+    },
+    {
+      "symbol": "ObservableComparison",
+      "export_location": "src/AnalyticMathLab.jl:48",
+      "family": "F25",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:76"
+    },
+    {
+      "symbol": "compare",
+      "export_location": "src/AnalyticMathLab.jl:48",
+      "family": "F25",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:76"
+    },
+    {
+      "symbol": "MDTrajectoryComparison",
+      "export_location": "src/AnalyticMathLab.jl:49",
+      "family": "F25",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:76"
+    },
+    {
+      "symbol": "compare_runs",
+      "export_location": "src/AnalyticMathLab.jl:49",
+      "family": "F25",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:76"
+    },
+    {
+      "symbol": "comparisonplot",
+      "export_location": "src/AnalyticMathLab.jl:50",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "differenceplot",
+      "export_location": "src/AnalyticMathLab.jl:50",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "PINNProblem",
+      "export_location": "src/AnalyticMathLab.jl:51",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:77"
+    },
+    {
+      "symbol": "PINNTrainingResult",
+      "export_location": "src/AnalyticMathLab.jl:51",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:77"
+    },
+    {
+      "symbol": "PINNHistory",
+      "export_location": "src/AnalyticMathLab.jl:51",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:77"
+    },
+    {
+      "symbol": "pinn_network",
+      "export_location": "src/AnalyticMathLab.jl:51",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:77"
+    },
+    {
+      "symbol": "pinn_problem",
+      "export_location": "src/AnalyticMathLab.jl:51",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:77"
+    },
+    {
+      "symbol": "train",
+      "export_location": "src/AnalyticMathLab.jl:52",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:77"
+    },
+    {
+      "symbol": "predict",
+      "export_location": "src/AnalyticMathLab.jl:52",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:77"
+    },
+    {
+      "symbol": "pinn_inspect",
+      "export_location": "src/AnalyticMathLab.jl:52",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:77"
+    },
+    {
+      "symbol": "lossplot",
+      "export_location": "src/AnalyticMathLab.jl:52",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "PINNPoints",
+      "export_location": "src/AnalyticMathLab.jl:53",
+      "family": "F27",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:78"
+    },
+    {
+      "symbol": "PINNAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:53",
+      "family": "F27",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:78"
+    },
+    {
+      "symbol": "sampled_summary",
+      "export_location": "src/AnalyticMathLab.jl:53",
+      "family": "F27",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:78"
+    },
+    {
+      "symbol": "loss_breakdown",
+      "export_location": "src/AnalyticMathLab.jl:53",
+      "family": "F27",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:78"
+    },
+    {
+      "symbol": "residualplot",
+      "export_location": "src/AnalyticMathLab.jl:54",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "errorplot",
+      "export_location": "src/AnalyticMathLab.jl:54",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "collocationplot",
+      "export_location": "src/AnalyticMathLab.jl:54",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "losscomponentsplot",
+      "export_location": "src/AnalyticMathLab.jl:54",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "pinnplot",
+      "export_location": "src/AnalyticMathLab.jl:54",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "ObservationSet",
+      "export_location": "src/AnalyticMathLab.jl:55",
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:79"
+    },
+    {
+      "symbol": "InferenceParameters",
+      "export_location": "src/AnalyticMathLab.jl:55",
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:79"
+    },
+    {
+      "symbol": "ParameterInferenceProblem",
+      "export_location": "src/AnalyticMathLab.jl:55",
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:79"
+    },
+    {
+      "symbol": "inference_predict",
+      "export_location": "src/AnalyticMathLab.jl:56",
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:79"
+    },
+    {
+      "symbol": "inference_objective",
+      "export_location": "src/AnalyticMathLab.jl:56",
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:79"
+    },
+    {
+      "symbol": "local_sensitivity",
+      "export_location": "src/AnalyticMathLab.jl:56",
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:79"
+    },
+    {
+      "symbol": "ParameterInferenceResult",
+      "export_location": "src/AnalyticMathLab.jl:57",
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:79"
+    },
+    {
+      "symbol": "infer_parameters",
+      "export_location": "src/AnalyticMathLab.jl:57",
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:79"
+    },
+    {
+      "symbol": "parameterfitplot",
+      "export_location": "src/AnalyticMathLab.jl:58",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "symbol": "distance_observations",
+      "export_location": "src/AnalyticMathLab.jl:59",
+      "family": "F29",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:80"
+    },
+    {
+      "symbol": "DerivativeData",
+      "export_location": "src/AnalyticMathLab.jl:60",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:81"
+    },
+    {
+      "symbol": "TrajectoryData",
+      "export_location": "src/AnalyticMathLab.jl:60",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:81"
+    },
+    {
+      "symbol": "HamiltonianNN",
+      "export_location": "src/AnalyticMathLab.jl:60",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:81"
+    },
+    {
+      "symbol": "UDEProblem",
+      "export_location": "src/AnalyticMathLab.jl:60",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:81"
+    },
+    {
+      "symbol": "DynamicsTrainingResult",
+      "export_location": "src/AnalyticMathLab.jl:60",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:81"
+    },
+    {
+      "symbol": "learned_energy",
+      "export_location": "src/AnalyticMathLab.jl:61",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:81"
+    },
+    {
+      "symbol": "learned_vector_field",
+      "export_location": "src/AnalyticMathLab.jl:61",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:81"
+    },
+    {
+      "symbol": "learned_correction",
+      "export_location": "src/AnalyticMathLab.jl:61",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:81"
+    },
+    {
+      "symbol": "dynamics_objective",
+      "export_location": "src/AnalyticMathLab.jl:61",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:81"
+    },
+    {
+      "symbol": "aligned_energy",
+      "export_location": "src/AnalyticMathLab.jl:61",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:81"
+    },
+    {
+      "symbol": "ScientificSample",
+      "export_location": "src/AnalyticMathLab.jl:62",
+      "family": "F31",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:82"
+    },
+    {
+      "symbol": "ScientificDataset",
+      "export_location": "src/AnalyticMathLab.jl:62",
+      "family": "F31",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:82"
+    },
+    {
+      "symbol": "classify_query",
+      "export_location": "src/AnalyticMathLab.jl:62",
+      "family": "F31",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:82"
+    },
+    {
+      "symbol": "AffineScaling",
+      "export_location": "src/AnalyticMathLab.jl:63",
+      "family": "F32",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:83"
+    },
+    {
+      "symbol": "fit_scaling",
+      "export_location": "src/AnalyticMathLab.jl:63",
+      "family": "F32",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:83"
+    },
+    {
+      "symbol": "transform",
+      "export_location": "src/AnalyticMathLab.jl:63",
+      "family": "F32",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:83"
+    },
+    {
+      "symbol": "inverse_transform",
+      "export_location": "src/AnalyticMathLab.jl:63",
+      "family": "F32",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:83"
+    },
+    {
+      "symbol": "field_errors",
+      "export_location": "src/AnalyticMathLab.jl:64",
+      "family": "F34",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:85"
+    },
+    {
+      "symbol": "ScientificModel",
+      "export_location": "src/AnalyticMathLab.jl:65",
+      "family": "F33",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:84"
+    },
+    {
+      "symbol": "ScientificLearningResult",
+      "export_location": "src/AnalyticMathLab.jl:65",
+      "family": "F33",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:84"
+    },
+    {
+      "symbol": "learning_model",
+      "export_location": "src/AnalyticMathLab.jl:65",
+      "family": "F33",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:84"
+    },
+    {
+      "symbol": "training_data",
+      "export_location": "src/AnalyticMathLab.jl:65",
+      "family": "F33",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:84"
+    },
+    {
+      "symbol": "learning_objective",
+      "export_location": "src/AnalyticMathLab.jl:65",
+      "family": "F33",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:84"
+    },
+    {
+      "symbol": "heat_residual",
+      "export_location": "src/AnalyticMathLab.jl:66",
+      "family": "F34",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:85"
+    },
+    {
+      "symbol": "benchmark_queries",
+      "export_location": "src/AnalyticMathLab.jl:66",
+      "family": "F34",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:85"
+    },
+    {
+      "symbol": "GeneralizationAnalysis",
+      "export_location": "src/AnalyticMathLab.jl:67",
+      "family": "F34",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "frozen_inventory_reference": "docs/m10d_architecture_inventory.md:85"
+    }
+  ],
+  "families": [
+    {
+      "family": "F01",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "AbstractAnalysis, PropertyResult",
+      "contract": "src/core/contracts.jl; marker and `(value,status,method,notes)` claim container",
+      "semantics": "Open Symbol status; no universal unit/domain/order fields; payload-specific",
+      "backend_risks": "Base; every subsystem. Not an analyzability protocol; status taxonomy deferred. test/architecture.jl",
+      "reference": "docs/m10d_architecture_inventory.md:52"
+    },
+    {
+      "family": "F02",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "RealExpression, @real_function",
+      "contract": "src/core/expressions.jl; captured original syntax + expression \u2192 reusable source wrapper",
+      "semantics": "Original restrictions before symbolic cancellation; caller-supplied syntax equivalence trusted; explicit variable order downstream",
+      "backend_risks": "Symbolics; M1/M3\u2013M7. Not a second expression evaluator. Capture required before simplification. test/source_capture.jl",
+      "reference": "docs/m10d_architecture_inventory.md:53"
+    },
+    {
+      "family": "F03",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "FunctionAnalysis, CriticalPoint, CriticalPointAnalysis, analyze, evaluate",
+      "contract": "src/analysis.jl, symbolic.jl, numerical.jl; scalar expression + Num \u2192 report; report + number \u2192 value/derivative",
+      "semantics": "Legacy search heuristic/not_requested/nonisolated; tolerance/rejections stored; evaluation preserves generic numeric types but is not domain-checked; one scalar variable",
+      "backend_risks": "Base Symbolics/Roots/AD; convergence, potentials, plots. CriticalPoint differs from multivariate stationary record for scientific dimensional reasons. Six-argument compatibility constructors retained. test/runtests.jl",
+      "reference": "docs/m10d_architecture_inventory.md:54"
+    },
+    {
+      "family": "F04",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "RealInterval, RealDomain, RealFunctionStudy, domain_contains, PeriodicPointSet, PeriodicIntervalSet",
+      "contract": "src/real_analysis*.jl; report-owned interval unions, periodic descriptors, membership",
+      "semantics": "Established/partial/unknown domains; true/false/nothing membership; exact original-domain reasoning bounded by supported classes; units not generally modeled; one variable",
+      "backend_risks": "Base; numerical safety/plots. RealDomain is not interchangeable with multivariate constraints. Direct containers do not certify content. test/real_analysis_core.jl",
+      "reference": "docs/m10d_architecture_inventory.md:55"
+    },
+    {
+      "family": "F05",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "DerivativeComparison, compare_derivatives, DerivativeConvergenceAnalysis, derivative_convergence",
+      "contract": "src/numerical.jl, convergence.jl; FunctionAnalysis + point \u2192 symbolic/AD/FD comparison or controlled step experiment",
+      "semantics": "Absolute/relative errors and reference method; observed order optional; convergence explicitly Float64; same scalar variable, no new domain certificate",
+      "backend_risks": "ForwardDiff/FiniteDiff; plots/research. Comparison is not statistical run comparison. test/convergence.jl",
+      "reference": "docs/m10d_architecture_inventory.md:56"
+    },
+    {
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "ScalarFieldAnalysis, MultivariateDomain, StationaryPoint, gradient, hessian, directional_derivative, linearization, levelset",
+      "contract": "src/multivariate*.jl; scalar + ordered variables \u2192 report; formal/numeric derivatives, affine local map, implicit level",
+      "semantics": "Original restrictions and stationary classification evidence; numerical derivatives require open smooth neighborhood; no generic physical-unit inference; tuple/vector order retained",
+      "backend_risks": "Symbolics/base; force, Hessian/modes, plots. One-element variable collection still scalar-field API. `linearization` is not mechanical second-order linearization. test/multivariate_regressions.jl",
+      "reference": "docs/m10d_architecture_inventory.md:57"
+    },
+    {
+      "family": "F07",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "VectorFieldAnalysis, jacobian, divergence, curl, potential",
+      "contract": "src/vector_fields/*.jl; components + variables \u2192 rectangular map report and calculus evidence",
+      "semantics": "Component domains intersect; residual-checked zeros; potential requires direct verification, not zero-curl shortcut; inputs/outputs ordered independently; plain numeric coordinates",
+      "backend_risks": "Base; autonomous systems, plots. Scalar gradient/Hessian and vector Jacobian are different shapes by design. Name collisions with other packages require qualification. test/vector_regressions.jl",
+      "reference": "docs/m10d_architecture_inventory.md:58"
+    },
+    {
+      "family": "F08",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "AutonomousSystem, DynamicalSystemAnalysis, equilibria, stability, nullclines",
+      "contract": "src/dynamical_systems/{analysis,stability}.jl; square field \u2192 system \u2192 analysis",
+      "semantics": "Same field/domain retained; equilibrium-local stability only; copies of evidence returned; coordinate order from field; no general unit conversion",
+      "backend_risks": "Base LinearAlgebra; trajectory/phase views. A field zero is not global stability; nullclines only supported dimensions. test/dynamical_systems.jl",
+      "reference": "docs/m10d_architecture_inventory.md:59"
+    },
+    {
+      "family": "F09",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "FirstOrderODE, TrajectoryResult, trajectory",
+      "contract": "src/dynamical_systems/integration.jl; `f(u,t)`, dimension/domain/labels; problem or analysis + u0/tspan \u2192 native-solution holder",
+      "semantics": "Explicit checked Float64 state/time boundary, small-state limit; diagnostic success/completed/retcode and tolerances, not proof of accuracy; labels retain state order; domain callback requires true",
+      "backend_risks": "SciMLBase/Tsit5 mandatory numerical deps; mechanics/learned dynamics/plots. Not an atomistic trajectory and not automatically a statistical series. test/trajectories.jl",
+      "reference": "docs/m10d_architecture_inventory.md:60"
+    },
+    {
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "LagrangianSystem, LagrangianAnalysis, euler_lagrange, generalized_momenta, velocity_hessian, energy_function, cyclic_coordinates",
+      "contract": "src/mechanics/core.jl; L + named coordinates/velocities/forces/Rayleigh \u2192 formal EL report",
+      "semantics": "Regularity/acceleration/conservation claims separately proven or unknown; original domains/nonzero assumptions preserved; `(q...,v...)`; formal scalars, explicit parameters",
+      "backend_risks": "Symbolics; Legendre, dynamics, linearization. Some accessors borrow arrays unlike copy-returning Hamiltonian accessors; mutation policy deferred. test/mechanics.jl",
+      "reference": "docs/m10d_architecture_inventory.md:61"
+    },
+    {
+      "family": "F11",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "HamiltonianSystem, HamiltonianAnalysis, hamilton_equations, poisson_bracket, observable_derivative, force_from_potential",
+      "contract": "src/mechanics/hamiltonian.jl; H + coordinates/momenta \u2192 canonical report; scalar field \u2192 -gradient",
+      "semantics": "Canonical `(q...,p...)`, formal smooth-locus identities; original domain/parameters/nonzero assumptions; no automatic SI conversion",
+      "backend_risks": "Base; dynamics/HNN. `energy_function` shared with F10. Hamilton equations accessor returns phase-field vector, not equation objects. test/mechanics_dynamics.jl",
+      "reference": "docs/m10d_architecture_inventory.md:62"
+    },
+    {
+      "family": "F12",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "legendre_transform",
+      "contract": "src/mechanics/legendre.jl; regular Lagrangian \u2192 PropertyResult containing Hamiltonian construction",
+      "semantics": "Verified affine momentum inversion; unsupported/nonconservative cases unknown; restrictions pulled back; canonical order and assumptions required",
+      "backend_risks": "Base; Hamiltonian analysis. Not arbitrary nonlinear inverse or dissipative-to-conservative conversion. test/mechanics_readiness.jl",
+      "reference": "docs/m10d_architecture_inventory.md:63"
+    },
+    {
+      "family": "F13",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "MechanicsDynamics, dynamics, energy_drift",
+      "contract": "src/mechanics/bridge.jl; bound mechanics report \u2192 M6 conversion; matching path \u2192 sampled drift",
+      "semantics": "Source identity, original domain, state order retained; autonomous/nonautonomous distinction; Float64 numerical conversion; path identity checked",
+      "backend_risks": "Base M6; trajectories/energy views. Sample energy drift is not conservation proof; not an independent integrator. test/mechanics_dynamics.jl",
+      "reference": "docs/m10d_architecture_inventory.md:64"
+    },
+    {
+      "family": "F14",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "MechanicalLinearization, linearize_mechanics, NormalModeAnalysis, normal_modes, cartesian_mass_matrix",
+      "contract": "src/mechanics/normal_modes.jl, atomistic/modes.jl; equilibrium + L \u2192 M/C/K; `(K,M)` or linearization/snapshot \u2192 modal result",
+      "semantics": "Equilibrium/domain/SPD/symmetry evidence; damped unsupported route unknown; dense Float64 with preflight; supplied coordinate order; snapshot route stores explicit unit scales and particle-major reconstruction",
+      "backend_risks": "LinearAlgebra; modes/plots/atomistic. `(K,M)` ordering must be explained, not changed aesthetically. Snapshot Hessian does not certify equilibrium. test/normal_modes.jl, atomistic_modes.jl",
+      "reference": "docs/m10d_architecture_inventory.md:65"
+    },
+    {
+      "family": "F15",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "AtomisticSnapshot, AtomisticTrajectoryView, atomistic_snapshot, atomistic_trajectory",
+      "contract": "src/atomistic/core.jl; positions + optional physical metadata \u2192 borrowed/owned snapshot; count/getframe/times \u2192 lazy frames; Molly conversion via extension",
+      "semantics": "Unknown missing quantities preserved; Unitful supported; boundary and distance-provider semantics explicit; particle-major coordinates, fixed identity not inferred",
+      "backend_risks": "Optional Molly; geometry/statistics/modes. `atomistic_trajectory` is Molly adapter; generic users construct AtomisticTrajectoryView, not a generic simulation converter. test/atomistic_core.jl",
+      "reference": "docs/m10d_architecture_inventory.md:66"
+    },
+    {
+      "family": "F16",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "AtomisticSystemAnalysis, mdcheck, inspect_particle, pair_distances",
+      "contract": "src/atomistic/{inspection,core}.jl; snapshot/backend \u2192 checks/observations or pair PropertyResult",
+      "semantics": "Observations are finite-sample evidence; no force/integrator reconstruction; compatible units retained; boundary-aware pair distance, explicit species/index order; output preflight",
+      "backend_risks": "Base or Molly source; RDF/inspection. `mdcheck` distinct from trajectory `diagnose`, not duplicate generic analyze. test/atomistic_core.jl",
+      "reference": "docs/m10d_architecture_inventory.md:67"
+    },
+    {
+      "family": "F17",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "PotentialAnalysis, analyze_potential, lennard_jones_analysis",
+      "contract": "src/atomistic/potentials.jl; radial scalar expression/parameters \u2192 wrapped scalar analysis, force, equilibria",
+      "semantics": "Radius-domain checked evaluate; explicit length/energy metadata and LJ scale certificate; cutoff is descriptive, not an implemented MD potential; radial coordinate",
+      "backend_risks": "Base symbolic; equilibrium/plots. `potential(field)` proves a conservative potential, whereas this analyzes supplied radial U. test/atomistic_potentials.jl",
+      "reference": "docs/m10d_architecture_inventory.md:68"
+    },
+    {
+      "family": "F18",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "RadialDistributionAnalysis, radial_distribution, coordination",
+      "contract": "src/atomistic/distributions.jl; snapshot/frames + edges/cutoff \u2192 counts, finite-N normalized RDF or coordination",
+      "semantics": "Unsupported geometry unknown; distance units/edges retained; populations and normalization explicit; selected particles/frames, no hidden neighbor engine",
+      "backend_risks": "Base/Molly distance; static plots. Quadratic traversal unchanged. test/atomistic_distributions.jl",
+      "reference": "docs/m10d_architecture_inventory.md:69"
+    },
+    {
+      "family": "F19",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "SamplingInfo, sampling_info, ObservableSeries, observable_series",
+      "contract": "src/trajectory/{statistics,analyst}.jl; scalar vector/frame observable/logger + explicit time \u2192 borrowed series",
+      "semantics": "Saved-sample spacing, not integrator dt; reject missing policy; unknown vs sample-index units explicit; monotone time and scalar selection",
+      "backend_risks": "Optional Molly logger methods; all statistics. Physical metadata is not a generic table schema. test/trajectory_statistics.jl",
+      "reference": "docs/m10d_architecture_inventory.md:70"
+    },
+    {
+      "family": "F20",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "statistical_summary, running_statistics",
+      "contract": "src/trajectory/statistics.jl; ObservableSeries \u2192 PropertyResult moments / prefix moments",
+      "semantics": "Welford n-1 variance, heuristic descriptive evidence; standard_error=nothing without correlation model; unit-aware values, missing/nonfinite \u2192 unknown; temporal order retained for prefixes",
+      "backend_risks": "Base; comparison/MD report. `sampled_summary` F27 is residual/RMS metric, not statistical uncertainty. test/trajectory_statistics.jl",
+      "reference": "docs/m10d_architecture_inventory.md:71"
+    },
+    {
+      "family": "F21",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "AutocorrelationAnalysis, autocorrelation, integrated_autocorrelation_time, correlated_mean",
+      "contract": "src/trajectory/{statistics,uncertainty}.jl; scalar series \u2192 lag record / uncertainty claims",
+      "semantics": "Explicit normalization/window and regular time; squared units for covariance, time units for IAT; stationarity assumptions not proven",
+      "backend_risks": "Base; statistical comparison/plots. No IID inference from raw moments. test/trajectory_uncertainty.jl",
+      "reference": "docs/m10d_architecture_inventory.md:72"
+    },
+    {
+      "family": "F22",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "BlockAnalysis, block_average, transient_analysis",
+      "contract": "src/trajectory/uncertainty.jl; series + block sizes/threshold \u2192 block record or heuristic early/late claim",
+      "semantics": "Discarded counts stored; block SE not automatic convergence certificate; original units and sample order; finite data requirements",
+      "backend_risks": "Base; stored comparisons. No silent burn-in selection. test/trajectory_uncertainty.jl",
+      "reference": "docs/m10d_architecture_inventory.md:73"
+    },
+    {
+      "family": "F23",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "MeanSquaredDisplacement, mean_squared_displacement, diffusion_estimate, VelocityAutocorrelation, velocity_autocorrelation",
+      "contract": "src/trajectory/transport.jl; particle frames + identity/coordinate assertion \u2192 transport results",
+      "semantics": "Wrapped/unwrapped/fixed-particle assumptions explicit; diffusion requires physical time and justified fit window; Unitful transport; particle identity/order must persist",
+      "backend_risks": "Base; comparisons/views. MSD not interchangeable with scalar ACF, periodic unwrap not invented. test/trajectory_transport.jl",
+      "reference": "docs/m10d_architecture_inventory.md:74"
+    },
+    {
+      "family": "F24",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "MDTrajectoryAnalysis, diagnose, energy_diagnostics, momentum_diagnostics",
+      "contract": "src/trajectory/analyst.jl; frame view + opt-in requests \u2192 stored aggregate; stored report \u2192 diagnosis",
+      "semantics": "Separate sampling/summary/correlation/transient/transport evidence; no automatic recompute in stored diagnosis; units/selection inherited, incomplete report allowed",
+      "backend_risks": "Base; compare_runs/plots. `diagnose(view)` explicitly does analysis; `diagnose(report)` only summarizes. test/trajectory_analyst.jl",
+      "reference": "docs/m10d_architecture_inventory.md:75"
+    },
+    {
+      "family": "F25",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "ComparisonInput, ComparisonCompatibility, ObservableComparison, compare, MDTrajectoryComparison, compare_runs",
+      "contract": "src/trajectory/comparison.jl; stored results + explicit series/parent/selection context \u2192 compatibility-gated differences",
+      "semantics": "Unknown units/identity/windows can withhold comparison; independence separate from compatibility; no missing result reconstruction; matching temporal/particle semantics required",
+      "backend_risks": "Base; comparison views. Context wrapper compensates for older metadata omissions, not redundant. Not universal scientific equivalence or model ranking. test/trajectory_comparison_edges.jl",
+      "reference": "docs/m10d_architecture_inventory.md:76"
+    },
+    {
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "historical_names": "PINNProblem, PINNTrainingResult, PINNHistory, pinn_network, pinn_problem, train, predict, pinn_inspect",
+      "contract": "src/scientific_ml/pinn.jl, ext/AnalyticMathLabPINNExt.jl; PDESystem + native model/strategy/RNG/AD \u2192 problem \u2192 trained holder",
+      "semantics": "Construction vs fit vs physics separate; bounded history; symbolic variable order controls coordinate rows/output rows; backend domains retained, units not inferred",
+      "backend_risks": "PINN five-trigger extension; diagnostics/views. train/predict also used by F30/F33 with deliberately different signatures/output shapes. Native backend state intentionally visible. test/pinn_base.jl, pinn_construction.jl",
+      "reference": "docs/m10d_architecture_inventory.md:77"
+    },
+    {
+      "family": "F27",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "historical_names": "PINNPoints, PINNAnalysis, sampled_summary, loss_breakdown",
+      "contract": "src/scientific_ml/diagnostics.jl, ext/pinn_diagnostics.jl; trained PINN + explicit points/reference \u2192 sampled residual analysis",
+      "semantics": "Points own checked Float64 coordinate columns and generation/provenance; unweighted RMS/max/mean absolute not continuum norm; reference trust explicit; equation/block order matters",
+      "backend_risks": "PINN extension for trained diagnostics; generic sampled_summary works in base; residual plots/heat metrics. Units of distinct residual blocks cannot silently be combined. test/pinn_diagnostics_base.jl",
+      "reference": "docs/m10d_architecture_inventory.md:78"
+    },
+    {
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "historical_names": "ObservationSet, InferenceParameters, ParameterInferenceProblem, inference_predict, inference_objective, local_sensitivity, ParameterInferenceResult, infer_parameters",
+      "contract": "src/scientific_ml/{inference,parameter_inference}.jl; explicit observation times + parameter factory \u2192 forward problem \u2192 fit",
+      "semantics": "Checked Float64 observations/parameters; variables and units must match; fit/heldout, solver/reference/provenance retained; local SVD not global identifiability; explicit inferred-name order",
+      "backend_risks": "Base forward/ForwardDiff, Optimization for fit; parameterfitplot. Parameter units are metadata; factory owns physical interpretation. test/inference_base.jl",
+      "reference": "docs/m10d_architecture_inventory.md:79"
+    },
+    {
+      "family": "F29",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "historical_names": "distance_observations",
+      "contract": "src/scientific_ml/trajectory_inference.jl; explicit particle pair/frames \u2192 ObservableSeries \u2192 ObservationSet overload",
+      "semantics": "Actual physical times, minimum-image provenance, positive scales for Unitful conversion; pair/time order preserved; unknown/index time refused",
+      "backend_risks": "Base atomistic/inference; fitting. Existing narrow bridge, not arbitrary trajectory serialization. test/trajectory_inference.jl",
+      "reference": "docs/m10d_architecture_inventory.md:80"
+    },
+    {
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "historical_names": "DerivativeData, TrajectoryData, HamiltonianNN, UDEProblem, DynamicsTrainingResult, learned_energy, learned_vector_field, learned_correction, dynamics_objective, aligned_energy",
+      "contract": "src/scientific_ml/learned_dynamics.jl, ext/AnalyticMathLabDynamicsExt.jl; canonical derivative/trajectory data + Lux model \u2192 learned field / fitted model; predict \u2192 TrajectoryResult",
+      "semantics": "Data matrices borrow inputs; increasing times; `(q...,p...)` for HNN, correction indices for UDE; loss does not prove physics; solver/training provenance retained; no unit schema on data types",
+      "backend_risks": "Lux+Optimization; M6 predict/plots. No new model families. Empty generics give MethodError when absent, unlike guarded PINN/inference errors. test/learned_dynamics_base.jl",
+      "reference": "docs/m10d_architecture_inventory.md:81"
+    },
+    {
+      "family": "F31",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "historical_names": "ScientificSample, ScientificDataset, classify_query",
+      "contract": "src/scientific_ml/surrogates.jl; copied input/query/target arrays + explicit family/splits/schema \u2192 scalar-field dataset",
+      "semantics": "Checked Float64, units/reference/grid/RNG/provenance metadata; domain membership descriptive; coordinate columns/input names/sensor grid explicit; no target leakage",
+      "backend_risks": "Base; learning/generalization. Not ObservationSet: family versus time observations. Simulation data require documented reference/error; no automatic converter. test/surrogate_data.jl, surrogate_contracts.jl",
+      "reference": "docs/m10d_architecture_inventory.md:82"
+    },
+    {
+      "family": "F32",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "historical_names": "AffineScaling, fit_scaling, transform, inverse_transform",
+      "contract": "src/scientific_ml/surrogates.jl; training dataset \u2192 row-wise affine map \u2192 normalized/restored arrays",
+      "semantics": "Training IDs/field stored; constant rows use scale1; explicit Float64 fit; no automatic normalization; order/schema must match",
+      "backend_risks": "Base; F33. Physical units held by dataset, not scale object; transform not general unit conversion. test/surrogate_contracts.jl",
+      "reference": "docs/m10d_architecture_inventory.md:83"
+    },
+    {
+      "family": "F33",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "historical_names": "ScientificModel, ScientificLearningResult, learning_model, training_data, learning_objective",
+      "contract": "src/scientific_ml/surrogates.jl, ext/AnalyticMathLabSurrogateExt.jl; dataset + Lux/DeepONet \u2192 native model/batch \u2192 train/predict",
+      "semantics": "Schema equality, fixed sensors, explicit RNG/normalization/AD/optimizer; optimizer success separate from generalization; physical output scale restored",
+      "backend_risks": "Lux+Optimization+NeuralOperators even for plain surrogate; F34. LearningBatch returned opaquely; no public constructor guarantee. test/surrogate_contracts.jl; examples/operators/analysis_gate.jl",
+      "reference": "docs/m10d_architecture_inventory.md:84"
+    },
+    {
+      "family": "F34",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "historical_names": "GeneralizationAnalysis, field_errors, heat_residual, benchmark_queries",
+      "contract": "src/scientific_ml/generalization.jl and surrogates.jl; trained result \u2192 per-split empirical evidence; arrays \u2192 errors; `(x,t)` predictor \u2192 sampled heat residual",
+      "semantics": "Reference/dataset retained; no ranking/continuum/extrapolation guarantee; relative floor explicit; heat coordinate order fixed; query timings descriptive and caller scope-dependent",
+      "backend_risks": "Base metrics/ForwardDiff; prediction requires F33 extension; research reports. Timings do not certify speedup. Not run during M10D.1. test/surrogate_diagnostics.jl",
+      "reference": "docs/m10d_architecture_inventory.md:85"
+    },
+    {
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "historical_names": "plot, surface, contour, gradientplot, vectorplot, phaseplot, timeplot, energyplot, modeplot, potentialplot, forceplot, mdplot, timeseriesplot, autocorrelationplot, blockplot, msdplot, vacfplot, comparisonplot, differenceplot, lossplot, residualplot, errorplot, collocationplot, losscomponentsplot, pinnplot, parameterfitplot",
+      "contract": "src/visualization/*.jl and Base.show methods in source families; stored report \u2192 Makie Figure/text",
+      "semantics": "Displays consume stored evidence; curve/field sampling may evaluate stored callables but does not create new scientific proof; units/domain masks/order from source",
+      "backend_risks": "Makie imported, rendering backend chosen by user; CairoMakie remains installed dependency but not auto-loaded. Stable view names, experimental ML payloads follow owning family. test/*visualization.jl",
+      "reference": "docs/m10d_architecture_inventory.md:86"
+    },
+    {
+      "family": "F36",
+      "stability": "INTERNAL",
+      "historical_names": "FieldZero, Equilibrium, LocalStabilityAnalysis, MultivariateRestriction, LearningBatch, TrajectoryObservations, DeviationAnalysis; underscore helpers; extension modules/AtomTypes; imported dependency bindings",
+      "contract": "src/vector_fields/zeros.jl, dynamical_systems/{analysis,stability}.jl, multivariate_domain.jl, scientific_ml/surrogates.jl, trajectory/analyst.jl, core/exact_algebra.jl, dynamical_systems/scaling.jl, ext/*.jl",
+      "semantics": "Reachable record fields support documented inspection, not stable type names or direct constructors; backend bindings are not re-exports; helper assumptions inherited from caller",
+      "backend_risks": "Package internals/test fixtures and labeled maintainer experiments only. No test helpers exported. No internal type promoted just for an example.",
+      "reference": "docs/m10d_architecture_inventory.md:87"
+    }
+  ]
+}

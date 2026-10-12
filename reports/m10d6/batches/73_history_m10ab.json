@@ -1,0 +1,826 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "73_history_m10ab",
+  "files": [
+    {
+      "path": "docs/m10a_m9cd_inventory.md",
+      "sha256": "b9cdee5c70a4c9d98f8d9bd7f5ba6de417d4f6df490a602647d81b058bdf3aee",
+      "bytes": 5513,
+      "lines": 27,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          26,
+          26
+        ],
+        [
+          27,
+          27
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10A M9C/D inventory"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "`T` = `test/m10a_inference_operators.jl`, `I` ="
+        },
+        {
+          "line": 4,
+          "text": "`examples/inference/m10a_gate.jl`, `O` = `examples/operators/m10a_gate.jl`."
+        },
+        {
+          "line": 5,
+          "text": "Optional gates use their existing environments, serially, without optimizers or"
+        },
+        {
+          "line": 6,
+          "text": "heavy model retraining. Base tests never activate Lux/NeuralPDE/NeuralOperators."
+        },
+        {
+          "line": 7,
+          "text": "Final execution counts/status are in `m10a_audit.md`."
+        },
+        {
+          "line": 8,
+          "text": ""
+        },
+        {
+          "line": 9,
+          "text": "| Subsystem / object | Mathematical obligation | Independent oracle | Tolerance / exactness | Regression / status | Finding / limitation |"
+        },
+        {
+          "line": 10,
+          "text": "|---|---|---|---|---|---|"
+        },
+        {
+          "line": 11,
+          "text": "| M9C deterministic inference | Truth and held-out targets excluded from objective/gradient | Change reference to 1e9 and held-out targets to -1e8; compare fit objective/gradient unchanged | Exact invariance | T, deterministic inference; verified | Generated synthetic observations legitimately depend on truth; metadata itself must not enter fit |"
+        },
+        {
+          "line": 12,
+          "text": "| M9C sensitivities | Analytic decay derivative; AD vs FD through solves | `-t exp(-\u03b8t)`; fresh central solves h=2e-5 | AD/analytic 2e-7 absolute; FD 2e-5 relative +2e-7 absolute | T, deterministic/oscillator; verified | FD and AD share native ODE solver; analytic decay supplies independent reference |"
+        },
+        {
+          "line": 13,
+          "text": "| M9C order/SVD | Full `(m,k)`, inferred `(k,m)`, observed `(v,q)`; weighted singular values and rank | Explicit oscillator sin/cos; sqrt(weights) times FD Jacobian; separate SVD | Trajectory 2e-8; SVD 2e-5 relative +2e-7 absolute; exact metadata | T, oscillator; verified | Local unit-dependent identifiability only; m/k ambiguity correctly singular |"
+        },
+        {
+          "line": 14,
+          "text": "| M9C rank/condition | threshold=atol+rtol*smax; strict >; insufficient rows imply infinite condition | One-column norm; threshold at smax and above it; 1\u00d72 underdetermined map | Exact thresholds/rank; analytic singular value 2e-7 | T, deterministic/oscillator; verified | Thin SVD does not contain the complete nullspace; rank is a tolerance-dependent numerical statement |"
+        },
+        {
+          "line": 15,
+          "text": "| M9C HNN | Canonical q/p signs; cross term; H and H+C same vector field | Hand 4-component gradient with canonical signs; controlled native Lux Dense coefficients | Field 1e-12; zero derivative objective <1e-24 | I; execution recorded in overall ledger | No training or Hamiltonian-recovery claim; tests field/gauge algebra |"
+        },
+        {
+          "line": 16,
+          "text": "| M9C UDE | Known+hidden identity before training; hidden error distinct from trajectory error | Explicit cubic acceleration; deliberately wrong cubic model at equilibrium | Algebraic/default Float64 comparisons; hidden coefficient 1e-14; off-trajectory hidden RMS >0.1 | I; execution recorded in overall ledger | Nonstationary comparison shares M6/Tsit5 backend; not an independent integrator audit |"
+        },
+        {
+          "line": 17,
+          "text": "| M9C LJ map | Explicit V/F, fixed sigma, inferred epsilon only; observed vs extrapolation ranges | Formula and central FD; Cartesian dimer opposite forces vs radial reduced-mass factor 2/m | Formula 1e-10\u20131e-11; FD 2e-7 relative +1e-8 absolute; trajectory 2e-8 | T, LJ; verified | Initial-only data deliberately rank zero; observed interval from generated distances, outside interval separate; no unknown-law discovery or fit rerun |"
+        },
+        {
+          "line": 18,
+          "text": "| M9D Fourier heat | ut-alpha*uxx=0, both BCs and initial Fourier sum | Explicit term-wise analytic derivatives, independent AD of HeatFamily callable | Field 1e-13; ut 2e-11; uxx 2e-10; BC 1e-12 | T, Fourier heat; verified | Finite family/points only; no continuum proof |"
+        },
+        {
+          "line": 19,
+          "text": "| M9B/D diagnostic meaning | Residual is not reference error | Added 0.2x\u00b2+0.3t gives signed residual 0.26; constant shift gives zero PDE residual but error 2 | Residual 1e-11, error 1e-12 | T, Fourier heat; verified | Does not rerun NeuralPDE optimization or certify global correctness |"
+        },
+        {
+          "line": 20,
+          "text": "| M9D generalization roles | Train/interpolation/parameter/amplitude/frequency/coordinate distinctions | Explicit split sets and independently recomputed Fourier values | Exact sets, reference 1e-12 | T, categories; verified | Generic amplitude/frequency interpretation is caller-declared; controlled heat family uses explicit coefficients |"
+        },
+        {
+          "line": 21,
+          "text": "| M9D target leakage | Held-out targets cannot change normalization, batches or objective | Poison all held-out values \u00b11e12; rebuild preprocessing/model and training batches | Exact equality/invariance | T scaling; O batches/objective; execution in overall ledger | No statistical claim; verifies deterministic data separation only |"
+        },
+        {
+          "line": 22,
+          "text": "| M9D operator representation | Branch is sensor values, not Fourier coefficients | Sine sum at each of nine ordered sensors; 3-coefficient vector rejected | Sensor values 1e-12; exact dimension rejection | T/O; execution in overall ledger | Fixed sensor grid only; no discretization invariance |"
+        },
+        {
+          "line": 23,
+          "text": "| M9D DeepONet | Trunk `(x,t)`; query columns; native batch shape and unchanged state | Controlled two-latent branch/trunk; explicit scalar bilinear formula independent of backend product | Single query 1e-12, batch 1e-11, objective 1e-12 relative | O; execution in overall ledger | Deliberately asymmetric coefficients expose row/column permutation errors |"
+        },
+        {
+          "line": 24,
+          "text": "| M9D refusals | Sensor permutation/grid mismatch; unequal training grids; state changes | Changed explicit sensor metadata, one perturbed query coordinate, counter-state custom Lux layer | Exact exceptions | O; execution in overall ledger | Bare vectors carry no sensor identities: a caller lying about order cannot be detected; audit shows the resulting prediction changes |"
+        },
+        {
+          "line": 25,
+          "text": ""
+        },
+        {
+          "line": 26,
+          "text": "No new public theorem prover, solver, adapter or learning architecture is added."
+        },
+        {
+          "line": 27,
+          "text": "M9A/B central consistency coverage is recorded separately in `m10a_audit.md`."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    },
+    {
+      "path": "docs/m10b_bug_ledger.md",
+      "sha256": "37f4b3886c0de6d26fda9a3d7da0a1fdf56b4ce7a14bf88904d69dbe8dfbc598",
+      "bytes": 15016,
+      "lines": 200,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          42,
+          42
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          75,
+          75
+        ],
+        [
+          83,
+          83
+        ],
+        [
+          110,
+          110
+        ],
+        [
+          133,
+          133
+        ],
+        [
+          153,
+          153
+        ],
+        [
+          175,
+          175
+        ],
+        [
+          189,
+          189
+        ],
+        [
+          190,
+          190
+        ],
+        [
+          191,
+          191
+        ],
+        [
+          192,
+          192
+        ],
+        [
+          193,
+          193
+        ],
+        [
+          194,
+          194
+        ],
+        [
+          195,
+          195
+        ],
+        [
+          196,
+          196
+        ],
+        [
+          197,
+          197
+        ],
+        [
+          198,
+          198
+        ],
+        [
+          199,
+          199
+        ],
+        [
+          200,
+          200
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10B numerical robustness bug and verification ledger"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "## Recovery and scope"
+        },
+        {
+          "line": 4,
+          "text": ""
+        },
+        {
+          "line": 5,
+          "text": "Baseline HEAD: `d8ca9146f0ddb54f00ba0368a0d8670868ff58c9`."
+        },
+        {
+          "line": 6,
+          "text": "Recovery found five modified source files, the numeric inventory, and six complete"
+        },
+        {
+          "line": 7,
+          "text": "focused test files. The index was empty. The three delegated audits were already"
+        },
+        {
+          "line": 8,
+          "text": "completed; their final outputs were recovered from session"
+        },
+        {
+          "line": 9,
+          "text": "`20261002_080537_83d9d8`, message 4095. No task was redelegated or recreated."
+        },
+        {
+          "line": 10,
+          "text": "The parent's earlier diagnostics red log had 55 passes and 73 failures; the"
+        },
+        {
+          "line": 11,
+          "text": "existing five-source-file fix was preserved and executed rather than rewritten."
+        },
+        {
+          "line": 12,
+          "text": "All Julia gates are parent-owned and serial, with `julia +release` (1.12.7)."
+        },
+        {
+          "line": 13,
+          "text": ""
+        },
+        {
+          "line": 14,
+          "text": "The six recovered files were read in full. Focused execution exposed additional"
+        },
+        {
+          "line": 15,
+          "text": "failures after earlier top-level testsets were repaired; an early failing testset"
+        },
+        {
+          "line": 16,
+          "text": "is not proof that later sections ran. Test/oracle corrections below are separate"
+        },
+        {
+          "line": 19,
+          "text": "## Confirmed findings and disposition"
+        },
+        {
+          "line": 42,
+          "text": "## Honest limitations, not defects hidden by tolerances"
+        },
+        {
+          "line": 66,
+          "text": "## Verification checkpoints"
+        },
+        {
+          "line": 75,
+          "text": "## Final verification \u2014 complete"
+        },
+        {
+          "line": 83,
+          "text": "### Recovered source identity and reusable evidence"
+        },
+        {
+          "line": 110,
+          "text": "### Focused and affected regression results"
+        },
+        {
+          "line": 133,
+          "text": "### Optional native numeric and regression gates"
+        },
+        {
+          "line": 153,
+          "text": "### Candidate scan and one bounded numeric review"
+        },
+        {
+          "line": 175,
+          "text": "### One fresh canonical suite"
+        },
+        {
+          "line": 189,
+          "text": "The separate `m10b-final-canonical.exit` records zero."
+        },
+        {
+          "line": 190,
+          "text": ""
+        },
+        {
+          "line": 191,
+          "text": "Canonical plus separate optional gates: **4,822** passing assertions, without"
+        },
+        {
+          "line": 192,
+          "text": "double-counting focused reruns. M10B-specific base plus optional: **1,135**."
+        },
+        {
+          "line": 193,
+          "text": "The ledger retains **14 B-series classified findings** and **4 T-series"
+        },
+        {
+          "line": 194,
+          "text": "test/oracle/rounding classifications**; all recorded fixes have passing evidence,"
+        },
+        {
+          "line": 195,
+          "text": "and no additional blocker was found during finalization. The honest limitations"
+        },
+        {
+          "line": 196,
+          "text": "above remain applicable."
+        },
+        {
+          "line": 197,
+          "text": ""
+        },
+        {
+          "line": 198,
+          "text": "M10B final verification is complete. The local milestone commit is"
+        },
+        {
+          "line": 199,
+          "text": "`[verified] Complete M10B numerical robustness audit`. No push, tag, M10C or M10D"
+        },
+        {
+          "line": 200,
+          "text": "work is included."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    },
+    {
+      "path": "docs/m10b_numeric_inventory.md",
+      "sha256": "9b0b3a53d104f18c73919414ca2e25c5afacab52af0d4d6c28b08401eed14cde",
+      "bytes": 17608,
+      "lines": 190,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          44,
+          44
+        ],
+        [
+          75,
+          75
+        ],
+        [
+          88,
+          88
+        ],
+        [
+          126,
+          126
+        ],
+        [
+          159,
+          159
+        ],
+        [
+          179,
+          179
+        ],
+        [
+          180,
+          180
+        ],
+        [
+          181,
+          181
+        ],
+        [
+          182,
+          182
+        ],
+        [
+          183,
+          183
+        ],
+        [
+          184,
+          184
+        ],
+        [
+          185,
+          185
+        ],
+        [
+          186,
+          186
+        ],
+        [
+          187,
+          187
+        ],
+        [
+          188,
+          188
+        ],
+        [
+          189,
+          189
+        ],
+        [
+          190,
+          190
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10B numeric contracts and narrowing inventory"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "Baseline: `d8ca9146f0ddb54f00ba0368a0d8670868ff58c9`. This initial inventory was"
+        },
+        {
+          "line": 4,
+          "text": "written before M10B production-source edits. Outcomes below describe inspected"
+        },
+        {
+          "line": 5,
+          "text": "contracts, not a claim that all combinations have already passed. Final executed"
+        },
+        {
+          "line": 6,
+          "text": "matrix and evidence will be appended after focused gates."
+        },
+        {
+          "line": 7,
+          "text": ""
+        },
+        {
+          "line": 8,
+          "text": "Contract categories: A type-preserving, B deliberate promotion, C backend-limited,"
+        },
+        {
+          "line": 9,
+          "text": "D exact-algebra subset, E real-only, F complex-capable, G approximate floating,"
+        },
+        {
+          "line": 10,
+          "text": "H unsupported. Supported means a tested subset, not every accepted Julia Number."
+        },
+        {
+          "line": 11,
+          "text": "BigFloat is arbitrary precision, not exact arithmetic. Caller input rounding is"
+        },
+        {
+          "line": 12,
+          "text": "not recoverable by AML. Unitful support is confined to existing physical paths."
+        },
+        {
+          "line": 13,
+          "text": ""
+        },
+        {
+          "line": 14,
+          "text": "| Subsystem / public path | Categories | Intended numeric behavior | Nonfinite/domain policy / initial risk |"
+        },
+        {
+          "line": 15,
+          "text": "|---|---|---|---|"
+        },
+        {
+          "line": 16,
+          "text": "| M1 scalar evaluate / derivative callables | A,B,D,F | Julia arithmetic on stored callable; polynomial rational/complex meaningful; mixed symbolic constants can promote | Underlying numeric propagation/NaNMath documented; not a domain enforcement API |"
+        },
+        {
+          "line": 44,
+          "text": "## Significant conversion families (source/extension/example search)"
+        },
+        {
+          "line": 75,
+          "text": "## Tolerances and boundaries"
+        },
+        {
+          "line": 88,
+          "text": "## Executed-scope support matrix"
+        },
+        {
+          "line": 126,
+          "text": "## Demonstration and oracle map"
+        },
+        {
+          "line": 159,
+          "text": "## Final executed counts and scope"
+        },
+        {
+          "line": 179,
+          "text": ""
+        },
+        {
+          "line": 180,
+          "text": "The five numerical demonstrations retain their actual outcomes: the 2^-160"
+        },
+        {
+          "line": 181,
+          "text": "increment is lost at 128 bits and retained at 256; sampled RMS retains BigFloat"
+        },
+        {
+          "line": 182,
+          "text": "1e400; Float32 polynomial cancellation has more error than Float64; the stored-input"
+        },
+        {
+          "line": 183,
+          "text": "centered variance reference exposes the naive formula's zero; and near-singular"
+        },
+        {
+          "line": 184,
+          "text": "normal modes remain explicitly Float64/heuristic or unknown. None establishes"
+        },
+        {
+          "line": 185,
+          "text": "general arbitrary-precision backend support or exact floating statistics."
+        },
+        {
+          "line": 186,
+          "text": ""
+        },
+        {
+          "line": 187,
+          "text": "No post-canonical optional gate was invalidated by a source or environment change."
+        },
+        {
+          "line": 188,
+          "text": "The existing manifest-resolution warning and optional precompilation notices are"
+        },
+        {
+          "line": 189,
+          "text": "reported, not hidden by dependency changes. All support and limitation rows above"
+        },
+        {
+          "line": 190,
+          "text": "remain scoped to the tested subsets. M10C and M10D remain deferred."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    }
+  ],
+  "apis": [],
+  "scope": "Documentation/environment/evidence inventory only; not full semantic review or fresh scientific execution."
+}

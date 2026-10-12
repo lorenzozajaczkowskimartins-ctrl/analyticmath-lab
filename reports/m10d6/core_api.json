@@ -1,0 +1,2094 @@
+{
+  "schema_version": 1,
+  "audit": "M10D.6A bounded core API audit",
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "ownership_source": "reports/m10d6/exports.json",
+  "scope": "All F01–F09 primary exports plus core shared analyze/evaluate/linearization/jacobian/domain_contains methods; no methods outside owned source scope claimed.",
+  "evidence_level": "SOURCE_INSPECTED",
+  "runtime_verification": "NOT_RUN (audit only; no canonical, installs or test/runtime edits)",
+  "coverage_policy": {
+    "PARTIAL": "Existing guide/reference and/or docstring coverage inspected, but per-symbol all-method API reference still incomplete; not a correctness/test failure.",
+    "DOCUMENTED": "Reserved for verified complete user-facing contract coverage, never inferred solely from a docstring."
+  },
+  "symbol_count": 40,
+  "symbols": [
+    {
+      "symbol": "AbstractAnalysis",
+      "family": "F01",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/core/contracts.jl:2"
+      ],
+      "public_signature": [
+        "abstract type AbstractAnalysis end"
+      ],
+      "keywords": {},
+      "inputs": "No value constructor; extension supertype for some reusable reports.",
+      "returns": "Not applicable (abstract marker).",
+      "errors": [
+        "Cannot instantiate an abstract type."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Marker/container contracts only; no universal execution protocol or scientific certification."
+      ],
+      "units": "Payload-specific; no universal units schema and no inference of dimensionlessness.",
+      "ownership": "No storage or ownership protocol implied.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/real_analysis_core.jl:59-61",
+        "test/convergence.jl:131-134"
+      ],
+      "example_references": [
+        "README.md:128-138"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:25-42",
+          "docs/m10d_semantics.md:19-75"
+        ],
+        "recommended_reference_section": "Core API / F01 / AbstractAnalysis",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [],
+      "ownership_family": "F01",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "FunctionAnalysis",
+      "family": "F03",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/analysis.jl:2-20"
+      ],
+      "public_signature": [
+        "FunctionAnalysis(expression, variable, first_derivative, second_derivative, numerical, critical_points, real_analysis)",
+        "FunctionAnalysis(e, v, d1, d2, n, c)"
+      ],
+      "keywords": {},
+      "inputs": "Usually analyze(expression, variable); seven raw fields or compatibility six fields (real_analysis=nothing).",
+      "returns": "FunctionAnalysis record",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Numerical search Float64, heuristic and smooth-interval assumption; residual is not a root-position bound. Numerical evaluation does not enforce real_analysis domain."
+      ],
+      "units": "No unit schema; caller supplies residual scale in first-derivative units, relative tolerance dimensionless; no automatic Unitful conversion.",
+      "ownership": "Immutable outer record does not imply deep immutability; stored arrays/Expr are read-only by convention. Raw generated constructors generally retain supplied references and do not validate scientific invariants.",
+      "docstring_status": "PRESENT_DETAILED",
+      "test_references": [
+        "test/runtests.jl:15-201"
+      ],
+      "example_references": [
+        "notebooks/function_analysis.jl:7-15"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:77-111",
+          "README.md:299-354"
+        ],
+        "recommended_reference_section": "Core API / F03 / FunctionAnalysis",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F03",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "analyze",
+      "family": "F03",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/symbolic.jl:1-51",
+        "src/multivariate_analysis.jl:283-343",
+        "src/vector_fields/analysis.jl:42-71",
+        "src/dynamical_systems/analysis.jl:34-49"
+      ],
+      "public_signature": [
+        "analyze(expression::Real, variable::Symbolics.Num; interval=nothing, residual_tolerance::Real=1e-8, residual_rtol::Real=0, residual_scale::Real=1, original_expression=expression)",
+        "analyze(captured::RealExpression, variable::Symbolics.Num; kwargs...)",
+        "analyze(expression::Real, variables::Union{Tuple,AbstractVector}; bounds=nothing, grid::Integer=7, iterations::Integer=40, residual_tolerance::Real=1e-8, residual_rtol::Real=0, residual_scale::Real=1, classification_atol::Real=1e-10, classification_rtol::Real=1e-8, original_expression=expression)",
+        "analyze(captured::RealExpression, variables::Union{Tuple,AbstractVector}; kwargs...)",
+        "analyze(components::Union{AbstractVector,Tuple}, variables::Union{Tuple,AbstractVector}; original_expression=components, bounds=nothing, grid::Integer=7, iterations::Integer=40, residual_tolerance::Real=1e-8, residual_rtol::Real=0, residual_scale::Real=1)",
+        "analyze(system::AutonomousSystem; classification_atol::Real=1e-10, classification_rtol::Real=1e-8)"
+      ],
+      "keywords": {
+        "univariate": {
+          "interval": "nothing; finite increasing Tuple{Real,Real} for legacy stationary search",
+          "residual_tolerance": "1e-8; finite positive Real",
+          "residual_rtol": "0; finite nonnegative Real",
+          "residual_scale": "1; finite positive Real; effective threshold must remain finite",
+          "original_expression": "expression; trusted matching original syntax"
+        },
+        "scalar_field": {
+          "bounds": "nothing; one finite increasing Tuple pair per ordered variable",
+          "grid": "7; Integer in 2:25; grid^dimension <= 50000 when bounds supplied",
+          "iterations": "40; Integer in 1:200",
+          "residual_tolerance": "1e-8; finite positive Real",
+          "residual_rtol": "0; finite nonnegative Real",
+          "residual_scale": "1; finite positive Real; effective threshold must remain finite",
+          "classification_atol": "1e-10; finite nonnegative Real",
+          "classification_rtol": "1e-8; finite nonnegative Real",
+          "original_expression": "expression"
+        },
+        "vector_field": {
+          "bounds": "nothing; one finite increasing Tuple pair per ordered variable",
+          "grid": "7; Integer in 2:25; grid^dimension <= 50000 when bounds supplied",
+          "iterations": "40; Integer in 1:200",
+          "residual_tolerance": "1e-8; finite positive Real",
+          "residual_rtol": "0; finite nonnegative Real",
+          "residual_scale": "1; finite positive Real; effective threshold must remain finite",
+          "original_expression": "components; matching syntax per component"
+        },
+        "captured": "kwargs forwarded with original_expression=captured.original; do not also supply original_expression",
+        "autonomous": {
+          "classification_atol": "1e-10; finite nonnegative Real",
+          "classification_rtol": "1e-8; finite nonnegative Real"
+        }
+      },
+      "inputs": "Scalar expression/constant plus one Num -> univariate; scalar plus ordered 1–32 distinct Symbolics variables -> scalar field; 1–32 components plus variables -> vector map; captured wrapper dispatches by evaluated payload. No unbound parameters. AutonomousSystem -> structural reuse.",
+      "returns": "FunctionAnalysis / ScalarFieldAnalysis / VectorFieldAnalysis / DynamicalSystemAnalysis according to dispatch. One-element variable collection still selects multivariate API.",
+      "errors": [
+        "ArgumentError for invalid symbolic variables, unbound parameters, size/controls/bounds/resource grid; conversion/dispatch errors for unsupported types.",
+        "DomainError/nonfinite evaluation or underlying Symbolics/Roots failure can propagate; budgeted exact inference returns unknown/resource_budget, not a global runtime sandbox."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Numerical search Float64, heuristic and smooth-interval assumption; residual is not a root-position bound. Numerical evaluation does not enforce real_analysis domain.",
+        "Exact rational polynomial/factorization class, outer sqrt/log and sin(variable); irrational unresolved roots remain unknown. Degree64/bits4096/work200000/AST512/depth48 budgets; interval only enables heuristic roots, not domain truncation.",
+        "1–32 ordered variables; exact stationary completeness only nonsingular rational affine-gradient/separable polynomial classes. Bounded multistart Newton heuristic; exact Cartesian4096/grid50000 limits; sufficient original-domain open-smoothness gate.",
+        "Independent input/output dimensions1–32; exact square affine/separable zeros only. Rectangular numerical least-squares candidate steps still require residual acceptance. Zero curl alone never proves global potential.",
+        "Square autonomous fields; inherited zero evidence. Local stability only; exact rational diagonal/planar tests, diagnostic Float64 eigenspectrum; nonhyperbolic nonlinear center not inferred."
+      ],
+      "units": "No universal physical unit schema. Ordered coordinates/components preserved; residual scales caller-consistent; tolerance formula absolute+relative*scale. Float64 searches/classification are not general Unitful paths.",
+      "ownership": "Fresh reports/cached callables; inputs/report payloads generally read-only by convention. Vector originals are deep-copied; scalar original syntax retained. Autonomous analysis retains identical field/domain, copies candidate point/value/notes.",
+      "docstring_status": "PARTIAL_UNIVARIATE_DETAILED_OTHER_ANALYZE_METHODS_UNDOCUMENTED",
+      "test_references": [
+        "test/runtests.jl:15-178",
+        "test/real_analysis_integration.jl:5-39",
+        "test/multivariate_analysis.jl:5-77",
+        "test/vector_fields.jl:5-38",
+        "test/dynamical_systems.jl:6-104"
+      ],
+      "example_references": [
+        "notebooks/function_analysis.jl:7-15",
+        "README.md:454-462",
+        "notebooks/vector_field_analysis.jl:6-27",
+        "notebooks/dynamical_systems.jl:6-22"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:77-354",
+          "README.md:449-508",
+          "docs/vector_fields.md:1-166",
+          "docs/dynamical_systems.md:3-61"
+        ],
+        "recommended_reference_section": "Core API / F03 / analyze",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Missing or partial callable/type docstring coverage: PARTIAL_UNIVARIATE_DETAILED_OTHER_ANALYZE_METHODS_UNDOCUMENTED.",
+          "Add method-dispatch table; primary export ownership is not ownership of every method."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "shared_method_families": [
+        "F03",
+        "F06",
+        "F07",
+        "F08"
+      ],
+      "required_dependencies": [
+        "Symbolics",
+        "Roots",
+        "LinearAlgebra"
+      ],
+      "ownership_family": "F03",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "evaluate",
+      "family": "F03",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/numerical.jl:1-16",
+        "src/multivariate_analysis.jl:88-103",
+        "src/vector_fields/analysis.jl:73-92",
+        "src/dynamical_systems/analysis.jl:58"
+      ],
+      "public_signature": [
+        "evaluate(report::FunctionAnalysis, x::Number; order::Integer=0)",
+        "evaluate(report::ScalarFieldAnalysis, point::Union{Tuple,AbstractVector})",
+        "evaluate(report::VectorFieldAnalysis, point::Union{Tuple,AbstractVector})",
+        "evaluate(r::DynamicalSystemAnalysis, p::Union{Tuple,AbstractVector})"
+      ],
+      "keywords": {
+        "FunctionAnalysis": {
+          "order": "0; only 0, 1 or 2"
+        },
+        "other_core_methods": {}
+      },
+      "inputs": "Stored report and scalar Number or ordered tuple/vector of finite real coordinates matching dimension.",
+      "returns": "Scalar cached callable value (FunctionAnalysis order0/1/2; ScalarFieldAnalysis scalar); fresh vector for vector/dynamical reports.",
+      "errors": [
+        "ArgumentError for invalid univariate order; underlying callable errors propagate and NaN is preserved.",
+        "DimensionMismatch for point length; DomainError for nonfinite coordinates/results or known original-domain exclusions on multivariate/vector routes."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Univariate numerical callable does not check stored original domain; cancellation and NaNMath behavior preserved.",
+        "Multivariate/vector/dynamical evaluates even if membership unresolved, but never certifies validity; finite real result required; numeric type follows generated operations, machine integers can overflow."
+      ],
+      "units": "Generated arithmetic where supported, no universal units inference/conversion; point order must match stored variables.",
+      "ownership": "Does not repeat symbolic analysis or mutate input reports; vector values newly allocated.",
+      "docstring_status": "PARTIAL_UNIVARIATE_AND_VECTOR_PRESENT_SCALAR_AND_DYNAMICAL_METHODS_ABSENT",
+      "test_references": [
+        "test/runtests.jl:28-72",
+        "test/multivariate_analysis.jl:12-16",
+        "test/vector_fields.jl:13-19",
+        "test/vector_regressions.jl:14-19",
+        "test/dynamical_systems.jl:18-20"
+      ],
+      "example_references": [
+        "README.md:79-98",
+        "docs/vector_fields.md:6-19"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:100-111",
+          "README.md:205-209",
+          "README.md:475-508",
+          "docs/vector_fields.md:26-55",
+          "docs/dynamical_systems.md:18-22"
+        ],
+        "recommended_reference_section": "Core API / F03 / evaluate",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Missing or partial callable/type docstring coverage: PARTIAL_UNIVARIATE_AND_VECTOR_PRESENT_SCALAR_AND_DYNAMICAL_METHODS_ABSENT.",
+          "Add method-dispatch table; primary export ownership is not ownership of every method."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "shared_method_families": [
+        "F03",
+        "F06",
+        "F07",
+        "F08"
+      ],
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F03",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "CriticalPoint",
+      "family": "F03",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/analysis.jl:23"
+      ],
+      "public_signature": [
+        "CriticalPoint(x, value, residual, second_derivative, classification)"
+      ],
+      "keywords": {},
+      "inputs": "x, value, residual, second_derivative of one T<:Real; classification::Symbol.",
+      "returns": "Numerical stationary candidate (library factory stores Float64); not certified extrema.",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Numerical search Float64, heuristic and smooth-interval assumption; residual is not a root-position bound. Numerical evaluation does not enforce real_analysis domain."
+      ],
+      "units": "No unit schema; caller supplies residual scale in first-derivative units, relative tolerance dimensionless; no automatic Unitful conversion.",
+      "ownership": "Immutable outer record does not imply deep immutability; stored arrays/Expr are read-only by convention. Raw generated constructors generally retain supplied references and do not validate scientific invariants.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/runtests.jl:74-101"
+      ],
+      "example_references": [
+        "notebooks/function_analysis.jl:7-15"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:77-111",
+          "README.md:299-354"
+        ],
+        "recommended_reference_section": "Core API / F03 / CriticalPoint",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F03",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "CriticalPointAnalysis",
+      "family": "F03",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/analysis.jl:31-76"
+      ],
+      "public_signature": [
+        "CriticalPointAnalysis(points, interval, status, method, residual_tolerance, rejected_candidates, residual_relative_tolerance, residual_scale, effective_residual_tolerance, rejections)",
+        "CriticalPointAnalysis(points, interval, status, method, tolerance, rejected)",
+        "CriticalPointAnalysis{I}(points, interval, status, method, tolerance, rejected) where {I}"
+      ],
+      "keywords": {},
+      "inputs": "Factory-produced bounded search data or legacy six-argument constructor; legacy nonzero rejection count has rejections=nothing.",
+      "returns": "Search status, interval, accepted Float64 candidates, rejected records/count and absolute+relative scale threshold.",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Numerical search Float64, heuristic and smooth-interval assumption; residual is not a root-position bound. Numerical evaluation does not enforce real_analysis domain."
+      ],
+      "units": "No unit schema; caller supplies residual scale in first-derivative units, relative tolerance dimensionless; no automatic Unitful conversion.",
+      "ownership": "Immutable outer record does not imply deep immutability; stored arrays/Expr are read-only by convention. Raw generated constructors generally retain supplied references and do not validate scientific invariants.",
+      "docstring_status": "PRESENT_DETAILED",
+      "test_references": [
+        "test/runtests.jl:104-178"
+      ],
+      "example_references": [
+        "notebooks/function_analysis.jl:7-15"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:77-111",
+          "README.md:299-354"
+        ],
+        "recommended_reference_section": "Core API / F03 / CriticalPointAnalysis",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F03",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "DerivativeComparison",
+      "family": "F05",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/analysis.jl:85"
+      ],
+      "public_signature": [
+        "DerivativeComparison(point, reference_method, values, absolute_errors)"
+      ],
+      "keywords": {},
+      "inputs": "Normally compare_derivatives(report,x); raw point/reference_method/values/absolute_errors.",
+      "returns": "Values named tuple(symbolic,automatic,central) and discrepancy tuple(automatic,central).",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Discrepancies from evaluated symbolic reference, not certified errors; smooth sampled neighborhood assumed; convergence Float64, order empirical and optionally unavailable."
+      ],
+      "units": "No automatic unit handling; x and h in caller coordinate scale, derivative errors in derivative scale, relative errors dimensionless.",
+      "ownership": "Immutable outer record does not imply deep immutability; stored arrays/Expr are read-only by convention. Raw generated constructors generally retain supplied references and do not validate scientific invariants.",
+      "docstring_status": "PRESENT_DETAILED",
+      "test_references": [
+        "test/runtests.jl:180-200"
+      ],
+      "example_references": [
+        "notebooks/derivative_convergence.jl:7-18"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:106-111",
+          "README.md:215-297"
+        ],
+        "recommended_reference_section": "Core API / F05 / DerivativeComparison",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [],
+      "ownership_family": "F05",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "compare_derivatives",
+      "family": "F05",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/numerical.jl:70-90"
+      ],
+      "public_signature": [
+        "compare_derivatives(report::FunctionAnalysis, x::Real)"
+      ],
+      "keywords": {},
+      "inputs": "Reusable FunctionAnalysis and finite real point; caller ensures smooth neighborhood.",
+      "returns": "DerivativeComparison(point,:symbolic, (symbolic,automatic,central), (automatic_error,central_error)).",
+      "errors": [
+        "DomainError for nonfinite point/value/derivative; mathematical domain/backend derivative errors propagate."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "FiniteDiff central default step, no h keyword. Point uses float(x), not unconditional Float64; smoothness/domain not proved. Errors are absolute discrepancies from evaluated symbolic reference."
+      ],
+      "units": "No automatic unit handling; x and h in caller coordinate scale, derivative errors in derivative scale, relative errors dimensionless.",
+      "ownership": "New result, input report unchanged; evaluates cached f and derivative plus ForwardDiff/FiniteDiff.",
+      "docstring_status": "PRESENT_DETAILED",
+      "test_references": [
+        "test/runtests.jl:180-200",
+        "test/m10a_calculus_dynamics.jl:23-41"
+      ],
+      "example_references": [
+        "notebooks/function_analysis.jl:13-15"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:106-111",
+          "README.md:215-297"
+        ],
+        "recommended_reference_section": "Core API / F05 / compare_derivatives",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "ForwardDiff",
+        "FiniteDiff"
+      ],
+      "ownership_family": "F05",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "DerivativeConvergenceAnalysis",
+      "family": "F05",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/convergence.jl:20"
+      ],
+      "public_signature": [
+        "DerivativeConvergenceAnalysis(expression, variable, point, method, reference, steps, approximations, absolute_errors, relative_errors, best_step, minimum_error, observed_order, order_indices)"
+      ],
+      "keywords": {},
+      "inputs": "Normally derivative_convergence(report,x); stored raw fields including vectors and optional observed order.",
+      "returns": "Float64 sampled steps/approximations/errors/minimum; relative entries and observed_order can be nothing; order_indices explicit.",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Discrepancies from evaluated symbolic reference, not certified errors; smooth sampled neighborhood assumed; convergence Float64, order empirical and optionally unavailable."
+      ],
+      "units": "No automatic unit handling; x and h in caller coordinate scale, derivative errors in derivative scale, relative errors dimensionless.",
+      "ownership": "Experiment-owned mutable vectors; source report/callables/backend not retained. Raw constructor borrows its arguments.",
+      "docstring_status": "PRESENT_DETAILED",
+      "test_references": [
+        "test/convergence.jl:6-159",
+        "test/m10a_calculus_dynamics.jl:23-58"
+      ],
+      "example_references": [
+        "notebooks/derivative_convergence.jl:7-18"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:106-111",
+          "README.md:215-297"
+        ],
+        "recommended_reference_section": "Core API / F05 / DerivativeConvergenceAnalysis",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [],
+      "ownership_family": "F05",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "derivative_convergence",
+      "family": "F05",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/convergence.jl:36-97"
+      ],
+      "public_signature": [
+        "derivative_convergence(report::FunctionAnalysis, x::Real; method=:central, hmin::Real=1e-12, hmax::Real=1e-1, samples::Integer=45)"
+      ],
+      "keywords": {
+        "method": ":central; :forward or :central",
+        "hmin": "1e-12; finite positive Float64-convertible",
+        "hmax": "1e-1; finite Float64-convertible, hmin<hmax",
+        "samples": "45; Integer >=3; generated steps must be strictly distinct"
+      },
+      "inputs": "Stored FunctionAnalysis and finite point, controls all converted to Float64; smooth stencil assumed.",
+      "returns": "DerivativeConvergenceAnalysis with decreasing log grid, approximations, absolute/relative discrepancies, first sampled minimum and optional stable-window observed order.",
+      "errors": [
+        "ArgumentError for method/point/step controls, indistinguishable/nonfinite x±h, overflowed central 2h, or duplicate step grid.",
+        "DomainError for nonfinite evaluated reference/stencil/arithmetic, or propagated domain failures; unsupported Float64 conversions may also fail."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Float64 only; no sample-count maximum other than caller resources. Relative error nothing for zero reference/overflow. First minimum ties favor larger h.",
+        "Observed order only earliest three stable positive slopes (within10% mean) before first plateau/increase/zero; no later regime searched; sampled discrepancies not certified errors."
+      ],
+      "units": "No automatic unit handling; x and h in caller coordinate scale, derivative errors in derivative scale, relative errors dimensionless.",
+      "ownership": "New experiment-owned vectors, no source report/callable/backend retained; source unchanged.",
+      "docstring_status": "PRESENT_DETAILED",
+      "test_references": [
+        "test/convergence.jl:6-159",
+        "test/m10a_calculus_dynamics.jl:23-58"
+      ],
+      "example_references": [
+        "notebooks/derivative_convergence.jl:7-18"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:106-111",
+          "README.md:215-297"
+        ],
+        "recommended_reference_section": "Core API / F05 / derivative_convergence",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [],
+      "ownership_family": "F05",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "RealExpression",
+      "family": "F02",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/core/expressions.jl:13"
+      ],
+      "public_signature": [
+        "RealExpression(expression, original)"
+      ],
+      "keywords": {},
+      "inputs": "Evaluated expression and original syntax; prefer @real_function before Symbolics cancellation.",
+      "returns": "RealExpression record",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Captures before simplification; caller-supplied syntax equivalence and naming are trusted. Unsupported local names/containers yield unknown domain, not reconstruction."
+      ],
+      "units": "No unit conversion or dimensional validation in syntax wrapper.",
+      "ownership": "Raw constructor retains expression/original references; captured Expr is mutable and must be treated read-only.",
+      "docstring_status": "PRESENT_SHARED_WITH_MACRO",
+      "test_references": [
+        "test/source_capture.jl:5-20",
+        "test/real_analysis_integration.jl:14-22"
+      ],
+      "example_references": [
+        "notebooks/real_function_analysis.jl:7-14"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:149-156",
+          "docs/vector_fields.md:57-78"
+        ],
+        "recommended_reference_section": "Core API / F02 / RealExpression",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F02",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "@real_function",
+      "family": "F02",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/core/expressions.jl:1-20"
+      ],
+      "public_signature": [
+        "@real_function expression"
+      ],
+      "keywords": {},
+      "inputs": "Julia expression in caller scope, evaluated once; original syntax quoted before cancellation.",
+      "returns": "RealExpression(expression, original_syntax)",
+      "errors": [
+        "Caller expression evaluation errors propagate; not an untrusted-input parser or sandbox."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Captures before simplification; caller-supplied syntax equivalence and naming are trusted. Unsupported local names/containers yield unknown domain, not reconstruction."
+      ],
+      "units": "No unit conversion or dimensional validation in syntax wrapper.",
+      "ownership": "Stores evaluated object and quoted syntax without deep-copy guarantee.",
+      "docstring_status": "SHARED_TYPE_DOCSTRING_NOT_SEPARATELY_ATTACHED",
+      "test_references": [
+        "test/source_capture.jl:5-20",
+        "test/real_analysis_integration.jl:14-22"
+      ],
+      "example_references": [
+        "notebooks/real_function_analysis.jl:7-14"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:149-156",
+          "docs/vector_fields.md:57-78"
+        ],
+        "recommended_reference_section": "Core API / F02 / @real_function",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Missing or partial callable/type docstring coverage: SHARED_TYPE_DOCSTRING_NOT_SEPARATELY_ATTACHED."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F02",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "PropertyResult",
+      "family": "F01",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/core/contracts.jl:35"
+      ],
+      "public_signature": [
+        "PropertyResult(value, status, method, notes)"
+      ],
+      "keywords": {},
+      "inputs": "Arbitrary value, status::Symbol, method::Symbol, notes::Vector{String}; statuses remain permissive.",
+      "returns": "Four-field scoped claim: value/status/method/notes; unknown may retain partial payload.",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Established only within recorded claim/method/assumptions; heuristic and unknown distinct; empty payload is absence only when status and scope justify it. Constructors do not validate status vocabulary."
+      ],
+      "units": "Payload-specific; no universal units schema and no inference of dimensionlessness.",
+      "ownership": "Immutable outer record does not imply deep immutability; stored arrays/Expr are read-only by convention. Raw generated constructors generally retain supplied references and do not validate scientific invariants.",
+      "docstring_status": "PRESENT_DETAILED",
+      "test_references": [
+        "test/real_analysis_core.jl:161-180",
+        "test/vector_calculus.jl:5-35"
+      ],
+      "example_references": [
+        "README.md:128-138"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:25-42",
+          "docs/m10d_semantics.md:19-75"
+        ],
+        "recommended_reference_section": "Core API / F01 / PropertyResult",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Explain permissive raw constructor vs factory evidence; type presence alone does not certify invariants."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [],
+      "ownership_family": "F01",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "RealInterval",
+      "family": "F04",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/real_analysis.jl:5"
+      ],
+      "public_signature": [
+        "RealInterval(left, right, left_closed, right_closed)"
+      ],
+      "keywords": {},
+      "inputs": "left::Real, right::Real, left_closed::Bool, right_closed::Bool. Factory uses exact rational finite boundaries, floating infinities.",
+      "returns": "RealInterval record",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Raw constructor does not enforce order/exact endpoints; interval fields alone do not certify a domain."
+      ],
+      "units": "Formal real variable; no physical units schema/conversion. Exact symbolic values are unevaluated data.",
+      "ownership": "Immutable outer record does not imply deep immutability; stored arrays/Expr are read-only by convention. Raw generated constructors generally retain supplied references and do not validate scientific invariants.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/real_analysis_core.jl:71-93",
+        "test/real_analysis_core.jl:120-160"
+      ],
+      "example_references": [
+        "notebooks/real_function_analysis.jl:7-19"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:113-213"
+        ],
+        "recommended_reference_section": "Core API / F04 / RealInterval",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Explain permissive raw constructor vs factory evidence; type presence alone does not certify invariants."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F04",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "RealDomain",
+      "family": "F04",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/real_analysis.jl:11"
+      ],
+      "public_signature": [
+        "RealDomain(components, status, method, notes)"
+      ],
+      "keywords": {},
+      "inputs": "Raw positional fields in declaration order: components, status, method, notes. Prefer the documented factory where applicable.",
+      "returns": "Interval union components plus status/method/notes; empty list only proves empty domain when established.",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Exact rational polynomial/factorization class, outer sqrt/log and sin(variable); irrational unresolved roots remain unknown. Degree64/bits4096/work200000/AST512/depth48 budgets; interval only enables heuristic roots, not domain truncation."
+      ],
+      "units": "Formal real variable; no physical units schema/conversion. Exact symbolic values are unevaluated data.",
+      "ownership": "Immutable outer record does not imply deep immutability; stored arrays/Expr are read-only by convention. Raw generated constructors generally retain supplied references and do not validate scientific invariants.",
+      "docstring_status": "ABSENT_ON_TYPE",
+      "test_references": [
+        "test/real_analysis_core.jl:16-245",
+        "test/real_analysis_integration.jl:5-39"
+      ],
+      "example_references": [
+        "notebooks/real_function_analysis.jl:7-19"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:113-213"
+        ],
+        "recommended_reference_section": "Core API / F04 / RealDomain",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Missing or partial callable/type docstring coverage: ABSENT_ON_TYPE."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F04",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "RealFunctionStudy",
+      "family": "F04",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/real_analysis.jl:17"
+      ],
+      "public_signature": [
+        "RealFunctionStudy(original_expression, simplified_expression, domain, roots, intercepts, sign, continuity, limits, monotonicity, extrema, concavity, inflections, asymptotes, symmetry)"
+      ],
+      "keywords": {},
+      "inputs": "Usually report.real_analysis from univariate analyze; raw full field constructor remains available.",
+      "returns": "Original/simplified expression, domain and eleven scoped PropertyResult qualitative properties.",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Exact rational polynomial/factorization class, outer sqrt/log and sin(variable); irrational unresolved roots remain unknown. Degree64/bits4096/work200000/AST512/depth48 budgets; interval only enables heuristic roots, not domain truncation."
+      ],
+      "units": "Formal real variable; no physical units schema/conversion. Exact symbolic values are unevaluated data.",
+      "ownership": "Immutable outer record does not imply deep immutability; stored arrays/Expr are read-only by convention. Raw generated constructors generally retain supplied references and do not validate scientific invariants.",
+      "docstring_status": "ABSENT_ON_TYPE_INTERNAL_FACTORY_DOCUMENTED",
+      "test_references": [
+        "test/real_analysis_core.jl:16-245",
+        "test/real_analysis_integration.jl:5-39"
+      ],
+      "example_references": [
+        "notebooks/real_function_analysis.jl:7-19"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:113-213"
+        ],
+        "recommended_reference_section": "Core API / F04 / RealFunctionStudy",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Missing or partial callable/type docstring coverage: ABSENT_ON_TYPE_INTERNAL_FACTORY_DOCUMENTED."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F04",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "domain_contains",
+      "family": "F04",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/real_analysis_domain.jl:1-2",
+        "src/multivariate_domain.jl:94-115"
+      ],
+      "public_signature": [
+        "domain_contains(d::RealDomain, x::Real)",
+        "domain_contains(domain::MultivariateDomain, point::Union{Tuple,AbstractVector})"
+      ],
+      "keywords": {},
+      "inputs": "Stored domain and scalar or dimension-matching ordered real coordinates.",
+      "returns": "true / false / nothing: unknown univariate domains always nothing; multivariate partial constraints can reject points but otherwise remain nothing.",
+      "errors": [
+        "DimensionMismatch for multivariate coordinate length; unsupported argument types dispatch-fail. Internal constraint failures except interrupts are treated unresolved rather than thrown."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Membership is not smoothness; raw domain constructors do not certify contents. Multivariate nonfinite coordinates return false; established univariate membership is ordinary interval comparison.",
+        "Bounded exact integer/rational constraint evaluation avoids machine overflow, unsupported/resource-limited constraints can be unresolved."
+      ],
+      "units": "No automatic conversion; values must match caller coordinate scales/order.",
+      "ownership": "Reads stored constraints without mutation.",
+      "docstring_status": "PRESENT_BRIEF_BOTH_METHODS",
+      "test_references": [
+        "test/real_analysis_core.jl:71-180",
+        "test/multivariate_regressions.jl:4-24",
+        "test/vector_fields.jl:25-38"
+      ],
+      "example_references": [
+        "notebooks/real_function_analysis.jl:7-19",
+        "docs/vector_fields.md:61-64"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:113-213"
+        ],
+        "recommended_reference_section": "Core API / F04 / domain_contains",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Add method-dispatch table; primary export ownership is not ownership of every method."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "shared_method_families": [
+        "F04",
+        "F06"
+      ],
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F04",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "PeriodicPointSet",
+      "family": "F04",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/real_analysis_periodic.jl:2"
+      ],
+      "public_signature": [
+        "PeriodicPointSet(offset, period)"
+      ],
+      "keywords": {},
+      "inputs": "Raw positional fields in declaration order: offset, period. Prefer the documented factory where applicable.",
+      "returns": "PeriodicPointSet record",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Exact integer translates offset+k*period; Symbol/Expr values are unevaluated data; constructor does not validate positive/nonzero period."
+      ],
+      "units": "Formal real variable; no physical units schema/conversion. Exact symbolic values are unevaluated data.",
+      "ownership": "Immutable outer record does not imply deep immutability; stored arrays/Expr are read-only by convention. Raw generated constructors generally retain supplied references and do not validate scientific invariants.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/real_analysis_core.jl:181-205"
+      ],
+      "example_references": [
+        "README.md:166-188"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:113-213"
+        ],
+        "recommended_reference_section": "Core API / F04 / PeriodicPointSet",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Explain permissive raw constructor vs factory evidence; type presence alone does not certify invariants."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F04",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "PeriodicIntervalSet",
+      "family": "F04",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/real_analysis_periodic.jl:7"
+      ],
+      "public_signature": [
+        "PeriodicIntervalSet(left, right, period, left_closed, right_closed)"
+      ],
+      "keywords": {},
+      "inputs": "Raw positional fields in declaration order: left, right, period, left_closed, right_closed. Prefer the documented factory where applicable.",
+      "returns": "PeriodicIntervalSet record",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "All integer translates by period of exact symbolic interval endpoints; constructor does not validate period or endpoint consistency."
+      ],
+      "units": "Formal real variable; no physical units schema/conversion. Exact symbolic values are unevaluated data.",
+      "ownership": "Immutable outer record does not imply deep immutability; stored arrays/Expr are read-only by convention. Raw generated constructors generally retain supplied references and do not validate scientific invariants.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/real_analysis_core.jl:181-205"
+      ],
+      "example_references": [
+        "README.md:166-188"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:113-213"
+        ],
+        "recommended_reference_section": "Core API / F04 / PeriodicIntervalSet",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Explain permissive raw constructor vs factory evidence; type presence alone does not certify invariants."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F04",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "ScalarFieldAnalysis",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/multivariate_analysis.jl:21"
+      ],
+      "public_signature": [
+        "ScalarFieldAnalysis(expression, original_expression, variables, dimension, gradient_expression, hessian_expression, numerical, domain, stationary_points)"
+      ],
+      "keywords": {},
+      "inputs": "Normally analyze(scalar, ordered tuple/vector of Symbolics variables); raw stored-field constructor also available.",
+      "returns": "Cached gradient/Hessian and numerical callables, original domain and stationary-point evidence.",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "1–32 ordered variables; exact stationary completeness only nonsingular rational affine-gradient/separable polynomial classes. Bounded multistart Newton heuristic; exact Cartesian4096/grid50000 limits; sufficient original-domain open-smoothness gate."
+      ],
+      "units": "Plain ordered numeric coordinates; no inferred physical units or nondimensionalization; residual norm/scale must be caller-consistent.",
+      "ownership": "Immutable outer record does not imply deep immutability; stored arrays/Expr are read-only by convention. Raw generated constructors generally retain supplied references and do not validate scientific invariants.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/multivariate_analysis.jl:5-77",
+        "test/multivariate_regressions.jl:4-51",
+        "test/m10a_calculus_dynamics.jl:60-120"
+      ],
+      "example_references": [
+        "README.md:454-462"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:449-508"
+        ],
+        "recommended_reference_section": "Core API / F06 / ScalarFieldAnalysis",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F06",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "MultivariateDomain",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/multivariate_domain.jl:8"
+      ],
+      "public_signature": [
+        "MultivariateDomain(restrictions, variables, status, method, notes)"
+      ],
+      "keywords": {},
+      "inputs": "Normally obtained through scalar/vector analyze; restrictions, ordered variables, status, method, notes.",
+      "returns": "Original-syntax evaluable constraints; membership can be true/false/nothing.",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "1–32 ordered variables; exact stationary completeness only nonsingular rational affine-gradient/separable polynomial classes. Bounded multistart Newton heuristic; exact Cartesian4096/grid50000 limits; sufficient original-domain open-smoothness gate."
+      ],
+      "units": "Plain ordered numeric coordinates; no inferred physical units or nondimensionalization; residual norm/scale must be caller-consistent.",
+      "ownership": "Immutable outer record does not imply deep immutability; stored arrays/Expr are read-only by convention. Raw generated constructors generally retain supplied references and do not validate scientific invariants.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/multivariate_analysis.jl:59-74",
+        "test/multivariate_regressions.jl:4-24"
+      ],
+      "example_references": [
+        "README.md:454-462"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:449-508"
+        ],
+        "recommended_reference_section": "Core API / F06 / MultivariateDomain",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F06",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "StationaryPoint",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/multivariate_analysis.jl:3"
+      ],
+      "public_signature": [
+        "StationaryPoint(point, value, residual_norm, residual_threshold, hessian, eigenvalues, classification, classification_evidence)"
+      ],
+      "keywords": {},
+      "inputs": "Raw positional fields in declaration order: point, value, residual_norm, residual_threshold, hessian, eigenvalues, classification, classification_evidence. Prefer the documented factory where applicable.",
+      "returns": "Candidate point/value/residual+threshold/Hessian/eigenvalues/classification with separately scoped classification_evidence.",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Point acceptance does not alone prove exactness or completeness; inspect enclosing stationary_points and classification_evidence independently."
+      ],
+      "units": "Plain ordered numeric coordinates; no inferred physical units or nondimensionalization; residual norm/scale must be caller-consistent.",
+      "ownership": "Immutable outer record does not imply deep immutability; stored arrays/Expr are read-only by convention. Raw generated constructors generally retain supplied references and do not validate scientific invariants.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/multivariate_analysis.jl:21-41",
+        "test/multivariate_regressions.jl:25-51"
+      ],
+      "example_references": [
+        "README.md:454-462"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:449-508"
+        ],
+        "recommended_reference_section": "Core API / F06 / StationaryPoint",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F06",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "gradient",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/multivariate_analysis.jl:104-116"
+      ],
+      "public_signature": [
+        "gradient(report::ScalarFieldAnalysis)",
+        "gradient(report::ScalarFieldAnalysis, point::Union{Tuple,AbstractVector})"
+      ],
+      "keywords": {},
+      "inputs": "Stored ScalarFieldAnalysis; optional finite real point with report.dimension coordinates.",
+      "returns": "Formal copied gradient vector, or newly evaluated numeric vector ordered by variables.",
+      "errors": [
+        "DimensionMismatch for point length; DomainError for known exclusions, nonfinite inputs/results or unsupported open-smooth neighborhood; underlying callable failures propagate."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Formal derivatives do not certify smoothness. Numeric queries require sufficient supported open original-domain smoothness gate, rejecting canceled sqrt/abs corners and unknown domain. No repeated differentiation."
+      ],
+      "units": "Plain ordered numeric coordinates; no inferred physical units or nondimensionalization; residual norm/scale must be caller-consistent.",
+      "ownership": "Formal arrays copied, numerical arrays freshly allocated; stored report unchanged.",
+      "docstring_status": "ABSENT_ON_METHODS",
+      "test_references": [
+        "test/multivariate_analysis.jl:5-77",
+        "test/multivariate_regressions.jl:4-51",
+        "test/m10a_calculus_dynamics.jl:60-120"
+      ],
+      "example_references": [
+        "README.md:454-462"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:449-508"
+        ],
+        "recommended_reference_section": "Core API / F06 / gradient",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Missing or partial callable/type docstring coverage: ABSENT_ON_METHODS."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F06",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "hessian",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/multivariate_analysis.jl:105-116"
+      ],
+      "public_signature": [
+        "hessian(report::ScalarFieldAnalysis)",
+        "hessian(report::ScalarFieldAnalysis, point::Union{Tuple,AbstractVector})"
+      ],
+      "keywords": {},
+      "inputs": "Stored ScalarFieldAnalysis; optional finite real point with report.dimension coordinates.",
+      "returns": "Formal copied n×n Hessian, or newly evaluated n×n numeric matrix in variable order.",
+      "errors": [
+        "DimensionMismatch for point length; DomainError for known exclusions, nonfinite inputs/results or unsupported open-smooth neighborhood; underlying callable failures propagate."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Formal derivatives do not certify smoothness. Numeric queries require sufficient supported open original-domain smoothness gate, rejecting canceled sqrt/abs corners and unknown domain. No repeated differentiation."
+      ],
+      "units": "Plain ordered numeric coordinates; no inferred physical units or nondimensionalization; residual norm/scale must be caller-consistent.",
+      "ownership": "Formal arrays copied, numerical arrays freshly allocated; stored report unchanged.",
+      "docstring_status": "ABSENT_ON_METHODS",
+      "test_references": [
+        "test/multivariate_analysis.jl:5-77",
+        "test/multivariate_regressions.jl:4-51",
+        "test/m10a_calculus_dynamics.jl:60-120"
+      ],
+      "example_references": [
+        "README.md:454-462"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:449-508"
+        ],
+        "recommended_reference_section": "Core API / F06 / hessian",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Missing or partial callable/type docstring coverage: ABSENT_ON_METHODS."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics",
+        "LinearAlgebra"
+      ],
+      "ownership_family": "F06",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "directional_derivative",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/multivariate_analysis.jl:345-357"
+      ],
+      "public_signature": [
+        "directional_derivative(report::ScalarFieldAnalysis, point, direction)"
+      ],
+      "keywords": {},
+      "inputs": "Dimension-matching finite real point and nonzero tuple/vector direction; direction normalized using scale-safe norm.",
+      "returns": "Finite scalar dot(gradient(point), normalized_direction).",
+      "errors": [
+        "ArgumentError for unsupported point container; DimensionMismatch for point/direction lengths or direction container; DomainError for invalid domain/smoothness, nonfinite or zero direction, or nonfinite derivative."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Normalizes direction rather than returning derivative scaled by its magnitude; sufficient smoothness gate, not general differentiability inference."
+      ],
+      "units": "Plain ordered numeric coordinates; no inferred physical units or nondimensionalization; residual norm/scale must be caller-consistent.",
+      "ownership": "Fresh normalization buffers; input arrays/report not mutated.",
+      "docstring_status": "ABSENT_ON_METHOD",
+      "test_references": [
+        "test/multivariate_analysis.jl:43-44",
+        "test/multivariate_regressions.jl:13-16",
+        "test/multivariate_regressions.jl:48-49",
+        "test/m10a_calculus_dynamics.jl:75-90"
+      ],
+      "example_references": [
+        "README.md:454-462"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:449-508"
+        ],
+        "recommended_reference_section": "Core API / F06 / directional_derivative",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Missing or partial callable/type docstring coverage: ABSENT_ON_METHOD."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics",
+        "LinearAlgebra"
+      ],
+      "ownership_family": "F06",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "linearization",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/multivariate_analysis.jl:359-364",
+        "src/vector_fields/calculus.jl:103-108",
+        "src/dynamical_systems/analysis.jl:61"
+      ],
+      "public_signature": [
+        "linearization(report::ScalarFieldAnalysis, point)",
+        "linearization(report::VectorFieldAnalysis, point::Union{Tuple,AbstractVector})",
+        "linearization(r::DynamicalSystemAnalysis, p::Union{Tuple,AbstractVector})"
+      ],
+      "keywords": {},
+      "inputs": "Stored scalar/vector/dynamical report, ordered point in a supported open smooth neighborhood.",
+      "returns": "Named tuple(expression,base_point,value,coefficients); scalar affine expression and gradient vector, or m expressions and m×n Jacobian.",
+      "errors": [
+        "ArgumentError for scalar unsupported point container; DimensionMismatch for point length; DomainError for domain/smoothness/nonfinite failures; cached backend errors may propagate."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Local first-order affine map, no nonlinear stability/remainder/error bound; not mechanical second-order linearization."
+      ],
+      "units": "Plain ordered numeric coordinates; no inferred physical units or nondimensionalization; residual norm/scale must be caller-consistent.",
+      "ownership": "Collects base-point copy, fresh values/coefficients/expression; dynamical route delegates to identical field.",
+      "docstring_status": "ABSENT_ON_METHODS",
+      "test_references": [
+        "test/multivariate_analysis.jl:45-49",
+        "test/vector_calculus.jl:37-43",
+        "test/vector_regressions.jl:37-39",
+        "test/dynamical_systems.jl:18-20"
+      ],
+      "example_references": [
+        "README.md:454-462",
+        "notebooks/vector_field_analysis.jl:24-27",
+        "docs/dynamical_systems.md:5-16"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:454-462",
+          "README.md:502-508",
+          "docs/vector_fields.md:41-55",
+          "docs/dynamical_systems.md:18-22"
+        ],
+        "recommended_reference_section": "Core API / F06 / linearization",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Missing or partial callable/type docstring coverage: ABSENT_ON_METHODS.",
+          "Add method-dispatch table; primary export ownership is not ownership of every method."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "shared_method_families": [
+        "F06",
+        "F07",
+        "F08"
+      ],
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F06",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "levelset",
+      "family": "F06",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/multivariate_analysis.jl:366-370"
+      ],
+      "public_signature": [
+        "levelset(report::ScalarFieldAnalysis, c::Real)"
+      ],
+      "keywords": {},
+      "inputs": "Stored scalar field and finite numerical real level, not Symbolics.Num.",
+      "returns": "Symbolics.Equation report.expression ~ c.",
+      "errors": [
+        "ArgumentError for symbolic level; DomainError for nonfinite level."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Implicit equation only; no solved curve/surface, original-domain attachment, emptiness or regularity certificate. Consumers must retain report.domain separately."
+      ],
+      "units": "Plain ordered numeric coordinates; no inferred physical units or nondimensionalization; residual norm/scale must be caller-consistent.",
+      "ownership": "New equation, references symbolic report expression; no report mutation.",
+      "docstring_status": "ABSENT_ON_METHOD",
+      "test_references": [
+        "test/multivariate_analysis.jl:50-52",
+        "test/multivariate_regressions.jl:47"
+      ],
+      "example_references": [
+        "README.md:454-462"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "README.md:449-508"
+        ],
+        "recommended_reference_section": "Core API / F06 / levelset",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Missing or partial callable/type docstring coverage: ABSENT_ON_METHOD.",
+          "Explicitly state equation output carries no attached original-domain object; retain report.domain separately."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F06",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "VectorFieldAnalysis",
+      "family": "F07",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/vector_fields/analysis.jl:2"
+      ],
+      "public_signature": [
+        "VectorFieldAnalysis(components, original_components, variables, input_dimension, output_dimension, jacobian_expression, numerical, domain, component_domains, field_zeros, divergence, curl, conservative, potential)"
+      ],
+      "keywords": {},
+      "inputs": "Normally analyze(component vector/tuple, ordered variables); raw full field constructor retains caller objects.",
+      "returns": "Rectangular map with cached Jacobian, domain/component_domains, field_zeros and separate calculus/potential evidence.",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Independent input/output dimensions1–32; exact square affine/separable zeros only. Rectangular numerical least-squares candidate steps still require residual acceptance. Zero curl alone never proves global potential."
+      ],
+      "units": "Plain ordered input/output numeric coordinates; no general Unitful or physical scale inference; field residual scale caller-defined.",
+      "ownership": "Immutable outer record does not imply deep immutability; stored arrays/Expr are read-only by convention. Raw generated constructors generally retain supplied references and do not validate scientific invariants.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/vector_fields.jl:5-38",
+        "test/vector_calculus.jl:5-46",
+        "test/vector_zeros.jl:4-38",
+        "test/vector_regressions.jl:5-53"
+      ],
+      "example_references": [
+        "notebooks/vector_field_analysis.jl:6-37"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/vector_fields.md:1-166"
+        ],
+        "recommended_reference_section": "Core API / F07 / VectorFieldAnalysis",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F07",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "jacobian",
+      "family": "F07",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/vector_fields/analysis.jl:94-100",
+        "src/dynamical_systems/analysis.jl:59-60"
+      ],
+      "public_signature": [
+        "jacobian(report::VectorFieldAnalysis)",
+        "jacobian(report::VectorFieldAnalysis, point::Union{Tuple,AbstractVector})",
+        "jacobian(r::DynamicalSystemAnalysis)",
+        "jacobian(r::DynamicalSystemAnalysis, p::Union{Tuple,AbstractVector})"
+      ],
+      "keywords": {},
+      "inputs": "Stored rectangular vector map or autonomous report; optional n-coordinate finite real point.",
+      "returns": "m×n formal copied symbolic matrix, or freshly evaluated matrix with component rows and variable columns.",
+      "errors": [
+        "DimensionMismatch for point length; DomainError for invalid/nonfinite point/result or unsupported open-smooth neighborhood; underlying compiled-callable errors propagate."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Formal Jacobian not a boundary differentiability proof; point queries require known smooth original neighborhood; no repeated differentiation."
+      ],
+      "units": "Plain ordered input/output numeric coordinates; no general Unitful or physical scale inference; field residual scale caller-defined.",
+      "ownership": "Formal shallow array copy; fresh numeric matrix; autonomous methods delegate to field.",
+      "docstring_status": "PARTIAL_FORMAL_VECTOR_METHOD_BRIEF_OTHERS_ABSENT",
+      "test_references": [
+        "test/vector_fields.jl:9-19",
+        "test/vector_regressions.jl:20-21",
+        "test/dynamical_systems.jl:18-20",
+        "test/m10a_calculus_dynamics.jl:60-97"
+      ],
+      "example_references": [
+        "notebooks/vector_field_analysis.jl:6-37"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/vector_fields.md:1-166"
+        ],
+        "recommended_reference_section": "Core API / F07 / jacobian",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Missing or partial callable/type docstring coverage: PARTIAL_FORMAL_VECTOR_METHOD_BRIEF_OTHERS_ABSENT.",
+          "Add method-dispatch table; primary export ownership is not ownership of every method."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "shared_method_families": [
+        "F07",
+        "F08"
+      ],
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F07",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "divergence",
+      "family": "F07",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/vector_fields/calculus.jl:5-6",
+        "src/vector_fields/calculus.jl:45-100"
+      ],
+      "public_signature": [
+        "divergence(report::VectorFieldAnalysis)"
+      ],
+      "keywords": {},
+      "inputs": "Stored VectorFieldAnalysis; no recomputation or point argument.",
+      "returns": "PropertyResult of formal trace(J) for square fields, unknown/unsupported otherwise.",
+      "errors": [
+        "No explicit accessor validation/errors for a valid stored report; unsupported mathematics represented as unknown PropertyResult during analysis."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Square fields only; identity on smooth locus, no boundary differentiability claim."
+      ],
+      "units": "Plain ordered input/output numeric coordinates; no general Unitful or physical scale inference; field residual scale caller-defined.",
+      "ownership": "Returns deepcopy of stored PropertyResult and mutable contents.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/vector_calculus.jl:5-36",
+        "test/vector_regressions.jl:22-29"
+      ],
+      "example_references": [
+        "notebooks/vector_field_analysis.jl:6-37"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/vector_fields.md:1-166"
+        ],
+        "recommended_reference_section": "Core API / F07 / divergence",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F07",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "curl",
+      "family": "F07",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/vector_fields/calculus.jl:7-8",
+        "src/vector_fields/calculus.jl:45-100"
+      ],
+      "public_signature": [
+        "curl(report::VectorFieldAnalysis)"
+      ],
+      "keywords": {},
+      "inputs": "Stored VectorFieldAnalysis; no recomputation or point argument.",
+      "returns": "PropertyResult of scalar dQ/dx-dP/dy for square2D, 3-vector curl for square3D, unknown/unsupported otherwise.",
+      "errors": [
+        "No explicit accessor validation/errors for a valid stored report; unsupported mathematics represented as unknown PropertyResult during analysis."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "No curl for rectangular or other dimensions; formal smooth-locus identity, not global topology."
+      ],
+      "units": "Plain ordered input/output numeric coordinates; no general Unitful or physical scale inference; field residual scale caller-defined.",
+      "ownership": "Returns deepcopy of stored PropertyResult and mutable contents.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/vector_calculus.jl:5-36",
+        "test/vector_regressions.jl:22-29"
+      ],
+      "example_references": [
+        "notebooks/vector_field_analysis.jl:6-37"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/vector_fields.md:1-166"
+        ],
+        "recommended_reference_section": "Core API / F07 / curl",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F07",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "potential",
+      "family": "F07",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/vector_fields/calculus.jl:9-10",
+        "src/vector_fields/calculus.jl:45-100"
+      ],
+      "public_signature": [
+        "potential(report::VectorFieldAnalysis)"
+      ],
+      "keywords": {},
+      "inputs": "Stored VectorFieldAnalysis; no recomputation or point argument.",
+      "returns": "PropertyResult of verified scalar polynomial potential (additive constant omitted), or unknown.",
+      "errors": [
+        "No explicit accessor validation/errors for a valid stored report; unsupported mathematics represented as unknown PropertyResult during analysis."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Only rational coefficient polynomial fields total degree<=8 with established supported open original syntax; radial homotopy result differentiated componentwise. Zero curl not a global potential proof; unsupported is not nonexistence."
+      ],
+      "units": "Plain ordered input/output numeric coordinates; no general Unitful or physical scale inference; field residual scale caller-defined.",
+      "ownership": "Returns deepcopy of stored PropertyResult and mutable contents.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/vector_calculus.jl:5-36",
+        "test/vector_regressions.jl:22-29"
+      ],
+      "example_references": [
+        "notebooks/vector_field_analysis.jl:6-37"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/vector_fields.md:1-166"
+        ],
+        "recommended_reference_section": "Core API / F07 / potential",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F07",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "AutonomousSystem",
+      "family": "F08",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/dynamical_systems/analysis.jl:1-10"
+      ],
+      "public_signature": [
+        "AutonomousSystem(field::VectorFieldAnalysis)",
+        "AutonomousSystem(F, variables; kwargs...)"
+      ],
+      "keywords": {
+        "kwargs": "Forwarded to vector-field analyze, including original_expression, bounds, grid, iterations, residual_tolerance, residual_rtol, residual_scale; classification tolerances belong to analyze(system), not this constructor."
+      },
+      "inputs": "Square stored VectorFieldAnalysis or component map plus ordered variables.",
+      "returns": "AutonomousSystem retaining field for x′=F(x).",
+      "errors": [
+        "DimensionMismatch if field input/output dimensions differ; vector analyze errors propagate for convenience constructor."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Square autonomous fields; inherited zero evidence. Local stability only; exact rational diagonal/planar tests, diagnostic Float64 eigenspectrum; nonhyperbolic nonlinear center not inferred."
+      ],
+      "units": "Inherits ordered field coordinates, no general physical units inference or conversion; eigenvalue thresholds caller scale.",
+      "ownership": "Retains identical field; does not deep-copy or recompute an existing report.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/dynamical_systems.jl:6-20",
+        "test/dynamical_systems.jl:67-70"
+      ],
+      "example_references": [
+        "notebooks/dynamical_systems.jl:6-22"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/dynamical_systems.md:3-61"
+        ],
+        "recommended_reference_section": "Core API / F08 / AutonomousSystem",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F08",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "DynamicalSystemAnalysis",
+      "family": "F08",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/dynamical_systems/analysis.jl:13"
+      ],
+      "public_signature": [
+        "DynamicalSystemAnalysis(system, field, variables, dimension, domain, equilibria, nullclines)"
+      ],
+      "keywords": {},
+      "inputs": "Normally analyze(AutonomousSystem(field)); raw full positional record does not recompute/validate supplied evidence.",
+      "returns": "Stored source system and identical field/domain, equilibrium evidence and implicit nullclines.",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Square autonomous fields; inherited zero evidence. Local stability only; exact rational diagonal/planar tests, diagnostic Float64 eigenspectrum; nonhyperbolic nonlinear center not inferred."
+      ],
+      "units": "Inherits ordered field coordinates, no general physical units inference or conversion; eigenvalue thresholds caller scale.",
+      "ownership": "Retains system/field/domain/variables; newly constructed equilibrium records copy candidate points/values; query accessors deep-copy evidence.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/dynamical_systems.jl:6-104",
+        "test/dynamical_regressions.jl:61-68"
+      ],
+      "example_references": [
+        "notebooks/dynamical_systems.jl:6-22"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/dynamical_systems.md:3-61"
+        ],
+        "recommended_reference_section": "Core API / F08 / DynamicalSystemAnalysis",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F08",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "equilibria",
+      "family": "F08",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/dynamical_systems/analysis.jl:52-53"
+      ],
+      "public_signature": [
+        "equilibria(r::DynamicalSystemAnalysis)"
+      ],
+      "keywords": {},
+      "inputs": "Stored autonomous structural analysis; no new root search/differentiation.",
+      "returns": "PropertyResult containing equilibrium records with point/value/residual+threshold, status/method, domain_valid and LocalStabilityAnalysis.",
+      "errors": [
+        "No explicit accessor validation/errors for a valid stored report; unsupported cases are stored unknown evidence."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Discovery inherits exact square affine/separable class or bounded heuristic zeros; small residual does not prove root position or global stability; unknown/nonisolated families not invented."
+      ],
+      "units": "Inherits ordered field coordinates, no general physical units inference or conversion; eigenvalue thresholds caller scale.",
+      "ownership": "deepcopy of stored evidence/records; mutations to returned contents do not change source.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/dynamical_systems.jl:13-16",
+        "test/dynamical_systems.jl:39-64"
+      ],
+      "example_references": [
+        "notebooks/dynamical_systems.jl:6-22"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/dynamical_systems.md:3-61"
+        ],
+        "recommended_reference_section": "Core API / F08 / equilibria",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F08",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "stability",
+      "family": "F08",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/dynamical_systems/analysis.jl:56-57"
+      ],
+      "public_signature": [
+        "stability(r::DynamicalSystemAnalysis)"
+      ],
+      "keywords": {},
+      "inputs": "Stored autonomous structural analysis; no new root search/differentiation.",
+      "returns": "Vector of LocalStabilityAnalysis records in equilibrium order, each matrix/eigenvalues/scoped stability PropertyResult.",
+      "errors": [
+        "No explicit accessor validation/errors for a valid stored report; unsupported cases are stored unknown evidence."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Local equilibrium claim only. Exact rational diagonal/2D trace-det tests; affine unrestricted planar center special case. Numerical eigenvalues diagnostic with atol+rtol*max(maxabs(eigs),1); generic signs heuristic.",
+        "Open smooth original neighborhood required. Nonhyperbolic nonlinear systems generally inconclusive; positive direction may still prove instability. No basin/global attraction/periodic orbit inference."
+      ],
+      "units": "Inherits ordered field coordinates, no general physical units inference or conversion; eigenvalue thresholds caller scale.",
+      "ownership": "deepcopy of stored evidence/records; mutations to returned contents do not change source.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/dynamical_systems.jl:39-104",
+        "test/dynamical_regressions.jl:61-68"
+      ],
+      "example_references": [
+        "notebooks/dynamical_systems.jl:6-22"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/dynamical_systems.md:3-61"
+        ],
+        "recommended_reference_section": "Core API / F08 / stability",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics",
+        "LinearAlgebra"
+      ],
+      "ownership_family": "F08",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "nullclines",
+      "family": "F08",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/dynamical_systems/analysis.jl:54-55"
+      ],
+      "public_signature": [
+        "nullclines(r::DynamicalSystemAnalysis)"
+      ],
+      "keywords": {},
+      "inputs": "Stored autonomous structural analysis; no new root search/differentiation.",
+      "returns": "PropertyResult containing two (component,equation,domain) records for planar systems, or unknown evidence in other dimensions.",
+      "errors": [
+        "No explicit accessor validation/errors for a valid stored report; unsupported cases are stored unknown evidence."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Only planar implicit component equations restricted to original domain; no solved curve, topology or regularity certificate."
+      ],
+      "units": "Inherits ordered field coordinates, no general physical units inference or conversion; eigenvalue thresholds caller scale.",
+      "ownership": "deepcopy of stored evidence/records; mutations to returned contents do not change source.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/dynamical_systems.jl:29-35",
+        "test/dynamical_systems.jl:40-43",
+        "test/dynamical_systems.jl:57-59"
+      ],
+      "example_references": [
+        "notebooks/dynamical_systems.jl:6-22"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/dynamical_systems.md:3-61"
+        ],
+        "recommended_reference_section": "Core API / F08 / nullclines",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "Symbolics"
+      ],
+      "ownership_family": "F08",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    },
+    {
+      "symbol": "FirstOrderODE",
+      "family": "F09",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/dynamical_systems/integration.jl:1-21"
+      ],
+      "public_signature": [
+        "FirstOrderODE(f, dimension::Integer; domain=(u,t)->true, labels=ntuple(i -> \"u$i\", max(0,min(dimension,32))))"
+      ],
+      "keywords": {
+        "domain": "(u,t)->true; must return exactly true at every evaluated RHS stage",
+        "labels": "u1,...,uN default (bounded construction); length dimension; converted to string tuple"
+      },
+      "inputs": "Out-of-place f(u,t) returning finite real vector/tuple of declared dimension1–32; parameters may be captured in closure. Scalar state still vector internally.",
+      "returns": "Callable/domain/labels/dimension container; no solve or structural equilibrium analysis.",
+      "errors": [
+        "ArgumentError dimension outside1:32; DimensionMismatch labels length; label string conversion can propagate errors. RHS/domain validity checked by trajectory, not eagerly by constructor."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Public small-state out-of-place interface; 32-state cap unchanged by private _scale_ode_problem. Does not infer smoothness, autonomy or equilibria."
+      ],
+      "units": "Caller-consistent numeric state/time scales; no automatic Unitful normalization, no units schema; labels are names not unit declarations.",
+      "ownership": "Retains f and domain closures; converts labels to immutable tuple of strings; does not own captured mutable closure state.",
+      "docstring_status": "PRESENT_DETAILED",
+      "test_references": [
+        "test/trajectories.jl:3-53",
+        "test/dynamical_regressions.jl:23-60",
+        "test/m10a_calculus_dynamics.jl:129-151"
+      ],
+      "example_references": [
+        "notebooks/dynamical_systems.jl:24-35"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/dynamical_systems.md:63-112"
+        ],
+        "recommended_reference_section": "Core API / F09 / FirstOrderODE",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Prominently distinguish public32-state interface, private scalable native bridge, nonuniform saveat output and unsuccessful partial solutions."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "SciMLBase",
+        "OrdinaryDiffEqTsit5"
+      ],
+      "ownership_family": "F09",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "TrajectoryResult",
+      "family": "F09",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/dynamical_systems/integration.jl:24"
+      ],
+      "public_signature": [
+        "TrajectoryResult(solution, problem, labels, diagnostics)"
+      ],
+      "keywords": {},
+      "inputs": "Usually produced by trajectory; raw solution/problem/labels/diagnostics holder.",
+      "returns": "Native SciML solution, AML FirstOrderODE problem (not native ODEProblem field), labels, success/completed/retcode/algorithm/tolerances/final_time/accepted/rejected diagnostics.",
+      "errors": [
+        "Generated constructors enforce declared Julia field/type constraints, not mathematical validity; no general invariant-validation promise."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Public out-of-place interface1–32 states; Float64 states/times, explicit representability/nonzero-to-zero checks for states/RHS but not precision-exact conversion. Stage domain checks do not certify interpolant. Solver success/completion not rigorous accuracy."
+      ],
+      "units": "Caller-consistent numeric state/time scales; no automatic Unitful normalization, no units schema; labels are names not unit declarations.",
+      "ownership": "Native solution retained without copying solution arrays; AML problem callable and domain retained. Treat backend state as read-only; backend API not AML-stable.",
+      "docstring_status": "PRESENT_BRIEF",
+      "test_references": [
+        "test/trajectories.jl:3-53",
+        "test/dynamical_regressions.jl:23-60",
+        "test/m10a_calculus_dynamics.jl:129-151"
+      ],
+      "example_references": [
+        "notebooks/dynamical_systems.jl:24-35"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/dynamical_systems.md:63-112"
+        ],
+        "recommended_reference_section": "Core API / F09 / TrajectoryResult",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Prominently distinguish public32-state interface, private scalable native bridge, nonuniform saveat output and unsuccessful partial solutions."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "SciMLBase",
+        "OrdinaryDiffEqTsit5"
+      ],
+      "ownership_family": "F09",
+      "factory_constructor_note": "Raw positional constructors are compatibility/data entry points, not automatic scientific validation."
+    },
+    {
+      "symbol": "trajectory",
+      "family": "F09",
+      "stability": "PUBLIC_STABLE",
+      "source_location": [
+        "src/dynamical_systems/integration.jl:36-41",
+        "src/dynamical_systems/integration.jl:43-132"
+      ],
+      "public_signature": [
+        "trajectory(problem::FirstOrderODE, u0, tspan; algorithm=OrdinaryDiffEqTsit5.Tsit5(), abstol::Real=1e-9, reltol::Real=1e-7, saveat=nothing, dt=nothing, maxiters::Integer=100_000)",
+        "trajectory(report::DynamicalSystemAnalysis, u0, tspan; kwargs...)"
+      ],
+      "keywords": {
+        "algorithm": "OrdinaryDiffEqTsit5.Tsit5(); explicit compatible installed SciML algorithm accepted",
+        "abstol": "1e-9; finite positive Real converted to Float64",
+        "reltol": "1e-7; finite positive Real converted to Float64",
+        "saveat": "nothing; positive finite interval mapped to direction-aware tstops, <=1000000 intervals; all adaptive steps still saved",
+        "dt": "nothing; positive finite initial step magnitude; direction signed internally",
+        "maxiters": "100000; positive Integer",
+        "kwargs": "Dynamical method forwards same controls"
+      },
+      "inputs": "FirstOrderODE or autonomous analysis, scalar u0 for one state or collection matching dimension, two distinct finite Float64-converted time endpoints; reverse integration supported.",
+      "returns": "TrajectoryResult with native dense solution and AML problem; inspect diagnostics.success AND completed/retcode, including partial solver failure result.",
+      "errors": [
+        "DimensionMismatch initial/RHS dimension. ArgumentError tspan/positive controls/save grid/dt/maxiters; backend/algorithm errors may propagate.",
+        "DomainError nonfinite/unrepresentable initial state or RHS, invalid or unresolved domain at initial/trial stage; domain exceptions do not return a partial path."
+      ],
+      "optional_dependencies": [],
+      "numerical_limitations": [
+        "Float64 conversion can round inputs; initial/RHS checks reject overflow and nonzero underflow, not all precision loss.",
+        "saveat forces solver steps and changes cost/step sequence, not an exclusively uniform output; dense=true and save_everystep=true.",
+        "Unknown or invalid domain fails fast at stages; no event-boundary localization or interpolant containment proof; tolerances not rigorous errors. MaxIters may return partial native result.",
+        "Public1–32 states. Private scalable in-place bridge is not an exported larger trajectory contract."
+      ],
+      "units": "Caller supplies coherent plain numeric state/time scales; no unit stripping/conversion or inferred physical labels. Tolerances are solver controls in supplied scales.",
+      "ownership": "Float64 initial-state copy; native solution retained without copying arrays. Autonomous wrapper retains field identity; f/domain closures retained; no mutation of source field.",
+      "docstring_status": "PRESENT_DETAILED_FIRSTORDER_OVERLOAD_AUTONOMOUS_UNDOCUMENTED",
+      "test_references": [
+        "test/trajectories.jl:3-53",
+        "test/dynamical_regressions.jl:23-60",
+        "test/m10a_calculus_dynamics.jl:129-151"
+      ],
+      "example_references": [
+        "notebooks/dynamical_systems.jl:24-35"
+      ],
+      "documentation_target": {
+        "existing_sections": [
+          "docs/dynamical_systems.md:63-112"
+        ],
+        "recommended_reference_section": "Core API / F09 / trajectory",
+        "gaps": [
+          "Dedicated symbol reference with all signatures, defaults, errors and ownership is not consolidated; existing guide coverage is not equivalent to a complete API reference.",
+          "Prominently distinguish public32-state interface, private scalable native bridge, nonuniform saveat output and unsuccessful partial solutions."
+        ]
+      },
+      "coverage_status": "PARTIAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "required_dependencies": [
+        "SciMLBase",
+        "OrdinaryDiffEqTsit5"
+      ],
+      "ownership_family": "F09",
+      "factory_constructor_note": "Supported core overloads only; other-family methods are outside this audit."
+    }
+  ]
+}

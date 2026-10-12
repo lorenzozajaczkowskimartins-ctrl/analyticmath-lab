@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "58_examples_native_ensemble_partial",
+  "files": [
+    {
+      "path": "examples/scaling/ode_ensemble.jl",
+      "sha256": "75f738f50f847d19979a1b31484427183f85c519d60871d6a4de033b4a3235ea",
+      "bytes": 4160,
+      "lines": 96,
+      "read_ranges": [
+        [
+          1,
+          96
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Native SciML batch32 sum/count reductions serial/threaded with safetycopy, no public AML ensemble protocol or speedup promise."
+      ]
+    },
+    {
+      "path": "examples/scaling/optional_scaling_gate.jl",
+      "sha256": "7019c769ea9f163f9b2427fe09c60f00ea7d9474c81011a4945e447a88097d33",
+      "bytes": 3814,
+      "lines": 67,
+      "read_ranges": [
+        [
+          1,
+          67
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Public batch_size prediction equivalence but full final output retained; private PINN _sample_residual summary gate not public analyze keyword."
+      ]
+    },
+    {
+      "path": "examples/scaling/partial_modes.jl",
+      "sha256": "ec972c16fe1a6a6525dc611781012ec17f2b0933bebc653d54ee406436189697",
+      "bytes": 5707,
+      "lines": 108,
+      "read_ranges": [
+        [
+          1,
+          108
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Chain-specific Arnoldi shift-inverse with analytic action/structured factor, local example max_memory_bytes not generic public partial-Hessian API; partial no degeneracy completeness."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

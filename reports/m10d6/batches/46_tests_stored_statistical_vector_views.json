@@ -1,0 +1,41 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "46_tests_stored_statistical_vector_views",
+  "files": [
+    {
+      "path": "test/trajectory_visualization.jl",
+      "sha256": "c0020db90bf06988569a0ab50be6a274ef9e48fa3359feaec5eeecd088832d70",
+      "bytes": 1361,
+      "lines": 25,
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Stored statistical Figures require available time/correlation; not recompute transport fit, no mutation."
+      ]
+    },
+    {
+      "path": "test/vector_visualization.jl",
+      "sha256": "7243e642b1a834233a916f0972f7d95c4ac17f24c2ae25261f1ddd26b667b836",
+      "bytes": 2011,
+      "lines": 44,
+      "read_ranges": [
+        [
+          1,
+          44
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Vector arrows exclude original-domain holes,2D matching dimension/range/sample caps; backend owned by caller and render gate separate."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

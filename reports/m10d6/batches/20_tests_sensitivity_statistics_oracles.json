@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "20_tests_sensitivity_statistics_oracles",
+  "files": [
+    {
+      "path": "test/inference_sensitivity.jl",
+      "sha256": "5500e9caed830ee8a4ea939798d07ee2d55e3a4a4494051ad7aab3ab88150ee9",
+      "bytes": 2113,
+      "lines": 38,
+      "read_ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Local weighted SVD/rank1 ratio degeneracy/zero columns/economical right factors, no full nullspace claim."
+      ]
+    },
+    {
+      "path": "test/learned_dynamics_base.jl",
+      "sha256": "bda5f37cde32530c78d5a96ddbe9fe1965aef918fd1eb6c154d2e66ba7723946",
+      "bytes": 708,
+      "lines": 13,
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Borrowed learned-data shapes/finite checks and duplicate correction refusal."
+      ]
+    },
+    {
+      "path": "test/m10a_atomistic_statistics.jl",
+      "sha256": "c7cb35209be6f4eda8feecee8d85aa4ab8cf35b35ddc8b0344f21fe6a4e41121",
+      "bytes": 16207,
+      "lines": 282,
+      "read_ranges": [
+        [
+          1,
+          282
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Independent geometry/LJ/modes/Welford/ACF/IAT/blocks/MSD/VACF/units/comparison arithmetic; caller assertions and uncertainty gates, no benchmark or validity score."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

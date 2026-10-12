@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "55_examples_scaling_namespace",
+  "files": [
+    {
+      "path": "examples/scaling/generalization_scale.jl",
+      "sha256": "7fe72c13682eb9ed8062e737e534445393146a3fc9b9a04e7853abfa91fa71c5",
+      "bytes": 2410,
+      "lines": 40,
+      "read_ranges": [
+        [
+          1,
+          40
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "One-step optional result then100/10000query stored generalization measurements full-output cost, not timing training."
+      ]
+    },
+    {
+      "path": "examples/scaling/harness.jl",
+      "sha256": "c24898550d5d97fc1c1c7c21f94cf2916213c11d18f99b403c9cc3e487b07b43",
+      "bytes": 5796,
+      "lines": 108,
+      "read_ranges": [
+        [
+          1,
+          108
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "StressBudget and AML_MAX_* env strictly ScaleHarness internal/example namespace; estimates not RSS caps, deadline cooperative between calls, atomic measurement checkpoints."
+      ]
+    },
+    {
+      "path": "examples/scaling/large_atomistic_geometry.jl",
+      "sha256": "bc9181c425c3ce83ca601faf67c4584f2d0e3eeff8355c958db62e321601c14f",
+      "bytes": 1763,
+      "lines": 38,
+      "read_ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Quadratic pair versus coordination traversal, estimates and pair output refusal, no scalable neighbor list claim."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

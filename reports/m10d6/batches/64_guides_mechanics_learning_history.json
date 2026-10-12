@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "64_guides_mechanics_learning_history",
+  "files": [
+    {
+      "path": "docs/learned_dynamics.md",
+      "sha256": "aa97892d89c9521ecaf353f78f3629b6b39d32a1f9e00f3e8b1fc70465c1726e",
+      "bytes": 7317,
+      "lines": 124,
+      "read_ranges": [
+        [
+          1,
+          124
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Learned HNN gauge/state/order/native reconstruction and borrowed training provenance; optional native objective AD boundary distinct public Float64 trajectory."
+      ]
+    },
+    {
+      "path": "docs/md-readiness.md",
+      "sha256": "64bb2ad565934ec68e3f34e6f0a6cc1d32f169320e63f9a7b727d84d2dc5550a",
+      "bytes": 5606,
+      "lines": 111,
+      "read_ranges": [
+        [
+          1,
+          111
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Historical future-M8/Molly adapter map now implemented in scoped form; do not promote conceptual energy/force/hessian provider to API."
+      ]
+    },
+    {
+      "path": "docs/mechanics.md",
+      "sha256": "9a678a238706c9485b1463e55c1a52e2d5919f03612284a45acbc2927ba4491b",
+      "bytes": 14582,
+      "lines": 245,
+      "read_ranges": [
+        [
+          1,
+          245
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Strong formal mechanics/local SPD/mass normalization guide; direct normal_modes signature omits current max_memory_bytes, report phaseplot conversion caveat needed."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "66_guides_pinn_surrogates_comparison",
+  "files": [
+    {
+      "path": "docs/scientific_ml.md",
+      "sha256": "ad7c6b77a56c1c211dcd36d1e5d2a203e71fa591cdb55926c2279fee19c508c1",
+      "bytes": 13069,
+      "lines": 226,
+      "read_ranges": [
+        [
+          1,
+          226
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Strong PINN construction/stateless/order/loss/history docs; future inverse/M9D limitations stale versus current source, optional exact triggers require Project authority."
+      ]
+    },
+    {
+      "path": "docs/surrogates.md",
+      "sha256": "04aefcb7cffed941aa792c2e93c2c7c9175267a1ff697c3cbaf7285f55d8cede",
+      "bytes": 9877,
+      "lines": 162,
+      "read_ranges": [
+        [
+          1,
+          162
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Substantial schema/train-only reference/sensor/splits heat/timing guide; no public FNO or discretization invariance, prediction batch_size/reduction missing consolidated current table."
+      ]
+    },
+    {
+      "path": "docs/trajectory_comparison.md",
+      "sha256": "32876105ddd8e76a1fb44f430beff9a8d318bc7fcf9f681509e85cf449e2d546",
+      "bytes": 12441,
+      "lines": 196,
+      "read_ranges": [
+        [
+          1,
+          196
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Stored compatibility before b-a and conditional uncertainty guide, no reconstruction/resampling, exact grids, explicit selection; unknown units not dimensionless."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

@@ -1,0 +1,144 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "archive": "/home/lorenzozm/PROJETOS/analyticmath-lab/reports/m10d6_recovery/20261012T010229Z/pre_handoff.tar.gz",
+  "archive_sha256": "0406d399dd38d15572279c79e91bf749c10f689b4593a6790290f72eaf4346b8",
+  "manifest": "/home/lorenzozm/PROJETOS/analyticmath-lab/reports/m10d6_recovery/20261012T010229Z/manifest.json",
+  "artifacts": [
+    {
+      "path": "reports/m10d6/core_api.json",
+      "sha256": "972309a74f58ae8dc33ae8062fcf47628934bf310b994a7fba7de7ee84eb1559",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/core_findings.md",
+      "sha256": "bac62fe2f52890e1ca199a234dfb7eeef8d29a43f9bf0d42a29688b1fc3918ed",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/core_inspection.json",
+      "sha256": "357eb1f842b0d18decf25bdcefc75e79b7f42defa88640b7196f6df777efa558",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/diagnostic_findings.md",
+      "sha256": "6f5a4b7a3d0449c3bf554398f3e307c293ea33291029251310554f5316f05e93",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/documentation_architecture.md",
+      "sha256": "8eeae95bdb4657167c74475d4eaaf56e0201cfb90b5cd51898ed963e00bf7168",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/exports.json",
+      "sha256": "97ac100f1dd30004decabd2906b1f250386ae4bf0262ec69a4a0aba45383f86c",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/hessian_question_outline.md",
+      "sha256": "a54580e623a0b80332daa79e492c643d5486c0a41cde585536864fb4c0390b3a",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/parent_inspection.json",
+      "sha256": "0e73bf108dbde6c1a1e1e2f274d6703e31d59ddd3f4e1bc92b6644e57bea124e",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/progress.json",
+      "sha256": "9fc59b1569027f66d6c75ac69a54ea4f934021d50897d6736974ce8da00b6952",
+      "unchanged": false,
+      "disposition": "MUTABLE_CHECKPOINT_UPDATED_WITH_ORIGINAL_PRESERVED"
+    },
+    {
+      "path": "reports/m10d6/qualified_api.json",
+      "sha256": "92e15a9165372bacc12ebc8e6acd2124f143b696257b5af47f9798558626da89",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/readme_plan.md",
+      "sha256": "5f2074357e57d54155031327e3f7d608613bd181e8beeb8b9662c583fc77925e",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/recovery_validation.json",
+      "sha256": "3e06a04bf8594a387d4f5bbfcd98e10b1341f02979b0e6a72c2687360f5837bb",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/refusal_sites.json",
+      "sha256": "91b01353acb9a14f6016cec15b0a80ad309adf2be8ce9617c30e3d532bf49ff4",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/refusals.json",
+      "sha256": "7feb47493a080ca5cda2e47757c0f61c3f704715f691d1f172e669b36b32d96a",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/repository_inventory.json",
+      "sha256": "70499cc1a731e483dffdc77698a137d30cb70bf22f041800ac4b5dffd8b6f800",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/scientific_contracts.md",
+      "sha256": "1bbd19afe2a71a200c4c4dcacf032fb62caa9984d44e11fb9d1cde5b1c7e2b68",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/wiki_questions.json",
+      "sha256": "4b5d97d071ede0e7a5bef05f15bed2d7fdcfd2ead6ea6f4b4b630a1994b1c115",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    },
+    {
+      "path": "reports/m10d6/wiki_questions.md",
+      "sha256": "501699768b5d6cdf07e4cf84eb1df01e1d129fc56c5ada8e4af90019a44494c3",
+      "unchanged": true,
+      "disposition": "PRESERVED_UNCHANGED"
+    }
+  ],
+  "source_hashes_reconciled": 311,
+  "subagents": [
+    {
+      "assignment": "Resource/refusal",
+      "log": "/home/lorenzozm/.hermes/cache/delegation/live/deleg_dc80c024/task-0.log",
+      "final_status": "FAILED_PROVIDER_RATE_LIMIT",
+      "useful_artifacts": [
+        "refusal_sites.json",
+        "refusals.json",
+        "diagnostic_findings.md"
+      ],
+      "disposition": "Persisted bounded source evidence reused, not whole-audit approval"
+    },
+    {
+      "assignment": "Core API",
+      "log": "/home/lorenzozm/.hermes/cache/delegation/live/deleg_dc80c024/task-1.log",
+      "final_status": "FAILED_PROVIDER_RATE_LIMIT",
+      "useful_artifacts": [
+        "core_inspection.json",
+        "core_api.json",
+        "core_findings.md"
+      ],
+      "disposition": "Hash-matched 40 core export records and bounded source review reused; later overloads reconciled sequentially"
+    }
+  ],
+  "new_subagents": 0,
+  "strategy": "SEQUENTIAL",
+  "archive_in_commit": false
+}

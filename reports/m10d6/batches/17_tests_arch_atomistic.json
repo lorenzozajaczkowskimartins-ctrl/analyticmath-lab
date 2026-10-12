@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "17_tests_arch_atomistic",
+  "files": [
+    {
+      "path": "test/architecture.jl",
+      "sha256": "174d0901da876fd465f8f83de7de4a8618a5b736a58a14c4a9d1e39474653a2d",
+      "bytes": 8107,
+      "lines": 129,
+      "read_ranges": [
+        [
+          1,
+          129
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Architecture source asserts literal export set/include ownership and no optional backend activation, not executed."
+      ]
+    },
+    {
+      "path": "test/atomistic_core.jl",
+      "sha256": "3d75f8b54f46772e9534bfc61562a3c6c5bb57286b87324d183fb7e30ec518ce",
+      "bytes": 3007,
+      "lines": 57,
+      "read_ranges": [
+        [
+          1,
+          57
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Borrowed snapshot/lazy indexing/physical unknown checks and pair output refusal fixtures."
+      ]
+    },
+    {
+      "path": "test/atomistic_distributions.jl",
+      "sha256": "58cc6f2a90691c6575e40b064d794f4ef87baca8d9f17b2141f776f74ebf401e",
+      "bytes": 4528,
+      "lines": 94,
+      "read_ranges": [
+        [
+          1,
+          94
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Finite-N RDF bins/lastedge, mixtures/change volume/units/callback/unsupported geometry and coordination inclusive cutoff tests."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

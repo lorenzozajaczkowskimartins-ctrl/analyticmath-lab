@@ -1,0 +1,92 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "83_frozen_data_environment_4",
+  "files": [
+    {
+      "path": "docs/m10c_measurements/million_query_analysis.csv",
+      "sha256": "2f942d243d0e4267f287bcf47c1faa38f1275c06aeff517030761cd263120ed0",
+      "bytes": 2533,
+      "inspection": "DETERMINISTIC_FROZEN_DATA_ENUMERATION",
+      "rows": 14,
+      "columns": [
+        "name",
+        "n",
+        "estimated_bytes",
+        "algorithm",
+        "elapsed_seconds",
+        "allocated_bytes",
+        "result_bytes",
+        "output_count",
+        "correctness_metric",
+        "warmup_seconds",
+        "repeats_completed",
+        "rss_highwater_bytes",
+        "status"
+      ],
+      "statuses": [
+        "completed"
+      ],
+      "semantic_findings": [
+        "Historical measurements preserved; requested dimension, consumed work, cumulative allocation and returned-object bytes are not interchangeable. No measurements regenerated."
+      ]
+    },
+    {
+      "path": "docs/m10c_measurements/ml_training_stress.csv",
+      "sha256": "7cb25d715810e0776324f3e51ba0d36dbbd19bf9d468602c09d12987cfe0c4c8",
+      "bytes": 340,
+      "inspection": "DETERMINISTIC_FROZEN_DATA_ENUMERATION",
+      "rows": 1,
+      "columns": [
+        "name",
+        "n",
+        "estimated_bytes",
+        "algorithm",
+        "elapsed_seconds",
+        "allocated_bytes",
+        "result_bytes",
+        "output_count",
+        "correctness_metric",
+        "warmup_seconds",
+        "repeats_completed",
+        "rss_highwater_bytes",
+        "status"
+      ],
+      "statuses": [
+        "refused_by_guardrail"
+      ],
+      "semantic_findings": [
+        "Historical measurements preserved; requested dimension, consumed work, cumulative allocation and returned-object bytes are not interchangeable. No measurements regenerated."
+      ]
+    },
+    {
+      "path": "docs/m10c_measurements/ml_training_stress_local.csv",
+      "sha256": "6f629fda2415bcf8538589f8556302ec73ffbeacc9b72f7d9501e0d76d3e0ea0",
+      "bytes": 1124,
+      "inspection": "DETERMINISTIC_FROZEN_DATA_ENUMERATION",
+      "rows": 5,
+      "columns": [
+        "name",
+        "n",
+        "estimated_bytes",
+        "algorithm",
+        "elapsed_seconds",
+        "allocated_bytes",
+        "result_bytes",
+        "output_count",
+        "correctness_metric",
+        "warmup_seconds",
+        "repeats_completed",
+        "rss_highwater_bytes",
+        "status"
+      ],
+      "statuses": [
+        "completed"
+      ],
+      "semantic_findings": [
+        "Historical measurements preserved; requested dimension, consumed work, cumulative allocation and returned-object bytes are not interchangeable. No measurements regenerated."
+      ]
+    }
+  ],
+  "apis": [],
+  "scope": "Documentation/environment/evidence inventory only; not full semantic review or fresh scientific execution."
+}

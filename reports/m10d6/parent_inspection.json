@@ -1,0 +1,197 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "abe431002c717ca0f4ad58976f2b87a978e5cd6bb11eed2a6c6a65b46f7ab203",
+      "read_ranges": [
+        [
+          1,
+          614
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": "Project.toml",
+      "sha256": "82f9cb87b2a53dc1a03cc1aeafb0ae55c709d25a9450601c46806102d8178f6b",
+      "read_ranges": [
+        [
+          1,
+          63
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "90f04e7b808e40955a636108559d1617fddf130f09febc79456f65aa7e62af99",
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "7d3b9b40e7cf25689b312a4358b51dc8db85c82b79a2af9b0b5b7c30788fea6d",
+      "read_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "56587f56dcddb1b395e87a70df21b3bbdd5d9b7f3ec527ed79800faad179640a",
+      "read_ranges": [
+        [
+          1,
+          2
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": "src/AnalyticMathLab.jl",
+      "sha256": "3428d1a7f9c6daa55b6dfc1315413f9a6e0ffa2e39d29280d7e30de9d4aee784",
+      "read_ranges": [
+        [
+          1,
+          139
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": "src/scientific_metadata.jl",
+      "sha256": "84fb5ced0788983cf3502464689f1ef8cf3268dd2fe1fe3234b208b44e108b39",
+      "read_ranges": [
+        [
+          1,
+          255
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": "docs/m10d_architecture_inventory.md",
+      "sha256": "13a5651b0af84794279010dbd1e2437965ee288d3da25e5e5bc54b0c100fb0c0",
+      "read_ranges": [
+        [
+          1,
+          201
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": "docs/m10d_user_research_hardening.md",
+      "sha256": "a0a6352924b2b3d1ef043af4fc3ff04ef307a460a8cb42620e5380e72f995f8f",
+      "read_ranges": [
+        [
+          1,
+          148
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": "docs/m10d_user_research_results.md",
+      "sha256": "ba140fe541653bb662ee13f5fae7e83d34983b83e16ecc7c5dc2082783a80484",
+      "read_ranges": [
+        [
+          1,
+          169
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": "docs/m10d_semantics.md",
+      "sha256": "320629683e280209b72cb2bd5c38f5e55c5425210ebf94682c7e9c95272cd90c",
+      "read_ranges": [
+        [
+          1,
+          176
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": "docs/m10d_provenance.md",
+      "sha256": "0f1577c044018b6e7ff070c1e244280bd3c8c10581ed92d446597ffc654803a4",
+      "read_ranges": [
+        [
+          1,
+          158
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": "examples/integration/one_system_many_methods.jl",
+      "sha256": "5095e5ac62b3ec2cc85ac1477a10709d2595fec2a6ef4e01163ce14aaf76c193",
+      "read_ranges": [
+        [
+          1,
+          221
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": "examples/integration/one_system_learning.jl",
+      "sha256": "90c6aa5028a3e6722a170889c54e1a9d0e270df8f2e3a095911f15a232fd50df",
+      "read_ranges": [
+        [
+          1,
+          97
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": "examples/integration/one_system_plots.jl",
+      "sha256": "6758e2b58523e8621aa82caddc9b804493274066abca3175c15828d5cff717c0",
+      "read_ranges": [
+        [
+          1,
+          48
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    },
+    {
+      "path": "notebooks/function_analysis.jl",
+      "sha256": "22c82572f8986f308df759a91c92c23c46d4c609a8c1b926eb07c5345832bd5c",
+      "read_ranges": [
+        [
+          1,
+          22
+        ]
+      ],
+      "status": "SOURCE_INSPECTED",
+      "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+    }
+  ]
+}

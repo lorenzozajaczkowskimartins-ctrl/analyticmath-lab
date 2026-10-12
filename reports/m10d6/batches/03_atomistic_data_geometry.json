@@ -1,0 +1,775 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "03_atomistic_data_geometry",
+  "files": [
+    {
+      "path": "src/atomistic/core.jl",
+      "sha256": "d52dd50f4686401933737ca1360e9b2fb812c8482e1615777855a85c05405b54",
+      "bytes": 7054,
+      "lines": 125,
+      "read_ranges": [
+        [
+          1,
+          125
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Snapshot selectively deepcopies data but not arbitrary provenance/distance callback. Pair budget is output estimate after selection allocation; open/orthorhombic only, no silent fallback."
+      ]
+    },
+    {
+      "path": "src/atomistic/inspection.jl",
+      "sha256": "c22980ae3ecbf22a43132b206ab64dd7c13860530c2409eadbbb4bc7b5acc477",
+      "bytes": 7996,
+      "lines": 107,
+      "read_ranges": [
+        [
+          1,
+          107
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "No simulation certification/force engine; invalid stored data may be inspected. inspect_particle output linear in N not pair-budgeted. mdcheck max_pairs only."
+      ]
+    },
+    {
+      "path": "src/atomistic/distributions.jl",
+      "sha256": "18bfb3a29334bf2687dafe6dab93a67c186dc0fd7ce2ae400f88fe5b647c0608",
+      "bytes": 5415,
+      "lines": 104,
+      "read_ranges": [
+        [
+          1,
+          104
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "RDF streamed but quadratic traversal; finite-N per-frame normalization, expected Float64. Coordination inclusive cutoff allows open geometry and cutoff0; inspect_particle requires positive cutoff."
+      ]
+    }
+  ],
+  "apis": [
+    {
+      "symbol": "AtomisticSnapshot",
+      "source_location": [
+        "src/atomistic/core.jl:9",
+        "src/atomistic/core.jl:22"
+      ],
+      "public_signature": [
+        "struct AtomisticSnapshot{P,V,M,S,B,T,R,E,F,D} <: AbstractAnalysis; raw generated field constructor: (positions::P, velocities::V, masses::M, species::S, dimension::Int, boundary::B, time::T, provenance::R, potential_energy::E, forces::F, distance::D)",
+        "function AtomisticSnapshot(positions;velocities=nothing,masses=nothing,species=nothing,\ndimension=isempty(positions) ? 0 : length(first(positions)),boundary=(kind=:open,),\ntime=nothing,provenance=(source=:generic,units=:unknown),potential_energy=nothing,\nforces=nothing,distance=nothing,copy_data=false)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Particle-major positions plus literal metadata keywords; dimension default from first position",
+      "returns": "Borrowed analysis snapshot, not simulation object",
+      "errors": [
+        "ArgumentError negative/noninteger dimension"
+      ],
+      "numerical_limitations": "Malformed values deliberately retained for mdcheck. copy_data=true deepcopies positions, velocities, masses, species, boundary, forces only. Does not copy provenance/time/potential_energy/distance closure.",
+      "units": "Supported Unitful arithmetic retained; unitless data are physically unknown unless caller declares provenance; labels never convert data.",
+      "ownership": "Borrowed by default; selected fields deepcopied on opt-in, outer immutable not deeply immutable.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED type",
+      "test_references": [
+        "test/architecture.jl:78",
+        "test/atomistic_core.jl:5",
+        "test/atomistic_core.jl:6",
+        "test/atomistic_core.jl:8",
+        "test/atomistic_core.jl:25",
+        "test/atomistic_core.jl:36",
+        "test/atomistic_core.jl:37",
+        "test/atomistic_core.jl:38",
+        "test/atomistic_core.jl:42",
+        "test/atomistic_core.jl:44",
+        "test/atomistic_core.jl:50",
+        "test/atomistic_core.jl:53",
+        "test/atomistic_distributions.jl:6",
+        "test/atomistic_distributions.jl:66",
+        "test/atomistic_distributions.jl:82",
+        "test/atomistic_modes.jl:5",
+        "test/atomistic_modes.jl:21",
+        "test/atomistic_modes.jl:22",
+        "test/atomistic_modes.jl:29",
+        "test/atomistic_visualization.jl:8",
+        "test/atomistic_visualization.jl:24",
+        "test/atomistic_visualization.jl:26",
+        "test/m10a_atomistic_statistics.jl:11",
+        "test/m10a_atomistic_statistics.jl:34",
+        "test/m10a_atomistic_statistics.jl:45",
+        "test/m10a_atomistic_statistics.jl:48",
+        "test/m10a_atomistic_statistics.jl:49",
+        "test/m10a_atomistic_statistics.jl:50",
+        "test/m10a_atomistic_statistics.jl:52",
+        "test/m10a_atomistic_statistics.jl:83",
+        "test/m10a_atomistic_statistics.jl:152",
+        "test/m10a_atomistic_statistics.jl:190",
+        "test/m10a_atomistic_statistics.jl:273",
+        "test/m10a_inference_operators.jl:135",
+        "test/m10b_atomistic.jl:6",
+        "test/m10b_atomistic.jl:16",
+        "test/m10b_atomistic.jl:25",
+        "test/m10b_atomistic.jl:37",
+        "test/m10b_atomistic.jl:38",
+        "test/m10b_atomistic.jl:51",
+        "test/m10b_atomistic.jl:58",
+        "test/m10b_atomistic.jl:61",
+        "test/m10b_atomistic.jl:67",
+        "test/m10b_atomistic.jl:71",
+        "test/m10b_atomistic.jl:73",
+        "test/m10b_atomistic.jl:77",
+        "test/m10b_atomistic.jl:88",
+        "test/m10b_atomistic.jl:99",
+        "test/m10b_statistics.jl:231",
+        "test/m10c_atomistic_scale.jl:4",
+        "test/m10c_atomistic_scale.jl:10",
+        "test/m10d_interoperability.jl:236",
+        "test/m10d_semantics.jl:153",
+        "test/stranger/atomistic.jl:5",
+        "test/stranger/atomistic.jl:10",
+        "test/stranger/atomistic.jl:12",
+        "test/stranger/atomistic.jl:14",
+        "test/stranger/atomistic.jl:15",
+        "test/stranger/atomistic.jl:16",
+        "test/stranger/atomistic.jl:17",
+        "test/trajectory_analyst.jl:24",
+        "test/trajectory_analyst.jl:41",
+        "test/trajectory_analyst.jl:57",
+        "test/trajectory_analyst.jl:82",
+        "test/trajectory_comparison_transport.jl:5",
+        "test/trajectory_inference.jl:9",
+        "test/trajectory_inference.jl:27",
+        "test/trajectory_inference.jl:31",
+        "test/trajectory_inference.jl:42",
+        "test/trajectory_inference.jl:44",
+        "test/trajectory_inference.jl:46",
+        "test/trajectory_transport.jl:6",
+        "test/trajectory_transport.jl:22",
+        "test/trajectory_transport.jl:28",
+        "test/trajectory_transport.jl:38",
+        "test/trajectory_transport.jl:42",
+        "test/trajectory_transport.jl:56",
+        "test/trajectory_transport.jl:59",
+        "test/trajectory_visualization.jl:13"
+      ],
+      "example_references": [
+        "examples/inference/lj_gate.jl:18",
+        "examples/integration/one_system_many_methods.jl:143",
+        "examples/scaling/large_atomistic_geometry.jl:9",
+        "examples/scaling/large_atomistic_geometry.jl:28",
+        "notebooks/molly_companion.jl:63"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F15.md",
+        "existing_sections": [
+          "docs/atomistic.md:100",
+          "docs/atomistic.md:167",
+          "docs/m10d_architecture_inventory.md:66",
+          "docs/m10d_architecture_inventory.md:127",
+          "docs/m10d_architecture_inventory.md:196",
+          "docs/m10d_flagship_results.md:100",
+          "docs/m10d_provenance.md:124",
+          "docs/m10d_semantics.md:140"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F15",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "AtomisticTrajectoryView",
+      "source_location": [
+        "src/atomistic/core.jl:41",
+        "src/atomistic/core.jl:47"
+      ],
+      "public_signature": [
+        "struct AtomisticTrajectoryView{F,T,P} <: AbstractAnalysis; raw generated field constructor: (frame_count::Int, getframe::F, times::T, provenance::P)",
+        "function AtomisticTrajectoryView(n::Integer,getframe;times=nothing,provenance=(source=:generic,))"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "n::Integer and getframe(i); times=nothing, provenance=(source=:generic,)",
+      "returns": "Lazy read-only indexed snapshot view",
+      "errors": [
+        "ArgumentError negative n; DimensionMismatch time length; BoundsError getindex out of range"
+      ],
+      "numerical_limitations": "No collected history; times missing not assumed uniform/physical. Native backing mutations remain visible.",
+      "units": "Supported Unitful arithmetic retained; unitless data are physically unknown unless caller declares provenance; labels never convert data.",
+      "ownership": "Borrows times/provenance/getframe closure; lazy snapshot conversion.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED type",
+      "test_references": [
+        "test/architecture.jl:78",
+        "test/atomistic_core.jl:13",
+        "test/atomistic_core.jl:20",
+        "test/atomistic_distributions.jl:30",
+        "test/atomistic_distributions.jl:49",
+        "test/atomistic_distributions.jl:55",
+        "test/atomistic_visualization.jl:19",
+        "test/m10a_atomistic_statistics.jl:154",
+        "test/m10a_atomistic_statistics.jl:155",
+        "test/m10a_atomistic_statistics.jl:156",
+        "test/m10a_atomistic_statistics.jl:199",
+        "test/m10a_atomistic_statistics.jl:273",
+        "test/m10a_inference_operators.jl:135",
+        "test/m10b_statistics.jl:232",
+        "test/m10d_interoperability.jl:54",
+        "test/m10d_interoperability.jl:238",
+        "test/stranger/atomistic.jl:18",
+        "test/stranger/atomistic.jl:19",
+        "test/trajectory_analyst.jl:24",
+        "test/trajectory_analyst.jl:39",
+        "test/trajectory_analyst.jl:57",
+        "test/trajectory_analyst.jl:82",
+        "test/trajectory_comparison_runs.jl:8",
+        "test/trajectory_comparison_transport.jl:5",
+        "test/trajectory_inference.jl:9",
+        "test/trajectory_inference.jl:27",
+        "test/trajectory_inference.jl:31",
+        "test/trajectory_inference.jl:42",
+        "test/trajectory_inference.jl:44",
+        "test/trajectory_inference.jl:46",
+        "test/trajectory_statistics.jl:29",
+        "test/trajectory_transport.jl:9",
+        "test/trajectory_transport.jl:22",
+        "test/trajectory_transport.jl:28",
+        "test/trajectory_transport.jl:38",
+        "test/trajectory_transport.jl:42",
+        "test/trajectory_transport.jl:46",
+        "test/trajectory_transport.jl:56",
+        "test/trajectory_transport.jl:59",
+        "test/trajectory_transport.jl:62",
+        "test/trajectory_transport.jl:64",
+        "test/trajectory_visualization.jl:13"
+      ],
+      "example_references": [
+        "examples/inference/lj_gate.jl:23",
+        "notebooks/trajectory_comparison.jl:14"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F15.md",
+        "existing_sections": [
+          "docs/atomistic.md:78",
+          "docs/m10d_architecture_inventory.md:66",
+          "docs/m10d_architecture_inventory.md:98",
+          "docs/m10d_architecture_inventory.md:122",
+          "docs/m10d_integration_matrix.md:27",
+          "docs/m10d_integration_matrix.md:29",
+          "docs/trajectory_inference.md:3"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F15",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "atomistic_snapshot",
+      "source_location": [
+        "src/atomistic/core.jl:32"
+      ],
+      "public_signature": [
+        "atomistic_snapshot(s::AtomisticSnapshot;kwargs...) = isempty(kwargs) ? s :"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Snapshot identity or backend adapter",
+      "returns": "AtomisticSnapshot",
+      "errors": [
+        "ArgumentError any kwargs on existing snapshot; missing backend dispatch error"
+      ],
+      "numerical_limitations": "No generic positions-only conversion function; use AtomisticSnapshot factory; backend requirements reviewed in separate Molly batch.",
+      "units": "Supported Unitful arithmetic retained; unitless data are physically unknown unless caller declares provenance; labels never convert data.",
+      "ownership": "Existing snapshot returned identically.",
+      "optional_dependencies": [],
+      "docstring_status": "NO independent generic docstring",
+      "test_references": [
+        "test/architecture.jl:78",
+        "test/atomistic_core.jl:11",
+        "test/m10d_extensions.jl:53",
+        "test/m10d_user_optional.jl:37",
+        "test/molly_integration.jl:24",
+        "test/molly_integration.jl:33",
+        "test/molly_integration.jl:38",
+        "test/molly_integration.jl:64",
+        "test/molly_integration.jl:73",
+        "test/molly_integration.jl:86",
+        "test/molly_integration.jl:87"
+      ],
+      "example_references": [
+        "notebooks/molly_companion.jl:36"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F15.md",
+        "existing_sections": [
+          "docs/atomistic.md:36",
+          "docs/atomistic.md:40",
+          "docs/m10d_architecture_inventory.md:66",
+          "docs/m10d_architecture_inventory.md:103",
+          "docs/m10d_architecture_inventory.md:139",
+          "docs/m10d_integration_matrix.md:28"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F15",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "atomistic_trajectory",
+      "source_location": [],
+      "public_signature": [],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Extension-specific backend arguments",
+      "returns": "AtomisticTrajectoryView",
+      "errors": [
+        "Absent dispatch if adapter unavailable"
+      ],
+      "numerical_limitations": "Empty core generic; no invented identity/general vector overload.",
+      "units": "Supported Unitful arithmetic retained; unitless data are physically unknown unless caller declares provenance; labels never convert data.",
+      "ownership": "Extension-specific lazy retention.",
+      "optional_dependencies": [],
+      "docstring_status": "ABSENT core",
+      "test_references": [
+        "test/architecture.jl:78",
+        "test/m10d_extensions.jl:54",
+        "test/m10d_flagship.jl:113",
+        "test/m10d_interoperability.jl:53",
+        "test/m10d_user_optional.jl:40",
+        "test/molly_integration.jl:42",
+        "test/molly_integration.jl:46",
+        "test/molly_integration.jl:53",
+        "test/molly_integration.jl:56",
+        "test/molly_integration.jl:57",
+        "test/molly_integration.jl:58",
+        "test/molly_integration.jl:61",
+        "test/molly_integration.jl:62",
+        "test/molly_integration.jl:70",
+        "test/molly_integration.jl:88",
+        "test/molly_integration.jl:89",
+        "test/molly_trajectory_statistics.jl:15"
+      ],
+      "example_references": [
+        "notebooks/molly_companion.jl:28",
+        "notebooks/molly_trajectory_analysis.jl:19",
+        "notebooks/molly_trajectory_analysis.jl:48"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F15.md",
+        "existing_sections": [
+          "docs/atomistic.md:41",
+          "docs/m10d_architecture_inventory.md:66",
+          "docs/m10d_architecture_inventory.md:139",
+          "docs/m10d_integration_matrix.md:28",
+          "docs/m10d_integration_matrix.md:122",
+          "docs/m10d_user_research_hardening.md:65"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F15",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "pair_distances",
+      "source_location": [
+        "src/atomistic/core.jl:102",
+        "src/atomistic/core.jl:125"
+      ],
+      "public_signature": [
+        "function pair_distances(s::AtomisticSnapshot;species=nothing,max_pairs=1_000_000,max_bytes=512*1024^2)",
+        "pair_distances(x;kwargs...)=pair_distances(atomistic_snapshot(x);kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Snapshot or backend via atomistic_snapshot; species pair, max_pairs=1_000_000, max_bytes=512*1024^2",
+      "returns": "Heuristic PropertyResult pair list/distances/min/max/species/boundary/unit descriptor or unknown",
+      "errors": [
+        "ArgumentError invalid species tuple and noninteger/nonnegative controls; unknown unsupported shape/boundary/species/distance or budget"
+      ],
+      "numerical_limitations": "BigInt pair count; estimated64*pairs+sizeof(Int)*(|A|+|B|) after selected-index allocation. Output gate not RSS, still quadratic work. Same pairs unordered, distinct species A→B.",
+      "units": "Supported Unitful arithmetic retained; unitless data are physically unknown unless caller declares provenance; labels never convert data.",
+      "ownership": "New pair/distance vectors; boundary retained.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:79",
+        "test/atomistic_core.jl:45",
+        "test/atomistic_core.jl:48",
+        "test/atomistic_core.jl:51",
+        "test/atomistic_core.jl:52",
+        "test/atomistic_core.jl:53",
+        "test/m10a_atomistic_statistics.jl:12",
+        "test/m10a_atomistic_statistics.jl:22",
+        "test/m10a_atomistic_statistics.jl:23",
+        "test/m10a_atomistic_statistics.jl:24",
+        "test/m10a_atomistic_statistics.jl:30",
+        "test/m10a_atomistic_statistics.jl:35",
+        "test/m10a_atomistic_statistics.jl:46",
+        "test/m10a_atomistic_statistics.jl:48",
+        "test/m10a_atomistic_statistics.jl:49",
+        "test/m10a_atomistic_statistics.jl:53",
+        "test/m10b_atomistic.jl:8",
+        "test/m10b_atomistic.jl:18",
+        "test/m10b_atomistic.jl:39",
+        "test/m10b_atomistic.jl:40",
+        "test/m10b_atomistic.jl:52",
+        "test/m10b_atomistic.jl:59",
+        "test/m10b_atomistic.jl:62",
+        "test/m10b_atomistic.jl:72",
+        "test/m10b_atomistic.jl:74",
+        "test/m10b_atomistic.jl:78",
+        "test/m10c_atomistic_scale.jl:11",
+        "test/m10c_atomistic_scale.jl:12",
+        "test/m10c_atomistic_scale.jl:13",
+        "test/m10c_atomistic_scale.jl:18",
+        "test/m10c_atomistic_scale.jl:20",
+        "test/m10c_atomistic_scale.jl:21",
+        "test/m10d_user_optional.jl:39",
+        "test/molly_integration.jl:32",
+        "test/molly_integration.jl:66",
+        "test/stranger/atomistic.jl:7",
+        "test/stranger/atomistic.jl:9",
+        "test/stranger/atomistic.jl:13",
+        "test/stranger/atomistic.jl:14",
+        "test/stranger/atomistic.jl:15",
+        "test/stranger/atomistic.jl:16",
+        "test/stranger/atomistic.jl:20"
+      ],
+      "example_references": [
+        "examples/integration/one_system_many_methods.jl:150",
+        "examples/scaling/large_atomistic_geometry.jl:11",
+        "examples/scaling/large_atomistic_geometry.jl:29"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F16.md",
+        "existing_sections": [
+          "docs/atomistic.md:39",
+          "docs/atomistic.md:124",
+          "docs/m10c_scaling_inventory.md:22",
+          "docs/m10d_architecture_inventory.md:67",
+          "docs/m10d_flagship_results.md:100"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F16",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "AtomisticSystemAnalysis",
+      "source_location": [
+        "src/atomistic/inspection.jl:2"
+      ],
+      "public_signature": [
+        "struct AtomisticSystemAnalysis{S,C,O} <: AbstractAnalysis; raw generated field constructor: (source::S, checks::C, observations::O, notes::Vector{String})"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Construct through mdcheck; raw source/checks/observations/notes",
+      "returns": "Snapshot observations, not simulation validity",
+      "errors": [],
+      "numerical_limitations": "Missing velocities/species check missing rather than false; timestep stability always unknown.",
+      "units": "Supported Unitful arithmetic retained; unitless data are physically unknown unless caller declares provenance; labels never convert data.",
+      "ownership": "Strong source retention and borrowed arrays.",
+      "optional_dependencies": [],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:79"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F16.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:67"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F16",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "mdcheck",
+      "source_location": [
+        "src/atomistic/inspection.jl:31",
+        "src/atomistic/inspection.jl:85"
+      ],
+      "public_signature": [
+        "function mdcheck(s::AtomisticSnapshot;close_distance=nothing,force_threshold=nothing,max_pairs=1_000_000)",
+        "mdcheck(x;kwargs...)=mdcheck(atomistic_snapshot(x);kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Snapshot or backend; optional close_distance, force_threshold; max_pairs=1_000_000",
+      "returns": "AtomisticSystemAnalysis checks and heuristic physical observations",
+      "errors": [
+        "ArgumentError nonpositive/nonfinite thresholds; supported incompatible arithmetic becomes unknown; unsupported errors propagate"
+      ],
+      "numerical_limitations": "No force engine; no max_bytes keyword; pair_distances default byte gate remains. Periodic center is supplied-image centroid not unwrapped center.",
+      "units": "Supported Unitful arithmetic retained; unitless data are physically unknown unless caller declares provenance; labels never convert data.",
+      "ownership": "Strong snapshot source retention.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:79",
+        "test/atomistic_core.jl:23",
+        "test/atomistic_core.jl:24",
+        "test/atomistic_core.jl:26",
+        "test/atomistic_core.jl:36",
+        "test/atomistic_core.jl:37",
+        "test/atomistic_core.jl:38",
+        "test/atomistic_visualization.jl:17",
+        "test/m10a_atomistic_statistics.jl:192",
+        "test/m10b_atomistic.jl:11",
+        "test/m10b_atomistic.jl:21",
+        "test/m10b_atomistic.jl:41",
+        "test/m10b_atomistic.jl:42",
+        "test/m10b_atomistic.jl:63",
+        "test/m10b_atomistic.jl:68",
+        "test/m10b_atomistic.jl:89",
+        "test/m10b_atomistic.jl:100",
+        "test/m10d_semantics.jl:158",
+        "test/molly_integration.jl:41",
+        "test/molly_integration.jl:67"
+      ],
+      "example_references": [
+        "notebooks/molly_companion.jl:36"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F16.md",
+        "existing_sections": [
+          "docs/atomistic.md:37",
+          "docs/m10b_numeric_inventory.md:25",
+          "docs/m10d_architecture_inventory.md:67",
+          "docs/m10d_architecture_inventory.md:103",
+          "docs/m10d_architecture_inventory.md:128",
+          "docs/m10d_issue_ledger.md:16"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F16",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "inspect_particle",
+      "source_location": [
+        "src/atomistic/inspection.jl:90",
+        "src/atomistic/inspection.jl:107"
+      ],
+      "public_signature": [
+        "function inspect_particle(s::AtomisticSnapshot,i::Integer;cutoff=nothing)",
+        "inspect_particle(x,i;kwargs...)=inspect_particle(atomistic_snapshot(x),i;kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Snapshot/backend, integer i, optional positive cutoff",
+      "returns": "NamedTuple borrowed particle fields plus local distance/speed/energy/neighbor evidence",
+      "errors": [
+        "BoundsError invalid index; ArgumentError invalid cutoff; distance callback errors can propagate"
+      ],
+      "numerical_limitations": "No bonding/radius inference; O(N) local distances are not governed by max_pairs/max_bytes.",
+      "units": "Supported Unitful arithmetic retained; unitless data are physically unknown unless caller declares provenance; labels never convert data.",
+      "ownership": "Borrowed position/velocity/provenance; new local list.",
+      "optional_dependencies": [],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:79",
+        "test/atomistic_core.jl:40",
+        "test/atomistic_core.jl:41",
+        "test/atomistic_core.jl:43",
+        "test/atomistic_core.jl:46",
+        "test/atomistic_core.jl:47",
+        "test/m10b_atomistic.jl:96"
+      ],
+      "example_references": [
+        "notebooks/molly_companion.jl:40"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F16.md",
+        "existing_sections": [
+          "docs/atomistic.md:38",
+          "docs/m10d_architecture_inventory.md:67"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F16",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "RadialDistributionAnalysis",
+      "source_location": [
+        "src/atomistic/distributions.jl:10"
+      ],
+      "public_signature": [
+        "struct RadialDistributionAnalysis <: AbstractAnalysis; raw generated field constructor: (rdf::PropertyResult, counts::Vector{Int}, edges, centers, expected_counts, frame_count::Int, particle_populations, pair_populations, species, units, boundary_assumptions, method::Symbol, notes::Vector{String})"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "radial_distribution or raw stored fields",
+      "returns": "Heuristic normalized rdf plus counts/expected/populations/assumptions",
+      "errors": [],
+      "numerical_limitations": "No equilibrium certification; partial arrays may survive unknown result.",
+      "units": "Supported Unitful arithmetic retained; unitless data are physically unknown unless caller declares provenance; labels never convert data.",
+      "ownership": "New count/edge/expected arrays and populations.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:81",
+        "test/atomistic_distributions.jl:85"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F18.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:69"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F18",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "radial_distribution",
+      "source_location": [
+        "src/atomistic/distributions.jl:55",
+        "src/atomistic/distributions.jl:59"
+      ],
+      "public_signature": [
+        "function radial_distribution(s::AtomisticSnapshot;edges,species=nothing,frames=1:1)",
+        "function radial_distribution(t::AtomisticTrajectoryView;edges,species=nothing,frames=1:length(t))"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Snapshot/view; required ordered edges; optional species and frames",
+      "returns": "RadialDistributionAnalysis",
+      "errors": [
+        "ArgumentError invalid edges/frame indices; unknown unsupported geometry/dimensions/range/species/pairs; incompatible units may propagate"
+      ],
+      "numerical_limitations": "Only orthorhombic periodic2D/3D; max radius half shortest box. Finite-N pair normalization summed per frame; changing populations supported; left-closed bins final edge inclusive. Float64 expected counts; quadratic traversal but bounded O(bins+frames+particles) output.",
+      "units": "Supported Unitful arithmetic retained; unitless data are physically unknown unless caller declares provenance; labels never convert data.",
+      "ownership": "Collects edges; streams snapshots; no full pair list.",
+      "optional_dependencies": [],
+      "docstring_status": "TYPE detailed; method reference incomplete",
+      "test_references": [
+        "test/architecture.jl:81",
+        "test/atomistic_distributions.jl:7",
+        "test/atomistic_distributions.jl:80",
+        "test/atomistic_distributions.jl:81",
+        "test/atomistic_distributions.jl:84",
+        "test/atomistic_visualization.jl:27",
+        "test/m10a_atomistic_statistics.jl:37",
+        "test/m10a_atomistic_statistics.jl:51"
+      ],
+      "example_references": [
+        "notebooks/molly_companion.jl:42"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F18.md",
+        "existing_sections": [
+          "docs/atomistic.md:102",
+          "docs/m10d_architecture_inventory.md:69"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F18",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "coordination",
+      "source_location": [
+        "src/atomistic/distributions.jl:32"
+      ],
+      "public_signature": [
+        "function coordination(s::AtomisticSnapshot;cutoff,species=nothing)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Snapshot; required cutoff>=0; species optional",
+      "returns": "Heuristic PropertyResult mean/counts/central indices",
+      "errors": [
+        "Unknown nonfinite/negative cutoff or missing positions/geometry/species/central selection; ArgumentError malformed species tuple"
+      ],
+      "numerical_limitations": "Inclusive cutoff and no self pairs; same pairs increment both central counts; cross only A; open geometry allowed. No homogeneous density normalization or work budget.",
+      "units": "Supported Unitful arithmetic retained; unitless data are physically unknown unless caller declares provenance; labels never convert data.",
+      "ownership": "New counts/index dictionary; boundary retained.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:81",
+        "test/atomistic_distributions.jl:28",
+        "test/atomistic_distributions.jl:63",
+        "test/atomistic_distributions.jl:64",
+        "test/atomistic_distributions.jl:65",
+        "test/atomistic_distributions.jl:68",
+        "test/atomistic_distributions.jl:72",
+        "test/atomistic_distributions.jl:73",
+        "test/atomistic_distributions.jl:74",
+        "test/atomistic_distributions.jl:75",
+        "test/m10a_atomistic_statistics.jl:28",
+        "test/m10a_atomistic_statistics.jl:29",
+        "test/m10a_atomistic_statistics.jl:47",
+        "test/m10b_atomistic.jl:75",
+        "test/m10b_atomistic.jl:81"
+      ],
+      "example_references": [
+        "examples/scaling/README.md:74",
+        "examples/scaling/README.md:82",
+        "examples/scaling/large_atomistic_geometry.jl:18",
+        "notebooks/molly_companion.jl:41",
+        "notebooks/molly_companion.jl:46"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F18.md",
+        "existing_sections": [
+          "docs/atomistic.md:89",
+          "docs/atomistic.md:103",
+          "docs/atomistic.md:193",
+          "docs/m10c_dod.md:35",
+          "docs/m10c_dod.md:36",
+          "docs/m10c_final_review.md:36",
+          "docs/m10c_scaling_inventory.md:23",
+          "docs/m10c_shared_evidence.md:62",
+          "docs/m10d_architecture_inventory.md:69"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F18",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    }
+  ],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

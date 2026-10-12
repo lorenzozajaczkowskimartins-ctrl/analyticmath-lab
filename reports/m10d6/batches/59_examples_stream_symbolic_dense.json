@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "59_examples_stream_symbolic_dense",
+  "files": [
+    {
+      "path": "examples/scaling/streaming_helpers.jl",
+      "sha256": "8f7fd55ce53cc526199618049a52a69b088c1c6e23606820c758022bfd22a3b0",
+      "bytes": 2679,
+      "lines": 63,
+      "read_ranges": [
+        [
+          1,
+          63
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Deadline iterator uses private existing _ts_moments kernel, consumed prefix not requested count and chunk deadline, no public stream_summary."
+      ]
+    },
+    {
+      "path": "examples/scaling/symbolic_mechanics_scaling.jl",
+      "sha256": "bf2025fdf07181ed2f53852f74e63005a96be480a73837de0bc913d1d684a044",
+      "bytes": 4231,
+      "lines": 63,
+      "read_ranges": [
+        [
+          1,
+          63
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Backend Symbolics/AD explicit Hessian and Jacobian phase ladder versus AML analyze <=20 with cap32, restricted polynomial workload estimate."
+      ]
+    },
+    {
+      "path": "examples/scaling/when_dense_dies.jl",
+      "sha256": "ed2b21d093f64c485f13d60a01f448a74b1a94d275229098ca4abb60df89641b",
+      "bytes": 2199,
+      "lines": 40,
+      "read_ranges": [
+        [
+          1,
+          40
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Safe dense full-mode breakpoints24payload, >=3000default refused without construction; structured input still dense solver."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

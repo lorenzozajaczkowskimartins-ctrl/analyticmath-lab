@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "43_tests_comparison_compatibility",
+  "files": [
+    {
+      "path": "test/trajectory_comparison.jl",
+      "sha256": "971826ed213e71ea5938714653016fa1c47f003c68a07f5e8aaa180ad9eccc0e",
+      "bytes": 4186,
+      "lines": 72,
+      "read_ranges": [
+        [
+          1,
+          72
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Difference b-a compatible units/name/context and grids, independent SE only explicit not self; bare results unknown."
+      ]
+    },
+    {
+      "path": "test/trajectory_comparison_edges.jl",
+      "sha256": "ace95a980cb0200cbc7adc617be955785d162c2e90618ae7e5774e73dd308c84",
+      "bytes": 4491,
+      "lines": 67,
+      "read_ranges": [
+        [
+          1,
+          67
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Fail closed unknown time/units/temperature conventions, contradictory metadata and malformed shapes; derived dimensionless quantities retain source identity checks."
+      ]
+    },
+    {
+      "path": "test/trajectory_comparison_runs.jl",
+      "sha256": "4986a0a9320a83c110d766a08fee6f5faac75df28a1bf8cba9dadf7a280efb44",
+      "bytes": 2085,
+      "lines": 36,
+      "read_ranges": [
+        [
+          1,
+          36
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Stored report composition does not fetch frames/activate backend; requested component absence remains unknown."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

@@ -1,0 +1,285 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "79_history_m9d",
+  "files": [
+    {
+      "path": "docs/m9d_verification.md",
+      "sha256": "d05e93ba13cce1bda61b79f346ea67c390b8aaa7c30a2e1447f4597db69ee591",
+      "bytes": 10741,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          33,
+          33
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          78,
+          78
+        ],
+        [
+          118,
+          118
+        ],
+        [
+          129,
+          129
+        ],
+        [
+          177,
+          177
+        ],
+        [
+          178,
+          178
+        ],
+        [
+          179,
+          179
+        ],
+        [
+          180,
+          180
+        ],
+        [
+          181,
+          181
+        ],
+        [
+          182,
+          182
+        ],
+        [
+          183,
+          183
+        ],
+        [
+          184,
+          184
+        ],
+        [
+          185,
+          185
+        ],
+        [
+          186,
+          186
+        ],
+        [
+          187,
+          187
+        ],
+        [
+          188,
+          188
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M9D verification ledger"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "## Recovered checkpoint"
+        },
+        {
+          "line": 4,
+          "text": ""
+        },
+        {
+          "line": 5,
+          "text": "Recovered from `037c3ba` plus tracked diff, untracked source/tests/examples,"
+        },
+        {
+          "line": 6,
+          "text": "scratch logs and actual process state. Nothing was reset, stashed or redesigned."
+        },
+        {
+          "line": 7,
+          "text": "No Julia process survived into this recovery session."
+        },
+        {
+          "line": 8,
+          "text": ""
+        },
+        {
+          "line": 9,
+          "text": "- `ScientificSample` / `ScientificDataset` existed, with explicit parameter or"
+        },
+        {
+          "line": 10,
+          "text": "  fixed-sensor function representations, coordinates, split roles, analytical or"
+        },
+        {
+          "line": 11,
+          "text": "  numerical reference provenance, units, grids and seeds."
+        },
+        {
+          "line": 12,
+          "text": "- Train, unseen interior interpolation, parameter extrapolation, amplitude shift,"
+        },
+        {
+          "line": 13,
+          "text": "  frequency shift and later-coordinate partitions already existed. Train-only"
+        },
+        {
+          "line": 14,
+          "text": "  affine scaling, exact duplicate protection and held-out objective exclusion"
+        },
+        {
+          "line": 15,
+          "text": "  were implemented and tested."
+        },
+        {
+          "line": 16,
+          "text": "- The Lux coordinate surrogate and public NeuralOperators DeepONet adapter were"
+        },
+        {
+          "line": 33,
+          "text": "## Existing evidence retained"
+        },
+        {
+          "line": 48,
+          "text": "## Executed gates"
+        },
+        {
+          "line": 78,
+          "text": "## Measured scientific results"
+        },
+        {
+          "line": 118,
+          "text": "## Final publication gates"
+        },
+        {
+          "line": 129,
+          "text": "### Final checkpoint recovery"
+        },
+        {
+          "line": 177,
+          "text": "color ranges, separate error colorbars, axes, readable caveats and unclipped"
+        },
+        {
+          "line": 178,
+          "text": "legends passed inspection. The large frequency-extrapolation failure remains"
+        },
+        {
+          "line": 179,
+          "text": "visible. These references are analytical Fourier solutions, not numerical"
+        },
+        {
+          "line": 180,
+          "text": "references mislabeled as exact. Generated artifacts remain ignored and local."
+        },
+        {
+          "line": 181,
+          "text": ""
+        },
+        {
+          "line": 182,
+          "text": "Candidate security/size scanning covered 26 files with no findings, and"
+        },
+        {
+          "line": 183,
+          "text": "`git diff --check` passed. Final staging checks compare candidate hashes against"
+        },
+        {
+          "line": 184,
+          "text": "the index; no generated artifacts or credentials belong to the commit."
+        },
+        {
+          "line": 185,
+          "text": ""
+        },
+        {
+          "line": 186,
+          "text": "M10 integration/hardening and M11 stochastic work remain outside M9D. No"
+        },
+        {
+          "line": 187,
+          "text": "uncertainty calibration, stochastic operator support, universal generalization,"
+        },
+        {
+          "line": 188,
+          "text": "long-term stability or discretization invariance is established here."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    }
+  ],
+  "apis": [],
+  "scope": "Documentation/environment/evidence inventory only; not full semantic review or fresh scientific execution."
+}

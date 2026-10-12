@@ -1,0 +1,16 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "recorded_files": 311,
+  "hash_mismatches": [],
+  "exports": 177,
+  "families": 36,
+  "surviving_initial_artifacts": [
+    "exports.json",
+    "repository_inventory.json",
+    "progress.json"
+  ],
+  "initial_passes_complete": false,
+  "source_or_test_changes": false,
+  "canonical_rerun": false,
+  "max_concurrent_subagents": 2
+}

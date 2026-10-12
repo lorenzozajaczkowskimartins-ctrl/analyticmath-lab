@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "36_tests_pinn_diagnostics",
+  "files": [
+    {
+      "path": "test/pinn_construction.jl",
+      "sha256": "408dcf68d6239edd866596c77030c76407a5a26a35408725fd3f5531ce92692e",
+      "bytes": 2864,
+      "lines": 49,
+      "read_ranges": [
+        [
+          1,
+          49
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Real NeuralPDE native object/mapping/stateless network setup, deterministic RNG initialization and incompatible shapes refuse."
+      ]
+    },
+    {
+      "path": "test/pinn_diagnostics.jl",
+      "sha256": "d98c0840975733d779fe5925a7cfdd3e817a6db4e3b8b4ebeed168f59b35cd03",
+      "bytes": 5565,
+      "lines": 95,
+      "read_ranges": [
+        [
+          1,
+          95
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Signed residuals user points no mutation, objective weights/snapshot overlap not full training independence; reference trust/outside counts and quadrature unweighted summaries."
+      ]
+    },
+    {
+      "path": "test/pinn_diagnostics_base.jl",
+      "sha256": "1daea907927daf2e8d82dd20bb0c8b3c53ed721b2024b71873db438c777ecac3",
+      "bytes": 976,
+      "lines": 25,
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Stable sampled metrics/nonfinite unavailable, explicit finite nonempty PINNPoints; no base activation."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

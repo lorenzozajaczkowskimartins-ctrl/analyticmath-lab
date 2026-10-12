@@ -1,0 +1,421 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "08_parameter_inference",
+  "files": [
+    {
+      "path": "src/scientific_ml/parameter_inference.jl",
+      "sha256": "992d16a7d1d804dfa6c1f17b4befefdd6d4162fb17490b69510767bf4dad8904",
+      "bytes": 10889,
+      "lines": 195,
+      "read_ranges": [
+        [
+          1,
+          195
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Full/inferred order explicit; factory layout/domain checked per RHS. Forward solves require successful exact observation grid; local ForwardDiff/SVD not global identifiability, diagnostic Inf/NaN meaningful."
+      ]
+    },
+    {
+      "path": "ext/AnalyticMathLabInferenceExt.jl",
+      "sha256": "88d0b47eebc5b74d94ff4f06a67405443d1e912977d761de43de205f2fff89e1",
+      "bytes": 3658,
+      "lines": 58,
+      "read_ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Optimization optional trigger only; bounded objective history distinct from problem/RSS; optimizer status independently recorded and physics remains unknown."
+      ]
+    }
+  ],
+  "apis": [
+    {
+      "symbol": "InferenceParameters",
+      "source_location": [
+        "src/scientific_ml/parameter_inference.jl:4",
+        "src/scientific_ml/parameter_inference.jl:12"
+      ],
+      "public_signature": [
+        "struct InferenceParameters",
+        "function InferenceParameters(names,initial;inferred,bounds=nothing,units=nothing,\nprovenance=NamedTuple())"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Full ordered names/initial; required inferred subset, bounds optional",
+      "returns": "Float64 full vector/inferred indices/bounds",
+      "errors": [
+        "ArgumentError duplicate/unknown inferred names, invalid/nonfinite initial/bounds; DimensionMismatch ordering lengths"
+      ],
+      "numerical_limitations": "Bounds inferred order can contain infinities, no transform/positivity invented.",
+      "units": "Caller-declared numeric coordinate/parameter scales; solver Float64, Dual(Float64) supported locally. No units conversion.",
+      "ownership": "Copies numeric values and bounds; units/provenance retained.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:93",
+        "test/inference_base.jl:25",
+        "test/inference_base.jl:37",
+        "test/inference_base.jl:48",
+        "test/inference_base.jl:49",
+        "test/inference_sensitivity.jl:7",
+        "test/m10a_inference_operators.jl:19",
+        "test/m10a_inference_operators.jl:61",
+        "test/m10a_inference_operators.jl:113",
+        "test/m10a_inference_operators.jl:124",
+        "test/m10b_diagnostics.jl:46",
+        "test/m10b_diagnostics.jl:55",
+        "test/m10b_diagnostics.jl:61",
+        "test/m10b_diagnostics.jl:62",
+        "test/m10b_inference_scaling.jl:8"
+      ],
+      "example_references": [
+        "examples/inference/deterministic_gate.jl:21",
+        "examples/inference/integration_gate.jl:28",
+        "examples/inference/lj_gate.jl:43",
+        "examples/inference/parameter_showcase.jl:10"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F28.md",
+        "existing_sections": [
+          "docs/m10b_numeric_inventory.md:34",
+          "docs/m10d_architecture_inventory.md:79",
+          "docs/parameter_inference.md:26"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "constructor_notes": [
+        "Inner constructor in src/scientific_ml/parameter_inference.jl; no raw generated constructor inferred"
+      ],
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "ParameterInferenceProblem",
+      "source_location": [
+        "src/scientific_ml/parameter_inference.jl:46",
+        "src/scientific_ml/parameter_inference.jl:59"
+      ],
+      "public_signature": [
+        "struct ParameterInferenceProblem <: AbstractAnalysis; raw generated field constructor: (factory, model::FirstOrderODE, native_problem, parameters::InferenceParameters, observations::ObservationSet, heldout, indices::Vector{Int}, solver, reference, provenance)",
+        "function ParameterInferenceProblem(factory,spec::InferenceParameters,obs::ObservationSet;\nu0,tspan,heldout=nothing,algorithm=OrdinaryDiffEqTsit5.Tsit5(),\nabstol=1e-10,reltol=1e-9,maxiters=100_000,reference=nothing,provenance=NamedTuple())"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "factory(full_parameters), spec, fit observations; required u0/tspan; optional heldout/algorithm/abstol/reltol/maxiters/reference/provenance",
+      "returns": "Initial FirstOrderODE and native ODEProblem plus explicit fit schema",
+      "errors": [
+        "ArgumentError factory/layout/unbound control/role/reference/heldout ordering/time overlap errors; DimensionMismatch state; DomainError domain/RHS"
+      ],
+      "numerical_limitations": "Factory called through RHS and must support ForwardDiff duals with same layout; Float64 native solve. Reference kind synthetic_truth only with synthetic observations. Heldout excluded from objective.",
+      "units": "Caller-declared numeric coordinate/parameter scales; solver Float64, Dual(Float64) supported locally. No units conversion.",
+      "ownership": "Strong factory/model/native/data/source retention.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED type",
+      "test_references": [
+        "test/architecture.jl:93",
+        "test/inference_base.jl:22",
+        "test/inference_base.jl:23",
+        "test/inference_base.jl:28",
+        "test/inference_base.jl:39",
+        "test/inference_base.jl:50",
+        "test/inference_sensitivity.jl:8",
+        "test/inference_sensitivity.jl:19",
+        "test/inference_sensitivity.jl:26",
+        "test/inference_sensitivity.jl:32",
+        "test/m10a_inference_operators.jl:20",
+        "test/m10a_inference_operators.jl:47",
+        "test/m10a_inference_operators.jl:51",
+        "test/m10a_inference_operators.jl:62",
+        "test/m10a_inference_operators.jl:85",
+        "test/m10a_inference_operators.jl:116",
+        "test/m10a_inference_operators.jl:138",
+        "test/m10b_inference_scaling.jl:9",
+        "test/m10b_inference_scaling.jl:27",
+        "test/m10b_inference_scaling.jl:28"
+      ],
+      "example_references": [
+        "examples/inference/deterministic_gate.jl:23",
+        "examples/inference/integration_gate.jl:29",
+        "examples/inference/lj_gate.jl:46",
+        "examples/inference/parameter_showcase.jl:12"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F28.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:79",
+          "docs/parameter_inference.md:32"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "inference_predict",
+      "source_location": [
+        "src/scientific_ml/parameter_inference.jl:128"
+      ],
+      "public_signature": [
+        "function inference_predict(p::ParameterInferenceProblem,theta,obs::ObservationSet=p.observations)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Problem, theta in inferred order, obs default fit set",
+      "returns": "Variables×requested-times matrix",
+      "errors": [
+        "ArgumentError variable/units/time span mismatch; ErrorException failed/incomplete native solve; domain errors propagate"
+      ],
+      "numerical_limitations": "Direct forward solve must produce exact requested saved time vector and successful retcode; no partial success.",
+      "units": "Caller-declared numeric coordinate/parameter scales; solver Float64, Dual(Float64) supported locally. No units conversion.",
+      "ownership": "New output from native solve; no hidden observations.",
+      "optional_dependencies": [],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:94",
+        "test/inference_base.jl:33",
+        "test/inference_base.jl:42",
+        "test/inference_sensitivity.jl:15",
+        "test/m10a_inference_operators.jl:22",
+        "test/m10a_inference_operators.jl:27",
+        "test/m10a_inference_operators.jl:45",
+        "test/m10a_inference_operators.jl:48",
+        "test/m10a_inference_operators.jl:49",
+        "test/m10a_inference_operators.jl:65",
+        "test/m10a_inference_operators.jl:66",
+        "test/m10a_inference_operators.jl:69",
+        "test/m10a_inference_operators.jl:80",
+        "test/m10a_inference_operators.jl:90",
+        "test/m10a_inference_operators.jl:120",
+        "test/m10a_inference_operators.jl:123",
+        "test/m10a_inference_operators.jl:139",
+        "test/m10b_inference_scaling.jl:24"
+      ],
+      "example_references": [
+        "examples/inference/lj_gate.jl:64"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F28.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:79",
+          "docs/parameter_inference.md:40"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "inference_objective",
+      "source_location": [
+        "src/scientific_ml/parameter_inference.jl:135"
+      ],
+      "public_signature": [
+        "function inference_objective(p::ParameterInferenceProblem,theta)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Problem, theta",
+      "returns": "Weighted/unweighted squared residual sum",
+      "errors": [
+        "Prediction errors propagate"
+      ],
+      "numerical_limitations": "Not likelihood/noise model; weights supplied multiplying squares.",
+      "units": "Caller-declared numeric coordinate/parameter scales; solver Float64, Dual(Float64) supported locally. No units conversion.",
+      "ownership": "Per-call solve output temporary.",
+      "optional_dependencies": [],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:94",
+        "test/inference_base.jl:34",
+        "test/m10a_inference_operators.jl:39",
+        "test/m10a_inference_operators.jl:40",
+        "test/m10a_inference_operators.jl:43",
+        "test/m10a_inference_operators.jl:44",
+        "test/m10a_inference_operators.jl:81",
+        "test/m10a_inference_operators.jl:82",
+        "test/m10a_inference_operators.jl:83"
+      ],
+      "example_references": [
+        "examples/inference/deterministic_gate.jl:32",
+        "examples/inference/deterministic_gate.jl:34",
+        "examples/inference/deterministic_gate.jl:46",
+        "examples/inference/deterministic_gate.jl:49"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F28.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:79",
+          "docs/parameter_inference.md:42"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "local_sensitivity",
+      "source_location": [
+        "src/scientific_ml/parameter_inference.jl:145"
+      ],
+      "public_signature": [
+        "function local_sensitivity(p::ParameterInferenceProblem,theta;rank_rtol=1e-8,rank_atol=0.)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Problem, theta; rank_rtol=1e-8,rank_atol=0.",
+      "returns": "Heuristic PropertyResult observation Jacobian, weighted SVD, rank/order/collinearity",
+      "errors": [
+        "ArgumentError invalid/nonfinite tolerances/parameter/conversion/J/threshold; solve errors propagate"
+      ],
+      "numerical_limitations": "Local scale/unit dependent, not global/structural identifiability or posterior correlation. rank deficient condition Inf; zero column cosines NaN deliberate diagnostic.",
+      "units": "Caller-declared numeric coordinate/parameter scales; solver Float64, Dual(Float64) supported locally. No units conversion.",
+      "ownership": "New Jacobian/SVD arrays no intermediate history stored.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:94",
+        "test/inference_base.jl:44",
+        "test/inference_sensitivity.jl:9",
+        "test/inference_sensitivity.jl:20",
+        "test/inference_sensitivity.jl:27",
+        "test/inference_sensitivity.jl:33",
+        "test/inference_sensitivity.jl:36",
+        "test/m10a_inference_operators.jl:25",
+        "test/m10a_inference_operators.jl:33",
+        "test/m10a_inference_operators.jl:36",
+        "test/m10a_inference_operators.jl:68",
+        "test/m10a_inference_operators.jl:86",
+        "test/m10a_inference_operators.jl:89",
+        "test/m10a_inference_operators.jl:121",
+        "test/m10b_inference_scaling.jl:12",
+        "test/m10b_inference_scaling.jl:18",
+        "test/m10b_inference_scaling.jl:22"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F28.md",
+        "existing_sections": [
+          "docs/m10b_numeric_inventory.md:35",
+          "docs/m10d_architecture_inventory.md:79",
+          "docs/parameter_inference.md:54"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "ParameterInferenceResult",
+      "source_location": [
+        "src/scientific_ml/parameter_inference.jl:169"
+      ],
+      "public_signature": [
+        "struct ParameterInferenceResult <: AbstractAnalysis; raw generated field constructor: (problem::ParameterInferenceProblem, optimization_problem, solution, parameters, full_parameters, trajectory, prediction, fit, heldout, sensitivity::PropertyResult, reference_comparison, history, termination, optimizer, objective, evidence::PropertyResult, provenance, limitations::Vector{String})"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "infer_parameters or raw fields",
+      "returns": "Native optimization/forward result plus fit/heldout/local sensitivity/reference/history/termination",
+      "errors": [],
+      "numerical_limitations": "Physics evidence independently unknown even backend_success; no posterior/interval.",
+      "units": "Caller-declared numeric coordinate/parameter scales; solver Float64, Dual(Float64) supported locally. No units conversion.",
+      "ownership": "Strong problem/native result/fitted trajectory retention; bounded scalar history.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:93"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F28.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:79",
+          "docs/parameter_inference.md:73"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "infer_parameters",
+      "source_location": [
+        "src/scientific_ml/parameter_inference.jl:191",
+        "ext/AnalyticMathLabInferenceExt.jl:6"
+      ],
+      "public_signature": [
+        "function infer_parameters(p::ParameterInferenceProblem,optimizer;kwargs...)",
+        "function infer_parameters(p::AML.ParameterInferenceProblem,optimizer;maxiters::Integer,\nhistory_stride::Integer=10,history_capacity::Integer=1000,rank_rtol=1e-8,rank_atol=0.,kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Problem, explicit Optimization-compatible optimizer; required maxiters, history_stride=10,history_capacity=1000,rank tolerances/kwargs",
+      "returns": "ParameterInferenceResult",
+      "errors": [
+        "ArgumentError missing Optimization or invalid positive history/iteration controls; native optimizer/forward failures propagate"
+      ],
+      "numerical_limitations": "Only backend-supported explicit bounds; no inferred positivity. history_capacity caps records only not native solver/model memory. Optimizer success not correct physics or global identifiability.",
+      "units": "Caller-declared numeric coordinate/parameter scales; solver Float64, Dual(Float64) supported locally. No units conversion.",
+      "ownership": "Fresh opt/result, strongly retained fitted native trajectory; no intermediate trajectories in history.",
+      "optional_dependencies": [
+        "Optimization"
+      ],
+      "docstring_status": "BRIEF core + extension literal signature",
+      "test_references": [
+        "test/architecture.jl:94",
+        "test/inference_base.jl:36",
+        "test/m10d_extensions.jl:63"
+      ],
+      "example_references": [
+        "examples/inference/deterministic_gate.jl:27",
+        "examples/inference/deterministic_gate.jl:28",
+        "examples/inference/deterministic_gate.jl:36",
+        "examples/inference/integration_gate.jl:30",
+        "examples/inference/lj_gate.jl:51",
+        "examples/inference/parameter_showcase.jl:14"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F28.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:79",
+          "docs/m10d_architecture_inventory.md:140",
+          "docs/parameter_inference.md:4",
+          "docs/parameter_inference.md:66"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    }
+  ],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

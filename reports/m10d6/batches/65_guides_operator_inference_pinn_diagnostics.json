@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "65_guides_operator_inference_pinn_diagnostics",
+  "files": [
+    {
+      "path": "docs/operator_backends.md",
+      "sha256": "68244febc1af96315f247e04bca495a49f654c2860d0e8e0c4b4a675cc5175d3",
+      "bytes": 2776,
+      "lines": 49,
+      "read_ranges": [
+        [
+          1,
+          49
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Historical installed backend decision two-network DeepONet precedence over stale tutorials, native FNO probe only no AML FNO."
+      ]
+    },
+    {
+      "path": "docs/parameter_inference.md",
+      "sha256": "3aef71994f1d7507a7872911d36d82b9fd684d5e05830e7ec610d719de2179d6",
+      "bytes": 6025,
+      "lines": 100,
+      "read_ranges": [
+        [
+          1,
+          100
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Explicit inference shape/splits/dual forward solve/local economical SVD/history and unknown global; robust coverage but no complete symbol reference."
+      ]
+    },
+    {
+      "path": "docs/pinn_diagnostics.md",
+      "sha256": "b2c1a2915793e0ead81cf4d7ef66ba721076a8588ba31ac3fbaa5d8e19c06189",
+      "bytes": 13711,
+      "lines": 229,
+      "read_ranges": [
+        [
+          1,
+          229
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Strong sample residual/error/snapshot distinction, original coordinate blocks/native lowerings; stale future M9C/D prose and no current batch/summary public/private map."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

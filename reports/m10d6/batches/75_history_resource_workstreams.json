@@ -1,0 +1,906 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "75_history_resource_workstreams",
+  "files": [
+    {
+      "path": "docs/m10c_mechanics_evidence.md",
+      "sha256": "6eb9fbedd4decf97a491998e1324465965694769e087a8b5eba3e36224593288",
+      "bytes": 12136,
+      "lines": 163,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          34,
+          34
+        ],
+        [
+          51,
+          51
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          104,
+          104
+        ],
+        [
+          151,
+          151
+        ],
+        [
+          152,
+          152
+        ],
+        [
+          153,
+          153
+        ],
+        [
+          154,
+          154
+        ],
+        [
+          155,
+          155
+        ],
+        [
+          156,
+          156
+        ],
+        [
+          157,
+          157
+        ],
+        [
+          158,
+          158
+        ],
+        [
+          159,
+          159
+        ],
+        [
+          160,
+          160
+        ],
+        [
+          161,
+          161
+        ],
+        [
+          162,
+          162
+        ],
+        [
+          163,
+          163
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10C A mechanics \u2014 durable workstream evidence"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "## Gate 1: baseline + red (completed)"
+        },
+        {
+          "line": 4,
+          "text": "Recovered inspection reused; first new execution was bounded full normal modes at"
+        },
+        {
+          "line": 5,
+          "text": "n=40,150,600. Julia 1.12.7, Julia/BLAS threads=1. Process exit 1 is the intended"
+        },
+        {
+          "line": 6,
+          "text": "red gate: both new memory-budget assertions failed (unsupported keyword)."
+        },
+        {
+          "line": 7,
+          "text": "Logs and structured source/environment hashes: `$TMPDIR/m10c-mechanics-baseline.log`"
+        },
+        {
+          "line": 8,
+          "text": "and `m10c-mechanics-baseline.toml`. Baseline n=600 warmed repeats 0.183295 / 0.236863 s,"
+        },
+        {
+          "line": 9,
+          "text": "112,999,160 allocated bytes each, result 17,310,815 bytes; single dense payload"
+        },
+        {
+          "line": 10,
+          "text": "2,880,000 bytes, conservative workspace estimate 69,120,000 bytes. Direct generalized"
+        },
+        {
+          "line": 11,
+          "text": "residual and analytic fixed-end chain eigenvalues passed; max eigenvalue error"
+        },
+        {
+          "line": 12,
+          "text": "1.33e-15. No n>600 dense execution yet; no peak RSS measurement."
+        },
+        {
+          "line": 13,
+          "text": ""
+        },
+        {
+          "line": 14,
+          "text": "Finding: full result stores all modes and multiple dense square matrices even for"
+        },
+        {
+          "line": 15,
+          "text": "structured input. This is expected full-output complexity (L), with missing early"
+        },
+        {
+          "line": 16,
+          "text": "resource refusal (I); selecting few modes needs a distinct controlled algorithm (D)."
+        },
+        {
+          "line": 18,
+          "text": "## Gate 2: dense green, optional partial red \u2192 green (completed)"
+        },
+        {
+          "line": 34,
+          "text": "## Gate 3: same-size and larger ladder (completed)"
+        },
+        {
+          "line": 51,
+          "text": "## Gate 4: bounded showcases and affected regressions (completed)"
+        },
+        {
+          "line": 69,
+          "text": "### Largest completed local workloads"
+        },
+        {
+          "line": 104,
+          "text": "### Commands, exits and provenance"
+        },
+        {
+          "line": 151,
+          "text": "### Remaining scope / exact handoff"
+        },
+        {
+          "line": 152,
+          "text": "- Parent must integrate root guard test in shared runner (4 tests); optional small"
+        },
+        {
+          "line": 153,
+          "text": "  partial comparison requires separate scaling environment and AML_PARTIAL_TEST=1."
+        },
+        {
+          "line": 154,
+          "text": "- No new source include/export is needed. Partial algorithm is an explicitly"
+        },
+        {
+          "line": 155,
+          "text": "  controlled example route, not a new public generic partial_modes API."
+        },
+        {
+          "line": 156,
+          "text": "- Full dense >1200 was refused, not executed. Symbolic 50/100 tiers and structured"
+        },
+        {
+          "line": 157,
+          "text": "  ODE 3000 tier are script-supported, unexecuted; no more ladders under containment."
+        },
+        {
+          "line": 158,
+          "text": "- No generic sparse SPD generalized eigenproblem, arbitrary HVP, degenerate partial"
+        },
+        {
+          "line": 159,
+          "text": "  eigenspace completeness, or hardware-independent performance claim is made."
+        },
+        {
+          "line": 160,
+          "text": "- General-purpose figure generation and consolidated inventory/ledger/results are"
+        },
+        {
+          "line": 161,
+          "text": "  parent-owned; this workstream produced structured tables, not rendered figures."
+        },
+        {
+          "line": 162,
+          "text": "- Canonical suite/final review/publication are parent-owned and intentionally not run."
+        },
+        {
+          "line": 163,
+          "text": "- Current A implementation and bounded verification complete; no pending Julia job."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    },
+    {
+      "path": "docs/m10c_ml_evidence.md",
+      "sha256": "25e19453ec1339f87932c142ae15ff14d46a657a45b9358c81486265c26d400f",
+      "bytes": 21282,
+      "lines": 188,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          26,
+          26
+        ],
+        [
+          36,
+          36
+        ],
+        [
+          44,
+          44
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          74,
+          74
+        ],
+        [
+          99,
+          99
+        ],
+        [
+          103,
+          103
+        ],
+        [
+          123,
+          123
+        ],
+        [
+          134,
+          134
+        ],
+        [
+          145,
+          145
+        ],
+        [
+          152,
+          152
+        ],
+        [
+          177,
+          177
+        ],
+        [
+          178,
+          178
+        ],
+        [
+          179,
+          179
+        ],
+        [
+          180,
+          180
+        ],
+        [
+          181,
+          181
+        ],
+        [
+          182,
+          182
+        ],
+        [
+          183,
+          183
+        ],
+        [
+          184,
+          184
+        ],
+        [
+          185,
+          185
+        ],
+        [
+          186,
+          186
+        ],
+        [
+          187,
+          187
+        ],
+        [
+          188,
+          188
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10C scientific-ML workstream evidence"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "Consolidation supplement (supersedes the relevant handoff gaps below): public"
+        },
+        {
+          "line": 4,
+          "text": "sized stateful generators were subsequently found to repeat side effects under"
+        },
+        {
+          "line": 5,
+          "text": "the length-trait optimization. Parent red log `m10c-consolidation-iterator-red.log`"
+        },
+        {
+          "line": 6,
+          "text": "records16 calls instead of4. Public non-array inputs now snapshot once; private"
+        },
+        {
+          "line": 7,
+          "text": "deterministic field/residual maps call `_sampled_summary_replayable` explicitly."
+        },
+        {
+          "line": 8,
+          "text": "`m10c-final-focused.log` passed326 checks, including added generator regression;"
+        },
+        {
+          "line": 9,
+          "text": "100k/1m allocation confirmation remains320 bytes summary /976 field-summary."
+        },
+        {
+          "line": 10,
+          "text": "Historical benchmark timings are retained, not presented as fresh measurements"
+        },
+        {
+          "line": 11,
+          "text": "of this mechanically equivalent array reduction after helper extraction."
+        },
+        {
+          "line": 12,
+          "text": "Generalization scaling is closed by the parent bounded `generalization_scale.jl`"
+        },
+        {
+          "line": 13,
+          "text": "gate; see consolidated results for its actual exit and rows. No public PINN result"
+        },
+        {
+          "line": 14,
+          "text": "redesign, million-neural prediction, or extreme training is implied."
+        },
+        {
+          "line": 15,
+          "text": ""
+        },
+        {
+          "line": 16,
+          "text": "Baseline: `091492e03dbf5fc1346c9ffa3dfbdfcd3f2bbe93`. This is a **partial workstream report**, not a milestone-complete claim. Stopped expansion on the user's credit-containment directive. No canonical suite, final review, commit, push, tag, GPU claim or M10D work performed here."
+        },
+        {
+          "line": 18,
+          "text": "## Implemented and verified"
+        },
+        {
+          "line": 26,
+          "text": "## Break \u2192 harden \u2192 same-size \u2192 larger"
+        },
+        {
+          "line": 36,
+          "text": "## Executed CPU training characterization"
+        },
+        {
+          "line": 44,
+          "text": "## Machine and safety"
+        },
+        {
+          "line": 48,
+          "text": "## Copy/materialization audit"
+        },
+        {
+          "line": 64,
+          "text": "## Exact remaining scope / acceptance gaps"
+        },
+        {
+          "line": 74,
+          "text": "## Reproduction and gate exits"
+        },
+        {
+          "line": 99,
+          "text": "## Durable structured measurements"
+        },
+        {
+          "line": 103,
+          "text": "### million_query_analysis.csv"
+        },
+        {
+          "line": 123,
+          "text": "### ml_training_stress_small.csv"
+        },
+        {
+          "line": 134,
+          "text": "### ml_training_stress_local.csv"
+        },
+        {
+          "line": 145,
+          "text": "### ml_training_stress.csv"
+        },
+        {
+          "line": 152,
+          "text": "## SHA256 provenance"
+        },
+        {
+          "line": 177,
+          "text": "5045478a947ef2004777f4a4fc1e962618c2f12190280d1bc6294f92d709d846  m10c-ml-chunk-green.log"
+        },
+        {
+          "line": 178,
+          "text": "2251bd187e525fad9b5bf18dd866291e72e87847690877a39d20d353dd65520a  m10c-ml-chunk-red.log"
+        },
+        {
+          "line": 179,
+          "text": "5099c8dc14989b1b618ab41c7a5831c9f68b538df11a6df47122e87c34897e5b  m10c-ml-green.log"
+        },
+        {
+          "line": 180,
+          "text": "6461dbd9dcb267ca1d826a7de450ea6f7e927cbaeeeee8b174b8ad6991717959  m10c-ml-iterator-red.log"
+        },
+        {
+          "line": 181,
+          "text": "c152725455e9612b111b6997e6f04c374740f591b491a363f2dd7245610745d4  m10c-ml-million.log"
+        },
+        {
+          "line": 182,
+          "text": "b01ac763fe5b34a1fb7336d67de55cc2852ffb9fdc72df8172121ad034a5a612  m10c-ml-pinn-green.log"
+        },
+        {
+          "line": 183,
+          "text": "f99231d11680ec3b2d74f4d9c68782e7ab78e16d7f0b9f80d87cb0add83caeca  m10c-ml-pinn-red.log"
+        },
+        {
+          "line": 184,
+          "text": "7e1194b7ab33b74c2d0f5013cb086964eb95bf445dee74c2f5e8a9bed8a3b468  m10c-ml-red.log"
+        },
+        {
+          "line": 185,
+          "text": "2872d38d41f0f07b42e5ddc3af7c4d4e31f8bf43381034059de91e4a4cf4a1f5  m10c-ml-training-local.log"
+        },
+        {
+          "line": 186,
+          "text": "ff7e0af0c23b5cbd98cc0bf111ec62da35f5fed0ae30377ac53f1290c7859d1d  m10c-ml-training-refusal.log"
+        },
+        {
+          "line": 187,
+          "text": "4cafc2bf11f7b8127673694a2a425c51f561be6be67febff26b41d40b550b047  m10c-ml-training-small.log"
+        },
+        {
+          "line": 188,
+          "text": "```"
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    },
+    {
+      "path": "docs/m10c_ode_evidence.md",
+      "sha256": "b4e9af8d4edf9fa2001057873d807d16a5c7c054b4c86c43b8cfde6bb6d536c6",
+      "bytes": 12996,
+      "lines": 138,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          46,
+          46
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          89,
+          89
+        ],
+        [
+          127,
+          127
+        ],
+        [
+          128,
+          128
+        ],
+        [
+          129,
+          129
+        ],
+        [
+          130,
+          130
+        ],
+        [
+          131,
+          131
+        ],
+        [
+          132,
+          132
+        ],
+        [
+          133,
+          133
+        ],
+        [
+          134,
+          134
+        ],
+        [
+          135,
+          135
+        ],
+        [
+          136,
+          136
+        ],
+        [
+          137,
+          137
+        ],
+        [
+          138,
+          138
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10C-B \u2014 executed native ODE scaling evidence"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "## Outcome and scope"
+        },
+        {
+          "line": 4,
+          "text": ""
+        },
+        {
+          "line": 5,
+          "text": "Implemented the internal native in-place adapter in `src/dynamical_systems/scaling.jl`, plus `examples/scaling/large_oscillator_ode.jl` and `examples/scaling/ode_ensemble.jl`. Preserved the recovered `test/m10c_ode_scale.jl` assertions and extended them. No solver rewrite, new dependency, public export, or change to the legacy 32-state `FirstOrderODE` / `trajectory` API."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "The adapter owns a Float64 initial-state copy; rejects nonreal/nonfinite/unrepresentable initial values; checks dimension, state, domain membership and complete finite derivatives at each RHS call. Filling `du` with NaN detects unwritten components without a derivative allocation. Caller-performed Float64 arithmetic can underflow before the boundary sees it; this adapter does not certify arithmetic or continuous domain membership between stages. Native SciML owns storage, stepping, solving and ensembles."
+        },
+        {
+          "line": 8,
+          "text": ""
+        },
+        {
+          "line": 9,
+          "text": "Completed: 100/1000/10000/100000 **states** (up to 50000 independent oscillators), native storage comparisons, reduced-observable oracle, and serial/two-thread ensembles at 100/1000 trajectories. At 100000 states the dense-history solve was **refused before allocation**, while sparse/endpoints/reduced solves completed. No intentional OOM, timeout, extreme run, stiff subsystem, canonical Pkg.test, review, commit, push, tag or M10D work was performed by this workstream."
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "## Configuration and measurement meanings"
+        },
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "- Julia 1.12.7; SciMLBase 3.54.0; OrdinaryDiffEqTsit5 2.1.4; Float64."
+        },
+        {
+          "line": 14,
+          "text": "- CPU: 13th Gen Intel(R) Core(TM) i7-1355U."
+        },
+        {
+          "line": 15,
+          "text": "- Oscillators: one Julia thread / one BLAS thread. Explicit ensemble comparison: two Julia threads / one BLAS thread; serial backend also measured in that process."
+        },
+        {
+          "line": 16,
+          "text": "- Estimated workload storage budget: 536870912 bytes (512 MiB). Cooperative per-measurement time ceiling: 120 seconds; external process timeout: 300 seconds. All Julia processes serialized with the shared flock."
+        },
+        {
+          "line": 21,
+          "text": "## TDD and legacy boundary audit"
+        },
+        {
+          "line": 46,
+          "text": "## Storage versus solve"
+        },
+        {
+          "line": 70,
+          "text": "## Native ensemble evidence"
+        },
+        {
+          "line": 89,
+          "text": "## Reproduction and preserved artifacts"
+        },
+        {
+          "line": 127,
+          "text": "842e3bad74653f72a83db524f8e5015fd94296f9fe6960a54698447124ec99fc  src/dynamical_systems/scaling.jl"
+        },
+        {
+          "line": 128,
+          "text": "440ac1dbfd9dc4551a9746b2e3616af55392cf7ee4419af3d7347e821e8f5917  test/m10c_ode_scale.jl"
+        },
+        {
+          "line": 129,
+          "text": "65edd97dc30c7a815514b15968e101a1a06502d258791e688e1bf477bd49c6ea  examples/scaling/large_oscillator_ode.jl"
+        },
+        {
+          "line": 130,
+          "text": "33853bd27ffc6f358c7a998054e33bcd6e4164e5f9e6d1103fe93e0b7bb6ffac  examples/scaling/ode_ensemble.jl"
+        },
+        {
+          "line": 131,
+          "text": "c24898550d5d97fc1c1c7c21f94cf2916213c11d18f99b403c9cc3e487b07b43  examples/scaling/harness.jl"
+        },
+        {
+          "line": 132,
+          "text": "```"
+        },
+        {
+          "line": 133,
+          "text": ""
+        },
+        {
+          "line": 134,
+          "text": "## Remaining integration / explicitly unexecuted requirements"
+        },
+        {
+          "line": 135,
+          "text": ""
+        },
+        {
+          "line": 136,
+          "text": "Parent owns the entry module, canonical test runner, architecture inventory and shared milestone reports. **Register `include(\"dynamical_systems/scaling.jl\")` after `integration.jl` and register `test/m10c_ode_scale.jl` in the safe test runner.** At handoff, tests/examples have a temporary conditional internal-source include so they were genuinely exercised before that parent-owned registration. Do not interpret this workstream's gate as final package integration or whole-M10C completion; parent must carry its results into shared inventory/ledger/results and perform the reserved finalization gates."
+        },
+        {
+          "line": 137,
+          "text": ""
+        },
+        {
+          "line": 138,
+          "text": "Original sections 21\u201325 and mandatory bounded work of section 27 have executed evidence above. Section 26's stiff-system experiment is optional and not attempted. The conceptual 100000-oscillator / 200000-state level-3 example is implemented but **not executed**; level 3 requires `AML_EXTREME=1`. Ensemble levels 2/3 (10000/100000 members) are **not executed**. No workload beyond the reported ladders is claimed completed. The 100000-state full-history configuration remains **guardrail-refused**, not solved. No additional optional experiment is needed for this bounded workstream; user credit containment stopped further ladders."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    }
+  ],
+  "apis": [],
+  "scope": "Documentation/environment/evidence inventory only; not full semantic review or fresh scientific execution."
+}

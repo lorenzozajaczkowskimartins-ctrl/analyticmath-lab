@@ -1,0 +1,842 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "76_history_scaling_final",
+  "files": [
+    {
+      "path": "docs/m10c_results.md",
+      "sha256": "652c65767fbdb62126570699f06f5ce4f7576a456b27df645e1a19bdfd166c17",
+      "bytes": 16184,
+      "lines": 222,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          41,
+          41
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          77,
+          77
+        ],
+        [
+          89,
+          89
+        ],
+        [
+          107,
+          107
+        ],
+        [
+          129,
+          129
+        ],
+        [
+          145,
+          145
+        ],
+        [
+          171,
+          171
+        ],
+        [
+          193,
+          193
+        ],
+        [
+          211,
+          211
+        ],
+        [
+          212,
+          212
+        ],
+        [
+          213,
+          213
+        ],
+        [
+          214,
+          214
+        ],
+        [
+          215,
+          215
+        ],
+        [
+          216,
+          216
+        ],
+        [
+          217,
+          217
+        ],
+        [
+          218,
+          218
+        ],
+        [
+          219,
+          219
+        ],
+        [
+          220,
+          220
+        ],
+        [
+          221,
+          221
+        ],
+        [
+          222,
+          222
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10C execution results and recovery checkpoint"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "The recovery sections below are historical. The consolidated result and final-gate"
+        },
+        {
+          "line": 4,
+          "text": "status at the end supersede their former next-step/pending entries."
+        },
+        {
+          "line": 5,
+          "text": ""
+        },
+        {
+          "line": 6,
+          "text": "Status: VERIFIED by the authorized replacement canonical and retained focused evidence."
+        },
+        {
+          "line": 7,
+          "text": "Historical recovery/blocker entries below are superseded by the final closure section."
+        },
+        {
+          "line": 8,
+          "text": "Baseline/current recovery HEAD: `091492e03dbf5fc1346c9ffa3dfbdfcd3f2bbe93`."
+        },
+        {
+          "line": 9,
+          "text": ""
+        },
+        {
+          "line": 10,
+          "text": "## Authoritative interruption recovery"
+        },
+        {
+          "line": 11,
+          "text": ""
+        },
+        {
+          "line": 12,
+          "text": "Tracked and staged diffs were empty. Exactly five untracked files survived:"
+        },
+        {
+          "line": 13,
+          "text": "`docs/m10c_scaling_inventory.md`, `docs/m10c_bug_ledger.md`,"
+        },
+        {
+          "line": 14,
+          "text": "`test/m10c_guardrails.jl`, `test/m10c_ode_scale.jl`, `test/m10c_chunking.jl`."
+        },
+        {
+          "line": 15,
+          "text": "No `examples/scaling/` directory or M10C production edits existed."
+        },
+        {
+          "line": 16,
+          "text": "No active Julia process or M10C measurement log was found in scratch."
+        },
+        {
+          "line": 41,
+          "text": "## Remaining work / exact continuation"
+        },
+        {
+          "line": 53,
+          "text": "## Continuation checkpoint: shared work completed"
+        },
+        {
+          "line": 77,
+          "text": "## Consolidated results"
+        },
+        {
+          "line": 89,
+          "text": "### Execution context and interpretation"
+        },
+        {
+          "line": 107,
+          "text": "### Largest demonstrated workloads"
+        },
+        {
+          "line": 129,
+          "text": "### Consolidation and mandatory-gap closure"
+        },
+        {
+          "line": 145,
+          "text": "### Final gate ledger"
+        },
+        {
+          "line": 171,
+          "text": "### Historical checkpoint: canonical blocker (resolved below)"
+        },
+        {
+          "line": 193,
+          "text": "### Final closure: authorized replacement canonical"
+        },
+        {
+          "line": 211,
+          "text": ""
+        },
+        {
+          "line": 212,
+          "text": "All mandatory scientific/functional verification is satisfied. The local commit"
+        },
+        {
+          "line": 213,
+          "text": "subject is `[verified] Complete M10C scale and large-object hardening`."
+        },
+        {
+          "line": 214,
+          "text": "No push, tag, optional extreme, redelegation or M10D work is authorized/performed."
+        },
+        {
+          "line": 215,
+          "text": ""
+        },
+        {
+          "line": 216,
+          "text": "Final index check disposition: the unchanged Matplotlib SVG contains trailing"
+        },
+        {
+          "line": 217,
+          "text": "spaces within generated path attributes. Raw staged diff checking reports these;"
+        },
+        {
+          "line": 218,
+          "text": "all findings are restricted to that generated SVG, and the remaining staged paths"
+        },
+        {
+          "line": 219,
+          "text": "pass. This formatting-only exception preserves the inspected artifact byte-for-byte"
+        },
+        {
+          "line": 220,
+          "text": "rather than regenerating or changing reviewed evidence. No conflict markers or"
+        },
+        {
+          "line": 221,
+          "text": "other whitespace findings were accepted. The exact staged candidate has70 files;"
+        },
+        {
+          "line": 222,
+          "text": "staged bytes match audited working files and all tested executable hashes."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    },
+    {
+      "path": "docs/m10c_scaling_inventory.md",
+      "sha256": "084fff896c55fcebd73bffaf813f001f0225c10f7614dc4448f1b51951ce014b",
+      "bytes": 11116,
+      "lines": 96,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          37,
+          37
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          85,
+          85
+        ],
+        [
+          86,
+          86
+        ],
+        [
+          87,
+          87
+        ],
+        [
+          88,
+          88
+        ],
+        [
+          89,
+          89
+        ],
+        [
+          90,
+          90
+        ],
+        [
+          91,
+          91
+        ],
+        [
+          92,
+          92
+        ],
+        [
+          93,
+          93
+        ],
+        [
+          94,
+          94
+        ],
+        [
+          95,
+          95
+        ],
+        [
+          96,
+          96
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10C scale-contract inventory"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "Recovery checkpoint: inspection inventory preserved unchanged; see"
+        },
+        {
+          "line": 4,
+          "text": "`m10c_results.md` for the recovered workstream table. At recovery all tracked"
+        },
+        {
+          "line": 5,
+          "text": "source/environment files still match baseline; no M10C timing had executed."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "Baseline: `091492e03dbf5fc1346c9ffa3dfbdfcd3f2bbe93` (clean)."
+        },
+        {
+          "line": 8,
+          "text": "This is an inspected implementation inventory, not a universal performance promise."
+        },
+        {
+          "line": 9,
+          "text": "Time/storage orders below describe the algorithm and output, not measured timings."
+        },
+        {
+          "line": 10,
+          "text": "M10A mathematics and M10B numerical boundaries remain binding. Public API unification"
+        },
+        {
+          "line": 11,
+          "text": "is deferred to M10D. Execution evidence will be linked from `m10c_results.md`."
+        },
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "| Subsystem / operation | Expected work | Representation / materialization | Output / likely memory | Backend | Risk / scalable route | Verification |"
+        },
+        {
+          "line": 14,
+          "text": "|---|---|---|---|---|---|---|"
+        },
+        {
+          "line": 15,
+          "text": "| M7 `normal_modes` | dense O(n\u00b3) | `_nm_numeric`, mass eigenvectors, square roots, weighted matrix, full eigenspectrum and reconstruction are dense | multiple O(n\u00b2) matrices, full n modes | LinearAlgebra/LAPACK Float64 | sparse input does not imply sparse solve; guard before conversion; optional partial structured route | `src/mechanics/normal_modes.jl`; M10A mechanics, M10B linear algebra |"
+        },
+        {
+          "line": 16,
+          "text": "| M7 Cartesian mass | O(nd) construction | dense diagonal construction currently needs inspection at large nd | O((nd)\u00b2) if explicit dense | LinearAlgebra | known diagonal structure should remain structured on explicit scalable route | `cartesian_mass_matrix`, atomistic mode bridge |"
+        },
+        {
+          "line": 37,
+          "text": "## Measurement and safety contract"
+        },
+        {
+          "line": 52,
+          "text": "## Recovered-development evidence (not final verification)"
+        },
+        {
+          "line": 64,
+          "text": "## Consolidated supported routes"
+        },
+        {
+          "line": 85,
+          "text": ""
+        },
+        {
+          "line": 86,
+          "text": "Final checkpoint: production consolidation and bounded review complete. Canonical"
+        },
+        {
+          "line": 87,
+          "text": "exit1 exposed missing test-target TOML; current SHA/TOML target declarations pass"
+        },
+        {
+          "line": 88,
+          "text": "the isolated guardrail gate21/21. No scientific kernel changed after source freeze."
+        },
+        {
+          "line": 89,
+          "text": "Canonical completeness remains blocked, not inferred from focused success. Exact"
+        },
+        {
+          "line": 90,
+          "text": "next action needs authorization for a replacement canonical invocation; do not"
+        },
+        {
+          "line": 91,
+          "text": "repeat valid stress evidence, optional extremes or completed workstreams."
+        },
+        {
+          "line": 92,
+          "text": ""
+        },
+        {
+          "line": 93,
+          "text": "Final closure: the explicitly authorized replacement canonical passed4789/4789"
+        },
+        {
+          "line": 94,
+          "text": "across167 reported testsets,exit0. All172 executable/environment snapshot hashes"
+        },
+        {
+          "line": 95,
+          "text": "match. Existing scale evidence and supported boundaries remain unchanged; no"
+        },
+        {
+          "line": 96,
+          "text": "benchmark, optional extreme or workstream was restarted."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    },
+    {
+      "path": "docs/m10c_shared_evidence.md",
+      "sha256": "4824c4dc1cbe5f229948dd90f003cca3b4c3776997e5872cd816cdaf353b2dd5",
+      "bytes": 5918,
+      "lines": 99,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          83,
+          83
+        ],
+        [
+          88,
+          88
+        ],
+        [
+          89,
+          89
+        ],
+        [
+          90,
+          90
+        ],
+        [
+          91,
+          91
+        ],
+        [
+          92,
+          92
+        ],
+        [
+          93,
+          93
+        ],
+        [
+          94,
+          94
+        ],
+        [
+          95,
+          95
+        ],
+        [
+          96,
+          96
+        ],
+        [
+          97,
+          97
+        ],
+        [
+          98,
+          98
+        ],
+        [
+          99,
+          99
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10C shared harness, statistics and atomistic evidence"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "These are local measurements, not general speed rankings. Julia 1.12.7;"
+        },
+        {
+          "line": 4,
+          "text": "Intel i7-1355U; 16,433,725,440 bytes RAM observed at recovery; Julia/BLAS threads 1;"
+        },
+        {
+          "line": 5,
+          "text": "default estimate budget 536,870,912 bytes, cooperative wall budget 120 seconds."
+        },
+        {
+          "line": 6,
+          "text": "All Julia jobs use the common scratch `m10c-julia.lock` and external timeout."
+        },
+        {
+          "line": 7,
+          "text": ""
+        },
+        {
+          "line": 8,
+          "text": "## Recovery and executed gates"
+        },
+        {
+          "line": 9,
+          "text": ""
+        },
+        {
+          "line": 10,
+          "text": "Existing harness test was reused unchanged: `m10c-harness-red.log` failed because"
+        },
+        {
+          "line": 11,
+          "text": "harness.jl was missing; after implementation `m10c-harness-green.log` passed 21."
+        },
+        {
+          "line": 12,
+          "text": "New `m10c-streaming-red.log` failed for missing helper; green passed 16."
+        },
+        {
+          "line": 13,
+          "text": "`m10c-atomistic-red.log` measured baseline and failed missing byte preflight;"
+        },
+        {
+          "line": 14,
+          "text": "`m10c-atomistic-allocation-red.log` measured 256 bytes for one warmed tuple distance"
+        },
+        {
+          "line": 15,
+          "text": "and failed the <128-byte regression. Logs are in `~/.hermes/cache/scratch/`."
+        },
+        {
+          "line": 16,
+          "text": ""
+        },
+        {
+          "line": 25,
+          "text": "## Statistics: inspected risk disproved, no production rewrite"
+        },
+        {
+          "line": 57,
+          "text": "## Atomistic: measured copies and explicit-output boundary"
+        },
+        {
+          "line": 83,
+          "text": "## Artifacts and remaining integration"
+        },
+        {
+          "line": 88,
+          "text": "Initial statistics script failed to parse its unparenthesized @__FILE__ main guard;"
+        },
+        {
+          "line": 89,
+          "text": "that script-only failure was fixed in all four sibling wrappers before any work"
+        },
+        {
+          "line": 90,
+          "text": "executed. Original failure log retained."
+        },
+        {
+          "line": 91,
+          "text": ""
+        },
+        {
+          "line": 92,
+          "text": "Shared harness deadline is cooperative between function calls. External timeout"
+        },
+        {
+          "line": 93,
+          "text": "is required to bound a noncooperative backend. Completed CSV/TOML checkpoints are"
+        },
+        {
+          "line": 94,
+          "text": "atomically replaced after each rung. Do not interpret compilation or lock waiting"
+        },
+        {
+          "line": 95,
+          "text": "as warmed kernel time."
+        },
+        {
+          "line": 96,
+          "text": ""
+        },
+        {
+          "line": 97,
+          "text": "Pending: integrate small tests in canonical runner, report/figure inspection,"
+        },
+        {
+          "line": 98,
+          "text": "final source-identity validation and final verification. Credit containment is"
+        },
+        {
+          "line": 99,
+          "text": "active: no optional extreme run, no giant training, no speculative extra ladder."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    }
+  ],
+  "apis": [],
+  "scope": "Documentation/environment/evidence inventory only; not full semantic review or fresh scientific execution."
+}

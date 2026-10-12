@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "30_tests_metadata_user_refusals",
+  "files": [
+    {
+      "path": "test/m10d_semantics_pinn.jl",
+      "sha256": "a1a4449718e136661f023942d8a4a99b7cccd77a06c97cd9b6ce236998db47bb",
+      "bytes": 2596,
+      "lines": 45,
+      "read_ranges": [
+        [
+          1,
+          45
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Optional PINN construction versus physical claims/reference trust/coordinate order and unavailable reference fixtures; bounded1step only."
+      ]
+    },
+    {
+      "path": "test/m10d_semantics_review.jl",
+      "sha256": "2caf20fd450dd16fc6497c98f8a80de34dc00e03906f40dbf70acec18e01c54c",
+      "bytes": 1876,
+      "lines": 42,
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Detached descriptor whitelist/serialize/bounded8levels; context-free leaf remains no approximation/tolerance ancestry; operation options not numerical tolerances."
+      ]
+    },
+    {
+      "path": "test/m10d_user_inputs.jl",
+      "sha256": "357fd0c9b3f9564e6fcfddd7940428842e642cced1cfe15e7ff1997cd9f4755a",
+      "bytes": 2660,
+      "lines": 50,
+      "read_ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Actionable schema/time/name/unit and missing optional messages checked via fragments; no invalid sample dropping."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

@@ -1,0 +1,1362 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "10_pinn_diagnostics_learned_dynamics",
+  "files": [
+    {
+      "path": "ext/pinn_diagnostics.jl",
+      "sha256": "f694337092ca50ef47bf6d958c62428becf476ea5e8f70830efe1acc999f02ad",
+      "bytes": 9569,
+      "lines": 159,
+      "read_ranges": [
+        [
+          1,
+          159
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Coordinate names checked per block/global ref. Public diagnostics full residual arrays and all collocation snapshots; private summary_only not public knob. Trust/reference and global evidence separated."
+      ]
+    },
+    {
+      "path": "src/scientific_ml/learned_dynamics.jl",
+      "sha256": "89ce9c47d9bb360e31774428aad6822d5aa3399a06e3f17a87c5dc406e23e6ff",
+      "bytes": 3511,
+      "lines": 69,
+      "read_ranges": [
+        [
+          1,
+          69
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Data matrices/times borrowed; explicit indices; typed fallback errors actionable when optional backend missing."
+      ]
+    },
+    {
+      "path": "ext/AnalyticMathLabDynamicsExt.jl",
+      "sha256": "20fc32f5cd21e860aa93ff108cc07a7f5f476fc7da0e3a031ca7b634a44a7659",
+      "bytes": 6228,
+      "lines": 91,
+      "read_ranges": [
+        [
+          1,
+          91
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "HNN derivative structure does not gate original mechanics domain; UDE domain checked. Stateful changes refused. Rolling bounded scalar history; provenance strongly retains data. Learned prediction public FirstOrderODE cap applies."
+      ]
+    }
+  ],
+  "apis": [
+    {
+      "symbol": "analyze",
+      "source_location": [
+        "src/scientific_ml/diagnostics.jl:66"
+      ],
+      "public_signature": [
+        "analyze(r::PINNTrainingResult;kwargs...)=_pinn_extension().analyze_pinn(r;kwargs...)",
+        "Backend controls: function analyze_pinn(r::AML.PINNTrainingResult;residual_points=Dict(),condition_roles=Dict(),\nreference=nothing,reference_points=nothing,\nreference_provenance=(kind=:user_supplied_unknown_trust,),relative_guard=1e-12,\nprovenance=NamedTuple())"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PINNTrainingResult; residual_points Dict block-index→PINNPoints, condition_roles, reference/reference_points/provenance,relative_guard=1e-12",
+      "returns": "PINNAnalysis",
+      "errors": [
+        "ArgumentError invalid block/BC role/integral block/coordinate names/nonfinite ref/guard; DimensionMismatch coords/residual/ref outputs"
+      ],
+      "numerical_limitations": "Public core wrapper delegates analyze_pinn. Signed backend sampled residual, fixed collocation batch padding, no continuum bound/training-set independence. BC vs IC requires caller role. Reference callable trust asserted; relative unavailable under guard; adaptive weight evolution unsupported.",
+      "units": "No implicit physical units conversion; PINN diagnostics Float64 samples; learned dynamics uses backend numeric AD, prediction public Float64.",
+      "ownership": "Retains training and points; new residual/collocation/reference arrays; public route stores full residual values, private summary_only is not public option.",
+      "optional_dependencies": [
+        "Lux",
+        "NeuralPDE",
+        "ModelingToolkit",
+        "Optimization",
+        "SymbolicIndexingInterface"
+      ],
+      "docstring_status": "Core forwarding only",
+      "test_references": [
+        "test/architecture.jl:65",
+        "test/architecture.jl:112",
+        "test/architecture.jl:113",
+        "test/architecture.jl:119",
+        "test/architecture.jl:121",
+        "test/architecture.jl:122",
+        "test/convergence.jl:9",
+        "test/convergence.jl:24",
+        "test/convergence.jl:32",
+        "test/convergence.jl:56",
+        "test/convergence.jl:57",
+        "test/convergence.jl:58",
+        "test/convergence.jl:59",
+        "test/convergence.jl:60",
+        "test/convergence.jl:69",
+        "test/convergence.jl:76",
+        "test/convergence.jl:82",
+        "test/convergence.jl:88",
+        "test/convergence.jl:98",
+        "test/convergence.jl:128",
+        "test/convergence.jl:164",
+        "test/convergence.jl:188",
+        "test/convergence.jl:189",
+        "test/convergence.jl:190",
+        "test/dynamical_regressions.jl:6",
+        "test/dynamical_regressions.jl:62",
+        "test/dynamical_systems.jl:9",
+        "test/dynamical_systems.jl:11",
+        "test/dynamical_systems.jl:17",
+        "test/dynamical_systems.jl:24",
+        "test/dynamical_systems.jl:29",
+        "test/dynamical_systems.jl:40",
+        "test/dynamical_systems.jl:44",
+        "test/dynamical_systems.jl:50",
+        "test/dynamical_systems.jl:57",
+        "test/dynamical_systems.jl:60",
+        "test/dynamical_systems.jl:67",
+        "test/dynamical_systems.jl:68",
+        "test/dynamical_systems.jl:73",
+        "test/dynamical_systems.jl:77",
+        "test/dynamical_systems.jl:89",
+        "test/dynamical_systems.jl:96",
+        "test/dynamical_systems.jl:100",
+        "test/dynamical_visualization.jl:9",
+        "test/dynamical_visualization.jl:18",
+        "test/dynamical_visualization.jl:28",
+        "test/m10a_atomistic_statistics.jl:186",
+        "test/m10a_calculus_dynamics.jl:28",
+        "test/m10a_calculus_dynamics.jl:45",
+        "test/m10a_calculus_dynamics.jl:68",
+        "test/m10a_calculus_dynamics.jl:69",
+        "test/m10a_calculus_dynamics.jl:72",
+        "test/m10a_calculus_dynamics.jl:100",
+        "test/m10a_calculus_dynamics.jl:104",
+        "test/m10a_calculus_dynamics.jl:105",
+        "test/m10a_calculus_dynamics.jl:114",
+        "test/m10a_calculus_dynamics.jl:118",
+        "test/m10a_calculus_dynamics.jl:136",
+        "test/m10a_calculus_dynamics.jl:137",
+        "test/m10a_mechanics.jl:13",
+        "test/m10a_mechanics.jl:21",
+        "test/m10a_mechanics.jl:36",
+        "test/m10a_mechanics.jl:45",
+        "test/m10b_nonfinite.jl:7",
+        "test/m10b_nonfinite.jl:8",
+        "test/m10b_nonfinite.jl:33",
+        "test/m10b_nonfinite.jl:34",
+        "test/m10b_nonfinite.jl:35",
+        "test/m10b_nonfinite.jl:36",
+        "test/m10b_nonfinite.jl:37",
+        "test/m10b_nonfinite.jl:38",
+        "test/m10b_nonfinite.jl:71",
+        "test/m10b_nonfinite.jl:72",
+        "test/m10b_nonfinite.jl:78",
+        "test/m10b_nonfinite.jl:94",
+        "test/m10b_showcases.jl:5",
+        "test/m10b_showcases.jl:22",
+        "test/m10b_types.jl:7",
+        "test/m10b_types.jl:15",
+        "test/m10b_types.jl:17",
+        "test/m10b_types.jl:37",
+        "test/m10b_types.jl:57",
+        "test/m10b_types.jl:87",
+        "test/m10b_types.jl:88",
+        "test/m10b_types.jl:118",
+        "test/m10d_architecture.jl:24",
+        "test/m10d_architecture.jl:25",
+        "test/m10d_extensions.jl:45",
+        "test/m10d_extensions.jl:46",
+        "test/m10d_interoperability.jl:174",
+        "test/m10d_interoperability.jl:195",
+        "test/m10d_interoperability.jl:210",
+        "test/m10d_interoperability.jl:217",
+        "test/m10d_interoperability.jl:222",
+        "test/m10d_interoperability_learning.jl:34",
+        "test/m10d_semantics.jl:57",
+        "test/m10d_semantics_learning.jl:17",
+        "test/m10d_semantics_pinn.jl:16",
+        "test/m10d_semantics_pinn.jl:39",
+        "test/m10d_semantics_pinn.jl:42",
+        "test/m10d_semantics_pinn.jl:43",
+        "test/mechanics.jl:8",
+        "test/mechanics.jl:18",
+        "test/mechanics.jl:24",
+        "test/mechanics.jl:31",
+        "test/mechanics.jl:36",
+        "test/mechanics.jl:38",
+        "test/mechanics.jl:43",
+        "test/mechanics.jl:46",
+        "test/mechanics.jl:49",
+        "test/mechanics.jl:52",
+        "test/mechanics.jl:65",
+        "test/mechanics.jl:102",
+        "test/mechanics.jl:112",
+        "test/mechanics.jl:115",
+        "test/mechanics_dynamics.jl:9",
+        "test/mechanics_dynamics.jl:29",
+        "test/mechanics_dynamics.jl:35",
+        "test/mechanics_dynamics.jl:41",
+        "test/mechanics_dynamics.jl:48",
+        "test/mechanics_dynamics.jl:60",
+        "test/mechanics_dynamics.jl:65",
+        "test/mechanics_dynamics.jl:72",
+        "test/mechanics_dynamics.jl:83",
+        "test/mechanics_readiness.jl:12",
+        "test/mechanics_readiness.jl:13",
+        "test/mechanics_readiness.jl:20",
+        "test/mechanics_readiness.jl:23",
+        "test/mechanics_readiness.jl:30",
+        "test/mechanics_readiness.jl:34",
+        "test/mechanics_readiness.jl:44",
+        "test/mechanics_readiness.jl:51",
+        "test/mechanics_readiness.jl:62",
+        "test/mechanics_visualization.jl:8",
+        "test/mechanics_visualization.jl:23",
+        "test/mode_contracts.jl:32",
+        "test/mode_contracts.jl:42",
+        "test/mode_contracts.jl:51",
+        "test/molly_trajectory_statistics.jl:39",
+        "test/multivariate_analysis.jl:6",
+        "test/multivariate_analysis.jl:17",
+        "test/multivariate_analysis.jl:18",
+        "test/multivariate_analysis.jl:19",
+        "test/multivariate_analysis.jl:27",
+        "test/multivariate_analysis.jl:34",
+        "test/multivariate_analysis.jl:36",
+        "test/multivariate_analysis.jl:38",
+        "test/multivariate_analysis.jl:39",
+        "test/multivariate_analysis.jl:54",
+        "test/multivariate_analysis.jl:60",
+        "test/multivariate_analysis.jl:63",
+        "test/multivariate_analysis.jl:66",
+        "test/multivariate_analysis.jl:69",
+        "test/multivariate_analysis.jl:71",
+        "test/multivariate_regressions.jl:5",
+        "test/multivariate_regressions.jl:7",
+        "test/multivariate_regressions.jl:11",
+        "test/multivariate_regressions.jl:13",
+        "test/multivariate_regressions.jl:18",
+        "test/multivariate_regressions.jl:20",
+        "test/multivariate_regressions.jl:26",
+        "test/multivariate_regressions.jl:30",
+        "test/multivariate_regressions.jl:32",
+        "test/multivariate_regressions.jl:36",
+        "test/multivariate_regressions.jl:37",
+        "test/multivariate_regressions.jl:46",
+        "test/multivariate_regressions.jl:47",
+        "test/multivariate_regressions.jl:48",
+        "test/multivariate_regressions.jl:53",
+        "test/multivariate_visualization.jl:7",
+        "test/multivariate_visualization.jl:19",
+        "test/multivariate_visualization.jl:31",
+        "test/multivariate_visualization.jl:33",
+        "test/normal_modes.jl:9",
+        "test/normal_modes.jl:58",
+        "test/normal_modes.jl:69",
+        "test/normal_modes.jl:78",
+        "test/pinn_diagnostics.jl:21",
+        "test/pinn_diagnostics.jl:39",
+        "test/pinn_diagnostics.jl:51",
+        "test/pinn_diagnostics.jl:55",
+        "test/pinn_diagnostics.jl:56",
+        "test/pinn_diagnostics.jl:57",
+        "test/pinn_diagnostics.jl:58",
+        "test/pinn_diagnostics.jl:61",
+        "test/pinn_diagnostics.jl:62",
+        "test/pinn_diagnostics.jl:63",
+        "test/pinn_diagnostics.jl:64",
+        "test/pinn_diagnostics.jl:67",
+        "test/pinn_diagnostics.jl:80",
+        "test/real_analysis_integration.jl:6",
+        "test/real_analysis_integration.jl:14",
+        "test/real_analysis_integration.jl:19",
+        "test/real_analysis_integration.jl:32",
+        "test/real_analysis_visualization.jl:5",
+        "test/real_analysis_visualization.jl:19",
+        "test/real_analysis_visualization.jl:25",
+        "test/real_analysis_visualization.jl:37",
+        "test/runtests.jl:10",
+        "test/runtests.jl:16",
+        "test/runtests.jl:17",
+        "test/runtests.jl:19",
+        "test/runtests.jl:29",
+        "test/runtests.jl:38",
+        "test/runtests.jl:39",
+        "test/runtests.jl:40",
+        "test/runtests.jl:41",
+        "test/runtests.jl:47",
+        "test/runtests.jl:48",
+        "test/runtests.jl:49",
+        "test/runtests.jl:53",
+        "test/runtests.jl:67",
+        "test/runtests.jl:68",
+        "test/runtests.jl:70",
+        "test/runtests.jl:75",
+        "test/runtests.jl:76",
+        "test/runtests.jl:77",
+        "test/runtests.jl:78",
+        "test/runtests.jl:87",
+        "test/runtests.jl:88",
+        "test/runtests.jl:89",
+        "test/runtests.jl:92",
+        "test/runtests.jl:97",
+        "test/runtests.jl:99",
+        "test/runtests.jl:100",
+        "test/runtests.jl:105",
+        "test/runtests.jl:112",
+        "test/runtests.jl:122",
+        "test/runtests.jl:126",
+        "test/runtests.jl:128",
+        "test/runtests.jl:132",
+        "test/runtests.jl:138",
+        "test/runtests.jl:147",
+        "test/runtests.jl:150",
+        "test/runtests.jl:152",
+        "test/runtests.jl:154",
+        "test/runtests.jl:160",
+        "test/runtests.jl:183",
+        "test/runtests.jl:194",
+        "test/runtests.jl:199",
+        "test/runtests.jl:204",
+        "test/runtests.jl:217",
+        "test/runtests.jl:327",
+        "test/runtests.jl:337",
+        "test/runtests.jl:338",
+        "test/stranger/physicist.jl:6",
+        "test/stranger/student.jl:6",
+        "test/stranger/student.jl:15",
+        "test/stranger/student.jl:19",
+        "test/trajectories.jl:31",
+        "test/trajectories.jl:38",
+        "test/trajectories.jl:42",
+        "test/trajectories.jl:45",
+        "test/trajectories.jl:48",
+        "test/trajectory_analyst.jl:27",
+        "test/trajectory_analyst.jl:32",
+        "test/trajectory_analyst.jl:43",
+        "test/trajectory_analyst.jl:72",
+        "test/trajectory_comparison_runs.jl:11",
+        "test/trajectory_comparison_runs.jl:12",
+        "test/trajectory_comparison_runs.jl:30",
+        "test/trajectory_visualization.jl:19",
+        "test/vector_calculus.jl:6",
+        "test/vector_calculus.jl:15",
+        "test/vector_calculus.jl:23",
+        "test/vector_calculus.jl:28",
+        "test/vector_calculus.jl:31",
+        "test/vector_calculus.jl:36",
+        "test/vector_calculus.jl:37",
+        "test/vector_fields.jl:6",
+        "test/vector_fields.jl:7",
+        "test/vector_fields.jl:8",
+        "test/vector_fields.jl:16",
+        "test/vector_fields.jl:20",
+        "test/vector_fields.jl:21",
+        "test/vector_fields.jl:26",
+        "test/vector_fields.jl:29",
+        "test/vector_fields.jl:33",
+        "test/vector_fields.jl:36",
+        "test/vector_regressions.jl:6",
+        "test/vector_regressions.jl:7",
+        "test/vector_regressions.jl:8",
+        "test/vector_regressions.jl:9",
+        "test/vector_regressions.jl:10",
+        "test/vector_regressions.jl:11",
+        "test/vector_regressions.jl:12",
+        "test/vector_regressions.jl:13",
+        "test/vector_regressions.jl:14",
+        "test/vector_regressions.jl:22",
+        "test/vector_regressions.jl:26",
+        "test/vector_regressions.jl:31",
+        "test/vector_regressions.jl:37",
+        "test/vector_regressions.jl:41",
+        "test/vector_regressions.jl:43",
+        "test/vector_regressions.jl:46",
+        "test/vector_regressions.jl:50",
+        "test/vector_regressions.jl:55",
+        "test/vector_visualization.jl:10",
+        "test/vector_visualization.jl:23",
+        "test/vector_visualization.jl:35",
+        "test/vector_zeros.jl:5",
+        "test/vector_zeros.jl:13",
+        "test/vector_zeros.jl:16",
+        "test/vector_zeros.jl:19",
+        "test/vector_zeros.jl:21",
+        "test/vector_zeros.jl:27",
+        "test/vector_zeros.jl:31",
+        "test/vector_zeros.jl:32",
+        "test/vector_zeros.jl:33",
+        "test/vector_zeros.jl:34",
+        "test/vector_zeros.jl:35"
+      ],
+      "example_references": [
+        "examples/inference/m10a_gate.jl:9",
+        "examples/inference/neural_gate.jl:6",
+        "examples/inference/neural_gate.jl:12",
+        "examples/inference/neural_showcase.jl:11",
+        "examples/integration/one_system_learning.jl:58",
+        "examples/integration/one_system_many_methods.jl:117",
+        "examples/integration/one_system_many_methods.jl:118",
+        "examples/operators/analysis_gate.jl:10",
+        "examples/operators/analysis_gate.jl:25",
+        "examples/operators/heat_showcase.jl:209",
+        "examples/operators/m10b_gate.jl:41",
+        "examples/pinn/benchmark_gate.jl:70",
+        "examples/pinn/benchmarks.jl:87",
+        "examples/pinn/inverse_heat_gate.jl:72",
+        "examples/scaling/generalization_scale.jl:32",
+        "examples/scaling/mass_spring_mechanics.jl:26",
+        "examples/scaling/symbolic_mechanics_scaling.jl:55",
+        "notebooks/derivative_convergence.jl:8",
+        "notebooks/dynamical_systems.jl:6",
+        "notebooks/dynamical_systems.jl:7",
+        "notebooks/dynamical_systems.jl:8",
+        "notebooks/dynamical_systems.jl:9",
+        "notebooks/dynamical_systems.jl:10",
+        "notebooks/dynamical_systems.jl:11",
+        "notebooks/dynamical_systems.jl:12",
+        "notebooks/function_analysis.jl:9",
+        "notebooks/mechanics.jl:7",
+        "notebooks/mechanics.jl:8",
+        "notebooks/mechanics.jl:9",
+        "notebooks/mechanics.jl:10",
+        "notebooks/mechanics.jl:11",
+        "notebooks/mechanics.jl:12",
+        "notebooks/mechanics.jl:13",
+        "notebooks/mechanics.jl:14",
+        "notebooks/mechanics_addendum.jl:9",
+        "notebooks/mechanics_addendum.jl:10",
+        "notebooks/mechanics_addendum.jl:11",
+        "notebooks/mechanics_addendum.jl:17",
+        "notebooks/mechanics_addendum.jl:28",
+        "notebooks/mechanics_addendum.jl:33",
+        "notebooks/mechanics_addendum.jl:41",
+        "notebooks/molly_trajectory_analysis.jl:34",
+        "notebooks/multivariable_analysis.jl:9",
+        "notebooks/multivariable_analysis.jl:10",
+        "notebooks/multivariable_analysis.jl:11",
+        "notebooks/multivariable_analysis.jl:12",
+        "notebooks/real_function_analysis.jl:14",
+        "notebooks/trajectory_comparison.jl:15",
+        "notebooks/trajectory_comparison.jl:16",
+        "notebooks/vector_field_analysis.jl:6",
+        "notebooks/vector_field_analysis.jl:7",
+        "notebooks/vector_field_analysis.jl:8",
+        "notebooks/vector_field_analysis.jl:9"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F03.md",
+        "existing_sections": [
+          "README.md:60",
+          "README.md:85",
+          "README.md:104",
+          "README.md:117",
+          "README.md:128",
+          "README.md:150",
+          "README.md:179",
+          "README.md:218",
+          "README.md:302",
+          "README.md:334",
+          "README.md:414",
+          "README.md:456",
+          "README.md:498",
+          "README.md:530",
+          "README.md:537",
+          "README.md:541",
+          "README.md:581",
+          "README.md:583",
+          "README.md:599",
+          "docs/architecture.md:133",
+          "docs/architecture.md:136",
+          "docs/dynamical_systems.md:8",
+          "docs/dynamical_systems.md:9",
+          "docs/dynamical_systems.md:20",
+          "docs/inverse_heat.md:57",
+          "docs/m10d_architecture_inventory.md:30",
+          "docs/m10d_architecture_inventory.md:54",
+          "docs/m10d_architecture_inventory.md:67",
+          "docs/m10d_architecture_inventory.md:92",
+          "docs/m10d_architecture_inventory.md:102",
+          "docs/m10d_architecture_inventory.md:126",
+          "docs/m10d_architecture_inventory.md:127",
+          "docs/m10d_architecture_inventory.md:142",
+          "docs/m10d_architecture_inventory.md:157",
+          "docs/m10d_flagship_results.md:61",
+          "docs/m10d_flagship_results.md:91",
+          "docs/m10d_flagship_results.md:92",
+          "docs/m10d_flagship_results.md:103",
+          "docs/m10d_integration_matrix.md:17",
+          "docs/m10d_integration_matrix.md:18",
+          "docs/m10d_integration_matrix.md:29",
+          "docs/m10d_integration_matrix.md:35",
+          "docs/m10d_integration_matrix.md:36",
+          "docs/m10d_integration_matrix.md:128",
+          "docs/m10d_issue_ledger.md:16",
+          "docs/m10d_plan.md:60",
+          "docs/m10d_plan.md:110",
+          "docs/m10d_plan.md:141",
+          "docs/md-readiness.md:29",
+          "docs/mechanics.md:13",
+          "docs/operator_backends.md:48",
+          "docs/pinn_diagnostics.md:8",
+          "docs/pinn_diagnostics.md:18",
+          "docs/surrogates.md:34",
+          "docs/trajectory_statistics.md:45",
+          "docs/trajectory_statistics.md:169",
+          "docs/vector_fields.md:9",
+          "docs/vector_fields.md:21",
+          "docs/vector_fields.md:62",
+          "docs/vector_fields.md:70",
+          "docs/vector_fields.md:158",
+          "docs/vector_fields.md:170"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F03",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "loss_breakdown",
+      "source_location": [
+        "ext/pinn_diagnostics.jl:74",
+        "src/scientific_ml/diagnostics.jl:71",
+        "src/scientific_ml/diagnostics.jl:72"
+      ],
+      "public_signature": [
+        "function loss_breakdown(r::AML.PINNTrainingResult)",
+        "loss_breakdown(a::PINNAnalysis)=a.loss_diagnostics",
+        "loss_breakdown(r::PINNTrainingResult)=_pinn_extension().loss_breakdown(r)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PINNAnalysis or PINNTrainingResult",
+      "returns": "Stored loss diagnostic NamedTuple",
+      "errors": [],
+      "numerical_limitations": "Unweighted costs and configured fixed weights, no inferred weight evolution or physical error.",
+      "units": "No implicit physical units conversion; PINN diagnostics Float64 samples; learned dynamics uses backend numeric AD, prediction public Float64.",
+      "ownership": "Borrows history/termination/defs/components; configured weights deepcopied.",
+      "optional_dependencies": [
+        "Lux",
+        "NeuralPDE",
+        "ModelingToolkit",
+        "Optimization",
+        "SymbolicIndexingInterface"
+      ],
+      "docstring_status": "ABSENT independent public doc",
+      "test_references": [
+        "test/architecture.jl:91",
+        "test/pinn_diagnostics.jl:43"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F27.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:78",
+          "docs/m10d_architecture_inventory.md:142",
+          "docs/m10d_integration_matrix.md:36",
+          "docs/pinn_diagnostics.md:8",
+          "docs/pinn_diagnostics.md:26",
+          "docs/pinn_diagnostics.md:101"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F27",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "DerivativeData",
+      "source_location": [
+        "src/scientific_ml/learned_dynamics.jl:2",
+        "src/scientific_ml/learned_dynamics.jl:5"
+      ],
+      "public_signature": [
+        "struct DerivativeData{X,Y}",
+        "function DerivativeData(x::AbstractMatrix,y::AbstractMatrix)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "State/derivative matrices equal nonempty finite sizes",
+      "returns": "Borrowed derivative data",
+      "errors": [
+        "DimensionMismatch shapes; ArgumentError nonfinite/empty"
+      ],
+      "numerical_limitations": "Columns states canonical q...,p... convention but not independently symbol-validated; no Float64 normalization here.",
+      "units": "No implicit physical units conversion; PINN diagnostics Float64 samples; learned dynamics uses backend numeric AD, prediction public Float64.",
+      "ownership": "Borrows both matrices.",
+      "optional_dependencies": [],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:95",
+        "test/learned_dynamics_base.jl:7",
+        "test/learned_dynamics_base.jl:8",
+        "test/learned_dynamics_base.jl:11"
+      ],
+      "example_references": [
+        "examples/inference/m10a_gate.jl:30",
+        "examples/inference/neural_gate.jl:28",
+        "examples/inference/neural_gate.jl:47",
+        "examples/inference/neural_showcase.jl:23",
+        "examples/inference/neural_showcase.jl:58",
+        "examples/inference/neural_showcase.jl:59"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F30.md",
+        "existing_sections": [
+          "docs/learned_dynamics.md:17",
+          "docs/m10d_architecture_inventory.md:81",
+          "docs/m10d_issue_ledger.md:22"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "constructor_notes": [
+        "Inner constructor in src/scientific_ml/learned_dynamics.jl; no raw generated constructor inferred"
+      ],
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "TrajectoryData",
+      "source_location": [
+        "src/scientific_ml/learned_dynamics.jl:12",
+        "src/scientific_ml/learned_dynamics.jl:15"
+      ],
+      "public_signature": [
+        "struct TrajectoryData{T,Y}",
+        "function TrajectoryData(t::AbstractVector,y::AbstractMatrix)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Strict increasing finite t AbstractVector, y states×times",
+      "returns": "Borrowed trajectory training data",
+      "errors": [
+        "DimensionMismatch time columns; ArgumentError invalid states/time"
+      ],
+      "numerical_limitations": "At least2 times; generic finite data not automatic physical units/reference.",
+      "units": "No implicit physical units conversion; PINN diagnostics Float64 samples; learned dynamics uses backend numeric AD, prediction public Float64.",
+      "ownership": "Borrows t/y.",
+      "optional_dependencies": [],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:95",
+        "test/learned_dynamics_base.jl:9",
+        "test/learned_dynamics_base.jl:10"
+      ],
+      "example_references": [
+        "examples/inference/m10a_gate.jl:57",
+        "examples/inference/m10a_gate.jl:68",
+        "examples/inference/neural_gate.jl:62",
+        "examples/inference/neural_showcase.jl:43"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F30.md",
+        "existing_sections": [
+          "docs/learned_dynamics.md:29",
+          "docs/m10d_architecture_inventory.md:81"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "constructor_notes": [
+        "Inner constructor in src/scientific_ml/learned_dynamics.jl; no raw generated constructor inferred"
+      ],
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "HamiltonianNN",
+      "source_location": [
+        "src/scientific_ml/learned_dynamics.jl:23"
+      ],
+      "public_signature": [
+        "struct HamiltonianNN{A,N,P,S}; raw generated field constructor: (mechanics::A, network::N, parameters::P, state::S)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Mechanics canonical report/network/parameters/state raw constructor",
+      "returns": "Lux scalar Hamiltonian model",
+      "errors": [],
+      "numerical_limitations": "Not trained on analytic reference energy; H+C generates same dynamics. Raw fields permissive; genuine output/state checked on use.",
+      "units": "No implicit physical units conversion; PINN diagnostics Float64 samples; learned dynamics uses backend numeric AD, prediction public Float64.",
+      "ownership": "Retains network/source/parameters/state.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization"
+      ],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:95",
+        "test/learned_dynamics_base.jl:4",
+        "test/learned_dynamics_base.jl:5",
+        "test/m10d_extensions.jl:62",
+        "test/m10d_user_inputs.jl:46"
+      ],
+      "example_references": [
+        "examples/inference/m10a_gate.jl:15",
+        "examples/inference/m10a_gate.jl:16",
+        "examples/inference/m10a_gate.jl:35",
+        "examples/inference/neural_gate.jl:10",
+        "examples/inference/neural_gate.jl:17",
+        "examples/inference/neural_gate.jl:22",
+        "examples/inference/neural_gate.jl:25",
+        "examples/inference/neural_gate.jl:30",
+        "examples/inference/neural_showcase.jl:18",
+        "examples/operators/m10b_gate.jl:43"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F30.md",
+        "existing_sections": [
+          "docs/learned_dynamics.md:10",
+          "docs/m10d_architecture_inventory.md:81"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "UDEProblem",
+      "source_location": [
+        "src/scientific_ml/learned_dynamics.jl:30",
+        "src/scientific_ml/learned_dynamics.jl:36"
+      ],
+      "public_signature": [
+        "struct UDEProblem{O,N,P,S,I}",
+        "function UDEProblem(known::FirstOrderODE,network,parameters,state; correction_indices=Tuple(1:known.dimension))"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Known FirstOrderODE,network/parameters/state; correction_indices default all",
+      "returns": "Known ODE plus inspectable correction",
+      "errors": [
+        "ArgumentError empty/duplicate/out-ofrange indices"
+      ],
+      "numerical_limitations": "Correction selection explicit; no equation discovery.",
+      "units": "No implicit physical units conversion; PINN diagnostics Float64 samples; learned dynamics uses backend numeric AD, prediction public Float64.",
+      "ownership": "Borrows known/network/parameters/state; indices tuple.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization"
+      ],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:95",
+        "test/learned_dynamics_base.jl:6",
+        "test/m10d_user_optional.jl:43"
+      ],
+      "example_references": [
+        "examples/inference/m10a_gate.jl:44",
+        "examples/inference/m10a_gate.jl:71",
+        "examples/inference/m10a_gate.jl:72",
+        "examples/inference/m10a_gate.jl:74",
+        "examples/inference/neural_gate.jl:37",
+        "examples/inference/neural_gate.jl:44",
+        "examples/inference/neural_gate.jl:64",
+        "examples/inference/neural_showcase.jl:40",
+        "examples/operators/m10b_gate.jl:33"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F30.md",
+        "existing_sections": [
+          "docs/learned_dynamics.md:23",
+          "docs/m10d_architecture_inventory.md:81"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "constructor_notes": [
+        "Inner constructor in src/scientific_ml/learned_dynamics.jl; no raw generated constructor inferred"
+      ],
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "DynamicsTrainingResult",
+      "source_location": [
+        "src/scientific_ml/learned_dynamics.jl:44"
+      ],
+      "public_signature": [
+        "struct DynamicsTrainingResult{M,S,H,P}; raw generated field constructor: (model::M, solution::S, history::H, provenance::P)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "train or raw fields",
+      "returns": "Fitted model/native optimizer result/bounded history/provenance",
+      "errors": [],
+      "numerical_limitations": "Local fit not global physics; native success not correctness.",
+      "units": "No implicit physical units conversion; PINN diagnostics Float64 samples; learned dynamics uses backend numeric AD, prediction public Float64.",
+      "ownership": "Retains model/solution/training data in provenance.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization"
+      ],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:96"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F30.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:32",
+          "docs/m10d_architecture_inventory.md:81",
+          "docs/m10d_architecture_inventory.md:186"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "learned_energy",
+      "source_location": [
+        "src/scientific_ml/learned_dynamics.jl:63",
+        "ext/AnalyticMathLabDynamicsExt.jl:13"
+      ],
+      "public_signature": [
+        "learned_energy(m::HamiltonianNN,args...;kwargs...)=_dynamics_unavailable(learned_energy,m,args...)",
+        "function AML.learned_energy(m::AML.HamiltonianNN,u)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "HamiltonianNN,u",
+      "returns": "Scalar learned energy",
+      "errors": [
+        "DimensionMismatch canonical length or scalar output; DomainError nonfinite; ArgumentError changing state/missing backend"
+      ],
+      "numerical_limitations": "No original mechanics domain gate in learned_energy; absolute energy unidentifiable from derivatives.",
+      "units": "No implicit physical units conversion; PINN diagnostics Float64 samples; learned dynamics uses backend numeric AD, prediction public Float64.",
+      "ownership": "Uses stored parameters/state without setup.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization"
+      ],
+      "docstring_status": "EMPTY generic+typed fallback",
+      "test_references": [
+        "test/architecture.jl:96",
+        "test/m10d_extensions.jl:62",
+        "test/m10d_user_inputs.jl:47"
+      ],
+      "example_references": [
+        "examples/inference/m10a_gate.jl:23",
+        "examples/inference/m10a_gate.jl:24",
+        "examples/inference/m10a_gate.jl:34",
+        "examples/inference/m10a_gate.jl:36",
+        "examples/inference/neural_gate.jl:24",
+        "examples/inference/neural_gate.jl:26",
+        "examples/inference/neural_showcase.jl:105",
+        "examples/operators/m10b_gate.jl:46",
+        "examples/operators/m10b_gate.jl:49"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F30.md",
+        "existing_sections": [
+          "docs/learned_dynamics.md:12",
+          "docs/m10d_architecture_inventory.md:81",
+          "docs/m10d_architecture_inventory.md:141",
+          "docs/m10d_issue_ledger.md:23"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "aligned_energy",
+      "source_location": [
+        "src/scientific_ml/learned_dynamics.jl:64",
+        "ext/AnalyticMathLabDynamicsExt.jl:17"
+      ],
+      "public_signature": [
+        "aligned_energy(m::HamiltonianNN,args...;kwargs...)=_dynamics_unavailable(aligned_energy,m,args...)",
+        "AML.aligned_energy(m::AML.HamiltonianNN,u;reference) = AML.learned_energy(m,u)-AML.learned_energy(m,reference)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "HamiltonianNN,u; required reference",
+      "returns": "Learned H(u)−H(reference)",
+      "errors": [
+        "Learned-energy errors propagate"
+      ],
+      "numerical_limitations": "Offset alignment not independent energy validation.",
+      "units": "No implicit physical units conversion; PINN diagnostics Float64 samples; learned dynamics uses backend numeric AD, prediction public Float64.",
+      "ownership": "No new training.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization"
+      ],
+      "docstring_status": "EMPTY generic+typed fallback",
+      "test_references": [
+        "test/architecture.jl:97"
+      ],
+      "example_references": [
+        "examples/inference/m10a_gate.jl:27",
+        "examples/inference/m10a_gate.jl:28",
+        "examples/inference/neural_gate.jl:19",
+        "examples/inference/neural_showcase.jl:30"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F30.md",
+        "existing_sections": [
+          "docs/learned_dynamics.md:20",
+          "docs/m10d_architecture_inventory.md:81",
+          "docs/m10d_architecture_inventory.md:141"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "learned_vector_field",
+      "source_location": [
+        "src/scientific_ml/learned_dynamics.jl:66",
+        "ext/AnalyticMathLabDynamicsExt.jl:18",
+        "ext/AnalyticMathLabDynamicsExt.jl:29"
+      ],
+      "public_signature": [
+        "learned_vector_field(m::Union{HamiltonianNN,UDEProblem},args...;kwargs...)=_dynamics_unavailable(learned_vector_field,m,args...)",
+        "function AML.learned_vector_field(m::AML.HamiltonianNN,u,t=0.)",
+        "function AML.learned_vector_field(m::AML.UDEProblem,u,t=0.)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "HamiltonianNN or UDEProblem,u,t default0",
+      "returns": "Canonical J∇H or known RHS+selected learned correction",
+      "errors": [
+        "DomainError UDE known-domain/notfinite; DimensionMismatch; ArgumentError state/missing backend"
+      ],
+      "numerical_limitations": "HNN formal canonical structure but no original mechanics domain certification; UDE known-domain exactly true.",
+      "units": "No implicit physical units conversion; PINN diagnostics Float64 samples; learned dynamics uses backend numeric AD, prediction public Float64.",
+      "ownership": "Fresh field, stored source retained.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization"
+      ],
+      "docstring_status": "EMPTY generic+typed fallback",
+      "test_references": [
+        "test/architecture.jl:96",
+        "test/m10d_user_inputs.jl:48",
+        "test/m10d_user_optional.jl:44"
+      ],
+      "example_references": [
+        "examples/inference/m10a_gate.jl:25",
+        "examples/inference/m10a_gate.jl:26",
+        "examples/inference/m10a_gate.jl:50",
+        "examples/inference/m10a_gate.jl:51",
+        "examples/inference/neural_gate.jl:14",
+        "examples/inference/neural_gate.jl:15",
+        "examples/inference/neural_gate.jl:16",
+        "examples/inference/neural_gate.jl:18",
+        "examples/inference/neural_gate.jl:23",
+        "examples/inference/neural_gate.jl:42",
+        "examples/inference/neural_gate.jl:45",
+        "examples/inference/neural_showcase.jl:75",
+        "examples/operators/m10b_gate.jl:39"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F30.md",
+        "existing_sections": [
+          "docs/learned_dynamics.md:13",
+          "docs/learned_dynamics.md:28",
+          "docs/m10d_architecture_inventory.md:81"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "learned_correction",
+      "source_location": [
+        "src/scientific_ml/learned_dynamics.jl:65",
+        "ext/AnalyticMathLabDynamicsExt.jl:24"
+      ],
+      "public_signature": [
+        "learned_correction(m::UDEProblem,args...;kwargs...)=_dynamics_unavailable(learned_correction,m,args...)",
+        "function AML.learned_correction(m::AML.UDEProblem,u,t=0.)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "UDEProblem,u,t default0",
+      "returns": "Full vector with network output on selected indices and zeros elsewhere",
+      "errors": [
+        "DimensionMismatch state/network; DomainError output; ArgumentError state/missing backend"
+      ],
+      "numerical_limitations": "Correction network receives state not explicit time; no symbolic discovery.",
+      "units": "No implicit physical units conversion; PINN diagnostics Float64 samples; learned dynamics uses backend numeric AD, prediction public Float64.",
+      "ownership": "Fresh correction vector.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization"
+      ],
+      "docstring_status": "EMPTY generic+typed fallback",
+      "test_references": [
+        "test/architecture.jl:96",
+        "test/m10d_user_optional.jl:45"
+      ],
+      "example_references": [
+        "examples/inference/m10a_gate.jl:49",
+        "examples/inference/m10a_gate.jl:59",
+        "examples/inference/m10a_gate.jl:63",
+        "examples/inference/m10a_gate.jl:73",
+        "examples/inference/m10a_gate.jl:75",
+        "examples/inference/neural_gate.jl:39",
+        "examples/inference/neural_gate.jl:40",
+        "examples/inference/neural_gate.jl:41",
+        "examples/inference/neural_gate.jl:68",
+        "examples/inference/neural_showcase.jl:54",
+        "examples/inference/neural_showcase.jl:108",
+        "examples/operators/m10b_gate.jl:36"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F30.md",
+        "existing_sections": [
+          "docs/learned_dynamics.md:25",
+          "docs/m10d_architecture_inventory.md:81"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "dynamics_objective",
+      "source_location": [
+        "src/scientific_ml/learned_dynamics.jl:67",
+        "ext/AnalyticMathLabDynamicsExt.jl:21",
+        "ext/AnalyticMathLabDynamicsExt.jl:38"
+      ],
+      "public_signature": [
+        "dynamics_objective(m::Union{HamiltonianNN,UDEProblem},args...;kwargs...)=_dynamics_unavailable(dynamics_objective,m,args...)",
+        "function AML.dynamics_objective(m::AML.HamiltonianNN,data::AML.DerivativeData)",
+        "function AML.dynamics_objective(m::AML.UDEProblem,data::AML.TrajectoryData;\nalgorithm=OrdinaryDiffEqTsit5.Tsit5(),abstol=1e-9,reltol=1e-7,maxiters=10000)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "HamiltonianNN+DerivativeData or UDEProblem+TrajectoryData and explicit solver options",
+      "returns": "Mean squared derivative/trajectory mismatch",
+      "errors": [
+        "ErrorException UDE trajectory did not complete; dimension/domain/network errors"
+      ],
+      "numerical_limitations": "UDE solve native differentiable, not public Float64 presentation boundary. No likelihood/physics certificate.",
+      "units": "No implicit physical units conversion; PINN diagnostics Float64 samples; learned dynamics uses backend numeric AD, prediction public Float64.",
+      "ownership": "Temporary native trajectory; input data borrowed.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization"
+      ],
+      "docstring_status": "EMPTY generic+typed fallback",
+      "test_references": [
+        "test/architecture.jl:97"
+      ],
+      "example_references": [
+        "examples/inference/m10a_gate.jl:31",
+        "examples/inference/m10a_gate.jl:32",
+        "examples/inference/m10a_gate.jl:58",
+        "examples/inference/m10a_gate.jl:62",
+        "examples/inference/m10a_gate.jl:69",
+        "examples/inference/m10a_gate.jl:70",
+        "examples/inference/neural_gate.jl:29",
+        "examples/inference/neural_gate.jl:30",
+        "examples/inference/neural_gate.jl:57",
+        "examples/inference/neural_gate.jl:63",
+        "examples/inference/neural_gate.jl:64",
+        "examples/inference/neural_gate.jl:67",
+        "examples/inference/neural_showcase.jl:57",
+        "examples/inference/neural_showcase.jl:58",
+        "examples/inference/neural_showcase.jl:59"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F30.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:81",
+          "docs/m10d_architecture_inventory.md:141"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F30",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "train",
+      "source_location": [
+        "src/scientific_ml/learned_dynamics.jl:68",
+        "ext/AnalyticMathLabDynamicsExt.jl:53"
+      ],
+      "public_signature": [
+        "train(m::Union{HamiltonianNN,UDEProblem},args...;kwargs...)=_dynamics_unavailable(train,m,args...)",
+        "function AML.train(m::Union{AML.HamiltonianNN,AML.UDEProblem},data;\ninitial_parameters::AbstractVector,reconstruct,optimizer,maxiters::Integer=100,\nhistory_limit::Integer=100,objective_options=NamedTuple())"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "HNN/UDE and data; required initial_parameters::AbstractVector,reconstruct,optimizer; maxiters=100,history_limit=100,objective_options",
+      "returns": "DynamicsTrainingResult",
+      "errors": [
+        "ArgumentError controls outside1:10000 or empty/nonfinite params/backend; objective errors propagate"
+      ],
+      "numerical_limitations": "History rolling last values (different from PINN first entries). Optimization AutoForwardDiff; reconstructed container explicit. No optimizer schedule/accuracy promise.",
+      "units": "No implicit physical units conversion; PINN diagnostics Float64 samples; learned dynamics uses backend numeric AD, prediction public Float64.",
+      "ownership": "Copies flat parameters, retains training data/source, history scalar only.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization"
+      ],
+      "docstring_status": "Typed fallback only",
+      "test_references": [
+        "test/architecture.jl:90",
+        "test/m10d_interoperability_learning.jl:29",
+        "test/m10d_semantics_learning.jl:15",
+        "test/m10d_semantics_pinn.jl:14",
+        "test/m10d_user_optional.jl:48",
+        "test/pinn_base.jl:5",
+        "test/pinn_diagnostics.jl:15",
+        "test/pinn_diagnostics.jl:79",
+        "test/pinn_edges.jl:18",
+        "test/pinn_edges.jl:30",
+        "test/pinn_edges.jl:46",
+        "test/pinn_pde.jl:13",
+        "test/pinn_training.jl:14",
+        "test/pinn_training.jl:50",
+        "test/pinn_training.jl:51",
+        "test/pinn_training.jl:55",
+        "test/surrogate_contracts.jl:21"
+      ],
+      "example_references": [
+        "examples/inference/neural_gate.jl:48",
+        "examples/inference/neural_gate.jl:65",
+        "examples/inference/neural_gate.jl:72",
+        "examples/inference/neural_showcase.jl:24",
+        "examples/inference/neural_showcase.jl:33",
+        "examples/inference/neural_showcase.jl:44",
+        "examples/integration/one_system_learning.jl:56",
+        "examples/operators/analysis_gate.jl:9",
+        "examples/operators/focused_gate.jl:29",
+        "examples/operators/focused_gate.jl:51",
+        "examples/operators/heat_family.jl:60",
+        "examples/operators/heat_showcase.jl:204",
+        "examples/pinn/benchmarks.jl:82",
+        "examples/pinn/inverse_heat_gate.jl:60",
+        "examples/pinn/inverse_heat_gate.jl:62",
+        "examples/scaling/generalization_scale.jl:14",
+        "examples/scaling/generalization_scale.jl:21",
+        "examples/scaling/million_query_analysis.jl:30",
+        "examples/scaling/optional_scaling_gate.jl:11",
+        "notebooks/scientific_ml.jl:24"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F26.md",
+        "existing_sections": [
+          "README.md:49",
+          "docs/architecture.md:66",
+          "docs/inverse_heat.md:16",
+          "docs/learned_dynamics.md:44",
+          "docs/m10d_architecture_inventory.md:77",
+          "docs/m10d_architecture_inventory.md:84",
+          "docs/m10d_architecture_inventory.md:129",
+          "docs/m10d_architecture_inventory.md:141",
+          "docs/m10d_architecture_inventory.md:142",
+          "docs/m10d_architecture_inventory.md:143",
+          "docs/m10d_flagship_results.md:102",
+          "docs/m10d_flagship_results.md:115",
+          "docs/m10d_flagship_results.md:207",
+          "docs/m10d_integration_matrix.md:34",
+          "docs/m10d_integration_matrix.md:127",
+          "docs/m10d_interoperability_results.md:61",
+          "docs/m10d_interoperability_results.md:72",
+          "docs/m10d_one_system_many_methods.md:96",
+          "docs/operator_backends.md:26",
+          "docs/operator_backends.md:48",
+          "docs/scientific_ml.md:30",
+          "docs/scientific_ml.md:57",
+          "docs/scientific_ml.md:191",
+          "docs/surrogates.md:24"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "predict",
+      "source_location": [
+        "src/scientific_ml/learned_dynamics.jl:69",
+        "ext/AnalyticMathLabDynamicsExt.jl:84",
+        "ext/AnalyticMathLabDynamicsExt.jl:90"
+      ],
+      "public_signature": [
+        "predict(m::Union{HamiltonianNN,UDEProblem,DynamicsTrainingResult},args...;kwargs...)=_dynamics_unavailable(predict,m,args...)",
+        "function AML.predict(m::Union{AML.HamiltonianNN,AML.UDEProblem},u0,tspan;kwargs...)",
+        "AML.predict(r::AML.DynamicsTrainingResult,u0,tspan;kwargs...)=AML.predict(r.model,u0,tspan;kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "HNN/UDE or fitted result, initial state/time span; trajectory kwargs",
+      "returns": "TrajectoryResult",
+      "errors": [
+        "Public FirstOrderODE/trajectory cap/conversion/domain/solver errors propagate"
+      ],
+      "numerical_limitations": "Prediction creates FirstOrderODE and uses public Float64 trajectory; not a new large-state method.",
+      "units": "No implicit physical units conversion; PINN diagnostics Float64 samples; learned dynamics uses backend numeric AD, prediction public Float64.",
+      "ownership": "Native solution retained; fitted result delegates model.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization"
+      ],
+      "docstring_status": "Typed fallback only",
+      "test_references": [
+        "test/architecture.jl:90",
+        "test/m10d_extensions.jl:60",
+        "test/m10d_interoperability_learning.jl:46",
+        "test/m10d_user_optional.jl:46",
+        "test/m10d_user_optional.jl:54",
+        "test/pinn_base.jl:5",
+        "test/pinn_diagnostics.jl:28",
+        "test/pinn_diagnostics.jl:29",
+        "test/pinn_diagnostics.jl:30",
+        "test/pinn_diagnostics.jl:37",
+        "test/pinn_edges.jl:20",
+        "test/pinn_edges.jl:24",
+        "test/pinn_edges.jl:25",
+        "test/pinn_edges.jl:32",
+        "test/pinn_edges.jl:53",
+        "test/pinn_multidimensional.jl:32",
+        "test/pinn_multidimensional.jl:33",
+        "test/pinn_multidimensional.jl:34",
+        "test/pinn_pde.jl:18",
+        "test/pinn_training.jl:36",
+        "test/pinn_training.jl:42",
+        "test/pinn_training.jl:43",
+        "test/pinn_training.jl:44",
+        "test/pinn_training.jl:47",
+        "test/pinn_training.jl:48",
+        "test/pinn_training.jl:49",
+        "test/pinn_training.jl:60"
+      ],
+      "example_references": [
+        "examples/inference/neural_gate.jl:59",
+        "examples/inference/neural_showcase.jl:27",
+        "examples/inference/neural_showcase.jl:46",
+        "examples/inference/neural_showcase.jl:48",
+        "examples/inference/neural_showcase.jl:50",
+        "examples/operators/analysis_gate.jl:23",
+        "examples/operators/focused_gate.jl:19",
+        "examples/operators/focused_gate.jl:20",
+        "examples/operators/focused_gate.jl:21",
+        "examples/operators/focused_gate.jl:30",
+        "examples/operators/focused_gate.jl:47",
+        "examples/operators/focused_gate.jl:48",
+        "examples/operators/focused_gate.jl:54",
+        "examples/operators/heat_demo.jl:19",
+        "examples/operators/heat_showcase.jl:81",
+        "examples/operators/heat_showcase.jl:96",
+        "examples/operators/integration_gate.jl:40",
+        "examples/operators/integration_gate.jl:66",
+        "examples/operators/m10a_gate.jl:30",
+        "examples/operators/m10a_gate.jl:31",
+        "examples/operators/m10a_gate.jl:32",
+        "examples/operators/m10a_gate.jl:33",
+        "examples/operators/m10a_gate.jl:35",
+        "examples/operators/m10a_gate.jl:36",
+        "examples/operators/m10a_gate.jl:37",
+        "examples/operators/m10a_gate.jl:39",
+        "examples/operators/m10b_gate.jl:16",
+        "examples/operators/m10b_gate.jl:20",
+        "examples/operators/m10b_gate.jl:27",
+        "examples/operators/m10b_gate.jl:29",
+        "examples/pinn/benchmark_gate.jl:67",
+        "examples/pinn/benchmark_gate.jl:68",
+        "examples/pinn/inverse_heat_gate.jl:75",
+        "examples/pinn/inverse_heat_gate.jl:100",
+        "examples/pinn/inverse_heat_gate.jl:101",
+        "examples/pinn/m10b_gate.jl:19",
+        "examples/pinn/m10b_gate.jl:21",
+        "examples/pinn/m10b_gate.jl:26",
+        "examples/pinn/m10b_gate.jl:32",
+        "examples/scaling/generalization_scale.jl:26",
+        "examples/scaling/optional_scaling_gate.jl:23",
+        "examples/scaling/optional_scaling_gate.jl:24",
+        "examples/scaling/optional_scaling_gate.jl:26",
+        "examples/scaling/optional_scaling_gate.jl:28",
+        "examples/scaling/optional_scaling_gate.jl:29",
+        "examples/scaling/optional_scaling_gate.jl:30",
+        "examples/scaling/optional_scaling_gate.jl:31",
+        "examples/scaling/optional_scaling_gate.jl:45",
+        "examples/scaling/optional_scaling_gate.jl:47",
+        "notebooks/scientific_ml.jl:29"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F26.md",
+        "existing_sections": [
+          "docs/learned_dynamics.md:50",
+          "docs/m10c_ml_evidence.md:22",
+          "docs/m10d_architecture_inventory.md:77",
+          "docs/m10d_architecture_inventory.md:81",
+          "docs/m10d_architecture_inventory.md:84",
+          "docs/m10d_architecture_inventory.md:94",
+          "docs/m10d_architecture_inventory.md:124",
+          "docs/m10d_architecture_inventory.md:130",
+          "docs/m10d_architecture_inventory.md:131",
+          "docs/m10d_architecture_inventory.md:141",
+          "docs/m10d_architecture_inventory.md:142",
+          "docs/m10d_architecture_inventory.md:143",
+          "docs/m10d_integration_matrix.md:37",
+          "docs/m10d_interoperability_results.md:72",
+          "docs/m10d_issue_ledger.md:26",
+          "docs/operator_backends.md:48",
+          "docs/scientific_ml.md:61",
+          "docs/scientific_ml.md:135",
+          "docs/scientific_ml.md:136",
+          "docs/surrogates.md:28"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    }
+  ],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

@@ -1,0 +1,729 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "07_comparison_observations",
+  "files": [
+    {
+      "path": "src/trajectory/comparison.jl",
+      "sha256": "e8d1d1ec00ebb2b1ec9f52df93eb073fc8fdb7bd1064243b07741ee4689fc4e1",
+      "bytes": 21162,
+      "lines": 369,
+      "read_ranges": [
+        [
+          1,
+          369
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Compatibility gates separate descriptive B−A and uncertainty. No interpolation/alignment/recompute; declared unitless scales and population tokens mandatory when missing metadata."
+      ]
+    },
+    {
+      "path": "src/scientific_ml/inference.jl",
+      "sha256": "0bf52c6168314372cd4e80ae989feaa383cd212de62d9963703bfdfadf778ba8",
+      "bytes": 2333,
+      "lines": 39,
+      "read_ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "ObservationSet inner constructor checked Float64, unique identities, copied values/weights and explicit roles/kinds; weights not noise model."
+      ]
+    },
+    {
+      "path": "src/scientific_ml/trajectory_inference.jl",
+      "sha256": "27a13a37f9abda943665317bfef7e1d70d9c414493196304527d6ebd1c20933e",
+      "bytes": 4278,
+      "lines": 68,
+      "read_ranges": [
+        [
+          1,
+          68
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Distance capture freezes selected numeric values and copied snapshot metadata while retaining view. ObservationSet series bridge requires known non-index times and Unitful scales, but Float64 conversion occurs before checked factory, so bridge preconversion precision/underflow limitation remains."
+      ]
+    }
+  ],
+  "apis": [
+    {
+      "symbol": "ComparisonInput",
+      "source_location": [
+        "src/trajectory/comparison.jl:9",
+        "src/trajectory/comparison.jl:16"
+      ],
+      "public_signature": [
+        "struct ComparisonInput{R,S,P,L,I} <: AbstractAnalysis; raw generated field constructor: (result::R, series::S, parent::P, label::L, selection::I)",
+        "ComparisonInput(result;series=nothing,parent=nothing,label=nothing,selection=nothing)="
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Stored result; series/parent/label/selection optional caller associations",
+      "returns": "Borrowed context wrapper",
+      "errors": [],
+      "numerical_limitations": "Associations assertions not reconstructed lineage; selection token required for transport population comparison.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Borrows result/series/parent.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:87",
+        "test/m10a_atomistic_statistics.jl:235",
+        "test/m10a_atomistic_statistics.jl:244",
+        "test/m10a_atomistic_statistics.jl:251",
+        "test/m10a_atomistic_statistics.jl:252",
+        "test/m10a_atomistic_statistics.jl:256",
+        "test/m10a_atomistic_statistics.jl:257",
+        "test/m10a_atomistic_statistics.jl:260",
+        "test/m10a_atomistic_statistics.jl:265",
+        "test/m10a_atomistic_statistics.jl:269",
+        "test/m10a_atomistic_statistics.jl:270",
+        "test/m10a_atomistic_statistics.jl:277",
+        "test/m10b_statistics.jl:87",
+        "test/m10b_statistics.jl:88",
+        "test/m10b_statistics.jl:111",
+        "test/m10b_statistics.jl:112",
+        "test/m10b_statistics.jl:249",
+        "test/m10b_statistics.jl:268",
+        "test/m10b_statistics.jl:269",
+        "test/trajectory_comparison.jl:5",
+        "test/trajectory_comparison.jl:6",
+        "test/trajectory_comparison.jl:9",
+        "test/trajectory_comparison.jl:10",
+        "test/trajectory_comparison.jl:19",
+        "test/trajectory_comparison.jl:21",
+        "test/trajectory_comparison.jl:25",
+        "test/trajectory_comparison.jl:27",
+        "test/trajectory_comparison.jl:37",
+        "test/trajectory_comparison.jl:47",
+        "test/trajectory_comparison.jl:50",
+        "test/trajectory_comparison.jl:53",
+        "test/trajectory_comparison.jl:56",
+        "test/trajectory_comparison.jl:57",
+        "test/trajectory_comparison.jl:58",
+        "test/trajectory_comparison.jl:63",
+        "test/trajectory_comparison.jl:64",
+        "test/trajectory_comparison_edges.jl:6",
+        "test/trajectory_comparison_edges.jl:8",
+        "test/trajectory_comparison_edges.jl:11",
+        "test/trajectory_comparison_edges.jl:13",
+        "test/trajectory_comparison_edges.jl:14",
+        "test/trajectory_comparison_edges.jl:17",
+        "test/trajectory_comparison_edges.jl:22",
+        "test/trajectory_comparison_edges.jl:26",
+        "test/trajectory_comparison_edges.jl:28",
+        "test/trajectory_comparison_edges.jl:31",
+        "test/trajectory_comparison_edges.jl:35",
+        "test/trajectory_comparison_edges.jl:36",
+        "test/trajectory_comparison_edges.jl:43",
+        "test/trajectory_comparison_edges.jl:44",
+        "test/trajectory_comparison_edges.jl:48",
+        "test/trajectory_comparison_edges.jl:49",
+        "test/trajectory_comparison_edges.jl:55",
+        "test/trajectory_comparison_edges.jl:56",
+        "test/trajectory_comparison_edges.jl:63",
+        "test/trajectory_comparison_transport.jl:13",
+        "test/trajectory_comparison_transport.jl:14",
+        "test/trajectory_comparison_transport.jl:20",
+        "test/trajectory_comparison_transport.jl:22",
+        "test/trajectory_comparison_transport.jl:24",
+        "test/trajectory_comparison_transport.jl:26",
+        "test/trajectory_comparison_transport.jl:28",
+        "test/trajectory_comparison_transport.jl:30",
+        "test/trajectory_comparison_transport.jl:33",
+        "test/trajectory_comparison_transport.jl:34",
+        "test/trajectory_comparison_transport.jl:38",
+        "test/trajectory_comparison_transport.jl:40",
+        "test/trajectory_comparison_transport.jl:43",
+        "test/trajectory_comparison_transport.jl:53",
+        "test/trajectory_comparison_transport.jl:54",
+        "test/trajectory_comparison_transport.jl:59",
+        "test/trajectory_comparison_transport.jl:60",
+        "test/trajectory_comparison_transport.jl:62",
+        "test/trajectory_comparison_transport.jl:65",
+        "test/trajectory_comparison_transport.jl:69",
+        "test/trajectory_comparison_visualization.jl:9",
+        "test/trajectory_comparison_visualization.jl:10",
+        "test/trajectory_comparison_visualization.jl:15",
+        "test/trajectory_comparison_visualization.jl:16",
+        "test/trajectory_comparison_visualization.jl:19"
+      ],
+      "example_references": [
+        "notebooks/trajectory_comparison.jl:33",
+        "notebooks/trajectory_comparison.jl:36",
+        "notebooks/trajectory_comparison.jl:37",
+        "notebooks/trajectory_comparison.jl:39"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F25.md",
+        "existing_sections": [
+          "docs/architecture.md:87",
+          "docs/m10d_architecture_inventory.md:76",
+          "docs/m10d_architecture_inventory.md:195",
+          "docs/m10d_integration_matrix.md:30",
+          "docs/m10d_integration_matrix.md:83",
+          "docs/m10d_interoperability_results.md:114",
+          "docs/m10d_issue_ledger.md:18",
+          "docs/m10d_issue_ledger.md:76",
+          "docs/m10d_provenance.md:66",
+          "docs/m10d_semantics.md:88",
+          "docs/m10d_semantics_results.md:241",
+          "docs/trajectory_comparison.md:15",
+          "docs/trajectory_comparison.md:16",
+          "docs/trajectory_comparison.md:24",
+          "docs/trajectory_comparison.md:161"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F25",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "ComparisonCompatibility",
+      "source_location": [
+        "src/trajectory/comparison.jl:23"
+      ],
+      "public_signature": [
+        "struct ComparisonCompatibility <: AbstractAnalysis; raw generated field constructor: (status::Symbol, checks::Dict{Symbol,PropertyResult}, reasons::Vector{String})"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Raw status/checks/reasons; constructed by comparison",
+      "returns": "Status compatible/incompatible/unknown with named tri-state checks",
+      "errors": [],
+      "numerical_limitations": "Compatibility != physical certification or statistical independence.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Stored checks/reasons.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:87"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F25.md",
+        "existing_sections": [
+          "docs/architecture.md:88",
+          "docs/m10d_architecture_inventory.md:76",
+          "docs/trajectory_comparison.md:45"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F25",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "ObservableComparison",
+      "source_location": [
+        "src/trajectory/comparison.jl:30"
+      ],
+      "public_signature": [
+        "struct ObservableComparison{A,B,M,D,U,S} <: AbstractAnalysis; raw generated field constructor: (a::A, b::B, quantity::Symbol, compatibility::ComparisonCompatibility, metadata::M, difference::D, uncertainty::U, assumptions::S, notes::Vector{String})"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "compare or raw stored fields",
+      "returns": "Descriptive B−A with independent compatibility/difference/uncertainty",
+      "errors": [],
+      "numerical_limitations": "No rankings or significance from difference alone.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Retains input contexts and metadata.",
+      "optional_dependencies": [],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:87",
+        "test/trajectory_comparison.jl:12"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F25.md",
+        "existing_sections": [
+          "docs/architecture.md:88",
+          "docs/m10d_architecture_inventory.md:76",
+          "docs/trajectory_comparison.md:36",
+          "docs/trajectory_comparison.md:163"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F25",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "compare",
+      "source_location": [
+        "src/trajectory/comparison.jl:264",
+        "src/trajectory/comparison.jl:315",
+        "src/trajectory/comparison.jl:368"
+      ],
+      "public_signature": [
+        "function compare(a::ComparisonInput,b::ComparisonInput;quantity=:auto,\nindependence=:unknown,unitless=false,unitless_time=false)",
+        "compare(a::Union{PropertyResult,AutocorrelationAnalysis,BlockAnalysis,MeanSquaredDisplacement,VelocityAutocorrelation},",
+        "compare(a::MDTrajectoryAnalysis,b::MDTrajectoryAnalysis;kwargs...)=compare_runs(a,b;kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ComparisonInput or supported stored summary/ACF/block/MSD/VACF results; MDTrajectoryAnalysis dispatches compare_runs",
+      "returns": "ObservableComparison or MDTrajectoryComparison",
+      "errors": [
+        "ArgumentError unsupported quantity/independence; missing metadata becomes compatibility unknown and no difference"
+      ],
+      "numerical_limitations": "quantity=:auto or pair; independence=:unknown|:independent, unitless=false,unitless_time=false. No alignment/truncation/recomputation. Shared plain unit scales must be asserted; physical_tau index time unavailable in comparison; estimator/grid/selection match required. Combined SE only distinct results with compatible actual SE/time/window and caller independent assertion.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Retains both inputs; fresh differences; source labels not identities.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED but wrapper reference incomplete",
+      "test_references": [
+        "test/architecture.jl:88",
+        "test/m10a_atomistic_statistics.jl:236",
+        "test/m10a_atomistic_statistics.jl:239",
+        "test/m10a_atomistic_statistics.jl:241",
+        "test/m10a_atomistic_statistics.jl:242",
+        "test/m10a_atomistic_statistics.jl:243",
+        "test/m10a_atomistic_statistics.jl:245",
+        "test/m10a_atomistic_statistics.jl:251",
+        "test/m10a_atomistic_statistics.jl:257",
+        "test/m10a_atomistic_statistics.jl:260",
+        "test/m10a_atomistic_statistics.jl:265",
+        "test/m10a_atomistic_statistics.jl:269",
+        "test/m10a_atomistic_statistics.jl:277",
+        "test/m10b_statistics.jl:89",
+        "test/m10b_statistics.jl:92",
+        "test/m10b_statistics.jl:93",
+        "test/m10b_statistics.jl:111",
+        "test/m10b_statistics.jl:237",
+        "test/m10b_statistics.jl:250",
+        "test/m10b_statistics.jl:261",
+        "test/m10b_statistics.jl:262",
+        "test/m10b_statistics.jl:268",
+        "test/m10d_interoperability.jl:55",
+        "test/trajectory_comparison.jl:11",
+        "test/trajectory_comparison.jl:19",
+        "test/trajectory_comparison.jl:21",
+        "test/trajectory_comparison.jl:25",
+        "test/trajectory_comparison.jl:28",
+        "test/trajectory_comparison.jl:29",
+        "test/trajectory_comparison.jl:30",
+        "test/trajectory_comparison.jl:38",
+        "test/trajectory_comparison.jl:41",
+        "test/trajectory_comparison.jl:44",
+        "test/trajectory_comparison.jl:45",
+        "test/trajectory_comparison.jl:48",
+        "test/trajectory_comparison.jl:49",
+        "test/trajectory_comparison.jl:51",
+        "test/trajectory_comparison.jl:52",
+        "test/trajectory_comparison.jl:54",
+        "test/trajectory_comparison.jl:56",
+        "test/trajectory_comparison.jl:59",
+        "test/trajectory_comparison.jl:60",
+        "test/trajectory_comparison.jl:61",
+        "test/trajectory_comparison.jl:62",
+        "test/trajectory_comparison.jl:65",
+        "test/trajectory_comparison.jl:66",
+        "test/trajectory_comparison.jl:67",
+        "test/trajectory_comparison.jl:68",
+        "test/trajectory_comparison_edges.jl:8",
+        "test/trajectory_comparison_edges.jl:11",
+        "test/trajectory_comparison_edges.jl:13",
+        "test/trajectory_comparison_edges.jl:14",
+        "test/trajectory_comparison_edges.jl:18",
+        "test/trajectory_comparison_edges.jl:19",
+        "test/trajectory_comparison_edges.jl:20",
+        "test/trajectory_comparison_edges.jl:23",
+        "test/trajectory_comparison_edges.jl:24",
+        "test/trajectory_comparison_edges.jl:27",
+        "test/trajectory_comparison_edges.jl:28",
+        "test/trajectory_comparison_edges.jl:32",
+        "test/trajectory_comparison_edges.jl:35",
+        "test/trajectory_comparison_edges.jl:37",
+        "test/trajectory_comparison_edges.jl:38",
+        "test/trajectory_comparison_edges.jl:45",
+        "test/trajectory_comparison_edges.jl:51",
+        "test/trajectory_comparison_edges.jl:52",
+        "test/trajectory_comparison_edges.jl:53",
+        "test/trajectory_comparison_edges.jl:58",
+        "test/trajectory_comparison_edges.jl:59",
+        "test/trajectory_comparison_edges.jl:60",
+        "test/trajectory_comparison_edges.jl:64",
+        "test/trajectory_comparison_edges.jl:65",
+        "test/trajectory_comparison_runs.jl:25",
+        "test/trajectory_comparison_transport.jl:15",
+        "test/trajectory_comparison_transport.jl:19",
+        "test/trajectory_comparison_transport.jl:20",
+        "test/trajectory_comparison_transport.jl:22",
+        "test/trajectory_comparison_transport.jl:24",
+        "test/trajectory_comparison_transport.jl:26",
+        "test/trajectory_comparison_transport.jl:28",
+        "test/trajectory_comparison_transport.jl:30",
+        "test/trajectory_comparison_transport.jl:35",
+        "test/trajectory_comparison_transport.jl:36",
+        "test/trajectory_comparison_transport.jl:38",
+        "test/trajectory_comparison_transport.jl:40",
+        "test/trajectory_comparison_transport.jl:44",
+        "test/trajectory_comparison_transport.jl:45",
+        "test/trajectory_comparison_transport.jl:46",
+        "test/trajectory_comparison_transport.jl:47",
+        "test/trajectory_comparison_transport.jl:55",
+        "test/trajectory_comparison_transport.jl:56",
+        "test/trajectory_comparison_transport.jl:57",
+        "test/trajectory_comparison_transport.jl:58",
+        "test/trajectory_comparison_transport.jl:61",
+        "test/trajectory_comparison_transport.jl:62",
+        "test/trajectory_comparison_transport.jl:66",
+        "test/trajectory_comparison_transport.jl:69",
+        "test/trajectory_comparison_visualization.jl:11",
+        "test/trajectory_comparison_visualization.jl:17",
+        "test/trajectory_comparison_visualization.jl:18",
+        "test/trajectory_comparison_visualization.jl:20",
+        "test/trajectory_comparison_visualization.jl:21",
+        "test/trajectory_comparison_visualization.jl:23"
+      ],
+      "example_references": [
+        "examples/integration/one_system_many_methods.jl:177",
+        "examples/integration/one_system_many_methods.jl:182",
+        "examples/integration/one_system_many_methods.jl:183",
+        "examples/integration/one_system_many_methods.jl:184",
+        "examples/integration/one_system_many_methods.jl:185",
+        "examples/integration/one_system_many_methods.jl:186",
+        "examples/integration/one_system_many_methods.jl:187",
+        "examples/integration/one_system_many_methods.jl:188",
+        "examples/integration/one_system_many_methods.jl:189",
+        "examples/integration/one_system_many_methods.jl:190",
+        "examples/integration/one_system_many_methods.jl:191",
+        "examples/integration/one_system_many_methods.jl:192",
+        "examples/integration/one_system_many_methods.jl:195",
+        "notebooks/trajectory_comparison.jl:31",
+        "notebooks/trajectory_comparison.jl:33",
+        "notebooks/trajectory_comparison.jl:38",
+        "notebooks/trajectory_comparison.jl:39"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F25.md",
+        "existing_sections": [
+          "README.md:22",
+          "docs/architecture.md:90",
+          "docs/atomistic.md:160",
+          "docs/m10a_audit.md:113",
+          "docs/m10a_m9cd_inventory.md:11",
+          "docs/m10c_mechanics_evidence.md:29",
+          "docs/m10c_scaling_inventory.md:32",
+          "docs/m10d_architecture_inventory.md:76",
+          "docs/m10d_integration_matrix.md:38",
+          "docs/m9d_verification.md:183",
+          "docs/trajectory_comparison.md:6",
+          "docs/trajectory_comparison.md:17",
+          "docs/trajectory_comparison.md:82",
+          "docs/trajectory_comparison.md:105",
+          "docs/trajectory_comparison.md:153"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F25",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "MDTrajectoryComparison",
+      "source_location": [
+        "src/trajectory/comparison.jl:320"
+      ],
+      "public_signature": [
+        "struct MDTrajectoryComparison{A,B,L,C,S} <: AbstractAnalysis; raw generated field constructor: (a::A, b::B, labels::L, components::C, assumptions::S, notes::Vector{String})"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "compare_runs or raw fields",
+      "returns": "Selective composition of stored component comparisons",
+      "errors": [],
+      "numerical_limitations": "Not ensemble grade; missing components unknown.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Retains both full reports.",
+      "optional_dependencies": [],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:87",
+        "test/trajectory_comparison_runs.jl:14"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F25.md",
+        "existing_sections": [
+          "docs/architecture.md:88",
+          "docs/m10d_architecture_inventory.md:76",
+          "docs/trajectory_comparison.md:154"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F25",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "compare_runs",
+      "source_location": [
+        "src/trajectory/comparison.jl:341"
+      ],
+      "public_signature": [
+        "function compare_runs(a::MDTrajectoryAnalysis,b::MDTrajectoryAnalysis;\ncomponents=(:summaries,:correlations,:deviations,:transients,:msd,:vacf,:diffusion),\nlabels=(nothing,nothing),selections=(nothing,nothing),kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Two MDTrajectoryAnalysis; literal components/labels/selections/kwargs",
+      "returns": "MDTrajectoryComparison",
+      "errors": [
+        "ArgumentError invalid components or two-label/selection lengths"
+      ],
+      "numerical_limitations": "Union of stored map keys, observable identity from series not keys. Default quantity for each component only; no missing calculation.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Retains reports and new component maps.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:88",
+        "test/trajectory_comparison_runs.jl:5",
+        "test/trajectory_comparison_runs.jl:6",
+        "test/trajectory_comparison_runs.jl:13",
+        "test/trajectory_comparison_runs.jl:26",
+        "test/trajectory_comparison_runs.jl:31"
+      ],
+      "example_references": [
+        "notebooks/trajectory_comparison.jl:22"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F25.md",
+        "existing_sections": [
+          "README.md:22",
+          "docs/architecture.md:90",
+          "docs/m10d_architecture_inventory.md:75",
+          "docs/m10d_architecture_inventory.md:76",
+          "docs/trajectory_comparison.md:147",
+          "docs/trajectory_comparison.md:153"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F25",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "diagnose",
+      "source_location": [
+        "src/trajectory/comparison.jl:369"
+      ],
+      "public_signature": [
+        "diagnose(c::MDTrajectoryComparison)=PropertyResult(c.components,:heuristic,:stored_comparison_composition,c.notes)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "MDTrajectoryComparison",
+      "returns": "Heuristic stored component PropertyResult",
+      "errors": [],
+      "numerical_limitations": "Composition only not recomputation/score.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Borrows component map and notes.",
+      "optional_dependencies": [],
+      "docstring_status": "ABSENT method",
+      "test_references": [
+        "test/architecture.jl:86",
+        "test/trajectory_analyst.jl:75",
+        "test/trajectory_analyst.jl:80",
+        "test/trajectory_comparison_runs.jl:24"
+      ],
+      "example_references": [
+        "notebooks/molly_trajectory_analysis.jl:39"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F24.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:67",
+          "docs/m10d_architecture_inventory.md:75",
+          "docs/trajectory_comparison.md:150",
+          "docs/trajectory_statistics.md:173"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F24",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "ObservationSet",
+      "source_location": [
+        "src/scientific_ml/inference.jl:6",
+        "src/scientific_ml/trajectory_inference.jl:45",
+        "src/scientific_ml/inference.jl:15"
+      ],
+      "public_signature": [
+        "struct ObservationSet",
+        "function ObservationSet(s::ObservableSeries;time_scale=nothing,length_scale=nothing,\nweights=nothing,kind=:user_supplied,role=:fit)",
+        "function ObservationSet(times,values::AbstractMatrix;variables,units=nothing,\nweights=nothing,kind=:user_supplied,role=:fit,provenance=NamedTuple())"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "times,variables×times matrix; required variable names; optional units/weights/kind/role/provenance; or ObservableSeries with explicit scales",
+      "returns": "Frozen Float64 numeric observations",
+      "errors": [
+        "DimensionMismatch shape/weights; ArgumentError empty/duplicate identities/nonfinite/bad roles/kinds/nonincreasing times/invalid or allzero weights; series refuses unknown/index times and implicit Unitful stripping"
+      ],
+      "numerical_limitations": "Weights multiply squared residuals, not inferred inverse noise variance. Main factory checked Float64/no nonzero underflow. Series bridge divides by scales then Float64 before checked factory: earlier underflow/rounding not recovered; precision limitation must remain explicit.",
+      "units": "Inference numeric coordinate system explicitly scaled; unit strings descriptive not conversion.",
+      "ownership": "Copies numeric times/values/weights; units/provenance retained and series strong source retained.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED type+bridge",
+      "test_references": [
+        "test/architecture.jl:93",
+        "test/inference_base.jl:10",
+        "test/inference_base.jl:11",
+        "test/inference_base.jl:12",
+        "test/inference_base.jl:17",
+        "test/inference_base.jl:18",
+        "test/inference_base.jl:19",
+        "test/inference_base.jl:27",
+        "test/inference_base.jl:38",
+        "test/inference_sensitivity.jl:6",
+        "test/inference_sensitivity.jl:18",
+        "test/inference_sensitivity.jl:25",
+        "test/inference_sensitivity.jl:31",
+        "test/m10a_inference_operators.jl:16",
+        "test/m10a_inference_operators.jl:17",
+        "test/m10a_inference_operators.jl:46",
+        "test/m10a_inference_operators.jl:50",
+        "test/m10a_inference_operators.jl:60",
+        "test/m10a_inference_operators.jl:84",
+        "test/m10a_inference_operators.jl:90",
+        "test/m10a_inference_operators.jl:115",
+        "test/m10a_inference_operators.jl:137",
+        "test/m10b_diagnostics.jl:45",
+        "test/m10b_diagnostics.jl:54",
+        "test/m10b_diagnostics.jl:58",
+        "test/m10b_diagnostics.jl:59",
+        "test/m10b_diagnostics.jl:60",
+        "test/m10b_inference_scaling.jl:7",
+        "test/m10d_interoperability.jl:250",
+        "test/m10d_interoperability.jl:255",
+        "test/trajectory_inference.jl:22",
+        "test/trajectory_inference.jl:29",
+        "test/trajectory_inference.jl:30",
+        "test/trajectory_inference.jl:35",
+        "test/trajectory_inference.jl:36",
+        "test/trajectory_inference.jl:37"
+      ],
+      "example_references": [
+        "examples/inference/deterministic_gate.jl:17",
+        "examples/inference/deterministic_gate.jl:19",
+        "examples/inference/integration_gate.jl:27",
+        "examples/inference/lj_gate.jl:27",
+        "examples/inference/lj_gate.jl:28",
+        "examples/inference/parameter_showcase.jl:8"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F28.md",
+        "existing_sections": [
+          "docs/m10b_numeric_inventory.md:34",
+          "docs/m10d_architecture_inventory.md:79",
+          "docs/m10d_architecture_inventory.md:80",
+          "docs/m10d_architecture_inventory.md:82",
+          "docs/m10d_architecture_inventory.md:99",
+          "docs/m10d_integration_matrix.md:32",
+          "docs/m10d_integration_matrix.md:124",
+          "docs/m10d_issue_ledger.md:21",
+          "docs/m10d_semantics.md:106",
+          "docs/operator_backends.md:46",
+          "docs/parameter_inference.md:16",
+          "docs/trajectory_inference.md:16"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "constructor_notes": [
+        "Inner constructor in src/scientific_ml/inference.jl; no raw generated constructor inferred"
+      ],
+      "family": "F28",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "distance_observations",
+      "source_location": [
+        "src/scientific_ml/trajectory_inference.jl:10"
+      ],
+      "public_signature": [
+        "function distance_observations(view::AtomisticTrajectoryView,pair::Tuple;\nframes=1:length(view),name=:r,units=nothing)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "View and explicit pair; increasing selected frames; name=:r,units=nothing",
+      "returns": "Frozen distance ObservableSeries",
+      "errors": [
+        "ArgumentError invalid pair/frames/positions/boundary/time conflicts/distance; sampling validation errors"
+      ],
+      "numerical_limitations": "No unknown time inference; partial time missing -> all times unknown; explicit backend/minimum image; labels not conversion; fixed identity meaning caller responsibility.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Fresh values/times/frame metadata deepcopies, strong source view retained.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:95",
+        "test/m10a_inference_operators.jl:136",
+        "test/m10d_interoperability.jl:239",
+        "test/m10d_interoperability.jl:256",
+        "test/trajectory_inference.jl:5",
+        "test/trajectory_inference.jl:6",
+        "test/trajectory_inference.jl:11",
+        "test/trajectory_inference.jl:28",
+        "test/trajectory_inference.jl:29",
+        "test/trajectory_inference.jl:33",
+        "test/trajectory_inference.jl:43",
+        "test/trajectory_inference.jl:45",
+        "test/trajectory_inference.jl:47",
+        "test/trajectory_inference.jl:48",
+        "test/trajectory_inference.jl:49",
+        "test/trajectory_inference.jl:50"
+      ],
+      "example_references": [
+        "examples/inference/lj_gate.jl:25",
+        "examples/inference/lj_gate.jl:26"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F29.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:80",
+          "docs/m10d_integration_matrix.md:32",
+          "docs/m10d_integration_matrix.md:123",
+          "docs/trajectory_inference.md:3"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F29",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    }
+  ],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

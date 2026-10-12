@@ -1,0 +1,582 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "12_surrogate_scalar_views",
+  "files": [
+    {
+      "path": "ext/AnalyticMathLabSurrogateExt.jl",
+      "sha256": "d9d441b2f6bb5f5b2cc96db834c86571812fb700ff9b96f4b74634afe128bce5",
+      "bytes": 6683,
+      "lines": 106,
+      "read_ranges": [
+        [
+          1,
+          106
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Lux/Optimization/NeuralOperators activation exact. Explicit normalization/RNG provenance; schema/ID checks train only; batched predict pointwise only. learning_objective ignores returned state unlike predict; no universal state validation promised."
+      ]
+    },
+    {
+      "path": "src/visualization/plots.jl",
+      "sha256": "3b6781b60b8ea7a54df813ecec7b832b9798bc11a9c89c08590dfa2d84523017",
+      "bytes": 3242,
+      "lines": 75,
+      "read_ranges": [
+        [
+          1,
+          75
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Scalar Figure samples stored callables; no backend activation/file save. Convergence log plot explicitly omits zero errors no epsilon observations."
+      ]
+    },
+    {
+      "path": "src/visualization/real.jl",
+      "sha256": "031043c478c8320bf9645daef7b92d8bcb81ec991f56b9bd8d5edbe1bf47e7b1",
+      "bytes": 3915,
+      "lines": 88,
+      "read_ranges": [
+        [
+          1,
+          88
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Stored established real-domain exclusions split curves including unsampled gaps; unknown domain view only sampled gaps, not certificate."
+      ]
+    }
+  ],
+  "apis": [
+    {
+      "symbol": "learning_model",
+      "source_location": [
+        "ext/AnalyticMathLabSurrogateExt.jl:5",
+        "src/scientific_ml/surrogates.jl:226"
+      ],
+      "public_signature": [
+        "function learning_model(d,network;rng,normalization::Symbol,rng_provenance)",
+        "learning_model(d::ScientificDataset,network;kwargs...)=_surrogate_extension().learning_model(d,network;kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Dataset,network; required rng,normalization::Symbol,rng_provenance",
+      "returns": "ScientificModel",
+      "errors": [
+        "ArgumentError missing three-trigger extension/normalization/operator network mismatch; output shape/state errors"
+      ],
+      "numerical_limitations": "Even plain surrogate requires NeuralOperators trigger; operator DeepONet only. normalization none still computes fit_scaling before identity maps. Explicit RNG provenance not inferred.",
+      "units": "Learning numeric outputs Float64 normalized/scaled; plotting Float64 view conversion, not units engine.",
+      "ownership": "Deepcopies schema; stores network/setupf64/testmode state and bounded origin/reference descriptors, no dataset targets.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization",
+        "NeuralOperators"
+      ],
+      "docstring_status": "ABSENT core method",
+      "test_references": [
+        "test/architecture.jl:100",
+        "test/m10d_extensions.jl:59",
+        "test/m10d_interoperability_learning.jl:16",
+        "test/m10d_semantics_learning.jl:14",
+        "test/m10d_user_optional.jl:52",
+        "test/stranger/dataset.jl:22"
+      ],
+      "example_references": [
+        "examples/integration/one_system_learning.jl:52",
+        "examples/operators/analysis_gate.jl:8",
+        "examples/operators/focused_gate.jl:13",
+        "examples/operators/focused_gate.jl:15",
+        "examples/operators/focused_gate.jl:18",
+        "examples/operators/focused_gate.jl:44",
+        "examples/operators/heat_showcase.jl:27",
+        "examples/operators/m10a_gate.jl:20",
+        "examples/operators/m10a_gate.jl:63",
+        "examples/operators/m10a_gate.jl:81",
+        "examples/operators/m10b_gate.jl:12",
+        "examples/scaling/generalization_scale.jl:18",
+        "examples/scaling/optional_scaling_gate.jl:21"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F33.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:84",
+          "docs/m10d_architecture_inventory.md:143",
+          "docs/m10d_flagship_results.md:102",
+          "docs/m10d_integration_matrix.md:34",
+          "docs/m10d_integration_matrix.md:127",
+          "docs/m10d_interoperability_results.md:71",
+          "docs/surrogates.md:20"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F33",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "training_data",
+      "source_location": [
+        "ext/AnalyticMathLabSurrogateExt.jl:54",
+        "src/scientific_ml/surrogates.jl:227"
+      ],
+      "public_signature": [
+        "function training_data(m,d)",
+        "training_data(m::ScientificModel,d::ScientificDataset)=_surrogate_extension().training_data(m,d)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ScientificModel,ScientificDataset",
+      "returns": "Internal LearningBatch train inputs/targets/IDs",
+      "errors": [
+        "ArgumentError changed scientific schema/IDs or operator query grids"
+      ],
+      "numerical_limitations": "Training subset only; DeepONet requires identical query grids no resampling. Internal batch type is not export.",
+      "units": "Learning numeric outputs Float64 normalized/scaled; plotting Float64 view conversion, not units engine.",
+      "ownership": "Materializes full training inputs/targets; not memory-budgeted.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization",
+        "NeuralOperators"
+      ],
+      "docstring_status": "ABSENT",
+      "test_references": [
+        "test/architecture.jl:100",
+        "test/m10d_interoperability_learning.jl:17",
+        "test/m10d_user_optional.jl:55"
+      ],
+      "example_references": [
+        "examples/inference/neural_gate.jl:53",
+        "examples/integration/one_system_learning.jl:54",
+        "examples/operators/focused_gate.jl:22",
+        "examples/operators/focused_gate.jl:28",
+        "examples/operators/integration_gate.jl:44",
+        "examples/operators/integration_gate.jl:49",
+        "examples/operators/m10a_gate.jl:40",
+        "examples/operators/m10a_gate.jl:53",
+        "examples/operators/m10a_gate.jl:69",
+        "examples/operators/m10a_gate.jl:75",
+        "examples/operators/m10b_gate.jl:13"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F33.md",
+        "existing_sections": [
+          "docs/m10c_ml_evidence.md:62",
+          "docs/m10d_architecture_inventory.md:84",
+          "docs/m10d_architecture_inventory.md:143",
+          "docs/m10d_flagship_results.md:102",
+          "docs/m10d_integration_matrix.md:34",
+          "docs/m10d_integration_matrix.md:127",
+          "docs/m10d_interoperability_results.md:72",
+          "docs/surrogates.md:22",
+          "docs/surrogates.md:83"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F33",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "learning_objective",
+      "source_location": [
+        "ext/AnalyticMathLabSurrogateExt.jl:71",
+        "src/scientific_ml/surrogates.jl:228"
+      ],
+      "public_signature": [
+        "function learning_objective(m,p,b)",
+        "learning_objective(m::ScientificModel,p,b::LearningBatch)=_surrogate_extension().learning_objective(m,p,b)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Model,native parameter container,LearningBatch",
+      "returns": "Normalized squared loss",
+      "errors": [
+        "DomainError nonfinite loss; backend shape/AD errors"
+      ],
+      "numerical_limitations": "Not physical error. This method ignores returned Lux state; prediction separately enforces no state change.",
+      "units": "Learning numeric outputs Float64 normalized/scaled; plotting Float64 view conversion, not units engine.",
+      "ownership": "Backend forward allocations, no source copy.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization",
+        "NeuralOperators"
+      ],
+      "docstring_status": "ABSENT",
+      "test_references": [
+        "test/architecture.jl:101",
+        "test/m10d_interoperability_learning.jl:28",
+        "test/m10d_user_optional.jl:55"
+      ],
+      "example_references": [
+        "examples/integration/one_system_learning.jl:55",
+        "examples/operators/focused_gate.jl:25",
+        "examples/operators/focused_gate.jl:28",
+        "examples/operators/integration_gate.jl:53",
+        "examples/operators/m10a_gate.jl:50",
+        "examples/operators/m10a_gate.jl:73",
+        "examples/operators/m10a_gate.jl:74",
+        "examples/operators/m10a_gate.jl:75",
+        "examples/operators/m10a_gate.jl:77",
+        "examples/operators/m10b_gate.jl:17",
+        "examples/operators/m10b_gate.jl:22"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F33.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:84",
+          "docs/m10d_architecture_inventory.md:143",
+          "docs/surrogates.md:23"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F33",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "train",
+      "source_location": [
+        "ext/AnalyticMathLabSurrogateExt.jl:77",
+        "src/scientific_ml/surrogates.jl:229"
+      ],
+      "public_signature": [
+        "function train(m,d;initial_parameters::AbstractVector,optimizer,adtype,maxiters::Integer,\nreconstruct=identity,history_limit::Integer=100)",
+        "train(m::ScientificModel,d::ScientificDataset;kwargs...)=_surrogate_extension().train(m,d;kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ScientificModel,Dataset; initial_parameters::AbstractVector,optimizer,adtype,maxiters required; reconstruct=identity,history_limit=100",
+      "returns": "ScientificLearningResult",
+      "errors": [
+        "ArgumentError maxiters outside1:100000/history outside1:10000 or empty/nonfinite parameters; ErrorException nonfinite history/final"
+      ],
+      "numerical_limitations": "Deterministic full batch of training only; scalar rolling history not memory cap. Optimization timing excludes preprocessing; global generalization unknown.",
+      "units": "Learning numeric outputs Float64 normalized/scaled; plotting Float64 view conversion, not units engine.",
+      "ownership": "Copies flat initial parameters; retains single borrowed dataset/native optimization objects.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization",
+        "NeuralOperators"
+      ],
+      "docstring_status": "ABSENT core method",
+      "test_references": [
+        "test/architecture.jl:90",
+        "test/m10d_interoperability_learning.jl:29",
+        "test/m10d_semantics_learning.jl:15",
+        "test/m10d_semantics_pinn.jl:14",
+        "test/m10d_user_optional.jl:48",
+        "test/pinn_base.jl:5",
+        "test/pinn_diagnostics.jl:15",
+        "test/pinn_diagnostics.jl:79",
+        "test/pinn_edges.jl:18",
+        "test/pinn_edges.jl:30",
+        "test/pinn_edges.jl:46",
+        "test/pinn_pde.jl:13",
+        "test/pinn_training.jl:14",
+        "test/pinn_training.jl:50",
+        "test/pinn_training.jl:51",
+        "test/pinn_training.jl:55",
+        "test/surrogate_contracts.jl:21"
+      ],
+      "example_references": [
+        "examples/inference/neural_gate.jl:48",
+        "examples/inference/neural_gate.jl:65",
+        "examples/inference/neural_gate.jl:72",
+        "examples/inference/neural_showcase.jl:24",
+        "examples/inference/neural_showcase.jl:33",
+        "examples/inference/neural_showcase.jl:44",
+        "examples/integration/one_system_learning.jl:56",
+        "examples/operators/analysis_gate.jl:9",
+        "examples/operators/focused_gate.jl:29",
+        "examples/operators/focused_gate.jl:51",
+        "examples/operators/heat_family.jl:60",
+        "examples/operators/heat_showcase.jl:204",
+        "examples/pinn/benchmarks.jl:82",
+        "examples/pinn/inverse_heat_gate.jl:60",
+        "examples/pinn/inverse_heat_gate.jl:62",
+        "examples/scaling/generalization_scale.jl:14",
+        "examples/scaling/generalization_scale.jl:21",
+        "examples/scaling/million_query_analysis.jl:30",
+        "examples/scaling/optional_scaling_gate.jl:11",
+        "notebooks/scientific_ml.jl:24"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F26.md",
+        "existing_sections": [
+          "README.md:49",
+          "docs/architecture.md:66",
+          "docs/inverse_heat.md:16",
+          "docs/learned_dynamics.md:44",
+          "docs/m10d_architecture_inventory.md:77",
+          "docs/m10d_architecture_inventory.md:84",
+          "docs/m10d_architecture_inventory.md:129",
+          "docs/m10d_architecture_inventory.md:141",
+          "docs/m10d_architecture_inventory.md:142",
+          "docs/m10d_architecture_inventory.md:143",
+          "docs/m10d_flagship_results.md:102",
+          "docs/m10d_flagship_results.md:115",
+          "docs/m10d_flagship_results.md:207",
+          "docs/m10d_integration_matrix.md:34",
+          "docs/m10d_integration_matrix.md:127",
+          "docs/m10d_interoperability_results.md:61",
+          "docs/m10d_interoperability_results.md:72",
+          "docs/m10d_one_system_many_methods.md:96",
+          "docs/operator_backends.md:26",
+          "docs/operator_backends.md:48",
+          "docs/scientific_ml.md:30",
+          "docs/scientific_ml.md:57",
+          "docs/scientific_ml.md:191",
+          "docs/surrogates.md:24"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "predict",
+      "source_location": [
+        "ext/AnalyticMathLabSurrogateExt.jl:32",
+        "src/scientific_ml/surrogates.jl:234",
+        "src/scientific_ml/surrogates.jl:235"
+      ],
+      "public_signature": [
+        "function predict(m,input,q;sensors=m.schema.sensors,batch_size::Union{Nothing,Integer}=nothing)",
+        "predict(m::ScientificModel,input,coordinates::AbstractMatrix;kwargs...)=_surrogate_extension().predict(m,input,coordinates;kwargs...)",
+        "predict(r::ScientificLearningResult,input,coordinates::AbstractMatrix;kwargs...)=predict(r.model,input,coordinates;kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ScientificModel or ScientificLearningResult, ordered input/query matrix; sensors schema default,batch_size optional",
+      "returns": "Scalar outputs vector query order",
+      "errors": [
+        "ArgumentError sensor/classification/state/batch error; DimensionMismatch shape; DomainError nonfinite"
+      ],
+      "numerical_limitations": "Pointwise/query-independent network batching only; no automatic detection of coupled query columns. Complete output O(query count), no implicit domain validity.",
+      "units": "Learning numeric outputs Float64 normalized/scaled; plotting Float64 view conversion, not units engine.",
+      "ownership": "Fresh output; no resampling.",
+      "optional_dependencies": [
+        "Lux",
+        "Optimization",
+        "NeuralOperators"
+      ],
+      "docstring_status": "DETAILED core",
+      "test_references": [
+        "test/architecture.jl:90",
+        "test/m10d_extensions.jl:60",
+        "test/m10d_interoperability_learning.jl:46",
+        "test/m10d_user_optional.jl:46",
+        "test/m10d_user_optional.jl:54",
+        "test/pinn_base.jl:5",
+        "test/pinn_diagnostics.jl:28",
+        "test/pinn_diagnostics.jl:29",
+        "test/pinn_diagnostics.jl:30",
+        "test/pinn_diagnostics.jl:37",
+        "test/pinn_edges.jl:20",
+        "test/pinn_edges.jl:24",
+        "test/pinn_edges.jl:25",
+        "test/pinn_edges.jl:32",
+        "test/pinn_edges.jl:53",
+        "test/pinn_multidimensional.jl:32",
+        "test/pinn_multidimensional.jl:33",
+        "test/pinn_multidimensional.jl:34",
+        "test/pinn_pde.jl:18",
+        "test/pinn_training.jl:36",
+        "test/pinn_training.jl:42",
+        "test/pinn_training.jl:43",
+        "test/pinn_training.jl:44",
+        "test/pinn_training.jl:47",
+        "test/pinn_training.jl:48",
+        "test/pinn_training.jl:49",
+        "test/pinn_training.jl:60"
+      ],
+      "example_references": [
+        "examples/inference/neural_gate.jl:59",
+        "examples/inference/neural_showcase.jl:27",
+        "examples/inference/neural_showcase.jl:46",
+        "examples/inference/neural_showcase.jl:48",
+        "examples/inference/neural_showcase.jl:50",
+        "examples/operators/analysis_gate.jl:23",
+        "examples/operators/focused_gate.jl:19",
+        "examples/operators/focused_gate.jl:20",
+        "examples/operators/focused_gate.jl:21",
+        "examples/operators/focused_gate.jl:30",
+        "examples/operators/focused_gate.jl:47",
+        "examples/operators/focused_gate.jl:48",
+        "examples/operators/focused_gate.jl:54",
+        "examples/operators/heat_demo.jl:19",
+        "examples/operators/heat_showcase.jl:81",
+        "examples/operators/heat_showcase.jl:96",
+        "examples/operators/integration_gate.jl:40",
+        "examples/operators/integration_gate.jl:66",
+        "examples/operators/m10a_gate.jl:30",
+        "examples/operators/m10a_gate.jl:31",
+        "examples/operators/m10a_gate.jl:32",
+        "examples/operators/m10a_gate.jl:33",
+        "examples/operators/m10a_gate.jl:35",
+        "examples/operators/m10a_gate.jl:36",
+        "examples/operators/m10a_gate.jl:37",
+        "examples/operators/m10a_gate.jl:39",
+        "examples/operators/m10b_gate.jl:16",
+        "examples/operators/m10b_gate.jl:20",
+        "examples/operators/m10b_gate.jl:27",
+        "examples/operators/m10b_gate.jl:29",
+        "examples/pinn/benchmark_gate.jl:67",
+        "examples/pinn/benchmark_gate.jl:68",
+        "examples/pinn/inverse_heat_gate.jl:75",
+        "examples/pinn/inverse_heat_gate.jl:100",
+        "examples/pinn/inverse_heat_gate.jl:101",
+        "examples/pinn/m10b_gate.jl:19",
+        "examples/pinn/m10b_gate.jl:21",
+        "examples/pinn/m10b_gate.jl:26",
+        "examples/pinn/m10b_gate.jl:32",
+        "examples/scaling/generalization_scale.jl:26",
+        "examples/scaling/optional_scaling_gate.jl:23",
+        "examples/scaling/optional_scaling_gate.jl:24",
+        "examples/scaling/optional_scaling_gate.jl:26",
+        "examples/scaling/optional_scaling_gate.jl:28",
+        "examples/scaling/optional_scaling_gate.jl:29",
+        "examples/scaling/optional_scaling_gate.jl:30",
+        "examples/scaling/optional_scaling_gate.jl:31",
+        "examples/scaling/optional_scaling_gate.jl:45",
+        "examples/scaling/optional_scaling_gate.jl:47",
+        "notebooks/scientific_ml.jl:29"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F26.md",
+        "existing_sections": [
+          "docs/learned_dynamics.md:50",
+          "docs/m10c_ml_evidence.md:22",
+          "docs/m10d_architecture_inventory.md:77",
+          "docs/m10d_architecture_inventory.md:81",
+          "docs/m10d_architecture_inventory.md:84",
+          "docs/m10d_architecture_inventory.md:94",
+          "docs/m10d_architecture_inventory.md:124",
+          "docs/m10d_architecture_inventory.md:130",
+          "docs/m10d_architecture_inventory.md:131",
+          "docs/m10d_architecture_inventory.md:141",
+          "docs/m10d_architecture_inventory.md:142",
+          "docs/m10d_architecture_inventory.md:143",
+          "docs/m10d_integration_matrix.md:37",
+          "docs/m10d_interoperability_results.md:72",
+          "docs/m10d_issue_ledger.md:26",
+          "docs/operator_backends.md:48",
+          "docs/scientific_ml.md:61",
+          "docs/scientific_ml.md:135",
+          "docs/scientific_ml.md:136",
+          "docs/surrogates.md:28"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "plot",
+      "source_location": [
+        "src/visualization/plots.jl:12",
+        "src/visualization/plots.jl:53"
+      ],
+      "public_signature": [
+        "function plot(report::FunctionAnalysis; xmin::Real=-5, xmax::Real=5,\nsamples::Integer=501)",
+        "function plot(result::DerivativeConvergenceAnalysis)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "FunctionAnalysis with xmin=-5,xmax=5,samples=501 or DerivativeConvergenceAnalysis",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError invalid bounds/samples; DomainError values masked, other exceptions propagate"
+      ],
+      "numerical_limitations": "Stored domain split curves with NaN rendering separators; unknown domain sampling not proof. Convergence zero errors omitted, never epsilon. No backend activation/save/solve.",
+      "units": "Learning numeric outputs Float64 normalized/scaled; plotting Float64 view conversion, not units engine.",
+      "ownership": "Fresh Figure sampled arrays; no report mutation.",
+      "optional_dependencies": [
+        "Rendering backend explicitly chosen by caller, e.g. CairoMakie"
+      ],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:68",
+        "test/architecture.jl:106",
+        "test/architecture.jl:107",
+        "test/atomistic_visualization.jl:28",
+        "test/convergence.jl:180",
+        "test/convergence.jl:193",
+        "test/multivariate_visualization.jl:14",
+        "test/potential_visualization.jl:16",
+        "test/real_analysis_visualization.jl:32",
+        "test/real_analysis_visualization.jl:40",
+        "test/real_analysis_visualization.jl:45",
+        "test/real_analysis_visualization.jl:46",
+        "test/real_analysis_visualization.jl:49",
+        "test/runtests.jl:325",
+        "test/runtests.jl:326",
+        "test/runtests.jl:329",
+        "test/runtests.jl:335",
+        "test/runtests.jl:336",
+        "test/runtests.jl:337",
+        "test/runtests.jl:338",
+        "test/vector_visualization.jl:35"
+      ],
+      "example_references": [
+        "notebooks/derivative_convergence.jl:25",
+        "notebooks/function_analysis.jl:17",
+        "notebooks/molly_companion.jl:80",
+        "notebooks/real_function_analysis.jl:25"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "README.md:60",
+          "README.md:234",
+          "README.md:284",
+          "README.md:287",
+          "README.md:360",
+          "README.md:364",
+          "README.md:365",
+          "README.md:372",
+          "README.md:482",
+          "README.md:486",
+          "docs/architecture.md:144",
+          "docs/architecture.md:256",
+          "docs/dynamical_systems.md:49",
+          "docs/m10c_scaling_inventory.md:35",
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/m10d_flagship_results.md:44",
+          "docs/m10d_flagship_results.md:73",
+          "docs/m10d_flagship_results.md:137",
+          "docs/m10d_flagship_results.md:150",
+          "docs/m10d_flagship_results.md:265",
+          "docs/m10d_integration_matrix.md:39",
+          "docs/mechanics.md:164",
+          "docs/vector_fields.md:180"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    }
+  ],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

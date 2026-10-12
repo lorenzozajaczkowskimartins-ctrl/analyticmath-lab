@@ -1,0 +1,1637 @@
+{
+  "scope": "Reconciled question inventory, not Wiki answers or publication. Q049 premise corrected; memory questions grounded by completed source audit.",
+  "questions": [
+    {
+      "id": "Q001",
+      "question": "How do I install AML from this checkout?",
+      "category": "Getting Started",
+      "public_apis": [
+        "analyze"
+      ],
+      "evidence_references": [
+        "Project.toml:1-63",
+        "README.md:63-75"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q002",
+      "question": "What can I use after only using AnalyticMathLab?",
+      "category": "Getting Started",
+      "public_apis": [
+        "ObservableSeries",
+        "statistical_summary"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:8-36"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/statistics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q003",
+      "question": "Why does the first import take time?",
+      "category": "Getting Started",
+      "public_apis": [],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:25-29"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "installation.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q004",
+      "question": "Which example should I run first?",
+      "category": "Getting Started",
+      "public_apis": [
+        "analyze",
+        "evaluate"
+      ],
+      "evidence_references": [
+        "notebooks/function_analysis.jl:1-22"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q005",
+      "question": "Do I need to force Julia or BLAS to one thread?",
+      "category": "Getting Started",
+      "public_apis": [],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:18-23"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "installation.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q006",
+      "question": "Why did simplifying x/x lose the exclusion at zero?",
+      "category": "Calculus and Symbolics",
+      "public_apis": [
+        "@real_function",
+        "analyze"
+      ],
+      "evidence_references": [
+        "README.md:149-156"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q007",
+      "question": "Does evaluate enforce the original real domain?",
+      "category": "Calculus and Symbolics",
+      "public_apis": [
+        "evaluate",
+        "domain_contains"
+      ],
+      "evidence_references": [
+        "README.md:205-209"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q008",
+      "question": "Why are some exact roots unknown?",
+      "category": "Calculus and Symbolics",
+      "public_apis": [
+        "analyze"
+      ],
+      "evidence_references": [
+        "README.md:166-179"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q009",
+      "question": "Does an empty stationary search prove there are no critical points?",
+      "category": "Calculus and Symbolics",
+      "public_apis": [
+        "analyze"
+      ],
+      "evidence_references": [
+        "README.md:299-341"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q010",
+      "question": "Can I analyze a Julia function or a string?",
+      "category": "Calculus and Symbolics",
+      "public_apis": [
+        "analyze"
+      ],
+      "evidence_references": [
+        "README.md:347-354"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q011",
+      "question": "Does AML provide general-purpose matrix analysis?",
+      "category": "Linear Algebra",
+      "public_apis": [
+        "normal_modes"
+      ],
+      "evidence_references": [
+        "README.md:439-444",
+        "docs/m10d_architecture_inventory.md:65"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/mechanics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q012",
+      "question": "Why does normal_modes take stiffness before mass?",
+      "category": "Linear Algebra",
+      "public_apis": [
+        "normal_modes"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:65"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/mechanics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q013",
+      "question": "Does sparse matrix input imply a sparse eigensolver?",
+      "category": "Linear Algebra",
+      "public_apis": [
+        "normal_modes"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:114-122"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/mechanics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q014",
+      "question": "What do zero, negative and degenerate modes mean?",
+      "category": "Linear Algebra",
+      "public_apis": [
+        "normal_modes"
+      ],
+      "evidence_references": [
+        "test/normal_modes.jl",
+        "test/mode_contracts.jl"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/mechanics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q015",
+      "question": "Does a Hessian at a snapshot establish equilibrium?",
+      "category": "Linear Algebra",
+      "public_apis": [
+        "normal_modes"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:65"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/mechanics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q016",
+      "question": "Can vector fields be rectangular maps?",
+      "category": "Vector Calculus",
+      "public_apis": [
+        "analyze",
+        "jacobian"
+      ],
+      "evidence_references": [
+        "README.md:548-550"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q017",
+      "question": "Why does curl return unknown outside supported dimensions?",
+      "category": "Vector Calculus",
+      "public_apis": [
+        "curl"
+      ],
+      "evidence_references": [
+        "README.md:550-552"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/vector.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q018",
+      "question": "Why is zero curl not enough to certify a potential?",
+      "category": "Vector Calculus",
+      "public_apis": [
+        "potential"
+      ],
+      "evidence_references": [
+        "README.md:561-565"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/vector.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q019",
+      "question": "How are numerical derivatives at a corner refused?",
+      "category": "Vector Calculus",
+      "public_apis": [
+        "gradient",
+        "hessian",
+        "jacobian"
+      ],
+      "evidence_references": [
+        "README.md:502-508",
+        "README.md:554-559"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/derivatives.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q020",
+      "question": "Does linearization prove anything away from its base point?",
+      "category": "Vector Calculus",
+      "public_apis": [
+        "linearization"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:57-58"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/derivatives.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q021",
+      "question": "Are derivative comparison errors certified bounds?",
+      "category": "Numerical Methods",
+      "public_apis": [
+        "compare_derivatives"
+      ],
+      "evidence_references": [
+        "README.md:106-111"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/derivatives.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q022",
+      "question": "Why can a smaller finite-difference step be worse?",
+      "category": "Numerical Methods",
+      "public_apis": [
+        "derivative_convergence"
+      ],
+      "evidence_references": [
+        "README.md:243-282"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/derivatives.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q023",
+      "question": "What does missing relative error mean at a zero reference?",
+      "category": "Numerical Methods",
+      "public_apis": [
+        "derivative_convergence"
+      ],
+      "evidence_references": [
+        "README.md:257-263"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/derivatives.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q024",
+      "question": "Why is observed convergence order missing?",
+      "category": "Numerical Methods",
+      "public_apis": [
+        "derivative_convergence"
+      ],
+      "evidence_references": [
+        "README.md:270-282"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/derivatives.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q025",
+      "question": "Which tolerance accepts a stationary candidate?",
+      "category": "Numerical Methods",
+      "public_apis": [
+        "analyze"
+      ],
+      "evidence_references": [
+        "README.md:324-340"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q026",
+      "question": "What does a successful trajectory solve establish?",
+      "category": "Differential Equations",
+      "public_apis": [
+        "trajectory"
+      ],
+      "evidence_references": [
+        "README.md:602-609"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/dynamics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q027",
+      "question": "Can FirstOrderODE be passed directly to analyze?",
+      "category": "Differential Equations",
+      "public_apis": [
+        "FirstOrderODE",
+        "trajectory",
+        "analyze"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:126-129"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q028",
+      "question": "Does saveat authorize interpolation in stored-data bridges?",
+      "category": "Differential Equations",
+      "public_apis": [
+        "trajectory",
+        "observable_series"
+      ],
+      "evidence_references": [
+        "examples/integration/one_system_many_methods.jl:97-108",
+        "docs/m10d_user_research_hardening.md:62-64"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/dynamics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q029",
+      "question": "Why are state and time converted to Float64?",
+      "category": "Differential Equations",
+      "public_apis": [
+        "FirstOrderODE",
+        "trajectory"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:60"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/dynamics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q030",
+      "question": "Are domain callbacks rigorous boundary tracking?",
+      "category": "Differential Equations",
+      "public_apis": [
+        "FirstOrderODE",
+        "trajectory"
+      ],
+      "evidence_references": [
+        "README.md:607-609"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/dynamics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q031",
+      "question": "Which coordinate and momentum order does AML use?",
+      "category": "Mechanics and Dynamics",
+      "public_apis": [
+        "LagrangianSystem",
+        "HamiltonianSystem"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:61-62"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/mechanics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q032",
+      "question": "When can AML establish a Legendre transform?",
+      "category": "Mechanics and Dynamics",
+      "public_apis": [
+        "legendre_transform"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:63"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/mechanics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q033",
+      "question": "Does sampled energy drift prove conservation?",
+      "category": "Mechanics and Dynamics",
+      "public_apis": [
+        "energy_drift"
+      ],
+      "evidence_references": [
+        "examples/integration/one_system_plots.jl:20-29"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/mechanics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q034",
+      "question": "Why do imaginary eigenvalues not decide nonlinear stability?",
+      "category": "Mechanics and Dynamics",
+      "public_apis": [
+        "stability"
+      ],
+      "evidence_references": [
+        "README.md:602-606"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/dynamics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q035",
+      "question": "How do I compare analytical and numerical descriptions of one system?",
+      "category": "Mechanics and Dynamics",
+      "public_apis": [
+        "dynamics",
+        "normal_modes",
+        "trajectory"
+      ],
+      "evidence_references": [
+        "examples/integration/one_system_many_methods.jl:111-201"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/dynamics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q036",
+      "question": "How do I select a stored component without guessing physical identity?",
+      "category": "Trajectories",
+      "public_apis": [
+        "observable_series"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:62-64"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/statistics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q037",
+      "question": "Is saved sample spacing the integrator time step?",
+      "category": "Trajectories",
+      "public_apis": [
+        "sampling_info"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:70"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/statistics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q038",
+      "question": "Are stored trajectory frames copied or lazy?",
+      "category": "Trajectories",
+      "public_apis": [
+        "AtomisticTrajectoryView"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:66"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/atomistic.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q039",
+      "question": "Why does comparing two stored results refuse missing context?",
+      "category": "Trajectories",
+      "public_apis": [
+        "ComparisonInput",
+        "compare"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:76"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/comparison.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q040",
+      "question": "Does diagnose recompute missing analyses?",
+      "category": "Trajectories",
+      "public_apis": [
+        "diagnose"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:75"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/statistics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q041",
+      "question": "Can I inspect particle data without Molly?",
+      "category": "Atomistic Computing",
+      "public_apis": [
+        "AtomisticSnapshot",
+        "mdcheck"
+      ],
+      "evidence_references": [
+        "test/stranger/atomistic.jl"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/atomistic.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q042",
+      "question": "Why does a Molly trajectory require explicit historical assertions?",
+      "category": "Atomistic Computing",
+      "public_apis": [
+        "atomistic_trajectory"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:65-69"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/atomistic.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q043",
+      "question": "What happens when a Molly system has no stored loggers?",
+      "category": "Atomistic Computing",
+      "public_apis": [
+        "atomistic_trajectory"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:65-69"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/atomistic.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q044",
+      "question": "What boundary and distance information is needed for RDF?",
+      "category": "Atomistic Computing",
+      "public_apis": [
+        "radial_distribution"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:69"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/atomistic.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q045",
+      "question": "Is analyze_potential an MD force engine?",
+      "category": "Atomistic Computing",
+      "public_apis": [
+        "analyze_potential",
+        "lennard_jones_analysis"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:68"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/atomistic.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q046",
+      "question": "Why does a moment summary not report an IID standard error?",
+      "category": "Statistics",
+      "public_apis": [
+        "statistical_summary"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:71"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/statistics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q047",
+      "question": "Do blocking and autocorrelation prove stationarity?",
+      "category": "Statistics",
+      "public_apis": [
+        "block_average",
+        "integrated_autocorrelation_time"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:72-73"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/statistics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q048",
+      "question": "Why are missing or nonfinite observations not silently filtered?",
+      "category": "Statistics",
+      "public_apis": [
+        "statistical_summary",
+        "running_statistics"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:56-61"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/statistics.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q049",
+      "question": "What time scale and fit-window assumptions are needed to interpret a diffusion estimate?",
+      "category": "Statistics",
+      "public_apis": [
+        "diffusion_estimate"
+      ],
+      "evidence_references": [
+        "src/trajectory/transport.jl:39-102",
+        "test/trajectory_transport.jl:17-40",
+        "docs/trajectory_statistics.md"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "Implementation fits eligible index-time MSD as well; this does not establish a physical transport coefficient. Do not claim a direct physical-clock refusal.",
+      "documentation_target": "reference/transport.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q050",
+      "question": "Does comparing compatible runs establish independence?",
+      "category": "Statistics",
+      "public_apis": [
+        "compare_runs"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:76"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/comparison.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q051",
+      "question": "Which dataset fields must I declare explicitly?",
+      "category": "Scientific Datasets",
+      "public_apis": [
+        "ScientificDataset"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:47-50"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/datasets.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q052",
+      "question": "Why must scalar targets be reshaped for scaling?",
+      "category": "Scientific Datasets",
+      "public_apis": [
+        "ScientificSample",
+        "transform"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:51-55"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/datasets.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q053",
+      "question": "How do I avoid train/validation normalization leakage?",
+      "category": "Scientific Datasets",
+      "public_apis": [
+        "fit_scaling"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:83"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/datasets.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q054",
+      "question": "Does a reference kind label certify its quality?",
+      "category": "Scientific Datasets",
+      "public_apis": [
+        "ScientificDataset"
+      ],
+      "evidence_references": [
+        "src/scientific_metadata.jl:114-124"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/datasets.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q055",
+      "question": "Does a numerical trajectory become analytical ground truth when converted?",
+      "category": "Scientific Datasets",
+      "public_apis": [
+        "ScientificDataset"
+      ],
+      "evidence_references": [
+        "examples/integration/one_system_many_methods.jl:81-95"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/datasets.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q056",
+      "question": "Does low PINN loss establish PDE correctness?",
+      "category": "Scientific Machine Learning",
+      "public_apis": [
+        "train",
+        "analyze"
+      ],
+      "evidence_references": [
+        "README.md:26-40"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q057",
+      "question": "Why does the learning model require explicit RNG provenance?",
+      "category": "Scientific Machine Learning",
+      "public_apis": [
+        "learning_model"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:98-102"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scientific-ml.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q058",
+      "question": "Are learned corrections symbolic discoveries?",
+      "category": "Scientific Machine Learning",
+      "public_apis": [
+        "UDEProblem"
+      ],
+      "evidence_references": [
+        "README.md:41-47"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scientific-ml.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q059",
+      "question": "What does the one-step oscillator learning example demonstrate?",
+      "category": "Scientific Machine Learning",
+      "public_apis": [
+        "learning_model",
+        "train"
+      ],
+      "evidence_references": [
+        "examples/integration/one_system_learning.jl:52-85"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scientific-ml.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q060",
+      "question": "Is local sensitivity the same as global identifiability?",
+      "category": "Scientific Machine Learning",
+      "public_apis": [
+        "local_sensitivity"
+      ],
+      "evidence_references": [
+        "README.md:41-46"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scientific-ml.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q061",
+      "question": "Does a unit string convert numerical data?",
+      "category": "Units and Precision",
+      "public_apis": [
+        "ScientificDataset"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:114-128"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/datasets.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q062",
+      "question": "Can compatible Unitful lengths be combined in statistics?",
+      "category": "Units and Precision",
+      "public_apis": [
+        "ObservableSeries",
+        "statistical_summary"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:56-61"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/statistics.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q063",
+      "question": "Why is unknown unit metadata not dimensionless?",
+      "category": "Units and Precision",
+      "public_apis": [
+        "compare"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:37-39"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/comparison.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q064",
+      "question": "Which paths really preserve BigFloat precision?",
+      "category": "Units and Precision",
+      "public_apis": [
+        "evaluate",
+        "trajectory"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:116-122",
+        "test/m10b_types.jl"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q065",
+      "question": "Are complex inputs or integers supported everywhere?",
+      "category": "Units and Precision",
+      "public_apis": [
+        "evaluate",
+        "normal_modes"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:116-122"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q066",
+      "question": "Why was my 3000 x 3000 Hessian rejected, and what can I do?",
+      "category": "Memory and Performance",
+      "public_apis": [
+        "analyze",
+        "hessian"
+      ],
+      "evidence_references": [
+        "README.md:510-518",
+        "src/multivariate_analysis.jl"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_OUTLINE_PENDING_IMPLEMENTATION",
+      "complete_answer_currently_possible": true,
+      "qualification": "Bounded answer from reviewed resource contracts is now possible; no global memory setter, RSS guarantee or generic matrix-free escape hatch.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED",
+      "audit_evidence": [
+        "resource_controls.json",
+        "refusal_review.json",
+        "hessian_question_outline.md"
+      ]
+    },
+    {
+      "id": "Q067",
+      "question": "Is there a global AML memory-budget setter?",
+      "category": "Memory and Performance",
+      "public_apis": [],
+      "evidence_references": [
+        "src/AnalyticMathLab.jl:15-67",
+        "examples/scaling/harness.jl"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_OUTLINE_PENDING_IMPLEMENTATION",
+      "complete_answer_currently_possible": true,
+      "qualification": "Bounded answer from reviewed resource contracts is now possible; no global memory setter, RSS guarantee or generic matrix-free escape hatch.",
+      "documentation_target": "guides/resource-limits.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED",
+      "audit_evidence": [
+        "resource_controls.json",
+        "refusal_review.json",
+        "hessian_question_outline.md"
+      ]
+    },
+    {
+      "id": "Q068",
+      "question": "Does a dense matrix size estimate include temporary storage?",
+      "category": "Memory and Performance",
+      "public_apis": [
+        "normal_modes"
+      ],
+      "evidence_references": [
+        "src/mechanics/normal_modes.jl",
+        "examples/scaling/when_dense_dies.jl"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_OUTLINE_PENDING_IMPLEMENTATION",
+      "complete_answer_currently_possible": true,
+      "qualification": "Bounded answer from reviewed resource contracts is now possible; no global memory setter, RSS guarantee or generic matrix-free escape hatch.",
+      "documentation_target": "reference/mechanics.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED",
+      "audit_evidence": [
+        "resource_controls.json",
+        "refusal_review.json",
+        "hessian_question_outline.md"
+      ]
+    },
+    {
+      "id": "Q069",
+      "question": "Which limits are internal rather than public configuration?",
+      "category": "Memory and Performance",
+      "public_apis": [
+        "analyze",
+        "normal_modes"
+      ],
+      "evidence_references": [
+        "src/core/exact_algebra.jl",
+        "src/mechanics/normal_modes.jl"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_OUTLINE_PENDING_IMPLEMENTATION",
+      "complete_answer_currently_possible": true,
+      "qualification": "Bounded answer from reviewed resource contracts is now possible; no global memory setter, RSS guarantee or generic matrix-free escape hatch.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED",
+      "audit_evidence": [
+        "resource_controls.json",
+        "refusal_review.json",
+        "hessian_question_outline.md"
+      ]
+    },
+    {
+      "id": "Q070",
+      "question": "Are maintainer scaling scripts supported matrix-free APIs?",
+      "category": "Memory and Performance",
+      "public_apis": [
+        "normal_modes"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:162-178",
+        "examples/scaling/partial_modes.jl"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_OUTLINE_PENDING_IMPLEMENTATION",
+      "complete_answer_currently_possible": true,
+      "qualification": "Bounded answer from reviewed resource contracts is now possible; no global memory setter, RSS guarantee or generic matrix-free escape hatch.",
+      "documentation_target": "reference/mechanics.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED",
+      "audit_evidence": [
+        "resource_controls.json",
+        "refusal_review.json",
+        "hessian_question_outline.md"
+      ]
+    },
+    {
+      "id": "Q071",
+      "question": "What do value, status, method and notes mean?",
+      "category": "Scientific Evidence and Provenance",
+      "public_apis": [
+        "PropertyResult"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:40-42",
+        "src/core/contracts.jl"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/core.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q072",
+      "question": "Is unknown evidence the same as false or zero?",
+      "category": "Scientific Evidence and Provenance",
+      "public_apis": [
+        "PropertyResult"
+      ],
+      "evidence_references": [
+        "README.md:135-139"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/core.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q073",
+      "question": "Does provenance identity affect scientific value equality?",
+      "category": "Scientific Evidence and Provenance",
+      "public_apis": [
+        "scientific_origin"
+      ],
+      "evidence_references": [
+        "test/m10d_value_compatibility.jl",
+        "docs/m10d_semantics_results.md"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/evidence.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q074",
+      "question": "Can I use an origin token as a persistent reproducibility hash?",
+      "category": "Scientific Evidence and Provenance",
+      "public_apis": [
+        "scientific_origin"
+      ],
+      "evidence_references": [
+        "src/scientific_metadata.jl:12-22"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/evidence.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q075",
+      "question": "Why is ancestry unavailable on an isolated PropertyResult?",
+      "category": "Scientific Evidence and Provenance",
+      "public_apis": [
+        "scientific_metadata",
+        "scientific_origin"
+      ],
+      "evidence_references": [
+        "src/scientific_metadata.jl:52-59"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/evidence.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q076",
+      "question": "Which exact packages activate each optional extension?",
+      "category": "Optional Extensions",
+      "public_apis": [
+        "pinn_problem",
+        "learning_model",
+        "infer_parameters"
+      ],
+      "evidence_references": [
+        "Project.toml:19-33"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scientific-ml.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q077",
+      "question": "Why does a plain Lux surrogate require NeuralOperators?",
+      "category": "Optional Extensions",
+      "public_apis": [
+        "learning_model"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:89-96"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scientific-ml.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q078",
+      "question": "Can I import AML before its optional backends?",
+      "category": "Optional Extensions",
+      "public_apis": [
+        "pinn_network"
+      ],
+      "evidence_references": [
+        "test/m10d_user_optional.jl:1-29",
+        "docs/m10d_user_research_results.md:73-92"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scientific-ml.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q079",
+      "question": "Will AML choose an available backend automatically?",
+      "category": "Optional Extensions",
+      "public_apis": [
+        "pinn_problem",
+        "learning_model"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:89-96"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scientific-ml.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q080",
+      "question": "Does AML import activate CairoMakie?",
+      "category": "Optional Extensions",
+      "public_apis": [
+        "plot"
+      ],
+      "evidence_references": [
+        "src/AnalyticMathLab.jl:4-13",
+        "docs/m10d_user_research_hardening.md:31-36"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/plots.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q081",
+      "question": "Why is analyze not defined for my input type?",
+      "category": "Troubleshooting",
+      "public_apis": [
+        "analyze"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:112-133"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/scalar.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q082",
+      "question": "Why is transform ambiguous after importing another library?",
+      "category": "Troubleshooting",
+      "public_apis": [
+        "transform"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:51-55"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/datasets.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q083",
+      "question": "Why is a plot region blank even though sampling looks finite?",
+      "category": "Troubleshooting",
+      "public_apis": [
+        "surface",
+        "vectorplot"
+      ],
+      "evidence_references": [
+        "README.md:482-493",
+        "README.md:567-570"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/plots.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q084",
+      "question": "Can I fix a refusal by changing an internal constant?",
+      "category": "Troubleshooting",
+      "public_apis": [
+        "hessian",
+        "normal_modes"
+      ],
+      "evidence_references": [
+        "docs/m10d_architecture_inventory.md:8-17",
+        "README.md:510-518"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/derivatives.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q085",
+      "question": "What must I retain before mutating a borrowed array?",
+      "category": "Troubleshooting",
+      "public_apis": [
+        "ObservableSeries",
+        "AtomisticSnapshot"
+      ],
+      "evidence_references": [
+        "docs/m10d_user_research_hardening.md:71-74"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_DRAFT_PENDING",
+      "complete_answer_currently_possible": true,
+      "qualification": "A supported bounded answer can be written from these contracts; no universal guarantee. Full wording/example verification is later work.",
+      "documentation_target": "reference/atomistic.md",
+      "priority": "P0",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q086",
+      "question": "Which pair-output limits are public, and does RDF remove quadratic work?",
+      "category": "Memory and Performance",
+      "public_apis": [
+        "pair_distances",
+        "radial_distribution",
+        "coordination"
+      ],
+      "evidence_references": [
+        "src/atomistic/core.jl:87-123",
+        "src/atomistic/distributions.jl"
+      ],
+      "audit_evidence": [
+        "resource_controls.json"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_OUTLINE_PENDING_IMPLEMENTATION",
+      "complete_answer_currently_possible": true,
+      "qualification": "Scoped source-based answer; no global guarantee or fresh execution.",
+      "documentation_target": "guides/resource-limits.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q087",
+      "question": "Does prediction batch_size bound the returned output or training memory?",
+      "category": "Memory and Performance",
+      "public_apis": [
+        "predict"
+      ],
+      "evidence_references": [
+        "ext/AnalyticMathLabPINNExt.jl:155-200",
+        "ext/AnalyticMathLabSurrogateExt.jl:32-52"
+      ],
+      "audit_evidence": [
+        "resource_controls.json"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_OUTLINE_PENDING_IMPLEMENTATION",
+      "complete_answer_currently_possible": true,
+      "qualification": "Scoped source-based answer; no global guarantee or fresh execution.",
+      "documentation_target": "guides/resource-limits.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q088",
+      "question": "Which histories retain earliest entries and which retain the most recent?",
+      "category": "Memory and Performance",
+      "public_apis": [
+        "PINNHistory",
+        "train",
+        "infer_parameters"
+      ],
+      "evidence_references": [
+        "ext/AnalyticMathLabPINNExt.jl:89-152",
+        "ext/AnalyticMathLabInferenceExt.jl:6-49",
+        "ext/AnalyticMathLabSurrogateExt.jl:77-104"
+      ],
+      "audit_evidence": [
+        "resource_controls.json"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_OUTLINE_PENDING_IMPLEMENTATION",
+      "complete_answer_currently_possible": true,
+      "qualification": "Scoped source-based answer; no global guarantee or fresh execution.",
+      "documentation_target": "guides/resource-limits.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q089",
+      "question": "When does summary_only avoid output arrays, and are public iterators one-pass?",
+      "category": "Memory and Performance",
+      "public_apis": [
+        "field_errors",
+        "heat_residual",
+        "sampled_summary"
+      ],
+      "evidence_references": [
+        "src/scientific_ml/diagnostics.jl:23-48",
+        "src/scientific_ml/generalization.jl:39-57",
+        "test/m10c_chunking.jl"
+      ],
+      "audit_evidence": [
+        "resource_controls.json"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_OUTLINE_PENDING_IMPLEMENTATION",
+      "complete_answer_currently_possible": true,
+      "qualification": "Scoped source-based answer; no global guarantee or fresh execution.",
+      "documentation_target": "guides/resource-limits.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    },
+    {
+      "id": "Q090",
+      "question": "What provenance is intentionally omitted with source_retention=:descriptor?",
+      "category": "Memory and Performance",
+      "public_apis": [
+        "ScientificDataset"
+      ],
+      "evidence_references": [
+        "src/scientific_ml/trajectory_dataset.jl:28-104",
+        "test/m10d_semantics_review.jl"
+      ],
+      "audit_evidence": [
+        "resource_controls.json"
+      ],
+      "answer_readiness": "SOURCE_SUPPORTED_OUTLINE_PENDING_IMPLEMENTATION",
+      "complete_answer_currently_possible": true,
+      "qualification": "Scoped source-based answer; no global guarantee or fresh execution.",
+      "documentation_target": "guides/resource-limits.md",
+      "priority": "P1",
+      "evidence_level": "SOURCE_SUPPORTED_OUTLINE_NOT_PUBLISHED_OR_EXECUTED"
+    }
+  ],
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca"
+}

@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "32_tests_values_mechanics",
+  "files": [
+    {
+      "path": "test/m10d_value_compatibility.jl",
+      "sha256": "1f5571f8b5f8fceb30e0348deec12ccbf61ca286b7ba9abc123b76383b884533",
+      "bytes": 3846,
+      "lines": 63,
+      "read_ranges": [
+        [
+          1,
+          63
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "PropertyResult four fields/generated constructors/value equality hash/serialization remain unchanged; origin absent from context-free leaves."
+      ]
+    },
+    {
+      "path": "test/mechanics.jl",
+      "sha256": "84a5d89fc2d30385dcfe5cd0027ba685a9daa72755ea63aefdee3e14d675936e",
+      "bytes": 6614,
+      "lines": 117,
+      "read_ranges": [
+        [
+          1,
+          117
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Symbolic free particle/oscillator/damped/cyclic/singular/affine Legendre contracts; assumptions and original holes survive."
+      ]
+    },
+    {
+      "path": "test/mechanics_dynamics.jl",
+      "sha256": "76f77a6b31616ebb6c943ef437f3b2764fb44eb43fdb322a9f14f7055ec72167",
+      "bytes": 7958,
+      "lines": 146,
+      "read_ranges": [
+        [
+          1,
+          146
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Identity-sensitive energy drift, explicit time and parameters/assumption pullbacks, borrowed sources and no auto plot backend."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

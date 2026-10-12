@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "44_tests_transport_comparison_observations",
+  "files": [
+    {
+      "path": "test/trajectory_comparison_transport.jl",
+      "sha256": "182a0289acb1396346501eea326555617ded75cdd5037f202e420b9dd331c6c8",
+      "bytes": 4630,
+      "lines": 71,
+      "read_ranges": [
+        [
+          1,
+          71
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "MSD/VACF comparison requires compatible selection/time/convention, diffusion fit-window mismatch fails; explicit index-time diffusion fixture at line39 confirms missing direct gate."
+      ]
+    },
+    {
+      "path": "test/trajectory_comparison_visualization.jl",
+      "sha256": "266eb6616816704c1230747f2d6f127512ff5f0dfcf2267fdd1521c46d14fb0b",
+      "bytes": 1344,
+      "lines": 26,
+      "read_ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Comparison/difference views render stored compatible or unknown diagnostics, no invented uncertainty or source mutation."
+      ]
+    },
+    {
+      "path": "test/trajectory_inference.jl",
+      "sha256": "69e4f1c49de13c194d14b1414bb3e2867dc22ecb168d1a626fdc546b51ffc46c",
+      "bytes": 2926,
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Pair observations copy values/times retain source identity; fixed scale required Unitful ObservationSet, unknown/index clock refuse and monotone frames enforced."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

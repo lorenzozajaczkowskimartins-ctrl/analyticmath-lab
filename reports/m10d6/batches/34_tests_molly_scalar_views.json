@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "34_tests_molly_scalar_views",
+  "files": [
+    {
+      "path": "test/molly_integration.jl",
+      "sha256": "8131faa58a683e3dcad7c67a6b660f2b7da3a0bd690e80a3cbebcc52cf4c5b4b",
+      "bytes": 5240,
+      "lines": 98,
+      "read_ranges": [
+        [
+          1,
+          98
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Molly pinned version/borrowed copy_data and observables opt-in; explicit fixed-box/logger compatibility/unknown times, CPU sentinel and cutoff backend truth."
+      ]
+    },
+    {
+      "path": "test/molly_trajectory_statistics.jl",
+      "sha256": "effd7da1d1c74f9dac2dedb479ff84ccf79b9aec4dfe60c875d56375a6506975",
+      "bytes": 2920,
+      "lines": 43,
+      "read_ranges": [
+        [
+          1,
+          43
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Scalar logger storage borrowed; explicit times/no inferred clock, missing unwrapped images refuses MSD; NVE expectation is provenance assertion."
+      ]
+    },
+    {
+      "path": "test/multivariate_visualization.jl",
+      "sha256": "3603d8839a379b27d5a18b9aa1e91ab3f32ec756a04136840d7374bade798078",
+      "bytes": 2053,
+      "lines": 38,
+      "read_ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Backend-independent scalar Figure generation, holes mask crossing cells, input ranges/sample/dimension refusals, no mutation."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

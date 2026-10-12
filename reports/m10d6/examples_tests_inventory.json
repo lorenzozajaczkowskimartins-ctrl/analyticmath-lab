@@ -1,0 +1,5354 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "scope": "All tracked tests, examples and notebooks; source inspection not execution.",
+  "files": [
+    {
+      "path": "examples/inference/Manifest.toml",
+      "sha256": "74c2e374975d4e2c275df77a2e140bc01ec9f49a7301169ad93eabbd89d957d4",
+      "bytes": 108825,
+      "lines": 2877,
+      "area": "examples",
+      "inspection_status": "INDEXED_NOT_FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/87_frozen_data_environment_8.json",
+          "path": "examples/inference/Manifest.toml",
+          "sha256": "74c2e374975d4e2c275df77a2e140bc01ec9f49a7301169ad93eabbd89d957d4",
+          "bytes": 108825,
+          "inspection": "DETERMINISTIC_MANIFEST_ENUMERATION",
+          "metadata": {
+            "julia_version": "1.12.7",
+            "manifest_format": "2.0",
+            "project_hash": "1189ff0e838320585b4a223f54b1d4543a53fce9"
+          },
+          "packages": 341,
+          "aml_registration": [
+            {
+              "deps": [
+                "CairoMakie",
+                "FiniteDiff",
+                "ForwardDiff",
+                "LinearAlgebra",
+                "Makie",
+                "OrdinaryDiffEqTsit5",
+                "Random",
+                "Roots",
+                "SciMLBase",
+                "Symbolics",
+                "Unitful"
+              ],
+              "path": "../..",
+              "uuid": "d00b717d-2040-4c0f-8850-62abbaf45caf",
+              "version": "0.1.0",
+              "extensions": {
+                "AnalyticMathLabDynamicsExt": [
+                  "Lux",
+                  "Optimization"
+                ],
+                "AnalyticMathLabInferenceExt": "Optimization",
+                "AnalyticMathLabMollyExt": "Molly",
+                "AnalyticMathLabPINNExt": [
+                  "Lux",
+                  "NeuralPDE",
+                  "ModelingToolkit",
+                  "Optimization",
+                  "SymbolicIndexingInterface"
+                ],
+                "AnalyticMathLabSurrogateExt": [
+                  "Lux",
+                  "Optimization",
+                  "NeuralOperators"
+                ]
+              },
+              "weakdeps": {
+                "Lux": "b2108857-7c20-44ae-9111-449ecde12c47",
+                "ModelingToolkit": "961ee093-0014-501f-94e3-6117800e7a78",
+                "Molly": "aa0f7f06-fcc0-5ec4-a7f3-a573f33f9c4c",
+                "NeuralOperators": "ea5c82af-86e5-48da-8ee1-382d6ad7af4b",
+                "NeuralPDE": "315f7962-48a3-4962-8226-d0f33b1235f0",
+                "Optimization": "7f7a1694-90dd-40f0-9382-eb1efda571ba",
+                "SymbolicIndexingInterface": "2efcf032-c050-4f8e-a9bb-153293bab1f5"
+              }
+            }
+          ],
+          "semantic_findings": [
+            "Environment lockfile indexed; no resolution/install/load verification."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "ENVIRONMENT_LOCK_ENUMERATION_NOT_LOADED"
+    },
+    {
+      "path": "examples/inference/Project.toml",
+      "sha256": "e10b1c17c9999fe6427780a8460516c569353642ee455eb69f5fefe825f6d4b7",
+      "bytes": 647,
+      "lines": 20,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/68_plot_script_optional_manifests.json",
+          "path": "examples/inference/Project.toml",
+          "sha256": "e10b1c17c9999fe6427780a8460516c569353642ee455eb69f5fefe825f6d4b7",
+          "bytes": 647,
+          "lines": 20,
+          "read_ranges": [
+            [
+              1,
+              20
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Inference direct deps explicit ForwardDiff/Symbolics, local AML source and pinned optional CPU versions; version compatibility not universal OS guarantee."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "ENVIRONMENT_CONTRACT_SOURCE_INSPECTED"
+    },
+    {
+      "path": "examples/inference/deterministic_gate.jl",
+      "sha256": "9f52dd86c3e6e791eb92f793f8c91558eebc9b711e7255d983f5a3e598dc1107",
+      "bytes": 2970,
+      "lines": 54,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/47_examples_inference_gates.json",
+          "path": "examples/inference/deterministic_gate.jl",
+          "sha256": "9f52dd86c3e6e791eb92f793f8c91558eebc9b711e7255d983f5a3e598dc1107",
+          "bytes": 2970,
+          "lines": 54,
+          "read_ranges": [
+            [
+              1,
+              54
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Optional oscillator gradient/500step fit with disjoint heldout and poisoned truth; not automatic guarantee."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/inference/integration_gate.jl",
+      "sha256": "24e132690b54b28045fd60a2d43264fe4cb5548244641bb615bbad30a387909e",
+      "bytes": 2477,
+      "lines": 46,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/47_examples_inference_gates.json",
+          "path": "examples/inference/integration_gate.jl",
+          "sha256": "24e132690b54b28045fd60a2d43264fe4cb5548244641bb615bbad30a387909e",
+          "bytes": 2477,
+          "lines": 46,
+          "read_ranges": [
+            [
+              1,
+              46
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Optimization-only then Lux triggers; bounded history and plotting no forward rerun."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/inference/lj_gate.jl",
+      "sha256": "e9036970d4b36c8a8ee551a629900ec108d72daf3dc8bb538d36588ea5c2b5b3",
+      "bytes": 6437,
+      "lines": 101,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/47_examples_inference_gates.json",
+          "path": "examples/inference/lj_gate.jl",
+          "sha256": "e9036970d4b36c8a8ee551a629900ec108d72daf3dc8bb538d36588ea5c2b5b3",
+          "bytes": 6437,
+          "lines": 101,
+          "read_ranges": [
+            [
+              1,
+              101
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Controlled collinear LJ radial reduced mass/matching force with400steps/figures; uses AML.ForwardDiff alias (not exported contract), distinguish legacy gate from supported public tutorial."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/inference/m10a_gate.jl",
+      "sha256": "40516c6699c9c334f0ad1333fb654e64c6922b43a56b5974f0c68c412e335a73",
+      "bytes": 4486,
+      "lines": 77,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/48_examples_neural_contracts.json",
+          "path": "examples/inference/m10a_gate.jl",
+          "sha256": "40516c6699c9c334f0ad1333fb654e64c6922b43a56b5974f0c68c412e335a73",
+          "bytes": 4486,
+          "lines": 77,
+          "read_ranges": [
+            [
+              1,
+              77
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Independent canonical J/gauge and UDE hidden-term counterexamples, no optimizer run in this gate; AD/traj not proof."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/inference/neural_gate.jl",
+      "sha256": "ff87a4d6b957c5f8dd9e3368b82736317927b8dd36f43cea7705aad8906ef95b",
+      "bytes": 5521,
+      "lines": 92,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/48_examples_neural_contracts.json",
+          "path": "examples/inference/neural_gate.jl",
+          "sha256": "ff87a4d6b957c5f8dd9e3368b82736317927b8dd36f43cea7705aad8906ef95b",
+          "bytes": 5521,
+          "lines": 92,
+          "read_ranges": [
+            [
+              1,
+              92
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Small fixed-basis HNN/UDE training gate with history_limit and optional showcase; AML.OrdinaryDiffEqTsit5 alias legacy native check."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/inference/neural_showcase.jl",
+      "sha256": "33fd86860f796078407914c6a042c4dd4e7c0565d77d7583b1911b9649e2b748",
+      "bytes": 8712,
+      "lines": 114,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/48_examples_neural_contracts.json",
+          "path": "examples/inference/neural_showcase.jl",
+          "sha256": "33fd86860f796078407914c6a042c4dd4e7c0565d77d7583b1911b9649e2b748",
+          "bytes": 8712,
+          "lines": 114,
+          "read_ranges": [
+            [
+              1,
+              114
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "CPU quadratic3parameter/cubic1parameter showcase, disjoint eval and analytic/numerical references, gauge alignment/extrapolation metrics and unknown global; writes figures/report only when run."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "SCIENTIFIC_EXAMPLE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/inference/parameter_showcase.jl",
+      "sha256": "fcc06f53ef120b5a64a2761b75d5bc7b4349af98ef3d79bfaea17f4d87afeba8",
+      "bytes": 1703,
+      "lines": 29,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/49_examples_parameter_operator_probes.json",
+          "path": "examples/inference/parameter_showcase.jl",
+          "sha256": "fcc06f53ef120b5a64a2761b75d5bc7b4349af98ef3d79bfaea17f4d87afeba8",
+          "bytes": 1703,
+          "lines": 29,
+          "read_ranges": [
+            [
+              1,
+              29
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "500step synthetic damping fit, disjoint interpolant sample heldout and explicit reduced unit declarations; autoexecutes/writes PNG."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "SCIENTIFIC_EXAMPLE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/integration/one_system_learning.jl",
+      "sha256": "90c6aa5028a3e6722a170889c54e1a9d0e270df8f2e3a095911f15a232fd50df",
+      "bytes": 5552,
+      "lines": 97,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "parent_inspection.json",
+          "path": "examples/integration/one_system_learning.jl",
+          "sha256": "90c6aa5028a3e6722a170889c54e1a9d0e270df8f2e3a095911f15a232fd50df",
+          "read_ranges": [
+            [
+              1,
+              97
+            ]
+          ],
+          "status": "SOURCE_INSPECTED",
+          "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "SCIENTIFIC_EXAMPLE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/integration/one_system_many_methods.jl",
+      "sha256": "5095e5ac62b3ec2cc85ac1477a10709d2595fec2a6ef4e01163ce14aaf76c193",
+      "bytes": 12844,
+      "lines": 221,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "parent_inspection.json",
+          "path": "examples/integration/one_system_many_methods.jl",
+          "sha256": "5095e5ac62b3ec2cc85ac1477a10709d2595fec2a6ef4e01163ce14aaf76c193",
+          "read_ranges": [
+            [
+              1,
+              221
+            ]
+          ],
+          "status": "SOURCE_INSPECTED",
+          "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "SCIENTIFIC_EXAMPLE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/integration/one_system_plots.jl",
+      "sha256": "6758e2b58523e8621aa82caddc9b804493274066abca3175c15828d5cff717c0",
+      "bytes": 2276,
+      "lines": 48,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "parent_inspection.json",
+          "path": "examples/integration/one_system_plots.jl",
+          "sha256": "6758e2b58523e8621aa82caddc9b804493274066abca3175c15828d5cff717c0",
+          "read_ranges": [
+            [
+              1,
+              48
+            ]
+          ],
+          "status": "SOURCE_INSPECTED",
+          "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "SCIENTIFIC_EXAMPLE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/molly/Manifest.toml",
+      "sha256": "3d023083d15d42130775afbcfc4a7d4e7b18552b3d7e70b0fe354906754c5ab5",
+      "bytes": 101040,
+      "lines": 2728,
+      "area": "examples",
+      "inspection_status": "INDEXED_NOT_FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/87_frozen_data_environment_8.json",
+          "path": "examples/molly/Manifest.toml",
+          "sha256": "3d023083d15d42130775afbcfc4a7d4e7b18552b3d7e70b0fe354906754c5ab5",
+          "bytes": 101040,
+          "inspection": "DETERMINISTIC_MANIFEST_ENUMERATION",
+          "metadata": {
+            "julia_version": "1.12.7",
+            "manifest_format": "2.0",
+            "project_hash": "100533fcc0f442a2471b7d484c61090f82ee83d7"
+          },
+          "packages": 348,
+          "aml_registration": [
+            {
+              "deps": [
+                "CairoMakie",
+                "FiniteDiff",
+                "ForwardDiff",
+                "LinearAlgebra",
+                "Makie",
+                "OrdinaryDiffEqTsit5",
+                "Random",
+                "Roots",
+                "SciMLBase",
+                "Symbolics",
+                "Unitful"
+              ],
+              "path": "../..",
+              "uuid": "d00b717d-2040-4c0f-8850-62abbaf45caf",
+              "version": "0.1.0",
+              "extensions": {
+                "AnalyticMathLabDynamicsExt": [
+                  "Lux",
+                  "Optimization"
+                ],
+                "AnalyticMathLabInferenceExt": "Optimization",
+                "AnalyticMathLabMollyExt": "Molly",
+                "AnalyticMathLabPINNExt": [
+                  "Lux",
+                  "NeuralPDE",
+                  "ModelingToolkit",
+                  "Optimization",
+                  "SymbolicIndexingInterface"
+                ],
+                "AnalyticMathLabSurrogateExt": [
+                  "Lux",
+                  "Optimization",
+                  "NeuralOperators"
+                ]
+              },
+              "weakdeps": {
+                "Lux": "b2108857-7c20-44ae-9111-449ecde12c47",
+                "ModelingToolkit": "961ee093-0014-501f-94e3-6117800e7a78",
+                "Molly": "aa0f7f06-fcc0-5ec4-a7f3-a573f33f9c4c",
+                "NeuralOperators": "ea5c82af-86e5-48da-8ee1-382d6ad7af4b",
+                "NeuralPDE": "315f7962-48a3-4962-8226-d0f33b1235f0",
+                "Optimization": "7f7a1694-90dd-40f0-9382-eb1efda571ba",
+                "SymbolicIndexingInterface": "2efcf032-c050-4f8e-a9bb-153293bab1f5"
+              }
+            }
+          ],
+          "semantic_findings": [
+            "Environment lockfile indexed; no resolution/install/load verification."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "ENVIRONMENT_LOCK_ENUMERATION_NOT_LOADED"
+    },
+    {
+      "path": "examples/molly/Project.toml",
+      "sha256": "498b1fa82377f0458aef4d08ade4d6360538372dc99d4f3fdf011106f4410743",
+      "bytes": 341,
+      "lines": 14,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/68_plot_script_optional_manifests.json",
+          "path": "examples/molly/Project.toml",
+          "sha256": "498b1fa82377f0458aef4d08ade4d6360538372dc99d4f3fdf011106f4410743",
+          "bytes": 341,
+          "lines": 14,
+          "read_ranges": [
+            [
+              1,
+              14
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Molly environment local AML source, pinned0.23.3 and Cairo/Unitful; no Test direct dep in this environment project, manually included tests use standard lookup."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "ENVIRONMENT_CONTRACT_SOURCE_INSPECTED"
+    },
+    {
+      "path": "examples/operators/Manifest.toml",
+      "sha256": "d343ca13f885b5c44a58a4948e78ee925ee7dd875c44001ae68dff5e2c9c9fa1",
+      "bytes": 114599,
+      "lines": 3013,
+      "area": "examples",
+      "inspection_status": "INDEXED_NOT_FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/87_frozen_data_environment_8.json",
+          "path": "examples/operators/Manifest.toml",
+          "sha256": "d343ca13f885b5c44a58a4948e78ee925ee7dd875c44001ae68dff5e2c9c9fa1",
+          "bytes": 114599,
+          "inspection": "DETERMINISTIC_MANIFEST_ENUMERATION",
+          "metadata": {
+            "julia_version": "1.12.7",
+            "manifest_format": "2.0",
+            "project_hash": "2418e0f77763976b4aaa320db84cde5b0e5c1068"
+          },
+          "packages": 356,
+          "aml_registration": [
+            {
+              "deps": [
+                "CairoMakie",
+                "FiniteDiff",
+                "ForwardDiff",
+                "LinearAlgebra",
+                "Makie",
+                "OrdinaryDiffEqTsit5",
+                "Random",
+                "Roots",
+                "SciMLBase",
+                "Symbolics",
+                "Unitful"
+              ],
+              "path": "../..",
+              "uuid": "d00b717d-2040-4c0f-8850-62abbaf45caf",
+              "version": "0.1.0",
+              "extensions": {
+                "AnalyticMathLabDynamicsExt": [
+                  "Lux",
+                  "Optimization"
+                ],
+                "AnalyticMathLabInferenceExt": "Optimization",
+                "AnalyticMathLabMollyExt": "Molly",
+                "AnalyticMathLabPINNExt": [
+                  "Lux",
+                  "NeuralPDE",
+                  "ModelingToolkit",
+                  "Optimization",
+                  "SymbolicIndexingInterface"
+                ],
+                "AnalyticMathLabSurrogateExt": [
+                  "Lux",
+                  "Optimization",
+                  "NeuralOperators"
+                ]
+              },
+              "weakdeps": {
+                "Lux": "b2108857-7c20-44ae-9111-449ecde12c47",
+                "ModelingToolkit": "961ee093-0014-501f-94e3-6117800e7a78",
+                "Molly": "aa0f7f06-fcc0-5ec4-a7f3-a573f33f9c4c",
+                "NeuralOperators": "ea5c82af-86e5-48da-8ee1-382d6ad7af4b",
+                "NeuralPDE": "315f7962-48a3-4962-8226-d0f33b1235f0",
+                "Optimization": "7f7a1694-90dd-40f0-9382-eb1efda571ba",
+                "SymbolicIndexingInterface": "2efcf032-c050-4f8e-a9bb-153293bab1f5"
+              }
+            }
+          ],
+          "semantic_findings": [
+            "Environment lockfile indexed; no resolution/install/load verification."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "ENVIRONMENT_LOCK_ENUMERATION_NOT_LOADED"
+    },
+    {
+      "path": "examples/operators/Project.toml",
+      "sha256": "5de1cf80ae555d293b5171be5e3b076b1d6a19203bdbfc9bb2e5daef17dab2d5",
+      "bytes": 913,
+      "lines": 25,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/69_optional_environment_projects.json",
+          "path": "examples/operators/Project.toml",
+          "sha256": "5de1cf80ae555d293b5171be5e3b076b1d6a19203bdbfc9bb2e5daef17dab2d5",
+          "bytes": 913,
+          "lines": 25,
+          "read_ranges": [
+            [
+              1,
+              25
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Operators declares local AML, native backend/import prerequisites and explicit AD deps; NeuralOperators trigger applies surrogate too."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "ENVIRONMENT_CONTRACT_SOURCE_INSPECTED"
+    },
+    {
+      "path": "examples/operators/analysis_gate.jl",
+      "sha256": "5cd913708ac603dee0a7172d2b16da2e39495f9ba3ce5015d79078c20f53c54c",
+      "bytes": 1611,
+      "lines": 27,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/49_examples_parameter_operator_probes.json",
+          "path": "examples/operators/analysis_gate.jl",
+          "sha256": "5cd913708ac603dee0a7172d2b16da2e39495f9ba3ce5015d79078c20f53c54c",
+          "bytes": 1611,
+          "lines": 27,
+          "read_ranges": [
+            [
+              1,
+              27
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "One-step grouped generalization shape/splits with optional supplied physics; no global guarantee."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/operators/backend_probe.jl",
+      "sha256": "d0b5e6a72bb917363da891aeb6055881939ea0212bab50d43d6cd449f5cdaa50",
+      "bytes": 1491,
+      "lines": 26,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/49_examples_parameter_operator_probes.json",
+          "path": "examples/operators/backend_probe.jl",
+          "sha256": "d0b5e6a72bb917363da891aeb6055881939ea0212bab50d43d6cd449f5cdaa50",
+          "bytes": 1491,
+          "lines": 26,
+          "read_ranges": [
+            [
+              1,
+              26
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Native DeepONet AD3step probe and native fixed-grid FNO prediction only, not a public AML FNO training API."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "SCIENTIFIC_EXAMPLE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/operators/focused_gate.jl",
+      "sha256": "f0df876c8aa1d1e220433bcfea5c2dfda97a83765b9d442631f7056532dc02c0",
+      "bytes": 3572,
+      "lines": 57,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/50_examples_operator_data.json",
+          "path": "examples/operators/focused_gate.jl",
+          "sha256": "f0df876c8aa1d1e220433bcfea5c2dfda97a83765b9d442631f7056532dc02c0",
+          "bytes": 3572,
+          "lines": 57,
+          "read_ranges": [
+            [
+              1,
+              57
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Small surrogate120step and true DeepONet60step gates separate manufactured target, train-only poison controls and descriptor/sensor geometry."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/operators/heat_demo.jl",
+      "sha256": "394ec5030089dc7c0a141fa84715f257ebda42185d83e3a6660c8ddd4ca14f84",
+      "bytes": 1531,
+      "lines": 28,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/50_examples_operator_data.json",
+          "path": "examples/operators/heat_demo.jl",
+          "sha256": "394ec5030089dc7c0a141fa84715f257ebda42185d83e3a6660c8ddd4ca14f84",
+          "bytes": 1531,
+          "lines": 28,
+          "read_ranges": [
+            [
+              1,
+              28
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Heat CLI mutually exclusive training or --reuse inference artifacts; parameter file prerequisite no fabricated cache."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "SCIENTIFIC_EXAMPLE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/operators/heat_family.jl",
+      "sha256": "9862f0486652ba21e792716818596457d14efd42a6516f6cf7316604e3405de9",
+      "bytes": 4776,
+      "lines": 80,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/50_examples_operator_data.json",
+          "path": "examples/operators/heat_family.jl",
+          "sha256": "9862f0486652ba21e792716818596457d14efd42a6516f6cf7316604e3405de9",
+          "bytes": 4776,
+          "lines": 80,
+          "read_ranges": [
+            [
+              1,
+              80
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Analytic finite-sine heat reference verified before training; explicit parameter/function/sensor/coordinate splits and seeds, no hidden resampling."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "SCIENTIFIC_EXAMPLE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/operators/heat_showcase.jl",
+      "sha256": "2606eef57cc17745d593e722749b7d361c41061347091fb686273276209dd5d4",
+      "bytes": 12587,
+      "lines": 221,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/51_examples_heat_evidence_isolation.json",
+          "path": "examples/operators/heat_showcase.jl",
+          "sha256": "2606eef57cc17745d593e722749b7d361c41061347091fb686273276209dd5d4",
+          "bytes": 12587,
+          "lines": 221,
+          "read_ranges": [
+            [
+              1,
+              221
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Sequential fullbatch3000steps fixed seeds/no heldout tuning, numeric versioned checkpoints inference only, independent heat residual and descriptive closedform timing, writes generated files."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "SCIENTIFIC_EXAMPLE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/operators/integration_gate.jl",
+      "sha256": "50a92fdc4fa4cc0541946cc9660a34385b8c4a579de70be4154a0f0f7a261570",
+      "bytes": 3614,
+      "lines": 74,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/51_examples_heat_evidence_isolation.json",
+          "path": "examples/operators/integration_gate.jl",
+          "sha256": "50a92fdc4fa4cc0541946cc9660a34385b8c4a579de70be4154a0f0f7a261570",
+          "bytes": 3614,
+          "lines": 74,
+          "read_ranges": [
+            [
+              1,
+              74
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Optional integration trains fresh once then verifies interpolation/sample grouping/nonleakage/checkpoint reload, no extrapolation pass threshold."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/operators/isolation_gate.jl",
+      "sha256": "97dca1a8d432e86b9a96530eb9a425f854e9c659603aed9f2e4c9d984d7d3c5d",
+      "bytes": 1230,
+      "lines": 22,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/51_examples_heat_evidence_isolation.json",
+          "path": "examples/operators/isolation_gate.jl",
+          "sha256": "97dca1a8d432e86b9a96530eb9a425f854e9c659603aed9f2e4c9d984d7d3c5d",
+          "bytes": 1230,
+          "lines": 22,
+          "read_ranges": [
+            [
+              1,
+              22
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "No training lightweight trigger isolation: NeuralOperators required even for surrogate extension; no other optional activation."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/operators/m10a_gate.jl",
+      "sha256": "d79584a7240d5f868bbf8101a71eb6a8e08537453d1e7a3134938c75b722baad",
+      "bytes": 4503,
+      "lines": 83,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/52_examples_optional_ad_and_pinn_gate.json",
+          "path": "examples/operators/m10a_gate.jl",
+          "sha256": "d79584a7240d5f868bbf8101a71eb6a8e08537453d1e7a3134938c75b722baad",
+          "bytes": 4503,
+          "lines": 83,
+          "read_ranges": [
+            [
+              1,
+              83
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "DeepONet sensor/query unequal components oracle, explicit permutation counterexamples and state-change rejection; train-only no leakage."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/operators/m10b_gate.jl",
+      "sha256": "01cdf90ff7d977795a4dc87a6e34ecf45ded8b21308b25a3fa97a289944292a6",
+      "bytes": 2359,
+      "lines": 53,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/52_examples_optional_ad_and_pinn_gate.json",
+          "path": "examples/operators/m10b_gate.jl",
+          "sha256": "01cdf90ff7d977795a4dc87a6e34ecf45ded8b21308b25a3fa97a289944292a6",
+          "bytes": 2359,
+          "lines": 53,
+          "read_ranges": [
+            [
+              1,
+              53
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Nonfinite neural outputs/MSE overflow and affine overflow/energy/UDE sum fail explicitly; no optimizer run."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/pinn/Manifest.toml",
+      "sha256": "e9361e3776a705514cc531bef2389de45860845d6ec7f834a013ef4154a7f6cb",
+      "bytes": 144399,
+      "lines": 3649,
+      "area": "examples",
+      "inspection_status": "INDEXED_NOT_FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/88_frozen_data_environment_9.json",
+          "path": "examples/pinn/Manifest.toml",
+          "sha256": "e9361e3776a705514cc531bef2389de45860845d6ec7f834a013ef4154a7f6cb",
+          "bytes": 144399,
+          "inspection": "DETERMINISTIC_MANIFEST_ENUMERATION",
+          "metadata": {
+            "julia_version": "1.12.7",
+            "manifest_format": "2.0",
+            "project_hash": "23add318e58a3e75ef128dab79e4f3bb1815cf84"
+          },
+          "packages": 412,
+          "aml_registration": [
+            {
+              "deps": [
+                "CairoMakie",
+                "FiniteDiff",
+                "ForwardDiff",
+                "LinearAlgebra",
+                "Makie",
+                "OrdinaryDiffEqTsit5",
+                "Random",
+                "Roots",
+                "SciMLBase",
+                "Symbolics",
+                "Unitful"
+              ],
+              "path": "../..",
+              "uuid": "d00b717d-2040-4c0f-8850-62abbaf45caf",
+              "version": "0.1.0",
+              "extensions": {
+                "AnalyticMathLabDynamicsExt": [
+                  "Lux",
+                  "Optimization"
+                ],
+                "AnalyticMathLabInferenceExt": "Optimization",
+                "AnalyticMathLabMollyExt": "Molly",
+                "AnalyticMathLabPINNExt": [
+                  "Lux",
+                  "NeuralPDE",
+                  "ModelingToolkit",
+                  "Optimization",
+                  "SymbolicIndexingInterface"
+                ],
+                "AnalyticMathLabSurrogateExt": [
+                  "Lux",
+                  "Optimization",
+                  "NeuralOperators"
+                ]
+              },
+              "weakdeps": {
+                "Lux": "b2108857-7c20-44ae-9111-449ecde12c47",
+                "ModelingToolkit": "961ee093-0014-501f-94e3-6117800e7a78",
+                "Molly": "aa0f7f06-fcc0-5ec4-a7f3-a573f33f9c4c",
+                "NeuralOperators": "ea5c82af-86e5-48da-8ee1-382d6ad7af4b",
+                "NeuralPDE": "315f7962-48a3-4962-8226-d0f33b1235f0",
+                "Optimization": "7f7a1694-90dd-40f0-9382-eb1efda571ba",
+                "SymbolicIndexingInterface": "2efcf032-c050-4f8e-a9bb-153293bab1f5"
+              }
+            }
+          ],
+          "semantic_findings": [
+            "Environment lockfile indexed; no resolution/install/load verification."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "ENVIRONMENT_LOCK_ENUMERATION_NOT_LOADED"
+    },
+    {
+      "path": "examples/pinn/Project.toml",
+      "sha256": "6fc0343fad5009ca70835791646039c5c735273e30d2340c3905b5959b9a1192",
+      "bytes": 974,
+      "lines": 28,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/69_optional_environment_projects.json",
+          "path": "examples/pinn/Project.toml",
+          "sha256": "6fc0343fad5009ca70835791646039c5c735273e30d2340c3905b5959b9a1192",
+          "bytes": 974,
+          "lines": 28,
+          "read_ranges": [
+            [
+              1,
+              28
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "PINN local AML plus five extension triggers, Integrals fixed-node quadrature optional only; compat pinned historical versions."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "ENVIRONMENT_CONTRACT_SOURCE_INSPECTED"
+    },
+    {
+      "path": "examples/pinn/benchmark_gate.jl",
+      "sha256": "4dd7e8446d46f4d66a8bc80e1c46707454808969a298204699eb76fe5330ee16",
+      "bytes": 4247,
+      "lines": 85,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/52_examples_optional_ad_and_pinn_gate.json",
+          "path": "examples/pinn/benchmark_gate.jl",
+          "sha256": "4dd7e8446d46f4d66a8bc80e1c46707454808969a298204699eb76fe5330ee16",
+          "bytes": 4247,
+          "lines": 85,
+          "read_ranges": [
+            [
+              1,
+              85
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Opt-in standard/Burgers/two-step Navier-Stokes stress gates separate physical proof, same seed not sampler equivalence; writes figures when invoked."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/pinn/benchmarks.jl",
+      "sha256": "41254c72c1fac9e2f5582af6f32f0fbd335524e7c981fe78d387a193c27e9ddf",
+      "bytes": 5706,
+      "lines": 106,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/53_examples_pinn_benchmarks_inverse.json",
+          "path": "examples/pinn/benchmarks.jl",
+          "sha256": "41254c72c1fac9e2f5582af6f32f0fbd335524e7c981fe78d387a193c27e9ddf",
+          "bytes": 5706,
+          "lines": 106,
+          "read_ranges": [
+            [
+              1,
+              106
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Five explicit PDE benchmark definitions/ref formulas and shared network, offset supplied grid independence limited to snapshot,500default history bounded100."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "SCIENTIFIC_EXAMPLE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/pinn/inverse_heat_gate.jl",
+      "sha256": "418c92f5de833e9b5fcbe4640662b949f1693df7aeeb1ecfdf50e3c2c3887e61",
+      "bytes": 5804,
+      "lines": 106,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/53_examples_pinn_benchmarks_inverse.json",
+          "path": "examples/pinn/inverse_heat_gate.jl",
+          "sha256": "418c92f5de833e9b5fcbe4640662b949f1693df7aeeb1ecfdf50e3c2c3887e61",
+          "bytes": 5804,
+          "lines": 106,
+          "read_ranges": [
+            [
+              1,
+              106
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Inverse alpha parameter forwarding and explicit additional loss; construction switch versus default5000step training; finite-difference inferred parameter diagnostics and unknown physical proof."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/pinn/m10b_gate.jl",
+      "sha256": "26f1c16d16c5aa09be6043ff8111905ea70ba7f4cbe42c4a9ec260d360bea36a",
+      "bytes": 2546,
+      "lines": 47,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/53_examples_pinn_benchmarks_inverse.json",
+          "path": "examples/pinn/m10b_gate.jl",
+          "sha256": "26f1c16d16c5aa09be6043ff8111905ea70ba7f4cbe42c4a9ec260d360bea36a",
+          "bytes": 2546,
+          "lines": 47,
+          "read_ranges": [
+            [
+              1,
+              47
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Untrained native PINN raw fixture/private residual helpers for boundary tests; not train result or supported construction tutorial."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/pinn/runtests.jl",
+      "sha256": "614dbcd5c9a9e17bf87ca560932b945cedd433a82af155b36a8d39ebc0393d37",
+      "bytes": 1390,
+      "lines": 23,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/54_examples_manual_gate_stream.json",
+          "path": "examples/pinn/runtests.jl",
+          "sha256": "614dbcd5c9a9e17bf87ca560932b945cedd433a82af155b36a8d39ebc0393d37",
+          "bytes": 1390,
+          "lines": 23,
+          "read_ranges": [
+            [
+              1,
+              23
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Optional PINN include orchestration not base test, activation/ambiguities and long training test fixtures."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MANUAL_OPTIONAL_GATE_NOT_EXECUTED"
+    },
+    {
+      "path": "examples/scaling/Manifest.toml",
+      "sha256": "f9cef0289cc9ca7b2974ae377d13af9d61ea0d1a93f9ffa04fdfaa13e969993a",
+      "bytes": 90451,
+      "lines": 2435,
+      "area": "examples",
+      "inspection_status": "INDEXED_NOT_FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/88_frozen_data_environment_9.json",
+          "path": "examples/scaling/Manifest.toml",
+          "sha256": "f9cef0289cc9ca7b2974ae377d13af9d61ea0d1a93f9ffa04fdfaa13e969993a",
+          "bytes": 90451,
+          "inspection": "DETERMINISTIC_MANIFEST_ENUMERATION",
+          "metadata": {
+            "julia_version": "1.12.7",
+            "manifest_format": "2.0",
+            "project_hash": "af481446c76605fc9c4da4abbacc638043e40948"
+          },
+          "packages": 312,
+          "aml_registration": [
+            {
+              "deps": [
+                "CairoMakie",
+                "FiniteDiff",
+                "ForwardDiff",
+                "LinearAlgebra",
+                "Makie",
+                "OrdinaryDiffEqTsit5",
+                "Random",
+                "Roots",
+                "SciMLBase",
+                "Symbolics",
+                "Unitful"
+              ],
+              "path": "../..",
+              "uuid": "d00b717d-2040-4c0f-8850-62abbaf45caf",
+              "version": "0.1.0",
+              "extensions": {
+                "AnalyticMathLabDynamicsExt": [
+                  "Lux",
+                  "Optimization"
+                ],
+                "AnalyticMathLabInferenceExt": "Optimization",
+                "AnalyticMathLabMollyExt": "Molly",
+                "AnalyticMathLabPINNExt": [
+                  "Lux",
+                  "NeuralPDE",
+                  "ModelingToolkit",
+                  "Optimization",
+                  "SymbolicIndexingInterface"
+                ],
+                "AnalyticMathLabSurrogateExt": [
+                  "Lux",
+                  "Optimization",
+                  "NeuralOperators"
+                ]
+              },
+              "weakdeps": {
+                "Lux": "b2108857-7c20-44ae-9111-449ecde12c47",
+                "ModelingToolkit": "961ee093-0014-501f-94e3-6117800e7a78",
+                "Molly": "aa0f7f06-fcc0-5ec4-a7f3-a573f33f9c4c",
+                "NeuralOperators": "ea5c82af-86e5-48da-8ee1-382d6ad7af4b",
+                "NeuralPDE": "315f7962-48a3-4962-8226-d0f33b1235f0",
+                "Optimization": "7f7a1694-90dd-40f0-9382-eb1efda571ba",
+                "SymbolicIndexingInterface": "2efcf032-c050-4f8e-a9bb-153293bab1f5"
+              }
+            }
+          ],
+          "semantic_findings": [
+            "Environment lockfile indexed; no resolution/install/load verification."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "ENVIRONMENT_LOCK_ENUMERATION_NOT_LOADED"
+    },
+    {
+      "path": "examples/scaling/Project.toml",
+      "sha256": "e12d067e7ecde22cb3413a218467c8719f2e5f30820943826056b6e82ec447e1",
+      "bytes": 485,
+      "lines": 13,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/69_optional_environment_projects.json",
+          "path": "examples/scaling/Project.toml",
+          "sha256": "e12d067e7ecde22cb3413a218467c8719f2e5f30820943826056b6e82ec447e1",
+          "bytes": 485,
+          "lines": 13,
+          "read_ranges": [
+            [
+              1,
+              13
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Scaling optional ArnoldiMethod0.4 and Symbolics/ForwardDiff/native ODE deps; local develop required since no sources table, not root dependency change."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "ENVIRONMENT_CONTRACT_SOURCE_INSPECTED"
+    },
+    {
+      "path": "examples/scaling/README.md",
+      "sha256": "d2dac5a686f828a1efcf1161c7cdf94fe57b51c22a41f6233b0dc1700c1482f9",
+      "bytes": 8381,
+      "lines": 137,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/67_guides_observations_statistics_scaling.json",
+          "path": "examples/scaling/README.md",
+          "sha256": "d2dac5a686f828a1efcf1161c7cdf94fe57b51c22a41f6233b0dc1700c1482f9",
+          "bytes": 8381,
+          "lines": 137,
+          "read_ranges": [
+            [
+              1,
+              137
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Maintainer-only namespace/env controls/deadlines, historical scalable runs distinct from title/max request; stale reference to optional environment own READMEs (absent) requires link concrete guides."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/example_guardrail_gate.jl",
+      "sha256": "e24959334f0f733a333b8481f3bb2eda85be327dca29a404bb490806fb32a330",
+      "bytes": 792,
+      "lines": 21,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/54_examples_manual_gate_stream.json",
+          "path": "examples/scaling/example_guardrail_gate.jl",
+          "sha256": "e24959334f0f733a333b8481f3bb2eda85be327dca29a404bb490806fb32a330",
+          "bytes": 792,
+          "lines": 21,
+          "read_ranges": [
+            [
+              1,
+              21
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Maintainer stress budget example namespace, low budget and native ODE output artifact gate not public config."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/extreme_streaming_statistics.jl",
+      "sha256": "0948b3ad5b69925184308623dd731bb123ef5f3a59e99445cf3a76d723630fcd",
+      "bytes": 2112,
+      "lines": 38,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/54_examples_manual_gate_stream.json",
+          "path": "examples/scaling/extreme_streaming_statistics.jl",
+          "sha256": "0948b3ad5b69925184308623dd731bb123ef5f3a59e99445cf3a76d723630fcd",
+          "bytes": 2112,
+          "lines": 38,
+          "read_ranges": [
+            [
+              1,
+              38
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Manual extreme stream with explicit samples/chunk/deadline, actual consumed count partial status, no IID stderr and environment info; not AML generic stream API."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/generalization_scale.jl",
+      "sha256": "7fe72c13682eb9ed8062e737e534445393146a3fc9b9a04e7853abfa91fa71c5",
+      "bytes": 2410,
+      "lines": 40,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/55_examples_scaling_namespace.json",
+          "path": "examples/scaling/generalization_scale.jl",
+          "sha256": "7fe72c13682eb9ed8062e737e534445393146a3fc9b9a04e7853abfa91fa71c5",
+          "bytes": 2410,
+          "lines": 40,
+          "read_ranges": [
+            [
+              1,
+              40
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "One-step optional result then100/10000query stored generalization measurements full-output cost, not timing training."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/harness.jl",
+      "sha256": "c24898550d5d97fc1c1c7c21f94cf2916213c11d18f99b403c9cc3e487b07b43",
+      "bytes": 5796,
+      "lines": 108,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/55_examples_scaling_namespace.json",
+          "path": "examples/scaling/harness.jl",
+          "sha256": "c24898550d5d97fc1c1c7c21f94cf2916213c11d18f99b403c9cc3e487b07b43",
+          "bytes": 5796,
+          "lines": 108,
+          "read_ranges": [
+            [
+              1,
+              108
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "StressBudget and AML_MAX_* env strictly ScaleHarness internal/example namespace; estimates not RSS caps, deadline cooperative between calls, atomic measurement checkpoints."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/large_atomistic_geometry.jl",
+      "sha256": "bc9181c425c3ce83ca601faf67c4584f2d0e3eeff8355c958db62e321601c14f",
+      "bytes": 1763,
+      "lines": 38,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/55_examples_scaling_namespace.json",
+          "path": "examples/scaling/large_atomistic_geometry.jl",
+          "sha256": "bc9181c425c3ce83ca601faf67c4584f2d0e3eeff8355c958db62e321601c14f",
+          "bytes": 1763,
+          "lines": 38,
+          "read_ranges": [
+            [
+              1,
+              38
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Quadratic pair versus coordination traversal, estimates and pair output refusal, no scalable neighbor list claim."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/large_oscillator_ode.jl",
+      "sha256": "f304a3a2a0e29170a96256176e2bcc79b763ded79bc3710df5f9298a15f65f6c",
+      "bytes": 5753,
+      "lines": 131,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/56_examples_native_scaling_boundaries.json",
+          "path": "examples/scaling/large_oscillator_ode.jl",
+          "sha256": "f304a3a2a0e29170a96256176e2bcc79b763ded79bc3710df5f9298a15f65f6c",
+          "bytes": 5753,
+          "lines": 131,
+          "read_ranges": [
+            [
+              1,
+              131
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Native in-place private _scale_ode_problem experiment, four save strategies/analytic reference; explicit no public cap bypass."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/mass_spring_mechanics.jl",
+      "sha256": "ece5450ac65c387b0e329f9aa2c37a8435a67252dc57925b9b52bcc733993015",
+      "bytes": 5040,
+      "lines": 82,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/56_examples_native_scaling_boundaries.json",
+          "path": "examples/scaling/mass_spring_mechanics.jl",
+          "sha256": "ece5450ac65c387b0e329f9aa2c37a8435a67252dc57925b9b52bcc733993015",
+          "bytes": 5040,
+          "lines": 82,
+          "read_ranges": [
+            [
+              1,
+              82
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Small3/5 symbolic mechanics versus known structured large chain native SciML/HVP and partial Arnoldi; not generic symbolic scalability."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/memory_guardrails.jl",
+      "sha256": "c62913583a99af5c08f420188f60ad4844aa87e100df562d4ba1859647c672e6",
+      "bytes": 472,
+      "lines": 12,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/56_examples_native_scaling_boundaries.json",
+          "path": "examples/scaling/memory_guardrails.jl",
+          "sha256": "c62913583a99af5c08f420188f60ad4844aa87e100df562d4ba1859647c672e6",
+          "bytes": 472,
+          "lines": 12,
+          "read_ranges": [
+            [
+              1,
+              12
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Estimates-only15000/30000 dense payload guardrail calls unsafe function only if gate broken; no large matrix allocated by intended path."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/million_query_analysis.jl",
+      "sha256": "2d1c7007421ce5fa48d7898e0ca7d44da2970e2a5c5026e1c73ae1d90421f460",
+      "bytes": 3242,
+      "lines": 56,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/57_examples_reduction_training_regimes.json",
+          "path": "examples/scaling/million_query_analysis.jl",
+          "sha256": "2d1c7007421ce5fa48d7898e0ca7d44da2970e2a5c5026e1c73ae1d90421f460",
+          "bytes": 3242,
+          "lines": 56,
+          "read_ranges": [
+            [
+              1,
+              56
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Full/summary-only field/heat metrics data ladders; estimates not JIT RSS and summary AD may reevaluate."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/million_sample_statistics.jl",
+      "sha256": "a03d37faf89c4740895894bbabf0305448e41a2621b19c135226c8f6f8379d59",
+      "bytes": 1991,
+      "lines": 39,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/57_examples_reduction_training_regimes.json",
+          "path": "examples/scaling/million_sample_statistics.jl",
+          "sha256": "a03d37faf89c4740895894bbabf0305448e41a2621b19c135226c8f6f8379d59",
+          "bytes": 1991,
+          "lines": 39,
+          "read_ranges": [
+            [
+              1,
+              39
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Same Welford lazy versus explicit input materialization, retained running/block/ACF outputs not O(1) contracts."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/ml_training_stress.jl",
+      "sha256": "a983a43af18a587c82379969b5450c26e6e520336cbcad0eb1fe092ba560b72b",
+      "bytes": 3836,
+      "lines": 60,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/57_examples_reduction_training_regimes.json",
+          "path": "examples/scaling/ml_training_stress.jl",
+          "sha256": "a983a43af18a587c82379969b5450c26e6e520336cbcad0eb1fe092ba560b72b",
+          "bytes": 3836,
+          "lines": 60,
+          "read_ranges": [
+            [
+              1,
+              60
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Native Lux3step computational stress with model/workspace estimate before setup, level/manual opt-ins not public AML training memory controls."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/ode_ensemble.jl",
+      "sha256": "75f738f50f847d19979a1b31484427183f85c519d60871d6a4de033b4a3235ea",
+      "bytes": 4160,
+      "lines": 96,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/58_examples_native_ensemble_partial.json",
+          "path": "examples/scaling/ode_ensemble.jl",
+          "sha256": "75f738f50f847d19979a1b31484427183f85c519d60871d6a4de033b4a3235ea",
+          "bytes": 4160,
+          "lines": 96,
+          "read_ranges": [
+            [
+              1,
+              96
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Native SciML batch32 sum/count reductions serial/threaded with safetycopy, no public AML ensemble protocol or speedup promise."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/optional_scaling_gate.jl",
+      "sha256": "7019c769ea9f163f9b2427fe09c60f00ea7d9474c81011a4945e447a88097d33",
+      "bytes": 3814,
+      "lines": 67,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/58_examples_native_ensemble_partial.json",
+          "path": "examples/scaling/optional_scaling_gate.jl",
+          "sha256": "7019c769ea9f163f9b2427fe09c60f00ea7d9474c81011a4945e447a88097d33",
+          "bytes": 3814,
+          "lines": 67,
+          "read_ranges": [
+            [
+              1,
+              67
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Public batch_size prediction equivalence but full final output retained; private PINN _sample_residual summary gate not public analyze keyword."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/partial_modes.jl",
+      "sha256": "ec972c16fe1a6a6525dc611781012ec17f2b0933bebc653d54ee406436189697",
+      "bytes": 5707,
+      "lines": 108,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/58_examples_native_ensemble_partial.json",
+          "path": "examples/scaling/partial_modes.jl",
+          "sha256": "ec972c16fe1a6a6525dc611781012ec17f2b0933bebc653d54ee406436189697",
+          "bytes": 5707,
+          "lines": 108,
+          "read_ranges": [
+            [
+              1,
+              108
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Chain-specific Arnoldi shift-inverse with analytic action/structured factor, local example max_memory_bytes not generic public partial-Hessian API; partial no degeneracy completeness."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/plot_reports.py",
+      "sha256": "2132acefbab4b75d846beb225b30aeb9b6ee723cbe653ebb046643b95d5f6257",
+      "bytes": 3371,
+      "lines": 67,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/68_plot_script_optional_manifests.json",
+          "path": "examples/scaling/plot_reports.py",
+          "sha256": "2132acefbab4b75d846beb225b30aeb9b6ee723cbe653ebb046643b95d5f6257",
+          "bytes": 3371,
+          "lines": 67,
+          "read_ranges": [
+            [
+              1,
+              67
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Historical plot script reads existing measurements but copies CSV/hash list and overwrites committed plots; never execute during preservation-only audit. Machine labels fixed to historical environment."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/streaming_helpers.jl",
+      "sha256": "8f7fd55ce53cc526199618049a52a69b088c1c6e23606820c758022bfd22a3b0",
+      "bytes": 2679,
+      "lines": 63,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/59_examples_stream_symbolic_dense.json",
+          "path": "examples/scaling/streaming_helpers.jl",
+          "sha256": "8f7fd55ce53cc526199618049a52a69b088c1c6e23606820c758022bfd22a3b0",
+          "bytes": 2679,
+          "lines": 63,
+          "read_ranges": [
+            [
+              1,
+              63
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Deadline iterator uses private existing _ts_moments kernel, consumed prefix not requested count and chunk deadline, no public stream_summary."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/symbolic_mechanics_scaling.jl",
+      "sha256": "bf2025fdf07181ed2f53852f74e63005a96be480a73837de0bc913d1d684a044",
+      "bytes": 4231,
+      "lines": 63,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/59_examples_stream_symbolic_dense.json",
+          "path": "examples/scaling/symbolic_mechanics_scaling.jl",
+          "sha256": "bf2025fdf07181ed2f53852f74e63005a96be480a73837de0bc913d1d684a044",
+          "bytes": 4231,
+          "lines": 63,
+          "read_ranges": [
+            [
+              1,
+              63
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Backend Symbolics/AD explicit Hessian and Jacobian phase ladder versus AML analyze <=20 with cap32, restricted polynomial workload estimate."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/scaling/when_dense_dies.jl",
+      "sha256": "ed2b21d093f64c485f13d60a01f448a74b1a94d275229098ca4abb60df89641b",
+      "bytes": 2199,
+      "lines": 40,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/59_examples_stream_symbolic_dense.json",
+          "path": "examples/scaling/when_dense_dies.jl",
+          "sha256": "ed2b21d093f64c485f13d60a01f448a74b1a94d275229098ca4abb60df89641b",
+          "bytes": 2199,
+          "lines": 40,
+          "read_ranges": [
+            [
+              1,
+              40
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Safe dense full-mode breakpoints24payload, >=3000default refused without construction; structured input still dense solver."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "MAINTAINER_ONLY_EXPERIMENT"
+    },
+    {
+      "path": "examples/validation/reference_checks.jl",
+      "sha256": "2a60c81a3021f45100df68f5de9a0e7d62fe83a7a77c719020d2b25d08f6a67e",
+      "bytes": 3822,
+      "lines": 70,
+      "area": "examples",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/60_reference_mechanics_notebooks.json",
+          "path": "examples/validation/reference_checks.jl",
+          "sha256": "2a60c81a3021f45100df68f5de9a0e7d62fe83a7a77c719020d2b25d08f6a67e",
+          "bytes": 3822,
+          "lines": 70,
+          "read_ranges": [
+            [
+              1,
+              70
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Sampled symbolic substitution reference gate with actual equations/BC arguments and full ordered fields; finite numeric fails closed, not public theorem prover."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "SCIENTIFIC_EXAMPLE_NOT_EXECUTED"
+    },
+    {
+      "path": "notebooks/derivative_convergence.jl",
+      "sha256": "e0fdff465932a02faabf10a4952f4b9a5dec2a454a3929ece5e1dbd395865572",
+      "bytes": 1019,
+      "lines": 27,
+      "area": "notebooks",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "notebooks/derivative_convergence.jl",
+          "sha256": "e0fdff465932a02faabf10a4952f4b9a5dec2a454a3929ece5e1dbd395865572",
+          "read_ranges": [
+            [
+              1,
+              27
+            ]
+          ],
+          "semantic_findings": [
+            "Forward/central stored experiments then explicit backend rendering; no execution here."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "EXECUTABLE_NOTEBOOK_NOT_EXECUTED"
+    },
+    {
+      "path": "notebooks/dynamical_systems.jl",
+      "sha256": "d3f173feb332bb6bfaa9bcc97290624eebcfb9ca36ecad16bf995300c4f18b61",
+      "bytes": 3074,
+      "lines": 64,
+      "area": "notebooks",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "notebooks/dynamical_systems.jl",
+          "sha256": "d3f173feb332bb6bfaa9bcc97290624eebcfb9ca36ecad16bf995300c4f18b61",
+          "read_ranges": [
+            [
+              1,
+              64
+            ]
+          ],
+          "semantic_findings": [
+            "Executable exact/local/trajectory/domain assertions then explicit backend; no execution here."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "EXECUTABLE_NOTEBOOK_NOT_EXECUTED"
+    },
+    {
+      "path": "notebooks/function_analysis.jl",
+      "sha256": "22c82572f8986f308df759a91c92c23c46d4c609a8c1b926eb07c5345832bd5c",
+      "bytes": 698,
+      "lines": 22,
+      "area": "notebooks",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "notebooks/function_analysis.jl",
+          "sha256": "22c82572f8986f308df759a91c92c23c46d4c609a8c1b926eb07c5345832bd5c",
+          "read_ranges": [
+            [
+              1,
+              22
+            ]
+          ],
+          "semantic_findings": [
+            "Cubic search and derivative comparison; rendering backend imported before analysis, unlike newer notebooks."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        },
+        {
+          "artifact": "parent_inspection.json",
+          "path": "notebooks/function_analysis.jl",
+          "sha256": "22c82572f8986f308df759a91c92c23c46d4c609a8c1b926eb07c5345832bd5c",
+          "read_ranges": [
+            [
+              1,
+              22
+            ]
+          ],
+          "status": "SOURCE_INSPECTED",
+          "inspection_note": "Full tool-visible read in this recovery or earlier retained conversation, with current hash reconciliation; not new scientific execution."
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "EXECUTABLE_NOTEBOOK_NOT_EXECUTED"
+    },
+    {
+      "path": "notebooks/mechanics.jl",
+      "sha256": "42f4cb747772bba204b299dc2fb304d166646c61b4ba20c8449129dbe8c982de",
+      "bytes": 3411,
+      "lines": 58,
+      "area": "notebooks",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/60_reference_mechanics_notebooks.json",
+          "path": "notebooks/mechanics.jl",
+          "sha256": "42f4cb747772bba204b299dc2fb304d166646c61b4ba20c8449129dbe8c982de",
+          "bytes": 3411,
+          "lines": 58,
+          "read_ranges": [
+            [
+              1,
+              58
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Executable symbolic mechanics/five trajectories and explicit render output after headless checks; saveat not exclusive uniform promise."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "EXECUTABLE_NOTEBOOK_NOT_EXECUTED"
+    },
+    {
+      "path": "notebooks/mechanics_addendum.jl",
+      "sha256": "f35c1484024c39bcd616214da0cc9a240d853d80b0890614b5bc82ccd24063c9",
+      "bytes": 4303,
+      "lines": 76,
+      "area": "notebooks",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/60_reference_mechanics_notebooks.json",
+          "path": "notebooks/mechanics_addendum.jl",
+          "sha256": "f35c1484024c39bcd616214da0cc9a240d853d80b0890614b5bc82ccd24063c9",
+          "bytes": 4303,
+          "lines": 76,
+          "read_ranges": [
+            [
+              1,
+              76
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Generic damped spring/Stokes low Reynolds declared model and unequal mass modes, no realistic molecule/MD capability; explicit backend and output."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "EXECUTABLE_NOTEBOOK_NOT_EXECUTED"
+    },
+    {
+      "path": "notebooks/molly_companion.jl",
+      "sha256": "f3c23ccf6ccf7dae3ada4870b6f05eaae3a8e7e5f94d29c87cb6e658470f148d",
+      "bytes": 5734,
+      "lines": 109,
+      "area": "notebooks",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/61_notebooks_molly_multivariate.json",
+          "path": "notebooks/molly_companion.jl",
+          "sha256": "f3c23ccf6ccf7dae3ada4870b6f05eaae3a8e7e5f94d29c87cb6e658470f148d",
+          "bytes": 5734,
+          "lines": 109,
+          "read_ranges": [
+            [
+              1,
+              109
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Real Molly200steps explicit fresh clock/shifted cutoff versus textbook unmodified law; local separate supplied Hessian not recovered from trajectory."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "EXECUTABLE_NOTEBOOK_NOT_EXECUTED"
+    },
+    {
+      "path": "notebooks/molly_trajectory_analysis.jl",
+      "sha256": "78e3a7b07182945cfec5f212ea4a2254e0e710c504fa7a02a5d7479939859422",
+      "bytes": 4416,
+      "lines": 73,
+      "area": "notebooks",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/61_notebooks_molly_multivariate.json",
+          "path": "notebooks/molly_trajectory_analysis.jl",
+          "sha256": "78e3a7b07182945cfec5f212ea4a2254e0e710c504fa7a02a5d7479939859422",
+          "bytes": 4416,
+          "lines": 73,
+          "read_ranges": [
+            [
+              1,
+              73
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Real short400step wrapped trajectory uncertainty may unknown; periodic MSD refused, open free-flight ballistic not diffusion, explicit backend outputs."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "EXECUTABLE_NOTEBOOK_NOT_EXECUTED"
+    },
+    {
+      "path": "notebooks/multivariable_analysis.jl",
+      "sha256": "7c13ee86a6816dd99b42fd1416c60ff20dad5186a229e55d88d7910804d286ce",
+      "bytes": 1793,
+      "lines": 45,
+      "area": "notebooks",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/61_notebooks_molly_multivariate.json",
+          "path": "notebooks/multivariable_analysis.jl",
+          "sha256": "7c13ee86a6816dd99b42fd1416c60ff20dad5186a229e55d88d7910804d286ce",
+          "bytes": 1793,
+          "lines": 45,
+          "read_ranges": [
+            [
+              1,
+              45
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Ordered2D scalar reports directional derivative/affine/original circle domain and Figures; source printing not fresh outputs."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "EXECUTABLE_NOTEBOOK_NOT_EXECUTED"
+    },
+    {
+      "path": "notebooks/pinn_diagnostics.jl",
+      "sha256": "7dcb0a86374d7250c5862b990b608b22c30db9f6cc7857b8d0798181b71a58ac",
+      "bytes": 1513,
+      "lines": 32,
+      "area": "notebooks",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/62_notebooks_learning_comparison.json",
+          "path": "notebooks/pinn_diagnostics.jl",
+          "sha256": "7dcb0a86374d7250c5862b990b608b22c30db9f6cc7857b8d0798181b71a58ac",
+          "bytes": 1513,
+          "lines": 32,
+          "read_ranges": [
+            [
+              1,
+              32
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Optional1500step heat diagnostic/reference/residual assertions before rendering, no resampling history or adaptive weights proof."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "EXECUTABLE_NOTEBOOK_NOT_EXECUTED"
+    },
+    {
+      "path": "notebooks/real_function_analysis.jl",
+      "sha256": "06e1d2747344769e9ad0459ee16e06dbb4b77f17d061c2bd1827b8e9089b2658",
+      "bytes": 1186,
+      "lines": 32,
+      "area": "notebooks",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "notebooks/real_function_analysis.jl",
+          "sha256": "06e1d2747344769e9ad0459ee16e06dbb4b77f17d061c2bd1827b8e9089b2658",
+          "read_ranges": [
+            [
+              1,
+              32
+            ]
+          ],
+          "semantic_findings": [
+            "Captured removable hole and rational poles then explicit rendering."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "EXECUTABLE_NOTEBOOK_NOT_EXECUTED"
+    },
+    {
+      "path": "notebooks/scientific_ml.jl",
+      "sha256": "e443883d16f4a343d1d9fb8147e96fdf5788f94dc5694998825ce7957b33a765",
+      "bytes": 3190,
+      "lines": 58,
+      "area": "notebooks",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/62_notebooks_learning_comparison.json",
+          "path": "notebooks/scientific_ml.jl",
+          "sha256": "e443883d16f4a343d1d9fb8147e96fdf5788f94dc5694998825ce7957b33a765",
+          "bytes": 3190,
+          "lines": 58,
+          "read_ranges": [
+            [
+              1,
+              58
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Explicit500step exponential PINN/history100/independent error samples, optimizer retcode not physical convergence."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "EXECUTABLE_NOTEBOOK_NOT_EXECUTED"
+    },
+    {
+      "path": "notebooks/trajectory_comparison.jl",
+      "sha256": "3bd41bce2155ed7514c94ddc992eee297f3c139a5c1c17e21ababee1f89ed402",
+      "bytes": 3491,
+      "lines": 59,
+      "area": "notebooks",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/62_notebooks_learning_comparison.json",
+          "path": "notebooks/trajectory_comparison.jl",
+          "sha256": "3bd41bce2155ed7514c94ddc992eee297f3c139a5c1c17e21ababee1f89ed402",
+          "bytes": 3491,
+          "lines": 59,
+          "read_ranges": [
+            [
+              1,
+              59
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Synthetic stored-only comparison no simulation or frame access; conditional independence declared not inferred and unequal grids refused."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "EXECUTABLE_NOTEBOOK_NOT_EXECUTED"
+    },
+    {
+      "path": "notebooks/vector_field_analysis.jl",
+      "sha256": "5431a1419e0da87375896b79f43f5511738ca5ac28f1db07372ef8637b25f255",
+      "bytes": 2143,
+      "lines": 48,
+      "area": "notebooks",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "notebooks/vector_field_analysis.jl",
+          "sha256": "5431a1419e0da87375896b79f43f5511738ca5ac28f1db07372ef8637b25f255",
+          "read_ranges": [
+            [
+              1,
+              48
+            ]
+          ],
+          "semantic_findings": [
+            "Rotation/radial/punctured/rectangular assertions and copied calculus views before rendering."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "EXECUTABLE_NOTEBOOK_NOT_EXECUTED"
+    },
+    {
+      "path": "test/architecture.jl",
+      "sha256": "174d0901da876fd465f8f83de7de4a8618a5b736a58a14c4a9d1e39474653a2d",
+      "bytes": 8107,
+      "lines": 129,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/17_tests_arch_atomistic.json",
+          "path": "test/architecture.jl",
+          "sha256": "174d0901da876fd465f8f83de7de4a8618a5b736a58a14c4a9d1e39474653a2d",
+          "bytes": 8107,
+          "lines": 129,
+          "read_ranges": [
+            [
+              1,
+              129
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Architecture source asserts literal export set/include ownership and no optional backend activation, not executed."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/atomistic_core.jl",
+      "sha256": "3d75f8b54f46772e9534bfc61562a3c6c5bb57286b87324d183fb7e30ec518ce",
+      "bytes": 3007,
+      "lines": 57,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/17_tests_arch_atomistic.json",
+          "path": "test/atomistic_core.jl",
+          "sha256": "3d75f8b54f46772e9534bfc61562a3c6c5bb57286b87324d183fb7e30ec518ce",
+          "bytes": 3007,
+          "lines": 57,
+          "read_ranges": [
+            [
+              1,
+              57
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Borrowed snapshot/lazy indexing/physical unknown checks and pair output refusal fixtures."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/atomistic_distributions.jl",
+      "sha256": "58cc6f2a90691c6575e40b064d794f4ef87baca8d9f17b2141f776f74ebf401e",
+      "bytes": 4528,
+      "lines": 94,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/17_tests_arch_atomistic.json",
+          "path": "test/atomistic_distributions.jl",
+          "sha256": "58cc6f2a90691c6575e40b064d794f4ef87baca8d9f17b2141f776f74ebf401e",
+          "bytes": 4528,
+          "lines": 94,
+          "read_ranges": [
+            [
+              1,
+              94
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Finite-N RDF bins/lastedge, mixtures/change volume/units/callback/unsupported geometry and coordination inclusive cutoff tests."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/atomistic_modes.jl",
+      "sha256": "18d7fdc5f2416d7738ed65b1c97a3efe10c25ad3d9dcb1dcd7bc143bb74508d3",
+      "bytes": 1977,
+      "lines": 38,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/18_tests_atomistic_modes_views.json",
+          "path": "test/atomistic_modes.jl",
+          "sha256": "18d7fdc5f2416d7738ed65b1c97a3efe10c25ad3d9dcb1dcd7bc143bb74508d3",
+          "bytes": 1977,
+          "lines": 38,
+          "read_ranges": [
+            [
+              1,
+              38
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Snapshot modes supplied Hessian/mass-order/scales/molar units/unstable and missing fields; explicit not_verified equilibrium asserted."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/atomistic_potentials.jl",
+      "sha256": "1c6f5efac182dac89ebbdf191dce0549b099e6c5808ba536d140aedcf8980a0e",
+      "bytes": 3651,
+      "lines": 70,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/18_tests_atomistic_modes_views.json",
+          "path": "test/atomistic_potentials.jl",
+          "sha256": "1c6f5efac182dac89ebbdf191dce0549b099e6c5808ba536d140aedcf8980a0e",
+          "bytes": 3651,
+          "lines": 70,
+          "read_ranges": [
+            [
+              1,
+              70
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Radial positivity/original hole/cutoffmetadata and LJ scaled identity/finite numeric candidates tests, no global upgrade."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/atomistic_visualization.jl",
+      "sha256": "08b5ce4523d34fb74a9236b9a80c05f9c4d42737fe9f145f78d41b369d34e1ba",
+      "bytes": 1463,
+      "lines": 31,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/18_tests_atomistic_modes_views.json",
+          "path": "test/atomistic_visualization.jl",
+          "sha256": "08b5ce4523d34fb74a9236b9a80c05f9c4d42737fe9f145f78d41b369d34e1ba",
+          "bytes": 1463,
+          "lines": 31,
+          "read_ranges": [
+            [
+              1,
+              31
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Figure construction/lazy selected frame/no mutation/unit scaling; not rendering proof."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/convergence.jl",
+      "sha256": "ebf88d8adb66322fd2d2fa8825c2c6f85a520edc0abc7b64d42f94a30db92b3b",
+      "bytes": 10838,
+      "lines": 216,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/convergence.jl",
+          "sha256": "ebf88d8adb66322fd2d2fa8825c2c6f85a520edc0abc7b64d42f94a30db92b3b",
+          "read_ranges": [
+            [
+              1,
+              216
+            ]
+          ],
+          "semantic_findings": [
+            "Convergence controls, relative missingness, earliest order window, single reference evaluation and plotting no recomputation."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/dynamical_regressions.jl",
+      "sha256": "b668f7c867b39881c6b1ba036bd17b8542ab32fac7c1c1b231cf780c59eeee8d",
+      "bytes": 3778,
+      "lines": 69,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/dynamical_regressions.jl",
+          "sha256": "b668f7c867b39881c6b1ba036bd17b8542ab32fac7c1c1b231cf780c59eeee8d",
+          "read_ranges": [
+            [
+              1,
+              69
+            ]
+          ],
+          "semantic_findings": [
+            "Dense interpolation saveat in both directions, invalid grids, partial MaxIters diagnostics, nonlinear imaginary spectrum not center."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/dynamical_systems.jl",
+      "sha256": "c008b99cc708cbea8f8349f6fcebe2f3df385f555469d71f91d88706cd34971c",
+      "bytes": 5614,
+      "lines": 106,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/dynamical_systems.jl",
+          "sha256": "c008b99cc708cbea8f8349f6fcebe2f3df385f555469d71f91d88706cd34971c",
+          "read_ranges": [
+            [
+              1,
+              106
+            ]
+          ],
+          "semantic_findings": [
+            "System field identity, square check, exact vs heuristic stability, nonhyperbolic uncertainty, domain gates and deep-copy contracts."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/dynamical_visualization.jl",
+      "sha256": "24bf0bc37cbd53689d690e8a2b2f42daab902b416014b18c041f1e4867171ba2",
+      "bytes": 2106,
+      "lines": 42,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/19_tests_dynamics_heat_inference.json",
+          "path": "test/dynamical_visualization.jl",
+          "sha256": "24bf0bc37cbd53689d690e8a2b2f42daab902b416014b18c041f1e4867171ba2",
+          "bytes": 2106,
+          "lines": 42,
+          "read_ranges": [
+            [
+              1,
+              42
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Rendering tests explicitly save with CairoMakie and check no RHS calls in timeplot; trajectory field identity and punctured segments exercised in test source."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/heat_reference.jl",
+      "sha256": "3b587e1f4810eaf1c1705cfe5288367711902789ed3f5555d275b9204bfb0a54",
+      "bytes": 1137,
+      "lines": 23,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/19_tests_dynamics_heat_inference.json",
+          "path": "test/heat_reference.jl",
+          "sha256": "3b587e1f4810eaf1c1705cfe5288367711902789ed3f5555d275b9204bfb0a54",
+          "bytes": 1137,
+          "lines": 23,
+          "read_ranges": [
+            [
+              1,
+              23
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Analytical heat family reference checked before learning; explicit splits/sensors/RNG and no duplicate representations."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/inference_base.jl",
+      "sha256": "50498de5e30f251edeabcaeec0dbf7331e873d78c91233c8d46f89b29110be64",
+      "bytes": 3094,
+      "lines": 54,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/19_tests_dynamics_heat_inference.json",
+          "path": "test/inference_base.jl",
+          "sha256": "50498de5e30f251edeabcaeec0dbf7331e873d78c91233c8d46f89b29110be64",
+          "bytes": 3094,
+          "lines": 54,
+          "read_ranges": [
+            [
+              1,
+              54
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Base optional isolation, physical observation refusals, reordered parameter/state factory and native forward/oracle sensitivity fixtures."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/inference_sensitivity.jl",
+      "sha256": "5500e9caed830ee8a4ea939798d07ee2d55e3a4a4494051ad7aab3ab88150ee9",
+      "bytes": 2113,
+      "lines": 38,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/20_tests_sensitivity_statistics_oracles.json",
+          "path": "test/inference_sensitivity.jl",
+          "sha256": "5500e9caed830ee8a4ea939798d07ee2d55e3a4a4494051ad7aab3ab88150ee9",
+          "bytes": 2113,
+          "lines": 38,
+          "read_ranges": [
+            [
+              1,
+              38
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Local weighted SVD/rank1 ratio degeneracy/zero columns/economical right factors, no full nullspace claim."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/learned_dynamics_base.jl",
+      "sha256": "bda5f37cde32530c78d5a96ddbe9fe1965aef918fd1eb6c154d2e66ba7723946",
+      "bytes": 708,
+      "lines": 13,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/20_tests_sensitivity_statistics_oracles.json",
+          "path": "test/learned_dynamics_base.jl",
+          "sha256": "bda5f37cde32530c78d5a96ddbe9fe1965aef918fd1eb6c154d2e66ba7723946",
+          "bytes": 708,
+          "lines": 13,
+          "read_ranges": [
+            [
+              1,
+              13
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Borrowed learned-data shapes/finite checks and duplicate correction refusal."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10a_atomistic_statistics.jl",
+      "sha256": "c7cb35209be6f4eda8feecee8d85aa4ab8cf35b35ddc8b0344f21fe6a4e41121",
+      "bytes": 16207,
+      "lines": 282,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/20_tests_sensitivity_statistics_oracles.json",
+          "path": "test/m10a_atomistic_statistics.jl",
+          "sha256": "c7cb35209be6f4eda8feecee8d85aa4ab8cf35b35ddc8b0344f21fe6a4e41121",
+          "bytes": 16207,
+          "lines": 282,
+          "read_ranges": [
+            [
+              1,
+              282
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Independent geometry/LJ/modes/Welford/ACF/IAT/blocks/MSD/VACF/units/comparison arithmetic; caller assertions and uncertainty gates, no benchmark or validity score."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10a_calculus_dynamics.jl",
+      "sha256": "23d03ad8e4d0ea9d8bcf5585b42a851f271982461c7231868e3128b1e1caca76",
+      "bytes": 7435,
+      "lines": 152,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/m10a_calculus_dynamics.jl",
+          "sha256": "23d03ad8e4d0ea9d8bcf5585b42a851f271982461c7231868e3128b1e1caca76",
+          "read_ranges": [
+            [
+              1,
+              152
+            ]
+          ],
+          "semantic_findings": [
+            "Independent analytic/AD/FD oracles incl reordered coordinates, original-domain holes, analytic reference equation/IC negative controls and dense trajectory comparisons."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10a_inference_operators.jl",
+      "sha256": "e77a9519e61c8d282cb4baedf4db322a85847005011620b78fd144eaa9d0196d",
+      "bytes": 12425,
+      "lines": 214,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/21_tests_mechanics_inference_references.json",
+          "path": "test/m10a_inference_operators.jl",
+          "sha256": "e77a9519e61c8d282cb4baedf4db322a85847005011620b78fd144eaa9d0196d",
+          "bytes": 12425,
+          "lines": 214,
+          "read_ranges": [
+            [
+              1,
+              214
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Independent FD/native sensitivity/weighted SVD and truth/heldout poisoning exclusion, heat residual counterexample and training-only scaling; not structural identifiability."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10a_mechanics.jl",
+      "sha256": "67f081f0eea054e906544a66ef64fbedd0d508f3abb00ce5334523b358307283",
+      "bytes": 5426,
+      "lines": 109,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/21_tests_mechanics_inference_references.json",
+          "path": "test/m10a_mechanics.jl",
+          "sha256": "67f081f0eea054e906544a66ef64fbedd0d508f3abb00ce5334523b358307283",
+          "bytes": 5426,
+          "lines": 109,
+          "read_ranges": [
+            [
+              1,
+              109
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Canonical signs/order/fullmass Legendre equivalence/local nonlinear oscillator and direct eigenpair residual/subspace fixtures."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10a_references.jl",
+      "sha256": "96633a8271b6b1154987ef70936b597290b0e3b188fd8b7afbb0b1ddc42ba6dd",
+      "bytes": 2447,
+      "lines": 44,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/21_tests_mechanics_inference_references.json",
+          "path": "test/m10a_references.jl",
+          "sha256": "96633a8271b6b1154987ef70936b597290b0e3b188fd8b7afbb0b1ddc42ba6dd",
+          "bytes": 2447,
+          "lines": 44,
+          "read_ranges": [
+            [
+              1,
+              44
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Sampled reference substitution pre-use gate distinguishes PDE from IC/BC; constant shift/wrong decay/dimension adversarial references refused."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10b_atomistic.jl",
+      "sha256": "b27e9ba1b2fb32ee58ca978fb90e22840f00bb217eb9d44575277d7591f81aaf",
+      "bytes": 7471,
+      "lines": 147,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/22_tests_precision_boundaries.json",
+          "path": "test/m10b_atomistic.jl",
+          "sha256": "b27e9ba1b2fb32ee58ca978fb90e22840f00bb217eb9d44575277d7591f81aaf",
+          "bytes": 7471,
+          "lines": 147,
+          "read_ranges": [
+            [
+              1,
+              147
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Generic stored geometry Float32/Float64/BigFloat and explicit modal Float64 limit; lost pre-rounded displacement cannot be recovered; energy underflow unknown; LJ display versus exact certificate."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10b_diagnostics.jl",
+      "sha256": "aed81c8e860b006127b887e46166ee45f723a0fed8574f19f36b7536bd0b96ee",
+      "bytes": 4803,
+      "lines": 96,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/22_tests_precision_boundaries.json",
+          "path": "test/m10b_diagnostics.jl",
+          "sha256": "aed81c8e860b006127b887e46166ee45f723a0fed8574f19f36b7536bd0b96ee",
+          "bytes": 4803,
+          "lines": 96,
+          "read_ranges": [
+            [
+              1,
+              96
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Sampled metrics promoted precision/range; checked Float64 data rejects inexact higher-precision conversion; constant scaling and bounded physical sample metrics."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10b_inference_scaling.jl",
+      "sha256": "723a3cfc010ee68bceb1eff4662b00a5feab858321623ea25ff9c0f32fba9bbc",
+      "bytes": 3516,
+      "lines": 67,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/22_tests_precision_boundaries.json",
+          "path": "test/m10b_inference_scaling.jl",
+          "sha256": "723a3cfc010ee68bceb1eff4662b00a5feab858321623ea25ff9c0f32fba9bbc",
+          "bytes": 3516,
+          "lines": 67,
+          "read_ranges": [
+            [
+              1,
+              67
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Local sensitivity rank tolerance/dual boundary; training-only extreme minmax/scaling; generic BigFloat transforms not universal backend precision."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10b_linear_algebra.jl",
+      "sha256": "89af388f30e60a618317e6cb254384ef3b606da5a95ed0763ae126246ec351c1",
+      "bytes": 5217,
+      "lines": 113,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/23_tests_numerical_regimes.json",
+          "path": "test/m10b_linear_algebra.jl",
+          "sha256": "89af388f30e60a618317e6cb254384ef3b606da5a95ed0763ae126246ec351c1",
+          "bytes": 5217,
+          "lines": 113,
+          "read_ranges": [
+            [
+              1,
+              113
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Generic masses/symbolic coefficients separate from Float64 modes; rank/symmetry/zero thresholds/subnormal loss fail-closed fixtures."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10b_nonfinite.jl",
+      "sha256": "2fe7c9a16a35a440d1e65f088b7d662397406469e0383703862f0343bd1d81e3",
+      "bytes": 6313,
+      "lines": 126,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/23_tests_numerical_regimes.json",
+          "path": "test/m10b_nonfinite.jl",
+          "sha256": "2fe7c9a16a35a440d1e65f088b7d662397406469e0383703862f0343bd1d81e3",
+          "bytes": 6313,
+          "lines": 126,
+          "read_ranges": [
+            [
+              1,
+              126
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Legacy scalar IEEE propagation vs checked numerical derivatives/ODE boundaries; original-domain signedzero/corners and finite-result/directional normalization gates."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10b_showcases.jl",
+      "sha256": "a0ff6225a231c3e7ae9fb5f7afaa33ed1e433c61ea0f6e61957c6cf4530c2269",
+      "bytes": 2199,
+      "lines": 52,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/23_tests_numerical_regimes.json",
+          "path": "test/m10b_showcases.jl",
+          "sha256": "a0ff6225a231c3e7ae9fb5f7afaa33ed1e433c61ea0f6e61957c6cf4530c2269",
+          "bytes": 2199,
+          "lines": 52,
+          "read_ranges": [
+            [
+              1,
+              52
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Precision/cancellation/RMS/Welford/illconditioned mass demonstrations with independent high precision references; source outputs not executed here."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10b_statistics.jl",
+      "sha256": "53922610361ff7ea1f4937064759a92769fa46f10d7868ee0b4429f0885c44a7",
+      "bytes": 13893,
+      "lines": 276,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/24_tests_statistics_types_pair_budget.json",
+          "path": "test/m10b_statistics.jl",
+          "sha256": "53922610361ff7ea1f4937064759a92769fa46f10d7868ee0b4429f0885c44a7",
+          "bytes": 13893,
+          "lines": 276,
+          "read_ranges": [
+            [
+              1,
+              276
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Stored precision/units/finite moments, uncertainty non-IID, explicit clock tolerances and hypot SE; highprecision references apply to stored inputs only."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10b_types.jl",
+      "sha256": "8e3c23ef672c0562a9d9a98f6401c358a3a693616e17f65bdbd97f62f7cceda2",
+      "bytes": 5511,
+      "lines": 136,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/24_tests_statistics_types_pair_budget.json",
+          "path": "test/m10b_types.jl",
+          "sha256": "8e3c23ef672c0562a9d9a98f6401c358a3a693616e17f65bdbd97f62f7cceda2",
+          "bytes": 5511,
+          "lines": 136,
+          "read_ranges": [
+            [
+              1,
+              136
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Generic scalar exact/complex/BigFloat and type-dependent finite difference steps contrasted with real-field guards and Float64 convergence/ODE; not universal type support."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10c_atomistic_scale.jl",
+      "sha256": "ca6d0ae33d0a7a9ea5bc8cec0af000354369ac5bf893e0a7c71bcc06657b8b07",
+      "bytes": 1034,
+      "lines": 24,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/24_tests_statistics_types_pair_budget.json",
+          "path": "test/m10c_atomistic_scale.jl",
+          "sha256": "ca6d0ae33d0a7a9ea5bc8cec0af000354369ac5bf893e0a7c71bcc06657b8b07",
+          "bytes": 1034,
+          "lines": 24,
+          "read_ranges": [
+            [
+              1,
+              24
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Pair byte refusal checked before distance callback, fixed small allocation fixture; bytes/pairs are public output guards not RSS."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10c_chunking.jl",
+      "sha256": "78e536381fdf169a8b1a7225a449374be968de09ea7240400e0f4661f7bbe071",
+      "bytes": 1457,
+      "lines": 34,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/25_tests_resource_controls.json",
+          "path": "test/m10c_chunking.jl",
+          "sha256": "78e536381fdf169a8b1a7225a449374be968de09ea7240400e0f4661f7bbe071",
+          "bytes": 1457,
+          "lines": 34,
+          "read_ranges": [
+            [
+              1,
+              34
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Summary-only sampled errors/heat omit full outputs and single-consumption generator fixtures; allocation assertions are historical test sources not RSS measurements here."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10c_guardrails.jl",
+      "sha256": "2a13e71a2bea15ed033442ee45aa35b2ed7d6feaa6ca151bae2aee6bcb2b8df6",
+      "bytes": 2256,
+      "lines": 48,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/25_tests_resource_controls.json",
+          "path": "test/m10c_guardrails.jl",
+          "sha256": "2a13e71a2bea15ed033442ee45aa35b2ed7d6feaa6ca151bae2aee6bcb2b8df6",
+          "bytes": 2256,
+          "lines": 48,
+          "read_ranges": [
+            [
+              1,
+              48
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "StressBudget/dense_bytes/measure! are example harness not exports; actual Julia/BLAS thread ceiling gate, refused callback uncalled, report CSV/TOML fixtures."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10c_ode_scale.jl",
+      "sha256": "440ac1dbfd9dc4551a9746b2e3616af55392cf7ee4419af3d7347e821e8f5917",
+      "bytes": 2321,
+      "lines": 45,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/25_tests_resource_controls.json",
+          "path": "test/m10c_ode_scale.jl",
+          "sha256": "440ac1dbfd9dc4551a9746b2e3616af55392cf7ee4419af3d7347e821e8f5917",
+          "bytes": 2321,
+          "lines": 45,
+          "read_ranges": [
+            [
+              1,
+              45
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Native in-place scaling helper private versus public32-state cap; oscillator saved policy/ensemble ownership fixtures and untouched du failure checks."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10c_partial_modes.jl",
+      "sha256": "fe466ece3fea305de397b8db7f09faf8a4573dd55d02086875cd41a89d8f385e",
+      "bytes": 2556,
+      "lines": 49,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/26_tests_private_scaling_public_ownership.json",
+          "path": "test/m10c_partial_modes.jl",
+          "sha256": "fe466ece3fea305de397b8db7f09faf8a4573dd55d02086875cd41a89d8f385e",
+          "bytes": 2556,
+          "lines": 49,
+          "read_ranges": [
+            [
+              1,
+              49
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Direct modal preflight unreadable huge matrix/3000 explicit1024 budget; optional chain partial spectrum test protected env flag, not AML export."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10c_streaming.jl",
+      "sha256": "3281fefe3bd690b77efca83b88ea0b9e17a08d1b53d9ebf72978517d145bcdda",
+      "bytes": 1509,
+      "lines": 34,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/26_tests_private_scaling_public_ownership.json",
+          "path": "test/m10c_streaming.jl",
+          "sha256": "3281fefe3bd690b77efca83b88ea0b9e17a08d1b53d9ebf72978517d145bcdda",
+          "bytes": 1509,
+          "lines": 34,
+          "read_ranges": [
+            [
+              1,
+              34
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Lazy vector moments equal stored; example streaming chunks/time controls/extreme assertion and safe partial count tested; no public streaming setter."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_architecture.jl",
+      "sha256": "e8d36032b0f8016fc8d18f5e938b51d21a318a2278fb8870fc52b1f305e32f47",
+      "bytes": 2489,
+      "lines": 58,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/26_tests_private_scaling_public_ownership.json",
+          "path": "test/m10d_architecture.jl",
+          "sha256": "e8d36032b0f8016fc8d18f5e938b51d21a318a2278fb8870fc52b1f305e32f47",
+          "bytes": 2489,
+          "lines": 58,
+          "read_ranges": [
+            [
+              1,
+              58
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Frozen36 family ownership/actual177 exports and five extensions; public package registration and private _scale_ode_problem boundary, notebook no private zero helper."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_extensions.jl",
+      "sha256": "e0559aa179acd7cb094ecc2a0bd3ffbe8c4560cbdb058a33715853b5d6149570",
+      "bytes": 3304,
+      "lines": 65,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/27_tests_extensions_flagship.json",
+          "path": "test/m10d_extensions.jl",
+          "sha256": "e0559aa179acd7cb094ecc2a0bd3ffbe8c4560cbdb058a33715853b5d6149570",
+          "bytes": 3304,
+          "lines": 65,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Manual loader registration/load-order/ambiguity gate outside base; path manifest registration must match Project; no training."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_flagship.jl",
+      "sha256": "425ec820b4dcbfda44c100556fc4e2bd2635c742f241f6302be339f5f8bf99b1",
+      "bytes": 9161,
+      "lines": 157,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/27_tests_extensions_flagship.json",
+          "path": "test/m10d_flagship.jl",
+          "sha256": "425ec820b4dcbfda44c100556fc4e2bd2635c742f241f6302be339f5f8bf99b1",
+          "bytes": 9161,
+          "lines": 157,
+          "read_ranges": [
+            [
+              1,
+              157
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Canonical same-system independent modal oracle, domain/state/unit/order/source/value-equality dataset descriptor checks, numerical trajectory not analytical truth."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_flagship_learning.jl",
+      "sha256": "75774fdff5485f9ff893830f6b25ab27c139c01c2e37086e74f2fdfd3e133406",
+      "bytes": 4609,
+      "lines": 82,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/27_tests_extensions_flagship.json",
+          "path": "test/m10d_flagship_learning.jl",
+          "sha256": "75774fdff5485f9ff893830f6b25ab27c139c01c2e37086e74f2fdfd3e133406",
+          "bytes": 4609,
+          "lines": 82,
+          "read_ranges": [
+            [
+              1,
+              82
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Optional one-step affine learning proves pipeline/splits/provenance/training exclusion not fit accuracy; global evidence unknown."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_flagship_plots.jl",
+      "sha256": "9a800c78d2ca4133e12fe852a6c0a578b7047e9ae3fd29ee8e2dbef5b2c06495",
+      "bytes": 1103,
+      "lines": 26,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/28_tests_flagship_interoperability.json",
+          "path": "test/m10d_flagship_plots.jl",
+          "sha256": "9a800c78d2ca4133e12fe852a6c0a578b7047e9ae3fd29ee8e2dbef5b2c06495",
+          "bytes": 1103,
+          "lines": 26,
+          "read_ranges": [
+            [
+              1,
+              26
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Optional plot save gate excluded canonical, absolute energy axis guard; output path caller environment."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_flagship_schema.jl",
+      "sha256": "7e09caad6776596c30e7674e642c636cdccd90ceb691e519b0ff001f750481bd",
+      "bytes": 744,
+      "lines": 18,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/28_tests_flagship_interoperability.json",
+          "path": "test/m10d_flagship_schema.jl",
+          "sha256": "7e09caad6776596c30e7674e642c636cdccd90ceb691e519b0ff001f750481bd",
+          "bytes": 744,
+          "lines": 18,
+          "read_ranges": [
+            [
+              1,
+              18
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Detached dataset schema must retain fixed physical definition not merely origin token."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_interoperability.jl",
+      "sha256": "dabd94a53533d4f24b454909fb7273eb306106f195cc2e3c23f08089ce9e9ef7",
+      "bytes": 14993,
+      "lines": 266,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/28_tests_flagship_interoperability.json",
+          "path": "test/m10d_interoperability.jl",
+          "sha256": "dabd94a53533d4f24b454909fb7273eb306106f195cc2e3c23f08089ce9e9ef7",
+          "bytes": 14993,
+          "lines": 266,
+          "read_ranges": [
+            [
+              1,
+              266
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Stored-only no interpolant fixture, callback state copies/unit coherence and partial series versus completed dataset; retained dataset deepcopies source; mechanics/modes/radial/atomistic bridges semantics."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_interoperability_learning.jl",
+      "sha256": "bd9621772b1cdc12c1edfc27b8dc8829ff7e0f03674cd938dd93ad382d1f79c2",
+      "bytes": 2922,
+      "lines": 51,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/29_tests_scoped_semantics.json",
+          "path": "test/m10d_interoperability_learning.jl",
+          "sha256": "bd9621772b1cdc12c1edfc27b8dc8829ff7e0f03674cd938dd93ad382d1f79c2",
+          "bytes": 2922,
+          "lines": 51,
+          "read_ranges": [
+            [
+              1,
+              51
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Optional one-step learning preserves numerical reference/explicit ordering/scaling and no generalization proof."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_semantics.jl",
+      "sha256": "a822da77b21c86fe28dfe208bdf7f9abfdee3be2f3e9b4c40b95c1aefb5c8859",
+      "bytes": 9534,
+      "lines": 163,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/29_tests_scoped_semantics.json",
+          "path": "test/m10d_semantics.jl",
+          "sha256": "a822da77b21c86fe28dfe208bdf7f9abfdee3be2f3e9b4c40b95c1aefb5c8859",
+          "bytes": 9534,
+          "lines": 163,
+          "read_ranges": [
+            [
+              1,
+              163
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Detached origin versus borrowed metadata, leaf four-field compatibility, bounded source descriptors, unit/order guards and explicit solver failure scopes."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_semantics_learning.jl",
+      "sha256": "83ff1d9726d6adef4928ce93a3c2c19cbccc15826c82daa84f809de3866820d0",
+      "bytes": 2947,
+      "lines": 48,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/29_tests_scoped_semantics.json",
+          "path": "test/m10d_semantics_learning.jl",
+          "sha256": "83ff1d9726d6adef4928ce93a3c2c19cbccc15826c82daa84f809de3866820d0",
+          "bytes": 2947,
+          "lines": 48,
+          "read_ranges": [
+            [
+              1,
+              48
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Numerical reference/error/tolerances survive model-training-generalization ancestry; identity distinct from value, physical correctness unknown."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_semantics_pinn.jl",
+      "sha256": "a1a4449718e136661f023942d8a4a99b7cccd77a06c97cd9b6ce236998db47bb",
+      "bytes": 2596,
+      "lines": 45,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/30_tests_metadata_user_refusals.json",
+          "path": "test/m10d_semantics_pinn.jl",
+          "sha256": "a1a4449718e136661f023942d8a4a99b7cccd77a06c97cd9b6ce236998db47bb",
+          "bytes": 2596,
+          "lines": 45,
+          "read_ranges": [
+            [
+              1,
+              45
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Optional PINN construction versus physical claims/reference trust/coordinate order and unavailable reference fixtures; bounded1step only."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_semantics_review.jl",
+      "sha256": "2caf20fd450dd16fc6497c98f8a80de34dc00e03906f40dbf70acec18e01c54c",
+      "bytes": 1876,
+      "lines": 42,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/30_tests_metadata_user_refusals.json",
+          "path": "test/m10d_semantics_review.jl",
+          "sha256": "2caf20fd450dd16fc6497c98f8a80de34dc00e03906f40dbf70acec18e01c54c",
+          "bytes": 1876,
+          "lines": 42,
+          "read_ranges": [
+            [
+              1,
+              42
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Detached descriptor whitelist/serialize/bounded8levels; context-free leaf remains no approximation/tolerance ancestry; operation options not numerical tolerances."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_user_inputs.jl",
+      "sha256": "357fd0c9b3f9564e6fcfddd7940428842e642cced1cfe15e7ff1997cd9f4755a",
+      "bytes": 2660,
+      "lines": 50,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/30_tests_metadata_user_refusals.json",
+          "path": "test/m10d_user_inputs.jl",
+          "sha256": "357fd0c9b3f9564e6fcfddd7940428842e642cced1cfe15e7ff1997cd9f4755a",
+          "bytes": 2660,
+          "lines": 50,
+          "read_ranges": [
+            [
+              1,
+              50
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Actionable schema/time/name/unit and missing optional messages checked via fragments; no invalid sample dropping."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_user_optional.jl",
+      "sha256": "f718519f4d71bb26476442141a509e20a8403efda66209125c65f1eee064ed77",
+      "bytes": 3167,
+      "lines": 61,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/31_tests_user_environments.json",
+          "path": "test/m10d_user_optional.jl",
+          "sha256": "f718519f4d71bb26476442141a509e20a8403efda66209125c65f1eee064ed77",
+          "bytes": 3167,
+          "lines": 61,
+          "read_ranges": [
+            [
+              1,
+              61
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Manual optional activation in both import orders and ambiguity checks, no registry/install proof; typed absence messages tested separately."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_user_packaging.jl",
+      "sha256": "c918323ee4e2913b4f54d77e82289428ca1af5a61fec9e0cc0445cf38ab48830",
+      "bytes": 1397,
+      "lines": 29,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/31_tests_user_environments.json",
+          "path": "test/m10d_user_packaging.jl",
+          "sha256": "c918323ee4e2913b4f54d77e82289428ca1af5a61fec9e0cc0445cf38ab48830",
+          "bytes": 1397,
+          "lines": 29,
+          "read_ranges": [
+            [
+              1,
+              29
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Public examples import declared deps and avoid source/test/private includes and personal paths; test only source packaging."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_user_processes.jl",
+      "sha256": "1084c517cc1b3066865dbc575c879c3054777267f1cfd1e5dd29363e0aa8f345",
+      "bytes": 1178,
+      "lines": 25,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/31_tests_user_environments.json",
+          "path": "test/m10d_user_processes.jl",
+          "sha256": "1084c517cc1b3066865dbc575c879c3054777267f1cfd1e5dd29363e0aa8f345",
+          "bytes": 1178,
+          "lines": 25,
+          "read_ranges": [
+            [
+              1,
+              25
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Six stranger workflows spawn fresh child processes in temporary cwd with display variables removed; canonical test source, not run in audit."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/m10d_value_compatibility.jl",
+      "sha256": "1f5571f8b5f8fceb30e0348deec12ccbf61ca286b7ba9abc123b76383b884533",
+      "bytes": 3846,
+      "lines": 63,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/32_tests_values_mechanics.json",
+          "path": "test/m10d_value_compatibility.jl",
+          "sha256": "1f5571f8b5f8fceb30e0348deec12ccbf61ca286b7ba9abc123b76383b884533",
+          "bytes": 3846,
+          "lines": 63,
+          "read_ranges": [
+            [
+              1,
+              63
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "PropertyResult four fields/generated constructors/value equality hash/serialization remain unchanged; origin absent from context-free leaves."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/mechanics.jl",
+      "sha256": "84a5d89fc2d30385dcfe5cd0027ba685a9daa72755ea63aefdee3e14d675936e",
+      "bytes": 6614,
+      "lines": 117,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/32_tests_values_mechanics.json",
+          "path": "test/mechanics.jl",
+          "sha256": "84a5d89fc2d30385dcfe5cd0027ba685a9daa72755ea63aefdee3e14d675936e",
+          "bytes": 6614,
+          "lines": 117,
+          "read_ranges": [
+            [
+              1,
+              117
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Symbolic free particle/oscillator/damped/cyclic/singular/affine Legendre contracts; assumptions and original holes survive."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/mechanics_dynamics.jl",
+      "sha256": "76f77a6b31616ebb6c943ef437f3b2764fb44eb43fdb322a9f14f7055ec72167",
+      "bytes": 7958,
+      "lines": 146,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/32_tests_values_mechanics.json",
+          "path": "test/mechanics_dynamics.jl",
+          "sha256": "76f77a6b31616ebb6c943ef437f3b2764fb44eb43fdb322a9f14f7055ec72167",
+          "bytes": 7958,
+          "lines": 146,
+          "read_ranges": [
+            [
+              1,
+              146
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Identity-sensitive energy drift, explicit time and parameters/assumption pullbacks, borrowed sources and no auto plot backend."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/mechanics_readiness.jl",
+      "sha256": "b0cbc6cdb49354f10d2b2ce4aa94e1de9cf3bd35f8d800a5acf4314cc6321c12",
+      "bytes": 3639,
+      "lines": 70,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/33_tests_mechanics_modal_views.json",
+          "path": "test/mechanics_readiness.jl",
+          "sha256": "b0cbc6cdb49354f10d2b2ce4aa94e1de9cf3bd35f8d800a5acf4314cc6321c12",
+          "bytes": 3639,
+          "lines": 70,
+          "read_ranges": [
+            [
+              1,
+              70
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Generalized viscous/Stokes/quadratic drive and harmonic pair tests reuse existing calculus; physical models are declared not universal."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/mechanics_visualization.jl",
+      "sha256": "633365c2ca7db7274407ee215512a1057909e4b0ee22ae13782270302cd28e1b",
+      "bytes": 1547,
+      "lines": 35,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/33_tests_mechanics_modal_views.json",
+          "path": "test/mechanics_visualization.jl",
+          "sha256": "633365c2ca7db7274407ee215512a1057909e4b0ee22ae13782270302cd28e1b",
+          "bytes": 1547,
+          "lines": 35,
+          "read_ranges": [
+            [
+              1,
+              35
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Phase/energy figures require shared conversion source; rendering saved in test, not fresh audit rendering."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/mode_contracts.jl",
+      "sha256": "c5eae21fd471d30f35186bc35d0c9f8822e4fb8f24edcc6c52b5e037e5f78004",
+      "bytes": 4149,
+      "lines": 79,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/33_tests_mechanics_modal_views.json",
+          "path": "test/mode_contracts.jl",
+          "sha256": "c5eae21fd471d30f35186bc35d0c9f8822e4fb8f24edcc6c52b5e037e5f78004",
+          "bytes": 4149,
+          "lines": 79,
+          "read_ranges": [
+            [
+              1,
+              79
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Singular/underflow/outside domain modal unknown; mass weighted reconstruction/unequal particle-major masses and damped Jacobian consistency."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/molly_integration.jl",
+      "sha256": "8131faa58a683e3dcad7c67a6b660f2b7da3a0bd690e80a3cbebcc52cf4c5b4b",
+      "bytes": 5240,
+      "lines": 98,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/34_tests_molly_scalar_views.json",
+          "path": "test/molly_integration.jl",
+          "sha256": "8131faa58a683e3dcad7c67a6b660f2b7da3a0bd690e80a3cbebcc52cf4c5b4b",
+          "bytes": 5240,
+          "lines": 98,
+          "read_ranges": [
+            [
+              1,
+              98
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Molly pinned version/borrowed copy_data and observables opt-in; explicit fixed-box/logger compatibility/unknown times, CPU sentinel and cutoff backend truth."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/molly_trajectory_statistics.jl",
+      "sha256": "effd7da1d1c74f9dac2dedb479ff84ccf79b9aec4dfe60c875d56375a6506975",
+      "bytes": 2920,
+      "lines": 43,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/34_tests_molly_scalar_views.json",
+          "path": "test/molly_trajectory_statistics.jl",
+          "sha256": "effd7da1d1c74f9dac2dedb479ff84ccf79b9aec4dfe60c875d56375a6506975",
+          "bytes": 2920,
+          "lines": 43,
+          "read_ranges": [
+            [
+              1,
+              43
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Scalar logger storage borrowed; explicit times/no inferred clock, missing unwrapped images refuses MSD; NVE expectation is provenance assertion."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/multivariate_analysis.jl",
+      "sha256": "d0299775da17a76cb007212adcddab55224be28e22ca4e00ff0c2e2a161af370",
+      "bytes": 3729,
+      "lines": 77,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/multivariate_analysis.jl",
+          "sha256": "d0299775da17a76cb007212adcddab55224be28e22ca4e00ff0c2e2a161af370",
+          "read_ranges": [
+            [
+              1,
+              77
+            ]
+          ],
+          "semantic_findings": [
+            "Tests scalar derivative shapes, exact quartic candidates, bounded heuristic fallback and levelset/linearization."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/multivariate_regressions.jl",
+      "sha256": "c37749a80dc441aa3c80e7b152a020ab3d0ea279ec7b9ab3bcbd1e4eb790e7b0",
+      "bytes": 3182,
+      "lines": 56,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/multivariate_regressions.jl",
+          "sha256": "c37749a80dc441aa3c80e7b152a020ab3d0ea279ec7b9ab3bcbd1e4eb790e7b0",
+          "read_ranges": [
+            [
+              1,
+              56
+            ]
+          ],
+          "semantic_findings": [
+            "Tests partial domains, canceled nonsmooth boundaries, large exact arithmetic, resource rejection and scale-safe direction normalization."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/multivariate_visualization.jl",
+      "sha256": "3603d8839a379b27d5a18b9aa1e91ab3f32ec756a04136840d7374bade798078",
+      "bytes": 2053,
+      "lines": 38,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/34_tests_molly_scalar_views.json",
+          "path": "test/multivariate_visualization.jl",
+          "sha256": "3603d8839a379b27d5a18b9aa1e91ab3f32ec756a04136840d7374bade798078",
+          "bytes": 2053,
+          "lines": 38,
+          "read_ranges": [
+            [
+              1,
+              38
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Backend-independent scalar Figure generation, holes mask crossing cells, input ranges/sample/dimension refusals, no mutation."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/normal_modes.jl",
+      "sha256": "9c39c8f1bd8362bfead8120a86f821a782621cae3a1695c7903757f2ddb07a68",
+      "bytes": 8149,
+      "lines": 153,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/35_tests_modes_pinn_base.json",
+          "path": "test/normal_modes.jl",
+          "sha256": "9c39c8f1bd8362bfead8120a86f821a782621cae3a1695c7903757f2ddb07a68",
+          "bytes": 8149,
+          "lines": 153,
+          "read_ranges": [
+            [
+              1,
+              153
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Local SPD full dense modes, domain/equilibrium/damping gates, generalized reconstruction and tolerance-sensitive zero/degeneracy; no global stability certificate."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/normal_modes_visualization.jl",
+      "sha256": "32934d014ebcd82d96ab571ddd60af66c4214e3773d473340af4ea70f6539d38",
+      "bytes": 1159,
+      "lines": 25,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/35_tests_modes_pinn_base.json",
+          "path": "test/normal_modes_visualization.jl",
+          "sha256": "32934d014ebcd82d96ab571ddd60af66c4214e3773d473340af4ea70f6539d38",
+          "bytes": 1159,
+          "lines": 25,
+          "read_ranges": [
+            [
+              1,
+              25
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Component versus mass-weighted mode views, no invented Cartesian geometry, invalid modes/unavailable report refuse."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/pinn_base.jl",
+      "sha256": "ca14b6e9ecb4f67d12f0e9c10a17e19b3ae24afe3422a202c0f45aff3e30f1e2",
+      "bytes": 1068,
+      "lines": 23,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/35_tests_modes_pinn_base.json",
+          "path": "test/pinn_base.jl",
+          "sha256": "ca14b6e9ecb4f67d12f0e9c10a17e19b3ae24afe3422a202c0f45aff3e30f1e2",
+          "bytes": 1068,
+          "lines": 23,
+          "read_ranges": [
+            [
+              1,
+              23
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Base missing PINN extension throws; PINNHistory stride/capacity public entry-count retention, no backend autoactivation."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/pinn_construction.jl",
+      "sha256": "408dcf68d6239edd866596c77030c76407a5a26a35408725fd3f5531ce92692e",
+      "bytes": 2864,
+      "lines": 49,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/36_tests_pinn_diagnostics.json",
+          "path": "test/pinn_construction.jl",
+          "sha256": "408dcf68d6239edd866596c77030c76407a5a26a35408725fd3f5531ce92692e",
+          "bytes": 2864,
+          "lines": 49,
+          "read_ranges": [
+            [
+              1,
+              49
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Real NeuralPDE native object/mapping/stateless network setup, deterministic RNG initialization and incompatible shapes refuse."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/pinn_diagnostics.jl",
+      "sha256": "d98c0840975733d779fe5925a7cfdd3e817a6db4e3b8b4ebeed168f59b35cd03",
+      "bytes": 5565,
+      "lines": 95,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/36_tests_pinn_diagnostics.json",
+          "path": "test/pinn_diagnostics.jl",
+          "sha256": "d98c0840975733d779fe5925a7cfdd3e817a6db4e3b8b4ebeed168f59b35cd03",
+          "bytes": 5565,
+          "lines": 95,
+          "read_ranges": [
+            [
+              1,
+              95
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Signed residuals user points no mutation, objective weights/snapshot overlap not full training independence; reference trust/outside counts and quadrature unweighted summaries."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/pinn_diagnostics_base.jl",
+      "sha256": "1daea907927daf2e8d82dd20bb0c8b3c53ed721b2024b71873db438c777ecac3",
+      "bytes": 976,
+      "lines": 25,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/36_tests_pinn_diagnostics.json",
+          "path": "test/pinn_diagnostics_base.jl",
+          "sha256": "1daea907927daf2e8d82dd20bb0c8b3c53ed721b2024b71873db438c777ecac3",
+          "bytes": 976,
+          "lines": 25,
+          "read_ranges": [
+            [
+              1,
+              25
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Stable sampled metrics/nonfinite unavailable, explicit finite nonempty PINNPoints; no base activation."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/pinn_edges.jl",
+      "sha256": "975685dbee0cceac3f7ffc5acd0289ce20cf6012eea83811b8ff32aed4d6cdc0",
+      "bytes": 3248,
+      "lines": 57,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/37_tests_pinn_layout_references.json",
+          "path": "test/pinn_edges.jl",
+          "sha256": "975685dbee0cceac3f7ffc5acd0289ce20cf6012eea83811b8ff32aed4d6cdc0",
+          "bytes": 3248,
+          "lines": 57,
+          "read_ranges": [
+            [
+              1,
+              57
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Shared/separate explicit layout maps independent variable permutations, callback termination/history and extra cost weights; no accelerator loading."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/pinn_multidimensional.jl",
+      "sha256": "b44a10ae17da903141b9e62bf487983f451aad239cbe9e984feeb4d0a3e42457",
+      "bytes": 2297,
+      "lines": 41,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/37_tests_pinn_layout_references.json",
+          "path": "test/pinn_multidimensional.jl",
+          "sha256": "b44a10ae17da903141b9e62bf487983f451aad239cbe9e984feeb4d0a3e42457",
+          "bytes": 2297,
+          "lines": 41,
+          "read_ranges": [
+            [
+              1,
+              41
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Heat/Poisson/coupled two-step independent signed FD residual checks; test fixture not large accuracy benchmark."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/pinn_pde.jl",
+      "sha256": "d2a1dbe5b011d0eefe9ef9a3dc537e79b4bc3e345718015285c068da444ce3a6",
+      "bytes": 1358,
+      "lines": 30,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/37_tests_pinn_layout_references.json",
+          "path": "test/pinn_pde.jl",
+          "sha256": "d2a1dbe5b011d0eefe9ef9a3dc537e79b4bc3e345718015285c068da444ce3a6",
+          "bytes": 1358,
+          "lines": 30,
+          "read_ranges": [
+            [
+              1,
+              30
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Poisson800-step independent sample max error threshold, remains global unknown; expensive optional test not run."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/pinn_training.jl",
+      "sha256": "745f4c722975bc732b42222afeefb781aac9aafcf353625c6c722936cd3470c2",
+      "bytes": 3311,
+      "lines": 62,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/38_tests_training_history_potentials.json",
+          "path": "test/pinn_training.jl",
+          "sha256": "745f4c722975bc732b42222afeefb781aac9aafcf353625c6c722936cd3470c2",
+          "bytes": 3311,
+          "lines": 62,
+          "read_ranges": [
+            [
+              1,
+              62
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "500step independent prediction check, bounded history capacity/truncation and continuation native ownership; physical unknown despite small error."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/pinn_visualization.jl",
+      "sha256": "94235e8766daf8c69329e2a9bc3268ab2095679e66806bd620a6106964c7487d",
+      "bytes": 516,
+      "lines": 16,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/38_tests_training_history_potentials.json",
+          "path": "test/pinn_visualization.jl",
+          "sha256": "94235e8766daf8c69329e2a9bc3268ab2095679e66806bd620a6106964c7487d",
+          "bytes": 516,
+          "lines": 16,
+          "read_ranges": [
+            [
+              1,
+              16
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Lossplot reads retained history/truncation, empty history refuses and entries not mutated."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/potential_visualization.jl",
+      "sha256": "5a29d3d0aba6fed391e1505304e6dc2d662be4179f6bb267b8a8aab5bd4b67fa",
+      "bytes": 1210,
+      "lines": 26,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/38_tests_training_history_potentials.json",
+          "path": "test/potential_visualization.jl",
+          "sha256": "5a29d3d0aba6fed391e1505304e6dc2d662be4179f6bb267b8a8aab5bd4b67fa",
+          "bytes": 1210,
+          "lines": 26,
+          "read_ranges": [
+            [
+              1,
+              26
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Potential/force stored report positive radial plot and sample range checks; does not rebuild equilibria."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/real_analysis_core.jl",
+      "sha256": "f5ad841685e99c89608ee92b0de0076792936dea9650208367ac0a07bdccebce",
+      "bytes": 11543,
+      "lines": 245,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/real_analysis_core.jl",
+          "sha256": "f5ad841685e99c89608ee92b0de0076792936dea9650208367ac0a07bdccebce",
+          "read_ranges": [
+            [
+              1,
+              245
+            ]
+          ],
+          "semantic_findings": [
+            "Exact/budget/degenerate-domain/parity and periodic regressions; heuristic roots do not certify other properties."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/real_analysis_integration.jl",
+      "sha256": "82a6419535e2d7657032296d2897107f8723138add29c180938b0f8fd3470644",
+      "bytes": 2122,
+      "lines": 39,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/real_analysis_integration.jl",
+          "sha256": "82a6419535e2d7657032296d2897107f8723138add29c180938b0f8fd3470644",
+          "read_ranges": [
+            [
+              1,
+              39
+            ]
+          ],
+          "semantic_findings": [
+            "Public captured-domain and legacy FunctionAnalysis integration tests."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/real_analysis_visualization.jl",
+      "sha256": "da3fd3aa39d943e615d28c3b1c21991764f3ca971e73ff95445998aef7b92d49",
+      "bytes": 3041,
+      "lines": 52,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/39_tests_entrypoint_real_stranger.json",
+          "path": "test/real_analysis_visualization.jl",
+          "sha256": "da3fd3aa39d943e615d28c3b1c21991764f3ca971e73ff95445998aef7b92d49",
+          "bytes": 3041,
+          "lines": 52,
+          "read_ranges": [
+            [
+              1,
+              52
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Original holes/domain plot masking; plotting samples function only not derivatives and no backend change."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/runtests.jl",
+      "sha256": "66013982d2fa1e852214f1ff022d4b3f64e406c5780d04fd0ea0dbc80c5aec54",
+      "bytes": 14775,
+      "lines": 346,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/runtests.jl",
+          "sha256": "66013982d2fa1e852214f1ff022d4b3f64e406c5780d04fd0ea0dbc80c5aec54",
+          "read_ranges": [
+            [
+              1,
+              220
+            ]
+          ],
+          "semantic_findings": [
+            "Core symbolic/evaluation/search/comparison tests and rejection/legacy constructor contracts inspected; rest not claimed."
+          ],
+          "inspection": "SEMANTIC_SECTION_READ"
+        },
+        {
+          "artifact": "batches/39_tests_entrypoint_real_stranger.json",
+          "path": "test/runtests.jl",
+          "sha256": "66013982d2fa1e852214f1ff022d4b3f64e406c5780d04fd0ea0dbc80c5aec54",
+          "bytes": 14775,
+          "lines": 346,
+          "read_ranges": [
+            [
+              1,
+              346
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Canonical include graph and bounded source contracts, optional learning/Molly remain outside; Cairo activated late; not executed."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/source_capture.jl",
+      "sha256": "0f6c00cdd0c8ebe74079b41253dfb7d3067828cdfa258dd94d90fd3f21bad69d",
+      "bytes": 814,
+      "lines": 20,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/source_capture.jl",
+          "sha256": "0f6c00cdd0c8ebe74079b41253dfb7d3067828cdfa258dd94d90fd3f21bad69d",
+          "read_ranges": [
+            [
+              1,
+              20
+            ]
+          ],
+          "semantic_findings": [
+            "Tests pre-cancellation capture incl constants/sqrt syntax."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/stranger/atomistic.jl",
+      "sha256": "61fb47616bdb4a6fbfcbae3e00d1affedfcd31266ddaefc98aceb87944f515b8",
+      "bytes": 1341,
+      "lines": 24,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/39_tests_entrypoint_real_stranger.json",
+          "path": "test/stranger/atomistic.jl",
+          "sha256": "61fb47616bdb4a6fbfcbae3e00d1affedfcd31266ddaefc98aceb87944f515b8",
+          "bytes": 1341,
+          "lines": 24,
+          "read_ranges": [
+            [
+              1,
+              24
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Standalone atomistic stranger explicit unknown units, borrowed/copy ownership and unsupported data/status checks."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/stranger/dataset.jl",
+      "sha256": "cba2ae9223841e8f4ec7ba17c5cee60398948bb3c6332eb3a23dc2048dcbb1b9",
+      "bytes": 1735,
+      "lines": 28,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/40_tests_stranger_dataset_load_physics.json",
+          "path": "test/stranger/dataset.jl",
+          "sha256": "cba2ae9223841e8f4ec7ba17c5cee60398948bb3c6332eb3a23dc2048dcbb1b9",
+          "bytes": 1735,
+          "lines": 28,
+          "read_ranges": [
+            [
+              1,
+              28
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Explicit splits/dimensions/reference declaration, Float64 sample conversion/scaling matrix and serialization."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/stranger/load.jl",
+      "sha256": "7dd2a9f7b38e372aa680d3b697856632711260e9ed13a663a2a586e7ec9bee02",
+      "bytes": 1032,
+      "lines": 19,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/40_tests_stranger_dataset_load_physics.json",
+          "path": "test/stranger/load.jl",
+          "sha256": "7dd2a9f7b38e372aa680d3b697856632711260e9ed13a663a2a586e7ec9bee02",
+          "bytes": 1032,
+          "lines": 19,
+          "read_ranges": [
+            [
+              1,
+              19
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Headless load no BLAS change or optional extension activation, runtime printed by fixture not audit."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/stranger/physicist.jl",
+      "sha256": "e7e6e54622ac5a09e5d0d91e9570e020aa669cf52c2b4d2d9e262502b47ae088",
+      "bytes": 1184,
+      "lines": 22,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/40_tests_stranger_dataset_load_physics.json",
+          "path": "test/stranger/physicist.jl",
+          "sha256": "e7e6e54622ac5a09e5d0d91e9570e020aa669cf52c2b4d2d9e262502b47ae088",
+          "bytes": 1184,
+          "lines": 22,
+          "read_ranges": [
+            [
+              1,
+              22
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Public mechanics-modal-trajectory-stored observation workflow physical units only from explicit callback; malformed selectors refuse."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/stranger/research.jl",
+      "sha256": "d10f4f6159dbe7739a18c1242a746598dba285e15541e3dda12294a6bd91c37d",
+      "bytes": 1995,
+      "lines": 39,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/41_tests_stranger_scaling_splits.json",
+          "path": "test/stranger/research.jl",
+          "sha256": "d10f4f6159dbe7739a18c1242a746598dba285e15541e3dda12294a6bd91c37d",
+          "bytes": 1995,
+          "lines": 39,
+          "read_ranges": [
+            [
+              1,
+              39
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Public lazy range summary with generic floating/Unitful moments, serialization, sparse modes explicitly denseFloat64 and complex refusal."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/stranger/student.jl",
+      "sha256": "b0eb1f546c0f3644c54253a3dfcba730e0f34be90761297b902ed5855d7d1198",
+      "bytes": 936,
+      "lines": 24,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/41_tests_stranger_scaling_splits.json",
+          "path": "test/stranger/student.jl",
+          "sha256": "b0eb1f546c0f3644c54253a3dfcba730e0f34be90761297b902ed5855d7d1198",
+          "bytes": 936,
+          "lines": 24,
+          "read_ranges": [
+            [
+              1,
+              24
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Univariate generic numbers including complex versus scalar-field checked coordinates; stable four-field PropertyResult."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/surrogate_contracts.jl",
+      "sha256": "03723b2b700f7b1db8e1f46fe79fc0aab1d8f419e7f161b2d52eb547f9ea8dea",
+      "bytes": 2828,
+      "lines": 50,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/41_tests_stranger_scaling_splits.json",
+          "path": "test/surrogate_contracts.jl",
+          "sha256": "03723b2b700f7b1db8e1f46fe79fc0aab1d8f419e7f161b2d52eb547f9ea8dea",
+          "bytes": 2828,
+          "lines": 50,
+          "read_ranges": [
+            [
+              1,
+              50
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Declared train/interpolation/extrapolation integrity, poison-heldout non-leak scaling, numerical metadata and sampled field error denominator guards."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/surrogate_data.jl",
+      "sha256": "c55bf25b4dc7464ba42b7374cd9519ab63eaf458e6c94d6f83a90f665c38b574",
+      "bytes": 1425,
+      "lines": 25,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/42_tests_datasets_heat_analyst.json",
+          "path": "test/surrogate_data.jl",
+          "sha256": "c55bf25b4dc7464ba42b7374cd9519ab63eaf458e6c94d6f83a90f665c38b574",
+          "bytes": 1425,
+          "lines": 25,
+          "read_ranges": [
+            [
+              1,
+              25
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Scientific sample/dataset schema and duplicate ID/domain query checks."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/surrogate_diagnostics.jl",
+      "sha256": "dda3cd97ce7afc8a1781dc2f5bb65d81ae1f4b8b6324ddc590679fdd4057e373",
+      "bytes": 1489,
+      "lines": 32,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/42_tests_datasets_heat_analyst.json",
+          "path": "test/surrogate_diagnostics.jl",
+          "sha256": "dda3cd97ce7afc8a1781dc2f5bb65d81ae1f4b8b6324ddc590679fdd4057e373",
+          "bytes": 1489,
+          "lines": 32,
+          "read_ranges": [
+            [
+              1,
+              32
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Independent heat AD identity and deliberate perturbation counterexample; query timings descriptive include compilation, not speed guarantee."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/trajectories.jl",
+      "sha256": "cee8bbc891c835f65eb911da1d8a8fd554103a1291bb88cd3012f83f3079ac3c",
+      "bytes": 2861,
+      "lines": 53,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/trajectories.jl",
+          "sha256": "cee8bbc891c835f65eb911da1d8a8fd554103a1291bb88cd3012f83f3079ac3c",
+          "read_ranges": [
+            [
+              1,
+              53
+            ]
+          ],
+          "semantic_findings": [
+            "ODE input/RHS/domain errors and nonautonomous/oscillator/logistic analytic checks; unknown domains fail fast."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/trajectory_analyst.jl",
+      "sha256": "9d972ecec1984a0de7bb6ffba78f93cc3f593cc8288e12fe0b4534721965aea9",
+      "bytes": 5078,
+      "lines": 87,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/42_tests_datasets_heat_analyst.json",
+          "path": "test/trajectory_analyst.jl",
+          "sha256": "9d972ecec1984a0de7bb6ffba78f93cc3f593cc8288e12fe0b4534721965aea9",
+          "bytes": 5078,
+          "lines": 87,
+          "read_ranges": [
+            [
+              1,
+              87
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Lazy default analyst no frame loads; explicit temperature dof/Boltzmann; only named total energy plus NVE conservation expectation, no validity score."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/trajectory_comparison.jl",
+      "sha256": "971826ed213e71ea5938714653016fa1c47f003c68a07f5e8aaa180ad9eccc0e",
+      "bytes": 4186,
+      "lines": 72,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/43_tests_comparison_compatibility.json",
+          "path": "test/trajectory_comparison.jl",
+          "sha256": "971826ed213e71ea5938714653016fa1c47f003c68a07f5e8aaa180ad9eccc0e",
+          "bytes": 4186,
+          "lines": 72,
+          "read_ranges": [
+            [
+              1,
+              72
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Difference b-a compatible units/name/context and grids, independent SE only explicit not self; bare results unknown."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/trajectory_comparison_edges.jl",
+      "sha256": "ace95a980cb0200cbc7adc617be955785d162c2e90618ae7e5774e73dd308c84",
+      "bytes": 4491,
+      "lines": 67,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/43_tests_comparison_compatibility.json",
+          "path": "test/trajectory_comparison_edges.jl",
+          "sha256": "ace95a980cb0200cbc7adc617be955785d162c2e90618ae7e5774e73dd308c84",
+          "bytes": 4491,
+          "lines": 67,
+          "read_ranges": [
+            [
+              1,
+              67
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Fail closed unknown time/units/temperature conventions, contradictory metadata and malformed shapes; derived dimensionless quantities retain source identity checks."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/trajectory_comparison_runs.jl",
+      "sha256": "4986a0a9320a83c110d766a08fee6f5faac75df28a1bf8cba9dadf7a280efb44",
+      "bytes": 2085,
+      "lines": 36,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/43_tests_comparison_compatibility.json",
+          "path": "test/trajectory_comparison_runs.jl",
+          "sha256": "4986a0a9320a83c110d766a08fee6f5faac75df28a1bf8cba9dadf7a280efb44",
+          "bytes": 2085,
+          "lines": 36,
+          "read_ranges": [
+            [
+              1,
+              36
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Stored report composition does not fetch frames/activate backend; requested component absence remains unknown."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/trajectory_comparison_transport.jl",
+      "sha256": "182a0289acb1396346501eea326555617ded75cdd5037f202e420b9dd331c6c8",
+      "bytes": 4630,
+      "lines": 71,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/44_tests_transport_comparison_observations.json",
+          "path": "test/trajectory_comparison_transport.jl",
+          "sha256": "182a0289acb1396346501eea326555617ded75cdd5037f202e420b9dd331c6c8",
+          "bytes": 4630,
+          "lines": 71,
+          "read_ranges": [
+            [
+              1,
+              71
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "MSD/VACF comparison requires compatible selection/time/convention, diffusion fit-window mismatch fails; explicit index-time diffusion fixture at line39 confirms missing direct gate."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/trajectory_comparison_visualization.jl",
+      "sha256": "266eb6616816704c1230747f2d6f127512ff5f0dfcf2267fdd1521c46d14fb0b",
+      "bytes": 1344,
+      "lines": 26,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/44_tests_transport_comparison_observations.json",
+          "path": "test/trajectory_comparison_visualization.jl",
+          "sha256": "266eb6616816704c1230747f2d6f127512ff5f0dfcf2267fdd1521c46d14fb0b",
+          "bytes": 1344,
+          "lines": 26,
+          "read_ranges": [
+            [
+              1,
+              26
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Comparison/difference views render stored compatible or unknown diagnostics, no invented uncertainty or source mutation."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/trajectory_inference.jl",
+      "sha256": "69e4f1c49de13c194d14b1414bb3e2867dc22ecb168d1a626fdc546b51ffc46c",
+      "bytes": 2926,
+      "lines": 52,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/44_tests_transport_comparison_observations.json",
+          "path": "test/trajectory_inference.jl",
+          "sha256": "69e4f1c49de13c194d14b1414bb3e2867dc22ecb168d1a626fdc546b51ffc46c",
+          "bytes": 2926,
+          "lines": 52,
+          "read_ranges": [
+            [
+              1,
+              52
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Pair observations copy values/times retain source identity; fixed scale required Unitful ObservationSet, unknown/index clock refuse and monotone frames enforced."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/trajectory_statistics.jl",
+      "sha256": "433cd2cd73568d4312086deff8fd625c675981ebb2a2d08fd31a0109cbdd1190",
+      "bytes": 5882,
+      "lines": 116,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/45_tests_statistics_transport_uncertainty.json",
+          "path": "test/trajectory_statistics.jl",
+          "sha256": "433cd2cd73568d4312086deff8fd625c675981ebb2a2d08fd31a0109cbdd1190",
+          "bytes": 5882,
+          "lines": 116,
+          "read_ranges": [
+            [
+              1,
+              116
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Sampling borrowed increasing times, no guessing clock; Welford one-pass generic moments and bounded direct covariance; invalid sample unknown no dropping."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/trajectory_transport.jl",
+      "sha256": "01e771f558497676c98be04d807acce4e3026b71f7e5073b6b2b749881ea9ea0",
+      "bytes": 4482,
+      "lines": 68,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/45_tests_statistics_transport_uncertainty.json",
+          "path": "test/trajectory_transport.jl",
+          "sha256": "01e771f558497676c98be04d807acce4e3026b71f7e5073b6b2b749881ea9ea0",
+          "bytes": 4482,
+          "lines": 68,
+          "read_ranges": [
+            [
+              1,
+              68
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Single-origin MSD caller particle/unwrapped declarations, explicit fit interval and >=3points; VACF measured velocity stored-window evidence, no equilibration claim."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/trajectory_uncertainty.jl",
+      "sha256": "d1a543db63873fc3b24fd1c54656cef50ce75fa94130476feea7df879cf58fce",
+      "bytes": 3567,
+      "lines": 62,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/45_tests_statistics_transport_uncertainty.json",
+          "path": "test/trajectory_uncertainty.jl",
+          "sha256": "d1a543db63873fc3b24fd1c54656cef50ce75fa94130476feea7df879cf58fce",
+          "bytes": 3567,
+          "lines": 62,
+          "read_ranges": [
+            [
+              1,
+              62
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "IAT convention .5+sum, cap effective information N; positive tail unresolved, blocks discarded tail explicit, suggested transient not automatically applied or proof."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/trajectory_visualization.jl",
+      "sha256": "c0020db90bf06988569a0ab50be6a274ef9e48fa3359feaec5eeecd088832d70",
+      "bytes": 1361,
+      "lines": 25,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/46_tests_stored_statistical_vector_views.json",
+          "path": "test/trajectory_visualization.jl",
+          "sha256": "c0020db90bf06988569a0ab50be6a274ef9e48fa3359feaec5eeecd088832d70",
+          "bytes": 1361,
+          "lines": 25,
+          "read_ranges": [
+            [
+              1,
+              25
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Stored statistical Figures require available time/correlation; not recompute transport fit, no mutation."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/vector_calculus.jl",
+      "sha256": "a2598d33701e8538aed34f5c0325f7e13725696f964bf744cd8b5fdf090199f7",
+      "bytes": 1910,
+      "lines": 46,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/vector_calculus.jl",
+          "sha256": "a2598d33701e8538aed34f5c0325f7e13725696f964bf744cd8b5fdf090199f7",
+          "read_ranges": [
+            [
+              1,
+              46
+            ]
+          ],
+          "semantic_findings": [
+            "Tests polynomial potential verification vs punctured-plane zero-curl uncertainty, dimensions and affine maps."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/vector_fields.jl",
+      "sha256": "b0a7376ad4d1034537f25f00dcdd1c7063630a138f25cc3d5d70a2b30a503b45",
+      "bytes": 1780,
+      "lines": 40,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/vector_fields.jl",
+          "sha256": "b0a7376ad4d1034537f25f00dcdd1c7063630a138f25cc3d5d70a2b30a503b45",
+          "read_ranges": [
+            [
+              1,
+              40
+            ]
+          ],
+          "semantic_findings": [
+            "Tests rectangular dispatch, domain intersection, smoothness and backend isolation."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/vector_regressions.jl",
+      "sha256": "4df7239c7b181b93b1ef7f9327ebfb2ebd0fab81e20969270729e59e4065bd0d",
+      "bytes": 3233,
+      "lines": 70,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/vector_regressions.jl",
+          "sha256": "4df7239c7b181b93b1ef7f9327ebfb2ebd0fab81e20969270729e59e4065bd0d",
+          "read_ranges": [
+            [
+              1,
+              70
+            ]
+          ],
+          "semantic_findings": [
+            "Numeric-type preservation and accessor copies; unknown/nonisolated zeros, opaque captured containers, display no evaluations."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/vector_visualization.jl",
+      "sha256": "7243e642b1a834233a916f0972f7d95c4ac17f24c2ae25261f1ddd26b667b836",
+      "bytes": 2011,
+      "lines": 44,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "batches/46_tests_stored_statistical_vector_views.json",
+          "path": "test/vector_visualization.jl",
+          "sha256": "7243e642b1a834233a916f0972f7d95c4ac17f24c2ae25261f1ddd26b667b836",
+          "bytes": 2011,
+          "lines": 44,
+          "read_ranges": [
+            [
+              1,
+              44
+            ]
+          ],
+          "inspection": "FULL_SEMANTIC_READ",
+          "semantic_findings": [
+            "Vector arrows exclude original-domain holes,2D matching dimension/range/sample caps; backend owned by caller and render gate separate."
+          ]
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    },
+    {
+      "path": "test/vector_zeros.jl",
+      "sha256": "636b781f7a2758560c85eb9cfb8617137dddb6cfb9667deddbf49a5cf0ad7b9b",
+      "bytes": 1861,
+      "lines": 38,
+      "area": "test",
+      "inspection_status": "FULL_SEMANTIC_READ",
+      "evidence_level": "VERIFIED_INVENTORY_ONLY",
+      "review_evidence": [
+        {
+          "artifact": "core_inspection.json",
+          "path": "test/vector_zeros.jl",
+          "sha256": "636b781f7a2758560c85eb9cfb8617137dddb6cfb9667deddbf49a5cf0ad7b9b",
+          "read_ranges": [
+            [
+              1,
+              38
+            ]
+          ],
+          "semantic_findings": [
+            "Tests exact excluded zeros, separable completeness, bounded square/rectangular heuristic residual thresholds and control errors."
+          ],
+          "inspection": "FULL_SEMANTIC_READ"
+        }
+      ],
+      "runtime_verification": "NOT_RUN_IN_M10D_6A",
+      "role": "TEST_SOURCE_NOT_EXECUTED"
+    }
+  ]
+}

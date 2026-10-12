@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "57_examples_reduction_training_regimes",
+  "files": [
+    {
+      "path": "examples/scaling/million_query_analysis.jl",
+      "sha256": "2d1c7007421ce5fa48d7898e0ca7d44da2970e2a5c5026e1c73ae1d90421f460",
+      "bytes": 3242,
+      "lines": 56,
+      "read_ranges": [
+        [
+          1,
+          56
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Full/summary-only field/heat metrics data ladders; estimates not JIT RSS and summary AD may reevaluate."
+      ]
+    },
+    {
+      "path": "examples/scaling/million_sample_statistics.jl",
+      "sha256": "a03d37faf89c4740895894bbabf0305448e41a2621b19c135226c8f6f8379d59",
+      "bytes": 1991,
+      "lines": 39,
+      "read_ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Same Welford lazy versus explicit input materialization, retained running/block/ACF outputs not O(1) contracts."
+      ]
+    },
+    {
+      "path": "examples/scaling/ml_training_stress.jl",
+      "sha256": "a983a43af18a587c82379969b5450c26e6e520336cbcad0eb1fe092ba560b72b",
+      "bytes": 3836,
+      "lines": 60,
+      "read_ranges": [
+        [
+          1,
+          60
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Native Lux3step computational stress with model/workspace estimate before setup, level/manual opt-ins not public AML training memory controls."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "27_tests_extensions_flagship",
+  "files": [
+    {
+      "path": "test/m10d_extensions.jl",
+      "sha256": "e0559aa179acd7cb094ecc2a0bd3ffbe8c4560cbdb058a33715853b5d6149570",
+      "bytes": 3304,
+      "lines": 65,
+      "read_ranges": [
+        [
+          1,
+          65
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Manual loader registration/load-order/ambiguity gate outside base; path manifest registration must match Project; no training."
+      ]
+    },
+    {
+      "path": "test/m10d_flagship.jl",
+      "sha256": "425ec820b4dcbfda44c100556fc4e2bd2635c742f241f6302be339f5f8bf99b1",
+      "bytes": 9161,
+      "lines": 157,
+      "read_ranges": [
+        [
+          1,
+          157
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Canonical same-system independent modal oracle, domain/state/unit/order/source/value-equality dataset descriptor checks, numerical trajectory not analytical truth."
+      ]
+    },
+    {
+      "path": "test/m10d_flagship_learning.jl",
+      "sha256": "75774fdff5485f9ff893830f6b25ab27c139c01c2e37086e74f2fdfd3e133406",
+      "bytes": 4609,
+      "lines": 82,
+      "read_ranges": [
+        [
+          1,
+          82
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Optional one-step affine learning proves pipeline/splits/provenance/training exclusion not fit accuracy; global evidence unknown."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

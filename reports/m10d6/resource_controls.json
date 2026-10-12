@@ -1,0 +1,128 @@
+{
+  "phase": "M10D.6A",
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "evidence": "SOURCE_INSPECTED; tests read, not executed",
+  "global_public_memory_budget_setter": false,
+  "policy": "Byte estimates, output cardinality, history counts, query chunking and source retention are different controls. None is a universal peak-RSS or backend allocation guarantee.",
+  "controls": [
+    {
+      "id": "MC01",
+      "operation": "normal_modes(K::AbstractMatrix,M::AbstractMatrix)",
+      "control": "max_memory_bytes::Integer",
+      "category": "PUBLIC_BYTE_ESTIMATE_PREFLIGHT",
+      "default": "512*1024^2",
+      "unit": "bytes",
+      "validation": "Positive integer excluding Bool; non-integer keyword type errors remain possible",
+      "estimate": "24*sizeof(Float64)*big(n)^2",
+      "outcome": "ArgumentError before coefficient traversal, metadata copying or dense conversion in the direct matrix method",
+      "limits": "Full dense Float64 only; sparse inputs densify. Not RSS. Excludes symbolic graph, user metadata and caller input storage. Mechanical/snapshot adapters can allocate before reaching this method.",
+      "source_refs": ["src/mechanics/normal_modes.jl:149-186", "src/atomistic/modes.jl:24-50"],
+      "test_refs": ["test/m10c_partial_modes.jl:4-17"],
+      "refusal_groups": ["RF002", "RF003", "RF004"]
+    },
+    {
+      "id": "MC02",
+      "operation": "pair_distances(s::AtomisticSnapshot)",
+      "control": "max_bytes",
+      "category": "PUBLIC_BYTE_ESTIMATE_PREFLIGHT",
+      "default": "512*1024^2",
+      "unit": "bytes",
+      "validation": "Nonnegative Integer; Bool is not explicitly excluded",
+      "estimate": "64*pairs_count+sizeof(Int)*(big(length(A))+length(B))",
+      "outcome": "Unknown PropertyResult without pair output when estimate exceeds limit",
+      "limits": "Selection arrays already allocated. Fixed-width estimate excludes arbitrary-precision/backend payload growth and is not RSS. Unknown geometry/data can return before pair-limit validation.",
+      "source_refs": ["src/atomistic/core.jl:87-123"],
+      "test_refs": ["test/m10c_atomistic_scale.jl"],
+      "refusal_groups": ["RF007"]
+    },
+    {
+      "id": "MC03",
+      "operation": "pair_distances; mdcheck",
+      "control": "max_pairs",
+      "category": "PUBLIC_OUTPUT_CARDINALITY",
+      "default": "1_000_000",
+      "unit": "pairs",
+      "outcome": "Unknown pair result on output refusal; mdcheck passes only max_pairs, not max_bytes",
+      "limits": "Not a memory setter or work deadline. RDF/coordination omit full pair output but remain quadratic traversal.",
+      "source_refs": ["src/atomistic/core.jl:102-123", "src/atomistic/inspection.jl:31-60"],
+      "test_refs": ["test/m10c_atomistic_scale.jl"],
+      "refusal_groups": ["RF007"]
+    },
+    {
+      "id": "MC04",
+      "operation": "PINNHistory; train(PINNProblem/PINNTrainingResult); infer_parameters",
+      "control": "stride/capacity; history/log_every/history_capacity; history_stride/history_capacity",
+      "category": "PUBLIC_DIAGNOSTIC_RETENTION",
+      "default": "PINNHistory stride=10, capacity=1000; PINN train history=false, log_every=10, history_capacity=1000; inference history_stride=10, history_capacity=1000",
+      "unit": "iterations and retained records",
+      "outcome": "Positive controls required; retains earliest entries and records truncated=true after capacity",
+      "limits": "No cap on optimizer/model/native solution. Component logging can add diagnostic work. History=false is not a no-storage training mode.",
+      "source_refs": ["src/scientific_ml/pinn.jl:24-37", "ext/AnalyticMathLabPINNExt.jl:89-152", "ext/AnalyticMathLabInferenceExt.jl:6-49"],
+      "test_refs": ["test/pinn_base.jl", "test/pinn_training.jl"],
+      "refusal_groups": ["RF016"]
+    },
+    {
+      "id": "MC05",
+      "operation": "train scientific surrogate / learned dynamics",
+      "control": "history_limit",
+      "category": "PUBLIC_DIAGNOSTIC_RETENTION",
+      "default": "100; supported range 1..10000",
+      "unit": "retained records",
+      "outcome": "Rolling history drops earliest record at capacity; invalid bounds throw",
+      "limits": "Unlike PINN/inference history, this retains later entries. Does not bound training batch or AD/optimizer state.",
+      "source_refs": ["ext/AnalyticMathLabSurrogateExt.jl:77-104", "ext/AnalyticMathLabDynamicsExt.jl:53-78"],
+      "test_refs": [],
+      "uncertainty": "No dedicated hard-maximum regression established by this audit",
+      "refusal_groups": ["RF017"]
+    },
+    {
+      "id": "MC06",
+      "operation": "predict PINN / scientific surrogate or operator",
+      "control": "batch_size::Union{Nothing,Integer}",
+      "category": "PUBLIC_TEMPORARY_QUERY_CHUNKING",
+      "default": "nothing",
+      "unit": "query columns per chunk",
+      "outcome": "Positive size required; returns full result assembled across query chunks",
+      "limits": "Full output remains O(number of queries); PINN slices input and allocates Float64 output. Must use query-independent deterministic networks; not a training minibatch or global memory cap.",
+      "source_refs": ["ext/AnalyticMathLabPINNExt.jl:155-200", "ext/AnalyticMathLabSurrogateExt.jl:32-52"],
+      "test_refs": ["test/m10c_chunking.jl"],
+      "refusal_groups": ["RF018"]
+    },
+    {
+      "id": "MC07",
+      "operation": "field_errors; heat_residual",
+      "control": "summary_only::Bool",
+      "category": "PUBLIC_OUTPUT_RETENTION",
+      "default": "false",
+      "unit": "boolean output policy",
+      "outcome": "field_errors absolute=nothing; heat_residual values=nothing when true",
+      "limits": "Inputs/points and metadata still retained. Deterministic private mapped reducers can reevaluate calculations; not a universal one-pass public streaming API. sampled_summary snapshots non-array public iterators once and has no memory keyword.",
+      "source_refs": ["src/scientific_ml/surrogates.jl:171-187", "src/scientific_ml/generalization.jl:39-57", "src/scientific_ml/diagnostics.jl:23-48"],
+      "test_refs": ["test/m10c_chunking.jl"],
+      "refusal_groups": []
+    },
+    {
+      "id": "MC08",
+      "operation": "ScientificDataset(path::TrajectoryResult; schema)",
+      "control": "source_retention",
+      "category": "PUBLIC_PROVENANCE_RETENTION",
+      "default": ":retained",
+      "unit": "source object retention policy",
+      "outcome": ":retained keeps/copies source through dataset policy; :descriptor stores bounded detached origin with declared omissions",
+      "limits": "Selected data/schema still copied. Descriptor omits source object, context, original domain, unselected labels and selector callable. Not a compression API or persistent provenance hash.",
+      "source_refs": ["src/scientific_ml/trajectory_dataset.jl:1-104"],
+      "test_refs": ["test/m10d_semantics_review.jl"],
+      "refusal_groups": ["RF024"]
+    }
+  ],
+  "other_limits_not_byte_budgets": [
+    {"operation": "scalar/vector symbolic analysis", "controls": "Fixed dimensions 1..32; bounds/grid/iterations and internal 50000 Cartesian seeds", "source_refs": ["src/multivariate_analysis.jl:35-47", "src/multivariate_analysis.jl:304-338"], "refusal_groups": ["RF001", "RF006"]},
+    {"operation": "exact algebra", "controls": "Internal degree64/bits4096/work200000/AST512/depth48", "source_refs": ["src/core/exact_algebra.jl:1-46"], "refusal_groups": ["RF005"]},
+    {"operation": "trajectory", "controls": "Public maxiters default100000; saveat fixed grid ceiling1000000, while adaptive history still retained", "source_refs": ["src/dynamical_systems/integration.jl:64-131"], "refusal_groups": ["RF010", "RF011"]},
+    {"operation": "ML training", "controls": "Surrogate maxiters required1..100000; learned dynamics default100 with range1..10000; PINN/inference require positive maxiters", "source_refs": ["ext/AnalyticMathLabSurrogateExt.jl:77-79", "ext/AnalyticMathLabDynamicsExt.jl:53-57", "ext/AnalyticMathLabPINNExt.jl:107-111", "ext/AnalyticMathLabInferenceExt.jl:6-8"], "refusal_groups": ["RF016", "RF017"]}
+  ],
+  "maintainer_only": [
+    {"control": "StressBudget and AML_MAX_BYTES/AML_MAX_SECONDS/AML_MAX_THREADS/AML_SCALE_LEVEL/AML_EXTREME", "source": "examples/scaling/harness.jl", "scope": "Example harness estimates/cooperative limits; not package public API"},
+    {"control": "ControlledModes.partial_chain and native SciML storage/ensemble examples", "source": "examples/scaling/partial_modes.jl; examples/scaling/large_oscillator_ode.jl; examples/scaling/ode_ensemble.jl", "scope": "Specific maintainer experiments; no generic AML partial Hessian/eigensolver or scalable public trajectory inferred"}
+  ]
+}

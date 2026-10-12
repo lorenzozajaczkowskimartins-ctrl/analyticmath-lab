@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "54_examples_manual_gate_stream",
+  "files": [
+    {
+      "path": "examples/pinn/runtests.jl",
+      "sha256": "614dbcd5c9a9e17bf87ca560932b945cedd433a82af155b36a8d39ebc0393d37",
+      "bytes": 1390,
+      "lines": 23,
+      "read_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Optional PINN include orchestration not base test, activation/ambiguities and long training test fixtures."
+      ]
+    },
+    {
+      "path": "examples/scaling/example_guardrail_gate.jl",
+      "sha256": "e24959334f0f733a333b8481f3bb2eda85be327dca29a404bb490806fb32a330",
+      "bytes": 792,
+      "lines": 21,
+      "read_ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Maintainer stress budget example namespace, low budget and native ODE output artifact gate not public config."
+      ]
+    },
+    {
+      "path": "examples/scaling/extreme_streaming_statistics.jl",
+      "sha256": "0948b3ad5b69925184308623dd731bb123ef5f3a59e99445cf3a76d723630fcd",
+      "bytes": 2112,
+      "lines": 38,
+      "read_ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Manual extreme stream with explicit samples/chunk/deadline, actual consumed count partial status, no IID stderr and environment info; not AML generic stream API."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

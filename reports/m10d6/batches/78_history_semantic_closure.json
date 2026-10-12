@@ -1,0 +1,986 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "78_history_semantic_closure",
+  "files": [
+    {
+      "path": "docs/m10d_issue_ledger.md",
+      "sha256": "b02dc0728832494ea8cad7859dcf825f2c13943ed579fa00e6b29f1d4f381af2",
+      "bytes": 23156,
+      "lines": 122,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          37,
+          37
+        ],
+        [
+          39,
+          39
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          103,
+          103
+        ],
+        [
+          111,
+          111
+        ],
+        [
+          112,
+          112
+        ],
+        [
+          113,
+          113
+        ],
+        [
+          114,
+          114
+        ],
+        [
+          115,
+          115
+        ],
+        [
+          116,
+          116
+        ],
+        [
+          117,
+          117
+        ],
+        [
+          118,
+          118
+        ],
+        [
+          119,
+          119
+        ],
+        [
+          120,
+          120
+        ],
+        [
+          121,
+          121
+        ],
+        [
+          122,
+          122
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10D issue ledger"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "Baseline: `ff28e89bb08f95015d241091de7406d8f02d5861`. Severity describes"
+        },
+        {
+          "line": 4,
+          "text": "integration/release risk, not a retroactive failure of M10A/B/C scientific gates."
+        },
+        {
+          "line": 5,
+          "text": "DEFERRED is an explicit phase decision, not resolved or verified. No finding"
+        },
+        {
+          "line": 6,
+          "text": "justifies new science. Runtime gate outcomes and review closure are recorded in"
+        },
+        {
+          "line": 7,
+          "text": "m10d_plan.md. M10D.1 findings remain frozen; M10D.2 dispositions and local"
+        },
+        {
+          "line": 8,
+          "text": "interoperability findings are added below without beginning M10D.3."
+        },
+        {
+          "line": 9,
+          "text": ""
+        },
+        {
+          "line": 10,
+          "text": "| ID | Subsystem | Category | Severity | Evidence | Root cause | Action | Status | Phase |"
+        },
+        {
+          "line": 11,
+          "text": "|---|---|---|---|---|---|---|---|---|"
+        },
+        {
+          "line": 12,
+          "text": "| D001 | ODE examples | Layout coupling | Medium | examples/scaling/large_oscillator_ode.jl and ode_ensemble.jl injected src/dynamical_systems/scaling.jl although src/AnalyticMathLab.jl already registers it | Obsolete interruption-era fallback could conceal registration regressions | Remove both fallbacks; leave helper internal; test package registration and scan examples | FIXED; layout red failed on exact two paths, then green | M10D.1 |"
+        },
+        {
+          "line": 13,
+          "text": "| D002 | Public boundary | Missing classification | High | src/AnalyticMathLab.jl export list grew through M9; architecture doc historical M4.5\u2013M7 framing | No authoritative whole-library 1.0 policy | Assign every export to one family and explicitly include reachable unexported types; no aesthetic renaming | RESOLVED by inventory and coverage test | M10D.1 |"
+        },
+        {
+          "line": 14,
+          "text": "| D003 | Notebook | Internal helper leakage | Medium | notebooks/mechanics_addendum.jl used AnalyticMathLab._mc_zero for validation | Maintainer assertion copied into user example | Same symbolic simplification/zero check via public Symbolics operations; retain all scientific assertions | FIXED; targeted red reproduced | M10D.1 |"
+        },
+        {
+          "line": 15,
+          "text": "| D004 | Optional example environments | Dependency binding leakage | Medium | examples/operators/heat_family.jl, backend_probe.jl and examples/inference/neural_showcase.jl import Symbolics/ForwardDiff via AML; corresponding Projects omit direct deps | Example dependency convenience conflated with package re-export | Mark bindings INTERNAL; later declare example-owned deps and replace imports together with reproducible environment resolution; do not export backends | DEFERRED packaging cleanup, not a broken loader | M10D.5 |"
+        },
+        {
+          "line": 16,
+          "text": "| D005 | Analyze language | Discoverability | Medium | Eleven analyze methods; mdcheck/analyze_potential/statistical_summary/trajectory remain distinct factories; AbstractAnalysis includes input containers | Marker historically used beyond computed analyses | Document nine conceptual dispatch families and input\u2192output distinction; preserve specialized verbs; docs navigation later | BOUNDARY RESOLVED; navigation DEFERRED | M10D.1 / M10D.6 |"
+        },
+        {
+          "line": 37,
+          "text": "## Phase ownership and bounded review rule"
+        },
+        {
+          "line": 39,
+          "text": "### M10D.2 local findings and explicit semantic deferrals"
+        },
+        {
+          "line": 57,
+          "text": "### Historical M10D.1 ownership rule"
+        },
+        {
+          "line": 67,
+          "text": "## M10D.3 semantic dispositions and single bounded review"
+        },
+        {
+          "line": 103,
+          "text": "## M10D.5 hardening dispositions"
+        },
+        {
+          "line": 111,
+          "text": "|---|---|---|"
+        },
+        {
+          "line": 112,
+          "text": "| D004 | Examples directly import/declare ForwardDiff and Symbolics; three manifest project hashes resolved without dependency-record/version changes | FIXED; packaging and optional gates pass |"
+        },
+        {
+          "line": 113,
+          "text": "| D011 / D035 | Document factory versus raw record, borrowed versus copied data, open caller metadata and checked Float64 boundaries; preserve frozen layouts. Add actionable missing dataset fields and series name/time/unit refusals | RESOLVED bounded first-hour scope; raw positional containers are not scientific validators |"
+        },
+        {
+          "line": 114,
+          "text": "| D012 | Narrow model-typed learned-dynamics fallbacks explain Lux/Optimization absence; activated extension methods remain more specific | FIXED; absence gate and both load orders pass, no detected AML ambiguity |"
+        },
+        {
+          "line": 115,
+          "text": "| D014 | PINN activation error lists SymbolicIndexingInterface alongside the other four triggers | FIXED; base error and both PINN activation orders pass |"
+        },
+        {
+          "line": 116,
+          "text": "| D024 | Correctness fixture budgets max(Julia threads, BLAS threads); smaller explicit ceiling still refuses. No global BLAS import mutation; production harness unchanged | RESOLVED; focused PASS at Julia/BLAS 1/6 and 2/3; plain canonical PASS at 1/6 with both thread variables unset |"
+        },
+        {
+          "line": 117,
+          "text": "| D039 | Default Molly System has loggers=(); keyword defaults called unsupported get before public fixed_box/logger refusal. Treat empty tuple as absent logger, preserve NamedTuple/dictionary behavior | FIXED; retained red, both load orders and 47-assertion stored-frame regression pass |"
+        },
+        {
+          "line": 118,
+          "text": ""
+        },
+        {
+          "line": 119,
+          "text": "One bounded parent first-hour review is recorded, not repeated. Dataset row shape"
+        },
+        {
+          "line": 120,
+          "text": "and operators RNG-provenance omissions were new test-fixture corrections, not"
+        },
+        {
+          "line": 121,
+          "text": "scientific feature changes. SparseArrays/Serialization isolated-test imports are"
+        },
+        {
+          "line": 122,
+          "text": "declared and probed before canonical. No push, tag, subagents or M10D.6 work."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    },
+    {
+      "path": "docs/m10d_plan.md",
+      "sha256": "73e6ae4c64607dd4d652645bac6569e821a61c09fdc9d914bc738222b61013dc",
+      "bytes": 28309,
+      "lines": 411,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          39,
+          39
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          81,
+          81
+        ],
+        [
+          90,
+          90
+        ],
+        [
+          101,
+          101
+        ],
+        [
+          122,
+          122
+        ],
+        [
+          156,
+          156
+        ],
+        [
+          183,
+          183
+        ],
+        [
+          227,
+          227
+        ],
+        [
+          242,
+          242
+        ],
+        [
+          269,
+          269
+        ],
+        [
+          306,
+          306
+        ],
+        [
+          353,
+          353
+        ],
+        [
+          378,
+          378
+        ],
+        [
+          395,
+          395
+        ],
+        [
+          400,
+          400
+        ],
+        [
+          401,
+          401
+        ],
+        [
+          402,
+          402
+        ],
+        [
+          403,
+          403
+        ],
+        [
+          404,
+          404
+        ],
+        [
+          405,
+          405
+        ],
+        [
+          406,
+          406
+        ],
+        [
+          407,
+          407
+        ],
+        [
+          408,
+          408
+        ],
+        [
+          409,
+          409
+        ],
+        [
+          410,
+          410
+        ],
+        [
+          411,
+          411
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10D \u2014 Cross-milestone integration and 1.0 stabilization"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "## Authority and baseline"
+        },
+        {
+          "line": 4,
+          "text": ""
+        },
+        {
+          "line": 5,
+          "text": "Baseline: `ff28e89bb08f95015d241091de7406d8f02d5861`, parent"
+        },
+        {
+          "line": 6,
+          "text": "`091492e03dbf5fc1346c9ffa3dfbdfcd3f2bbe93`. M10C is closed: replacement"
+        },
+        {
+          "line": 7,
+          "text": "canonical 4789/4789 assertions, 167 reported testsets, exit 0. Its measurement"
+        },
+        {
+          "line": 8,
+          "text": "CSV/TOML and provenance are frozen evidence, not benchmarks to repeat."
+        },
+        {
+          "line": 9,
+          "text": ""
+        },
+        {
+          "line": 10,
+          "text": "Current status: **M10D.5 VERIFIED COMPLETE; M10D.6 not started**. M10D.1 is VERIFIED COMPLETE at"
+        },
+        {
+          "line": 11,
+          "text": "`adadf5ddd03b360c93a6c0451f31cba03d01f8ff`. The historical M10D.1 record below"
+        },
+        {
+          "line": 12,
+          "text": "is frozen. Its API policy is a pre-1.0 freeze,"
+        },
+        {
+          "line": 13,
+          "text": "not a version bump or a claim that the final 1.0 audit has passed."
+        },
+        {
+          "line": 14,
+          "text": "Architectural integration means making existing scientific contracts discoverable,"
+        },
+        {
+          "line": 15,
+          "text": "registered and composable without erasing assumptions. It does not mean inventing"
+        },
+        {
+          "line": 16,
+          "text": "new science, forcing all subsystems into one result type, or connecting every pair."
+        },
+        {
+          "line": 18,
+          "text": "## Roadmap"
+        },
+        {
+          "line": 30,
+          "text": "## Global non-goals"
+        },
+        {
+          "line": 39,
+          "text": "## Final M10D Definition of Done (future release gate)"
+        },
+        {
+          "line": 53,
+          "text": "## M10D.1 acceptance checklist"
+        },
+        {
+          "line": 68,
+          "text": "## Checkpoints and verification budget"
+        },
+        {
+          "line": 81,
+          "text": "## Deferred work"
+        },
+        {
+          "line": 90,
+          "text": "## Continuation recovery and M10D.1 closure"
+        },
+        {
+          "line": 101,
+          "text": "### Definition-of-Done disposition"
+        },
+        {
+          "line": 122,
+          "text": "### One bounded parent architecture review"
+        },
+        {
+          "line": 156,
+          "text": "### Executed focused gates"
+        },
+        {
+          "line": 183,
+          "text": "### Final canonical verification"
+        },
+        {
+          "line": 227,
+          "text": "## M10D.2 implementation and focused closure"
+        },
+        {
+          "line": 242,
+          "text": "### Definition-of-Done disposition"
+        },
+        {
+          "line": 269,
+          "text": "### Checkpoint and final verification policy"
+        },
+        {
+          "line": 306,
+          "text": "## M10D.3 execution record"
+        },
+        {
+          "line": 353,
+          "text": "### D038 structural correction continuation"
+        },
+        {
+          "line": 378,
+          "text": "### Isolated-test dependency correction"
+        },
+        {
+          "line": 395,
+          "text": "### M10D.3 verified closure"
+        },
+        {
+          "line": 400,
+          "text": "UTC execution: 2026-10-09T11:20:21.856906+00:00 through"
+        },
+        {
+          "line": 401,
+          "text": "2026-10-09T11:43:31.835099+00:00; Julia/BLAS thread counts both 1."
+        },
+        {
+          "line": 402,
+          "text": "Exact command, source hashes, full paths and log hash are in the final closure"
+        },
+        {
+          "line": 403,
+          "text": "section of m10d_semantics_results.md. Durable evidence is"
+        },
+        {
+          "line": 404,
+          "text": "`/home/lorenzozm/.hermes/logs/analyticmath-lab/m10d3/structural-correction/dependency-corrected-canonical.json`"
+        },
+        {
+          "line": 405,
+          "text": "with the adjacent `.log`."
+        },
+        {
+          "line": 406,
+          "text": ""
+        },
+        {
+          "line": 407,
+          "text": "The separate verified-completion commit contains documentation only. Earlier"
+        },
+        {
+          "line": 408,
+          "text": "D037/D038 and Serialization failure histories remain intact. Scientific source,"
+        },
+        {
+          "line": 409,
+          "text": "contracts and tests are unchanged from the recovered structural correction;"
+        },
+        {
+          "line": 410,
+          "text": "focused gates and the completed review were not repeated. M10D.3 is complete;"
+        },
+        {
+          "line": 411,
+          "text": "no M10D.4, push, tag, amendment, benchmark or stress work is authorized here."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    },
+    {
+      "path": "docs/m10d_semantics_results.md",
+      "sha256": "be3c4b405dbf511f27052278811af6ab9de7d09468033b5e2ac5f26a6da98211",
+      "bytes": 27079,
+      "lines": 407,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          44,
+          44
+        ],
+        [
+          73,
+          73
+        ],
+        [
+          113,
+          113
+        ],
+        [
+          142,
+          142
+        ],
+        [
+          157,
+          157
+        ],
+        [
+          210,
+          210
+        ],
+        [
+          249,
+          249
+        ],
+        [
+          282,
+          282
+        ],
+        [
+          317,
+          317
+        ],
+        [
+          369,
+          369
+        ],
+        [
+          396,
+          396
+        ],
+        [
+          397,
+          397
+        ],
+        [
+          398,
+          398
+        ],
+        [
+          399,
+          399
+        ],
+        [
+          400,
+          400
+        ],
+        [
+          401,
+          401
+        ],
+        [
+          402,
+          402
+        ],
+        [
+          403,
+          403
+        ],
+        [
+          404,
+          404
+        ],
+        [
+          405,
+          405
+        ],
+        [
+          406,
+          406
+        ],
+        [
+          407,
+          407
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10D.3 semantic implementation and verification results"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "Status: **VERIFIED COMPLETE \u2014 M10D.3**."
+        },
+        {
+          "line": 4,
+          "text": "Starting verified HEAD: f8f233ba1d542d2a3a4e683a02523aa9524ad603."
+        },
+        {
+          "line": 5,
+          "text": "M10D.1/M10D.2 are not reopened. Their inventory, graph, findings and accepted"
+        },
+        {
+          "line": 6,
+          "text": "canonical evidence are reused. M10D.2 detailed canonical counts remain unavailable;"
+        },
+        {
+          "line": 7,
+          "text": "none are reconstructed or guessed. This report records M10D.3 focused gates,"
+        },
+        {
+          "line": 8,
+          "text": "preserved failed attempts and the final successful canonical below."
+        },
+        {
+          "line": 9,
+          "text": ""
+        },
+        {
+          "line": 10,
+          "text": "## Changes and contract"
+        },
+        {
+          "line": 11,
+          "text": ""
+        },
+        {
+          "line": 12,
+          "text": "The semantic census/specification is [m10d_semantics.md](m10d_semantics.md)."
+        },
+        {
+          "line": 13,
+          "text": "The qualified experimental `scientific_metadata` / `scientific_origin` interfaces"
+        },
+        {
+          "line": 14,
+          "text": "preserve native scientific payloads and exports. The D038 correction restores"
+        },
+        {
+          "line": 15,
+          "text": "PropertyResult's exact four-field layout and generated constructors; leaf origin"
+        },
+        {
+          "line": 16,
+          "text": "is explicitly unavailable rather than stored or fabricated. No universal status enum, result"
+        },
+        {
+          "line": 44,
+          "text": "## Required bounded tests and independent controls"
+        },
+        {
+          "line": 73,
+          "text": "## Persistent gates"
+        },
+        {
+          "line": 113,
+          "text": "## Exactly one bounded adversarial semantic review"
+        },
+        {
+          "line": 142,
+          "text": "## Checkpoint and canonical boundary"
+        },
+        {
+          "line": 157,
+          "text": "## Original canonical failure and D037 correction"
+        },
+        {
+          "line": 210,
+          "text": "## Replacement canonical failure: D038 public structural compatibility"
+        },
+        {
+          "line": 249,
+          "text": "## One bounded structural audit and pre-canonical architectural review"
+        },
+        {
+          "line": 282,
+          "text": "## Shutdown recovery and structural-correction focused evidence"
+        },
+        {
+          "line": 317,
+          "text": "## Isolated-test dependency failure and bounded preflight"
+        },
+        {
+          "line": 369,
+          "text": "## Final successful canonical and M10D.3 closure"
+        },
+        {
+          "line": 396,
+          "text": "base focused summary rows match the canonical's counts exactly, including the"
+        },
+        {
+          "line": 397,
+          "text": "unchanged architecture/streaming regressions and M10D.3 serialization/ownership"
+        },
+        {
+          "line": 398,
+          "text": "counterexamples. Optional learning 52/52, PINN 89/89 and Molly 22/22 remain separate"
+        },
+        {
+          "line": 399,
+          "text": "reused focused evidence, not extra canonical assertions."
+        },
+        {
+          "line": 400,
+          "text": ""
+        },
+        {
+          "line": 401,
+          "text": "D037 scientific-value contamination, D038 physical-layout contamination and the"
+        },
+        {
+          "line": 402,
+          "text": "isolated Serialization declaration failure remain preserved historical findings."
+        },
+        {
+          "line": 403,
+          "text": "No scientific source or test changes were needed after the structural checkpoint."
+        },
+        {
+          "line": 404,
+          "text": "Completion changes only documentation and does not invalidate tested hashes."
+        },
+        {
+          "line": 405,
+          "text": "The separate `[verified] Complete M10D.3 scientific semantics and provenance`"
+        },
+        {
+          "line": 406,
+          "text": "commit closes M10D.3. M10D.4 is not begun; deferred D024/D034/D035/D036 and other"
+        },
+        {
+          "line": 407,
+          "text": "later-phase obligations remain deferred. No amend, push, tag or subagents."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    }
+  ],
+  "apis": [],
+  "scope": "Documentation/environment/evidence inventory only; not full semantic review or fresh scientific execution."
+}

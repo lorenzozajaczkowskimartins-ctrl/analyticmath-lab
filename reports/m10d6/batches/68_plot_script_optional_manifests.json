@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "68_plot_script_optional_manifests",
+  "files": [
+    {
+      "path": "examples/scaling/plot_reports.py",
+      "sha256": "2132acefbab4b75d846beb225b30aeb9b6ee723cbe653ebb046643b95d5f6257",
+      "bytes": 3371,
+      "lines": 67,
+      "read_ranges": [
+        [
+          1,
+          67
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Historical plot script reads existing measurements but copies CSV/hash list and overwrites committed plots; never execute during preservation-only audit. Machine labels fixed to historical environment."
+      ]
+    },
+    {
+      "path": "examples/inference/Project.toml",
+      "sha256": "e10b1c17c9999fe6427780a8460516c569353642ee455eb69f5fefe825f6d4b7",
+      "bytes": 647,
+      "lines": 20,
+      "read_ranges": [
+        [
+          1,
+          20
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Inference direct deps explicit ForwardDiff/Symbolics, local AML source and pinned optional CPU versions; version compatibility not universal OS guarantee."
+      ]
+    },
+    {
+      "path": "examples/molly/Project.toml",
+      "sha256": "498b1fa82377f0458aef4d08ade4d6360538372dc99d4f3fdf011106f4410743",
+      "bytes": 341,
+      "lines": 14,
+      "read_ranges": [
+        [
+          1,
+          14
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Molly environment local AML source, pinned0.23.3 and Cairo/Unitful; no Test direct dep in this environment project, manually included tests use standard lookup."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

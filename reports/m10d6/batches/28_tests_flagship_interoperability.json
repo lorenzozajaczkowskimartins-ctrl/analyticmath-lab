@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "28_tests_flagship_interoperability",
+  "files": [
+    {
+      "path": "test/m10d_flagship_plots.jl",
+      "sha256": "9a800c78d2ca4133e12fe852a6c0a578b7047e9ae3fd29ee8e2dbef5b2c06495",
+      "bytes": 1103,
+      "lines": 26,
+      "read_ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Optional plot save gate excluded canonical, absolute energy axis guard; output path caller environment."
+      ]
+    },
+    {
+      "path": "test/m10d_flagship_schema.jl",
+      "sha256": "7e09caad6776596c30e7674e642c636cdccd90ceb691e519b0ff001f750481bd",
+      "bytes": 744,
+      "lines": 18,
+      "read_ranges": [
+        [
+          1,
+          18
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Detached dataset schema must retain fixed physical definition not merely origin token."
+      ]
+    },
+    {
+      "path": "test/m10d_interoperability.jl",
+      "sha256": "dabd94a53533d4f24b454909fb7273eb306106f195cc2e3c23f08089ce9e9ef7",
+      "bytes": 14993,
+      "lines": 266,
+      "read_ranges": [
+        [
+          1,
+          266
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Stored-only no interpolant fixture, callback state copies/unit coherence and partial series versus completed dataset; retained dataset deepcopies source; mechanics/modes/radial/atomistic bridges semantics."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

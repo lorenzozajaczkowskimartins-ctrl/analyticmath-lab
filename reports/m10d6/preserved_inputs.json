@@ -1,0 +1,426 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "policy": "Existing immutable findings and batches remain unchanged. Mutable checkpoint is separately snapshotted before final reconciliation.",
+  "files": [
+    {
+      "path": "repository_inventory.json",
+      "sha256": "70499cc1a731e483dffdc77698a137d30cb70bf22f041800ac4b5dffd8b6f800"
+    },
+    {
+      "path": "exports.json",
+      "sha256": "97ac100f1dd30004decabd2906b1f250386ae4bf0262ec69a4a0aba45383f86c"
+    },
+    {
+      "path": "core_api.json",
+      "sha256": "972309a74f58ae8dc33ae8062fcf47628934bf310b994a7fba7de7ee84eb1559"
+    },
+    {
+      "path": "core_inspection.json",
+      "sha256": "357eb1f842b0d18decf25bdcefc75e79b7f42defa88640b7196f6df777efa558"
+    },
+    {
+      "path": "core_findings.md",
+      "sha256": "bac62fe2f52890e1ca199a234dfb7eeef8d29a43f9bf0d42a29688b1fc3918ed"
+    },
+    {
+      "path": "parent_inspection.json",
+      "sha256": "0e73bf108dbde6c1a1e1e2f274d6703e31d59ddd3f4e1bc92b6644e57bea124e"
+    },
+    {
+      "path": "qualified_api.json",
+      "sha256": "92e15a9165372bacc12ebc8e6acd2124f143b696257b5af47f9798558626da89"
+    },
+    {
+      "path": "refusal_sites.json",
+      "sha256": "91b01353acb9a14f6016cec15b0a80ad309adf2be8ce9617c30e3d532bf49ff4"
+    },
+    {
+      "path": "refusals.json",
+      "sha256": "7feb47493a080ca5cda2e47757c0f61c3f704715f691d1f172e669b36b32d96a"
+    },
+    {
+      "path": "diagnostic_findings.md",
+      "sha256": "6f5a4b7a3d0449c3bf554398f3e307c293ea33291029251310554f5316f05e93"
+    },
+    {
+      "path": "scientific_contracts.md",
+      "sha256": "1bbd19afe2a71a200c4c4dcacf032fb62caa9984d44e11fb9d1cde5b1c7e2b68"
+    },
+    {
+      "path": "documentation_architecture.md",
+      "sha256": "8eeae95bdb4657167c74475d4eaaf56e0201cfb90b5cd51898ed963e00bf7168"
+    },
+    {
+      "path": "readme_plan.md",
+      "sha256": "5f2074357e57d54155031327e3f7d608613bd181e8beeb8b9662c583fc77925e"
+    },
+    {
+      "path": "hessian_question_outline.md",
+      "sha256": "a54580e623a0b80332daa79e492c643d5486c0a41cde585536864fb4c0390b3a"
+    },
+    {
+      "path": "wiki_questions.json",
+      "sha256": "4b5d97d071ede0e7a5bef05f15bed2d7fdcfd2ead6ea6f4b4b630a1994b1c115"
+    },
+    {
+      "path": "wiki_questions.md",
+      "sha256": "501699768b5d6cdf07e4cf84eb1df01e1d129fc56c5ada8e4af90019a44494c3"
+    },
+    {
+      "path": "recovery_validation.json",
+      "sha256": "3e06a04bf8594a387d4f5bbfcd98e10b1341f02979b0e6a72c2687360f5837bb"
+    },
+    {
+      "path": "batches/01_mechanics_formal.json",
+      "sha256": "75139118a0687e1029f6c9b526e2e2c52e01ce81b772b0557b80b0f20eb039d9"
+    },
+    {
+      "path": "batches/02_mechanics_modes.json",
+      "sha256": "9426c088401232b3906cf709d2c74f325c152e9197cd558dde0fad51c207db27"
+    },
+    {
+      "path": "batches/03_atomistic_data_geometry.json",
+      "sha256": "d7759ab26282059713f8bc45bd6d144ece46d45ff0e39ca604f04b22847cec7c"
+    },
+    {
+      "path": "batches/04_potential_molly.json",
+      "sha256": "eed52d3803ff7c80f7e78c85d35f7851ccf6ad361e7f017a848afe72754bb03a"
+    },
+    {
+      "path": "batches/05_scalar_statistics.json",
+      "sha256": "ff248ce5858a6343f4a84b6178aee2b5947da87d6517f70de6c41b3ab4d20746"
+    },
+    {
+      "path": "batches/06_transport_analyst.json",
+      "sha256": "7c15ab722308ba963bc7064919853dc2e7dee899cbadcdeeee9b492af6898a1c"
+    },
+    {
+      "path": "batches/07_comparison_observations.json",
+      "sha256": "378198bd89a28e809687d36edc8271f9a69aa83b352bc89f75220501dcbb099d"
+    },
+    {
+      "path": "batches/08_parameter_inference.json",
+      "sha256": "87d6f2b83349fc510ca0614c3f42c54f006832fa413b015d23ca6b5aae513de5"
+    },
+    {
+      "path": "batches/09_pinn_construction_training.json",
+      "sha256": "1adf388071d30b92284c331c563354d283d089412958d0a3869c1c969bfef259"
+    },
+    {
+      "path": "batches/10_pinn_diagnostics_learned_dynamics.json",
+      "sha256": "e95cfa0150b4232fe3cfba3adf6d153830be6d889d6ece54426da57ab19e95e7"
+    },
+    {
+      "path": "batches/11_datasets_scaling_generalization.json",
+      "sha256": "48d34e1206ff003a608504899bff79e8b0685c4cba52b1f583cbeddfa11f864c"
+    },
+    {
+      "path": "batches/12_surrogate_scalar_views.json",
+      "sha256": "60beb89b4f753b82a8ece8131001db08e26af13a1562c9f105977d77eac6d703"
+    },
+    {
+      "path": "batches/13_calculus_dynamics_views.json",
+      "sha256": "95e566593e7569f0b3d46fe4a337a2422ae50501b671fd021d40c5b3bf4195f2"
+    },
+    {
+      "path": "batches/14_mechanics_particle_views.json",
+      "sha256": "d81b209f762fe0bac9c0126714a90acc424375474f3d8b0f67b74ba9a3571869"
+    },
+    {
+      "path": "batches/15_stored_diagnostic_views.json",
+      "sha256": "dea0b4b0f5da70e8fcb844b1872d1481a86d3477144cf7c62f4d9f34580eabde"
+    },
+    {
+      "path": "batches/16_pinn_views_real_contract.json",
+      "sha256": "f15e2d8eed3aa8c344d2946750f4bfa58856dda41e2a27d2d8e433523d0e9f85"
+    },
+    {
+      "path": "batches/17_tests_arch_atomistic.json",
+      "sha256": "e2836d4fb8b82a03a9f5d42c44ac2a201ea6f9f2f817f0b02fa621ab981384ab"
+    },
+    {
+      "path": "batches/18_tests_atomistic_modes_views.json",
+      "sha256": "b3708d468aa6866d5432589a49f083de737239986caef32aef45aefd3dc28e0f"
+    },
+    {
+      "path": "batches/19_tests_dynamics_heat_inference.json",
+      "sha256": "ddfd49b7b19e1225ca211ef53400c0fde55b224b54b474459317177b204b31e5"
+    },
+    {
+      "path": "batches/20_tests_sensitivity_statistics_oracles.json",
+      "sha256": "6648e318398bb49bd9e01ce4e7cd727bc1da40cbb1a9e24374f5765611fccf82"
+    },
+    {
+      "path": "batches/21_tests_mechanics_inference_references.json",
+      "sha256": "fb40d9d9d4f38f489940229cda4c4e541d9422eacbb256d98cdeefb543e46586"
+    },
+    {
+      "path": "batches/22_tests_precision_boundaries.json",
+      "sha256": "e2c5729e673dc659412ba44c3204d09e5b83301cb5ec00b8482d6b600090310b"
+    },
+    {
+      "path": "batches/23_tests_numerical_regimes.json",
+      "sha256": "aec0df68f4326cfb7f2bf7931fcd2651d957c849e9765454a5d518860cdcf2df"
+    },
+    {
+      "path": "batches/24_tests_statistics_types_pair_budget.json",
+      "sha256": "71d2471582d3e7455d08d1a4b91d66d2d1f2988a1b9425311a155ebae9525390"
+    },
+    {
+      "path": "batches/25_tests_resource_controls.json",
+      "sha256": "c85593051e1cac231b0b3c274b4baaf414f7605c4824c40f021492d32680093a"
+    },
+    {
+      "path": "batches/26_tests_private_scaling_public_ownership.json",
+      "sha256": "d8dd7a05efa8b69d0704bb4027ad9677b1f3c25ea325fe9f2d48bc327d525891"
+    },
+    {
+      "path": "batches/27_tests_extensions_flagship.json",
+      "sha256": "50dd36690ec326b742ee4df407288142b31c0595070d86ca86e9aa86d3479c1f"
+    },
+    {
+      "path": "batches/28_tests_flagship_interoperability.json",
+      "sha256": "b054475b4a53df5e55d945e0d93a2881fdc3cc1b12dc42e848f9b6f6040a97ec"
+    },
+    {
+      "path": "batches/29_tests_scoped_semantics.json",
+      "sha256": "f5822f6937fef12183266d83a13a611ddf2e3a5007e34654dc38d5be079c598a"
+    },
+    {
+      "path": "batches/30_tests_metadata_user_refusals.json",
+      "sha256": "ec96834f2646112e4dbb18bd33de2768cf5215f800e9426faddfe102eb5d9f30"
+    },
+    {
+      "path": "batches/31_tests_user_environments.json",
+      "sha256": "3eda7d8de6ea477885bce51e18aaeef5ea535a8879a4e172a815a90c7909a845"
+    },
+    {
+      "path": "batches/32_tests_values_mechanics.json",
+      "sha256": "eea56e79cfd5183ef92dae360f83960dd947ca55c7e92fc857881a912d1dc246"
+    },
+    {
+      "path": "batches/33_tests_mechanics_modal_views.json",
+      "sha256": "cdd780062a559a11ac1c53902342247b8eedbf6f06412a2e7c9b90caabc076e8"
+    },
+    {
+      "path": "batches/34_tests_molly_scalar_views.json",
+      "sha256": "8f5b9350a7a854e5d622ebbcf893856b4d771a090fc26ef561519f982cd6175f"
+    },
+    {
+      "path": "batches/35_tests_modes_pinn_base.json",
+      "sha256": "f5eed51780f04954cb53ec598a359c95eedbe810ef22f35b28dcf9a880161dd5"
+    },
+    {
+      "path": "batches/36_tests_pinn_diagnostics.json",
+      "sha256": "2ff78b093123867c23f76683c8ed2b7f0d9b6db418f221e20c5576ca7325a46a"
+    },
+    {
+      "path": "batches/37_tests_pinn_layout_references.json",
+      "sha256": "b2f2e2a1cba7c1d34b8a0096aee8c91948907846f63f7721fc0c5eac100d2bb7"
+    },
+    {
+      "path": "batches/38_tests_training_history_potentials.json",
+      "sha256": "7f9af9e535c63e67ba8b2486c1e413e17b91a82df723d11a3e69ff37a4c5b182"
+    },
+    {
+      "path": "batches/39_tests_entrypoint_real_stranger.json",
+      "sha256": "9fc4b75f69fe242050461814e5ded48cf45f1e17aeb4b2e75d88214ab3f2f29e"
+    },
+    {
+      "path": "batches/40_tests_stranger_dataset_load_physics.json",
+      "sha256": "546a18761df68470625062b859e08848527f4a20fb70a74a61eeb7a7641ffa82"
+    },
+    {
+      "path": "batches/41_tests_stranger_scaling_splits.json",
+      "sha256": "daf7c9a65eb3e58062d3c7fc6b0130f0b84c802a9f0597e75a2cc4f11a1e7580"
+    },
+    {
+      "path": "batches/42_tests_datasets_heat_analyst.json",
+      "sha256": "e739830ebcb9756d7b4faf11e2b7393b4b04c1e1d9e329059abce2bd313c785a"
+    },
+    {
+      "path": "batches/43_tests_comparison_compatibility.json",
+      "sha256": "fa8b76f95d5203c594c380bac9b93ce2b22c769dbd64372acaec73a58ddbd7ff"
+    },
+    {
+      "path": "batches/44_tests_transport_comparison_observations.json",
+      "sha256": "153eca19c0fec452c0bfdba8fc947d77be76fa9dae4d778cc880d0e524f33ac6"
+    },
+    {
+      "path": "batches/45_tests_statistics_transport_uncertainty.json",
+      "sha256": "3a42f73f252a3e6183d9b81238808948ae717f3ca9983c67997a9b809aaca5cc"
+    },
+    {
+      "path": "batches/46_tests_stored_statistical_vector_views.json",
+      "sha256": "eaf74e84743119833085516ff2bdec72912ede4d55f6d0c85ac352048e733724"
+    },
+    {
+      "path": "batches/47_examples_inference_gates.json",
+      "sha256": "0ad9a812923fddcaff841bed736e8a602f8e95783058d5bab38bb138c1bc77a8"
+    },
+    {
+      "path": "batches/48_examples_neural_contracts.json",
+      "sha256": "3c4bf391e645835e7ef80191d15423580f4b4b1e8f9117dad39430388548b783"
+    },
+    {
+      "path": "batches/49_examples_parameter_operator_probes.json",
+      "sha256": "cbf0d2c6a776c0ab9488750add336ac4555879fcdf6c5b0c9d15e6731da0b09a"
+    },
+    {
+      "path": "batches/50_examples_operator_data.json",
+      "sha256": "23eac78086d0203cb7cdb57e9c8e3558bb1ae14cfcea39eca315e9c3775f9b76"
+    },
+    {
+      "path": "batches/51_examples_heat_evidence_isolation.json",
+      "sha256": "50fd907896201c6cf889918cd7c35cd1ba789fc8579c61662617eb4b52453861"
+    },
+    {
+      "path": "batches/52_examples_optional_ad_and_pinn_gate.json",
+      "sha256": "3a28730fd94223812fb8fe11aac89c6c8b1c6622ccc931239a22300fff494d30"
+    },
+    {
+      "path": "batches/53_examples_pinn_benchmarks_inverse.json",
+      "sha256": "f4439265db139eee9d12d152526dd484a13969c85194c422ce2a1fb1e4d80d26"
+    },
+    {
+      "path": "batches/54_examples_manual_gate_stream.json",
+      "sha256": "c8c760ea6b4db1bf6bb10df5e0f68a9e4fd65c4c0113ceb87fd5e9ad67bda030"
+    },
+    {
+      "path": "batches/55_examples_scaling_namespace.json",
+      "sha256": "bd49fd69b84c0fbe6bdcfdef9c12b45903cfc74262fd5d398c303b8e740b5a6b"
+    },
+    {
+      "path": "batches/56_examples_native_scaling_boundaries.json",
+      "sha256": "d6b7991211b507f41600e0827424af785ca20d131069c41134c651fb11cdbd70"
+    },
+    {
+      "path": "batches/57_examples_reduction_training_regimes.json",
+      "sha256": "a9a41740447b8fb08b5efa4eeab69f27698b00db4ac01d981cc6ee7248850d19"
+    },
+    {
+      "path": "batches/58_examples_native_ensemble_partial.json",
+      "sha256": "7ad6dd01b087e038ce9780ed1b6b5af10a3540ea1e7047e8822e0be492186741"
+    },
+    {
+      "path": "batches/59_examples_stream_symbolic_dense.json",
+      "sha256": "bb032ddefac9e6313f873d26cd2e89a64e9b2ecb594840526d0cb9de80c6c351"
+    },
+    {
+      "path": "batches/60_reference_mechanics_notebooks.json",
+      "sha256": "d15acfa9014fb88964af65045606ffa5a9ae0a7e2072c391110aa3b65d146943"
+    },
+    {
+      "path": "batches/61_notebooks_molly_multivariate.json",
+      "sha256": "78b035410076425e2fda5e287acffd050ae9a92d5c2bbfb85d77c10712e29928"
+    },
+    {
+      "path": "batches/62_notebooks_learning_comparison.json",
+      "sha256": "fe9e16d2b41cd28d3fd96a40d5424ae181b9fe05171800cf4ee8d0a1aee292e7"
+    },
+    {
+      "path": "batches/63_guides_arch_atomistic_inverse.json",
+      "sha256": "99f47926baf8c4d7e4af8a46cb0a0f71ed2013c8e3e0667403e4609fa1df17df"
+    },
+    {
+      "path": "batches/64_guides_mechanics_learning_history.json",
+      "sha256": "acb50ad59b0b2a137f22b26a605e0a9500c267876ecb810c93599e67fa444a1c"
+    },
+    {
+      "path": "batches/65_guides_operator_inference_pinn_diagnostics.json",
+      "sha256": "ea1c9f038af400744fbdfb9c84ed6f81fa70c07f1bbca9325f0e9f7ba6b1f36d"
+    },
+    {
+      "path": "batches/66_guides_pinn_surrogates_comparison.json",
+      "sha256": "e482786f7a239e96fd57ff16b5ba940bc2f1d2323b222786739a7494f5f1bc14"
+    },
+    {
+      "path": "batches/67_guides_observations_statistics_scaling.json",
+      "sha256": "684665ca4de91e705d26eb3be8be9ca25228b3c2498049b481e8caca827eb026"
+    },
+    {
+      "path": "batches/68_plot_script_optional_manifests.json",
+      "sha256": "16276f5b6baf00d7bd15060fdef5f7df2fc1f64e731040e1cc689fdaf738b815"
+    },
+    {
+      "path": "batches/69_optional_environment_projects.json",
+      "sha256": "5fa6c0cd906cbfe9fba83b846b45a012e05ef51434021ca178ce37b23f74a341"
+    },
+    {
+      "path": "batches/70_guides_dynamics_vectors.json",
+      "sha256": "995b8d518a7cc855b9158652124979135e53d76e546778e2d44ff0172df7c289"
+    },
+    {
+      "path": "batches/71_flagship_guide.json",
+      "sha256": "6a73aac9dc4a57514569f946b151944c8de16f6230af3a00dee1d56acf384f85"
+    },
+    {
+      "path": "batches/72_history_m10a_start.json",
+      "sha256": "98fd9799be11ee33e3a89086177b88e7bac49f4bcfc8551a558a1eda0948c8b4"
+    },
+    {
+      "path": "batches/73_history_m10ab.json",
+      "sha256": "4ab2ec240a49bd5c367230a004a4eab9e1deb9688c7434310258fd461acf331c"
+    },
+    {
+      "path": "batches/74_history_scaling_closure.json",
+      "sha256": "35d11ba2e2c8d460e1274f74a9760f972cc6e6592c08e369ae3711984c232eee"
+    },
+    {
+      "path": "batches/75_history_resource_workstreams.json",
+      "sha256": "bebba3740f0bfe56d7e245e0574b6c15a9d7d6b56e8d603b2963120d20309e4a"
+    },
+    {
+      "path": "batches/76_history_scaling_final.json",
+      "sha256": "f384f61d2ddb1978b0fb569b6fe6b8505ca26ce9d3bf71d36a217b57eec91f06"
+    },
+    {
+      "path": "batches/77_history_integration_results.json",
+      "sha256": "f2f059a6ae98663678b422238d44d06395d97f4b60509f5a687ebd83a572d493"
+    },
+    {
+      "path": "batches/78_history_semantic_closure.json",
+      "sha256": "0d0e1130ddabf1db6ad1d7a705fc703b2a15182d1e82f025de79ecf1a73c1661"
+    },
+    {
+      "path": "batches/79_history_m9d.json",
+      "sha256": "baeb75be77ab57f7ecf37df6dc806af7ef268ffa3ab30caf4e0e2f7305d24285"
+    },
+    {
+      "path": "batches/80_frozen_data_environment_1.json",
+      "sha256": "df39c2b66884dec714526522017b94dce74ac0a62a2e3174b18e549eb3b232cf"
+    },
+    {
+      "path": "batches/81_frozen_data_environment_2.json",
+      "sha256": "c93450ad997e81a9fb4a55e1e95e27e4934643d0a1a144438f62fbb228fc480c"
+    },
+    {
+      "path": "batches/82_frozen_data_environment_3.json",
+      "sha256": "c52e60e3c7f1210158c297655355acf5adf98d62d8ace8a1adeaa02fe1ab0990"
+    },
+    {
+      "path": "batches/83_frozen_data_environment_4.json",
+      "sha256": "1db840ad81ca0bc6ce90f39e697b4b63ab5c8895df10a0cb505d3ff951f9d993"
+    },
+    {
+      "path": "batches/84_frozen_data_environment_5.json",
+      "sha256": "b9a6774bea243a86a987528f7ffdeb78dfae9496564640301a48bda9bf5f192e"
+    },
+    {
+      "path": "batches/85_frozen_data_environment_6.json",
+      "sha256": "aee2d19597f2d727d5b3a39e8f50638c2eb1fe7ad401fc64829d4143c0b2cc61"
+    },
+    {
+      "path": "batches/86_frozen_data_environment_7.json",
+      "sha256": "f6ce4685abd97fee529a01a5df2894f43d7aeb8b418b9db6c48dedf6a3a8e2de"
+    },
+    {
+      "path": "batches/87_frozen_data_environment_8.json",
+      "sha256": "3c8216f5dfa0c6de2466965f52217d38e7b1e7377fbe4e261d533076192ec1c1"
+    },
+    {
+      "path": "batches/88_frozen_data_environment_9.json",
+      "sha256": "8c8c33aa67c3875659ee71e4e1635054c234c7c5867bd63ca64e90486a10d140"
+    }
+  ]
+}

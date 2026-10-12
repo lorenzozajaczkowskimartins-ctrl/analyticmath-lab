@@ -1,0 +1,468 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "14_mechanics_particle_views",
+  "files": [
+    {
+      "path": "src/visualization/mechanics.jl",
+      "sha256": "05f89bb62fe09de773882287f9e16dfa4013c20536bc18ab8f71b548abeb756e",
+      "bytes": 4475,
+      "lines": 90,
+      "read_ranges": [
+        [
+          1,
+          90
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Important exception to stored-only plotting: phaseplot(report) default dynamics(report) reanalyzes conversion; supplied conversion avoids it. Energy source identity checks."
+      ]
+    },
+    {
+      "path": "src/visualization/potentials.jl",
+      "sha256": "d6ec070111d4632f0db6ca5fa6687fb02f8c0b03a2dc0231d0b23ceac11d4b0b",
+      "bytes": 2618,
+      "lines": 55,
+      "read_ranges": [
+        [
+          1,
+          55
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Positive-radius stored-callable curves; no cutoff modification. Sample count lower bound only, no maximum."
+      ]
+    },
+    {
+      "path": "src/visualization/atomistic.jl",
+      "sha256": "12be235a52879e6c3076b19cff97d2a706cec137efd680ce2dbb6fda044e0cf4",
+      "bytes": 4644,
+      "lines": 79,
+      "read_ranges": [
+        [
+          1,
+          79
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "2D/3D supplied images one lazy frame only, selected Unitful scaling; pixels not radius/bond inference. RDF unknown normalization refused not shown0."
+      ]
+    }
+  ],
+  "apis": [
+    {
+      "symbol": "phaseplot",
+      "source_location": [
+        "src/visualization/mechanics.jl:17",
+        "src/visualization/mechanics.jl:38"
+      ],
+      "public_signature": [
+        "function phaseplot(conversion::MechanicsDynamics;energy_levels=nothing,\nxrange=(-2,2),yrange=(-2,2),kwargs...)",
+        "function phaseplot(report::Union{LagrangianAnalysis,HamiltonianAnalysis};\nconversion=dynamics(report),kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "MechanicsDynamics or mechanics report; energy_levels optional; report conversion defaults dynamics(report)",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError nonautonomous/wrongsource/invalid sorted levels; delegated phase guards"
+      ],
+      "numerical_limitations": "Conversion route reuses cached planar analysis; report convenience default performs dynamics conversion/reanalysis (not universally stored-only). Optional energy contours illustrative not invariant proof. Caller activates rendering backend; no file save/new simulation.",
+      "units": "Atomistic views explicitly scale Unitful to selected coordinate units; other labels do not convert metadata.",
+      "ownership": "Fresh Figure; report default conversion may allocate symbolic/numerical analysis.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:71",
+        "test/dynamical_visualization.jl:6",
+        "test/dynamical_visualization.jl:8",
+        "test/dynamical_visualization.jl:13",
+        "test/dynamical_visualization.jl:18",
+        "test/dynamical_visualization.jl:19",
+        "test/mechanics_visualization.jl:13",
+        "test/mechanics_visualization.jl:18",
+        "test/mechanics_visualization.jl:24"
+      ],
+      "example_references": [
+        "notebooks/dynamical_systems.jl:55",
+        "notebooks/dynamical_systems.jl:56",
+        "notebooks/dynamical_systems.jl:57",
+        "notebooks/mechanics.jl:49",
+        "notebooks/mechanics.jl:51"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "README.md:593",
+          "README.md:599",
+          "docs/architecture.md:272",
+          "docs/dynamical_systems.md:118",
+          "docs/dynamical_systems.md:122",
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/mechanics.md:124"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "energyplot",
+      "source_location": [
+        "src/visualization/mechanics.jl:51",
+        "src/visualization/mechanics.jl:60"
+      ],
+      "public_signature": [
+        "function energyplot(conversion::MechanicsDynamics,path::TrajectoryResult)",
+        "function energyplot(report::Union{LagrangianAnalysis,HamiltonianAnalysis},path::TrajectoryResult;\nconversion)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "MechanicsDynamics,path or mechanics report,path with required conversion",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError wrongsource; energy domain/errors propagate"
+      ],
+      "numerical_limitations": "Samples energy_drift only matching source; not conservation/interpolant proof. Caller activates rendering backend; no file save/new simulation.",
+      "units": "Atomistic views explicitly scale Unitful to selected coordinate units; other labels do not convert metadata.",
+      "ownership": "New energy arrays/Figure.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:76",
+        "test/mechanics_visualization.jl:6",
+        "test/mechanics_visualization.jl:7",
+        "test/mechanics_visualization.jl:19",
+        "test/mechanics_visualization.jl:20",
+        "test/mechanics_visualization.jl:25",
+        "test/mechanics_visualization.jl:27",
+        "test/trajectory_visualization.jl:19"
+      ],
+      "example_references": [
+        "examples/integration/one_system_plots.jl:20",
+        "notebooks/mechanics.jl:50",
+        "notebooks/mechanics.jl:52",
+        "notebooks/molly_trajectory_analysis.jl:56"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/mechanics.md:126",
+          "docs/trajectory_statistics.md:180"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "modeplot",
+      "source_location": [
+        "src/visualization/mechanics.jl:74"
+      ],
+      "public_signature": [
+        "function modeplot(r::NormalModeAnalysis;modes=nothing,representation=:generalized)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "NormalModeAnalysis; modes=nothing, representation=:generalized or :mass_weighted",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError missing modes,invalid representation/index"
+      ],
+      "numerical_limitations": "Stored components vs index no assumed geometry; degenerate bases nonunique. Caller activates rendering backend; no file save/new simulation.",
+      "units": "Atomistic views explicitly scale Unitful to selected coordinate units; other labels do not convert metadata.",
+      "ownership": "Fresh plotted vectors/Figure.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:77",
+        "test/normal_modes_visualization.jl:5",
+        "test/normal_modes_visualization.jl:6",
+        "test/normal_modes_visualization.jl:9",
+        "test/normal_modes_visualization.jl:18",
+        "test/normal_modes_visualization.jl:19",
+        "test/normal_modes_visualization.jl:20",
+        "test/normal_modes_visualization.jl:21",
+        "test/normal_modes_visualization.jl:22"
+      ],
+      "example_references": [
+        "notebooks/mechanics_addendum.jl:70",
+        "notebooks/mechanics_addendum.jl:71",
+        "notebooks/molly_companion.jl:81"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/atomistic.md:170",
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/mechanics.md:240"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "potentialplot",
+      "source_location": [
+        "src/visualization/potentials.jl:25"
+      ],
+      "public_signature": [
+        "function potentialplot(p::PotentialAnalysis;rmin::Real,rmax::Real,samples::Integer=501)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PotentialAnalysis; required rmin/rmax, samples=501",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError bounds/count; known domain errors masked, other errors propagate"
+      ],
+      "numerical_limitations": "Positive finite interval samples>=2; cutoff metadata does not modify curves; no reanalysis. Caller activates rendering backend; no file save/new simulation.",
+      "units": "Atomistic views explicitly scale Unitful to selected coordinate units; other labels do not convert metadata.",
+      "ownership": "New Float64 radius/energy/force buffers.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:80",
+        "test/potential_visualization.jl:7",
+        "test/potential_visualization.jl:8",
+        "test/potential_visualization.jl:10",
+        "test/potential_visualization.jl:14",
+        "test/potential_visualization.jl:15"
+      ],
+      "example_references": [
+        "notebooks/molly_companion.jl:78"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/atomistic.md:137",
+          "docs/m10d_architecture_inventory.md:86"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "forceplot",
+      "source_location": [
+        "src/visualization/potentials.jl:47"
+      ],
+      "public_signature": [
+        "function forceplot(p::PotentialAnalysis;rmin::Real,rmax::Real,samples::Integer=501)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PotentialAnalysis; same required bounds",
+      "returns": "Makie.Figure",
+      "errors": [
+        "Same potential view guard"
+      ],
+      "numerical_limitations": "Stored radial force with original gaps; not vector force engine. Caller activates rendering backend; no file save/new simulation.",
+      "units": "Atomistic views explicitly scale Unitful to selected coordinate units; other labels do not convert metadata.",
+      "ownership": "New buffers/Figure.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:80",
+        "test/potential_visualization.jl:17",
+        "test/potential_visualization.jl:18",
+        "test/potential_visualization.jl:19",
+        "test/potential_visualization.jl:22"
+      ],
+      "example_references": [
+        "notebooks/molly_companion.jl:79"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/atomistic.md:138",
+          "docs/m10d_architecture_inventory.md:86"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "mdplot",
+      "source_location": [
+        "src/visualization/atomistic.jl:14",
+        "src/visualization/atomistic.jl:65",
+        "src/visualization/atomistic.jl:66",
+        "src/visualization/atomistic.jl:67"
+      ],
+      "public_signature": [
+        "function mdplot(s::AtomisticSnapshot;color=:species,selected_particle=nothing,markersize=14)",
+        "mdplot(r::AtomisticSystemAnalysis;kwargs...)=mdplot(r.source;kwargs...)",
+        "mdplot(t::AtomisticTrajectoryView;frame::Integer=1,kwargs...)=mdplot(t[frame];kwargs...)",
+        "mdplot(x;kwargs...)=mdplot(atomistic_snapshot(x);kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Snapshot,AtomisticSystemAnalysis,TrajectoryView frame=1,or backend; color=:species,selected_particle=nothing,markersize=14",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError invalid coords/color/velocity/markersize; BoundsError selection/frame"
+      ],
+      "numerical_limitations": "Only finite nonempty2D/3D; provided images not unwrapped; marker pixels not radius, no bonds. Caller activates rendering backend; no file save/new simulation.",
+      "units": "Atomistic views explicitly scale Unitful to selected coordinate units; other labels do not convert metadata.",
+      "ownership": "Only requested frame accessed; fresh rendering buffers.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:81",
+        "test/atomistic_visualization.jl:6",
+        "test/atomistic_visualization.jl:7",
+        "test/atomistic_visualization.jl:11",
+        "test/atomistic_visualization.jl:15",
+        "test/atomistic_visualization.jl:16",
+        "test/atomistic_visualization.jl:17",
+        "test/atomistic_visualization.jl:20",
+        "test/atomistic_visualization.jl:22",
+        "test/atomistic_visualization.jl:23",
+        "test/atomistic_visualization.jl:25",
+        "test/atomistic_visualization.jl:26"
+      ],
+      "example_references": [
+        "notebooks/molly_companion.jl:77"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/atomistic.md:42",
+          "docs/atomistic.md:86",
+          "docs/m10d_architecture_inventory.md:86"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "plot",
+      "source_location": [
+        "src/visualization/potentials.jl:44",
+        "src/visualization/atomistic.jl:70"
+      ],
+      "public_signature": [
+        "plot(p::PotentialAnalysis;kwargs...)=potentialplot(p;kwargs...)",
+        "function plot(r::RadialDistributionAnalysis)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PotentialAnalysis→potentialplot or RadialDistributionAnalysis",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError RDF normalization unavailable or delegated view guards"
+      ],
+      "numerical_limitations": "RDF unavailable not plotted0; unknown units not dimensionless. Caller activates rendering backend; no file save/new simulation.",
+      "units": "Atomistic views explicitly scale Unitful to selected coordinate units; other labels do not convert metadata.",
+      "ownership": "Fresh view buffers.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:68",
+        "test/architecture.jl:106",
+        "test/architecture.jl:107",
+        "test/atomistic_visualization.jl:28",
+        "test/convergence.jl:180",
+        "test/convergence.jl:193",
+        "test/multivariate_visualization.jl:14",
+        "test/potential_visualization.jl:16",
+        "test/real_analysis_visualization.jl:32",
+        "test/real_analysis_visualization.jl:40",
+        "test/real_analysis_visualization.jl:45",
+        "test/real_analysis_visualization.jl:46",
+        "test/real_analysis_visualization.jl:49",
+        "test/runtests.jl:325",
+        "test/runtests.jl:326",
+        "test/runtests.jl:329",
+        "test/runtests.jl:335",
+        "test/runtests.jl:336",
+        "test/runtests.jl:337",
+        "test/runtests.jl:338",
+        "test/vector_visualization.jl:35"
+      ],
+      "example_references": [
+        "notebooks/derivative_convergence.jl:25",
+        "notebooks/function_analysis.jl:17",
+        "notebooks/molly_companion.jl:80",
+        "notebooks/real_function_analysis.jl:25"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "README.md:60",
+          "README.md:234",
+          "README.md:284",
+          "README.md:287",
+          "README.md:360",
+          "README.md:364",
+          "README.md:365",
+          "README.md:372",
+          "README.md:482",
+          "README.md:486",
+          "docs/architecture.md:144",
+          "docs/architecture.md:256",
+          "docs/dynamical_systems.md:49",
+          "docs/m10c_scaling_inventory.md:35",
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/m10d_flagship_results.md:44",
+          "docs/m10d_flagship_results.md:73",
+          "docs/m10d_flagship_results.md:137",
+          "docs/m10d_flagship_results.md:150",
+          "docs/m10d_flagship_results.md:265",
+          "docs/m10d_integration_matrix.md:39",
+          "docs/mechanics.md:164",
+          "docs/vector_fields.md:180"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    }
+  ],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

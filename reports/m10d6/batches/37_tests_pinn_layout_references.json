@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "37_tests_pinn_layout_references",
+  "files": [
+    {
+      "path": "test/pinn_edges.jl",
+      "sha256": "975685dbee0cceac3f7ffc5acd0289ce20cf6012eea83811b8ff32aed4d6cdc0",
+      "bytes": 3248,
+      "lines": 57,
+      "read_ranges": [
+        [
+          1,
+          57
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Shared/separate explicit layout maps independent variable permutations, callback termination/history and extra cost weights; no accelerator loading."
+      ]
+    },
+    {
+      "path": "test/pinn_multidimensional.jl",
+      "sha256": "b44a10ae17da903141b9e62bf487983f451aad239cbe9e984feeb4d0a3e42457",
+      "bytes": 2297,
+      "lines": 41,
+      "read_ranges": [
+        [
+          1,
+          41
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Heat/Poisson/coupled two-step independent signed FD residual checks; test fixture not large accuracy benchmark."
+      ]
+    },
+    {
+      "path": "test/pinn_pde.jl",
+      "sha256": "d2a1dbe5b011d0eefe9ef9a3dc537e79b4bc3e345718015285c068da444ce3a6",
+      "bytes": 1358,
+      "lines": 30,
+      "read_ranges": [
+        [
+          1,
+          30
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Poisson800-step independent sample max error threshold, remains global unknown; expensive optional test not run."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

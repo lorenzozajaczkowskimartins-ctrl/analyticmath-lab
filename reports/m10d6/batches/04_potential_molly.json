@@ -1,0 +1,629 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "04_potential_molly",
+  "files": [
+    {
+      "path": "src/atomistic/potentials.jl",
+      "sha256": "b059b966daab09db4d6347a22d9ccdd4c884ebdcdde9870309676f0a6184b933",
+      "bytes": 10260,
+      "lines": 183,
+      "read_ranges": [
+        [
+          1,
+          183
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Radial-domain intersection and cutoff metadata only; LJ candidate scaled identity separate from global study; finite Float64 scale/curvature guard."
+      ]
+    },
+    {
+      "path": "ext/AnalyticMathLabMollyExt.jl",
+      "sha256": "ddfa2ada57e690e924b5cd59e4b27c0163e130e2d23d77641ec833d0afe1d161",
+      "bytes": 7259,
+      "lines": 127,
+      "read_ranges": [
+        [
+          1,
+          127
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Optional CPU Array Molly adapter fails closed before scalar access; snapshot configured observables explicit. Historical box/particles/order caller assertions; scalar loggers preserve backend temperature convention."
+      ]
+    }
+  ],
+  "apis": [
+    {
+      "symbol": "PotentialAnalysis",
+      "source_location": [
+        "src/atomistic/potentials.jl:14"
+      ],
+      "public_signature": [
+        "struct PotentialAnalysis{A,F,N,P,U,C,E,V} <: AbstractAnalysis; raw generated field constructor: (function_analysis::A, force_expression::F, numerical::N, radial_domain::RealDomain, provenance::P, units::U, cutoff::C, equilibria::E, evidence::V, limitations::Vector{String})"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "analyze_potential/lennard_jones_analysis or raw fields",
+      "returns": "Bound radial scalar-energy analysis and F=−dU/dr, positive radial domain/equilibrium evidence",
+      "errors": [],
+      "numerical_limitations": "r>0 intersection; real study is algebraic not negative-radius physical claim; cutoff metadata only; equilibrium list need not contain stationary non-extrema.",
+      "units": "Unit labels not conversion; consistent numeric scales required.",
+      "ownership": "Retains FunctionAnalysis and caller provenance/units; numerical closures retain report/domain.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:80"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F17.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:68",
+          "docs/m10d_integration_matrix.md:19",
+          "docs/m10d_integration_matrix.md:116"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F17",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "analyze_potential",
+      "source_location": [
+        "src/atomistic/potentials.jl:93"
+      ],
+      "public_signature": [
+        "function analyze_potential(expression, variable::Symbolics.Num; interval=nothing,\nprovenance=(source=:user,), units=(length=:unspecified, energy=:unspecified),\ncutoff=nothing, kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Symbolic expression/RealExpression and Num variable; positive interval optional; kwargs scalar residual controls",
+      "returns": "PotentialAnalysis",
+      "errors": [
+        "ArgumentError invalid cutoff or interval not in single established positive domain; underlying analyze failures propagate; DomainError on known excluded/nonpositive radius"
+      ],
+      "numerical_limitations": "Bound parameters only; numerical stationary search Float64; can construct unknown domain without search; known false refused, unknown may evaluate/fail.",
+      "units": "Units=(length=:unspecified, energy=:unspecified) descriptive only.",
+      "ownership": "Fresh derived report but provenance/units retained.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:80",
+        "test/atomistic_potentials.jl:6",
+        "test/atomistic_potentials.jl:7",
+        "test/atomistic_potentials.jl:9",
+        "test/atomistic_potentials.jl:25",
+        "test/atomistic_potentials.jl:26",
+        "test/atomistic_potentials.jl:27",
+        "test/atomistic_potentials.jl:28",
+        "test/atomistic_potentials.jl:31",
+        "test/m10d_interoperability.jl:224",
+        "test/potential_visualization.jl:6"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F17.md",
+        "existing_sections": [
+          "docs/atomistic.md:134",
+          "docs/atomistic.md:155",
+          "docs/m10d_architecture_inventory.md:68",
+          "docs/m10d_architecture_inventory.md:100",
+          "docs/m10d_integration_matrix.md:19",
+          "docs/m10d_integration_matrix.md:116",
+          "docs/m10d_issue_ledger.md:16",
+          "docs/m10d_issue_ledger.md:26"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F17",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "lennard_jones_analysis",
+      "source_location": [
+        "src/atomistic/potentials.jl:142"
+      ],
+      "public_signature": [
+        "function lennard_jones_analysis(; epsilon=1, sigma=1, interval=nothing,\nprovenance=(source=:textbook, model=:lennard_jones_12_6), kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Positive finite real epsilon/sigma; interval optional, provenance/kwargs",
+      "returns": "PotentialAnalysis with independent scaled-sixth-power minimum certificate",
+      "errors": [
+        "ArgumentError invalid/unrepresentable scales/minimum radius/curvature"
+      ],
+      "numerical_limitations": "Binary floats embedded exact rational representation not physical measurement exactness; rmin/curvature displayed Float64; certificate does not upgrade global study.",
+      "units": "No implicit Unitful scales; descriptive units via analyze_potential.",
+      "ownership": "Fresh source/certificate; metadata retained.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:80",
+        "test/atomistic_potentials.jl:36",
+        "test/atomistic_potentials.jl:37",
+        "test/atomistic_potentials.jl:38",
+        "test/atomistic_potentials.jl:66",
+        "test/atomistic_potentials.jl:67",
+        "test/m10a_atomistic_statistics.jl:60",
+        "test/m10a_inference_operators.jl:97",
+        "test/m10b_atomistic.jl:106",
+        "test/m10b_atomistic.jl:119",
+        "test/m10b_atomistic.jl:120",
+        "test/m10b_atomistic.jl:123",
+        "test/m10b_atomistic.jl:124",
+        "test/m10b_atomistic.jl:127",
+        "test/m10b_atomistic.jl:128",
+        "test/m10b_atomistic.jl:130",
+        "test/m10b_atomistic.jl:144",
+        "test/m10b_atomistic.jl:145"
+      ],
+      "example_references": [
+        "examples/inference/lj_gate.jl:9",
+        "notebooks/molly_companion.jl:53"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F17.md",
+        "existing_sections": [
+          "docs/atomistic.md:136",
+          "docs/m10d_architecture_inventory.md:68"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F17",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "evaluate",
+      "source_location": [
+        "src/atomistic/potentials.jl:122"
+      ],
+      "public_signature": [
+        "function evaluate(report::PotentialAnalysis, r::Real; order::Integer=0)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PotentialAnalysis, positive finite r::Real; order::Integer=0",
+      "returns": "Stored radial energy/first/second derivative",
+      "errors": [
+        "DomainError nonpositive/nonfinite/known excluded; invalid order from scalar evaluate"
+      ],
+      "numerical_limitations": "Unknown radial membership not certification; original stored positive-radius restrictions checked.",
+      "units": "No metadata conversion.",
+      "ownership": "Stored callable, no new analysis.",
+      "optional_dependencies": [],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:67",
+        "test/architecture.jl:125",
+        "test/atomistic_potentials.jl:13",
+        "test/atomistic_potentials.jl:24",
+        "test/atomistic_potentials.jl:30",
+        "test/atomistic_potentials.jl:40",
+        "test/atomistic_potentials.jl:41",
+        "test/atomistic_potentials.jl:46",
+        "test/atomistic_potentials.jl:47",
+        "test/atomistic_potentials.jl:48",
+        "test/atomistic_potentials.jl:49",
+        "test/atomistic_potentials.jl:51",
+        "test/atomistic_potentials.jl:52",
+        "test/atomistic_potentials.jl:53",
+        "test/convergence.jl:178",
+        "test/dynamical_systems.jl:18",
+        "test/m10a_atomistic_statistics.jl:62",
+        "test/m10a_atomistic_statistics.jl:65",
+        "test/m10a_atomistic_statistics.jl:71",
+        "test/m10a_atomistic_statistics.jl:72",
+        "test/m10a_atomistic_statistics.jl:79",
+        "test/m10a_calculus_dynamics.jl:30",
+        "test/m10a_calculus_dynamics.jl:31",
+        "test/m10a_calculus_dynamics.jl:32",
+        "test/m10a_calculus_dynamics.jl:33",
+        "test/m10a_calculus_dynamics.jl:34",
+        "test/m10a_calculus_dynamics.jl:35",
+        "test/m10a_calculus_dynamics.jl:36",
+        "test/m10a_calculus_dynamics.jl:103",
+        "test/m10a_calculus_dynamics.jl:109",
+        "test/m10a_inference_operators.jl:103",
+        "test/m10a_mechanics.jl:29",
+        "test/m10a_mechanics.jl:32",
+        "test/m10a_mechanics.jl:40",
+        "test/m10a_mechanics.jl:51",
+        "test/m10a_mechanics.jl:75",
+        "test/m10a_mechanics.jl:79",
+        "test/m10b_atomistic.jl:112",
+        "test/m10b_atomistic.jl:115",
+        "test/m10b_atomistic.jl:136",
+        "test/m10b_nonfinite.jl:10",
+        "test/m10b_nonfinite.jl:15",
+        "test/m10b_nonfinite.jl:18",
+        "test/m10b_nonfinite.jl:19",
+        "test/m10b_nonfinite.jl:25",
+        "test/m10b_nonfinite.jl:43",
+        "test/m10b_nonfinite.jl:45",
+        "test/m10b_nonfinite.jl:48",
+        "test/m10b_nonfinite.jl:49",
+        "test/m10b_nonfinite.jl:54",
+        "test/m10b_nonfinite.jl:58",
+        "test/m10b_nonfinite.jl:60",
+        "test/m10b_nonfinite.jl:64",
+        "test/m10b_nonfinite.jl:74",
+        "test/m10b_nonfinite.jl:76",
+        "test/m10b_showcases.jl:9",
+        "test/m10b_showcases.jl:26",
+        "test/m10b_types.jl:10",
+        "test/m10b_types.jl:11",
+        "test/m10b_types.jl:12",
+        "test/m10b_types.jl:16",
+        "test/m10b_types.jl:18",
+        "test/m10b_types.jl:19",
+        "test/m10b_types.jl:22",
+        "test/m10b_types.jl:25",
+        "test/m10b_types.jl:26",
+        "test/m10b_types.jl:30",
+        "test/m10b_types.jl:31",
+        "test/m10b_types.jl:32",
+        "test/m10b_types.jl:45",
+        "test/m10b_types.jl:50",
+        "test/m10b_types.jl:51",
+        "test/m10b_types.jl:93",
+        "test/m10b_types.jl:96",
+        "test/m10b_types.jl:100",
+        "test/m10b_types.jl:101",
+        "test/m10b_types.jl:106",
+        "test/m10b_types.jl:111",
+        "test/m10d_interoperability.jl:231",
+        "test/mechanics_dynamics.jl:17",
+        "test/mechanics_dynamics.jl:39",
+        "test/mechanics_dynamics.jl:53",
+        "test/mechanics_dynamics.jl:107",
+        "test/multivariate_analysis.jl:12",
+        "test/multivariate_analysis.jl:15",
+        "test/multivariate_analysis.jl:16",
+        "test/multivariate_analysis.jl:74",
+        "test/real_analysis_integration.jl:22",
+        "test/real_analysis_integration.jl:26",
+        "test/runtests.jl:30",
+        "test/runtests.jl:31",
+        "test/runtests.jl:33",
+        "test/runtests.jl:35",
+        "test/runtests.jl:36",
+        "test/runtests.jl:37",
+        "test/runtests.jl:38",
+        "test/runtests.jl:39",
+        "test/runtests.jl:40",
+        "test/runtests.jl:41",
+        "test/runtests.jl:58",
+        "test/runtests.jl:59",
+        "test/runtests.jl:60",
+        "test/runtests.jl:63",
+        "test/runtests.jl:68",
+        "test/runtests.jl:205",
+        "test/runtests.jl:213",
+        "test/stranger/student.jl:7",
+        "test/stranger/student.jl:8",
+        "test/stranger/student.jl:10",
+        "test/stranger/student.jl:14",
+        "test/vector_fields.jl:13",
+        "test/vector_fields.jl:14",
+        "test/vector_fields.jl:15",
+        "test/vector_fields.jl:19",
+        "test/vector_fields.jl:28",
+        "test/vector_regressions.jl:16",
+        "test/vector_regressions.jl:17",
+        "test/vector_regressions.jl:19",
+        "test/vector_regressions.jl:48",
+        "test/vector_visualization.jl:18"
+      ],
+      "example_references": [
+        "examples/inference/lj_gate.jl:36",
+        "examples/inference/lj_gate.jl:55",
+        "examples/inference/lj_gate.jl:74",
+        "examples/inference/lj_gate.jl:86",
+        "examples/inference/neural_showcase.jl:21",
+        "examples/validation/reference_checks.jl:5",
+        "notebooks/molly_companion.jl:55",
+        "notebooks/molly_companion.jl:59",
+        "notebooks/molly_companion.jl:64",
+        "notebooks/vector_field_analysis.jl:25"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F03.md",
+        "existing_sections": [
+          "README.md:60",
+          "README.md:91",
+          "README.md:92",
+          "README.md:93",
+          "README.md:101",
+          "README.md:205",
+          "README.md:254",
+          "README.md:288",
+          "README.md:348",
+          "README.md:531",
+          "README.md:599",
+          "docs/architecture.md:141",
+          "docs/architecture.md:190",
+          "docs/architecture.md:256",
+          "docs/dynamical_systems.md:22",
+          "docs/inverse_heat.md:29",
+          "docs/learned_dynamics.md:98",
+          "docs/m10a_early_inventory.md:9",
+          "docs/m10b_numeric_inventory.md:16",
+          "docs/m10b_numeric_inventory.md:20",
+          "docs/m10d_architecture_inventory.md:54",
+          "docs/m10d_architecture_inventory.md:68",
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/m10d_integration_matrix.md:17",
+          "docs/m10d_integration_matrix.md:19",
+          "docs/m10d_integration_matrix.md:116",
+          "docs/m10d_user_research_hardening.md:85",
+          "docs/trajectory_comparison.md:5",
+          "docs/vector_fields.md:10",
+          "docs/vector_fields.md:43"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F03",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "atomistic_snapshot",
+      "source_location": [
+        "ext/AnalyticMathLabMollyExt.jl:40"
+      ],
+      "public_signature": [
+        "function AML.atomistic_snapshot(sys::Molly.System;observables=false,time=nothing,copy_data=false,n_threads=1)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Molly.System; observables=false,time=nothing,copy_data=false,n_threads=1",
+      "returns": "AtomisticSnapshot",
+      "errors": [
+        "ArgumentError GPU/non-Array CPU storage; backend observable failures propagate"
+      ],
+      "numerical_limitations": "Configured backend observables at step0 only on explicit request; unsupported mixed/triclinic boundary not invented; replacing backend fields does not retarget snapshot.",
+      "units": "Supported Unitful arithmetic retained; unitless data are physically unknown unless caller declares provenance; labels never convert data.",
+      "ownership": "Borrows CPU arrays and lazy atom type view; distance closure retains boundary. copy_data selectively owns particle data.",
+      "optional_dependencies": [
+        "Molly"
+      ],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:78",
+        "test/atomistic_core.jl:11",
+        "test/m10d_extensions.jl:53",
+        "test/m10d_user_optional.jl:37",
+        "test/molly_integration.jl:24",
+        "test/molly_integration.jl:33",
+        "test/molly_integration.jl:38",
+        "test/molly_integration.jl:64",
+        "test/molly_integration.jl:73",
+        "test/molly_integration.jl:86",
+        "test/molly_integration.jl:87"
+      ],
+      "example_references": [
+        "notebooks/molly_companion.jl:36"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F15.md",
+        "existing_sections": [
+          "docs/atomistic.md:36",
+          "docs/atomistic.md:40",
+          "docs/m10d_architecture_inventory.md:66",
+          "docs/m10d_architecture_inventory.md:103",
+          "docs/m10d_architecture_inventory.md:139",
+          "docs/m10d_integration_matrix.md:28"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F15",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "atomistic_trajectory",
+      "source_location": [
+        "ext/AnalyticMathLabMollyExt.jl:74"
+      ],
+      "public_signature": [
+        "function AML.atomistic_trajectory(sys::Molly.System;fixed_box=false,times=nothing,\ncoordinate_logger=stored_logger(sys.loggers,:coords),velocity_logger=stored_logger(sys.loggers,:velocities))"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Molly.System with fixed_box=true assertion; optional explicit times/loggers",
+      "returns": "Captured-length AtomisticTrajectoryView",
+      "errors": [
+        "ArgumentError fixed_box missing, nonstandard loggers, differing stride, invalid times; DimensionMismatch frame/time counts"
+      ],
+      "numerical_limitations": "Caller asserts historic fixed box/masses/species/order and synchronization; matching stride not proof. Times nondecreasing here, downstream statistics may require strictly increasing.",
+      "units": "Explicit time units retained; no inferred dt/seconds.",
+      "ownership": "Borrows logger frames and current fixed metadata, no history recollection.",
+      "optional_dependencies": [
+        "Molly"
+      ],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:78",
+        "test/m10d_extensions.jl:54",
+        "test/m10d_flagship.jl:113",
+        "test/m10d_interoperability.jl:53",
+        "test/m10d_user_optional.jl:40",
+        "test/molly_integration.jl:42",
+        "test/molly_integration.jl:46",
+        "test/molly_integration.jl:53",
+        "test/molly_integration.jl:56",
+        "test/molly_integration.jl:57",
+        "test/molly_integration.jl:58",
+        "test/molly_integration.jl:61",
+        "test/molly_integration.jl:62",
+        "test/molly_integration.jl:70",
+        "test/molly_integration.jl:88",
+        "test/molly_integration.jl:89",
+        "test/molly_trajectory_statistics.jl:15"
+      ],
+      "example_references": [
+        "notebooks/molly_companion.jl:28",
+        "notebooks/molly_trajectory_analysis.jl:19",
+        "notebooks/molly_trajectory_analysis.jl:48"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F15.md",
+        "existing_sections": [
+          "docs/atomistic.md:41",
+          "docs/m10d_architecture_inventory.md:66",
+          "docs/m10d_architecture_inventory.md:139",
+          "docs/m10d_integration_matrix.md:28",
+          "docs/m10d_integration_matrix.md:122",
+          "docs/m10d_user_research_hardening.md:65"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F15",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "observable_series",
+      "source_location": [
+        "ext/AnalyticMathLabMollyExt.jl:109"
+      ],
+      "public_signature": [
+        "function AML.observable_series(logger::Molly.GeneralObservableLogger;times=nothing,\ninterval=nothing,index_time=false,provenance=NamedTuple())"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Supported Molly scalar energy/temperature GeneralObservableLogger; times/interval/index_time/provenance",
+      "returns": "ObservableSeries",
+      "errors": [
+        "ArgumentError unsupported logger; series sampling/value validation propagates"
+      ],
+      "numerical_limitations": "Captured-length values; temperature is logged backend DOF convention, not recomputed; scalar-coordinate synchronization caller responsibility.",
+      "units": "Supported Unitful arithmetic retained; unitless data are physically unknown unless caller declares provenance; labels never convert data.",
+      "ownership": "Borrows captured-length view; logger stride does not imply physical times.",
+      "optional_dependencies": [
+        "Molly"
+      ],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:82",
+        "test/m10a_atomistic_statistics.jl:200",
+        "test/m10a_atomistic_statistics.jl:201",
+        "test/m10a_atomistic_statistics.jl:202",
+        "test/m10a_atomistic_statistics.jl:203",
+        "test/m10a_atomistic_statistics.jl:204",
+        "test/m10d_flagship.jl:133",
+        "test/m10d_interoperability.jl:8",
+        "test/m10d_interoperability.jl:9",
+        "test/m10d_interoperability.jl:10",
+        "test/m10d_interoperability.jl:25",
+        "test/m10d_interoperability.jl:30",
+        "test/m10d_interoperability.jl:34",
+        "test/m10d_interoperability.jl:37",
+        "test/m10d_interoperability.jl:38",
+        "test/m10d_interoperability.jl:39",
+        "test/m10d_interoperability.jl:42",
+        "test/m10d_interoperability.jl:45",
+        "test/m10d_interoperability.jl:47",
+        "test/m10d_interoperability.jl:48",
+        "test/m10d_interoperability.jl:50",
+        "test/m10d_interoperability.jl:68",
+        "test/m10d_interoperability.jl:81",
+        "test/m10d_interoperability.jl:83",
+        "test/m10d_interoperability.jl:84",
+        "test/m10d_interoperability.jl:85",
+        "test/m10d_interoperability.jl:86",
+        "test/m10d_interoperability.jl:88",
+        "test/m10d_interoperability.jl:181",
+        "test/m10d_interoperability.jl:182",
+        "test/m10d_semantics.jl:21",
+        "test/m10d_semantics.jl:60",
+        "test/m10d_semantics.jl:148",
+        "test/m10d_semantics.jl:149",
+        "test/m10d_semantics_review.jl:18",
+        "test/molly_trajectory_statistics.jl:5",
+        "test/molly_trajectory_statistics.jl:6",
+        "test/molly_trajectory_statistics.jl:16",
+        "test/molly_trajectory_statistics.jl:22",
+        "test/molly_trajectory_statistics.jl:27",
+        "test/molly_trajectory_statistics.jl:28",
+        "test/molly_trajectory_statistics.jl:29",
+        "test/molly_trajectory_statistics.jl:32",
+        "test/molly_trajectory_statistics.jl:33",
+        "test/molly_trajectory_statistics.jl:36",
+        "test/molly_trajectory_statistics.jl:37",
+        "test/molly_trajectory_statistics.jl:38",
+        "test/stranger/physicist.jl:11",
+        "test/stranger/physicist.jl:15",
+        "test/stranger/physicist.jl:17",
+        "test/stranger/physicist.jl:18",
+        "test/trajectory_analyst.jl:31",
+        "test/trajectory_analyst.jl:36",
+        "test/trajectory_analyst.jl:37",
+        "test/trajectory_analyst.jl:47",
+        "test/trajectory_analyst.jl:50",
+        "test/trajectory_analyst.jl:51",
+        "test/trajectory_analyst.jl:52",
+        "test/trajectory_analyst.jl:53",
+        "test/trajectory_analyst.jl:54",
+        "test/trajectory_analyst.jl:58",
+        "test/trajectory_analyst.jl:59",
+        "test/trajectory_analyst.jl:69",
+        "test/trajectory_analyst.jl:83"
+      ],
+      "example_references": [
+        "examples/integration/one_system_many_methods.jl:130",
+        "examples/integration/one_system_many_methods.jl:131",
+        "examples/integration/one_system_many_methods.jl:132",
+        "examples/integration/one_system_many_methods.jl:133",
+        "notebooks/molly_trajectory_analysis.jl:23",
+        "notebooks/molly_trajectory_analysis.jl:24"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F19.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:70",
+          "docs/m10d_architecture_inventory.md:139",
+          "docs/m10d_flagship_results.md:98",
+          "docs/m10d_integration_matrix.md:28",
+          "docs/m10d_integration_matrix.md:29",
+          "docs/m10d_integration_matrix.md:66",
+          "docs/m10d_integration_matrix.md:121",
+          "docs/m10d_integration_matrix.md:122",
+          "docs/m10d_interoperability_results.md:13",
+          "docs/m10d_issue_ledger.md:19",
+          "docs/m10d_plan.md:238",
+          "docs/m10d_user_research_hardening.md:62",
+          "docs/trajectory_statistics.md:24",
+          "docs/trajectory_statistics.md:39"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F19",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    }
+  ],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

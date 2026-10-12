@@ -1,0 +1,1109 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "05_scalar_statistics",
+  "files": [
+    {
+      "path": "src/trajectory/statistics.jl",
+      "sha256": "16cfb3acacaaa89c240efd22d2322566bdfa55aa0e48c48d72cd4de3f273d6db",
+      "bytes": 10314,
+      "lines": 197,
+      "read_ranges": [
+        [
+          1,
+          197
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Strict increasing saved times and compatible units; generic values borrowed even lazy, first-only unit check; Welford constant auxiliary; ACF materializes scalar values and index time allowed."
+      ]
+    },
+    {
+      "path": "src/trajectory/uncertainty.jl",
+      "sha256": "3cca59b02076ae354c0407a345814c704a2cc1108e6c5ee4e4438db9f88ad3cc",
+      "bytes": 5906,
+      "lines": 102,
+      "read_ranges": [
+        [
+          1,
+          102
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "IAT must observe nonpositive tail or explicit window, effective count clamped; block/transient heuristics no stationarity or automatic cutoff/plateau."
+      ]
+    },
+    {
+      "path": "src/trajectory/interoperability.jl",
+      "sha256": "1595defdc699860602125c4a3861a5989dc1fd65fc11ce6ca0cd6c0a23b4f1f5",
+      "bytes": 4061,
+      "lines": 62,
+      "read_ranges": [
+        [
+          1,
+          62
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Stored-only trajectory selection copied samples, retained source/context. Backward/duplicate times fail before callback; callback gets state copy; all-series unit coherence checked."
+      ]
+    }
+  ],
+  "apis": [
+    {
+      "symbol": "SamplingInfo",
+      "source_location": [
+        "src/trajectory/statistics.jl:6"
+      ],
+      "public_signature": [
+        "struct SamplingInfo{T,I,U,P,E} <: AbstractAnalysis; raw generated field constructor: (count::Int, times::T, interval::I, regularity::Symbol, units::U, provenance::P, evidence::E)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "sampling_info factory or raw stored fields",
+      "returns": "Saved time metadata/evidence",
+      "errors": [],
+      "numerical_limitations": "Count0/1 insufficient; spacing metadata not physical timestamp certification.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Borrowed time/provenance arrays.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:82"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F19.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:70",
+          "docs/m10d_architecture_inventory.md:196",
+          "docs/m10d_interoperability_results.md:27",
+          "docs/m10d_semantics.md:100",
+          "docs/trajectory_statistics.md:9"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F19",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "sampling_info",
+      "source_location": [
+        "src/trajectory/statistics.jl:38",
+        "src/trajectory/statistics.jl:74"
+      ],
+      "public_signature": [
+        "function sampling_info(n::Integer;times=nothing,interval=nothing,index_time=false,provenance=NamedTuple())",
+        "sampling_info(t::AtomisticTrajectoryView;times=t.times,provenance=t.provenance,kwargs...)="
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "n>=0 or AtomisticTrajectoryView; times, interval, index_time=false, provenance",
+      "returns": "SamplingInfo",
+      "errors": [
+        "ArgumentError nonfinite/nonincreasing times, incompatible/mixed units, conflicting interval/index_time; DimensionMismatch time count"
+      ],
+      "numerical_limitations": "Spacing relative tolerance1e-8 absolute0; interval produces lazy0-based range; index_time explicitly labeled sample index.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Borrows times/provenance; no collection unless caller.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:82",
+        "test/m10a_atomistic_statistics.jl:157",
+        "test/m10a_atomistic_statistics.jl:158",
+        "test/m10a_atomistic_statistics.jl:159",
+        "test/m10a_atomistic_statistics.jl:160",
+        "test/m10a_atomistic_statistics.jl:161",
+        "test/m10a_atomistic_statistics.jl:165",
+        "test/m10a_atomistic_statistics.jl:166",
+        "test/m10a_atomistic_statistics.jl:167",
+        "test/m10a_atomistic_statistics.jl:168",
+        "test/m10b_statistics.jl:213",
+        "test/m10b_statistics.jl:216",
+        "test/m10b_statistics.jl:217",
+        "test/m10b_statistics.jl:218",
+        "test/m10b_statistics.jl:219",
+        "test/m10b_statistics.jl:221",
+        "test/m10b_statistics.jl:222",
+        "test/m10b_statistics.jl:223",
+        "test/m10b_statistics.jl:224",
+        "test/m10b_statistics.jl:225",
+        "test/m10b_statistics.jl:226",
+        "test/m10b_statistics.jl:227",
+        "test/m10b_statistics.jl:233",
+        "test/m10d_semantics.jl:145",
+        "test/molly_trajectory_statistics.jl:25",
+        "test/trajectory_statistics.jl:5",
+        "test/trajectory_statistics.jl:6",
+        "test/trajectory_statistics.jl:8",
+        "test/trajectory_statistics.jl:13",
+        "test/trajectory_statistics.jl:14",
+        "test/trajectory_statistics.jl:15",
+        "test/trajectory_statistics.jl:16",
+        "test/trajectory_statistics.jl:17",
+        "test/trajectory_statistics.jl:18",
+        "test/trajectory_statistics.jl:19",
+        "test/trajectory_statistics.jl:20",
+        "test/trajectory_statistics.jl:21",
+        "test/trajectory_statistics.jl:22",
+        "test/trajectory_statistics.jl:23",
+        "test/trajectory_statistics.jl:24",
+        "test/trajectory_statistics.jl:25",
+        "test/trajectory_statistics.jl:26",
+        "test/trajectory_statistics.jl:27",
+        "test/trajectory_statistics.jl:30",
+        "test/trajectory_statistics.jl:31",
+        "test/trajectory_statistics.jl:33",
+        "test/trajectory_uncertainty.jl:31"
+      ],
+      "example_references": [
+        "notebooks/molly_trajectory_analysis.jl:20"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F19.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:70",
+          "docs/trajectory_statistics.md:9"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F19",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "ObservableSeries",
+      "source_location": [
+        "src/trajectory/statistics.jl:83",
+        "src/trajectory/statistics.jl:91"
+      ],
+      "public_signature": [
+        "struct ObservableSeries{V,S,U,P} <: AbstractAnalysis; raw generated field constructor: (values::V, sampling::S, name::Symbol, units::U, provenance::P, missing_policy::Symbol)",
+        "function ObservableSeries(values::AbstractVector;times=nothing,interval=nothing,index_time=false,\nname=:observable,provenance=NamedTuple(),missing_policy=:reject)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "AbstractVector values; required missing_policy=:reject; explicit timing/name/provenance",
+      "returns": "Borrowed scalar series",
+      "errors": [
+        "ArgumentError invalid name/policy or invalid sampling"
+      ],
+      "numerical_limitations": "Constructor inspects only first value for units; downstream analyses return unknown for missing/nonreal/nonfinite data, do not drop; dimensional mismatch throws.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Borrows even lazy vector; read-only convention.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:82",
+        "test/m10a_atomistic_statistics.jl:106",
+        "test/m10a_atomistic_statistics.jl:137",
+        "test/m10a_atomistic_statistics.jl:140",
+        "test/m10a_atomistic_statistics.jl:141",
+        "test/m10a_atomistic_statistics.jl:147",
+        "test/m10a_atomistic_statistics.jl:163",
+        "test/m10a_atomistic_statistics.jl:186",
+        "test/m10a_atomistic_statistics.jl:208",
+        "test/m10a_atomistic_statistics.jl:221",
+        "test/m10a_atomistic_statistics.jl:225",
+        "test/m10a_atomistic_statistics.jl:232",
+        "test/m10a_atomistic_statistics.jl:233",
+        "test/m10a_atomistic_statistics.jl:249",
+        "test/m10a_atomistic_statistics.jl:250",
+        "test/m10a_atomistic_statistics.jl:264",
+        "test/m10a_atomistic_statistics.jl:268",
+        "test/m10b_showcases.jl:39",
+        "test/m10b_statistics.jl:21",
+        "test/m10b_statistics.jl:58",
+        "test/m10b_statistics.jl:69",
+        "test/m10b_statistics.jl:78",
+        "test/m10b_statistics.jl:85",
+        "test/m10b_statistics.jl:86",
+        "test/m10b_statistics.jl:97",
+        "test/m10b_statistics.jl:110",
+        "test/m10b_statistics.jl:135",
+        "test/m10b_statistics.jl:143",
+        "test/m10b_statistics.jl:149",
+        "test/m10b_statistics.jl:159",
+        "test/m10b_statistics.jl:165",
+        "test/m10b_statistics.jl:171",
+        "test/m10b_statistics.jl:178",
+        "test/m10b_statistics.jl:186",
+        "test/m10b_statistics.jl:194",
+        "test/m10b_statistics.jl:200",
+        "test/m10b_statistics.jl:228",
+        "test/m10b_statistics.jl:240",
+        "test/m10b_statistics.jl:241",
+        "test/m10b_statistics.jl:266",
+        "test/m10b_statistics.jl:267",
+        "test/m10c_streaming.jl:10",
+        "test/m10c_streaming.jl:11",
+        "test/m10d_flagship.jl:128",
+        "test/m10d_semantics.jl:47",
+        "test/m10d_semantics.jl:138",
+        "test/m10d_semantics.jl:140",
+        "test/m10d_semantics.jl:145",
+        "test/m10d_semantics_review.jl:5",
+        "test/m10d_user_inputs.jl:28",
+        "test/m10d_user_inputs.jl:30",
+        "test/m10d_user_inputs.jl:31",
+        "test/m10d_user_inputs.jl:33",
+        "test/m10d_user_inputs.jl:35",
+        "test/m10d_user_inputs.jl:37",
+        "test/m10d_user_inputs.jl:38",
+        "test/m10d_user_inputs.jl:39",
+        "test/m10d_value_compatibility.jl:7",
+        "test/m10d_value_compatibility.jl:25",
+        "test/m10d_value_compatibility.jl:26",
+        "test/m10d_value_compatibility.jl:28",
+        "test/stranger/atomistic.jl:20",
+        "test/stranger/load.jl:13",
+        "test/stranger/load.jl:15",
+        "test/stranger/research.jl:6",
+        "test/stranger/research.jl:13",
+        "test/stranger/research.jl:15",
+        "test/stranger/research.jl:18",
+        "test/stranger/research.jl:20",
+        "test/stranger/research.jl:21",
+        "test/trajectory_analyst.jl:7",
+        "test/trajectory_analyst.jl:15",
+        "test/trajectory_analyst.jl:18",
+        "test/trajectory_analyst.jl:21",
+        "test/trajectory_analyst.jl:60",
+        "test/trajectory_analyst.jl:67",
+        "test/trajectory_analyst.jl:68",
+        "test/trajectory_comparison.jl:7",
+        "test/trajectory_comparison.jl:8",
+        "test/trajectory_comparison.jl:20",
+        "test/trajectory_comparison.jl:24",
+        "test/trajectory_comparison.jl:26",
+        "test/trajectory_comparison.jl:34",
+        "test/trajectory_comparison.jl:35",
+        "test/trajectory_comparison.jl:55",
+        "test/trajectory_comparison_edges.jl:5",
+        "test/trajectory_comparison_edges.jl:7",
+        "test/trajectory_comparison_edges.jl:10",
+        "test/trajectory_comparison_edges.jl:15",
+        "test/trajectory_comparison_edges.jl:21",
+        "test/trajectory_comparison_edges.jl:25",
+        "test/trajectory_comparison_edges.jl:28",
+        "test/trajectory_comparison_edges.jl:33",
+        "test/trajectory_comparison_edges.jl:34",
+        "test/trajectory_comparison_edges.jl:41",
+        "test/trajectory_comparison_edges.jl:42",
+        "test/trajectory_comparison_edges.jl:62",
+        "test/trajectory_comparison_runs.jl:9",
+        "test/trajectory_comparison_runs.jl:10",
+        "test/trajectory_comparison_transport.jl:51",
+        "test/trajectory_comparison_transport.jl:52",
+        "test/trajectory_comparison_transport.jl:64",
+        "test/trajectory_comparison_transport.jl:68",
+        "test/trajectory_comparison_visualization.jl:7",
+        "test/trajectory_comparison_visualization.jl:8",
+        "test/trajectory_inference.jl:30",
+        "test/trajectory_statistics.jl:43",
+        "test/trajectory_statistics.jl:44",
+        "test/trajectory_statistics.jl:46",
+        "test/trajectory_statistics.jl:63",
+        "test/trajectory_statistics.jl:65",
+        "test/trajectory_statistics.jl:70",
+        "test/trajectory_statistics.jl:71",
+        "test/trajectory_statistics.jl:73",
+        "test/trajectory_statistics.jl:74",
+        "test/trajectory_statistics.jl:75",
+        "test/trajectory_statistics.jl:83",
+        "test/trajectory_statistics.jl:93",
+        "test/trajectory_statistics.jl:96",
+        "test/trajectory_statistics.jl:97",
+        "test/trajectory_statistics.jl:98",
+        "test/trajectory_statistics.jl:99",
+        "test/trajectory_statistics.jl:105",
+        "test/trajectory_statistics.jl:109",
+        "test/trajectory_statistics.jl:110",
+        "test/trajectory_statistics.jl:111",
+        "test/trajectory_uncertainty.jl:7",
+        "test/trajectory_uncertainty.jl:18",
+        "test/trajectory_uncertainty.jl:19",
+        "test/trajectory_uncertainty.jl:22",
+        "test/trajectory_uncertainty.jl:26",
+        "test/trajectory_uncertainty.jl:29",
+        "test/trajectory_uncertainty.jl:40",
+        "test/trajectory_uncertainty.jl:50",
+        "test/trajectory_uncertainty.jl:51",
+        "test/trajectory_uncertainty.jl:58",
+        "test/trajectory_uncertainty.jl:59",
+        "test/trajectory_visualization.jl:8",
+        "test/trajectory_visualization.jl:21",
+        "test/trajectory_visualization.jl:22"
+      ],
+      "example_references": [
+        "examples/integration/one_system_plots.jl:33",
+        "examples/scaling/million_sample_statistics.jl:22",
+        "examples/scaling/million_sample_statistics.jl:31",
+        "notebooks/molly_trajectory_analysis.jl:57",
+        "notebooks/trajectory_comparison.jl:8",
+        "notebooks/trajectory_comparison.jl:10",
+        "notebooks/trajectory_comparison.jl:18"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F19.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:70",
+          "docs/m10d_architecture_inventory.md:71",
+          "docs/m10d_architecture_inventory.md:80",
+          "docs/m10d_architecture_inventory.md:127",
+          "docs/m10d_architecture_inventory.md:191",
+          "docs/m10d_architecture_inventory.md:196",
+          "docs/m10d_flagship_results.md:66",
+          "docs/m10d_integration_matrix.md:26",
+          "docs/m10d_integration_matrix.md:28",
+          "docs/m10d_integration_matrix.md:30",
+          "docs/m10d_integration_matrix.md:44",
+          "docs/m10d_integration_matrix.md:121",
+          "docs/m10d_interoperability_results.md:11",
+          "docs/m10d_issue_ledger.md:19",
+          "docs/m10d_issue_ledger.md:43",
+          "docs/m10d_one_system_many_methods.md:106",
+          "docs/m10d_provenance.md:55",
+          "docs/m10d_provenance.md:122",
+          "docs/m10d_semantics.md:140",
+          "docs/m10d_semantics_results.md:104",
+          "docs/m10d_user_research_hardening.md:14",
+          "docs/m10d_user_research_hardening.md:56",
+          "docs/m10d_user_research_hardening.md:72",
+          "docs/trajectory_comparison.md:12",
+          "docs/trajectory_comparison.md:13",
+          "docs/trajectory_comparison.md:58",
+          "docs/trajectory_inference.md:5",
+          "docs/trajectory_statistics.md:23"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F19",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "observable_series",
+      "source_location": [
+        "src/trajectory/interoperability.jl:18"
+      ],
+      "public_signature": [
+        "function observable_series(path::TrajectoryResult;component=nothing,observable=nothing,\nname=:observable,context=NamedTuple())"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "TrajectoryResult with exactly one component index/unique source label or scalar observable(u,t); name/context",
+      "returns": "ObservableSeries",
+      "errors": [
+        "ArgumentError invalid selectors/names/empty samples/nonfinite values/unit mixture; DimensionMismatch states/times/labels; sampling refuses backward/duplicate times"
+      ],
+      "numerical_limitations": "Stored samples only; partial native solutions allowed and diagnostics retained; no interpolant/resampling/identity inference.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Fresh times/values; scalar callback receives copy of state; provenance strongly retains source/context/selector and labels/domain.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:82",
+        "test/m10a_atomistic_statistics.jl:200",
+        "test/m10a_atomistic_statistics.jl:201",
+        "test/m10a_atomistic_statistics.jl:202",
+        "test/m10a_atomistic_statistics.jl:203",
+        "test/m10a_atomistic_statistics.jl:204",
+        "test/m10d_flagship.jl:133",
+        "test/m10d_interoperability.jl:8",
+        "test/m10d_interoperability.jl:9",
+        "test/m10d_interoperability.jl:10",
+        "test/m10d_interoperability.jl:25",
+        "test/m10d_interoperability.jl:30",
+        "test/m10d_interoperability.jl:34",
+        "test/m10d_interoperability.jl:37",
+        "test/m10d_interoperability.jl:38",
+        "test/m10d_interoperability.jl:39",
+        "test/m10d_interoperability.jl:42",
+        "test/m10d_interoperability.jl:45",
+        "test/m10d_interoperability.jl:47",
+        "test/m10d_interoperability.jl:48",
+        "test/m10d_interoperability.jl:50",
+        "test/m10d_interoperability.jl:68",
+        "test/m10d_interoperability.jl:81",
+        "test/m10d_interoperability.jl:83",
+        "test/m10d_interoperability.jl:84",
+        "test/m10d_interoperability.jl:85",
+        "test/m10d_interoperability.jl:86",
+        "test/m10d_interoperability.jl:88",
+        "test/m10d_interoperability.jl:181",
+        "test/m10d_interoperability.jl:182",
+        "test/m10d_semantics.jl:21",
+        "test/m10d_semantics.jl:60",
+        "test/m10d_semantics.jl:148",
+        "test/m10d_semantics.jl:149",
+        "test/m10d_semantics_review.jl:18",
+        "test/molly_trajectory_statistics.jl:5",
+        "test/molly_trajectory_statistics.jl:6",
+        "test/molly_trajectory_statistics.jl:16",
+        "test/molly_trajectory_statistics.jl:22",
+        "test/molly_trajectory_statistics.jl:27",
+        "test/molly_trajectory_statistics.jl:28",
+        "test/molly_trajectory_statistics.jl:29",
+        "test/molly_trajectory_statistics.jl:32",
+        "test/molly_trajectory_statistics.jl:33",
+        "test/molly_trajectory_statistics.jl:36",
+        "test/molly_trajectory_statistics.jl:37",
+        "test/molly_trajectory_statistics.jl:38",
+        "test/stranger/physicist.jl:11",
+        "test/stranger/physicist.jl:15",
+        "test/stranger/physicist.jl:17",
+        "test/stranger/physicist.jl:18",
+        "test/trajectory_analyst.jl:31",
+        "test/trajectory_analyst.jl:36",
+        "test/trajectory_analyst.jl:37",
+        "test/trajectory_analyst.jl:47",
+        "test/trajectory_analyst.jl:50",
+        "test/trajectory_analyst.jl:51",
+        "test/trajectory_analyst.jl:52",
+        "test/trajectory_analyst.jl:53",
+        "test/trajectory_analyst.jl:54",
+        "test/trajectory_analyst.jl:58",
+        "test/trajectory_analyst.jl:59",
+        "test/trajectory_analyst.jl:69",
+        "test/trajectory_analyst.jl:83"
+      ],
+      "example_references": [
+        "examples/integration/one_system_many_methods.jl:130",
+        "examples/integration/one_system_many_methods.jl:131",
+        "examples/integration/one_system_many_methods.jl:132",
+        "examples/integration/one_system_many_methods.jl:133",
+        "notebooks/molly_trajectory_analysis.jl:23",
+        "notebooks/molly_trajectory_analysis.jl:24"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F19.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:70",
+          "docs/m10d_architecture_inventory.md:139",
+          "docs/m10d_flagship_results.md:98",
+          "docs/m10d_integration_matrix.md:28",
+          "docs/m10d_integration_matrix.md:29",
+          "docs/m10d_integration_matrix.md:66",
+          "docs/m10d_integration_matrix.md:121",
+          "docs/m10d_integration_matrix.md:122",
+          "docs/m10d_interoperability_results.md:13",
+          "docs/m10d_issue_ledger.md:19",
+          "docs/m10d_plan.md:238",
+          "docs/m10d_user_research_hardening.md:62",
+          "docs/trajectory_statistics.md:24",
+          "docs/trajectory_statistics.md:39"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F19",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "statistical_summary",
+      "source_location": [
+        "src/trajectory/statistics.jl:134"
+      ],
+      "public_signature": [
+        "function statistical_summary(s::ObservableSeries)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ObservableSeries",
+      "returns": "PropertyResult heuristic count/mean/sample variance/std/extrema; standard_error=nothing",
+      "errors": [
+        "Unknown empty/nonfinite/missing/nonreal/arithmetic overflow; ArgumentError mixed/incompatible units"
+      ],
+      "numerical_limitations": "Welford O(1) auxiliary, variance denominator n−1; singleton variance/std nothing; never IID SE.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Context-free leaf has no invented ancestry; no values retained in leaf.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:82",
+        "test/m10a_atomistic_statistics.jl:107",
+        "test/m10a_atomistic_statistics.jl:147",
+        "test/m10a_atomistic_statistics.jl:251",
+        "test/m10a_atomistic_statistics.jl:252",
+        "test/m10b_showcases.jl:39",
+        "test/m10b_statistics.jl:22",
+        "test/m10b_statistics.jl:69",
+        "test/m10b_statistics.jl:78",
+        "test/m10b_statistics.jl:87",
+        "test/m10b_statistics.jl:88",
+        "test/m10b_statistics.jl:98",
+        "test/m10b_statistics.jl:111",
+        "test/m10b_statistics.jl:112",
+        "test/m10b_statistics.jl:136",
+        "test/m10b_statistics.jl:144",
+        "test/m10b_statistics.jl:150",
+        "test/m10b_statistics.jl:165",
+        "test/m10b_statistics.jl:171",
+        "test/m10b_statistics.jl:178",
+        "test/m10b_statistics.jl:186",
+        "test/m10b_statistics.jl:194",
+        "test/m10b_statistics.jl:268",
+        "test/m10b_statistics.jl:269",
+        "test/m10c_streaming.jl:10",
+        "test/m10c_streaming.jl:11",
+        "test/m10d_flagship.jl:134",
+        "test/m10d_flagship.jl:135",
+        "test/m10d_interoperability.jl:26",
+        "test/m10d_interoperability.jl:27",
+        "test/m10d_interoperability.jl:28",
+        "test/m10d_interoperability.jl:36",
+        "test/m10d_interoperability.jl:40",
+        "test/m10d_interoperability.jl:245",
+        "test/m10d_semantics.jl:38",
+        "test/m10d_semantics.jl:48",
+        "test/m10d_semantics.jl:142",
+        "test/m10d_semantics_review.jl:20",
+        "test/m10d_user_inputs.jl:31",
+        "test/m10d_user_inputs.jl:37",
+        "test/m10d_user_inputs.jl:38",
+        "test/m10d_user_inputs.jl:39",
+        "test/m10d_value_compatibility.jl:8",
+        "test/m10d_value_compatibility.jl:25",
+        "test/m10d_value_compatibility.jl:26",
+        "test/m10d_value_compatibility.jl:28",
+        "test/molly_trajectory_statistics.jl:36",
+        "test/stranger/atomistic.jl:22",
+        "test/stranger/load.jl:14",
+        "test/stranger/physicist.jl:16",
+        "test/stranger/research.jl:7",
+        "test/stranger/research.jl:13",
+        "test/stranger/research.jl:15",
+        "test/stranger/research.jl:18",
+        "test/stranger/research.jl:20",
+        "test/stranger/research.jl:21",
+        "test/trajectory_analyst.jl:53",
+        "test/trajectory_analyst.jl:58",
+        "test/trajectory_comparison.jl:9",
+        "test/trajectory_comparison.jl:10",
+        "test/trajectory_comparison.jl:21",
+        "test/trajectory_comparison.jl:25",
+        "test/trajectory_comparison.jl:27",
+        "test/trajectory_comparison_edges.jl:6",
+        "test/trajectory_comparison_edges.jl:8",
+        "test/trajectory_comparison_edges.jl:28",
+        "test/trajectory_comparison_edges.jl:35",
+        "test/trajectory_statistics.jl:50",
+        "test/trajectory_statistics.jl:63",
+        "test/trajectory_statistics.jl:65",
+        "test/trajectory_statistics.jl:70",
+        "test/trajectory_statistics.jl:73",
+        "test/trajectory_statistics.jl:74"
+      ],
+      "example_references": [
+        "examples/integration/one_system_many_methods.jl:135",
+        "examples/scaling/million_sample_statistics.jl:22",
+        "notebooks/molly_trajectory_analysis.jl:26",
+        "notebooks/trajectory_comparison.jl:19"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F20.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:71",
+          "docs/m10d_architecture_inventory.md:100",
+          "docs/m10d_architecture_inventory.md:195",
+          "docs/m10d_flagship_results.md:99",
+          "docs/m10d_integration_matrix.md:30",
+          "docs/m10d_integration_matrix.md:123",
+          "docs/m10d_issue_ledger.md:16",
+          "docs/m10d_issue_ledger.md:18",
+          "docs/m10d_issue_ledger.md:26",
+          "docs/m10d_issue_ledger.md:90",
+          "docs/m10d_plan.md:336",
+          "docs/m10d_provenance.md:56",
+          "docs/m10d_semantics_results.md:168",
+          "docs/m10d_semantics_results.md:184",
+          "docs/m10d_user_research_hardening.md:14",
+          "docs/trajectory_comparison.md:14",
+          "docs/trajectory_comparison.md:94",
+          "docs/trajectory_statistics.md:72"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F20",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "running_statistics",
+      "source_location": [
+        "src/trajectory/statistics.jl:143"
+      ],
+      "public_signature": [
+        "function running_statistics(s::ObservableSeries)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ObservableSeries",
+      "returns": "PropertyResult prefix counts/means/variances",
+      "errors": [
+        "Same invalid data behavior as statistical_summary"
+      ],
+      "numerical_limitations": "O(N) output; first variance nothing; descriptive not uncertainty.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "New prefix arrays, no copied whole series.",
+      "optional_dependencies": [],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:82",
+        "test/m10a_atomistic_statistics.jl:112",
+        "test/m10b_statistics.jl:29",
+        "test/m10b_statistics.jl:137",
+        "test/m10b_statistics.jl:151",
+        "test/m10b_statistics.jl:200",
+        "test/m10d_interoperability.jl:75",
+        "test/m10d_user_inputs.jl:33",
+        "test/trajectory_statistics.jl:59",
+        "test/trajectory_statistics.jl:71"
+      ],
+      "example_references": [
+        "examples/integration/one_system_many_methods.jl:136",
+        "examples/scaling/million_sample_statistics.jl:32",
+        "notebooks/molly_trajectory_analysis.jl:33"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F20.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:71",
+          "docs/m10d_flagship_results.md:99",
+          "docs/trajectory_statistics.md:75"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F20",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "AutocorrelationAnalysis",
+      "source_location": [
+        "src/trajectory/statistics.jl:154"
+      ],
+      "public_signature": [
+        "struct AutocorrelationAnalysis{S,L,T,C,R,N,E} <: AbstractAnalysis; raw generated field constructor: (sampling::S, lags::L, lag_times::T, autocovariance::C, autocorrelation::R, counts::N, normalization::Symbol, method::Symbol, evidence::E)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "autocorrelation or raw fields",
+      "returns": "Lag covariance/correlation/counts/sampling/evidence",
+      "errors": [],
+      "numerical_limitations": "Missing normalized correlation nothing, not NaN; constant series covariance0 correlation unknown.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Retains sampling; new arrays.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:83",
+        "test/trajectory_comparison_edges.jl:12",
+        "test/trajectory_statistics.jl:101",
+        "test/trajectory_uncertainty.jl:32"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F21.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:72",
+          "docs/trajectory_comparison.md:96"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F21",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "autocorrelation",
+      "source_location": [
+        "src/trajectory/statistics.jl:174"
+      ],
+      "public_signature": [
+        "function autocorrelation(s::ObservableSeries;maxlag=min(length(s.values)-1,128),normalization=:biased)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Series with regular saved sampling; maxlag=min(N−1,128), normalization=:biased",
+      "returns": "AutocorrelationAnalysis",
+      "errors": [
+        "ArgumentError invalid lag/normalization; unknown inadequate regular samples or invalid arithmetic/data"
+      ],
+      "numerical_limitations": "Direct O(N*K) work O(N+K) storage; index time allowed; biased N or unbiased N−k denominators not exact unbiased claim; mean estimated from whole finite window.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Materializes scalar vector; no stored frame history.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:83",
+        "test/m10a_atomistic_statistics.jl:116",
+        "test/m10a_atomistic_statistics.jl:117",
+        "test/m10a_atomistic_statistics.jl:122",
+        "test/m10a_atomistic_statistics.jl:123",
+        "test/m10a_atomistic_statistics.jl:136",
+        "test/m10a_atomistic_statistics.jl:137",
+        "test/m10a_atomistic_statistics.jl:139",
+        "test/m10a_atomistic_statistics.jl:163",
+        "test/m10a_atomistic_statistics.jl:255",
+        "test/m10a_atomistic_statistics.jl:257",
+        "test/m10a_atomistic_statistics.jl:260",
+        "test/m10a_atomistic_statistics.jl:265",
+        "test/m10a_atomistic_statistics.jl:269",
+        "test/m10a_atomistic_statistics.jl:270",
+        "test/m10b_statistics.jl:37",
+        "test/m10b_statistics.jl:38",
+        "test/m10b_statistics.jl:43",
+        "test/m10b_statistics.jl:55",
+        "test/m10b_statistics.jl:102",
+        "test/m10b_statistics.jl:104",
+        "test/m10b_statistics.jl:138",
+        "test/m10b_statistics.jl:147",
+        "test/m10b_statistics.jl:152",
+        "test/m10b_statistics.jl:154",
+        "test/m10b_statistics.jl:229",
+        "test/m10d_interoperability.jl:74",
+        "test/trajectory_comparison.jl:50",
+        "test/trajectory_comparison.jl:53",
+        "test/trajectory_comparison.jl:56",
+        "test/trajectory_comparison_edges.jl:9",
+        "test/trajectory_comparison_edges.jl:11",
+        "test/trajectory_comparison_edges.jl:12",
+        "test/trajectory_comparison_edges.jl:16",
+        "test/trajectory_comparison_edges.jl:22",
+        "test/trajectory_comparison_edges.jl:26",
+        "test/trajectory_comparison_visualization.jl:19",
+        "test/trajectory_statistics.jl:79",
+        "test/trajectory_statistics.jl:80",
+        "test/trajectory_statistics.jl:83",
+        "test/trajectory_statistics.jl:86",
+        "test/trajectory_statistics.jl:93",
+        "test/trajectory_statistics.jl:95",
+        "test/trajectory_statistics.jl:96",
+        "test/trajectory_statistics.jl:100",
+        "test/trajectory_statistics.jl:103",
+        "test/trajectory_statistics.jl:105",
+        "test/trajectory_statistics.jl:107",
+        "test/trajectory_statistics.jl:109",
+        "test/trajectory_statistics.jl:110",
+        "test/trajectory_statistics.jl:112",
+        "test/trajectory_uncertainty.jl:8",
+        "test/trajectory_uncertainty.jl:10",
+        "test/trajectory_visualization.jl:11",
+        "test/trajectory_visualization.jl:22"
+      ],
+      "example_references": [
+        "examples/scaling/million_sample_statistics.jl:34",
+        "notebooks/molly_trajectory_analysis.jl:28",
+        "notebooks/trajectory_comparison.jl:17"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F21.md",
+        "existing_sections": [
+          "docs/atomistic.md:195",
+          "docs/m10c_scaling_inventory.md:25",
+          "docs/m10d_architecture_inventory.md:72",
+          "docs/m10d_interoperability_results.md:28",
+          "docs/trajectory_comparison.md:26",
+          "docs/trajectory_comparison.md:96",
+          "docs/trajectory_comparison.md:189",
+          "docs/trajectory_statistics.md:20",
+          "docs/trajectory_statistics.md:21",
+          "docs/trajectory_statistics.md:79"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F21",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "integrated_autocorrelation_time",
+      "source_location": [
+        "src/trajectory/uncertainty.jl:9"
+      ],
+      "public_signature": [
+        "function integrated_autocorrelation_time(a::AutocorrelationAnalysis;window=nothing)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "AutocorrelationAnalysis; window=nothing or explicit integer",
+      "returns": "PropertyResult tau/raw_tau/physical_tau/window/assumptions",
+      "errors": [
+        "ArgumentError window outside computed range; unknown unavailable normalized ACF, count<4 or no nonpositive tail"
+      ],
+      "numerical_limitations": "Convention 1/2+sum rho; automatic before first nonpositive lag. max(0.5,raw) caps N_eff≤N; no stationarity/run length proof.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Small leaf retains numbers/assumptions not full series.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:83",
+        "test/m10a_atomistic_statistics.jl:124",
+        "test/m10a_atomistic_statistics.jl:132",
+        "test/m10a_atomistic_statistics.jl:136",
+        "test/m10b_statistics.jl:45",
+        "test/m10b_statistics.jl:52",
+        "test/m10b_statistics.jl:55",
+        "test/m10b_statistics.jl:56",
+        "test/m10b_statistics.jl:57",
+        "test/m10b_statistics.jl:105",
+        "test/m10b_statistics.jl:155",
+        "test/trajectory_comparison.jl:57",
+        "test/trajectory_comparison.jl:58",
+        "test/trajectory_comparison_edges.jl:17",
+        "test/trajectory_uncertainty.jl:9",
+        "test/trajectory_uncertainty.jl:20",
+        "test/trajectory_uncertainty.jl:34"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F21.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:72",
+          "docs/trajectory_statistics.md:93"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F21",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "correlated_mean",
+      "source_location": [
+        "src/trajectory/uncertainty.jl:34"
+      ],
+      "public_signature": [
+        "function correlated_mean(s::ObservableSeries;window=nothing,maxlag=min(length(s.values)-1,128),normalization=:biased)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ObservableSeries; window/maxlag/normalization",
+      "returns": "PropertyResult mean/std/SE/tau/N_eff/count plus ACF/integration",
+      "errors": [
+        "Invalid lag/window/etc errors propagate; unknown N_eff<1 or invalid data/tail"
+      ],
+      "numerical_limitations": "No IID fallback; regular sampling/stationarity assumed; effective count not independent experiments.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Materializes scalar values; stores ACF/integration, not input values.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:83",
+        "test/m10a_atomistic_statistics.jl:128",
+        "test/m10a_atomistic_statistics.jl:140",
+        "test/m10a_atomistic_statistics.jl:234",
+        "test/m10a_atomistic_statistics.jl:244",
+        "test/m10b_statistics.jl:48",
+        "test/m10b_statistics.jl:106",
+        "test/m10b_statistics.jl:139",
+        "test/m10b_statistics.jl:148",
+        "test/m10b_statistics.jl:156",
+        "test/m10b_statistics.jl:230",
+        "test/m10b_statistics.jl:242",
+        "test/m10b_statistics.jl:243",
+        "test/molly_trajectory_statistics.jl:33",
+        "test/trajectory_comparison.jl:36",
+        "test/trajectory_comparison_visualization.jl:9",
+        "test/trajectory_comparison_visualization.jl:10",
+        "test/trajectory_uncertainty.jl:5",
+        "test/trajectory_uncertainty.jl:6",
+        "test/trajectory_uncertainty.jl:13",
+        "test/trajectory_uncertainty.jl:18",
+        "test/trajectory_uncertainty.jl:19",
+        "test/trajectory_uncertainty.jl:23",
+        "test/trajectory_uncertainty.jl:24",
+        "test/trajectory_uncertainty.jl:27",
+        "test/trajectory_uncertainty.jl:28",
+        "test/trajectory_uncertainty.jl:29"
+      ],
+      "example_references": [
+        "notebooks/molly_trajectory_analysis.jl:30",
+        "notebooks/molly_trajectory_analysis.jl:31"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F21.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:72",
+          "docs/trajectory_comparison.md:95",
+          "docs/trajectory_statistics.md:102"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F21",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "BlockAnalysis",
+      "source_location": [
+        "src/trajectory/uncertainty.jl:51"
+      ],
+      "public_signature": [
+        "struct BlockAnalysis <: AbstractAnalysis; raw generated field constructor: (block_sizes, block_counts, discarded, block_means, variances, standard_errors, sampling, units, evidence::PropertyResult)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "block_average or raw fields",
+      "returns": "Block-size/count/tail/block mean/variance/SE evidence",
+      "errors": [],
+      "numerical_limitations": "No automatic independence/plateau inference.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Stores block output arrays and sampling.",
+      "optional_dependencies": [],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:84",
+        "test/trajectory_uncertainty.jl:42"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F22.md",
+        "existing_sections": [
+          "docs/m10c_shared_evidence.md:51",
+          "docs/m10d_architecture_inventory.md:73",
+          "docs/trajectory_comparison.md:98",
+          "docs/trajectory_statistics.md:111"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F22",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "block_average",
+      "source_location": [
+        "src/trajectory/uncertainty.jl:62"
+      ],
+      "public_signature": [
+        "function block_average(s::ObservableSeries;block_sizes=[2^k for k in 0:floor(Int,log2(max(1,length(s.values)÷2)))])"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ObservableSeries; block_sizes default powers2 up to floor(log2(max(1,N÷2)))",
+      "returns": "BlockAnalysis",
+      "errors": [
+        "ArgumentError nonpositive/noninteger sizes; unknown invalid/empty values"
+      ],
+      "numerical_limitations": "Complete nonoverlap blocks only; each size omits own tail; SE sqrt(sample variance blockmeans/count), no independent-block proof or hard output budget.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Materializes scalar values and per-size blockmeans.",
+      "optional_dependencies": [],
+      "docstring_status": "METHOD lacks separate docstring; type brief",
+      "test_references": [
+        "test/architecture.jl:84",
+        "test/m10a_atomistic_statistics.jl:141",
+        "test/m10b_statistics.jl:58",
+        "test/m10b_statistics.jl:107",
+        "test/m10b_statistics.jl:140",
+        "test/m10b_statistics.jl:157",
+        "test/trajectory_comparison.jl:63",
+        "test/trajectory_comparison.jl:64",
+        "test/trajectory_comparison_edges.jl:48",
+        "test/trajectory_comparison_edges.jl:49",
+        "test/trajectory_uncertainty.jl:38",
+        "test/trajectory_uncertainty.jl:39",
+        "test/trajectory_uncertainty.jl:41",
+        "test/trajectory_uncertainty.jl:48",
+        "test/trajectory_uncertainty.jl:49",
+        "test/trajectory_uncertainty.jl:50",
+        "test/trajectory_visualization.jl:12"
+      ],
+      "example_references": [
+        "examples/scaling/million_sample_statistics.jl:33",
+        "notebooks/molly_trajectory_analysis.jl:32"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F22.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:73",
+          "docs/trajectory_statistics.md:111"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F22",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "transient_analysis",
+      "source_location": [
+        "src/trajectory/uncertainty.jl:86"
+      ],
+      "public_signature": [
+        "function transient_analysis(s::ObservableSeries;threshold=1.0)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ObservableSeries; threshold=1.0 finite positive",
+      "returns": "Heuristic PropertyResult early/late midpoint shift and suggested_start/time",
+      "errors": [
+        "ArgumentError invalid threshold; unknown <8/invalid values"
+      ],
+      "numerical_limitations": "Uses pooled fluctuations not IID significance. Cutoff never applied; absence shift not equilibrium.",
+      "units": "Compatible Unitful arithmetic preserved; units unknown for plain values; variance/covariance squared units. Time spacing does not infer simulation dt.",
+      "ownership": "Materializes scalar values; leaf summaries only.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:84",
+        "test/trajectory_comparison_edges.jl:55",
+        "test/trajectory_comparison_edges.jl:56",
+        "test/trajectory_comparison_edges.jl:63",
+        "test/trajectory_comparison_transport.jl:59",
+        "test/trajectory_comparison_transport.jl:60",
+        "test/trajectory_comparison_transport.jl:62",
+        "test/trajectory_uncertainty.jl:52",
+        "test/trajectory_uncertainty.jl:58",
+        "test/trajectory_uncertainty.jl:59"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F22.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:73",
+          "docs/trajectory_statistics.md:118"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F22",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    }
+  ],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

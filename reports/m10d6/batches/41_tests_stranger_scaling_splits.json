@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "41_tests_stranger_scaling_splits",
+  "files": [
+    {
+      "path": "test/stranger/research.jl",
+      "sha256": "d10f4f6159dbe7739a18c1242a746598dba285e15541e3dda12294a6bd91c37d",
+      "bytes": 1995,
+      "lines": 39,
+      "read_ranges": [
+        [
+          1,
+          39
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Public lazy range summary with generic floating/Unitful moments, serialization, sparse modes explicitly denseFloat64 and complex refusal."
+      ]
+    },
+    {
+      "path": "test/stranger/student.jl",
+      "sha256": "b0eb1f546c0f3644c54253a3dfcba730e0f34be90761297b902ed5855d7d1198",
+      "bytes": 936,
+      "lines": 24,
+      "read_ranges": [
+        [
+          1,
+          24
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Univariate generic numbers including complex versus scalar-field checked coordinates; stable four-field PropertyResult."
+      ]
+    },
+    {
+      "path": "test/surrogate_contracts.jl",
+      "sha256": "03723b2b700f7b1db8e1f46fe79fc0aab1d8f419e7f161b2d52eb547f9ea8dea",
+      "bytes": 2828,
+      "lines": 50,
+      "read_ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Declared train/interpolation/extrapolation integrity, poison-heldout non-leak scaling, numerical metadata and sampled field error denominator guards."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "25_tests_resource_controls",
+  "files": [
+    {
+      "path": "test/m10c_chunking.jl",
+      "sha256": "78e536381fdf169a8b1a7225a449374be968de09ea7240400e0f4661f7bbe071",
+      "bytes": 1457,
+      "lines": 34,
+      "read_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Summary-only sampled errors/heat omit full outputs and single-consumption generator fixtures; allocation assertions are historical test sources not RSS measurements here."
+      ]
+    },
+    {
+      "path": "test/m10c_guardrails.jl",
+      "sha256": "2a13e71a2bea15ed033442ee45aa35b2ed7d6feaa6ca151bae2aee6bcb2b8df6",
+      "bytes": 2256,
+      "lines": 48,
+      "read_ranges": [
+        [
+          1,
+          48
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "StressBudget/dense_bytes/measure! are example harness not exports; actual Julia/BLAS thread ceiling gate, refused callback uncalled, report CSV/TOML fixtures."
+      ]
+    },
+    {
+      "path": "test/m10c_ode_scale.jl",
+      "sha256": "440ac1dbfd9dc4551a9746b2e3616af55392cf7ee4419af3d7347e821e8f5917",
+      "bytes": 2321,
+      "lines": 45,
+      "read_ranges": [
+        [
+          1,
+          45
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Native in-place scaling helper private versus public32-state cap; oscillator saved policy/ensemble ownership fixtures and untouched du failure checks."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

@@ -1,0 +1,200 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "87_frozen_data_environment_8",
+  "files": [
+    {
+      "path": "examples/inference/Manifest.toml",
+      "sha256": "74c2e374975d4e2c275df77a2e140bc01ec9f49a7301169ad93eabbd89d957d4",
+      "bytes": 108825,
+      "inspection": "DETERMINISTIC_MANIFEST_ENUMERATION",
+      "metadata": {
+        "julia_version": "1.12.7",
+        "manifest_format": "2.0",
+        "project_hash": "1189ff0e838320585b4a223f54b1d4543a53fce9"
+      },
+      "packages": 341,
+      "aml_registration": [
+        {
+          "deps": [
+            "CairoMakie",
+            "FiniteDiff",
+            "ForwardDiff",
+            "LinearAlgebra",
+            "Makie",
+            "OrdinaryDiffEqTsit5",
+            "Random",
+            "Roots",
+            "SciMLBase",
+            "Symbolics",
+            "Unitful"
+          ],
+          "path": "../..",
+          "uuid": "d00b717d-2040-4c0f-8850-62abbaf45caf",
+          "version": "0.1.0",
+          "extensions": {
+            "AnalyticMathLabDynamicsExt": [
+              "Lux",
+              "Optimization"
+            ],
+            "AnalyticMathLabInferenceExt": "Optimization",
+            "AnalyticMathLabMollyExt": "Molly",
+            "AnalyticMathLabPINNExt": [
+              "Lux",
+              "NeuralPDE",
+              "ModelingToolkit",
+              "Optimization",
+              "SymbolicIndexingInterface"
+            ],
+            "AnalyticMathLabSurrogateExt": [
+              "Lux",
+              "Optimization",
+              "NeuralOperators"
+            ]
+          },
+          "weakdeps": {
+            "Lux": "b2108857-7c20-44ae-9111-449ecde12c47",
+            "ModelingToolkit": "961ee093-0014-501f-94e3-6117800e7a78",
+            "Molly": "aa0f7f06-fcc0-5ec4-a7f3-a573f33f9c4c",
+            "NeuralOperators": "ea5c82af-86e5-48da-8ee1-382d6ad7af4b",
+            "NeuralPDE": "315f7962-48a3-4962-8226-d0f33b1235f0",
+            "Optimization": "7f7a1694-90dd-40f0-9382-eb1efda571ba",
+            "SymbolicIndexingInterface": "2efcf032-c050-4f8e-a9bb-153293bab1f5"
+          }
+        }
+      ],
+      "semantic_findings": [
+        "Environment lockfile indexed; no resolution/install/load verification."
+      ]
+    },
+    {
+      "path": "examples/molly/Manifest.toml",
+      "sha256": "3d023083d15d42130775afbcfc4a7d4e7b18552b3d7e70b0fe354906754c5ab5",
+      "bytes": 101040,
+      "inspection": "DETERMINISTIC_MANIFEST_ENUMERATION",
+      "metadata": {
+        "julia_version": "1.12.7",
+        "manifest_format": "2.0",
+        "project_hash": "100533fcc0f442a2471b7d484c61090f82ee83d7"
+      },
+      "packages": 348,
+      "aml_registration": [
+        {
+          "deps": [
+            "CairoMakie",
+            "FiniteDiff",
+            "ForwardDiff",
+            "LinearAlgebra",
+            "Makie",
+            "OrdinaryDiffEqTsit5",
+            "Random",
+            "Roots",
+            "SciMLBase",
+            "Symbolics",
+            "Unitful"
+          ],
+          "path": "../..",
+          "uuid": "d00b717d-2040-4c0f-8850-62abbaf45caf",
+          "version": "0.1.0",
+          "extensions": {
+            "AnalyticMathLabDynamicsExt": [
+              "Lux",
+              "Optimization"
+            ],
+            "AnalyticMathLabInferenceExt": "Optimization",
+            "AnalyticMathLabMollyExt": "Molly",
+            "AnalyticMathLabPINNExt": [
+              "Lux",
+              "NeuralPDE",
+              "ModelingToolkit",
+              "Optimization",
+              "SymbolicIndexingInterface"
+            ],
+            "AnalyticMathLabSurrogateExt": [
+              "Lux",
+              "Optimization",
+              "NeuralOperators"
+            ]
+          },
+          "weakdeps": {
+            "Lux": "b2108857-7c20-44ae-9111-449ecde12c47",
+            "ModelingToolkit": "961ee093-0014-501f-94e3-6117800e7a78",
+            "Molly": "aa0f7f06-fcc0-5ec4-a7f3-a573f33f9c4c",
+            "NeuralOperators": "ea5c82af-86e5-48da-8ee1-382d6ad7af4b",
+            "NeuralPDE": "315f7962-48a3-4962-8226-d0f33b1235f0",
+            "Optimization": "7f7a1694-90dd-40f0-9382-eb1efda571ba",
+            "SymbolicIndexingInterface": "2efcf032-c050-4f8e-a9bb-153293bab1f5"
+          }
+        }
+      ],
+      "semantic_findings": [
+        "Environment lockfile indexed; no resolution/install/load verification."
+      ]
+    },
+    {
+      "path": "examples/operators/Manifest.toml",
+      "sha256": "d343ca13f885b5c44a58a4948e78ee925ee7dd875c44001ae68dff5e2c9c9fa1",
+      "bytes": 114599,
+      "inspection": "DETERMINISTIC_MANIFEST_ENUMERATION",
+      "metadata": {
+        "julia_version": "1.12.7",
+        "manifest_format": "2.0",
+        "project_hash": "2418e0f77763976b4aaa320db84cde5b0e5c1068"
+      },
+      "packages": 356,
+      "aml_registration": [
+        {
+          "deps": [
+            "CairoMakie",
+            "FiniteDiff",
+            "ForwardDiff",
+            "LinearAlgebra",
+            "Makie",
+            "OrdinaryDiffEqTsit5",
+            "Random",
+            "Roots",
+            "SciMLBase",
+            "Symbolics",
+            "Unitful"
+          ],
+          "path": "../..",
+          "uuid": "d00b717d-2040-4c0f-8850-62abbaf45caf",
+          "version": "0.1.0",
+          "extensions": {
+            "AnalyticMathLabDynamicsExt": [
+              "Lux",
+              "Optimization"
+            ],
+            "AnalyticMathLabInferenceExt": "Optimization",
+            "AnalyticMathLabMollyExt": "Molly",
+            "AnalyticMathLabPINNExt": [
+              "Lux",
+              "NeuralPDE",
+              "ModelingToolkit",
+              "Optimization",
+              "SymbolicIndexingInterface"
+            ],
+            "AnalyticMathLabSurrogateExt": [
+              "Lux",
+              "Optimization",
+              "NeuralOperators"
+            ]
+          },
+          "weakdeps": {
+            "Lux": "b2108857-7c20-44ae-9111-449ecde12c47",
+            "ModelingToolkit": "961ee093-0014-501f-94e3-6117800e7a78",
+            "Molly": "aa0f7f06-fcc0-5ec4-a7f3-a573f33f9c4c",
+            "NeuralOperators": "ea5c82af-86e5-48da-8ee1-382d6ad7af4b",
+            "NeuralPDE": "315f7962-48a3-4962-8226-d0f33b1235f0",
+            "Optimization": "7f7a1694-90dd-40f0-9382-eb1efda571ba",
+            "SymbolicIndexingInterface": "2efcf032-c050-4f8e-a9bb-153293bab1f5"
+          }
+        }
+      ],
+      "semantic_findings": [
+        "Environment lockfile indexed; no resolution/install/load verification."
+      ]
+    }
+  ],
+  "apis": [],
+  "scope": "Documentation/environment/evidence inventory only; not full semantic review or fresh scientific execution."
+}

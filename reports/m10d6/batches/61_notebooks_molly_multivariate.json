@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "61_notebooks_molly_multivariate",
+  "files": [
+    {
+      "path": "notebooks/molly_companion.jl",
+      "sha256": "f3c23ccf6ccf7dae3ada4870b6f05eaae3a8e7e5f94d29c87cb6e658470f148d",
+      "bytes": 5734,
+      "lines": 109,
+      "read_ranges": [
+        [
+          1,
+          109
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Real Molly200steps explicit fresh clock/shifted cutoff versus textbook unmodified law; local separate supplied Hessian not recovered from trajectory."
+      ]
+    },
+    {
+      "path": "notebooks/molly_trajectory_analysis.jl",
+      "sha256": "78e3a7b07182945cfec5f212ea4a2254e0e710c504fa7a02a5d7479939859422",
+      "bytes": 4416,
+      "lines": 73,
+      "read_ranges": [
+        [
+          1,
+          73
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Real short400step wrapped trajectory uncertainty may unknown; periodic MSD refused, open free-flight ballistic not diffusion, explicit backend outputs."
+      ]
+    },
+    {
+      "path": "notebooks/multivariable_analysis.jl",
+      "sha256": "7c13ee86a6816dd99b42fd1416c60ff20dad5186a229e55d88d7910804d286ce",
+      "bytes": 1793,
+      "lines": 45,
+      "read_ranges": [
+        [
+          1,
+          45
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Ordered2D scalar reports directional derivative/affine/original circle domain and Figures; source printing not fresh outputs."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

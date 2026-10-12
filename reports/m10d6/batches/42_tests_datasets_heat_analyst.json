@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "42_tests_datasets_heat_analyst",
+  "files": [
+    {
+      "path": "test/surrogate_data.jl",
+      "sha256": "c55bf25b4dc7464ba42b7374cd9519ab63eaf458e6c94d6f83a90f665c38b574",
+      "bytes": 1425,
+      "lines": 25,
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Scientific sample/dataset schema and duplicate ID/domain query checks."
+      ]
+    },
+    {
+      "path": "test/surrogate_diagnostics.jl",
+      "sha256": "dda3cd97ce7afc8a1781dc2f5bb65d81ae1f4b8b6324ddc590679fdd4057e373",
+      "bytes": 1489,
+      "lines": 32,
+      "read_ranges": [
+        [
+          1,
+          32
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Independent heat AD identity and deliberate perturbation counterexample; query timings descriptive include compilation, not speed guarantee."
+      ]
+    },
+    {
+      "path": "test/trajectory_analyst.jl",
+      "sha256": "9d972ecec1984a0de7bb6ffba78f93cc3f593cc8288e12fe0b4534721965aea9",
+      "bytes": 5078,
+      "lines": 87,
+      "read_ranges": [
+        [
+          1,
+          87
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Lazy default analyst no frame loads; explicit temperature dof/Boltzmann; only named total energy plus NVE conservation expectation, no validity score."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

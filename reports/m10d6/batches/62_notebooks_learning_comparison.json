@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "62_notebooks_learning_comparison",
+  "files": [
+    {
+      "path": "notebooks/pinn_diagnostics.jl",
+      "sha256": "7dcb0a86374d7250c5862b990b608b22c30db9f6cc7857b8d0798181b71a58ac",
+      "bytes": 1513,
+      "lines": 32,
+      "read_ranges": [
+        [
+          1,
+          32
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Optional1500step heat diagnostic/reference/residual assertions before rendering, no resampling history or adaptive weights proof."
+      ]
+    },
+    {
+      "path": "notebooks/scientific_ml.jl",
+      "sha256": "e443883d16f4a343d1d9fb8147e96fdf5788f94dc5694998825ce7957b33a765",
+      "bytes": 3190,
+      "lines": 58,
+      "read_ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Explicit500step exponential PINN/history100/independent error samples, optimizer retcode not physical convergence."
+      ]
+    },
+    {
+      "path": "notebooks/trajectory_comparison.jl",
+      "sha256": "3bd41bce2155ed7514c94ddc992eee297f3c139a5c1c17e21ababee1f89ed402",
+      "bytes": 3491,
+      "lines": 59,
+      "read_ranges": [
+        [
+          1,
+          59
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Synthetic stored-only comparison no simulation or frame access; conditional independence declared not inferred and unequal grids refused."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

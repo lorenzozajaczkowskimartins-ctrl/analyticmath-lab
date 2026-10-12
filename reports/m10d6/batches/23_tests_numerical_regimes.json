@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "23_tests_numerical_regimes",
+  "files": [
+    {
+      "path": "test/m10b_linear_algebra.jl",
+      "sha256": "89af388f30e60a618317e6cb254384ef3b606da5a95ed0763ae126246ec351c1",
+      "bytes": 5217,
+      "lines": 113,
+      "read_ranges": [
+        [
+          1,
+          113
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Generic masses/symbolic coefficients separate from Float64 modes; rank/symmetry/zero thresholds/subnormal loss fail-closed fixtures."
+      ]
+    },
+    {
+      "path": "test/m10b_nonfinite.jl",
+      "sha256": "2fe7c9a16a35a440d1e65f088b7d662397406469e0383703862f0343bd1d81e3",
+      "bytes": 6313,
+      "lines": 126,
+      "read_ranges": [
+        [
+          1,
+          126
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Legacy scalar IEEE propagation vs checked numerical derivatives/ODE boundaries; original-domain signedzero/corners and finite-result/directional normalization gates."
+      ]
+    },
+    {
+      "path": "test/m10b_showcases.jl",
+      "sha256": "a0ff6225a231c3e7ae9fb5f7afaa33ed1e433c61ea0f6e61957c6cf4530c2269",
+      "bytes": 2199,
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Precision/cancellation/RMS/Welford/illconditioned mass demonstrations with independent high precision references; source outputs not executed here."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

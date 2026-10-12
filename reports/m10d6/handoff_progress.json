@@ -1,0 +1,30 @@
+{
+  "phase": "M10D.6A",
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "baseline_subject": "[verified] Complete M10D.5 user and research hardening",
+  "starting_branch": "main",
+  "starting_worktree": "clean",
+  "post_baseline_changes": [],
+  "scope": "Source/API/documentation audit and design only; no runtime changes or canonical rerun",
+  "passes": [
+    {"pass": 1, "status": "IN_PROGRESS", "evidence": ["repository_inventory.json"], "work": "Tracked repository enumerated; independent bounded source inspection assignments active"},
+    {"pass": 2, "status": "IN_PROGRESS", "work": "Scientific contracts and API signatures"},
+    {"pass": 3, "status": "IN_PROGRESS", "work": "Refusal/budget sites and Hessian question"},
+    {"pass": 4, "status": "IN_PROGRESS", "work": "Complete examples, notebooks, tests and existing documentation inspection"},
+    {"pass": 5, "status": "IN_PROGRESS", "work": "README, Documenter, Wiki design"},
+    {"pass": 6, "status": "NOT_STARTED", "work": "Aggregate inventories, reconcile coverage, validate links/hashes and scoped commit"}
+  ],
+  "recovery": {
+    "evidence": "recovery_validation.json",
+    "validated_inventory_files": 311,
+    "hash_mismatches": [],
+    "max_concurrent_subagents": 2,
+    "completed_bounded_assignments": [
+      {"name": "Parent semantics and design draft", "evidence": ["parent_inspection.json", "qualified_api.json", "scientific_contracts.md", "documentation_architecture.md", "readme_plan.md", "wiki_questions.json", "wiki_questions.md"], "status": "DRAFT_PERSISTED_RECONCILIATION_PENDING"}
+    ],
+    "active_assignments": ["Resource/refusal audit", "Core public API audit"],
+    "note": "No whole audit pass is complete; drafts are not documentation implementation."
+  },
+  "resumption_rule": "Reuse completed hash-matched inspection records. Inspect changed files only; do not restart or rerun historical scientific gates.",
+  "evidence_vocabulary": {"VERIFIED": "Bounded check actually executed or inventory/hash directly checked; historical test results explicitly labeled", "SOURCE_INSPECTED": "Read implementation/tests, not executed in this phase", "INFERRED": "Interpretation that requires later confirmation", "UNRESOLVED": "Evidence incomplete or contract decision needed"}
+}

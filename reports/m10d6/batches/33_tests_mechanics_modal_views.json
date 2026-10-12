@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "33_tests_mechanics_modal_views",
+  "files": [
+    {
+      "path": "test/mechanics_readiness.jl",
+      "sha256": "b0cbc6cdb49354f10d2b2ce4aa94e1de9cf3bd35f8d800a5acf4314cc6321c12",
+      "bytes": 3639,
+      "lines": 70,
+      "read_ranges": [
+        [
+          1,
+          70
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Generalized viscous/Stokes/quadratic drive and harmonic pair tests reuse existing calculus; physical models are declared not universal."
+      ]
+    },
+    {
+      "path": "test/mechanics_visualization.jl",
+      "sha256": "633365c2ca7db7274407ee215512a1057909e4b0ee22ae13782270302cd28e1b",
+      "bytes": 1547,
+      "lines": 35,
+      "read_ranges": [
+        [
+          1,
+          35
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Phase/energy figures require shared conversion source; rendering saved in test, not fresh audit rendering."
+      ]
+    },
+    {
+      "path": "test/mode_contracts.jl",
+      "sha256": "c5eae21fd471d30f35186bc35d0c9f8822e4fb8f24edcc6c52b5e037e5f78004",
+      "bytes": 4149,
+      "lines": 79,
+      "read_ranges": [
+        [
+          1,
+          79
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Singular/underflow/outside domain modal unknown; mass weighted reconstruction/unequal particle-major masses and damped Jacobian consistency."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

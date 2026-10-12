@@ -1,0 +1,31 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "status": "STATIC_AUDIT_VERIFIED_COMPLETE",
+  "repository_entries": 311,
+  "export_count": 177,
+  "family_count": 36,
+  "export_stability": {
+    "PUBLIC_STABLE": 130,
+    "PUBLIC_EXPERIMENTAL": 47
+  },
+  "qualified_interfaces": 2,
+  "inspection_counts": {
+    "FULL_SEMANTIC_READ": 263,
+    "INDEXED_NOT_FULL_SEMANTIC_READ": 48
+  },
+  "sequential_batches": 88,
+  "source_files": 70,
+  "test_julia_files": 103,
+  "example_julia_files": 43,
+  "notebook_julia_files": 13,
+  "refusal_groups": 29,
+  "lexical_refusal_candidates": 876,
+  "wiki_questions": 90,
+  "public_byte_estimate_controls": 2,
+  "runtime_or_test_changes": false,
+  "dependency_updates": false,
+  "canonical_rerun": false,
+  "documenter_build": "NOT_RUN_NOT_IMPLEMENTED",
+  "wiki_publication": "NOT_STARTED",
+  "M10D_6B": "NOT_STARTED"
+}

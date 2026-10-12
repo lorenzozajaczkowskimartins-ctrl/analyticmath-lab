@@ -1,0 +1,54 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "85_frozen_data_environment_6",
+  "files": [
+    {
+      "path": "docs/m10c_measurements/partial_modes.csv",
+      "sha256": "287e83a99838934f7dee6ae4aa847a13e23c50c4c2d7ba1870c57010ab3350a9",
+      "bytes": 1145,
+      "inspection": "DETERMINISTIC_FROZEN_DATA_ENUMERATION",
+      "rows": 5,
+      "columns": [
+        "name",
+        "n",
+        "estimated_bytes",
+        "algorithm",
+        "elapsed_seconds",
+        "allocated_bytes",
+        "result_bytes",
+        "output_count",
+        "correctness_metric",
+        "warmup_seconds",
+        "repeats_completed",
+        "rss_highwater_bytes",
+        "status"
+      ],
+      "statuses": [
+        "completed"
+      ],
+      "semantic_findings": [
+        "Historical measurements preserved; requested dimension, consumed work, cumulative allocation and returned-object bytes are not interchangeable. No measurements regenerated."
+      ]
+    },
+    {
+      "path": "docs/m10c_measurements/scaling.png",
+      "sha256": "c9700ab6095d68358495dd8d5eca31bcfb361869024f86da971a1f1ff56c40ca",
+      "bytes": 423541,
+      "inspection": "HASH_ENUMERATION_ONLY",
+      "semantic_findings": [
+        "Frozen artifact; hash preservation only, no fresh rendering/measurement verification."
+      ]
+    },
+    {
+      "path": "docs/m10c_measurements/scaling.svg",
+      "sha256": "593395cce59d3c478a5bf88db7ffded3eb4cfe97882046046f7b089d5343fbde",
+      "bytes": 349622,
+      "inspection": "HASH_ENUMERATION_ONLY",
+      "semantic_findings": [
+        "Frozen artifact; hash preservation only, no fresh rendering/measurement verification."
+      ]
+    }
+  ],
+  "apis": [],
+  "scope": "Documentation/environment/evidence inventory only; not full semantic review or fresh scientific execution."
+}

@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "47_examples_inference_gates",
+  "files": [
+    {
+      "path": "examples/inference/deterministic_gate.jl",
+      "sha256": "9f52dd86c3e6e791eb92f793f8c91558eebc9b711e7255d983f5a3e598dc1107",
+      "bytes": 2970,
+      "lines": 54,
+      "read_ranges": [
+        [
+          1,
+          54
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Optional oscillator gradient/500step fit with disjoint heldout and poisoned truth; not automatic guarantee."
+      ]
+    },
+    {
+      "path": "examples/inference/integration_gate.jl",
+      "sha256": "24e132690b54b28045fd60a2d43264fe4cb5548244641bb615bbad30a387909e",
+      "bytes": 2477,
+      "lines": 46,
+      "read_ranges": [
+        [
+          1,
+          46
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Optimization-only then Lux triggers; bounded history and plotting no forward rerun."
+      ]
+    },
+    {
+      "path": "examples/inference/lj_gate.jl",
+      "sha256": "e9036970d4b36c8a8ee551a629900ec108d72daf3dc8bb538d36588ea5c2b5b3",
+      "bytes": 6437,
+      "lines": 101,
+      "read_ranges": [
+        [
+          1,
+          101
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Controlled collinear LJ radial reduced mass/matching force with400steps/figures; uses AML.ForwardDiff alias (not exported contract), distinguish legacy gate from supported public tutorial."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

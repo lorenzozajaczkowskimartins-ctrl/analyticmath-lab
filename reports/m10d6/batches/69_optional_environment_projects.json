@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "69_optional_environment_projects",
+  "files": [
+    {
+      "path": "examples/operators/Project.toml",
+      "sha256": "5de1cf80ae555d293b5171be5e3b076b1d6a19203bdbfc9bb2e5daef17dab2d5",
+      "bytes": 913,
+      "lines": 25,
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Operators declares local AML, native backend/import prerequisites and explicit AD deps; NeuralOperators trigger applies surrogate too."
+      ]
+    },
+    {
+      "path": "examples/pinn/Project.toml",
+      "sha256": "6fc0343fad5009ca70835791646039c5c735273e30d2340c3905b5959b9a1192",
+      "bytes": 974,
+      "lines": 28,
+      "read_ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "PINN local AML plus five extension triggers, Integrals fixed-node quadrature optional only; compat pinned historical versions."
+      ]
+    },
+    {
+      "path": "examples/scaling/Project.toml",
+      "sha256": "e12d067e7ecde22cb3413a218467c8719f2e5f30820943826056b6e82ec447e1",
+      "bytes": 485,
+      "lines": 13,
+      "read_ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Scaling optional ArnoldiMethod0.4 and Symbolics/ForwardDiff/native ODE deps; local develop required since no sources table, not root dependency change."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

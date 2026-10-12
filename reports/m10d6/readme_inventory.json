@@ -1,0 +1,109 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "path": "README.md",
+  "sha256": "abe431002c717ca0f4ad58976f2b87a978e5cd6bb11eed2a6c6a65b46f7ab203",
+  "headings": [
+    {
+      "line": 1,
+      "heading": "AnalyticMathLab.jl"
+    },
+    {
+      "line": 63,
+      "heading": "Run locally"
+    },
+    {
+      "line": 77,
+      "heading": "Current API"
+    },
+    {
+      "line": 113,
+      "heading": "Real function analysis (Milestone 3)"
+    },
+    {
+      "line": 215,
+      "heading": "Derivative convergence and error analysis (Milestone 2)"
+    },
+    {
+      "line": 299,
+      "heading": "Bounded critical-point analysis"
+    },
+    {
+      "line": 356,
+      "heading": "Makie visualization"
+    },
+    {
+      "line": 384,
+      "heading": "Architecture and dependencies"
+    },
+    {
+      "line": 417,
+      "heading": "Tests"
+    },
+    {
+      "line": 427,
+      "heading": "Scope and migration"
+    },
+    {
+      "line": 446,
+      "heading": "License"
+    },
+    {
+      "line": 449,
+      "heading": "Multivariate scalar fields (Milestone 4)"
+    },
+    {
+      "line": 525,
+      "heading": "Vector field analysis (Milestone 5)"
+    },
+    {
+      "line": 577,
+      "heading": "Dynamical systems and ODEs (Milestone 6)"
+    }
+  ],
+  "reuse_plan": "readme_plan.md",
+  "reconciled_architecture": "documentation_architecture_reconciled.md",
+  "scope": "Inventory/design only; README has not been rewritten and snippets have not been executed.",
+  "required_corrections": [
+    "Physical diffusion interpretation is distinct from index-time numerical acceptance",
+    "No global AML memory setter or generic partial Hessian route",
+    "Full public reference still partial; no Documenter/Wiki deployment claimed"
+  ],
+  "reference_assignment": {
+    "F01": "reference/core.md",
+    "F02": "reference/core.md",
+    "F03": "reference/scalar.md",
+    "F04": "reference/scalar.md",
+    "F05": "reference/derivatives.md",
+    "F06": "reference/derivatives.md",
+    "F07": "reference/vector.md",
+    "F08": "reference/dynamics.md",
+    "F09": "reference/dynamics.md",
+    "F10": "reference/mechanics.md",
+    "F11": "reference/mechanics.md",
+    "F12": "reference/mechanics.md",
+    "F13": "reference/mechanics.md",
+    "F14": "reference/mechanics.md",
+    "F15": "reference/atomistic.md",
+    "F16": "reference/atomistic.md",
+    "F17": "reference/atomistic.md",
+    "F18": "reference/atomistic.md",
+    "F19": "reference/statistics.md",
+    "F20": "reference/statistics.md",
+    "F21": "reference/statistics.md",
+    "F22": "reference/statistics.md",
+    "F24": "reference/statistics.md",
+    "F23": "reference/transport.md",
+    "F25": "reference/comparison.md",
+    "F26": "reference/scientific-ml.md",
+    "F27": "reference/scientific-ml.md",
+    "F28": "reference/scientific-ml.md",
+    "F29": "reference/scientific-ml.md",
+    "F30": "reference/scientific-ml.md",
+    "F33": "reference/scientific-ml.md",
+    "F34": "reference/scientific-ml.md",
+    "F31": "reference/datasets.md",
+    "F32": "reference/datasets.md",
+    "F35": "reference/plots.md",
+    "F36": "guides/api-boundaries.md"
+  }
+}

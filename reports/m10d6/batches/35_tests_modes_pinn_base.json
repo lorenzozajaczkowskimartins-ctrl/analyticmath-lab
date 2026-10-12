@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "35_tests_modes_pinn_base",
+  "files": [
+    {
+      "path": "test/normal_modes.jl",
+      "sha256": "9c39c8f1bd8362bfead8120a86f821a782621cae3a1695c7903757f2ddb07a68",
+      "bytes": 8149,
+      "lines": 153,
+      "read_ranges": [
+        [
+          1,
+          153
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Local SPD full dense modes, domain/equilibrium/damping gates, generalized reconstruction and tolerance-sensitive zero/degeneracy; no global stability certificate."
+      ]
+    },
+    {
+      "path": "test/normal_modes_visualization.jl",
+      "sha256": "32934d014ebcd82d96ab571ddd60af66c4214e3773d473340af4ea70f6539d38",
+      "bytes": 1159,
+      "lines": 25,
+      "read_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Component versus mass-weighted mode views, no invented Cartesian geometry, invalid modes/unavailable report refuse."
+      ]
+    },
+    {
+      "path": "test/pinn_base.jl",
+      "sha256": "ca14b6e9ecb4f67d12f0e9c10a17e19b3ae24afe3422a202c0f45aff3e30f1e2",
+      "bytes": 1068,
+      "lines": 23,
+      "read_ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Base missing PINN extension throws; PINNHistory stride/capacity public entry-count retention, no backend autoactivation."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

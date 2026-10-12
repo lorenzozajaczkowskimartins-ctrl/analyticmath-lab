@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "67_guides_observations_statistics_scaling",
+  "files": [
+    {
+      "path": "docs/trajectory_inference.md",
+      "sha256": "8a6888b70138f9124c067ab139827279e395e75bf524848df89b5c005e1e7513",
+      "bytes": 3703,
+      "lines": 64,
+      "read_ranges": [
+        [
+          1,
+          64
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Frozen minimum-image pair observations/scales, isolated collinear LJ400step example not many-body discovery."
+      ]
+    },
+    {
+      "path": "docs/trajectory_statistics.md",
+      "sha256": "8afb055e65a67451a68450950eed7e18c22a7cad6b553d983747285209118f56",
+      "bytes": 13704,
+      "lines": 215,
+      "read_ranges": [
+        [
+          1,
+          215
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Comprehensive stats/unknown clocks/IID refusal/transport and memory complexity guide; explicitly index-time transport per-index units already correct versus frozen family synopsis."
+      ]
+    },
+    {
+      "path": "examples/scaling/README.md",
+      "sha256": "d2dac5a686f828a1efcf1161c7cdf94fe57b51c22a41f6233b0dc1700c1482f9",
+      "bytes": 8381,
+      "lines": 137,
+      "read_ranges": [
+        [
+          1,
+          137
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Maintainer-only namespace/env controls/deadlines, historical scalable runs distinct from title/max request; stale reference to optional environment own READMEs (absent) requires link concrete guides."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "49_examples_parameter_operator_probes",
+  "files": [
+    {
+      "path": "examples/inference/parameter_showcase.jl",
+      "sha256": "fcc06f53ef120b5a64a2761b75d5bc7b4349af98ef3d79bfaea17f4d87afeba8",
+      "bytes": 1703,
+      "lines": 29,
+      "read_ranges": [
+        [
+          1,
+          29
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "500step synthetic damping fit, disjoint interpolant sample heldout and explicit reduced unit declarations; autoexecutes/writes PNG."
+      ]
+    },
+    {
+      "path": "examples/operators/analysis_gate.jl",
+      "sha256": "5cd913708ac603dee0a7172d2b16da2e39495f9ba3ce5015d79078c20f53c54c",
+      "bytes": 1611,
+      "lines": 27,
+      "read_ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "One-step grouped generalization shape/splits with optional supplied physics; no global guarantee."
+      ]
+    },
+    {
+      "path": "examples/operators/backend_probe.jl",
+      "sha256": "d0b5e6a72bb917363da891aeb6055881939ea0212bab50d43d6cd449f5cdaa50",
+      "bytes": 1491,
+      "lines": 26,
+      "read_ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Native DeepONet AD3step probe and native fixed-grid FNO prediction only, not a public AML FNO training API."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

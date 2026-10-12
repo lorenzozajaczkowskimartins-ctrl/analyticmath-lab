@@ -1,0 +1,99 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "80_frozen_data_environment_1",
+  "files": [
+    {
+      "path": "Manifest.toml",
+      "sha256": "917e1c48212f5f54267dbda5650adfae9e314390695d5a67cdb75f5c577c7c72",
+      "bytes": 90203,
+      "inspection": "DETERMINISTIC_MANIFEST_ENUMERATION",
+      "metadata": {
+        "julia_version": "1.12.7",
+        "manifest_format": "2.0",
+        "project_hash": "9f572b1b182451beea7ae490bd54d9e3fd535425"
+      },
+      "packages": 312,
+      "aml_registration": [
+        {
+          "deps": [
+            "CairoMakie",
+            "FiniteDiff",
+            "ForwardDiff",
+            "LinearAlgebra",
+            "Makie",
+            "OrdinaryDiffEqTsit5",
+            "Random",
+            "Roots",
+            "SciMLBase",
+            "Symbolics",
+            "Unitful"
+          ],
+          "path": ".",
+          "uuid": "d00b717d-2040-4c0f-8850-62abbaf45caf",
+          "version": "0.1.0",
+          "extensions": {
+            "AnalyticMathLabMollyExt": "Molly",
+            "AnalyticMathLabPINNExt": [
+              "Lux",
+              "NeuralPDE",
+              "ModelingToolkit",
+              "Optimization",
+              "SymbolicIndexingInterface"
+            ]
+          },
+          "weakdeps": {
+            "Lux": "b2108857-7c20-44ae-9111-449ecde12c47",
+            "ModelingToolkit": "961ee093-0014-501f-94e3-6117800e7a78",
+            "Molly": "aa0f7f06-fcc0-5ec4-a7f3-a573f33f9c4c",
+            "NeuralPDE": "315f7962-48a3-4962-8226-d0f33b1235f0",
+            "Optimization": "7f7a1694-90dd-40f0-9382-eb1efda571ba",
+            "SymbolicIndexingInterface": "2efcf032-c050-4f8e-a9bb-153293bab1f5"
+          }
+        }
+      ],
+      "semantic_findings": [
+        "Environment lockfile indexed; no resolution/install/load verification."
+      ]
+    },
+    {
+      "path": "docs/m10c_measurements/atomistic.csv",
+      "sha256": "6726539482b6ee73571396cd23f4216f4d453e6002e181d938e69c004c4fc889",
+      "bytes": 1494,
+      "inspection": "DETERMINISTIC_FROZEN_DATA_ENUMERATION",
+      "rows": 8,
+      "columns": [
+        "name",
+        "n",
+        "estimated_bytes",
+        "algorithm",
+        "elapsed_seconds",
+        "allocated_bytes",
+        "result_bytes",
+        "output_count",
+        "correctness_metric",
+        "warmup_seconds",
+        "repeats_completed",
+        "rss_highwater_bytes",
+        "status"
+      ],
+      "statuses": [
+        "completed",
+        "refused_by_guardrail"
+      ],
+      "semantic_findings": [
+        "Historical measurements preserved; requested dimension, consumed work, cumulative allocation and returned-object bytes are not interchangeable. No measurements regenerated."
+      ]
+    },
+    {
+      "path": "docs/m10c_measurements/csv_sha256.json",
+      "sha256": "1befb04e402261268f238765bf439c53286979f4c67f4bf4d5a237362d35737b",
+      "bytes": 1619,
+      "inspection": "HASH_ENUMERATION_ONLY",
+      "semantic_findings": [
+        "Frozen artifact; hash preservation only, no fresh rendering/measurement verification."
+      ]
+    }
+  ],
+  "apis": [],
+  "scope": "Documentation/environment/evidence inventory only; not full semantic review or fresh scientific execution."
+}

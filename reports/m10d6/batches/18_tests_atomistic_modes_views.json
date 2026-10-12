@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "18_tests_atomistic_modes_views",
+  "files": [
+    {
+      "path": "test/atomistic_modes.jl",
+      "sha256": "18d7fdc5f2416d7738ed65b1c97a3efe10c25ad3d9dcb1dcd7bc143bb74508d3",
+      "bytes": 1977,
+      "lines": 38,
+      "read_ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Snapshot modes supplied Hessian/mass-order/scales/molar units/unstable and missing fields; explicit not_verified equilibrium asserted."
+      ]
+    },
+    {
+      "path": "test/atomistic_potentials.jl",
+      "sha256": "1c6f5efac182dac89ebbdf191dce0549b099e6c5808ba536d140aedcf8980a0e",
+      "bytes": 3651,
+      "lines": 70,
+      "read_ranges": [
+        [
+          1,
+          70
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Radial positivity/original hole/cutoffmetadata and LJ scaled identity/finite numeric candidates tests, no global upgrade."
+      ]
+    },
+    {
+      "path": "test/atomistic_visualization.jl",
+      "sha256": "08b5ce4523d34fb74a9236b9a80c05f9c4d42737fe9f145f78d41b369d34e1ba",
+      "bytes": 1463,
+      "lines": 31,
+      "read_ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Figure construction/lazy selected frame/no mutation/unit scaling; not rendering proof."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

@@ -1,0 +1,1044 @@
+{
+  "phase": "M10D.6A",
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "baseline_subject": "[verified] Complete M10D.5 user and research hardening",
+  "starting_branch": "main",
+  "starting_worktree": "clean",
+  "post_baseline_changes": [],
+  "scope": "Source/API/documentation audit and design only; no runtime changes or canonical rerun",
+  "passes": [
+    {
+      "pass": 1,
+      "status": "VERIFIED_COMPLETE",
+      "evidence": [
+        "repository_inventory.json"
+      ],
+      "work": "All 311 baseline entries reconciled; inherited bounded assignments recovered and no new subagents launched"
+    },
+    {
+      "pass": 2,
+      "status": "SOURCE_AUDIT_COMPLETE",
+      "evidence": ["api.json", "coverage.json"],
+      "work": "Scientific contracts and API signatures"
+    },
+    {
+      "pass": 3,
+      "status": "SOURCE_AUDIT_COMPLETE",
+      "evidence": ["refusal_review.json", "resource_controls.json", "hessian_question_outline.md"],
+      "work": "Refusal/budget sites and Hessian question"
+    },
+    {
+      "pass": 4,
+      "status": "SCOPED_INSPECTION_COMPLETE",
+      "evidence": ["examples_tests_inventory.json", "documentation_inventory.json"],
+      "work": "All scientific source/tests/Julia examples reviewed; historical prose bookends, manifests/data enumeration and hash-only figures explicitly distinguished"
+    },
+    {
+      "pass": 5,
+      "status": "DESIGN_COMPLETE_IMPLEMENTATION_NOT_STARTED",
+      "evidence": ["documentation_architecture_reconciled.md", "readme_inventory.json", "wiki_inventory.json"],
+      "work": "README, Documenter, Wiki design"
+    },
+    {
+      "pass": 6,
+      "status": "STATIC_VERIFICATION_PASSED",
+      "evidence": ["reconciliation.json", "preserved_inputs.json", "handoff_recovery.json"],
+      "work": "Aggregate inventories and static source/hash/citation validation passed; local commit read-back is a separate finalization operation"
+    }
+  ],
+  "recovery": {
+    "evidence": "recovery_validation.json",
+    "validated_inventory_files": 311,
+    "hash_mismatches": [],
+    "max_concurrent_subagents": 2,
+    "completed_bounded_assignments": [
+      {
+        "name": "Parent semantics and design draft",
+        "evidence": [
+          "parent_inspection.json",
+          "qualified_api.json",
+          "scientific_contracts.md",
+          "documentation_architecture.md",
+          "readme_plan.md",
+          "wiki_questions.json",
+          "wiki_questions.md"
+        ],
+        "status": "PRESERVED_AND_RECONCILED_WITH_SEQUENTIAL_SOURCE_AUDIT"
+      }
+    ],
+    "active_assignments": [],
+    "note": "Both children failed on provider rate limits but persisted useful bounded artifacts. Their hash-matched evidence is preserved and reconciled; this is not child completion or fresh scientific execution.",
+    "interrupted_assignments": [
+      "Resource/refusal audit",
+      "Core public API audit"
+    ]
+  },
+  "resumption_rule": "Reuse completed hash-matched inspection records. Inspect changed files only; do not restart or rerun historical scientific gates.",
+  "evidence_vocabulary": {
+    "VERIFIED": "Bounded check actually executed or inventory/hash directly checked; historical test results explicitly labeled",
+    "SOURCE_INSPECTED": "Read implementation/tests, not executed in this phase",
+    "INFERRED": "Interpretation that requires later confirmation",
+    "UNRESOLVED": "Evidence incomplete or contract decision needed"
+  },
+  "sequential_batches": [
+    {
+      "batch": "01_mechanics_formal",
+      "evidence": "batches/01_mechanics_formal.json",
+      "files": [
+        "src/mechanics/core.jl",
+        "src/mechanics/hamiltonian.jl",
+        "src/mechanics/legendre.jl"
+      ],
+      "api_records": 14,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "02_mechanics_modes",
+      "evidence": "batches/02_mechanics_modes.json",
+      "files": [
+        "src/mechanics/bridge.jl",
+        "src/mechanics/normal_modes.jl",
+        "src/atomistic/modes.jl"
+      ],
+      "api_records": 10,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "03_atomistic_data_geometry",
+      "evidence": "batches/03_atomistic_data_geometry.json",
+      "files": [
+        "src/atomistic/core.jl",
+        "src/atomistic/inspection.jl",
+        "src/atomistic/distributions.jl"
+      ],
+      "api_records": 11,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "04_potential_molly",
+      "evidence": "batches/04_potential_molly.json",
+      "files": [
+        "src/atomistic/potentials.jl",
+        "ext/AnalyticMathLabMollyExt.jl"
+      ],
+      "api_records": 7,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "05_scalar_statistics",
+      "evidence": "batches/05_scalar_statistics.json",
+      "files": [
+        "src/trajectory/statistics.jl",
+        "src/trajectory/uncertainty.jl",
+        "src/trajectory/interoperability.jl"
+      ],
+      "api_records": 13,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "06_transport_analyst",
+      "evidence": "batches/06_transport_analyst.json",
+      "files": [
+        "src/trajectory/transport.jl",
+        "src/trajectory/analyst.jl"
+      ],
+      "api_records": 11,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "07_comparison_observations",
+      "evidence": "batches/07_comparison_observations.json",
+      "files": [
+        "src/trajectory/comparison.jl",
+        "src/scientific_ml/inference.jl",
+        "src/scientific_ml/trajectory_inference.jl"
+      ],
+      "api_records": 9,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "08_parameter_inference",
+      "evidence": "batches/08_parameter_inference.json",
+      "files": [
+        "src/scientific_ml/parameter_inference.jl",
+        "ext/AnalyticMathLabInferenceExt.jl"
+      ],
+      "api_records": 7,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "09_pinn_construction_training",
+      "evidence": "batches/09_pinn_construction_training.json",
+      "files": [
+        "src/scientific_ml/pinn.jl",
+        "src/scientific_ml/diagnostics.jl",
+        "ext/AnalyticMathLabPINNExt.jl"
+      ],
+      "api_records": 11,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "10_pinn_diagnostics_learned_dynamics",
+      "evidence": "batches/10_pinn_diagnostics_learned_dynamics.json",
+      "files": [
+        "ext/pinn_diagnostics.jl",
+        "src/scientific_ml/learned_dynamics.jl",
+        "ext/AnalyticMathLabDynamicsExt.jl"
+      ],
+      "api_records": 14,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "11_datasets_scaling_generalization",
+      "evidence": "batches/11_datasets_scaling_generalization.json",
+      "files": [
+        "src/scientific_ml/surrogates.jl",
+        "src/scientific_ml/trajectory_dataset.jl",
+        "src/scientific_ml/generalization.jl"
+      ],
+      "api_records": 14,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "12_surrogate_scalar_views",
+      "evidence": "batches/12_surrogate_scalar_views.json",
+      "files": [
+        "ext/AnalyticMathLabSurrogateExt.jl",
+        "src/visualization/plots.jl",
+        "src/visualization/real.jl"
+      ],
+      "api_records": 6,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "13_calculus_dynamics_views",
+      "evidence": "batches/13_calculus_dynamics_views.json",
+      "files": [
+        "src/visualization/scalar_fields.jl",
+        "src/visualization/vector_fields.jl",
+        "src/visualization/dynamical_systems.jl"
+      ],
+      "api_records": 7,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "14_mechanics_particle_views",
+      "evidence": "batches/14_mechanics_particle_views.json",
+      "files": [
+        "src/visualization/mechanics.jl",
+        "src/visualization/potentials.jl",
+        "src/visualization/atomistic.jl"
+      ],
+      "api_records": 7,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "15_stored_diagnostic_views",
+      "evidence": "batches/15_stored_diagnostic_views.json",
+      "files": [
+        "src/visualization/trajectory.jl",
+        "src/visualization/comparison.jl",
+        "src/visualization/inference.jl"
+      ],
+      "api_records": 9,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "16_pinn_views_real_contract",
+      "evidence": "batches/16_pinn_views_real_contract.json",
+      "files": [
+        "src/visualization/pinn.jl",
+        "src/visualization/pinn_diagnostics.jl",
+        "src/real_analysis_contract.md"
+      ],
+      "api_records": 6,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "17_tests_arch_atomistic",
+      "evidence": "batches/17_tests_arch_atomistic.json",
+      "files": [
+        "test/architecture.jl",
+        "test/atomistic_core.jl",
+        "test/atomistic_distributions.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "18_tests_atomistic_modes_views",
+      "evidence": "batches/18_tests_atomistic_modes_views.json",
+      "files": [
+        "test/atomistic_modes.jl",
+        "test/atomistic_potentials.jl",
+        "test/atomistic_visualization.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "19_tests_dynamics_heat_inference",
+      "evidence": "batches/19_tests_dynamics_heat_inference.json",
+      "files": [
+        "test/dynamical_visualization.jl",
+        "test/heat_reference.jl",
+        "test/inference_base.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "20_tests_sensitivity_statistics_oracles",
+      "evidence": "batches/20_tests_sensitivity_statistics_oracles.json",
+      "files": [
+        "test/inference_sensitivity.jl",
+        "test/learned_dynamics_base.jl",
+        "test/m10a_atomistic_statistics.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "21_tests_mechanics_inference_references",
+      "evidence": "batches/21_tests_mechanics_inference_references.json",
+      "files": [
+        "test/m10a_inference_operators.jl",
+        "test/m10a_mechanics.jl",
+        "test/m10a_references.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "22_tests_precision_boundaries",
+      "evidence": "batches/22_tests_precision_boundaries.json",
+      "files": [
+        "test/m10b_atomistic.jl",
+        "test/m10b_diagnostics.jl",
+        "test/m10b_inference_scaling.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "23_tests_numerical_regimes",
+      "evidence": "batches/23_tests_numerical_regimes.json",
+      "files": [
+        "test/m10b_linear_algebra.jl",
+        "test/m10b_nonfinite.jl",
+        "test/m10b_showcases.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "24_tests_statistics_types_pair_budget",
+      "evidence": "batches/24_tests_statistics_types_pair_budget.json",
+      "files": [
+        "test/m10b_statistics.jl",
+        "test/m10b_types.jl",
+        "test/m10c_atomistic_scale.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "25_tests_resource_controls",
+      "evidence": "batches/25_tests_resource_controls.json",
+      "files": [
+        "test/m10c_chunking.jl",
+        "test/m10c_guardrails.jl",
+        "test/m10c_ode_scale.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "26_tests_private_scaling_public_ownership",
+      "evidence": "batches/26_tests_private_scaling_public_ownership.json",
+      "files": [
+        "test/m10c_partial_modes.jl",
+        "test/m10c_streaming.jl",
+        "test/m10d_architecture.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "27_tests_extensions_flagship",
+      "evidence": "batches/27_tests_extensions_flagship.json",
+      "files": [
+        "test/m10d_extensions.jl",
+        "test/m10d_flagship.jl",
+        "test/m10d_flagship_learning.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "28_tests_flagship_interoperability",
+      "evidence": "batches/28_tests_flagship_interoperability.json",
+      "files": [
+        "test/m10d_flagship_plots.jl",
+        "test/m10d_flagship_schema.jl",
+        "test/m10d_interoperability.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "29_tests_scoped_semantics",
+      "evidence": "batches/29_tests_scoped_semantics.json",
+      "files": [
+        "test/m10d_interoperability_learning.jl",
+        "test/m10d_semantics.jl",
+        "test/m10d_semantics_learning.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "30_tests_metadata_user_refusals",
+      "evidence": "batches/30_tests_metadata_user_refusals.json",
+      "files": [
+        "test/m10d_semantics_pinn.jl",
+        "test/m10d_semantics_review.jl",
+        "test/m10d_user_inputs.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "31_tests_user_environments",
+      "evidence": "batches/31_tests_user_environments.json",
+      "files": [
+        "test/m10d_user_optional.jl",
+        "test/m10d_user_packaging.jl",
+        "test/m10d_user_processes.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "32_tests_values_mechanics",
+      "evidence": "batches/32_tests_values_mechanics.json",
+      "files": [
+        "test/m10d_value_compatibility.jl",
+        "test/mechanics.jl",
+        "test/mechanics_dynamics.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "33_tests_mechanics_modal_views",
+      "evidence": "batches/33_tests_mechanics_modal_views.json",
+      "files": [
+        "test/mechanics_readiness.jl",
+        "test/mechanics_visualization.jl",
+        "test/mode_contracts.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "34_tests_molly_scalar_views",
+      "evidence": "batches/34_tests_molly_scalar_views.json",
+      "files": [
+        "test/molly_integration.jl",
+        "test/molly_trajectory_statistics.jl",
+        "test/multivariate_visualization.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "35_tests_modes_pinn_base",
+      "evidence": "batches/35_tests_modes_pinn_base.json",
+      "files": [
+        "test/normal_modes.jl",
+        "test/normal_modes_visualization.jl",
+        "test/pinn_base.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "36_tests_pinn_diagnostics",
+      "evidence": "batches/36_tests_pinn_diagnostics.json",
+      "files": [
+        "test/pinn_construction.jl",
+        "test/pinn_diagnostics.jl",
+        "test/pinn_diagnostics_base.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "37_tests_pinn_layout_references",
+      "evidence": "batches/37_tests_pinn_layout_references.json",
+      "files": [
+        "test/pinn_edges.jl",
+        "test/pinn_multidimensional.jl",
+        "test/pinn_pde.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "38_tests_training_history_potentials",
+      "evidence": "batches/38_tests_training_history_potentials.json",
+      "files": [
+        "test/pinn_training.jl",
+        "test/pinn_visualization.jl",
+        "test/potential_visualization.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "39_tests_entrypoint_real_stranger",
+      "evidence": "batches/39_tests_entrypoint_real_stranger.json",
+      "files": [
+        "test/real_analysis_visualization.jl",
+        "test/runtests.jl",
+        "test/stranger/atomistic.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "40_tests_stranger_dataset_load_physics",
+      "evidence": "batches/40_tests_stranger_dataset_load_physics.json",
+      "files": [
+        "test/stranger/dataset.jl",
+        "test/stranger/load.jl",
+        "test/stranger/physicist.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "41_tests_stranger_scaling_splits",
+      "evidence": "batches/41_tests_stranger_scaling_splits.json",
+      "files": [
+        "test/stranger/research.jl",
+        "test/stranger/student.jl",
+        "test/surrogate_contracts.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "42_tests_datasets_heat_analyst",
+      "evidence": "batches/42_tests_datasets_heat_analyst.json",
+      "files": [
+        "test/surrogate_data.jl",
+        "test/surrogate_diagnostics.jl",
+        "test/trajectory_analyst.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "43_tests_comparison_compatibility",
+      "evidence": "batches/43_tests_comparison_compatibility.json",
+      "files": [
+        "test/trajectory_comparison.jl",
+        "test/trajectory_comparison_edges.jl",
+        "test/trajectory_comparison_runs.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "44_tests_transport_comparison_observations",
+      "evidence": "batches/44_tests_transport_comparison_observations.json",
+      "files": [
+        "test/trajectory_comparison_transport.jl",
+        "test/trajectory_comparison_visualization.jl",
+        "test/trajectory_inference.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "45_tests_statistics_transport_uncertainty",
+      "evidence": "batches/45_tests_statistics_transport_uncertainty.json",
+      "files": [
+        "test/trajectory_statistics.jl",
+        "test/trajectory_transport.jl",
+        "test/trajectory_uncertainty.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "46_tests_stored_statistical_vector_views",
+      "evidence": "batches/46_tests_stored_statistical_vector_views.json",
+      "files": [
+        "test/trajectory_visualization.jl",
+        "test/vector_visualization.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "47_examples_inference_gates",
+      "evidence": "batches/47_examples_inference_gates.json",
+      "files": [
+        "examples/inference/deterministic_gate.jl",
+        "examples/inference/integration_gate.jl",
+        "examples/inference/lj_gate.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "48_examples_neural_contracts",
+      "evidence": "batches/48_examples_neural_contracts.json",
+      "files": [
+        "examples/inference/m10a_gate.jl",
+        "examples/inference/neural_gate.jl",
+        "examples/inference/neural_showcase.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "49_examples_parameter_operator_probes",
+      "evidence": "batches/49_examples_parameter_operator_probes.json",
+      "files": [
+        "examples/inference/parameter_showcase.jl",
+        "examples/operators/analysis_gate.jl",
+        "examples/operators/backend_probe.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "50_examples_operator_data",
+      "evidence": "batches/50_examples_operator_data.json",
+      "files": [
+        "examples/operators/focused_gate.jl",
+        "examples/operators/heat_demo.jl",
+        "examples/operators/heat_family.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "51_examples_heat_evidence_isolation",
+      "evidence": "batches/51_examples_heat_evidence_isolation.json",
+      "files": [
+        "examples/operators/heat_showcase.jl",
+        "examples/operators/integration_gate.jl",
+        "examples/operators/isolation_gate.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "52_examples_optional_ad_and_pinn_gate",
+      "evidence": "batches/52_examples_optional_ad_and_pinn_gate.json",
+      "files": [
+        "examples/operators/m10a_gate.jl",
+        "examples/operators/m10b_gate.jl",
+        "examples/pinn/benchmark_gate.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "53_examples_pinn_benchmarks_inverse",
+      "evidence": "batches/53_examples_pinn_benchmarks_inverse.json",
+      "files": [
+        "examples/pinn/benchmarks.jl",
+        "examples/pinn/inverse_heat_gate.jl",
+        "examples/pinn/m10b_gate.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "54_examples_manual_gate_stream",
+      "evidence": "batches/54_examples_manual_gate_stream.json",
+      "files": [
+        "examples/pinn/runtests.jl",
+        "examples/scaling/example_guardrail_gate.jl",
+        "examples/scaling/extreme_streaming_statistics.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "55_examples_scaling_namespace",
+      "evidence": "batches/55_examples_scaling_namespace.json",
+      "files": [
+        "examples/scaling/generalization_scale.jl",
+        "examples/scaling/harness.jl",
+        "examples/scaling/large_atomistic_geometry.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "56_examples_native_scaling_boundaries",
+      "evidence": "batches/56_examples_native_scaling_boundaries.json",
+      "files": [
+        "examples/scaling/large_oscillator_ode.jl",
+        "examples/scaling/mass_spring_mechanics.jl",
+        "examples/scaling/memory_guardrails.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "57_examples_reduction_training_regimes",
+      "evidence": "batches/57_examples_reduction_training_regimes.json",
+      "files": [
+        "examples/scaling/million_query_analysis.jl",
+        "examples/scaling/million_sample_statistics.jl",
+        "examples/scaling/ml_training_stress.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "58_examples_native_ensemble_partial",
+      "evidence": "batches/58_examples_native_ensemble_partial.json",
+      "files": [
+        "examples/scaling/ode_ensemble.jl",
+        "examples/scaling/optional_scaling_gate.jl",
+        "examples/scaling/partial_modes.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "59_examples_stream_symbolic_dense",
+      "evidence": "batches/59_examples_stream_symbolic_dense.json",
+      "files": [
+        "examples/scaling/streaming_helpers.jl",
+        "examples/scaling/symbolic_mechanics_scaling.jl",
+        "examples/scaling/when_dense_dies.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "60_reference_mechanics_notebooks",
+      "evidence": "batches/60_reference_mechanics_notebooks.json",
+      "files": [
+        "examples/validation/reference_checks.jl",
+        "notebooks/mechanics.jl",
+        "notebooks/mechanics_addendum.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "61_notebooks_molly_multivariate",
+      "evidence": "batches/61_notebooks_molly_multivariate.json",
+      "files": [
+        "notebooks/molly_companion.jl",
+        "notebooks/molly_trajectory_analysis.jl",
+        "notebooks/multivariable_analysis.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "62_notebooks_learning_comparison",
+      "evidence": "batches/62_notebooks_learning_comparison.json",
+      "files": [
+        "notebooks/pinn_diagnostics.jl",
+        "notebooks/scientific_ml.jl",
+        "notebooks/trajectory_comparison.jl"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "63_guides_arch_atomistic_inverse",
+      "evidence": "batches/63_guides_arch_atomistic_inverse.json",
+      "files": [
+        "docs/architecture.md",
+        "docs/atomistic.md",
+        "docs/inverse_heat.md"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "64_guides_mechanics_learning_history",
+      "evidence": "batches/64_guides_mechanics_learning_history.json",
+      "files": [
+        "docs/learned_dynamics.md",
+        "docs/md-readiness.md",
+        "docs/mechanics.md"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "65_guides_operator_inference_pinn_diagnostics",
+      "evidence": "batches/65_guides_operator_inference_pinn_diagnostics.json",
+      "files": [
+        "docs/operator_backends.md",
+        "docs/parameter_inference.md",
+        "docs/pinn_diagnostics.md"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "66_guides_pinn_surrogates_comparison",
+      "evidence": "batches/66_guides_pinn_surrogates_comparison.json",
+      "files": [
+        "docs/scientific_ml.md",
+        "docs/surrogates.md",
+        "docs/trajectory_comparison.md"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "67_guides_observations_statistics_scaling",
+      "evidence": "batches/67_guides_observations_statistics_scaling.json",
+      "files": [
+        "docs/trajectory_inference.md",
+        "docs/trajectory_statistics.md",
+        "examples/scaling/README.md"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "68_plot_script_optional_manifests",
+      "evidence": "batches/68_plot_script_optional_manifests.json",
+      "files": [
+        "examples/scaling/plot_reports.py",
+        "examples/inference/Project.toml",
+        "examples/molly/Project.toml"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "69_optional_environment_projects",
+      "evidence": "batches/69_optional_environment_projects.json",
+      "files": [
+        "examples/operators/Project.toml",
+        "examples/pinn/Project.toml",
+        "examples/scaling/Project.toml"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "70_guides_dynamics_vectors",
+      "evidence": "batches/70_guides_dynamics_vectors.json",
+      "files": [
+        "docs/dynamical_systems.md",
+        "docs/vector_fields.md"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "71_flagship_guide",
+      "evidence": "batches/71_flagship_guide.json",
+      "files": [
+        "docs/m10d_one_system_many_methods.md"
+      ],
+      "api_records": 0,
+      "status": "SOURCE_INSPECTED"
+    },
+    {
+      "batch": "72_history_m10a_start",
+      "evidence": "batches/72_history_m10a_start.json",
+      "files": [
+        "docs/m10a_audit.md",
+        "docs/m10a_early_inventory.md",
+        "docs/m10a_m8_inventory.md"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "73_history_m10ab",
+      "evidence": "batches/73_history_m10ab.json",
+      "files": [
+        "docs/m10a_m9cd_inventory.md",
+        "docs/m10b_bug_ledger.md",
+        "docs/m10b_numeric_inventory.md"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "74_history_scaling_closure",
+      "evidence": "batches/74_history_scaling_closure.json",
+      "files": [
+        "docs/m10c_bug_ledger.md",
+        "docs/m10c_dod.md",
+        "docs/m10c_final_review.md"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "75_history_resource_workstreams",
+      "evidence": "batches/75_history_resource_workstreams.json",
+      "files": [
+        "docs/m10c_mechanics_evidence.md",
+        "docs/m10c_ml_evidence.md",
+        "docs/m10c_ode_evidence.md"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "76_history_scaling_final",
+      "evidence": "batches/76_history_scaling_final.json",
+      "files": [
+        "docs/m10c_results.md",
+        "docs/m10c_scaling_inventory.md",
+        "docs/m10c_shared_evidence.md"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "77_history_integration_results",
+      "evidence": "batches/77_history_integration_results.json",
+      "files": [
+        "docs/m10d_flagship_results.md",
+        "docs/m10d_integration_matrix.md",
+        "docs/m10d_interoperability_results.md"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "78_history_semantic_closure",
+      "evidence": "batches/78_history_semantic_closure.json",
+      "files": [
+        "docs/m10d_issue_ledger.md",
+        "docs/m10d_plan.md",
+        "docs/m10d_semantics_results.md"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "79_history_m9d",
+      "evidence": "batches/79_history_m9d.json",
+      "files": [
+        "docs/m9d_verification.md"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "80_frozen_data_environment_1",
+      "evidence": "batches/80_frozen_data_environment_1.json",
+      "files": [
+        "Manifest.toml",
+        "docs/m10c_measurements/atomistic.csv",
+        "docs/m10c_measurements/csv_sha256.json"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "81_frozen_data_environment_2",
+      "evidence": "batches/81_frozen_data_environment_2.json",
+      "files": [
+        "docs/m10c_measurements/ensemble_local.csv",
+        "docs/m10c_measurements/generalization.csv",
+        "docs/m10c_measurements/guardrails.csv"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "82_frozen_data_environment_3",
+      "evidence": "batches/82_frozen_data_environment_3.json",
+      "files": [
+        "docs/m10c_measurements/large_oscillator_ode.csv",
+        "docs/m10c_measurements/mass_spring_completed.csv",
+        "docs/m10c_measurements/mass_spring_mechanics.csv"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "83_frozen_data_environment_4",
+      "evidence": "batches/83_frozen_data_environment_4.json",
+      "files": [
+        "docs/m10c_measurements/million_query_analysis.csv",
+        "docs/m10c_measurements/ml_training_stress.csv",
+        "docs/m10c_measurements/ml_training_stress_local.csv"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "84_frozen_data_environment_5",
+      "evidence": "batches/84_frozen_data_environment_5.json",
+      "files": [
+        "docs/m10c_measurements/ml_training_stress_small.csv",
+        "docs/m10c_measurements/ode_ensemble.csv",
+        "docs/m10c_measurements/oscillator_stress.csv"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "85_frozen_data_environment_6",
+      "evidence": "batches/85_frozen_data_environment_6.json",
+      "files": [
+        "docs/m10c_measurements/partial_modes.csv",
+        "docs/m10c_measurements/scaling.png",
+        "docs/m10c_measurements/scaling.svg"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "86_frozen_data_environment_7",
+      "evidence": "batches/86_frozen_data_environment_7.json",
+      "files": [
+        "docs/m10c_measurements/statistics.csv",
+        "docs/m10c_measurements/symbolic_mechanics_scaling.csv",
+        "docs/m10c_measurements/when_dense_dies.csv"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "87_frozen_data_environment_8",
+      "evidence": "batches/87_frozen_data_environment_8.json",
+      "files": [
+        "examples/inference/Manifest.toml",
+        "examples/molly/Manifest.toml",
+        "examples/operators/Manifest.toml"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    },
+    {
+      "batch": "88_frozen_data_environment_9",
+      "evidence": "batches/88_frozen_data_environment_9.json",
+      "files": [
+        "examples/pinn/Manifest.toml",
+        "examples/scaling/Manifest.toml"
+      ],
+      "api_records": 0,
+      "status": "INDEXED_NOT_FULL_SEMANTIC_READ"
+    }
+  ],
+  "execution_strategy": "SEQUENTIAL; no new subagents"
+}

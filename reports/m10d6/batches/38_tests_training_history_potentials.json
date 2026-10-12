@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "38_tests_training_history_potentials",
+  "files": [
+    {
+      "path": "test/pinn_training.jl",
+      "sha256": "745f4c722975bc732b42222afeefb781aac9aafcf353625c6c722936cd3470c2",
+      "bytes": 3311,
+      "lines": 62,
+      "read_ranges": [
+        [
+          1,
+          62
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "500step independent prediction check, bounded history capacity/truncation and continuation native ownership; physical unknown despite small error."
+      ]
+    },
+    {
+      "path": "test/pinn_visualization.jl",
+      "sha256": "94235e8766daf8c69329e2a9bc3268ab2095679e66806bd620a6106964c7487d",
+      "bytes": 516,
+      "lines": 16,
+      "read_ranges": [
+        [
+          1,
+          16
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Lossplot reads retained history/truncation, empty history refuses and entries not mutated."
+      ]
+    },
+    {
+      "path": "test/potential_visualization.jl",
+      "sha256": "5a29d3d0aba6fed391e1505304e6dc2d662be4179f6bb267b8a8aab5bd4b67fa",
+      "bytes": 1210,
+      "lines": 26,
+      "read_ranges": [
+        [
+          1,
+          26
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Potential/force stored report positive radial plot and sample range checks; does not rebuild equilibria."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

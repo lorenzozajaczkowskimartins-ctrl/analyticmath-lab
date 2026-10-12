@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "60_reference_mechanics_notebooks",
+  "files": [
+    {
+      "path": "examples/validation/reference_checks.jl",
+      "sha256": "2a60c81a3021f45100df68f5de9a0e7d62fe83a7a77c719020d2b25d08f6a67e",
+      "bytes": 3822,
+      "lines": 70,
+      "read_ranges": [
+        [
+          1,
+          70
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Sampled symbolic substitution reference gate with actual equations/BC arguments and full ordered fields; finite numeric fails closed, not public theorem prover."
+      ]
+    },
+    {
+      "path": "notebooks/mechanics.jl",
+      "sha256": "42f4cb747772bba204b299dc2fb304d166646c61b4ba20c8449129dbe8c982de",
+      "bytes": 3411,
+      "lines": 58,
+      "read_ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Executable symbolic mechanics/five trajectories and explicit render output after headless checks; saveat not exclusive uniform promise."
+      ]
+    },
+    {
+      "path": "notebooks/mechanics_addendum.jl",
+      "sha256": "f35c1484024c39bcd616214da0cc9a240d853d80b0890614b5bc82ccd24063c9",
+      "bytes": 4303,
+      "lines": 76,
+      "read_ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Generic damped spring/Stokes low Reynolds declared model and unequal mass modes, no realistic molecule/MD capability; explicit backend and output."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

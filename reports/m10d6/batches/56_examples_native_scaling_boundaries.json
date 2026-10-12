@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "56_examples_native_scaling_boundaries",
+  "files": [
+    {
+      "path": "examples/scaling/large_oscillator_ode.jl",
+      "sha256": "f304a3a2a0e29170a96256176e2bcc79b763ded79bc3710df5f9298a15f65f6c",
+      "bytes": 5753,
+      "lines": 131,
+      "read_ranges": [
+        [
+          1,
+          131
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Native in-place private _scale_ode_problem experiment, four save strategies/analytic reference; explicit no public cap bypass."
+      ]
+    },
+    {
+      "path": "examples/scaling/mass_spring_mechanics.jl",
+      "sha256": "ece5450ac65c387b0e329f9aa2c37a8435a67252dc57925b9b52bcc733993015",
+      "bytes": 5040,
+      "lines": 82,
+      "read_ranges": [
+        [
+          1,
+          82
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Small3/5 symbolic mechanics versus known structured large chain native SciML/HVP and partial Arnoldi; not generic symbolic scalability."
+      ]
+    },
+    {
+      "path": "examples/scaling/memory_guardrails.jl",
+      "sha256": "c62913583a99af5c08f420188f60ad4844aa87e100df562d4ba1859647c672e6",
+      "bytes": 472,
+      "lines": 12,
+      "read_ranges": [
+        [
+          1,
+          12
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Estimates-only15000/30000 dense payload guardrail calls unsafe function only if gate broken; no large matrix allocated by intended path."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

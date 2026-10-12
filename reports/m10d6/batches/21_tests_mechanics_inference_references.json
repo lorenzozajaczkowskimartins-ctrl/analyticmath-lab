@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "21_tests_mechanics_inference_references",
+  "files": [
+    {
+      "path": "test/m10a_inference_operators.jl",
+      "sha256": "e77a9519e61c8d282cb4baedf4db322a85847005011620b78fd144eaa9d0196d",
+      "bytes": 12425,
+      "lines": 214,
+      "read_ranges": [
+        [
+          1,
+          214
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Independent FD/native sensitivity/weighted SVD and truth/heldout poisoning exclusion, heat residual counterexample and training-only scaling; not structural identifiability."
+      ]
+    },
+    {
+      "path": "test/m10a_mechanics.jl",
+      "sha256": "67f081f0eea054e906544a66ef64fbedd0d508f3abb00ce5334523b358307283",
+      "bytes": 5426,
+      "lines": 109,
+      "read_ranges": [
+        [
+          1,
+          109
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Canonical signs/order/fullmass Legendre equivalence/local nonlinear oscillator and direct eigenpair residual/subspace fixtures."
+      ]
+    },
+    {
+      "path": "test/m10a_references.jl",
+      "sha256": "96633a8271b6b1154987ef70936b597290b0e3b188fd8b7afbb0b1ddc42ba6dd",
+      "bytes": 2447,
+      "lines": 44,
+      "read_ranges": [
+        [
+          1,
+          44
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Sampled reference substitution pre-use gate distinguishes PDE from IC/BC; constant shift/wrong decay/dimension adversarial references refused."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

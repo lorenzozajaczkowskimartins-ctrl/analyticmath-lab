@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "29_tests_scoped_semantics",
+  "files": [
+    {
+      "path": "test/m10d_interoperability_learning.jl",
+      "sha256": "bd9621772b1cdc12c1edfc27b8dc8829ff7e0f03674cd938dd93ad382d1f79c2",
+      "bytes": 2922,
+      "lines": 51,
+      "read_ranges": [
+        [
+          1,
+          51
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Optional one-step learning preserves numerical reference/explicit ordering/scaling and no generalization proof."
+      ]
+    },
+    {
+      "path": "test/m10d_semantics.jl",
+      "sha256": "a822da77b21c86fe28dfe208bdf7f9abfdee3be2f3e9b4c40b95c1aefb5c8859",
+      "bytes": 9534,
+      "lines": 163,
+      "read_ranges": [
+        [
+          1,
+          163
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Detached origin versus borrowed metadata, leaf four-field compatibility, bounded source descriptors, unit/order guards and explicit solver failure scopes."
+      ]
+    },
+    {
+      "path": "test/m10d_semantics_learning.jl",
+      "sha256": "83ff1d9726d6adef4928ce93a3c2c19cbccc15826c82daa84f809de3866820d0",
+      "bytes": 2947,
+      "lines": 48,
+      "read_ranges": [
+        [
+          1,
+          48
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Numerical reference/error/tolerances survive model-training-generalization ancestry; identity distinct from value, physical correctness unknown."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

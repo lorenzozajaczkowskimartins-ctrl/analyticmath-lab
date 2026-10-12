@@ -1,0 +1,762 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "74_history_scaling_closure",
+  "files": [
+    {
+      "path": "docs/m10c_bug_ledger.md",
+      "sha256": "a55bd17c44ef392a34edc6e9978b4166332720ad88f55f262ed4d83e44d76e74",
+      "bytes": 4192,
+      "lines": 50,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          28,
+          28
+        ],
+        [
+          35,
+          35
+        ],
+        [
+          39,
+          39
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          41,
+          41
+        ],
+        [
+          42,
+          42
+        ],
+        [
+          43,
+          43
+        ],
+        [
+          44,
+          44
+        ],
+        [
+          45,
+          45
+        ],
+        [
+          46,
+          46
+        ],
+        [
+          47,
+          47
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          49,
+          49
+        ],
+        [
+          50,
+          50
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10C scalability findings ledger"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "Recovery: all seven candidates remain hypotheses at interruption. Three surviving"
+        },
+        {
+          "line": 4,
+          "text": "red-test files were written but not executed. No fixes or measurements were lost"
+        },
+        {
+          "line": 5,
+          "text": "from the tracked tree; see `m10c_results.md` for filesystem/request-record evidence."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "Baseline `091492e03dbf5fc1346c9ffa3dfbdfcd3f2bbe93`. Inventory written before source"
+        },
+        {
+          "line": 8,
+          "text": "changes. Findings below start as inspected risks, not measured or resolved defects."
+        },
+        {
+          "line": 9,
+          "text": ""
+        },
+        {
+          "line": 10,
+          "text": "Classification: A unnecessary materialization; B hidden copy/duplicate storage;"
+        },
+        {
+          "line": 11,
+          "text": "C asymptotically inappropriate implementation; D full-output overcomputation;"
+        },
+        {
+          "line": 12,
+          "text": "E allocation blowup; F scientifically equivalent streaming opportunity;"
+        },
+        {
+          "line": 13,
+          "text": "G symbolic explosion; H missing chunking; I missing resource guardrail;"
+        },
+        {
+          "line": 14,
+          "text": "J backend limitation; K hardware limit; L expected complexity; M oracle error."
+        },
+        {
+          "line": 15,
+          "text": "Only measured A\u2013I findings normally justify implementation changes."
+        },
+        {
+          "line": 16,
+          "text": ""
+        },
+        {
+          "line": 28,
+          "text": "## Evidence policy"
+        },
+        {
+          "line": 35,
+          "text": "## C09: isolated canonical test dependencies"
+        },
+        {
+          "line": 39,
+          "text": "target gate passed21/21 with global load-path fallback disabled. Only Project.toml"
+        },
+        {
+          "line": 40,
+          "text": "changed since the precanonical source snapshot. Full canonical pass remains absent;"
+        },
+        {
+          "line": 41,
+          "text": "no second invocation is authorized under ONCE, and no verified commit was made."
+        },
+        {
+          "line": 42,
+          "text": ""
+        },
+        {
+          "line": 43,
+          "text": "Final disposition: user subsequently authorized exactly one replacement canonical."
+        },
+        {
+          "line": 44,
+          "text": "It passed4789/4789 across167 reported testsets,exit0. C09 is closed; the earlier"
+        },
+        {
+          "line": 45,
+          "text": "failed log remains preserved. No scientific implementation changed on replacement."
+        },
+        {
+          "line": 46,
+          "text": ""
+        },
+        {
+          "line": 47,
+          "text": "Shared evidence and exact logs: `m10c_shared_evidence.md`. Harness red/green21;"
+        },
+        {
+          "line": 48,
+          "text": "streaming red/green16, actual million-sample completion; optional 10^10 execution"
+        },
+        {
+          "line": 49,
+          "text": "is not claimed. Credit containment: finish current bounded workstreams only;"
+        },
+        {
+          "line": 50,
+          "text": "no new agents, optional extremes or repeated valid benchmarks."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    },
+    {
+      "path": "docs/m10c_dod.md",
+      "sha256": "8a1148de12077a31d60baa2e0ead4111fb393a9a94d1f226e672e29c818815b2",
+      "bytes": 6688,
+      "lines": 94,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          83,
+          83
+        ],
+        [
+          84,
+          84
+        ],
+        [
+          85,
+          85
+        ],
+        [
+          86,
+          86
+        ],
+        [
+          87,
+          87
+        ],
+        [
+          88,
+          88
+        ],
+        [
+          89,
+          89
+        ],
+        [
+          90,
+          90
+        ],
+        [
+          91,
+          91
+        ],
+        [
+          92,
+          92
+        ],
+        [
+          93,
+          93
+        ],
+        [
+          94,
+          94
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10C original Definition of Done mapping"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "This maps all original section79 items; it does not replace or weaken them."
+        },
+        {
+          "line": 4,
+          "text": "Workstream reports provide exact commands, source identity, statuses and limitations."
+        },
+        {
+          "line": 5,
+          "text": "Pending final gates are not claimed passed. Optional extremes are explicitly excluded"
+        },
+        {
+          "line": 6,
+          "text": "by the user, not silently counted as completed workloads."
+        },
+        {
+          "line": 7,
+          "text": ""
+        },
+        {
+          "line": 8,
+          "text": "| Item | Requirement | Evidence / disposition |"
+        },
+        {
+          "line": 9,
+          "text": "|---:|---|---|"
+        },
+        {
+          "line": 10,
+          "text": "| 1 | Scaling inventory | m10c_scaling_inventory.md |"
+        },
+        {
+          "line": 11,
+          "text": "| 2 | Bug ledger | m10c_bug_ledger.md |"
+        },
+        {
+          "line": 12,
+          "text": "| 3 | Budgeted harness | harness.jl; red/green21 |"
+        },
+        {
+          "line": 13,
+          "text": "| 4 | Four explicit tiers | StressBudget and examples/scaling/README.md |"
+        },
+        {
+          "line": 14,
+          "text": "| 5 | Dense preflight | normal_modes before coefficient access; unreadable huge matrix test |"
+        },
+        {
+          "line": 15,
+          "text": "| 6 | Dense Hessian scaling | when_dense_dies rows and refusal |"
+        },
+        {
+          "line": 16,
+          "text": "| 7 | Full-mode cost measured | mechanics baseline n600; completed n1200 |"
+        },
+        {
+          "line": 62,
+          "text": "## Mandatory consolidation gaps and disposition"
+        },
+        {
+          "line": 83,
+          "text": ""
+        },
+        {
+          "line": 84,
+          "text": "Final disposition superseding mapping-time pending notes: generalization36 checks,"
+        },
+        {
+          "line": 85,
+          "text": "figure inspection and bounded candidate scan completed. SHA/TOML test-target"
+        },
+        {
+          "line": 86,
+          "text": "correction was present on resumption and passed21 isolated checks. Canonical was"
+        },
+        {
+          "line": 87,
+          "text": "invoked once and failed; no second invocation or verified commit. Mandatory item46"
+        },
+        {
+          "line": 88,
+          "text": "is unsatisfied. Replacing that invocation requires explicit authorization."
+        },
+        {
+          "line": 89,
+          "text": ""
+        },
+        {
+          "line": 90,
+          "text": "Final closure supersedes the preceding historical blocker: user authorized one"
+        },
+        {
+          "line": 91,
+          "text": "replacement canonical; it passed4789 assertions across167 reported testsets with"
+        },
+        {
+          "line": 92,
+          "text": "exit0. All172 frozen executable/environment hashes match. No stress, review or"
+        },
+        {
+          "line": 93,
+          "text": "optional gate was repeated. Items46\u201349 are closed by this result and the final"
+        },
+        {
+          "line": 94,
+          "text": "local candidate/index/commit checks; no push, tag or M10D work."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    },
+    {
+      "path": "docs/m10c_final_review.md",
+      "sha256": "1f99edec7e940f17015b36b97f9ddaff9b967fe8f8a08b841463e9f3c1a6709f",
+      "bytes": 4697,
+      "lines": 73,
+      "inspection": "HEADINGS_AND_BOOKENDS_INSPECTED",
+      "read_ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          26,
+          26
+        ],
+        [
+          54,
+          54
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          71,
+          71
+        ],
+        [
+          72,
+          72
+        ],
+        [
+          73,
+          73
+        ]
+      ],
+      "excerpt": [
+        {
+          "line": 1,
+          "text": "# M10C bounded final scalability/correctness review"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "One parent review, not independent approval: the user prohibited any new subagent."
+        },
+        {
+          "line": 4,
+          "text": "Scope: tracked source/extension diff; all new scaling helpers, examples and tests;"
+        },
+        {
+          "line": 5,
+          "text": "runner/include ownership; recovered numerical/optional gates; measurement CSVs,"
+        },
+        {
+          "line": 6,
+          "text": "status semantics, source hashes and original51-item DoD. No redundant reviewer."
+        },
+        {
+          "line": 7,
+          "text": ""
+        },
+        {
+          "line": 8,
+          "text": "## Findings and disposition"
+        },
+        {
+          "line": 9,
+          "text": ""
+        },
+        {
+          "line": 10,
+          "text": "- Consolidation compatibility defect (resolved before final review): sized public"
+        },
+        {
+          "line": 11,
+          "text": "  generators are not necessarily replayable. Red16 versus4 evaluations and wrong"
+        },
+        {
+          "line": 12,
+          "text": "  norm; snapshot non-array public input once, use private deterministic mapped"
+        },
+        {
+          "line": 13,
+          "text": "  reduction internally. Final focused326 and100k/1m allocation reconfirmation passed."
+        },
+        {
+          "line": 14,
+          "text": "- R1: ODE/ensemble wrappers checkpointed only after the entire ladder. A hard"
+        },
+        {
+          "line": 15,
+          "text": "  timeout could lose completed rows. Moved report calls inside rung loops; numerical"
+        },
+        {
+          "line": 16,
+          "text": "  kernels and measured workloads unchanged. Small safe scripts completed again,"
+        },
+        {
+          "line": 26,
+          "text": "## Checked boundaries"
+        },
+        {
+          "line": 54,
+          "text": "## Candidate/security and source freeze"
+        },
+        {
+          "line": 62,
+          "text": ""
+        },
+        {
+          "line": 63,
+          "text": "`git diff --check` passed. `m10c-precanonical-source.json` freezes172 executable"
+        },
+        {
+          "line": 64,
+          "text": "source/test/example/environment files. Canonical gate is the next action; its"
+        },
+        {
+          "line": 65,
+          "text": "result must be read before a verified commit is permitted. This review does not"
+        },
+        {
+          "line": 66,
+          "text": "claim a canonical pass in advance."
+        },
+        {
+          "line": 67,
+          "text": ""
+        },
+        {
+          "line": 68,
+          "text": "Post-review closure (not another review): isolated canonical exposed missing"
+        },
+        {
+          "line": 69,
+          "text": "SHA/TOML test-target declarations. Their focused correction passed21/21; the user"
+        },
+        {
+          "line": 70,
+          "text": "authorized one replacement canonical, which passed4789/4789 in167 reported"
+        },
+        {
+          "line": 71,
+          "text": "testsets,exit0. Production source and tests are unchanged from the review snapshot;"
+        },
+        {
+          "line": 72,
+          "text": "only test-target Project.toml declarations differ. Final documentation records this"
+        },
+        {
+          "line": 73,
+          "text": "closure; final index hashes must match the tested source and audited candidate."
+        }
+      ],
+      "semantic_findings": [
+        "Frozen historical audit/reference; indexed for documentation navigation, not revalidated as a current all-method contract or a fresh executed gate."
+      ]
+    }
+  ],
+  "apis": [],
+  "scope": "Documentation/environment/evidence inventory only; not full semantic review or fresh scientific execution."
+}

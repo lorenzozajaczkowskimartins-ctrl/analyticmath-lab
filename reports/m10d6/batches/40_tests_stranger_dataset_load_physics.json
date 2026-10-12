@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "40_tests_stranger_dataset_load_physics",
+  "files": [
+    {
+      "path": "test/stranger/dataset.jl",
+      "sha256": "cba2ae9223841e8f4ec7ba17c5cee60398948bb3c6332eb3a23dc2048dcbb1b9",
+      "bytes": 1735,
+      "lines": 28,
+      "read_ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Explicit splits/dimensions/reference declaration, Float64 sample conversion/scaling matrix and serialization."
+      ]
+    },
+    {
+      "path": "test/stranger/load.jl",
+      "sha256": "7dd2a9f7b38e372aa680d3b697856632711260e9ed13a663a2a586e7ec9bee02",
+      "bytes": 1032,
+      "lines": 19,
+      "read_ranges": [
+        [
+          1,
+          19
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Headless load no BLAS change or optional extension activation, runtime printed by fixture not audit."
+      ]
+    },
+    {
+      "path": "test/stranger/physicist.jl",
+      "sha256": "e7e6e54622ac5a09e5d0d91e9570e020aa669cf52c2b4d2d9e262502b47ae088",
+      "bytes": 1184,
+      "lines": 22,
+      "read_ranges": [
+        [
+          1,
+          22
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Public mechanics-modal-trajectory-stored observation workflow physical units only from explicit callback; malformed selectors refuse."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

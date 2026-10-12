@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "52_examples_optional_ad_and_pinn_gate",
+  "files": [
+    {
+      "path": "examples/operators/m10a_gate.jl",
+      "sha256": "d79584a7240d5f868bbf8101a71eb6a8e08537453d1e7a3134938c75b722baad",
+      "bytes": 4503,
+      "lines": 83,
+      "read_ranges": [
+        [
+          1,
+          83
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "DeepONet sensor/query unequal components oracle, explicit permutation counterexamples and state-change rejection; train-only no leakage."
+      ]
+    },
+    {
+      "path": "examples/operators/m10b_gate.jl",
+      "sha256": "01cdf90ff7d977795a4dc87a6e34ecf45ded8b21308b25a3fa97a289944292a6",
+      "bytes": 2359,
+      "lines": 53,
+      "read_ranges": [
+        [
+          1,
+          53
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Nonfinite neural outputs/MSE overflow and affine overflow/energy/UDE sum fail explicitly; no optimizer run."
+      ]
+    },
+    {
+      "path": "examples/pinn/benchmark_gate.jl",
+      "sha256": "4dd7e8446d46f4d66a8bc80e1c46707454808969a298204699eb76fe5330ee16",
+      "bytes": 4247,
+      "lines": 85,
+      "read_ranges": [
+        [
+          1,
+          85
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Opt-in standard/Burgers/two-step Navier-Stokes stress gates separate physical proof, same seed not sampler equivalence; writes figures when invoked."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

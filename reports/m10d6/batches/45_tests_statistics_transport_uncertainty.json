@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "45_tests_statistics_transport_uncertainty",
+  "files": [
+    {
+      "path": "test/trajectory_statistics.jl",
+      "sha256": "433cd2cd73568d4312086deff8fd625c675981ebb2a2d08fd31a0109cbdd1190",
+      "bytes": 5882,
+      "lines": 116,
+      "read_ranges": [
+        [
+          1,
+          116
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Sampling borrowed increasing times, no guessing clock; Welford one-pass generic moments and bounded direct covariance; invalid sample unknown no dropping."
+      ]
+    },
+    {
+      "path": "test/trajectory_transport.jl",
+      "sha256": "01e771f558497676c98be04d807acce4e3026b71f7e5073b6b2b749881ea9ea0",
+      "bytes": 4482,
+      "lines": 68,
+      "read_ranges": [
+        [
+          1,
+          68
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Single-origin MSD caller particle/unwrapped declarations, explicit fit interval and >=3points; VACF measured velocity stored-window evidence, no equilibration claim."
+      ]
+    },
+    {
+      "path": "test/trajectory_uncertainty.jl",
+      "sha256": "d1a543db63873fc3b24fd1c54656cef50ce75fa94130476feea7df879cf58fce",
+      "bytes": 3567,
+      "lines": 62,
+      "read_ranges": [
+        [
+          1,
+          62
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "IAT convention .5+sum, cap effective information N; positive tail unresolved, blocks discarded tail explicit, suggested transient not automatically applied or proof."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

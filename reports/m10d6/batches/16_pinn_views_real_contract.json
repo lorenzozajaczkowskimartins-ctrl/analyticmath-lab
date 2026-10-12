@@ -1,0 +1,333 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "16_pinn_views_real_contract",
+  "files": [
+    {
+      "path": "src/visualization/pinn.jl",
+      "sha256": "7b54f50ad67cba71073b8368d2a2c3e5b5a87d714877cb82ad097314c413527d",
+      "bytes": 854,
+      "lines": 16,
+      "read_ranges": [
+        [
+          1,
+          16
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Loss history only; missing request/capacity explicitly visible."
+      ]
+    },
+    {
+      "path": "src/visualization/pinn_diagnostics.jl",
+      "sha256": "6af627003714bad3ae2af1cbbe0a9d0823d95f8b7d571b909603e576d5956667",
+      "bytes": 4179,
+      "lines": 80,
+      "read_ranges": [
+        [
+          1,
+          80
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Stored diagnostics only; >2dims require explicit stored slice upstream; unique rectangular grid detection no inferred interpolation."
+      ]
+    },
+    {
+      "path": "src/real_analysis_contract.md",
+      "sha256": "336242160fbf62f51001ab4cdd378805a449f92a56602115053a012c647acf8d",
+      "bytes": 6675,
+      "lines": 42,
+      "read_ranges": [
+        [
+          1,
+          42
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Historical internal real-core schema confirms exact/heuristic/unknown, original domains, internal task-local budgets; not current general public setter."
+      ]
+    }
+  ],
+  "apis": [
+    {
+      "symbol": "lossplot",
+      "source_location": [
+        "src/visualization/pinn.jl:2",
+        "src/visualization/pinn.jl:13"
+      ],
+      "public_signature": [
+        "function lossplot(h::PINNHistory)",
+        "function lossplot(r::PINNTrainingResult)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PINNHistory or PINNTrainingResult",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError history unrequested/empty"
+      ],
+      "numerical_limitations": "Stored total objective only; labels truncation, no new loss evaluation. Backend caller-activated only.",
+      "units": "Stored Float64 coordinates/errors, no units conversion.",
+      "ownership": "Fresh Figure and presentation buffers; stored data read-only.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:90",
+        "test/pinn_base.jl:5",
+        "test/pinn_visualization.jl:6",
+        "test/pinn_visualization.jl:10",
+        "test/pinn_visualization.jl:13"
+      ],
+      "example_references": [
+        "notebooks/pinn_diagnostics.jl:29",
+        "notebooks/scientific_ml.jl:48"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/scientific_ml.md:203"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "residualplot",
+      "source_location": [
+        "src/visualization/pinn_diagnostics.jl:27"
+      ],
+      "public_signature": [
+        "function residualplot(a::PINNAnalysis;equation::Integer=1)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PINNAnalysis; equation::Integer=1",
+      "returns": "Makie.Figure",
+      "errors": [
+        "BoundsError invalid equation; ArgumentError unevaluated or >2 coordinate dims"
+      ],
+      "numerical_limitations": "Signed stored residual; 0/1D scatter, 2D complete unique Cartesian grid heatmap else scatter, no interpolation. Backend caller-activated only.",
+      "units": "Stored Float64 coordinates/errors, no units conversion.",
+      "ownership": "Fresh Figure and presentation buffers; stored data read-only.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "ABSENT method",
+      "test_references": [
+        "test/architecture.jl:92",
+        "test/pinn_diagnostics.jl:45",
+        "test/pinn_diagnostics.jl:66",
+        "test/pinn_multidimensional.jl:24"
+      ],
+      "example_references": [
+        "notebooks/pinn_diagnostics.jl:25"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/pinn_diagnostics.md:9"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "errorplot",
+      "source_location": [
+        "src/visualization/pinn_diagnostics.jl:36"
+      ],
+      "public_signature": [
+        "function errorplot(a::PINNAnalysis;variable::Integer=1)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PINNAnalysis; variable::Integer=1",
+      "returns": "Makie.Figure",
+      "errors": [
+        "BoundsError bad variable; ArgumentError unavailable reference/>2dims"
+      ],
+      "numerical_limitations": "Stored absolute error, caller reference trust no global bound. Backend caller-activated only.",
+      "units": "Stored Float64 coordinates/errors, no units conversion.",
+      "ownership": "Fresh Figure and presentation buffers; stored data read-only.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "ABSENT",
+      "test_references": [
+        "test/architecture.jl:92",
+        "test/pinn_diagnostics.jl:46",
+        "test/pinn_diagnostics.jl:50",
+        "test/pinn_multidimensional.jl:26"
+      ],
+      "example_references": [
+        "notebooks/pinn_diagnostics.jl:26"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/pinn_diagnostics.md:9"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "collocationplot",
+      "source_location": [
+        "src/visualization/pinn_diagnostics.jl:45"
+      ],
+      "public_signature": [
+        "function collocationplot(a::PINNAnalysis;equation::Integer=1)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PINNAnalysis; equation::Integer=1",
+      "returns": "Makie.Figure",
+      "errors": [
+        "BoundsError equation; ArgumentError >2dims"
+      ],
+      "numerical_limitations": "Returned collocation snapshot not all training/coverage/resampling history. Backend caller-activated only.",
+      "units": "Stored Float64 coordinates/errors, no units conversion.",
+      "ownership": "Fresh Figure and presentation buffers; stored data read-only.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "ABSENT",
+      "test_references": [
+        "test/architecture.jl:92",
+        "test/pinn_diagnostics.jl:47",
+        "test/pinn_multidimensional.jl:25"
+      ],
+      "example_references": [
+        "notebooks/pinn_diagnostics.jl:27"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/pinn_diagnostics.md:9"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "losscomponentsplot",
+      "source_location": [
+        "src/visualization/pinn_diagnostics.jl:56"
+      ],
+      "public_signature": [
+        "function losscomponentsplot(a::PINNAnalysis)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PINNAnalysis",
+      "returns": "Makie.Figure",
+      "errors": [
+        "Raw malformed/backend errors"
+      ],
+      "numerical_limitations": "Unweighted training costs not physical error; BC/IC cost distinction not invented; weight evolution unavailable. Backend caller-activated only.",
+      "units": "Stored Float64 coordinates/errors, no units conversion.",
+      "ownership": "Fresh Figure and presentation buffers; stored data read-only.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "ABSENT",
+      "test_references": [
+        "test/architecture.jl:92",
+        "test/pinn_diagnostics.jl:48"
+      ],
+      "example_references": [
+        "examples/pinn/benchmark_gate.jl:82",
+        "notebooks/pinn_diagnostics.jl:28"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/pinn_diagnostics.md:9"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "pinnplot",
+      "source_location": [
+        "src/visualization/pinn_diagnostics.jl:67"
+      ],
+      "public_signature": [
+        "function pinnplot(a::PINNAnalysis;variable::Integer=1,equation::Integer=1)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PINNAnalysis; variable/equation default1",
+      "returns": "Makie.Figure",
+      "errors": [
+        "BoundsError selection; ArgumentError unavailable reference/residual/>2dims"
+      ],
+      "numerical_limitations": "Stored reference/prediction/abs error/signed residual, no new evaluation. Backend caller-activated only.",
+      "units": "Stored Float64 coordinates/errors, no units conversion.",
+      "ownership": "Fresh Figure and presentation buffers; stored data read-only.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:92",
+        "test/pinn_diagnostics.jl:49",
+        "test/pinn_diagnostics.jl:65",
+        "test/pinn_multidimensional.jl:23"
+      ],
+      "example_references": [
+        "examples/pinn/benchmark_gate.jl:28",
+        "examples/pinn/benchmark_gate.jl:47",
+        "notebooks/pinn_diagnostics.jl:24"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/pinn_diagnostics.md:9",
+          "docs/pinn_diagnostics.md:139"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    }
+  ],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

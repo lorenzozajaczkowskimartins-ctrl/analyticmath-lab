@@ -1,0 +1,477 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "15_stored_diagnostic_views",
+  "files": [
+    {
+      "path": "src/visualization/trajectory.jl",
+      "sha256": "d91fb7615b80ceabc6047cb06b53202f1d9e62033f3640d8ee2f047505dcadad",
+      "bytes": 3615,
+      "lines": 54,
+      "read_ranges": [
+        [
+          1,
+          54
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Stored diagnostics only, lazy scalar view materialization explicit. Absent time/normalized correlation refused, fits overlay stored not re-fit/association-certified."
+      ]
+    },
+    {
+      "path": "src/visualization/comparison.jl",
+      "sha256": "6c5b5653e71a5d318d5bd8304fdfdc1d916f8be2d6838978bee369915f2b06e1",
+      "bytes": 3314,
+      "lines": 68,
+      "read_ranges": [
+        [
+          1,
+          68
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Unknown comparison Figure labeled not fabricated zero; ±1 heuristic SE only propagated actual uncertainty, not CI."
+      ]
+    },
+    {
+      "path": "src/visualization/inference.jl",
+      "sha256": "80d389a9fc1e458023ec319087db17dce97c1fd5c68e04d965ccb39e9a4b953b",
+      "bytes": 2660,
+      "lines": 38,
+      "read_ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Inference stored fitted/heldout predictions and local SVD/history; no solve/optimization/AD; no global identifiability."
+      ]
+    }
+  ],
+  "apis": [
+    {
+      "symbol": "timeseriesplot",
+      "source_location": [
+        "src/visualization/trajectory.jl:15"
+      ],
+      "public_signature": [
+        "timeseriesplot(s::ObservableSeries)=first(_ts_curve(s.sampling.times,collect(s.values);title=string(s.name)))"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ObservableSeries",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError absent times/unavailable/misaligned/nonfinite values"
+      ],
+      "numerical_limitations": "Explicit times or declared index time upstream; finite aligned scalar values; may materialize lazy series. Caller renderer only no backend activation/save.",
+      "units": "Trajectory/comparison Unitful display scales retained; inference supplied numeric coordinates, no conversion inference.",
+      "ownership": "Fresh buffers/Figure; source read-only, lazy values may be evaluated.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:86",
+        "test/trajectory_visualization.jl:6",
+        "test/trajectory_visualization.jl:7",
+        "test/trajectory_visualization.jl:10",
+        "test/trajectory_visualization.jl:21"
+      ],
+      "example_references": [
+        "examples/integration/one_system_plots.jl:35",
+        "notebooks/molly_trajectory_analysis.jl:55",
+        "notebooks/molly_trajectory_analysis.jl:57"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/trajectory_statistics.md:179"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "autocorrelationplot",
+      "source_location": [
+        "src/visualization/trajectory.jl:17"
+      ],
+      "public_signature": [
+        "autocorrelationplot(a::AutocorrelationAnalysis)=first(_ts_curve(a.lag_times,a.autocorrelation;title=\"Finite-sample autocorrelation\",ylabel=\"ρ(k) [dimensionless]\"))"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "AutocorrelationAnalysis",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError correlation/time unavailable"
+      ],
+      "numerical_limitations": "Stored normalized ACF only no new lag/uncertainty estimation. Caller renderer only no backend activation/save.",
+      "units": "Trajectory/comparison Unitful display scales retained; inference supplied numeric coordinates, no conversion inference.",
+      "ownership": "Fresh buffers/Figure; source read-only, lazy values may be evaluated.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:86",
+        "test/trajectory_visualization.jl:11",
+        "test/trajectory_visualization.jl:22"
+      ],
+      "example_references": [
+        "notebooks/molly_trajectory_analysis.jl:55"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/trajectory_statistics.md:179"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "blockplot",
+      "source_location": [
+        "src/visualization/trajectory.jl:19"
+      ],
+      "public_signature": [
+        "function blockplot(b::BlockAnalysis)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "BlockAnalysis",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError unknown analysis/no >=2complete blocks"
+      ],
+      "numerical_limitations": "Available per-size SE only no plateau/independence. Caller renderer only no backend activation/save.",
+      "units": "Trajectory/comparison Unitful display scales retained; inference supplied numeric coordinates, no conversion inference.",
+      "ownership": "Fresh buffers/Figure; source read-only, lazy values may be evaluated.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:86",
+        "test/trajectory_visualization.jl:12"
+      ],
+      "example_references": [
+        "notebooks/molly_trajectory_analysis.jl:55"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/trajectory_statistics.md:179"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "msdplot",
+      "source_location": [
+        "src/visualization/trajectory.jl:31"
+      ],
+      "public_signature": [
+        "function msdplot(m::MeanSquaredDisplacement;fit=nothing)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "MeanSquaredDisplacement; fit optional stored PropertyResult",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError unavailable MSD/invalid stored fit"
+      ],
+      "numerical_limitations": "Optional fit overlay caller association not independently verified against MSD; no new fitting. Caller renderer only no backend activation/save.",
+      "units": "Trajectory/comparison Unitful display scales retained; inference supplied numeric coordinates, no conversion inference.",
+      "ownership": "Fresh buffers/Figure; source read-only, lazy values may be evaluated.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:86",
+        "test/trajectory_visualization.jl:16",
+        "test/trajectory_visualization.jl:17"
+      ],
+      "example_references": [
+        "notebooks/molly_trajectory_analysis.jl:56"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/trajectory_statistics.md:179",
+          "docs/trajectory_statistics.md:182"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "vacfplot",
+      "source_location": [
+        "src/visualization/trajectory.jl:44"
+      ],
+      "public_signature": [
+        "function vacfplot(v::VelocityAutocorrelation;normalized=false)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "VelocityAutocorrelation; normalized=false",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError unavailable normalized/time/raw values"
+      ],
+      "numerical_limitations": "Normalized must have been requested and available; raw no mean subtraction. Caller renderer only no backend activation/save.",
+      "units": "Trajectory/comparison Unitful display scales retained; inference supplied numeric coordinates, no conversion inference.",
+      "ownership": "Fresh buffers/Figure; source read-only, lazy values may be evaluated.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:86",
+        "test/trajectory_visualization.jl:18"
+      ],
+      "example_references": [
+        "notebooks/molly_trajectory_analysis.jl:56"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/trajectory_statistics.md:179"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "energyplot",
+      "source_location": [
+        "src/visualization/trajectory.jl:49"
+      ],
+      "public_signature": [
+        "function energyplot(r::MDTrajectoryAnalysis;observable=:total_energy)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "MDTrajectoryAnalysis; observable=:total_energy",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError diagnostics absent/unavailable"
+      ],
+      "numerical_limitations": "Stored deviations only, no conservation grade or recompute. Caller renderer only no backend activation/save.",
+      "units": "Trajectory/comparison Unitful display scales retained; inference supplied numeric coordinates, no conversion inference.",
+      "ownership": "Fresh buffers/Figure; source read-only, lazy values may be evaluated.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:76",
+        "test/mechanics_visualization.jl:6",
+        "test/mechanics_visualization.jl:7",
+        "test/mechanics_visualization.jl:19",
+        "test/mechanics_visualization.jl:20",
+        "test/mechanics_visualization.jl:25",
+        "test/mechanics_visualization.jl:27",
+        "test/trajectory_visualization.jl:19"
+      ],
+      "example_references": [
+        "examples/integration/one_system_plots.jl:20",
+        "notebooks/mechanics.jl:50",
+        "notebooks/mechanics.jl:52",
+        "notebooks/molly_trajectory_analysis.jl:56"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/mechanics.md:126",
+          "docs/trajectory_statistics.md:180"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "comparisonplot",
+      "source_location": [
+        "src/visualization/comparison.jl:21"
+      ],
+      "public_signature": [
+        "function comparisonplot(c::ObservableComparison)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ObservableComparison",
+      "returns": "Makie.Figure",
+      "errors": [
+        "Malformed raw records/backend failures"
+      ],
+      "numerical_limitations": "Stored compatible overlay, unknown/incompatible labeled refusal Figure not fake0. No curve alignment. Caller renderer only no backend activation/save.",
+      "units": "Trajectory/comparison Unitful display scales retained; inference supplied numeric coordinates, no conversion inference.",
+      "ownership": "Fresh buffers/Figure; source read-only, lazy values may be evaluated.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:88",
+        "test/trajectory_comparison_visualization.jl:5",
+        "test/trajectory_comparison_visualization.jl:6",
+        "test/trajectory_comparison_visualization.jl:13",
+        "test/trajectory_comparison_visualization.jl:17",
+        "test/trajectory_comparison_visualization.jl:20"
+      ],
+      "example_references": [
+        "notebooks/trajectory_comparison.jl:50",
+        "notebooks/trajectory_comparison.jl:53"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "README.md:24",
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/trajectory_comparison.md:163"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "differenceplot",
+      "source_location": [
+        "src/visualization/comparison.jl:46"
+      ],
+      "public_signature": [
+        "function differenceplot(c::ObservableComparison)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ObservableComparison",
+      "returns": "Makie.Figure",
+      "errors": [
+        "Malformed raw/backend failures"
+      ],
+      "numerical_limitations": "Stored B−A; optional scalar ±1heuristic SE only actual propagated uncertainty; no confidence/significance claim. Caller renderer only no backend activation/save.",
+      "units": "Trajectory/comparison Unitful display scales retained; inference supplied numeric coordinates, no conversion inference.",
+      "ownership": "Fresh buffers/Figure; source read-only, lazy values may be evaluated.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:88",
+        "test/trajectory_comparison_visualization.jl:14",
+        "test/trajectory_comparison_visualization.jl:18",
+        "test/trajectory_comparison_visualization.jl:21"
+      ],
+      "example_references": [
+        "notebooks/trajectory_comparison.jl:51",
+        "notebooks/trajectory_comparison.jl:52"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "README.md:24",
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/trajectory_comparison.md:164"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "parameterfitplot",
+      "source_location": [
+        "src/visualization/inference.jl:4"
+      ],
+      "public_signature": [
+        "function parameterfitplot(r::ParameterInferenceResult;variable::Integer=1)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ParameterInferenceResult; variable::Integer=1",
+      "returns": "Makie.Figure",
+      "errors": [
+        "ArgumentError invalid observed variable index"
+      ],
+      "numerical_limitations": "Stored prediction/history/local sensitivity/reference only; no solve/AD/resample. Caller renderer only no backend activation/save.",
+      "units": "Trajectory/comparison Unitful display scales retained; inference supplied numeric coordinates, no conversion inference.",
+      "ownership": "Fresh buffers/Figure; source read-only, lazy values may be evaluated.",
+      "optional_dependencies": [
+        "Caller rendering backend"
+      ],
+      "docstring_status": "BRIEF/detailed",
+      "test_references": [
+        "test/architecture.jl:94"
+      ],
+      "example_references": [
+        "examples/inference/integration_gate.jl:41",
+        "examples/inference/lj_gate.jl:82",
+        "examples/inference/parameter_showcase.jl:17",
+        "examples/inference/parameter_showcase.jl:18",
+        "examples/inference/parameter_showcase.jl:19"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F35.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:79",
+          "docs/m10d_architecture_inventory.md:86",
+          "docs/parameter_inference.md:81"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F35",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    }
+  ],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

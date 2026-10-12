@@ -1,0 +1,798 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "01_mechanics_formal",
+  "files": [
+    {
+      "path": "src/mechanics/core.jl",
+      "sha256": "b2dc95aff9fac8fbad80bff5706809ca526e197a8d3fcb7f2e7a9fd4b47c1bdc",
+      "bytes": 8967,
+      "lines": 198,
+      "read_ranges": [
+        [
+          1,
+          198
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Mechanics variables not capped by _mv_variables; EL determinant/adjugate work not covered by exact-algebra budgets. Lagrangian accessors borrow arrays; generated System convenience methods reanalyze."
+      ]
+    },
+    {
+      "path": "src/mechanics/hamiltonian.jl",
+      "sha256": "c8f02a90d8b032f1696162a5bfa7827831d5d5488d28de5f3ae2a5413aca5da4",
+      "bytes": 2925,
+      "lines": 68,
+      "read_ranges": [
+        [
+          1,
+          68
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Canonical order q then p; hamilton_equations copies field. Poisson observable restrictions not independently certified."
+      ]
+    },
+    {
+      "path": "src/mechanics/legendre.jl",
+      "sha256": "4b0dc30201b15a5b87a910fb00a358ef94922f7bb386011109087e90d80167b6",
+      "bytes": 3431,
+      "lines": 50,
+      "read_ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Only verified regular affine inversion and unforced nondissipative conversion. Pulls back original syntax including algebraically vanishing auxiliary restrictions."
+      ]
+    }
+  ],
+  "apis": [
+    {
+      "symbol": "LagrangianSystem",
+      "source_location": [
+        "src/mechanics/core.jl:75",
+        "src/mechanics/core.jl:89"
+      ],
+      "public_signature": [
+        "struct LagrangianSystem; raw generated field constructor: (expression, original_expression, coordinates::Tuple, velocities::Tuple, time, rayleigh, forces::Vector, original_rayleigh, original_forces::Vector, parameters::Dict, nonzero::Tuple, domain::MultivariateDomain)",
+        "function LagrangianSystem(L;coordinates,velocities,time=nothing,rayleigh=0,forces=nothing,parameters=Dict(),nonzero=())"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "L or RealExpression; required ordered coordinates/velocities; optional time, Rayleigh function, generalized forces, bindings and nonzero assumptions",
+      "returns": "LagrangianSystem preserving substituted expression and original source domain",
+      "errors": [
+        "Keyword factories validate ordered distinct scalar symbolic names and equal conjugate dimensions; DimensionMismatch/ArgumentError for contradictory parameter/nonzero/force declarations. Raw positional constructors do not validate scientific invariants."
+      ],
+      "numerical_limitations": "Formal smooth-original-locus identities under explicit finite parameter/nonzero assumptions; no global dynamics proof. Nonzero is not positive. No general symbolic work/RAM budget for mechanics determinant/adjugate operations.",
+      "units": "Caller-managed physical units/coordinate ordering; symbolic identities do not infer positivity or dimensions.",
+      "ownership": "Fresh binding Dict and force vectors; original syntax/report graph can retain references.",
+      "optional_dependencies": [],
+      "docstring_status": "ABSENT for Lagrangian public types/factory; BRIEF for Hamiltonian types",
+      "test_references": [
+        "test/architecture.jl:72",
+        "test/m10a_mechanics.jl:36",
+        "test/m10a_mechanics.jl:45",
+        "test/m10a_mechanics.jl:64",
+        "test/m10a_mechanics.jl:77",
+        "test/m10b_linear_algebra.jl:24",
+        "test/m10d_interoperability.jl:174",
+        "test/m10d_interoperability.jl:195",
+        "test/m10d_interoperability.jl:208",
+        "test/m10d_interoperability.jl:210",
+        "test/m10d_semantics.jl:57",
+        "test/mechanics.jl:5",
+        "test/mechanics.jl:6",
+        "test/mechanics.jl:7",
+        "test/mechanics.jl:18",
+        "test/mechanics.jl:24",
+        "test/mechanics.jl:31",
+        "test/mechanics.jl:36",
+        "test/mechanics.jl:38",
+        "test/mechanics.jl:43",
+        "test/mechanics.jl:46",
+        "test/mechanics.jl:49",
+        "test/mechanics.jl:52",
+        "test/mechanics.jl:55",
+        "test/mechanics.jl:56",
+        "test/mechanics.jl:57",
+        "test/mechanics.jl:58",
+        "test/mechanics.jl:59",
+        "test/mechanics.jl:64",
+        "test/mechanics.jl:77",
+        "test/mechanics.jl:82",
+        "test/mechanics.jl:84",
+        "test/mechanics.jl:86",
+        "test/mechanics.jl:89",
+        "test/mechanics.jl:91",
+        "test/mechanics_dynamics.jl:29",
+        "test/mechanics_dynamics.jl:35",
+        "test/mechanics_dynamics.jl:41",
+        "test/mechanics_dynamics.jl:48",
+        "test/mechanics_dynamics.jl:60",
+        "test/mechanics_dynamics.jl:81",
+        "test/mechanics_dynamics.jl:97",
+        "test/mechanics_dynamics.jl:109",
+        "test/mechanics_dynamics.jl:129",
+        "test/mechanics_dynamics.jl:131",
+        "test/mechanics_readiness.jl:12",
+        "test/mechanics_readiness.jl:13",
+        "test/mechanics_readiness.jl:20",
+        "test/mechanics_readiness.jl:23",
+        "test/mechanics_readiness.jl:30",
+        "test/mechanics_readiness.jl:34",
+        "test/mechanics_readiness.jl:44",
+        "test/mode_contracts.jl:15",
+        "test/mode_contracts.jl:32",
+        "test/mode_contracts.jl:42",
+        "test/normal_modes.jl:9",
+        "test/normal_modes.jl:58",
+        "test/normal_modes.jl:65",
+        "test/normal_modes.jl:69",
+        "test/normal_modes.jl:78",
+        "test/normal_modes.jl:88",
+        "test/normal_modes.jl:89",
+        "test/normal_modes.jl:90",
+        "test/normal_modes.jl:96",
+        "test/normal_modes.jl:99",
+        "test/stranger/physicist.jl:5",
+        "test/stranger/physicist.jl:20"
+      ],
+      "example_references": [
+        "examples/integration/one_system_many_methods.jl:118",
+        "examples/scaling/mass_spring_mechanics.jl:23",
+        "notebooks/mechanics.jl:7",
+        "notebooks/mechanics.jl:8",
+        "notebooks/mechanics.jl:9",
+        "notebooks/mechanics.jl:10",
+        "notebooks/mechanics.jl:11",
+        "notebooks/mechanics.jl:12",
+        "notebooks/mechanics.jl:13",
+        "notebooks/mechanics.jl:14",
+        "notebooks/mechanics_addendum.jl:9",
+        "notebooks/mechanics_addendum.jl:10",
+        "notebooks/mechanics_addendum.jl:11",
+        "notebooks/mechanics_addendum.jl:17",
+        "notebooks/mechanics_addendum.jl:38",
+        "notebooks/mechanics_addendum.jl:39",
+        "notebooks/mechanics_addendum.jl:41"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F10.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:61",
+          "docs/m10d_architecture_inventory.md:120",
+          "docs/m10d_flagship_results.md:61",
+          "docs/m10d_flagship_results.md:92",
+          "docs/mechanics.md:11",
+          "docs/mechanics.md:21"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "LagrangianAnalysis",
+      "source_location": [
+        "src/mechanics/core.jl:100"
+      ],
+      "public_signature": [
+        "struct LagrangianAnalysis <: AbstractAnalysis; raw generated field constructor: (system::LagrangianSystem, expression, original_expression, domain::MultivariateDomain, coordinates::Tuple, velocities::Tuple, time, parameters::Dict, nonzero::Tuple, rayleigh, forces::Vector, momenta::Vector, hessian::Matrix, acceleration_symbols::Tuple, equations::Vector, regularity::PropertyResult, accelerations::PropertyResult, energy, energy_rate, energy_conservation::PropertyResult, cyclic::Vector, evidence::NamedTuple)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Construct via analyze(LagrangianSystem); raw stored fields declared in source",
+      "returns": "Formal EL/momenta/velocity Hessian/energy and regularity/acceleration claims",
+      "errors": [
+        "Keyword factories validate ordered distinct scalar symbolic names and equal conjugate dimensions; DimensionMismatch/ArgumentError for contradictory parameter/nonzero/force declarations. Raw positional constructors do not validate scientific invariants."
+      ],
+      "numerical_limitations": "Formal smooth-original-locus identities under explicit finite parameter/nonzero assumptions; no global dynamics proof. Nonzero is not positive. No general symbolic work/RAM budget for mechanics determinant/adjugate operations.",
+      "units": "Caller-managed physical units/coordinate ordering; symbolic identities do not infer positivity or dimensions.",
+      "ownership": "Retains identical system/domain and several arrays; immutable outer record is not deep immutability.",
+      "optional_dependencies": [],
+      "docstring_status": "ABSENT for Lagrangian public types/factory; BRIEF for Hamiltonian types",
+      "test_references": [
+        "test/architecture.jl:72"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F10.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:61",
+          "docs/m10d_architecture_inventory.md:120",
+          "docs/m10d_integration_matrix.md:117",
+          "docs/mechanics.md:39"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "HamiltonianSystem",
+      "source_location": [
+        "src/mechanics/hamiltonian.jl:2",
+        "src/mechanics/hamiltonian.jl:12"
+      ],
+      "public_signature": [
+        "struct HamiltonianSystem; raw generated field constructor: (expression, original_expression, coordinates::Tuple, momenta::Tuple, time, parameters::Dict, nonzero::Tuple, domain::MultivariateDomain)",
+        "function HamiltonianSystem(H;coordinates,momenta,time=nothing,parameters=Dict(),nonzero=())"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "H or RealExpression with coordinates/momenta; optional time/parameters/nonzero",
+      "returns": "HamiltonianSystem",
+      "errors": [
+        "Keyword factories validate ordered distinct scalar symbolic names and equal conjugate dimensions; DimensionMismatch/ArgumentError for contradictory parameter/nonzero/force declarations. Raw positional constructors do not validate scientific invariants."
+      ],
+      "numerical_limitations": "Formal smooth-original-locus identities under explicit finite parameter/nonzero assumptions; no global dynamics proof. Nonzero is not positive. No general symbolic work/RAM budget for mechanics determinant/adjugate operations.",
+      "units": "Caller-managed physical units/coordinate ordering; symbolic identities do not infer positivity or dimensions.",
+      "ownership": "Fresh bindings; original syntax/domain retained.",
+      "optional_dependencies": [],
+      "docstring_status": "ABSENT for Lagrangian public types/factory; BRIEF for Hamiltonian types",
+      "test_references": [
+        "test/architecture.jl:72",
+        "test/m10a_mechanics.jl:21",
+        "test/mechanics.jl:67",
+        "test/mechanics.jl:100",
+        "test/mechanics.jl:101",
+        "test/mechanics.jl:102",
+        "test/mechanics.jl:112",
+        "test/mechanics_dynamics.jl:9",
+        "test/mechanics_dynamics.jl:65",
+        "test/mechanics_dynamics.jl:72",
+        "test/mechanics_dynamics.jl:82",
+        "test/mechanics_dynamics.jl:111",
+        "test/mechanics_dynamics.jl:128",
+        "test/mechanics_dynamics.jl:137",
+        "test/mechanics_dynamics.jl:139",
+        "test/mechanics_readiness.jl:62",
+        "test/mechanics_visualization.jl:8",
+        "test/mechanics_visualization.jl:23"
+      ],
+      "example_references": [
+        "examples/inference/m10a_gate.jl:9",
+        "examples/inference/neural_gate.jl:6",
+        "examples/inference/neural_gate.jl:12",
+        "examples/inference/neural_showcase.jl:11",
+        "examples/operators/m10b_gate.jl:41",
+        "notebooks/mechanics_addendum.jl:33"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F11.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:62",
+          "docs/m10d_architecture_inventory.md:121",
+          "docs/md-readiness.md:83",
+          "docs/mechanics.md:24"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F11",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "HamiltonianAnalysis",
+      "source_location": [
+        "src/mechanics/hamiltonian.jl:22"
+      ],
+      "public_signature": [
+        "struct HamiltonianAnalysis <: AbstractAnalysis; raw generated field constructor: (system::HamiltonianSystem, expression, original_expression, domain::MultivariateDomain, coordinates::Tuple, momenta::Tuple, phase_variables::Tuple, time, parameters::Dict, nonzero::Tuple, phase_field::Vector, equations::Vector, symplectic_matrix::Matrix, energy, energy_conservation::PropertyResult, evidence::NamedTuple)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "analyze(HamiltonianSystem); raw field constructor",
+      "returns": "Formal canonical equations and energy-conservation evidence",
+      "errors": [
+        "Keyword factories validate ordered distinct scalar symbolic names and equal conjugate dimensions; DimensionMismatch/ArgumentError for contradictory parameter/nonzero/force declarations. Raw positional constructors do not validate scientific invariants."
+      ],
+      "numerical_limitations": "Formal smooth-original-locus identities under explicit finite parameter/nonzero assumptions; no global dynamics proof. Nonzero is not positive. No general symbolic work/RAM budget for mechanics determinant/adjugate operations.",
+      "units": "Caller-managed physical units/coordinate ordering; symbolic identities do not infer positivity or dimensions.",
+      "ownership": "Retains system/domain; field/equation arrays owned but mutable.",
+      "optional_dependencies": [],
+      "docstring_status": "ABSENT for Lagrangian public types/factory; BRIEF for Hamiltonian types",
+      "test_references": [
+        "test/architecture.jl:72"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F11.md",
+        "existing_sections": [
+          "docs/learned_dynamics.md:10",
+          "docs/m10d_architecture_inventory.md:62",
+          "docs/m10d_architecture_inventory.md:121",
+          "docs/m10d_integration_matrix.md:74",
+          "docs/m10d_integration_matrix.md:117",
+          "docs/m10d_interoperability_results.md:173",
+          "docs/mechanics.md:57"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F11",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "euler_lagrange",
+      "source_location": [
+        "src/mechanics/core.jl:193"
+      ],
+      "public_signature": [
+        "euler_lagrange(r::LagrangianAnalysis) = r.equations",
+        "euler_lagrange(s::LagrangianSystem) = euler_lagrange(analyze(s)) [generated by src/mechanics/core.jl:196-198]"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "LagrangianAnalysis or LagrangianSystem; energy_function also HamiltonianAnalysis/System",
+      "returns": "Borrowed vector of formal expressions equal to zero, with generated acceleration symbols",
+      "errors": [
+        "Underlying symbolic analysis errors propagate for System convenience methods"
+      ],
+      "numerical_limitations": "Formal smooth-original-locus identities under explicit finite parameter/nonzero assumptions; no global dynamics proof. Nonzero is not positive. No general symbolic work/RAM budget for mechanics determinant/adjugate operations.",
+      "units": "Caller-managed physical units/coordinate ordering; symbolic identities do not infer positivity or dimensions.",
+      "ownership": "Lagrangian accessors borrow arrays; System routes recompute analyze. Hamiltonian energy is stored expression.",
+      "optional_dependencies": [],
+      "docstring_status": "ABSENT for Lagrangian accessors",
+      "test_references": [
+        "test/architecture.jl:73",
+        "test/m10d_flagship.jl:43",
+        "test/mechanics.jl:30"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F10.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:61",
+          "docs/m10d_flagship_results.md:92",
+          "docs/mechanics.md:53"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "generalized_momenta",
+      "source_location": [
+        "src/mechanics/core.jl:191"
+      ],
+      "public_signature": [
+        "generalized_momenta(r::LagrangianAnalysis) = r.momenta",
+        "generalized_momenta(s::LagrangianSystem) = generalized_momenta(analyze(s)) [generated by src/mechanics/core.jl:196-198]"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "LagrangianAnalysis or LagrangianSystem; energy_function also HamiltonianAnalysis/System",
+      "returns": "Borrowed stored formal momentum vector",
+      "errors": [
+        "Underlying symbolic analysis errors propagate for System convenience methods"
+      ],
+      "numerical_limitations": "Formal smooth-original-locus identities under explicit finite parameter/nonzero assumptions; no global dynamics proof. Nonzero is not positive. No general symbolic work/RAM budget for mechanics determinant/adjugate operations.",
+      "units": "Caller-managed physical units/coordinate ordering; symbolic identities do not infer positivity or dimensions.",
+      "ownership": "Lagrangian accessors borrow arrays; System routes recompute analyze. Hamiltonian energy is stored expression.",
+      "optional_dependencies": [],
+      "docstring_status": "ABSENT for Lagrangian accessors",
+      "test_references": [
+        "test/architecture.jl:73",
+        "test/m10d_flagship.jl:44",
+        "test/mechanics.jl:28"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F10.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:61",
+          "docs/m10d_flagship_results.md:92",
+          "docs/mechanics.md:53"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "velocity_hessian",
+      "source_location": [
+        "src/mechanics/core.jl:192"
+      ],
+      "public_signature": [
+        "velocity_hessian(r::LagrangianAnalysis) = r.hessian",
+        "velocity_hessian(s::LagrangianSystem) = velocity_hessian(analyze(s)) [generated by src/mechanics/core.jl:196-198]"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "LagrangianAnalysis or LagrangianSystem; energy_function also HamiltonianAnalysis/System",
+      "returns": "Borrowed stored formal velocity Hessian matrix",
+      "errors": [
+        "Underlying symbolic analysis errors propagate for System convenience methods"
+      ],
+      "numerical_limitations": "Formal smooth-original-locus identities under explicit finite parameter/nonzero assumptions; no global dynamics proof. Nonzero is not positive. No general symbolic work/RAM budget for mechanics determinant/adjugate operations.",
+      "units": "Caller-managed physical units/coordinate ordering; symbolic identities do not infer positivity or dimensions.",
+      "ownership": "Lagrangian accessors borrow arrays; System routes recompute analyze. Hamiltonian energy is stored expression.",
+      "optional_dependencies": [],
+      "docstring_status": "ABSENT for Lagrangian accessors",
+      "test_references": [
+        "test/architecture.jl:73",
+        "test/mechanics.jl:29"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F10.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:61",
+          "docs/mechanics.md:53"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "energy_function",
+      "source_location": [
+        "src/mechanics/core.jl:194",
+        "src/mechanics/hamiltonian.jl:50",
+        "src/mechanics/hamiltonian.jl:52"
+      ],
+      "public_signature": [
+        "energy_function(r::LagrangianAnalysis) = r.energy",
+        "energy_function(r::HamiltonianAnalysis) = r.energy",
+        "energy_function(s::HamiltonianSystem) = energy_function(analyze(s))",
+        "energy_function(s::LagrangianSystem) [generated by src/mechanics/core.jl:196-198]"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "LagrangianAnalysis or LagrangianSystem; energy_function also HamiltonianAnalysis/System",
+      "returns": "Stored symbolic energy; L: v⋅p−L, H: H",
+      "errors": [
+        "Underlying symbolic analysis errors propagate for System convenience methods"
+      ],
+      "numerical_limitations": "Formal smooth-original-locus identities under explicit finite parameter/nonzero assumptions; no global dynamics proof. Nonzero is not positive. No general symbolic work/RAM budget for mechanics determinant/adjugate operations.",
+      "units": "Caller-managed physical units/coordinate ordering; symbolic identities do not infer positivity or dimensions.",
+      "ownership": "Lagrangian accessors borrow arrays; System routes recompute analyze. Hamiltonian energy is stored expression.",
+      "optional_dependencies": [],
+      "docstring_status": "ABSENT for Lagrangian accessors",
+      "test_references": [
+        "test/architecture.jl:73",
+        "test/m10d_flagship.jl:45",
+        "test/m10d_flagship.jl:48",
+        "test/m10d_interoperability.jl:194",
+        "test/mechanics.jl:26",
+        "test/mechanics.jl:108",
+        "test/mechanics_readiness.jl:63",
+        "test/mechanics_visualization.jl:12",
+        "test/mechanics_visualization.jl:22"
+      ],
+      "example_references": [
+        "examples/integration/one_system_many_methods.jl:162"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F10.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:61",
+          "docs/m10d_architecture_inventory.md:62",
+          "docs/m10d_flagship_results.md:92",
+          "docs/m10d_flagship_results.md:93",
+          "docs/m10d_flagship_results.md:97",
+          "docs/mechanics.md:54"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "cyclic_coordinates",
+      "source_location": [
+        "src/mechanics/core.jl:195"
+      ],
+      "public_signature": [
+        "cyclic_coordinates(r::LagrangianAnalysis) = r.cyclic",
+        "cyclic_coordinates(s::LagrangianSystem) = cyclic_coordinates(analyze(s)) [generated by src/mechanics/core.jl:196-198]"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "LagrangianAnalysis or LagrangianSystem; energy_function also HamiltonianAnalysis/System",
+      "returns": "Borrowed vector of coordinate/momentum/conservation named records",
+      "errors": [
+        "Underlying symbolic analysis errors propagate for System convenience methods"
+      ],
+      "numerical_limitations": "Formal smooth-original-locus identities under explicit finite parameter/nonzero assumptions; no global dynamics proof. Nonzero is not positive. No general symbolic work/RAM budget for mechanics determinant/adjugate operations.",
+      "units": "Caller-managed physical units/coordinate ordering; symbolic identities do not infer positivity or dimensions.",
+      "ownership": "Lagrangian accessors borrow arrays; System routes recompute analyze. Hamiltonian energy is stored expression.",
+      "optional_dependencies": [],
+      "docstring_status": "ABSENT for Lagrangian accessors",
+      "test_references": [
+        "test/architecture.jl:74",
+        "test/mechanics.jl:27"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F10.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:61",
+          "docs/mechanics.md:54"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F10",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "hamilton_equations",
+      "source_location": [
+        "src/mechanics/hamiltonian.jl:49",
+        "src/mechanics/hamiltonian.jl:51"
+      ],
+      "public_signature": [
+        "hamilton_equations(r::HamiltonianAnalysis) = copy(r.phase_field)",
+        "hamilton_equations(s::HamiltonianSystem) = hamilton_equations(analyze(s))"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "HamiltonianAnalysis or HamiltonianSystem",
+      "returns": "Fresh copy of canonical phase field in (q...,p...) order",
+      "errors": [
+        "Underlying symbolic errors propagate; legendre_transform throws for invalid/duplicate momenta/dimension, returns unknown on unsupported scientific inversion"
+      ],
+      "numerical_limitations": "Formal smooth-original-locus identities under explicit finite parameter/nonzero assumptions; no global dynamics proof. Nonzero is not positive. No general symbolic work/RAM budget for mechanics determinant/adjugate operations.",
+      "units": "Caller-managed physical units/coordinate ordering; symbolic identities do not infer positivity or dimensions.",
+      "ownership": "Fresh derived expressions; Legendre report retains source-derived domain restrictions; System convenience reanalyzes.",
+      "optional_dependencies": [],
+      "docstring_status": "PRESENT_OR_PARTIAL; see literal source declaration",
+      "test_references": [
+        "test/architecture.jl:74",
+        "test/m10d_flagship.jl:50",
+        "test/mechanics.jl:81",
+        "test/mechanics_readiness.jl:64"
+      ],
+      "example_references": [
+        "examples/integration/one_system_many_methods.jl:164",
+        "notebooks/mechanics_addendum.jl:34"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F11.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:62",
+          "docs/m10d_flagship_results.md:93",
+          "docs/mechanics.md:64"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F11",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "poisson_bracket",
+      "source_location": [
+        "src/mechanics/hamiltonian.jl:55",
+        "src/mechanics/hamiltonian.jl:60"
+      ],
+      "public_signature": [
+        "function poisson_bracket(r::HamiltonianAnalysis,A,B)",
+        "poisson_bracket(s::HamiltonianSystem,A,B) = poisson_bracket(analyze(s),A,B)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "HamiltonianAnalysis/System, A, B",
+      "returns": "Formal symbolic canonical {A,B}",
+      "errors": [
+        "Underlying symbolic errors propagate; legendre_transform throws for invalid/duplicate momenta/dimension, returns unknown on unsupported scientific inversion"
+      ],
+      "numerical_limitations": "Formal smooth-original-locus identities under explicit finite parameter/nonzero assumptions; no global dynamics proof. Nonzero is not positive. No general symbolic work/RAM budget for mechanics determinant/adjugate operations. Observable source restrictions are not certified.",
+      "units": "Caller-managed physical units/coordinate ordering; symbolic identities do not infer positivity or dimensions.",
+      "ownership": "Fresh derived expressions; Legendre report retains source-derived domain restrictions; System convenience reanalyzes.",
+      "optional_dependencies": [],
+      "docstring_status": "PRESENT_OR_PARTIAL; see literal source declaration",
+      "test_references": [
+        "test/architecture.jl:74",
+        "test/mechanics.jl:109",
+        "test/mechanics.jl:110"
+      ],
+      "example_references": [
+        "notebooks/mechanics.jl:20"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F11.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:62",
+          "docs/mechanics.md:64"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F11",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "observable_derivative",
+      "source_location": [
+        "src/mechanics/hamiltonian.jl:62",
+        "src/mechanics/hamiltonian.jl:66"
+      ],
+      "public_signature": [
+        "function observable_derivative(r::HamiltonianAnalysis,A)",
+        "observable_derivative(s::HamiltonianSystem,A) = observable_derivative(analyze(s),A)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "HamiltonianAnalysis/System, A",
+      "returns": "Formal partial_t(A)+{A,H}",
+      "errors": [
+        "Underlying symbolic errors propagate; legendre_transform throws for invalid/duplicate momenta/dimension, returns unknown on unsupported scientific inversion"
+      ],
+      "numerical_limitations": "Formal smooth-original-locus identities under explicit finite parameter/nonzero assumptions; no global dynamics proof. Nonzero is not positive. No general symbolic work/RAM budget for mechanics determinant/adjugate operations. Observable restrictions are not certified.",
+      "units": "Caller-managed physical units/coordinate ordering; symbolic identities do not infer positivity or dimensions.",
+      "ownership": "Fresh derived expressions; Legendre report retains source-derived domain restrictions; System convenience reanalyzes.",
+      "optional_dependencies": [],
+      "docstring_status": "PRESENT_OR_PARTIAL; see literal source declaration",
+      "test_references": [
+        "test/architecture.jl:75",
+        "test/mechanics.jl:111",
+        "test/mechanics.jl:114"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F11.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:62",
+          "docs/mechanics.md:65"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F11",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "force_from_potential",
+      "source_location": [
+        "src/mechanics/hamiltonian.jl:68"
+      ],
+      "public_signature": [
+        "force_from_potential(r::ScalarFieldAnalysis) = -gradient(r)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ScalarFieldAnalysis",
+      "returns": "Negative stored gradient (fresh vector)",
+      "errors": [
+        "Underlying symbolic errors propagate; legendre_transform throws for invalid/duplicate momenta/dimension, returns unknown on unsupported scientific inversion"
+      ],
+      "numerical_limitations": "Formal smooth-original-locus identities under explicit finite parameter/nonzero assumptions; no global dynamics proof. Nonzero is not positive. No general symbolic work/RAM budget for mechanics determinant/adjugate operations. Not an MD force engine.",
+      "units": "Caller-managed physical units/coordinate ordering; symbolic identities do not infer positivity or dimensions.",
+      "ownership": "Fresh derived expressions; Legendre report retains source-derived domain restrictions; System convenience reanalyzes.",
+      "optional_dependencies": [],
+      "docstring_status": "PRESENT_OR_PARTIAL; see literal source declaration",
+      "test_references": [
+        "test/architecture.jl:75",
+        "test/m10a_mechanics.jl:13",
+        "test/mechanics.jl:115",
+        "test/mechanics_readiness.jl:52",
+        "test/mechanics_readiness.jl:68"
+      ],
+      "example_references": [
+        "notebooks/mechanics_addendum.jl:29"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F11.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:62",
+          "docs/md-readiness.md:30",
+          "docs/mechanics.md:66"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F11",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "legendre_transform",
+      "source_location": [
+        "src/mechanics/legendre.jl:17",
+        "src/mechanics/legendre.jl:50"
+      ],
+      "public_signature": [
+        "function legendre_transform(r::LagrangianAnalysis;momenta=nothing)",
+        "legendre_transform(s::LagrangianSystem;kwargs...) = legendre_transform(analyze(s);kwargs...)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "LagrangianAnalysis/System; optional fresh distinct momenta names",
+      "returns": "PropertyResult.value HamiltonianAnalysis if verified, otherwise unknown/nothing",
+      "errors": [
+        "Underlying symbolic errors propagate; legendre_transform throws for invalid/duplicate momenta/dimension, returns unknown on unsupported scientific inversion"
+      ],
+      "numerical_limitations": "Formal smooth-original-locus identities under explicit finite parameter/nonzero assumptions; no global dynamics proof. Nonzero is not positive. No general symbolic work/RAM budget for mechanics determinant/adjugate operations. Only regular affine momentum-velocity inversion with zero forces/Rayleigh derivatives; no constrained or dissipative Hamiltonian conversion.",
+      "units": "Caller-managed physical units/coordinate ordering; symbolic identities do not infer positivity or dimensions.",
+      "ownership": "Fresh derived expressions; Legendre report retains source-derived domain restrictions; System convenience reanalyzes.",
+      "optional_dependencies": [],
+      "docstring_status": "PRESENT_OR_PARTIAL; see literal source declaration",
+      "test_references": [
+        "test/architecture.jl:74",
+        "test/m10a_mechanics.jl:46",
+        "test/m10d_interoperability.jl:190",
+        "test/mechanics.jl:35",
+        "test/mechanics.jl:54",
+        "test/mechanics.jl:75",
+        "test/mechanics.jl:76",
+        "test/mechanics.jl:78",
+        "test/mechanics.jl:82",
+        "test/mechanics.jl:84",
+        "test/mechanics.jl:86",
+        "test/mechanics.jl:89",
+        "test/mechanics.jl:93",
+        "test/mechanics_dynamics.jl:84",
+        "test/mechanics_dynamics.jl:99",
+        "test/mechanics_dynamics.jl:113"
+      ],
+      "example_references": [
+        "examples/integration/one_system_many_methods.jl:120",
+        "notebooks/mechanics.jl:15",
+        "notebooks/mechanics.jl:25",
+        "notebooks/mechanics.jl:26"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F12.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:63",
+          "docs/m10d_flagship_results.md:93",
+          "docs/m10d_integration_matrix.md:21",
+          "docs/m10d_integration_matrix.md:117",
+          "docs/mechanics.md:14",
+          "docs/mechanics.md:88"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F12",
+      "stability": "PUBLIC_STABLE",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    }
+  ],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

@@ -1,0 +1,1109 @@
+{
+  "schema_version": 1,
+  "head": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "audit_scope": "Bounded priority resource/refusal semantic audit, with full lexical src/ext search in refusal_sites.json",
+  "evidence": "SOURCE_INSPECTED; no expensive workflows or new tests executed",
+  "completion": "bounded grouped priority audit complete",
+  "storage_calculations": {
+    "method": "Python integer arithmetic, not observed memory",
+    "float64_matrix_3000": {
+      "entries": 9000000,
+      "bytes": 72000000,
+      "MiB": 68.66455078125
+    },
+    "normal_modes_3000": {
+      "estimated_bytes": 1728000000,
+      "GiB": 1.6093254089355469,
+      "default_budget_bytes": 536870912,
+      "default_refuses": true
+    },
+    "float64_matrix_32": {
+      "entries": 1024,
+      "bytes": 8192,
+      "caveat": "Symbolic graph/Hessian memory is not this Float64 payload."
+    }
+  },
+  "groups": [
+    {
+      "id": "RF001",
+      "operation": "analyze(scalar_expression, ordered_variables)",
+      "trigger": "Variable count outside inclusive 1..32",
+      "exact_error_or_status": "ArgumentError(\"between 1 and 32 variables are supported\")",
+      "actionability": "Reduce dimension or use a separate derivative workflow; 32 itself does not refuse.",
+      "configurable_control": "No public dimension/memory override; _mv_variables hard limit",
+      "default": {
+        "min_variables": 1,
+        "max_variables": 32
+      },
+      "units": "variable count",
+      "supported_alternative": "Supplied matrices may instead enter normal_modes(K,M); that does not compute derivatives.",
+      "source_refs": [
+        "src/multivariate_analysis.jl:35-47",
+        "src/multivariate_analysis.jl:283-303"
+      ],
+      "test_refs": [
+        "test/multivariate_regressions.jl:44-46"
+      ],
+      "wiki_target": "Scalar-fields#supported-dimensions",
+      "priority": "P0",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": [
+        "Check runs before symbolic Hessian allocation. Exactly 32 proceeds to dense symbolic entries and n\u00b2 compiled functions. No source-derived bound on symbolic graph size or compilation RAM."
+      ]
+    },
+    {
+      "id": "RF002",
+      "operation": "normal_modes(K::AbstractMatrix,M::AbstractMatrix)",
+      "trigger": "24*8*n\u00b2 > max_memory_bytes",
+      "exact_error_or_status": "ArgumentError(\"normal_modes full dense solve n=$n estimates $estimated_bytes bytes (including workspace), exceeding max_memory_bytes=$max_memory_bytes; use a structured/partial eigensolver when only a few modes are required, or explicitly raise the budget.\")",
+      "actionability": "Reduce problem or explicitly raise budget after independently estimating available memory.",
+      "configurable_control": "PUBLIC keyword max_memory_bytes::Integer",
+      "default": {
+        "max_memory_bytes": 536870912,
+        "estimate": "24*sizeof(Float64)*big(n)^2"
+      },
+      "units": "bytes; matrices dimension n",
+      "supported_alternative": "External structured/partial eigensolver; no generic AML public partial route. ControlledModes.partial_chain is maintainer-only and chain-specific.",
+      "source_refs": [
+        "src/mechanics/normal_modes.jl:149-186",
+        "src/mechanics/normal_modes.jl:196-253"
+      ],
+      "test_refs": [
+        "test/m10c_partial_modes.jl:4-17"
+      ],
+      "wiki_target": "Normal-modes#dense-memory-budget",
+      "priority": "P0",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": [
+        "Direct matrix refusal precedes coefficient traversal, metadata copies and dense conversion. Sparse/Diagonal inputs do not select a sparse route. Estimate excludes symbolic input graphs and metadata; not peak RSS."
+      ]
+    },
+    {
+      "id": "RF003",
+      "operation": "normal_modes(K,M; max_memory_bytes,atol,rtol)",
+      "trigger": "Nonpositive or Bool memory budget; invalid tolerances; invalid matrix dimensions",
+      "exact_error_or_status": {
+        "errors": [
+          "ArgumentError(\"max_memory_bytes must be a positive integer\")",
+          "DimensionMismatch(\"K and M must be equal nonempty square matrices\")",
+          "ArgumentError(\"tolerances must be finite and nonnegative\")",
+          "ArgumentError(\"tolerances must be representable as Float64\")"
+        ]
+      },
+      "actionability": "Supply equal nonempty square matrices, positive non-Bool integer bytes, nonnegative Float64-representable tolerances.",
+      "configurable_control": "PUBLIC max_memory_bytes::Integer, atol::Real, rtol::Real",
+      "default": {
+        "max_memory_bytes": 536870912,
+        "atol": 1e-10,
+        "rtol": 1e-08
+      },
+      "units": "bytes; atol in numeric coefficient/spectral scales; rtol dimensionless",
+      "supported_alternative": "Use explicitly scaled finite real matrices and preserve physical scaling externally or through snapshot adapter.",
+      "source_refs": [
+        "src/mechanics/normal_modes.jl:174-194"
+      ],
+      "test_refs": [
+        "test/m10c_partial_modes.jl:17",
+        "test/normal_modes.jl"
+      ],
+      "wiki_target": "Normal-modes#input-contract",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": [
+        "Non-integer max_memory_bytes may fail keyword type checking rather than the explicit ArgumentError."
+      ]
+    },
+    {
+      "id": "RF004",
+      "operation": "normal_modes(snapshot;hessian=H,kwargs...)",
+      "trigger": "Missing Hessian, invalid physical prerequisites, inconsistent units or shape",
+      "exact_error_or_status": {
+        "status": "evidence.status=:unknown; numerical fields nothing",
+        "notes": [
+          "Cartesian Hessian unavailable; no derivative or eigensolver invoked.",
+          "Finite Cartesian coordinates and positive masses required.",
+          "Coordinates, masses and Hessian must all have units or all be unitless.",
+          "Mass units must be mass or molar mass.",
+          "Incompatible coordinate, mass or Hessian units."
+        ],
+        "shape_error": "DimensionMismatch(\"Hessian must be Nd by Nd in particle-major order.\")"
+      },
+      "actionability": "Supply caller-computed particle-major Cartesian energy Hessian, finite coordinates, positive masses and compatible scales; do not infer equilibrium.",
+      "configurable_control": "PUBLIC hessian; kwargs forwards max_memory_bytes to matrix solve",
+      "default": {
+        "hessian": null,
+        "equilibrium_status": "not_verified"
+      },
+      "units": "n=N*d; length/mass/stiffness scales; angular frequencies sqrt(stiffness_scale/mass_scale)",
+      "supported_alternative": "Call direct normal_modes(K,M) for a preflight before coefficient traversal; retain explicit order/scaling responsibility.",
+      "source_refs": [
+        "src/atomistic/modes.jl:16-56"
+      ],
+      "test_refs": [
+        "test/atomistic_modes.jl"
+      ],
+      "wiki_target": "Atomistic-analysis#supplied-hessian",
+      "priority": "P0",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": [
+        "Adapter traverses H and allocates scaled kn at line 41 before direct matrix budget gate; forwarded budget does not protect all upstream allocations."
+      ]
+    },
+    {
+      "id": "RF005",
+      "operation": "Real exact algebra / scalar-field domain and exact stationary search",
+      "trigger": "Degree, projected coefficient bits, work or syntax node/depth budget exhausted",
+      "exact_error_or_status": {
+        "status": ":unknown",
+        "method": ":resource_budget",
+        "note": "Conservative algebraic resource budget exceeded",
+        "internal_exception": "_RABudgetExceeded()"
+      },
+      "actionability": "Use a supported simpler expression; do not present unknown as proof of no roots or recommend bounds as recovery from this budget.",
+      "configurable_control": "INTERNAL _RA_MAX_DEGREE/_RA_MAX_BITS/_RA_MAX_WORK plus fixed _ra_preflight; no public override",
+      "default": {
+        "degree": 64,
+        "bits": 4096,
+        "work": 200000,
+        "syntax_nodes": 512,
+        "syntax_depth": 48
+      },
+      "units": "polynomial degree; coefficient bits; charged work units; syntax nodes/depth",
+      "supported_alternative": "Independent external numerical reasoning with its own domain/evidence; AML bounded fallback only for unsupported exact classes with established domain, not resource exhaustion.",
+      "source_refs": [
+        "src/core/exact_algebra.jl:1-46",
+        "src/real_analysis.jl:130-164",
+        "src/multivariate_analysis.jl:304-338"
+      ],
+      "test_refs": [
+        "test/real_analysis_core.jl:24-45",
+        "test/multivariate_regressions.jl:37-42"
+      ],
+      "wiki_target": "Errors-and-status#exact-resource-budget",
+      "priority": "P0",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": [
+        "Not a total process memory bound; excludes caller expression construction and Symbolics compilation. Scalar-field derivatives are built before this domain/exact-search budget."
+      ]
+    },
+    {
+      "id": "RF006",
+      "operation": "analyze(scalar_expression,variables; bounds,grid,iterations)",
+      "trigger": "Bounded Cartesian seeds exceed 50000; exact separable root products exceed 4096; invalid controls",
+      "exact_error_or_status": {
+        "cartesian_error": "ArgumentError(\"Cartesian search exceeds its resource budget\")",
+        "exact_search_translation": "_RABudgetExceeded -> stationary_points.status=:unknown, method=:resource_budget",
+        "validation_errors": [
+          "ArgumentError(\"grid must be between 2 and 25\")",
+          "ArgumentError(\"iterations must be between 1 and 200\")"
+        ]
+      },
+      "actionability": "Reduce grid/dimension or omit bounds when exact analysis is sufficient; more iterations does not override product cap.",
+      "configurable_control": "PUBLIC bounds/grid/iterations; product caps INTERNAL",
+      "default": {
+        "bounds": null,
+        "grid": 7,
+        "iterations": 40,
+        "grid_range": [
+          2,
+          25
+        ],
+        "iterations_range": [
+          1,
+          200
+        ],
+        "numerical_seed_limit": 50000,
+        "exact_cartesian_limit": 4096
+      },
+      "units": "seed/candidate counts and Newton iterations",
+      "supported_alternative": "Supported exact affine-gradient or separable-polynomial class; bounded Newton only after unsupported exact class and established domain.",
+      "source_refs": [
+        "src/multivariate_analysis.jl:50-60",
+        "src/multivariate_analysis.jl:213-242",
+        "src/multivariate_analysis.jl:283-338"
+      ],
+      "test_refs": [
+        "test/multivariate_regressions.jl:39-42"
+      ],
+      "wiki_target": "Scalar-fields#bounded-search",
+      "priority": "P0",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": [
+        "Grid product validation occurs after derivatives, compilation and exact search, even if exact raw candidates already exist. Generic final note suggests bounds even when resource_budget/unknown_domain will not use them."
+      ]
+    },
+    {
+      "id": "RF007",
+      "operation": "pair_distances(snapshot;species,max_pairs,max_bytes)",
+      "trigger": "Selected pair count or estimated output bytes exceeds cap",
+      "exact_error_or_status": {
+        "status": ":unknown",
+        "method": ":unavailable",
+        "value": null,
+        "note": "Pair output refused: N=$(length(s.positions)), pairs=$pairs_count, estimated bytes=$estimated_bytes; max_pairs=$max_pairs, max_bytes=$max_bytes. Use streaming RDF or coordination for bounded-output summaries (still quadratic work)."
+      },
+      "actionability": "Use bounded-output RDF/coordination if pair list not needed, or explicitly raise pair/byte controls.",
+      "configurable_control": "PUBLIC max_pairs and max_bytes",
+      "default": {
+        "max_pairs": 1000000,
+        "max_bytes": 536870912,
+        "estimate": "64*pairs_count + sizeof(Int)*(length(A)+length(B))"
+      },
+      "units": "pairs; estimated bytes",
+      "supported_alternative": "radial_distribution / coordination perform streaming pair traversal with bounded aggregate output, still quadratic work.",
+      "source_refs": [
+        "src/atomistic/core.jl:87-123"
+      ],
+      "test_refs": [
+        "test/m10c_atomistic_scale.jl:1-22",
+        "test/atomistic_core.jl:52"
+      ],
+      "wiki_target": "Atomistic-analysis#pair-output-budget",
+      "priority": "P0",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": [
+        "Selection arrays allocated before budget comparison. Fixed width estimate is not a bound for BigFloat/backend quantities; Bool is accepted by these Integer checks unlike normal_modes."
+      ]
+    },
+    {
+      "id": "RF008",
+      "operation": "normal_modes(K,M): scientific/numerical admissibility",
+      "trigger": "Unbound/nonfinite/unrepresentable coefficients, asymmetry, non-SPD or numerically unresolved mass, nonfinite/underflow arithmetic",
+      "exact_error_or_status": {
+        "status": "evidence.status=:unknown",
+        "method": ":unsupported",
+        "value": "normal-mode numerical fields nothing",
+        "notes": [
+          "Bind all parameters to finite Float64-representable real coefficients.",
+          "Stiffness matrix is not symmetric within tolerance.",
+          "Mass matrix is not symmetric within tolerance.",
+          "Mass Cholesky factorization did not establish positive definiteness.",
+          "Mass positivity/numerical rank is unresolved; singular, indefinite or numerically ill-conditioned masses are unsupported.",
+          "Mass weighting underflowed a nonzero stiffness entry.",
+          "Nonfinite spectrum.",
+          "Nonfinite eigenpair diagnostics."
+        ]
+      },
+      "actionability": "Bind parameters; scale matrices sensibly and ensure symmetric K/SPD M. Do not erase negative stiffness eigenvalues: those are unstable modes with missing real frequencies, not a refusal.",
+      "configurable_control": "PUBLIC atol,rtol; internal Float64 rank floor",
+      "default": {
+        "atol": 1e-10,
+        "rtol": 1e-08,
+        "mass_rank_threshold": "n*eps(Float64)*maximum(abs,mass.values)"
+      },
+      "units": "coefficient/spectral numerical scales; rtol dimensionless",
+      "supported_alternative": "Use a solver supporting the actual indefinite/singular/damped problem outside this undamped SPD contract.",
+      "source_refs": [
+        "src/mechanics/normal_modes.jl:111-127",
+        "src/mechanics/normal_modes.jl:201-250",
+        "src/mechanics/core.jl:10"
+      ],
+      "test_refs": [
+        "test/normal_modes.jl:48-53",
+        "test/m10b_linear_algebra.jl:47-111"
+      ],
+      "wiki_target": "Normal-modes#unknown-is-not-empty-spectrum",
+      "priority": "P0",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF009",
+      "operation": "linearize_mechanics / normal_modes(mechanical_linearization)",
+      "trigger": "Equilibrium or original smooth domain not established, explicit time dependence, or nonzero damping/gyroscopic matrix",
+      "exact_error_or_status": {
+        "status": "evidence.status=:unknown",
+        "notes": [
+          "Zero equilibrium EL residual was not established.",
+          "Explicit-time mechanical linearization is unsupported.",
+          "Mechanical linearization is not established on the original smooth domain.",
+          "Nonzero damping or gyroscopic matrix: undamped normal modes are unsupported."
+        ]
+      },
+      "actionability": "Bind remaining parameters and establish equilibrium/smooth original domain. Damping must simplify identically to zero, not merely be below tolerance.",
+      "configurable_control": "PUBLIC parameters; no damping-ignore or equilibrium-tolerance override",
+      "default": {
+        "parameters": "Dict()"
+      },
+      "units": "formal M,C,K coefficients and coordinate order; no inferred physical units",
+      "supported_alternative": "Retain formal MechanicalLinearization matrices for inspection; use a separate quadratic eigenproblem for damping.",
+      "source_refs": [
+        "src/mechanics/normal_modes.jl:31-79",
+        "src/mechanics/normal_modes.jl:256-279"
+      ],
+      "test_refs": [
+        "test/normal_modes.jl:72-100",
+        "test/m10d_interoperability.jl:207-212"
+      ],
+      "wiki_target": "Normal-modes#mechanical-preconditions",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF010",
+      "operation": "FirstOrderODE / trajectory",
+      "trigger": "State count outside 1..32; invalid or unresolved domain/RHS; invalid Float64 initial data",
+      "exact_error_or_status": {
+        "errors": [
+          "ArgumentError(\"between 1 and 32 states are supported\")",
+          "DomainError((u,t),\"ODE evaluation outside the known domain, or membership unresolved; integration stopped\")",
+          "DomainError(value,\"ODE right-hand side is not representable in Float64\")",
+          "DomainError(u0,\"initial state must be representable in Float64\")"
+        ]
+      },
+      "actionability": "Use valid finite states inside a domain returning true, including solver trial stages. This does not locate a domain boundary.",
+      "configurable_control": "No public state-cap override; PUBLIC domain predicate and labels",
+      "default": {
+        "min_states": 1,
+        "max_states": 32,
+        "domain": "(u,t)->true"
+      },
+      "units": "state count; numeric Float64 state/time; physical units not inferred",
+      "supported_alternative": "Native SciML for large numerical systems; _scale_ode_problem is internal maintainer infrastructure, not a public replacement.",
+      "source_refs": [
+        "src/dynamical_systems/integration.jl:14-19",
+        "src/dynamical_systems/integration.jl:43-59",
+        "src/dynamical_systems/scaling.jl:1-42"
+      ],
+      "test_refs": [
+        "test/trajectories.jl:15-25",
+        "test/trajectories.jl:45-49"
+      ],
+      "wiki_target": "Dynamics#small-state-and-domain-contract",
+      "priority": "P0",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF011",
+      "operation": "trajectory(problem,u0,tspan;saveat,dt,maxiters)",
+      "trigger": "Invalid stop spacing or >1000000 requested intervals; positive controls required; solver may stop early",
+      "exact_error_or_status": {
+        "errors": [
+          "ArgumentError(\"saveat requires a finite time span and at most 1000000 intervals\")",
+          "ArgumentError(\"saveat grid points must be distinct and finite in Float64\")",
+          "ArgumentError(\"maxiters must be positive\")"
+        ],
+        "nonexception_outcome": "TrajectoryResult with diagnostics.success, completed, retcode and final_time; native partial solution retained"
+      },
+      "actionability": "Increase saveat spacing/reduce span; inspect diagnostics independently. Raising maxiters does not raise stop-grid cap.",
+      "configurable_control": "PUBLIC saveat, dt, maxiters, abstol,reltol,algorithm; interval cap INTERNAL",
+      "default": {
+        "saveat": null,
+        "dt": null,
+        "maxiters": 100000,
+        "abstol": 1e-09,
+        "reltol": 1e-07,
+        "algorithm": "Tsit5()",
+        "stop_interval_limit": 1000000
+      },
+      "units": "saveat/dt in numerical time scale; iteration and interval counts",
+      "supported_alternative": "Saved partial samples can become observable_series; dataset bridge refuses incomplete runs.",
+      "source_refs": [
+        "src/dynamical_systems/integration.jl:62-131"
+      ],
+      "test_refs": [
+        "test/trajectories.jl",
+        "test/m10d_interoperability.jl:73-86",
+        "test/m10d_interoperability.jl:163-164"
+      ],
+      "wiki_target": "Dynamics#saving-and-partial-results",
+      "priority": "P0",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": [
+        "saveat forces accepted stops and retains every adaptive sample; not exclusive uniform output or a byte cap."
+      ]
+    },
+    {
+      "id": "RF012",
+      "operation": "legendre_transform(lagrangian)",
+      "trigger": "Unproven regularity, forced/dissipative model, nonlinear momentum-velocity map, or failed symbolic substitution",
+      "exact_error_or_status": {
+        "status": ":unknown",
+        "notes": [
+          "Legendre inversion requires proven regularity.",
+          "Ordinary Hamiltonian conversion does not represent dissipative or forced dynamics.",
+          "Only affine momentum-velocity maps are supported.",
+          "Momentum substitution did not verify.",
+          "Energy substitution did not verify."
+        ]
+      },
+      "actionability": "Provide explicit justified nonzero assumptions and supported regular conservative affine model, not fabricated regularity.",
+      "configurable_control": "PUBLIC momenta; regularity/nonzero assumptions belong to source constructor",
+      "default": {
+        "momenta": null
+      },
+      "units": "symbolic canonical coordinate/momentum order",
+      "supported_alternative": "Stay with Lagrangian equations/dynamics if valid; no implicit constrained Hamiltonian conversion.",
+      "source_refs": [
+        "src/mechanics/legendre.jl:17-48",
+        "src/mechanics/core.jl:183-184"
+      ],
+      "test_refs": [
+        "test/mechanics_readiness.jl"
+      ],
+      "wiki_target": "Mechanics#legendre-refusals",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF013",
+      "operation": "gradient/hessian/directional_derivative/linearization of scalar fields",
+      "trigger": "Point not in a supported open smooth original-domain neighborhood",
+      "exact_error_or_status": {
+        "errors": [
+          "DomainError(point, \"gradient requires a supported open smooth neighborhood\")",
+          "DomainError(point, \"Hessian requires a supported open smooth neighborhood\")",
+          "DomainError(point, \"directional derivative requires a supported open smooth neighborhood\")",
+          "DomainError(point, \"linearization requires a supported open smooth neighborhood\")"
+        ]
+      },
+      "actionability": "Choose a supported smooth point; preserve captured original syntax so cancellation does not remove holes/cusps.",
+      "configurable_control": "No bypass keyword; point and original_expression define scope",
+      "default": {},
+      "units": "ordered finite real coordinates; not general unit conversion",
+      "supported_alternative": "Inspect symbolic gradient(report)/hessian(report) without claiming numerical validity at an excluded point.",
+      "source_refs": [
+        "src/multivariate_analysis.jl:62-115",
+        "src/multivariate_analysis.jl:345-363"
+      ],
+      "test_refs": [
+        "test/multivariate_regressions.jl:4-23"
+      ],
+      "wiki_target": "Scalar-fields#domain-refusals",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF014",
+      "operation": "Optional PINN construction/training/prediction wrappers",
+      "trigger": "PINN extension not active",
+      "exact_error_or_status": "ArgumentError(\"Load Lux, NeuralPDE, ModelingToolkit, Optimization and SymbolicIndexingInterface to activate the optional AnalyticMathLab PINN extension; see docs/scientific_ml.md.\")",
+      "actionability": "Load all five actual triggers in the supported environment; no guessed transitive activation.",
+      "configurable_control": "Package activation; not a numerical keyword",
+      "default": {
+        "backend": "absent unless extension triggers loaded"
+      },
+      "units": "not applicable",
+      "supported_alternative": "Base sampled_summary and explicit core data records do not require training backend.",
+      "source_refs": [
+        "src/scientific_ml/pinn.jl:62-65"
+      ],
+      "test_refs": [
+        "test/pinn_base.jl:8-18",
+        "test/m10d_user_inputs.jl:41-43"
+      ],
+      "wiki_target": "Optional-backends#pinn",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF015",
+      "operation": "infer_parameters / scientific learning / typed learned dynamics",
+      "trigger": "Required optional extension absent",
+      "exact_error_or_status": {
+        "errors": [
+          "ArgumentError(\"load Optimization to activate deterministic parameter inference\")",
+          "ArgumentError(\"load Lux, Optimization and NeuralOperators for scientific learning\")",
+          "ArgumentError(\"Load Lux and Optimization to use learned dynamics; the optional AnalyticMathLabDynamicsExt backend is not active.\")"
+        ],
+        "activated_unsupported_dispatch": "_dynamics_unavailable throws MethodError(f,args) if backend active but no supported method"
+      },
+      "actionability": "Load exact family triggers. Surrogate path requires NeuralOperators even for a plain Lux surrogate.",
+      "configurable_control": "Package activation; no memory override",
+      "default": {
+        "inference_triggers": [
+          "Optimization"
+        ],
+        "learning_triggers": [
+          "Lux",
+          "Optimization",
+          "NeuralOperators"
+        ],
+        "learned_dynamics_triggers": [
+          "Lux",
+          "Optimization"
+        ]
+      },
+      "units": "not applicable",
+      "supported_alternative": "Core forward inference/data construction can be used without optimizer extension where documented.",
+      "source_refs": [
+        "src/scientific_ml/parameter_inference.jl:191-194",
+        "src/scientific_ml/surrogates.jl:221-224",
+        "src/scientific_ml/learned_dynamics.jl:58-61"
+      ],
+      "test_refs": [
+        "test/m10d_user_inputs.jl:45-48",
+        "test/m10d_user_optional.jl"
+      ],
+      "wiki_target": "Optional-backends#activation-and-dispatch",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF016",
+      "operation": "PINNHistory / PINN train / infer_parameters history",
+      "trigger": "Invalid history controls; capacity exhausted",
+      "exact_error_or_status": {
+        "errors": [
+          "ArgumentError(\"history stride must be positive\")",
+          "ArgumentError(\"history capacity must be positive\")",
+          "ArgumentError(\"history stride and capacity must be positive\")",
+          "ArgumentError(\"positive iteration/history controls required\")"
+        ],
+        "structured_outcome": "history.truncated=true; first stored entries retained when full, not an aborted solve"
+      },
+      "actionability": "Set positive stride/capacity and inspect truncation. History capacity bounds recorded diagnostics, not model/optimizer RAM.",
+      "configurable_control": "PUBLIC stride/capacity; PINN train log_every/history_capacity; inference history_stride/history_capacity",
+      "default": {
+        "PINNHistory.stride": 10,
+        "PINNHistory.capacity": 1000,
+        "PINN_train.log_every": 10,
+        "PINN_train.history_capacity": 1000,
+        "inference.history_stride": 10,
+        "inference.history_capacity": 1000
+      },
+      "units": "iterations between records and record count",
+      "supported_alternative": "Increase capacity deliberately or reduce logging frequency; do not interpret omitted late records as convergence.",
+      "source_refs": [
+        "src/scientific_ml/pinn.jl:24-37",
+        "ext/AnalyticMathLabPINNExt.jl:89-149",
+        "ext/AnalyticMathLabInferenceExt.jl:6-49"
+      ],
+      "test_refs": [
+        "test/pinn_base.jl:14-18"
+      ],
+      "wiki_target": "Scientific-ML#bounded-history",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF017",
+      "operation": "train scientific surrogate / train learned dynamics",
+      "trigger": "Iteration/history limits outside hard range",
+      "exact_error_or_status": {
+        "errors": [
+          "ArgumentError(\"bounded positive training/history limits required\")",
+          "ArgumentError(\"maxiters must be between 1 and 10000\")",
+          "ArgumentError(\"history_limit must be between 1 and 10000\")"
+        ]
+      },
+      "actionability": "Choose supported positive counts; retained history is bounded but not whole-training memory.",
+      "configurable_control": "PUBLIC maxiters/history_limit; hard maxima INTERNAL",
+      "default": {
+        "surrogate.maxiters": "required; 1..100000",
+        "surrogate.history_limit": 100,
+        "learned_dynamics.maxiters": 100,
+        "learned_dynamics.maxiters_range": [
+          1,
+          10000
+        ],
+        "learned_dynamics.history_limit": 100,
+        "history_limit_range": [
+          1,
+          10000
+        ]
+      },
+      "units": "iterations and history records",
+      "supported_alternative": "Continue only through explicitly supported training calls; no public global memory cap.",
+      "source_refs": [
+        "ext/AnalyticMathLabSurrogateExt.jl:77-101",
+        "ext/AnalyticMathLabDynamicsExt.jl:53-78"
+      ],
+      "test_refs": [],
+      "wiki_target": "Scientific-ML#training-limits",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": [
+        "No matching dedicated hard-maximum test was established in this bounded inspection; test coverage unresolved."
+      ]
+    },
+    {
+      "id": "RF018",
+      "operation": "pinn_problem / optional neural predictions",
+      "trigger": "Stateful networks, ambiguous multi-output layout or unsupported backend cost layout",
+      "exact_error_or_status": {
+        "errors": [
+          "ArgumentError(\"multiple dependent variables require explicit network_layout=:shared or :separate\")",
+          "ArgumentError(\"NeuralPDE 7.3 uses stateless_apply: stateful Lux layers are unsupported, not silently frozen or discarded\")",
+          "ArgumentError(\"backend cost layout is unsupported; cannot label components safely\")",
+          "ArgumentError(\"state-changing networks unsupported; use deterministic stateless layers\")"
+        ]
+      },
+      "actionability": "Use supported genuine stateless Lux layers, explicit output layout and unchanged coordinate/output ordering; do not silently freeze state.",
+      "configurable_control": "PUBLIC network_layout; prediction batch_size; no automatic device transfer or arbitrary state support",
+      "default": {
+        "network_layout": ":auto",
+        "batch_size": null
+      },
+      "units": "coordinate rows/output rows; batch points",
+      "supported_alternative": "Separate stateless networks for distinct ordered dependent-variable arguments when supported.",
+      "source_refs": [
+        "ext/AnalyticMathLabPINNExt.jl:18-64",
+        "ext/AnalyticMathLabPINNExt.jl:154-192",
+        "ext/AnalyticMathLabSurrogateExt.jl:33-51"
+      ],
+      "test_refs": [
+        "test/pinn_construction.jl"
+      ],
+      "wiki_target": "Scientific-ML#backend-shape-and-state",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF019",
+      "operation": "PINN analyze/reference diagnostics / learned global validity",
+      "trigger": "No reference, no explicit residual points, unsupported adaptive-loss API or no independent physics validation",
+      "exact_error_or_status": {
+        "statuses": [
+          "reference.status=:unknown, method=:reference_unavailable",
+          "residual.evidence.status=:unknown, method=:not_evaluated",
+          "adaptive.status=:unknown, method=:unsupported_backend_api",
+          "physical_validation.status=:unknown, method=:physical_validation_not_performed",
+          "generalization.status=:unknown, method=:global_generalization_not_established"
+        ],
+        "notes": [
+          "No reference supplied; residual evidence remains useful.",
+          "Small sampled residuals do not prove global PDE correctness."
+        ]
+      },
+      "actionability": "Provide explicit ordered PINNPoints and a trusted reference for sampled diagnostics; keep global validity unestablished.",
+      "configurable_control": "PUBLIC residual_points/reference/reference_points/condition_roles/relative_guard; no certify-global keyword",
+      "default": {
+        "relative_guard": 1e-12,
+        "reference": null
+      },
+      "units": "residual-block-specific physical meaning; no cross-unit aggregation claim",
+      "supported_alternative": "Report per-block sampled evidence and independent reference trust; no built-in adaptive-loss strategy promised.",
+      "source_refs": [
+        "ext/pinn_diagnostics.jl:85-151",
+        "ext/AnalyticMathLabPINNExt.jl:134-149",
+        "ext/AnalyticMathLabSurrogateExt.jl:99-102"
+      ],
+      "test_refs": [
+        "test/pinn_diagnostics_base.jl"
+      ],
+      "wiki_target": "Scientific-ML#unknown-validation",
+      "priority": "P0",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF020",
+      "operation": "infer_parameters forward solve / learned UDE trajectory objective",
+      "trigger": "Unsuccessful or incomplete forward integration",
+      "exact_error_or_status": {
+        "errors": [
+          "ErrorException(\"forward solve failed or incomplete: $(sol.retcode)\")",
+          "ErrorException(\"training trajectory did not complete: $(sol.retcode)\")"
+        ]
+      },
+      "actionability": "Inspect solver/model/domain and numerical controls; do not fit incomplete targets as though completion were successful.",
+      "configurable_control": "PUBLIC solver controls on ParameterInferenceProblem and dynamics_objective",
+      "default": {
+        "ParameterInferenceProblem.abstol": 1e-10,
+        "ParameterInferenceProblem.reltol": 1e-09,
+        "ParameterInferenceProblem.maxiters": 100000,
+        "UDE_objective.abstol": 1e-09,
+        "UDE_objective.reltol": 1e-07,
+        "UDE_objective.maxiters": 10000
+      },
+      "units": "solver tolerance numerical scales and iteration counts",
+      "supported_alternative": "Use trajectory for a retained native partial result when exploration rather than objective evaluation is intended.",
+      "source_refs": [
+        "src/scientific_ml/parameter_inference.jl:61-94",
+        "src/scientific_ml/parameter_inference.jl:117-123",
+        "ext/AnalyticMathLabDynamicsExt.jl:38-48"
+      ],
+      "test_refs": [
+        "test/inference_base.jl"
+      ],
+      "wiki_target": "Inference#forward-failure",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF021",
+      "operation": "Float64-only data/diagnostic boundaries using _checked_float64",
+      "trigger": "Nonreal/NaN, nonfinite, or conversion loses range or exact equality to source",
+      "exact_error_or_status": {
+        "errors": [
+          "ArgumentError(\"$argument must be real and not NaN\")",
+          "ArgumentError(\"$argument must be finite\")",
+          "ArgumentError(\"$argument must be representable in Float64\")",
+          "ArgumentError(\"$argument loses range or precision in Float64; explicitly round before this Float64-only path\")"
+        ]
+      },
+      "actionability": "Explicitly round/nondimensionalize upstream if that approximation is intended; do not assume generic precision preservation.",
+      "configurable_control": "INTERNAL helper allow_infinite=false, selectively used for parameter bounds; not universal public keyword",
+      "default": {
+        "allow_infinite": false
+      },
+      "units": "representation/precision, not automatic physical-unit conversion",
+      "supported_alternative": "Other generic arithmetic paths may preserve numeric types; consult operation-specific contract.",
+      "source_refs": [
+        "src/core/contracts.jl:4-17",
+        "src/scientific_ml/parameter_inference.jl:19-29",
+        "src/scientific_ml/surrogates.jl:49-56"
+      ],
+      "test_refs": [
+        "test/m10b_diagnostics.jl",
+        "test/m10b_inference_scaling.jl"
+      ],
+      "wiki_target": "Data-contracts#float64-boundaries",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": [
+        "Do not apply this strict equality rule to normal_modes or trajectory: those use different finite/range/underflow checks."
+      ]
+    },
+    {
+      "id": "RF022",
+      "operation": "Molly atomistic_snapshot/atomistic_trajectory/observable_series",
+      "trigger": "GPU or non-Array storage; absent fixed-box assertion/loggers; misaligned logger history",
+      "exact_error_or_status": {
+        "errors": [
+          "ArgumentError(\"M8A scalar analysis does not support GPU systems; explicitly transfer upstream if desired.\")",
+          "ArgumentError(\"M8A Molly adapter requires CPU Array storage; no implicit host copies are made.\")",
+          "ArgumentError(\"Explicit fixed_box=true assertion required; historical boxes are not stored by Molly coordinate loggers.\")",
+          "ArgumentError(\"A Molly CoordinatesLogger is required.\")",
+          "ArgumentError(\"Coordinate and velocity logger strides differ.\")",
+          "DimensionMismatch(\"Logger frame counts differ.\")",
+          "ArgumentError(\"Only stored Molly energy/temperature scalar loggers are supported.\")"
+        ]
+      },
+      "actionability": "Explicitly supply CPU arrays and trustworthy fixed box/particle identity/logger synchronization; transfer upstream intentionally. Supply actual times, not guessed dt from stride.",
+      "configurable_control": "PUBLIC fixed_box,times,logger selection,copy_data; no implicit host transfer",
+      "default": {
+        "fixed_box": false,
+        "times": null,
+        "copy_data": false,
+        "observables": false
+      },
+      "units": "native Unitful quantities; times may remain unknown",
+      "supported_alternative": "Generic AtomisticSnapshot / AtomisticTrajectoryView with explicitly valid source semantics.",
+      "source_refs": [
+        "ext/AnalyticMathLabMollyExt.jl:15-19",
+        "ext/AnalyticMathLabMollyExt.jl:74-125"
+      ],
+      "test_refs": [
+        "test/m10d_user_optional.jl:39-40",
+        "test/molly_trajectory_statistics.jl"
+      ],
+      "wiki_target": "Optional-backends#Molly-refusals",
+      "priority": "P0",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF023",
+      "operation": "observable_series(TrajectoryResult)",
+      "trigger": "Missing/ambiguous selector, non-scalar/nonfinite observations, unit mixing or incompatible saved time order",
+      "exact_error_or_status": {
+        "errors": [
+          "ArgumentError(\"select exactly one component or scalar observable(u,t)\")",
+          "ArgumentError(\"component label must identify exactly one stored coordinate\")",
+          "ArgumentError(\"selected observations must be finite real scalars; no samples are dropped\")",
+          "ArgumentError(\"observable cannot mix unit-bearing values with unknown unitless values\")",
+          "ArgumentError(\"observable units must have compatible dimensions across saved samples\")",
+          "ArgumentError(\"times must increase strictly with finite spacing\")"
+        ]
+      },
+      "actionability": "Select exactly one valid source component or scalar observable; use compatible units throughout; do not sort/reverse or drop saved samples to force acceptance.",
+      "configurable_control": "PUBLIC component OR observable, name, context",
+      "default": {
+        "component": null,
+        "observable": null,
+        "name": ":observable",
+        "context": "NamedTuple()"
+      },
+      "units": "saved physical/numeric times; compatible Unitful observation dimensions or explicitly unknown plain units",
+      "supported_alternative": "Partial successful/unsuccessful forward runs may still produce saved-only series when shape/time contracts hold.",
+      "source_refs": [
+        "src/trajectory/interoperability.jl:18-60",
+        "src/trajectory/statistics.jl:50-61"
+      ],
+      "test_refs": [
+        "test/m10d_interoperability.jl:37-50",
+        "test/m10d_interoperability.jl:73-88"
+      ],
+      "wiki_target": "Interoperability#saved-series-refusals",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF024",
+      "operation": "ScientificDataset(TrajectoryResult;schema,source_retention)",
+      "trigger": "Missing explicit schema; failed/incomplete solve; false truth label; Unitful target or requested resampling",
+      "exact_error_or_status": {
+        "errors": [
+          "ArgumentError(\"explicit trajectory dataset schema required: $(required)\")",
+          "ArgumentError(\"dataset route requires a completed successful solve; partial data remain available as an observable series\")",
+          "ArgumentError(\"simulation reference must be numerical with explicit description and error; solver success is not truth\")",
+          "ArgumentError(\"reference error must be :unknown or a documented nonnegative estimate, never an exact-truth label\")",
+          "ArgumentError(\"dataset values must be explicitly nondimensionalized numeric scalars; units are never stripped\")",
+          "ArgumentError(\"only stored sampling with resampling=:none is supported\")"
+        ]
+      },
+      "actionability": "Provide the narrow scalar time-series schema, completed source diagnostics and numerical reference with unknown/documented error; explicitly nondimensionalize.",
+      "configurable_control": "PUBLIC schema and source_retention=:retained|:descriptor",
+      "default": {
+        "schema": null,
+        "source_retention": ":retained",
+        "required_schema": [
+          "family",
+          "id",
+          "input",
+          "input_names",
+          "coordinate_names",
+          "domain",
+          "selection",
+          "split",
+          "reference",
+          "units",
+          "grid",
+          "rng"
+        ]
+      },
+      "units": "caller-declared unit strings in explicit order; no conversion",
+      "supported_alternative": "observable_series retains partial data. Descriptor retention omits source object/context/domain/callback to reduce copying, not arbitrary metadata or data-array RAM.",
+      "source_refs": [
+        "src/scientific_ml/trajectory_dataset.jl:33-104"
+      ],
+      "test_refs": [
+        "test/m10d_interoperability.jl:144-164"
+      ],
+      "wiki_target": "Interoperability#simulation-dataset-refusals",
+      "priority": "P0",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF025",
+      "operation": "ScientificDataset(samples) / classify_query / training_data",
+      "trigger": "Missing reference/domain fields, mislabeled splits, duplicate representation, changed sensor/schema/training IDs",
+      "exact_error_or_status": {
+        "errors": [
+          "ArgumentError(\"numerical reference needs solver/algorithm/tolerances/grid/tspan/parameters/error provenance\")",
+          "ArgumentError(\"training/interpolation must lie in declared domains\")",
+          "ArgumentError(\"duplicate parameter/function representation across scientific samples\")",
+          "ArgumentError(\"sensor grid changed; no implicit interpolation\")",
+          "ArgumentError(\"dataset scientific schema differs from model\")",
+          "ArgumentError(\"training IDs changed after preprocessing\")",
+          "ArgumentError(\"batched operator training requires identical query grids; no resampling\")"
+        ]
+      },
+      "actionability": "Keep explicit split/parameter/query order and fixed sensors; numerical reference metadata cannot be replaced by an analytical claim merely because a solve terminated.",
+      "configurable_control": "PUBLIC kind/domain/reference/sensors/split; no leakage override",
+      "default": {
+        "sensors": null
+      },
+      "units": "declared input/query/output units; descriptor bounds descriptive",
+      "supported_alternative": "Construct distinct training/heldout scientific samples consistent with each split; fit_scaling uses training subset only.",
+      "source_refs": [
+        "src/scientific_ml/surrogates.jl:85-150",
+        "ext/AnalyticMathLabSurrogateExt.jl:54-61"
+      ],
+      "test_refs": [
+        "test/surrogate_contracts.jl:10-19",
+        "test/m10d_user_inputs.jl:20-25"
+      ],
+      "wiki_target": "Scientific-datasets#schema-and-splits",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF026",
+      "operation": "ObservableSeries/sampling_info/statistical_summary/running_statistics",
+      "trigger": "Missing/nonfinite/complex data, inconsistent units, invalid time metadata or unsupported missing policy",
+      "exact_error_or_status": {
+        "status": "summary.status=:unknown; value=nothing for unusable finite scalar data",
+        "note": "Need nonempty finite real scalar observations; none are dropped.",
+        "errors": [
+          "ArgumentError(\"only missing_policy=:reject is supported\")",
+          "ArgumentError(\"index_time cannot accompany physical time metadata\")",
+          "ArgumentError(\"times must increase strictly with finite spacing\")",
+          "ArgumentError(\"interval conflicts with explicit times\")",
+          "ArgumentError(\"$label mixes known units and unknown unitless values. Supply consistently unit-bearing or consistently plain values; no units are inferred.\")"
+        ]
+      },
+      "actionability": "Supply consistent scalar quantities and increasing saved times. Missing values are not silently dropped. No physical timing inferred from array index.",
+      "configurable_control": "PUBLIC times,interval,index_time,missing_policy",
+      "default": {
+        "times": null,
+        "interval": null,
+        "index_time": false,
+        "missing_policy": ":reject",
+        "spacing_relative_tolerance": 1e-08,
+        "spacing_absolute_tolerance": 0
+      },
+      "units": "native values/variance units; index time explicitly sample index; absent units unknown",
+      "supported_alternative": "Descriptive moments do not require known time, but correlation/transport has additional timing preconditions.",
+      "source_refs": [
+        "src/trajectory/statistics.jl:16-72",
+        "src/trajectory/statistics.jl:91-146"
+      ],
+      "test_refs": [
+        "test/m10d_user_inputs.jl:27-39"
+      ],
+      "wiki_target": "Statistics#unknown-versus-invalid",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF027",
+      "operation": "autocorrelation / integrated_autocorrelation_time / correlated_mean",
+      "trigger": "Irregular or insufficient samples, constant normalized ACF, automatic positive tail never crosses zero, or effective sample count below one",
+      "exact_error_or_status": {
+        "status": ":unknown",
+        "notes": [
+          "At least two regularly timed samples required.",
+          "Constant series: normalized autocorrelation is undefined.",
+          "No nonpositive tail encountered; increase maxlag/run length or supply a justified window.",
+          "Less than one effective sample; run/window insufficient for mean uncertainty."
+        ],
+        "error": "ArgumentError(\"window outside computed lag range\")"
+      },
+      "actionability": "Supply regular sampling, more justified data/lags or an independently justified explicit window; never substitute IID standard error.",
+      "configurable_control": "PUBLIC maxlag,normalization,window",
+      "default": {
+        "maxlag": "min(N-1,128)",
+        "normalization": ":biased",
+        "window": null
+      },
+      "units": "lag sample counts; physical_tau=tau*sampling.interval when available; covariance squared observation units",
+      "supported_alternative": "block_average for explicit nonoverlapping block inspection; does not automatically establish independence or plateau.",
+      "source_refs": [
+        "src/trajectory/statistics.jl:174-196",
+        "src/trajectory/uncertainty.jl:9-47"
+      ],
+      "test_refs": [
+        "test/trajectory_uncertainty.jl:18-24"
+      ],
+      "wiki_target": "Statistics#correlation-refusals",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    },
+    {
+      "id": "RF028",
+      "operation": "mean_squared_displacement / velocity_autocorrelation / diffusion_estimate",
+      "trigger": "Missing fixed particle/order assertion; wrapped coordinates; missing timing/velocities; no justified diffusion fit window",
+      "exact_error_or_status": {
+        "status": ":unknown",
+        "notes": [
+          "Explicit fixed_particles=true or equivalent provenance required.",
+          "Wrapped coordinates cannot establish displacement history.",
+          "Periodic/unknown image history; supply trustworthy unwrapped coordinates explicitly.",
+          "Uniform known sampling with at least two frames required.",
+          "Finite, aligned historical velocities required.",
+          "Diffusion requires an explicit physically justified fit_window.",
+          "At least three selected MSD points required.",
+          "Negative fitted slope cannot estimate nonnegative diffusion.",
+          "Correlated MSD points: no independent-residual OLS error bar."
+        ]
+      },
+      "actionability": "Provide trustworthy fixed identities/unwrapped trajectories and timing; choose a physically justified fit interval, not an automated regime guess.",
+      "configurable_control": "PUBLIC coordinates,fixed_particles,time_options,species,maxlag,fit_window",
+      "default": {
+        "coordinates": ":auto",
+        "fixed_particles": false,
+        "fit_window": null
+      },
+      "units": "MSD squared length; VACF velocity squared; diffusion fitted slope/(2*d) in supplied time scale",
+      "supported_alternative": "Inspect stored MSD without calling it a physical diffusion certificate. Unknown normalized VACF can coexist with available raw VACF.",
+      "source_refs": [
+        "src/trajectory/transport.jl:39-102",
+        "src/trajectory/transport.jl:123-153"
+      ],
+      "test_refs": [
+        "test/trajectory_transport.jl:19-46",
+        "test/trajectory_transport.jl:55-66"
+      ],
+      "wiki_target": "Transport#identity-time-and-image-refusals",
+      "priority": "P0",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": [
+        "Direct diffusion_estimate does NOT explicitly reject index-time MSD; architecture prose saying physical time is required is stronger than this implementation. See diagnostic_findings.md."
+      ]
+    },
+    {
+      "id": "RF029",
+      "operation": "compare / compare_runs",
+      "trigger": "Stored metadata incompatible or insufficient, or no justified independence/standard error",
+      "exact_error_or_status": {
+        "compatibility_statuses": [
+          ":incompatible",
+          ":unknown",
+          ":compatible"
+        ],
+        "difference_refusal": "status=:unknown, method=:stored_difference, note=\"Compatibility not established.\"",
+        "uncertainty_refusal": "status=:unknown, method=:uncertainty_propagation, note=\"No justified combined standard error available.\""
+      },
+      "actionability": "Supply ComparisonInput with explicit source series/parent/selection; compare like units, quantity, grid, estimator and time semantics. Independence must be justified separately.",
+      "configurable_control": "PUBLIC independence,unitless,unitless_time,quantity",
+      "default": {
+        "independence": ":unknown",
+        "unitless": false,
+        "unitless_time": false,
+        "quantity": ":auto"
+      },
+      "units": "unknown not dimensionless; explicit unitless assertions do not convert physical quantities",
+      "supported_alternative": "Report compatibility checks/reasons; do not recompute missing scientific analyses or rank models by incomparable metrics.",
+      "source_refs": [
+        "src/trajectory/comparison.jl:42-50",
+        "src/trajectory/comparison.jl:264-308"
+      ],
+      "test_refs": [
+        "test/trajectory_comparison_edges.jl",
+        "test/trajectory_comparison_transport.jl"
+      ],
+      "wiki_target": "Comparisons#withheld-differences",
+      "priority": "P1",
+      "evidence": "SOURCE_INSPECTED",
+      "test_evidence": "TEST_SOURCE_INSPECTED_NOT_EXECUTED",
+      "notes": []
+    }
+  ],
+  "group_count": 29,
+  "test_reference_policy": "Related test sources are cited; this does not assert every listed branch has a dedicated test. No tests run in this audit."
+}

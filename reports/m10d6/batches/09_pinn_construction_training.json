@@ -1,0 +1,883 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "09_pinn_construction_training",
+  "files": [
+    {
+      "path": "src/scientific_ml/pinn.jl",
+      "sha256": "53540589bb804533f05f83273fa7f42a2d515a07afdf82567c9211f6051f5403",
+      "bytes": 4488,
+      "lines": 101,
+      "read_ranges": [
+        [
+          1,
+          101
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Optional five-trigger fallback; native problem/training retention, bounded first history not snapshots; literal prediction output policy."
+      ]
+    },
+    {
+      "path": "src/scientific_ml/diagnostics.jl",
+      "sha256": "275b33929d884a7e4dfdfd3174c34d504b9be2a3c3e7322def876b56f0f9d3bb",
+      "bytes": 3819,
+      "lines": 77,
+      "read_ranges": [
+        [
+          1,
+          77
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "PINNPoints checked Float64 copies; sampled_summary non-array iterable evaluated once, promoted floating precision and scaled norms; unavailable!=zero."
+      ]
+    },
+    {
+      "path": "ext/AnalyticMathLabPINNExt.jl",
+      "sha256": "edf33f447607c8d8721826b2f1aaf15c2b7e08aff42d2c9a983e3bad6682158c",
+      "bytes": 12880,
+      "lines": 200,
+      "read_ranges": [
+        [
+          1,
+          200
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Stateless CPU genuine Lux setup explicit RNG; discretize once. Shared multiple outputs require ordered argument compatibility. Training continuation protects parameters/native p; output batching not RSS."
+      ]
+    }
+  ],
+  "apis": [
+    {
+      "symbol": "PINNProblem",
+      "source_location": [
+        "src/scientific_ml/pinn.jl:4"
+      ],
+      "public_signature": [
+        "struct PINNProblem <: AbstractAnalysis; raw generated field constructor: (system, independent_variables, dependent_variables, domains, equations, boundary_conditions, networks, network_mapping, initial_parameters, initial_states, strategy, discretization, symbolic_discretization, optimization_problem, backend_metadata, loss_components, provenance, evidence::PropertyResult)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "pinn_problem or raw fields",
+      "returns": "Retained symbolic PDESystem and native discretization/Optimization construction",
+      "errors": [],
+      "numerical_limitations": "Construction evidence shape/backend only not solution truth.",
+      "units": "CPU Float64 construction/coordinates/prediction; metadata units descriptive, no automatic dimensional normalization.",
+      "ownership": "Strong symbolic/network/native graph retention, read-only convention.",
+      "optional_dependencies": [
+        "Lux",
+        "NeuralPDE",
+        "ModelingToolkit",
+        "Optimization",
+        "SymbolicIndexingInterface"
+      ],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:89",
+        "test/pinn_base.jl:5",
+        "test/pinn_base.jl:19",
+        "test/pinn_construction.jl:21"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F26.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:77",
+          "docs/m10d_semantics.md:142"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "PINNTrainingResult",
+      "source_location": [
+        "src/scientific_ml/pinn.jl:45"
+      ],
+      "public_signature": [
+        "struct PINNTrainingResult <: AbstractAnalysis; raw generated field constructor: (problem::PINNProblem, optimization_problem, solution, backend_solution, parameters, network_parameters, states, history, losses::PropertyResult, termination, optimizer, provenance, evidence::PropertyResult, notes::Vector{String})"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "train or raw fields",
+      "returns": "Native PDE wrapper and Optimization result, parameters, states, costs, termination/history",
+      "errors": [],
+      "numerical_limitations": "Low loss not physics; backend status separated and physical evidence unknown.",
+      "units": "CPU Float64 construction/coordinates/prediction; metadata units descriptive, no automatic dimensional normalization.",
+      "ownership": "Strong construction/native retention; continuation copies u0/deepcopies native p.",
+      "optional_dependencies": [
+        "Lux",
+        "NeuralPDE",
+        "ModelingToolkit",
+        "Optimization",
+        "SymbolicIndexingInterface"
+      ],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:89",
+        "test/pinn_base.jl:5",
+        "test/pinn_base.jl:20",
+        "test/pinn_training.jl:16"
+      ],
+      "example_references": [
+        "examples/pinn/m10b_gate.jl:13"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F26.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:77",
+          "docs/m10d_architecture_inventory.md:123",
+          "docs/m10d_integration_matrix.md:36",
+          "docs/pinn_diagnostics.md:8",
+          "docs/pinn_diagnostics.md:15"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "PINNHistory",
+      "source_location": [
+        "src/scientific_ml/pinn.jl:34",
+        "src/scientific_ml/pinn.jl:29"
+      ],
+      "public_signature": [
+        "mutable struct PINNHistory <: AbstractAnalysis",
+        "function PINNHistory(;stride::Integer=10,capacity::Integer=1000)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "stride::Integer=10,capacity::Integer=1000",
+      "returns": "Mutable bounded first-record history",
+      "errors": [
+        "ArgumentError nonpositive controls"
+      ],
+      "numerical_limitations": "First entries retained on exhaustion with truncated=true; no parameter snapshots/RSS bound.",
+      "units": "CPU Float64 construction/coordinates/prediction; metadata units descriptive, no automatic dimensional normalization.",
+      "ownership": "New entries vector.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:89",
+        "test/pinn_base.jl:5",
+        "test/pinn_base.jl:14",
+        "test/pinn_base.jl:17",
+        "test/pinn_base.jl:18",
+        "test/pinn_visualization.jl:5"
+      ],
+      "example_references": [
+        "examples/pinn/m10b_gate.jl:14"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F26.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:77"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "constructor_notes": [
+        "Inner constructor in src/scientific_ml/pinn.jl; no raw generated constructor inferred"
+      ],
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "pinn_network",
+      "source_location": [
+        "src/scientific_ml/pinn.jl:69",
+        "ext/AnalyticMathLabPINNExt.jl:9"
+      ],
+      "public_signature": [
+        "pinn_network(args...;kwargs...)=_pinn_extension().pinn_network(args...;kwargs...)",
+        "function pinn_network(input_dim::Integer,output_dim::Integer;hidden=[32,32],activation=tanh)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Positive input/output dimension; hidden=[32,32],activation=tanh",
+      "returns": "Genuine Lux.Chain with identity final activation",
+      "errors": [
+        "ArgumentError invalid dims/hidden widths or missing extension"
+      ],
+      "numerical_limitations": "No default scientific accuracy/architecture suitability claim.",
+      "units": "CPU Float64 construction/coordinates/prediction; metadata units descriptive, no automatic dimensional normalization.",
+      "ownership": "New model; setup occurs on explicit RNG later.",
+      "optional_dependencies": [
+        "Lux",
+        "NeuralPDE",
+        "ModelingToolkit",
+        "Optimization",
+        "SymbolicIndexingInterface"
+      ],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:89",
+        "test/m10d_semantics_pinn.jl:12",
+        "test/m10d_user_inputs.jl:42",
+        "test/m10d_user_optional.jl:57",
+        "test/pinn_base.jl:5",
+        "test/pinn_base.jl:11",
+        "test/pinn_base.jl:12",
+        "test/pinn_construction.jl:12",
+        "test/pinn_construction.jl:13",
+        "test/pinn_construction.jl:14",
+        "test/pinn_construction.jl:18",
+        "test/pinn_construction.jl:19",
+        "test/pinn_construction.jl:44",
+        "test/pinn_diagnostics.jl:13",
+        "test/pinn_diagnostics.jl:77",
+        "test/pinn_edges.jl:11",
+        "test/pinn_edges.jl:14",
+        "test/pinn_edges.jl:28",
+        "test/pinn_pde.jl:11",
+        "test/pinn_training.jl:11",
+        "test/stranger/load.jl:16"
+      ],
+      "example_references": [
+        "examples/pinn/benchmarks.jl:63",
+        "examples/pinn/inverse_heat_gate.jl:32",
+        "examples/pinn/m10b_gate.jl:10",
+        "notebooks/scientific_ml.jl:12"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F26.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:77",
+          "docs/m10d_architecture_inventory.md:142",
+          "docs/scientific_ml.md:54",
+          "docs/scientific_ml.md:66"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "pinn_problem",
+      "source_location": [
+        "src/scientific_ml/pinn.jl:71",
+        "ext/AnalyticMathLabPINNExt.jl:18",
+        "ext/AnalyticMathLabPINNExt.jl:87"
+      ],
+      "public_signature": [
+        "pinn_problem(args...;kwargs...)=_pinn_extension().pinn_problem(args...;kwargs...)",
+        "function pinn_problem(system::MTK.PDESystem;network,strategy,rng::Random.AbstractRNG,adtype,\nnetwork_layout=:auto,derivative=NeuralPDE.FiniteDifferenceDerivative(),\nadditional_loss=nothing,param_estim::Bool=false,eval_points::Integer=32,optimization_options=NamedTuple(),\nprovenance=NamedTuple())",
+        "pinn_problem(system;kwargs...)=throw(ArgumentError(\"pinn_problem requires a ModelingToolkit PDESystem\"))"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "ModelingToolkit.PDESystem; required network,strategy,rng::AbstractRNG,adtype; literal optional layout/derivative/additional_loss/param_estim/eval_points",
+      "returns": "PINNProblem",
+      "errors": [
+        "ArgumentError missing triggers/wrong system/layout/stateful model/invalid DV scalar arguments/cost labeling; DimensionMismatch output/layout"
+      ],
+      "numerical_limitations": "Multiple DVs require explicit shared/separate; shared ordered input args equal. Genuine stateless Lux only, f64 setup; discretizes once. param_estim all declared or none, not arbitrary inferred subset.",
+      "units": "CPU Float64 construction/coordinates/prediction; metadata units descriptive, no automatic dimensional normalization.",
+      "ownership": "Retains original system and native backend once, consumed explicit RNG recorded by type not implicit seed.",
+      "optional_dependencies": [
+        "Lux",
+        "NeuralPDE",
+        "ModelingToolkit",
+        "Optimization",
+        "SymbolicIndexingInterface"
+      ],
+      "docstring_status": "BRIEF core; full extension signature",
+      "test_references": [
+        "test/architecture.jl:89",
+        "test/m10d_extensions.jl:57",
+        "test/m10d_semantics_pinn.jl:12",
+        "test/pinn_base.jl:5",
+        "test/pinn_base.jl:13",
+        "test/pinn_construction.jl:20",
+        "test/pinn_construction.jl:42",
+        "test/pinn_construction.jl:44",
+        "test/pinn_construction.jl:45",
+        "test/pinn_construction.jl:46",
+        "test/pinn_diagnostics.jl:13",
+        "test/pinn_diagnostics.jl:77",
+        "test/pinn_edges.jl:13",
+        "test/pinn_edges.jl:14",
+        "test/pinn_edges.jl:15",
+        "test/pinn_edges.jl:16",
+        "test/pinn_edges.jl:28",
+        "test/pinn_edges.jl:41",
+        "test/pinn_pde.jl:11",
+        "test/pinn_training.jl:11"
+      ],
+      "example_references": [
+        "examples/pinn/benchmarks.jl:63",
+        "examples/pinn/inverse_heat_gate.jl:32",
+        "examples/pinn/m10b_gate.jl:10",
+        "notebooks/scientific_ml.jl:13"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F26.md",
+        "existing_sections": [
+          "docs/inverse_heat.md:3",
+          "docs/inverse_heat.md:7",
+          "docs/m10d_architecture_inventory.md:77",
+          "docs/scientific_ml.md:55"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "train",
+      "source_location": [
+        "src/scientific_ml/pinn.jl:73",
+        "src/scientific_ml/pinn.jl:75",
+        "ext/AnalyticMathLabPINNExt.jl:100",
+        "ext/AnalyticMathLabPINNExt.jl:103"
+      ],
+      "public_signature": [
+        "train(p::PINNProblem,optimizer;kwargs...)=_pinn_extension().train(p,optimizer;kwargs...)",
+        "train(r::PINNTrainingResult,optimizer;kwargs...)=_pinn_extension().train(r,optimizer;kwargs...)",
+        "function train(p::AML.PINNProblem,optimizer;kwargs...)",
+        "function train(r::AML.PINNTrainingResult,optimizer;kwargs...)",
+        "Controls from _train(p,source,optimizer;maxiters::Integer,history::Bool=false,log_every::Integer=10,history_capacity::Integer=1000,record_components::Bool=false,callback=nothing,kwargs...) at ext/AnalyticMathLabPINNExt.jl:107-109"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PINNProblem or PINNTrainingResult with explicit optimizer; maxiters required; history=false,log_every=10,history_capacity=1000,record_components=false,callback/kwargs",
+      "returns": "PINNTrainingResult",
+      "errors": [
+        "ArgumentError invalid controls/missing triggers; native errors propagate"
+      ],
+      "numerical_limitations": "Continuation explicit, not schedule; unweighted component costs not independent errors; history capacity only stored scalar records.",
+      "units": "CPU Float64 construction/coordinates/prediction; metadata units descriptive, no automatic dimensional normalization.",
+      "ownership": "Copies starting parameters/native p to protect prior stage; exposes native solutions, states copied.",
+      "optional_dependencies": [
+        "Lux",
+        "NeuralPDE",
+        "ModelingToolkit",
+        "Optimization",
+        "SymbolicIndexingInterface"
+      ],
+      "docstring_status": "BRIEF core; helper carries literal controls",
+      "test_references": [
+        "test/architecture.jl:90",
+        "test/m10d_interoperability_learning.jl:29",
+        "test/m10d_semantics_learning.jl:15",
+        "test/m10d_semantics_pinn.jl:14",
+        "test/m10d_user_optional.jl:48",
+        "test/pinn_base.jl:5",
+        "test/pinn_diagnostics.jl:15",
+        "test/pinn_diagnostics.jl:79",
+        "test/pinn_edges.jl:18",
+        "test/pinn_edges.jl:30",
+        "test/pinn_edges.jl:46",
+        "test/pinn_pde.jl:13",
+        "test/pinn_training.jl:14",
+        "test/pinn_training.jl:50",
+        "test/pinn_training.jl:51",
+        "test/pinn_training.jl:55",
+        "test/surrogate_contracts.jl:21"
+      ],
+      "example_references": [
+        "examples/inference/neural_gate.jl:48",
+        "examples/inference/neural_gate.jl:65",
+        "examples/inference/neural_gate.jl:72",
+        "examples/inference/neural_showcase.jl:24",
+        "examples/inference/neural_showcase.jl:33",
+        "examples/inference/neural_showcase.jl:44",
+        "examples/integration/one_system_learning.jl:56",
+        "examples/operators/analysis_gate.jl:9",
+        "examples/operators/focused_gate.jl:29",
+        "examples/operators/focused_gate.jl:51",
+        "examples/operators/heat_family.jl:60",
+        "examples/operators/heat_showcase.jl:204",
+        "examples/pinn/benchmarks.jl:82",
+        "examples/pinn/inverse_heat_gate.jl:60",
+        "examples/pinn/inverse_heat_gate.jl:62",
+        "examples/scaling/generalization_scale.jl:14",
+        "examples/scaling/generalization_scale.jl:21",
+        "examples/scaling/million_query_analysis.jl:30",
+        "examples/scaling/optional_scaling_gate.jl:11",
+        "notebooks/scientific_ml.jl:24"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F26.md",
+        "existing_sections": [
+          "README.md:49",
+          "docs/architecture.md:66",
+          "docs/inverse_heat.md:16",
+          "docs/learned_dynamics.md:44",
+          "docs/m10d_architecture_inventory.md:77",
+          "docs/m10d_architecture_inventory.md:84",
+          "docs/m10d_architecture_inventory.md:129",
+          "docs/m10d_architecture_inventory.md:141",
+          "docs/m10d_architecture_inventory.md:142",
+          "docs/m10d_architecture_inventory.md:143",
+          "docs/m10d_flagship_results.md:102",
+          "docs/m10d_flagship_results.md:115",
+          "docs/m10d_flagship_results.md:207",
+          "docs/m10d_integration_matrix.md:34",
+          "docs/m10d_integration_matrix.md:127",
+          "docs/m10d_interoperability_results.md:61",
+          "docs/m10d_interoperability_results.md:72",
+          "docs/m10d_one_system_many_methods.md:96",
+          "docs/operator_backends.md:26",
+          "docs/operator_backends.md:48",
+          "docs/scientific_ml.md:30",
+          "docs/scientific_ml.md:57",
+          "docs/scientific_ml.md:191",
+          "docs/surrogates.md:24"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "predict",
+      "source_location": [
+        "src/scientific_ml/pinn.jl:80",
+        "ext/AnalyticMathLabPINNExt.jl:155"
+      ],
+      "public_signature": [
+        "predict(r::PINNTrainingResult,x;kwargs...)=_pinn_extension().predict(r,x;kwargs...)",
+        "function predict(r::AML.PINNTrainingResult,x;batch_size::Union{Nothing,Integer}=nothing)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PINNTrainingResult, CPU scalar/Vector/Tuple or Matrix coord×points; batch_size=nothing or positive Integer",
+      "returns": "DV vector for point or DV×points matrix",
+      "errors": [
+        "ArgumentError device/layout/nonfinite/unrepresentable coordinates/state change/batch; DimensionMismatch coordinate/output shape; DomainError invalid output"
+      ],
+      "numerical_limitations": "No domain membership/physical accuracy certification. batch_size bounds temporary activations, not total full output; empty queries still need rows matching.",
+      "units": "CPU Float64 construction/coordinates/prediction; metadata units descriptive, no automatic dimensional normalization.",
+      "ownership": "Fresh Float64 output; copies state for apply.",
+      "optional_dependencies": [
+        "Lux",
+        "NeuralPDE",
+        "ModelingToolkit",
+        "Optimization",
+        "SymbolicIndexingInterface"
+      ],
+      "docstring_status": "DETAILED core",
+      "test_references": [
+        "test/architecture.jl:90",
+        "test/m10d_extensions.jl:60",
+        "test/m10d_interoperability_learning.jl:46",
+        "test/m10d_user_optional.jl:46",
+        "test/m10d_user_optional.jl:54",
+        "test/pinn_base.jl:5",
+        "test/pinn_diagnostics.jl:28",
+        "test/pinn_diagnostics.jl:29",
+        "test/pinn_diagnostics.jl:30",
+        "test/pinn_diagnostics.jl:37",
+        "test/pinn_edges.jl:20",
+        "test/pinn_edges.jl:24",
+        "test/pinn_edges.jl:25",
+        "test/pinn_edges.jl:32",
+        "test/pinn_edges.jl:53",
+        "test/pinn_multidimensional.jl:32",
+        "test/pinn_multidimensional.jl:33",
+        "test/pinn_multidimensional.jl:34",
+        "test/pinn_pde.jl:18",
+        "test/pinn_training.jl:36",
+        "test/pinn_training.jl:42",
+        "test/pinn_training.jl:43",
+        "test/pinn_training.jl:44",
+        "test/pinn_training.jl:47",
+        "test/pinn_training.jl:48",
+        "test/pinn_training.jl:49",
+        "test/pinn_training.jl:60"
+      ],
+      "example_references": [
+        "examples/inference/neural_gate.jl:59",
+        "examples/inference/neural_showcase.jl:27",
+        "examples/inference/neural_showcase.jl:46",
+        "examples/inference/neural_showcase.jl:48",
+        "examples/inference/neural_showcase.jl:50",
+        "examples/operators/analysis_gate.jl:23",
+        "examples/operators/focused_gate.jl:19",
+        "examples/operators/focused_gate.jl:20",
+        "examples/operators/focused_gate.jl:21",
+        "examples/operators/focused_gate.jl:30",
+        "examples/operators/focused_gate.jl:47",
+        "examples/operators/focused_gate.jl:48",
+        "examples/operators/focused_gate.jl:54",
+        "examples/operators/heat_demo.jl:19",
+        "examples/operators/heat_showcase.jl:81",
+        "examples/operators/heat_showcase.jl:96",
+        "examples/operators/integration_gate.jl:40",
+        "examples/operators/integration_gate.jl:66",
+        "examples/operators/m10a_gate.jl:30",
+        "examples/operators/m10a_gate.jl:31",
+        "examples/operators/m10a_gate.jl:32",
+        "examples/operators/m10a_gate.jl:33",
+        "examples/operators/m10a_gate.jl:35",
+        "examples/operators/m10a_gate.jl:36",
+        "examples/operators/m10a_gate.jl:37",
+        "examples/operators/m10a_gate.jl:39",
+        "examples/operators/m10b_gate.jl:16",
+        "examples/operators/m10b_gate.jl:20",
+        "examples/operators/m10b_gate.jl:27",
+        "examples/operators/m10b_gate.jl:29",
+        "examples/pinn/benchmark_gate.jl:67",
+        "examples/pinn/benchmark_gate.jl:68",
+        "examples/pinn/inverse_heat_gate.jl:75",
+        "examples/pinn/inverse_heat_gate.jl:100",
+        "examples/pinn/inverse_heat_gate.jl:101",
+        "examples/pinn/m10b_gate.jl:19",
+        "examples/pinn/m10b_gate.jl:21",
+        "examples/pinn/m10b_gate.jl:26",
+        "examples/pinn/m10b_gate.jl:32",
+        "examples/scaling/generalization_scale.jl:26",
+        "examples/scaling/optional_scaling_gate.jl:23",
+        "examples/scaling/optional_scaling_gate.jl:24",
+        "examples/scaling/optional_scaling_gate.jl:26",
+        "examples/scaling/optional_scaling_gate.jl:28",
+        "examples/scaling/optional_scaling_gate.jl:29",
+        "examples/scaling/optional_scaling_gate.jl:30",
+        "examples/scaling/optional_scaling_gate.jl:31",
+        "examples/scaling/optional_scaling_gate.jl:45",
+        "examples/scaling/optional_scaling_gate.jl:47",
+        "notebooks/scientific_ml.jl:29"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F26.md",
+        "existing_sections": [
+          "docs/learned_dynamics.md:50",
+          "docs/m10c_ml_evidence.md:22",
+          "docs/m10d_architecture_inventory.md:77",
+          "docs/m10d_architecture_inventory.md:81",
+          "docs/m10d_architecture_inventory.md:84",
+          "docs/m10d_architecture_inventory.md:94",
+          "docs/m10d_architecture_inventory.md:124",
+          "docs/m10d_architecture_inventory.md:130",
+          "docs/m10d_architecture_inventory.md:131",
+          "docs/m10d_architecture_inventory.md:141",
+          "docs/m10d_architecture_inventory.md:142",
+          "docs/m10d_architecture_inventory.md:143",
+          "docs/m10d_integration_matrix.md:37",
+          "docs/m10d_interoperability_results.md:72",
+          "docs/m10d_issue_ledger.md:26",
+          "docs/operator_backends.md:48",
+          "docs/scientific_ml.md:61",
+          "docs/scientific_ml.md:135",
+          "docs/scientific_ml.md:136",
+          "docs/surrogates.md:28"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "pinn_inspect",
+      "source_location": [
+        "src/scientific_ml/pinn.jl:83",
+        "src/scientific_ml/pinn.jl:93",
+        "src/scientific_ml/diagnostics.jl:67"
+      ],
+      "public_signature": [
+        "function pinn_inspect(p::PINNProblem)",
+        "function pinn_inspect(r::PINNTrainingResult)",
+        "pinn_inspect(a::PINNAnalysis)=(training=a.training,residuals=a.residuals,reference=a.reference,"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "PINNProblem/PINNTrainingResult/PINNAnalysis",
+      "returns": "NamedTuple of actual retained fields",
+      "errors": [],
+      "numerical_limitations": "No new discretization/training.",
+      "units": "CPU Float64 construction/coordinates/prediction; metadata units descriptive, no automatic dimensional normalization.",
+      "ownership": "Borrows stored objects/arrays, not detached metadata.",
+      "optional_dependencies": [
+        "Lux",
+        "NeuralPDE",
+        "ModelingToolkit",
+        "Optimization",
+        "SymbolicIndexingInterface"
+      ],
+      "docstring_status": "BRIEF",
+      "test_references": [
+        "test/architecture.jl:90",
+        "test/pinn_base.jl:5",
+        "test/pinn_construction.jl:37",
+        "test/pinn_diagnostics.jl:38",
+        "test/pinn_training.jl:52",
+        "test/pinn_training.jl:53"
+      ],
+      "example_references": [
+        "notebooks/scientific_ml.jl:15",
+        "notebooks/scientific_ml.jl:26"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F26.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:77",
+          "docs/pinn_diagnostics.md:10",
+          "docs/scientific_ml.md:147"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F26",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "PINNPoints",
+      "source_location": [
+        "src/scientific_ml/diagnostics.jl:5",
+        "src/scientific_ml/diagnostics.jl:9"
+      ],
+      "public_signature": [
+        "struct PINNPoints",
+        "function PINNPoints(X::AbstractMatrix;generation::Symbol=:user_supplied,provenance=NamedTuple())"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "CPU-compatible AbstractMatrix coordinate rows×samples; generation=:user_supplied,provenance",
+      "returns": "Copied checked Float64 coordinates",
+      "errors": [
+        "ArgumentError empty/nonreal/nonfinite/unrepresentable"
+      ],
+      "numerical_limitations": "Coordinate rows tied to residual block IV order or global reference order; labels/provenance caller metadata.",
+      "units": "CPU Float64 construction/coordinates/prediction; metadata units descriptive, no automatic dimensional normalization.",
+      "ownership": "Copies coordinates, retains provenance.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:91",
+        "test/m10a_inference_operators.jl:166",
+        "test/m10b_diagnostics.jl:44",
+        "test/m10b_diagnostics.jl:50",
+        "test/m10b_diagnostics.jl:51",
+        "test/m10b_diagnostics.jl:53",
+        "test/m10c_chunking.jl:26",
+        "test/m10d_semantics.jl:130",
+        "test/m10d_semantics.jl:131",
+        "test/m10d_semantics_pinn.jl:15",
+        "test/m10d_semantics_pinn.jl:41",
+        "test/pinn_diagnostics.jl:17",
+        "test/pinn_diagnostics.jl:21",
+        "test/pinn_diagnostics.jl:58",
+        "test/pinn_diagnostics.jl:61",
+        "test/pinn_diagnostics.jl:67",
+        "test/pinn_diagnostics_base.jl:17",
+        "test/pinn_diagnostics_base.jl:20",
+        "test/pinn_diagnostics_base.jl:21",
+        "test/surrogate_diagnostics.jl:7",
+        "test/surrogate_diagnostics.jl:16"
+      ],
+      "example_references": [
+        "examples/operators/analysis_gate.jl:22",
+        "examples/operators/heat_showcase.jl:77",
+        "examples/pinn/benchmarks.jl:73",
+        "examples/pinn/benchmarks.jl:77",
+        "examples/pinn/inverse_heat_gate.jl:69",
+        "examples/pinn/m10b_gate.jl:33",
+        "examples/scaling/million_query_analysis.jl:35",
+        "examples/scaling/million_query_analysis.jl:48",
+        "examples/scaling/optional_scaling_gate.jl:50"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F27.md",
+        "existing_sections": [
+          "docs/m10b_numeric_inventory.md:32",
+          "docs/m10b_numeric_inventory.md:47",
+          "docs/m10b_numeric_inventory.md:109",
+          "docs/m10c_ml_evidence.md:52",
+          "docs/m10c_scaling_inventory.md:27",
+          "docs/m10d_architecture_inventory.md:78",
+          "docs/m10d_architecture_inventory.md:197",
+          "docs/m10d_issue_ledger.md:21",
+          "docs/m10d_provenance.md:125",
+          "docs/m10d_semantics.md:102",
+          "docs/m10d_semantics.md:141",
+          "docs/m10d_semantics.md:155",
+          "docs/m10d_semantics_results.md:56",
+          "docs/m10d_semantics_results.md:104",
+          "docs/m9d_verification.md:24",
+          "docs/pinn_diagnostics.md:7",
+          "docs/pinn_diagnostics.md:16",
+          "docs/pinn_diagnostics.md:19",
+          "docs/surrogates.md:97"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "constructor_notes": [
+        "Inner constructor in src/scientific_ml/diagnostics.jl; no raw generated constructor inferred"
+      ],
+      "family": "F27",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "sampled_summary",
+      "source_location": [
+        "src/scientific_ml/diagnostics.jl:23"
+      ],
+      "public_signature": [
+        "function sampled_summary(values)"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "Iterable finite real residuals/errors",
+      "returns": "NamedTuple count/finite_count/rms/mean_absolute/max_absolute/sampled_l2/normalization",
+      "errors": [
+        "Empty/nonfinite/nonreal metrics unavailable (nothing); underlying iterable errors propagate"
+      ],
+      "numerical_limitations": "Unweighted finite samples no domain measure/global norm; promoted float including BigFloat; L2 can unavailable while RMS available.",
+      "units": "Float promotion per values, including BigFloat; not a universal Unitful path.",
+      "ownership": "Arrays replayed; non-array iterable materialized exactly once to avoid state/RNG double consumption.",
+      "optional_dependencies": [],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:91",
+        "test/m10b_diagnostics.jl:7",
+        "test/m10b_diagnostics.jl:15",
+        "test/m10b_diagnostics.jl:16",
+        "test/m10b_diagnostics.jl:17",
+        "test/m10b_diagnostics.jl:19",
+        "test/m10b_diagnostics.jl:25",
+        "test/m10b_diagnostics.jl:34",
+        "test/m10b_diagnostics.jl:35",
+        "test/m10b_diagnostics.jl:36",
+        "test/m10b_diagnostics.jl:37",
+        "test/m10b_diagnostics.jl:38",
+        "test/m10b_diagnostics.jl:39",
+        "test/m10b_inference_scaling.jl:64",
+        "test/m10b_inference_scaling.jl:65",
+        "test/m10b_showcases.jl:17",
+        "test/m10c_chunking.jl:5",
+        "test/m10c_chunking.jl:6",
+        "test/m10c_chunking.jl:7",
+        "test/m10c_chunking.jl:8",
+        "test/m10c_chunking.jl:11",
+        "test/pinn_diagnostics_base.jl:5",
+        "test/pinn_diagnostics_base.jl:12",
+        "test/pinn_diagnostics_base.jl:13",
+        "test/pinn_diagnostics_base.jl:14",
+        "test/pinn_diagnostics_base.jl:15",
+        "test/pinn_diagnostics_base.jl:16"
+      ],
+      "example_references": [
+        "examples/inference/lj_gate.jl:55",
+        "examples/inference/lj_gate.jl:56",
+        "examples/pinn/m10b_gate.jl:44",
+        "examples/scaling/million_query_analysis.jl:25",
+        "examples/scaling/optional_scaling_gate.jl:54",
+        "examples/scaling/optional_scaling_gate.jl:55",
+        "examples/scaling/optional_scaling_gate.jl:56"
+      ],
+      "documentation_target": {
+        "proposed": "reference/F27.md",
+        "existing_sections": [
+          "docs/m10b_bug_ledger.md:23",
+          "docs/m10b_numeric_inventory.md:33",
+          "docs/m10b_numeric_inventory.md:46",
+          "docs/m10b_numeric_inventory.md:108",
+          "docs/m10c_ml_evidence.md:20",
+          "docs/m10c_ml_evidence.md:57",
+          "docs/m10c_ml_evidence.md:86",
+          "docs/m10c_ml_evidence.md:87",
+          "docs/m10c_ml_evidence.md:109",
+          "docs/m10c_ml_evidence.md:113",
+          "docs/m10c_ml_evidence.md:117",
+          "docs/m10c_scaling_inventory.md:28",
+          "docs/m10d_architecture_inventory.md:71",
+          "docs/m10d_architecture_inventory.md:78",
+          "docs/m10d_architecture_inventory.md:99",
+          "docs/m10d_issue_ledger.md:26",
+          "docs/m9d_verification.md:24",
+          "docs/operator_backends.md:49",
+          "docs/pinn_diagnostics.md:8",
+          "docs/pinn_diagnostics.md:64",
+          "docs/surrogates.md:99"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F27",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    },
+    {
+      "symbol": "PINNAnalysis",
+      "source_location": [
+        "src/scientific_ml/diagnostics.jl:54"
+      ],
+      "public_signature": [
+        "struct PINNAnalysis <: AbstractAnalysis; raw generated field constructor: (training::PINNTrainingResult, residuals::Vector{NamedTuple}, reference::PropertyResult, collocation_metadata, loss_diagnostics, adaptive_loss_metadata::PropertyResult, evidence::PropertyResult, provenance, limitations::Vector{String})"
+      ],
+      "keywords": "Literal defaults and required keywords in public_signature; no inferred backend defaults",
+      "inputs": "analyze(training) or raw fields",
+      "returns": "Retained training plus sampled residual/reference/loss diagnostics",
+      "errors": [],
+      "numerical_limitations": "Global correctness remains unknown.",
+      "units": "CPU Float64 construction/coordinates/prediction; metadata units descriptive, no automatic dimensional normalization.",
+      "ownership": "Strong trained result retention; arrays produced by diagnostics batch.",
+      "optional_dependencies": [
+        "Lux",
+        "NeuralPDE",
+        "ModelingToolkit",
+        "Optimization",
+        "SymbolicIndexingInterface"
+      ],
+      "docstring_status": "DETAILED",
+      "test_references": [
+        "test/architecture.jl:91",
+        "test/pinn_diagnostics.jl:24"
+      ],
+      "example_references": [],
+      "documentation_target": {
+        "proposed": "reference/F27.md",
+        "existing_sections": [
+          "docs/m10d_architecture_inventory.md:78",
+          "docs/m10d_architecture_inventory.md:123",
+          "docs/m10d_semantics_results.md:270",
+          "docs/pinn_diagnostics.md:7",
+          "docs/pinn_diagnostics.md:10",
+          "docs/pinn_diagnostics.md:39"
+        ],
+        "gap": "No consolidated complete per-symbol/all-overload reference; lexical test/example mentions are not branch coverage"
+      },
+      "reference_policy": "References enumerated deterministically, not necessarily semantically read; reviewed related evidence is recorded per batch",
+      "family": "F27",
+      "stability": "PUBLIC_EXPERIMENTAL",
+      "evidence_level": "SOURCE_INSPECTED",
+      "runtime_verification": "NOT_RUN",
+      "coverage_status": "PARTIAL"
+    }
+  ],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

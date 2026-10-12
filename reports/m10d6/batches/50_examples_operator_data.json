@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "50_examples_operator_data",
+  "files": [
+    {
+      "path": "examples/operators/focused_gate.jl",
+      "sha256": "f0df876c8aa1d1e220433bcfea5c2dfda97a83765b9d442631f7056532dc02c0",
+      "bytes": 3572,
+      "lines": 57,
+      "read_ranges": [
+        [
+          1,
+          57
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Small surrogate120step and true DeepONet60step gates separate manufactured target, train-only poison controls and descriptor/sensor geometry."
+      ]
+    },
+    {
+      "path": "examples/operators/heat_demo.jl",
+      "sha256": "394ec5030089dc7c0a141fa84715f257ebda42185d83e3a6660c8ddd4ca14f84",
+      "bytes": 1531,
+      "lines": 28,
+      "read_ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Heat CLI mutually exclusive training or --reuse inference artifacts; parameter file prerequisite no fabricated cache."
+      ]
+    },
+    {
+      "path": "examples/operators/heat_family.jl",
+      "sha256": "9862f0486652ba21e792716818596457d14efd42a6516f6cf7316604e3405de9",
+      "bytes": 4776,
+      "lines": 80,
+      "read_ranges": [
+        [
+          1,
+          80
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Analytic finite-sine heat reference verified before training; explicit parameter/function/sensor/coordinate splits and seeds, no hidden resampling."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

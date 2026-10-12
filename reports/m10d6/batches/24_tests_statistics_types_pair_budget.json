@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "24_tests_statistics_types_pair_budget",
+  "files": [
+    {
+      "path": "test/m10b_statistics.jl",
+      "sha256": "53922610361ff7ea1f4937064759a92769fa46f10d7868ee0b4429f0885c44a7",
+      "bytes": 13893,
+      "lines": 276,
+      "read_ranges": [
+        [
+          1,
+          276
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Stored precision/units/finite moments, uncertainty non-IID, explicit clock tolerances and hypot SE; highprecision references apply to stored inputs only."
+      ]
+    },
+    {
+      "path": "test/m10b_types.jl",
+      "sha256": "8e3c23ef672c0562a9d9a98f6401c358a3a693616e17f65bdbd97f62f7cceda2",
+      "bytes": 5511,
+      "lines": 136,
+      "read_ranges": [
+        [
+          1,
+          136
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Generic scalar exact/complex/BigFloat and type-dependent finite difference steps contrasted with real-field guards and Float64 convergence/ODE; not universal type support."
+      ]
+    },
+    {
+      "path": "test/m10c_atomistic_scale.jl",
+      "sha256": "ca6d0ae33d0a7a9ea5bc8cec0af000354369ac5bf893e0a7c71bcc06657b8b07",
+      "bytes": 1034,
+      "lines": 24,
+      "read_ranges": [
+        [
+          1,
+          24
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Pair byte refusal checked before distance callback, fixed small allocation fixture; bytes/pairs are public output guards not RSS."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

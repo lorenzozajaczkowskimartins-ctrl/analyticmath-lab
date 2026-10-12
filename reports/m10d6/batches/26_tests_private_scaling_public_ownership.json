@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "26_tests_private_scaling_public_ownership",
+  "files": [
+    {
+      "path": "test/m10c_partial_modes.jl",
+      "sha256": "fe466ece3fea305de397b8db7f09faf8a4573dd55d02086875cd41a89d8f385e",
+      "bytes": 2556,
+      "lines": 49,
+      "read_ranges": [
+        [
+          1,
+          49
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Direct modal preflight unreadable huge matrix/3000 explicit1024 budget; optional chain partial spectrum test protected env flag, not AML export."
+      ]
+    },
+    {
+      "path": "test/m10c_streaming.jl",
+      "sha256": "3281fefe3bd690b77efca83b88ea0b9e17a08d1b53d9ebf72978517d145bcdda",
+      "bytes": 1509,
+      "lines": 34,
+      "read_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Lazy vector moments equal stored; example streaming chunks/time controls/extreme assertion and safe partial count tested; no public streaming setter."
+      ]
+    },
+    {
+      "path": "test/m10d_architecture.jl",
+      "sha256": "e8d36032b0f8016fc8d18f5e938b51d21a318a2278fb8870fc52b1f305e32f47",
+      "bytes": 2489,
+      "lines": 58,
+      "read_ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Frozen36 family ownership/actual177 exports and five extensions; public package registration and private _scale_ode_problem boundary, notebook no private zero helper."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}

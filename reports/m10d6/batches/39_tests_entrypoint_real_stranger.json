@@ -1,0 +1,57 @@
+{
+  "baseline": "377a3c45905d0e16dba1fc2adc9d8eb3dcff14ca",
+  "batch": "39_tests_entrypoint_real_stranger",
+  "files": [
+    {
+      "path": "test/real_analysis_visualization.jl",
+      "sha256": "da3fd3aa39d943e615d28c3b1c21991764f3ca971e73ff95445998aef7b92d49",
+      "bytes": 3041,
+      "lines": 52,
+      "read_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Original holes/domain plot masking; plotting samples function only not derivatives and no backend change."
+      ]
+    },
+    {
+      "path": "test/runtests.jl",
+      "sha256": "66013982d2fa1e852214f1ff022d4b3f64e406c5780d04fd0ea0dbc80c5aec54",
+      "bytes": 14775,
+      "lines": 346,
+      "read_ranges": [
+        [
+          1,
+          346
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Canonical include graph and bounded source contracts, optional learning/Molly remain outside; Cairo activated late; not executed."
+      ]
+    },
+    {
+      "path": "test/stranger/atomistic.jl",
+      "sha256": "61fb47616bdb4a6fbfcbae3e00d1affedfcd31266ddaefc98aceb87944f515b8",
+      "bytes": 1341,
+      "lines": 24,
+      "read_ranges": [
+        [
+          1,
+          24
+        ]
+      ],
+      "inspection": "FULL_SEMANTIC_READ",
+      "semantic_findings": [
+        "Standalone atomistic stranger explicit unknown units, borrowed/copy ownership and unsupported data/status checks."
+      ]
+    }
+  ],
+  "apis": [],
+  "related_evidence": [],
+  "scope": "Source-semantic audit only; no fresh runtime/test pass"
+}
