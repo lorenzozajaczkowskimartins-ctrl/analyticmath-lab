@@ -1,0 +1,2318 @@
+{
+  "milestone": "M10D.6D",
+  "baseline": "b327e43485d5d0e06b6fffb537e74a846455dc0b",
+  "initial_git": {
+    "branch": "main",
+    "worktree": "clean",
+    "remote_main": "97d8d13a5fdde467c4e44f406150a98bde9547e9"
+  },
+  "checkpoints": {
+    "D1": {
+      "status": "COMPLETE",
+      "coverage_check": {
+        "checkpoint": "D1",
+        "status": "PASS",
+        "audit_exports": 177,
+        "audit_stability": {
+          "PUBLIC_STABLE": 130,
+          "PUBLIC_EXPERIMENTAL": 47
+        },
+        "covered_exports": 0,
+        "qualified_covered": 0,
+        "missing": [],
+        "duplicate_owners": [],
+        "classified_kinds": {},
+        "manual_entries": 0,
+        "audited_contract_variants": 0,
+        "source_hashes_verified": 58,
+        "source_explicit_anchors": 0,
+        "markdown_link_occurrences": 0,
+        "protected_integrity": {
+          "count": 464,
+          "changed": [],
+          "missing": []
+        },
+        "site": null,
+        "errors": []
+      },
+      "skeleton_build_exit": 0,
+      "skeleton_build_warnings": 0
+    },
+    "D2": {
+      "status": "COMPLETE",
+      "coverage_check": {
+        "checkpoint": "D2",
+        "status": "PASS",
+        "audit_exports": 177,
+        "audit_stability": {
+          "PUBLIC_STABLE": 130,
+          "PUBLIC_EXPERIMENTAL": 47
+        },
+        "covered_exports": 40,
+        "qualified_covered": 0,
+        "missing": [],
+        "duplicate_owners": [],
+        "classified_kinds": {
+          "abstract type": 1,
+          "type / constructors": 20,
+          "macro": 1,
+          "generic function": 18
+        },
+        "manual_entries": 40,
+        "audited_contract_variants": 46,
+        "source_hashes_verified": 58,
+        "source_explicit_anchors": 51,
+        "markdown_link_occurrences": 0,
+        "protected_integrity": {
+          "count": 464,
+          "changed": [],
+          "missing": []
+        },
+        "site": null,
+        "errors": []
+      }
+    },
+    "D3": {
+      "status": "COMPLETE",
+      "coverage_check": {
+        "checkpoint": "D3",
+        "status": "PASS",
+        "audit_exports": 177,
+        "audit_stability": {
+          "PUBLIC_STABLE": 130,
+          "PUBLIC_EXPERIMENTAL": 47
+        },
+        "covered_exports": 104,
+        "qualified_covered": 0,
+        "missing": [],
+        "duplicate_owners": [],
+        "classified_kinds": {
+          "generic function": 59,
+          "type / constructors": 43,
+          "abstract type": 1,
+          "macro": 1
+        },
+        "manual_entries": 104,
+        "audited_contract_variants": 115,
+        "source_hashes_verified": 58,
+        "source_explicit_anchors": 133,
+        "markdown_link_occurrences": 0,
+        "protected_integrity": {
+          "count": 464,
+          "changed": [],
+          "missing": []
+        },
+        "site": null,
+        "errors": []
+      }
+    },
+    "D4": {
+      "status": "COMPLETE",
+      "coverage_check": {
+        "checkpoint": "D4",
+        "status": "PASS",
+        "audit_exports": 177,
+        "audit_stability": {
+          "PUBLIC_STABLE": 130,
+          "PUBLIC_EXPERIMENTAL": 47
+        },
+        "covered_exports": 177,
+        "qualified_covered": 2,
+        "missing": [],
+        "duplicate_owners": [],
+        "classified_kinds": {
+          "generic function": 114,
+          "type / constructors": 63,
+          "abstract type": 1,
+          "macro": 1
+        },
+        "manual_entries": 179,
+        "audited_contract_variants": 196,
+        "source_hashes_verified": 58,
+        "source_explicit_anchors": 223,
+        "markdown_link_occurrences": 0,
+        "protected_integrity": {
+          "count": 464,
+          "changed": [],
+          "missing": []
+        },
+        "site": null,
+        "errors": []
+      },
+      "internal_boundary_guide": "docs/src/guides/api-boundaries.md"
+    },
+    "D5": {
+      "status": "PRE_COMMIT_VERIFIED",
+      "coverage_check": {
+        "checkpoint": "D5",
+        "status": "PASS",
+        "audit_exports": 177,
+        "audit_stability": {
+          "PUBLIC_STABLE": 130,
+          "PUBLIC_EXPERIMENTAL": 47
+        },
+        "covered_exports": 177,
+        "qualified_covered": 2,
+        "missing": [],
+        "duplicate_owners": [],
+        "misclassified": [],
+        "wrong_primary_owners": [],
+        "classified_kinds": {
+          "generic function": 114,
+          "type / constructors": 63,
+          "abstract type": 1,
+          "macro": 1
+        },
+        "manual_entries": 179,
+        "audited_contract_variants": 196,
+        "covered_export_stability": {
+          "PUBLIC_STABLE": 130,
+          "PUBLIC_EXPERIMENTAL": 47
+        },
+        "source_hashes_verified": 58,
+        "source_explicit_anchors": 224,
+        "readme_relative_link_occurrences": 25,
+        "markdown_link_occurrences": 358,
+        "protected_integrity": {
+          "count": 464,
+          "changed": [],
+          "missing": []
+        },
+        "site": {
+          "html_pages": 17,
+          "local_link_occurrences": 2573,
+          "external_links_not_network_checked": 187,
+          "raw_repository_resources": 184,
+          "page_sizes_bytes": {
+            "index.html": 11708,
+            "guides/api-boundaries.html": 21579,
+            "reference/vector.html": 25318,
+            "reference/datasets.html": 32223,
+            "reference/plots.html": 94791,
+            "reference/dynamics.html": 42042,
+            "reference/mechanics.html": 89325,
+            "reference/scalar.html": 80505,
+            "reference/comparison.html": 28593,
+            "reference/core.html": 23567,
+            "reference/evidence.html": 19043,
+            "reference/scientific-ml.html": 167918,
+            "reference/statistics.html": 73124,
+            "reference/derivatives.html": 51128,
+            "reference/transport.html": 25290,
+            "reference/index.html": 31657,
+            "reference/atomistic.html": 60289
+          },
+          "search_index_bytes": 569229,
+          "failures": []
+        },
+        "errors": []
+      },
+      "validator_negative_fixtures": {
+        "status": "PASS",
+        "cases": [
+          {
+            "case": "missing",
+            "expected_refusal_detected": true
+          },
+          {
+            "case": "duplicate",
+            "expected_refusal_detected": true
+          },
+          {
+            "case": "misclassified",
+            "expected_refusal_detected": true
+          },
+          {
+            "case": "signature",
+            "expected_refusal_detected": true
+          },
+          {
+            "case": "output",
+            "expected_refusal_detected": true
+          },
+          {
+            "case": "fields",
+            "expected_refusal_detected": true
+          },
+          {
+            "case": "wrong-owner",
+            "expected_refusal_detected": true
+          }
+        ]
+      },
+      "http_readback": {
+        "status": "PASS",
+        "request_count": 212,
+        "status_200_count": 212,
+        "checkout_identical_responses": true,
+        "server_shutdown": true
+      }
+    }
+  },
+  "executions": [
+    {
+      "operation": "docs environment resolution and relative local registration",
+      "exit_code": 0
+    },
+    {
+      "operation": "binding field inspection",
+      "exit_code": 1,
+      "failure": "abstract types have no definite field count",
+      "corrected": true
+    },
+    {
+      "operation": "binding TOML serialization",
+      "exit_code": 1,
+      "failure": "TOML does not serialize Tuple as a table value",
+      "corrected": true
+    },
+    {
+      "operation": "final 179-binding metadata inspection",
+      "exit_code": 0
+    },
+    {
+      "operation": "D1 skeleton Documenter build",
+      "exit_code": 0
+    },
+    {
+      "operation": "initial full Documenter build",
+      "exit_code": 0,
+      "warnings": 2,
+      "accepted": false,
+      "reason": "scientific-ml HTML advisory and complete search-index size advisories"
+    },
+    {
+      "operation": "initial generated-site validation",
+      "exit_code": 1,
+      "missing_deployment_script_links": 34,
+      "corrected_by": "local-only siteinfo/versions configuration and in-build links"
+    },
+    {
+      "operation": "README-aware coverage gate",
+      "exit_code": 1,
+      "failure": "checker incorrectly required the existing notebooks directory link to be a file",
+      "corrected_by": "accept existing file or directory navigation targets"
+    },
+    {
+      "operation": "final Documenter build",
+      "command": "env JULIA_LOAD_PATH=@:@stdlib JULIA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 julia +1.12.7 --project=docs docs/make.jl",
+      "exit_code": 0,
+      "warnings": 0
+    },
+    {
+      "operation": "seven negative coverage fixtures",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 reports/m10d6/reference_check.py --self-test",
+      "exit_code": 0
+    },
+    {
+      "operation": "final generated-site coverage and link verification",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 reports/m10d6/reference_check.py --build",
+      "exit_code": 0
+    },
+    {
+      "operation": "local HTTP byte readback",
+      "exit_code": 0,
+      "requests": 212,
+      "server_stopped": true
+    },
+    {
+      "operation": "initial staged whitespace gate",
+      "exit_code": 2,
+      "failure": "14 new reference pages had a redundant blank EOF line",
+      "corrected_by": "trim only trailing empty lines; contract content unchanged"
+    }
+  ],
+  "status": "PRE_COMMIT_VERIFIED",
+  "documenter": {
+    "version": "1.19.0",
+    "julia": "1.12.7",
+    "active_project": "/home/lorenzozm/PROJETOS/analyticmath-lab/docs/Project.toml",
+    "aml_source": "/home/lorenzozm/PROJETOS/analyticmath-lab/src/AnalyticMathLab.jl",
+    "docs_manifest_path": ".."
+  },
+  "binding_inspection": {
+    "julia_version": "1.12.7",
+    "active_project": "/home/lorenzozm/PROJETOS/analyticmath-lab/docs/Project.toml",
+    "documenter_version": "1.19.0",
+    "aml_source": "/home/lorenzozm/PROJETOS/analyticmath-lab/src/AnalyticMathLab.jl",
+    "bindings": [
+      {
+        "kind": "abstract type",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "AbstractAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "expression",
+          "variable",
+          "first_derivative",
+          "second_derivative",
+          "numerical",
+          "critical_points",
+          "real_analysis"
+        ],
+        "mutable_outer": false,
+        "symbol": "FunctionAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "analyze",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "evaluate",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "x",
+          "value",
+          "residual",
+          "second_derivative",
+          "classification"
+        ],
+        "mutable_outer": false,
+        "symbol": "CriticalPoint",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "points",
+          "interval",
+          "status",
+          "method",
+          "residual_tolerance",
+          "rejected_candidates",
+          "residual_relative_tolerance",
+          "residual_scale",
+          "effective_residual_tolerance",
+          "rejections"
+        ],
+        "mutable_outer": false,
+        "symbol": "CriticalPointAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "point",
+          "reference_method",
+          "values",
+          "absolute_errors"
+        ],
+        "mutable_outer": false,
+        "symbol": "DerivativeComparison",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "compare_derivatives",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "expression",
+          "variable",
+          "point",
+          "method",
+          "reference",
+          "steps",
+          "approximations",
+          "absolute_errors",
+          "relative_errors",
+          "best_step",
+          "minimum_error",
+          "observed_order",
+          "order_indices"
+        ],
+        "mutable_outer": false,
+        "symbol": "DerivativeConvergenceAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "derivative_convergence",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "expression",
+          "original"
+        ],
+        "mutable_outer": false,
+        "symbol": "RealExpression",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "macro",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "@real_function",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "value",
+          "status",
+          "method",
+          "notes"
+        ],
+        "mutable_outer": false,
+        "symbol": "PropertyResult",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "left",
+          "right",
+          "left_closed",
+          "right_closed"
+        ],
+        "mutable_outer": false,
+        "symbol": "RealInterval",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "components",
+          "status",
+          "method",
+          "notes"
+        ],
+        "mutable_outer": false,
+        "symbol": "RealDomain",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "original_expression",
+          "simplified_expression",
+          "domain",
+          "roots",
+          "intercepts",
+          "sign",
+          "continuity",
+          "limits",
+          "monotonicity",
+          "extrema",
+          "concavity",
+          "inflections",
+          "asymptotes",
+          "symmetry"
+        ],
+        "mutable_outer": false,
+        "symbol": "RealFunctionStudy",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "domain_contains",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "offset",
+          "period"
+        ],
+        "mutable_outer": false,
+        "symbol": "PeriodicPointSet",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "left",
+          "right",
+          "period",
+          "left_closed",
+          "right_closed"
+        ],
+        "mutable_outer": false,
+        "symbol": "PeriodicIntervalSet",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "plot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "expression",
+          "original_expression",
+          "variables",
+          "dimension",
+          "gradient_expression",
+          "hessian_expression",
+          "numerical",
+          "domain",
+          "stationary_points"
+        ],
+        "mutable_outer": false,
+        "symbol": "ScalarFieldAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "restrictions",
+          "variables",
+          "status",
+          "method",
+          "notes"
+        ],
+        "mutable_outer": false,
+        "symbol": "MultivariateDomain",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "point",
+          "value",
+          "residual_norm",
+          "residual_threshold",
+          "hessian",
+          "eigenvalues",
+          "classification",
+          "classification_evidence"
+        ],
+        "mutable_outer": false,
+        "symbol": "StationaryPoint",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "gradient",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "hessian",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "directional_derivative",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "linearization",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "levelset",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "surface",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "contour",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "gradientplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "components",
+          "original_components",
+          "variables",
+          "input_dimension",
+          "output_dimension",
+          "jacobian_expression",
+          "numerical",
+          "domain",
+          "component_domains",
+          "field_zeros",
+          "divergence",
+          "curl",
+          "conservative",
+          "potential"
+        ],
+        "mutable_outer": false,
+        "symbol": "VectorFieldAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "jacobian",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "divergence",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "curl",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "potential",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "vectorplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "field"
+        ],
+        "mutable_outer": false,
+        "symbol": "AutonomousSystem",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "system",
+          "field",
+          "variables",
+          "dimension",
+          "domain",
+          "equilibria",
+          "nullclines"
+        ],
+        "mutable_outer": false,
+        "symbol": "DynamicalSystemAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "equilibria",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "stability",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "nullclines",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "function_value",
+          "dimension",
+          "domain",
+          "labels"
+        ],
+        "mutable_outer": false,
+        "symbol": "FirstOrderODE",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "solution",
+          "problem",
+          "labels",
+          "diagnostics"
+        ],
+        "mutable_outer": false,
+        "symbol": "TrajectoryResult",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "trajectory",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "phaseplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "timeplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "expression",
+          "original_expression",
+          "coordinates",
+          "velocities",
+          "time",
+          "rayleigh",
+          "forces",
+          "original_rayleigh",
+          "original_forces",
+          "parameters",
+          "nonzero",
+          "domain"
+        ],
+        "mutable_outer": false,
+        "symbol": "LagrangianSystem",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "system",
+          "expression",
+          "original_expression",
+          "domain",
+          "coordinates",
+          "velocities",
+          "time",
+          "parameters",
+          "nonzero",
+          "rayleigh",
+          "forces",
+          "momenta",
+          "hessian",
+          "acceleration_symbols",
+          "equations",
+          "regularity",
+          "accelerations",
+          "energy",
+          "energy_rate",
+          "energy_conservation",
+          "cyclic",
+          "evidence"
+        ],
+        "mutable_outer": false,
+        "symbol": "LagrangianAnalysis",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "expression",
+          "original_expression",
+          "coordinates",
+          "momenta",
+          "time",
+          "parameters",
+          "nonzero",
+          "domain"
+        ],
+        "mutable_outer": false,
+        "symbol": "HamiltonianSystem",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "system",
+          "expression",
+          "original_expression",
+          "domain",
+          "coordinates",
+          "momenta",
+          "phase_variables",
+          "time",
+          "parameters",
+          "nonzero",
+          "phase_field",
+          "equations",
+          "symplectic_matrix",
+          "energy",
+          "energy_conservation",
+          "evidence"
+        ],
+        "mutable_outer": false,
+        "symbol": "HamiltonianAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "hamilton_equations",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "poisson_bracket",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "observable_derivative",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "force_from_potential",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "legendre_transform",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "source",
+          "system",
+          "analysis",
+          "variables",
+          "energy_value",
+          "domain",
+          "time"
+        ],
+        "mutable_outer": false,
+        "symbol": "MechanicsDynamics",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "dynamics",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "energy_drift",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "energyplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "euler_lagrange",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "generalized_momenta",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "velocity_hessian",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "energy_function",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "cyclic_coordinates",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "source",
+          "equilibrium",
+          "mass_matrix",
+          "damping_matrix",
+          "stiffness_matrix",
+          "residual",
+          "domain",
+          "equilibrium_evidence",
+          "domain_evidence",
+          "evidence",
+          "metadata"
+        ],
+        "mutable_outer": false,
+        "symbol": "MechanicalLinearization",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "linearize_mechanics",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "source",
+          "equilibrium",
+          "mass_matrix",
+          "stiffness_matrix",
+          "eigenvalues",
+          "frequencies",
+          "mode_vectors",
+          "weighted_vectors",
+          "mass_sqrt",
+          "mass_inverse_sqrt",
+          "dynamical_matrix",
+          "normalization",
+          "representation",
+          "reconstruction",
+          "degeneracies",
+          "zero_modes",
+          "classifications",
+          "evidence",
+          "metadata"
+        ],
+        "mutable_outer": false,
+        "symbol": "NormalModeAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "normal_modes",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "cartesian_mass_matrix",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "modeplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "positions",
+          "velocities",
+          "masses",
+          "species",
+          "dimension",
+          "boundary",
+          "time",
+          "provenance",
+          "potential_energy",
+          "forces",
+          "distance"
+        ],
+        "mutable_outer": false,
+        "symbol": "AtomisticSnapshot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "frame_count",
+          "getframe",
+          "times",
+          "provenance"
+        ],
+        "mutable_outer": false,
+        "symbol": "AtomisticTrajectoryView",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "atomistic_snapshot",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "atomistic_trajectory",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "pair_distances",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "source",
+          "checks",
+          "observations",
+          "notes"
+        ],
+        "mutable_outer": false,
+        "symbol": "AtomisticSystemAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "mdcheck",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "inspect_particle",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "function_analysis",
+          "force_expression",
+          "numerical",
+          "radial_domain",
+          "provenance",
+          "units",
+          "cutoff",
+          "equilibria",
+          "evidence",
+          "limitations"
+        ],
+        "mutable_outer": false,
+        "symbol": "PotentialAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "analyze_potential",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "lennard_jones_analysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "potentialplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "forceplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "rdf",
+          "counts",
+          "edges",
+          "centers",
+          "expected_counts",
+          "frame_count",
+          "particle_populations",
+          "pair_populations",
+          "species",
+          "units",
+          "boundary_assumptions",
+          "method",
+          "notes"
+        ],
+        "mutable_outer": false,
+        "symbol": "RadialDistributionAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "radial_distribution",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "coordination",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "mdplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "count",
+          "times",
+          "interval",
+          "regularity",
+          "units",
+          "provenance",
+          "evidence"
+        ],
+        "mutable_outer": false,
+        "symbol": "SamplingInfo",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "sampling_info",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "values",
+          "sampling",
+          "name",
+          "units",
+          "provenance",
+          "missing_policy"
+        ],
+        "mutable_outer": false,
+        "symbol": "ObservableSeries",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "observable_series",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "statistical_summary",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "running_statistics",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "sampling",
+          "lags",
+          "lag_times",
+          "autocovariance",
+          "autocorrelation",
+          "counts",
+          "normalization",
+          "method",
+          "evidence"
+        ],
+        "mutable_outer": false,
+        "symbol": "AutocorrelationAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "autocorrelation",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "integrated_autocorrelation_time",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "correlated_mean",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "block_sizes",
+          "block_counts",
+          "discarded",
+          "block_means",
+          "variances",
+          "standard_errors",
+          "sampling",
+          "units",
+          "evidence"
+        ],
+        "mutable_outer": false,
+        "symbol": "BlockAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "block_average",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "transient_analysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "sampling",
+          "times",
+          "values",
+          "dimensions",
+          "particle_count",
+          "origin_count",
+          "species",
+          "coordinate_semantics",
+          "method",
+          "notes"
+        ],
+        "mutable_outer": false,
+        "symbol": "MeanSquaredDisplacement",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "mean_squared_displacement",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "diffusion_estimate",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "sampling",
+          "lags",
+          "lag_times",
+          "raw",
+          "normalized",
+          "origin_counts",
+          "particle_count",
+          "dimensions",
+          "species",
+          "method",
+          "notes"
+        ],
+        "mutable_outer": false,
+        "symbol": "VelocityAutocorrelation",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "velocity_autocorrelation",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "energy_diagnostics",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "momentum_diagnostics",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "sampling",
+          "observables",
+          "summaries",
+          "correlations",
+          "deviations",
+          "transients",
+          "msd",
+          "vacf",
+          "diffusion",
+          "notes"
+        ],
+        "mutable_outer": false,
+        "symbol": "MDTrajectoryAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "diagnose",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "timeseriesplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "autocorrelationplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "blockplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "msdplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "vacfplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "result",
+          "series",
+          "parent",
+          "label",
+          "selection"
+        ],
+        "mutable_outer": false,
+        "symbol": "ComparisonInput",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "status",
+          "checks",
+          "reasons"
+        ],
+        "mutable_outer": false,
+        "symbol": "ComparisonCompatibility",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "a",
+          "b",
+          "quantity",
+          "compatibility",
+          "metadata",
+          "difference",
+          "uncertainty",
+          "assumptions",
+          "notes"
+        ],
+        "mutable_outer": false,
+        "symbol": "ObservableComparison",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "compare",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "a",
+          "b",
+          "labels",
+          "components",
+          "assumptions",
+          "notes"
+        ],
+        "mutable_outer": false,
+        "symbol": "MDTrajectoryComparison",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "compare_runs",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "comparisonplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "differenceplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "system",
+          "independent_variables",
+          "dependent_variables",
+          "domains",
+          "equations",
+          "boundary_conditions",
+          "networks",
+          "network_mapping",
+          "initial_parameters",
+          "initial_states",
+          "strategy",
+          "discretization",
+          "symbolic_discretization",
+          "optimization_problem",
+          "backend_metadata",
+          "loss_components",
+          "provenance",
+          "evidence"
+        ],
+        "mutable_outer": false,
+        "symbol": "PINNProblem",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "problem",
+          "optimization_problem",
+          "solution",
+          "backend_solution",
+          "parameters",
+          "network_parameters",
+          "states",
+          "history",
+          "losses",
+          "termination",
+          "optimizer",
+          "provenance",
+          "evidence",
+          "notes"
+        ],
+        "mutable_outer": false,
+        "symbol": "PINNTrainingResult",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "entries",
+          "stride",
+          "capacity",
+          "truncated"
+        ],
+        "mutable_outer": true,
+        "symbol": "PINNHistory",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "pinn_network",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "pinn_problem",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "train",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "predict",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "pinn_inspect",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "lossplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "coordinates",
+          "generation",
+          "provenance"
+        ],
+        "mutable_outer": false,
+        "symbol": "PINNPoints",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "training",
+          "residuals",
+          "reference",
+          "collocation_metadata",
+          "loss_diagnostics",
+          "adaptive_loss_metadata",
+          "evidence",
+          "provenance",
+          "limitations"
+        ],
+        "mutable_outer": false,
+        "symbol": "PINNAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "sampled_summary",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "loss_breakdown",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "residualplot",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "errorplot",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "collocationplot",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "losscomponentsplot",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "pinnplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "times",
+          "values",
+          "variables",
+          "units",
+          "weights",
+          "kind",
+          "role",
+          "provenance"
+        ],
+        "mutable_outer": false,
+        "symbol": "ObservationSet",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "names",
+          "initial",
+          "inferred",
+          "indices",
+          "bounds",
+          "units",
+          "provenance"
+        ],
+        "mutable_outer": false,
+        "symbol": "InferenceParameters",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "factory",
+          "model",
+          "native_problem",
+          "parameters",
+          "observations",
+          "heldout",
+          "indices",
+          "solver",
+          "reference",
+          "provenance"
+        ],
+        "mutable_outer": false,
+        "symbol": "ParameterInferenceProblem",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "inference_predict",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "inference_objective",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "local_sensitivity",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "problem",
+          "optimization_problem",
+          "solution",
+          "parameters",
+          "full_parameters",
+          "trajectory",
+          "prediction",
+          "fit",
+          "heldout",
+          "sensitivity",
+          "reference_comparison",
+          "history",
+          "termination",
+          "optimizer",
+          "objective",
+          "evidence",
+          "provenance",
+          "limitations"
+        ],
+        "mutable_outer": false,
+        "symbol": "ParameterInferenceResult",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "infer_parameters",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "parameterfitplot",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "distance_observations",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "states",
+          "derivatives"
+        ],
+        "mutable_outer": false,
+        "symbol": "DerivativeData",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "times",
+          "states"
+        ],
+        "mutable_outer": false,
+        "symbol": "TrajectoryData",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "mechanics",
+          "network",
+          "parameters",
+          "state"
+        ],
+        "mutable_outer": false,
+        "symbol": "HamiltonianNN",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "known",
+          "network",
+          "parameters",
+          "state",
+          "correction_indices"
+        ],
+        "mutable_outer": false,
+        "symbol": "UDEProblem",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "model",
+          "solution",
+          "history",
+          "provenance"
+        ],
+        "mutable_outer": false,
+        "symbol": "DynamicsTrainingResult",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "learned_energy",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "learned_vector_field",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "learned_correction",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "dynamics_objective",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "aligned_energy",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "id",
+          "input",
+          "coordinates",
+          "values",
+          "split",
+          "descriptor"
+        ],
+        "mutable_outer": false,
+        "symbol": "ScientificSample",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "samples",
+          "kind",
+          "family",
+          "input_names",
+          "coordinate_names",
+          "domain",
+          "sensors",
+          "reference",
+          "units",
+          "grid",
+          "rng",
+          "provenance"
+        ],
+        "mutable_outer": false,
+        "symbol": "ScientificDataset",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "classify_query",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "offset",
+          "scale",
+          "fitted_ids",
+          "field"
+        ],
+        "mutable_outer": false,
+        "symbol": "AffineScaling",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "fit_scaling",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "transform",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "inverse_transform",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "field_errors",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "architecture",
+          "network",
+          "parameters",
+          "state",
+          "schema",
+          "normalization",
+          "provenance"
+        ],
+        "mutable_outer": false,
+        "symbol": "ScientificModel",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "model",
+          "dataset",
+          "optimization_problem",
+          "solution",
+          "optimizer",
+          "history",
+          "objective",
+          "normalization",
+          "timing",
+          "evidence",
+          "provenance"
+        ],
+        "mutable_outer": false,
+        "symbol": "ScientificLearningResult",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "learning_model",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "training_data",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "learning_objective",
+        "module_local_docstring_registered": false
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "heat_residual",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "benchmark_queries",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "type / constructors",
+        "fields": [
+          "training",
+          "cases",
+          "groups",
+          "reference",
+          "physics",
+          "timing",
+          "evidence",
+          "limitations"
+        ],
+        "mutable_outer": false,
+        "symbol": "GeneralizationAnalysis",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "scientific_metadata",
+        "module_local_docstring_registered": true
+      },
+      {
+        "kind": "generic function",
+        "fields": [],
+        "mutable_outer": false,
+        "symbol": "scientific_origin",
+        "module_local_docstring_registered": true
+      }
+    ]
+  },
+  "build_policy_exceptions": {
+    "scientific_ml_advisory_exemption": "one page; independent 200 KiB hard bound retained",
+    "search_index_warning_and_hard_bound_bytes": 655360,
+    "warnonly": false,
+    "checkdocs": "none: independent complete manual coverage, not docstring completeness",
+    "doctest": false,
+    "remote_repository_links": false
+  },
+  "new_scientific_examples": 0,
+  "historical_tutorials_rerun": false,
+  "full_canonical_rerun": false,
+  "final_commands": {
+    "setup": "julia +1.12.7 --project=docs -e 'using Pkg; cd(\"docs\") do; Pkg.develop(path=\"..\"); Pkg.instantiate(); end'",
+    "build": "env JULIA_LOAD_PATH=@:@stdlib JULIA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 julia +1.12.7 --project=docs docs/make.jl",
+    "coverage": "PYTHONDONTWRITEBYTECODE=1 python3 reports/m10d6/reference_check.py --build",
+    "self_test": "PYTHONDONTWRITEBYTECODE=1 python3 reports/m10d6/reference_check.py --self-test",
+    "binding_inspection": "env JULIA_LOAD_PATH=@:@stdlib JULIA_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 julia +1.12.7 --project=docs docs/inspect_api.jl /home/lorenzozm/.hermes/logs/analyticmath-lab/m10d6d/symbols.txt"
+  },
+  "final_log_hashes": {
+    "full-build-final.log": "2f8ec4bd3dd6f8eaab1bfba178b6f7de7f7e4ff607e580575b406f99928bbbeb",
+    "D5-site-final.json": "3db930629c4a9d7889586c1c6e86e20bde6368b335c5879410e9151b526ba7e7",
+    "validator-self-test.json": "501b7cee54813d2fd5423a1a79266da62e411e1a3d630620767265eb38cc0ddc",
+    "bindings-final.toml": "a395c4176fe03dd9a9cd0e8350bebea433eb9d58823090bee0db22ef4606bf68",
+    "http-readback.json": "8a2124639cfd5a94b6475c8ce1506aedb8c5aa8a049895f79c40b8f3bfb6e49d",
+    "validator-no-tmpdir.json": "501b7cee54813d2fd5423a1a79266da62e411e1a3d630620767265eb38cc0ddc"
+  },
+  "reference_pages": [
+    "docs/src/reference/atomistic.md",
+    "docs/src/reference/comparison.md",
+    "docs/src/reference/core.md",
+    "docs/src/reference/datasets.md",
+    "docs/src/reference/derivatives.md",
+    "docs/src/reference/dynamics.md",
+    "docs/src/reference/evidence.md",
+    "docs/src/reference/index.md",
+    "docs/src/reference/mechanics.md",
+    "docs/src/reference/plots.md",
+    "docs/src/reference/scalar.md",
+    "docs/src/reference/scientific-ml.md",
+    "docs/src/reference/statistics.md",
+    "docs/src/reference/transport.md",
+    "docs/src/reference/vector.md"
+  ],
+  "family_mapping": {
+    "F01": "docs/src/reference/core.md",
+    "F02": "docs/src/reference/core.md",
+    "F03": "docs/src/reference/scalar.md",
+    "F04": "docs/src/reference/scalar.md",
+    "F05": "docs/src/reference/derivatives.md",
+    "F06": "docs/src/reference/derivatives.md",
+    "F07": "docs/src/reference/vector.md",
+    "F08": "docs/src/reference/dynamics.md",
+    "F09": "docs/src/reference/dynamics.md",
+    "F10": "docs/src/reference/mechanics.md",
+    "F11": "docs/src/reference/mechanics.md",
+    "F12": "docs/src/reference/mechanics.md",
+    "F13": "docs/src/reference/mechanics.md",
+    "F14": "docs/src/reference/mechanics.md",
+    "F15": "docs/src/reference/atomistic.md",
+    "F16": "docs/src/reference/atomistic.md",
+    "F17": "docs/src/reference/atomistic.md",
+    "F18": "docs/src/reference/atomistic.md",
+    "F19": "docs/src/reference/statistics.md",
+    "F20": "docs/src/reference/statistics.md",
+    "F21": "docs/src/reference/statistics.md",
+    "F22": "docs/src/reference/statistics.md",
+    "F24": "docs/src/reference/statistics.md",
+    "F23": "docs/src/reference/transport.md",
+    "F25": "docs/src/reference/comparison.md",
+    "F26": "docs/src/reference/scientific-ml.md",
+    "F27": "docs/src/reference/scientific-ml.md",
+    "F28": "docs/src/reference/scientific-ml.md",
+    "F29": "docs/src/reference/scientific-ml.md",
+    "F30": "docs/src/reference/scientific-ml.md",
+    "F33": "docs/src/reference/scientific-ml.md",
+    "F34": "docs/src/reference/scientific-ml.md",
+    "F31": "docs/src/reference/datasets.md",
+    "F32": "docs/src/reference/datasets.md",
+    "F35": "docs/src/reference/plots.md",
+    "F36": "docs/src/guides/api-boundaries.md (INTERNAL only)"
+  },
+  "files_changed": [
+    "README.md",
+    "docs/.gitignore",
+    "docs/Manifest.toml",
+    "docs/Project.toml",
+    "docs/inspect_api.jl",
+    "docs/make.jl",
+    "docs/src/guides/api-boundaries.md",
+    "docs/src/index.md",
+    "docs/src/reference/atomistic.md",
+    "docs/src/reference/comparison.md",
+    "docs/src/reference/core.md",
+    "docs/src/reference/datasets.md",
+    "docs/src/reference/derivatives.md",
+    "docs/src/reference/dynamics.md",
+    "docs/src/reference/evidence.md",
+    "docs/src/reference/index.md",
+    "docs/src/reference/mechanics.md",
+    "docs/src/reference/plots.md",
+    "docs/src/reference/scalar.md",
+    "docs/src/reference/scientific-ml.md",
+    "docs/src/reference/statistics.md",
+    "docs/src/reference/transport.md",
+    "docs/src/reference/vector.md",
+    "reports/m10d6/reference_check.py",
+    "reports/m10d6/reference_implementation_report.md",
+    "reports/m10d6/reference_verification.json"
+  ],
+  "pre_commit_review": {
+    "file_count": 26,
+    "authorized_exact_paths": true,
+    "staged_equals_working_bytes": true,
+    "staged_whitespace_exit": 0,
+    "secret_scan_findings": [],
+    "unsafe_code_scan_findings": [],
+    "protected": {
+      "count": 464,
+      "changed": [],
+      "missing": []
+    },
+    "generated_build_tracked": false
+  },
+  "validator_python_version": "3.14.4",
+  "portable_scratch_fallback_test": {
+    "status": "PASS",
+    "cases": [
+      {
+        "case": "missing",
+        "expected_refusal_detected": true
+      },
+      {
+        "case": "duplicate",
+        "expected_refusal_detected": true
+      },
+      {
+        "case": "misclassified",
+        "expected_refusal_detected": true
+      },
+      {
+        "case": "signature",
+        "expected_refusal_detected": true
+      },
+      {
+        "case": "output",
+        "expected_refusal_detected": true
+      },
+      {
+        "case": "fields",
+        "expected_refusal_detected": true
+      },
+      {
+        "case": "wrong-owner",
+        "expected_refusal_detected": true
+      }
+    ]
+  }
+}
